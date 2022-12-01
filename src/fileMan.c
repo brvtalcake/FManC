@@ -8,6 +8,11 @@ void copyFileWithoutTabAndLineBreak(char *sourceFilePath, char **pathToCopy)
 {
 
 	errno = 0;
+	getFileName(sourceFilePath, sourceFileName);
+	printf("%s\n", sourceFileName);
+	getFileExtension(sourceFilePath, sourceFileExtension);
+	
+
 
 	FILE *sourceFile = fopen(sourceFilePath, "r");
 
@@ -17,8 +22,9 @@ void copyFileWithoutTabAndLineBreak(char *sourceFilePath, char **pathToCopy)
 		exit(EXIT_FAILURE);
 	}
 	rewind(sourceFile);
-
-	FILE *copiedFile = fopen("fromage.txt", "w");
+	char *copiedName = NULL;
+	copiedName = strcat(strcat(sourceFileName,"_copied"), sourceFileExtension);
+	FILE *copiedFile = fopen(copiedName, "w");
 	if (copiedFile == NULL)
 	{
 		fprintf(stderr, "Error :%s\n", strerror(errno));
@@ -74,5 +80,48 @@ void fgetFileExtension(char *sourceFileName, char *extension)
 		}
 		*(extension + strlen(res)) = '\0';
 		
+	}
+}
+
+void fgetFileName(char *sourceFilePath, char *fileName)
+{
+	int cpt = strlen(sourceFilePath);
+	char pt = *(sourceFilePath + cpt);
+	
+	
+	while(cpt >= 0)
+	{
+		cpt--;
+		pt = *(sourceFilePath + cpt);
+		if (pt == '/' || pt == '\\')
+		{
+			break;
+		}
+	}
+	cpt++;
+	if (cpt < 0)
+	{
+		fprintf(stderr, "\nError : incorrect file path\n");
+	}
+	else
+	{
+		char res[strlen(sourceFilePath)-cpt+1];
+		for (int i = cpt; i < strlen(sourceFilePath); ++i)
+		{
+			res[i - cpt] = *(sourceFilePath + i);
+		}
+		res[strlen(sourceFilePath)-cpt] = '\0';
+		for (int i = 0; i < strlen(res); ++i)
+		{
+			*(fileName + i) = res[i];
+		}
+		*(fileName + strlen(res)) = '\0';
+		cpt = strlen(fileName) - 1;
+		while(fileName[cpt] != '.')
+		{
+			fileName[cpt] = '\0';
+			cpt--;
+		}
+		fileName[cpt] = '\0';
 	}
 }
