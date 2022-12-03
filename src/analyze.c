@@ -30,6 +30,7 @@ long int countCharInFile(char *filePath)
 	return returned;
 }
 
+
 stringOccurrences *init_StringOccurences(const unsigned int sizeOfString)
 {
 	stringOccurrences *returned = malloc(sizeof(stringOccurrences));

@@ -9,7 +9,6 @@ void copyFileWithoutTabAndLineBreak(char *sourceFilePath, char **pathToCopy)
 
 	errno = 0;
 	getFileName(sourceFilePath, sourceFileName);
-	printf("%s\n", sourceFileName);
 	getFileExtension(sourceFilePath, sourceFileExtension);
 	
 
@@ -123,5 +122,50 @@ void fgetFileName(char *sourceFilePath, char *fileName)
 			cpt--;
 		}
 		fileName[cpt] = '\0';
+	}
+}
+
+void fgetFilePath(char *sourceFilePath, char *filePath)
+{
+	int cpt = strlen(sourceFilePath);
+	char pt = *(sourceFilePath + cpt);
+	
+	
+	while(cpt >= 0)
+	{
+		cpt--;
+		pt = *(sourceFilePath + cpt);
+		if (pt == '/' || pt == '\\')
+		{
+			break;
+		} 
+	}
+	
+	if (cpt < 0)
+	{
+		fprintf(stderr, "\nError : incorrect file path\n");
+	}
+	else
+	{
+		char res[cpt+1];
+		for (int i = 0; i < cpt; ++i)
+		{
+			res[i] = *(sourceFilePath + i);
+		}
+		res[cpt + 1] = '\0';
+		for (int i = 0; i < strlen(res); ++i)
+		{
+			*(filePath + i) = res[i];
+		}
+		if (pt == '/')
+		{
+			*(filePath + strlen(res)-1) = '/';
+		}
+		else
+		{
+			*(filePath + strlen(res)-1) = '\\';
+		}
+		*(filePath + strlen(res)) = '\0';
+		
 	}
 }
