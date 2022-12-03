@@ -3,5 +3,7 @@
 
 #include "fileMan.h"
 #include "analyze.h"
+#include "fcmx.h"
+#include "notByMe/lex_yy.h"
 
 #endif

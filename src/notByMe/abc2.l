@@ -56,23 +56,26 @@ int (*jj2_junk)(void) = input;
 
 int deleteCStyleComments(char *filePath)
 {
-  errno = 0;
-	yyin=fopen(char *filePath,"r");
+    errno = 0;
+  yyin=fopen(filePath,"r");
 
-  getFileName(filePath, sname);
-  getFileExtension(filePath, sExtension);
-  getFilePath(filePath, sPath);
-	yyout=fopen(strcat(sPath, strcat(strcat(sName,_),sExtension)),"w");
-	yylex();
-
-  if (remove(filePath) != 0)
-  {
-    fprintf(stderr, "%s\n", strerror(errno));
-    return -2;
-  }
-  if (rename(strcat(sPath, strcat(strcat(sName,_),sExtension)),filePath) != 0)
-  {
-    return -1;
-  }
-  return 0;
+    getFileName(filePath, sName);
+    getFileExtension(filePath, sExtension);
+    getFilePath(filePath, sPath);
+    char *filToR = strcat(sPath, strcat(strcat(sName,"_"),sExtension));
+  yyout=fopen(filToR,"w");
+  yylex();
+    fclose(yyin);
+    fclose(yyout);
+    if (remove(filePath) != 0)
+    {
+        fprintf(stderr, "%s\n", strerror(errno));
+        return -2;
+    }
+    if (rename(filToR,filePath) != 0)
+    {
+        fprintf(stderr, "%s\n", strerror(errno));
+        return -1;
+    }
+    return 0;
 }
