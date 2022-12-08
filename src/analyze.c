@@ -3,6 +3,10 @@
 #include <errno.h>
 #include <string.h>
 #include <stdbool.h>
+#include <locale.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <wchar.h>
 #include "analyze.h"
 #include "fileMan.h"
 
@@ -17,13 +21,9 @@ long int countCharInFile(char *filePath)
 	}
 	long int returned = 0;
 	rewind(fil);
-	while(feof(fil) == 0)
+	while (fgetwc(fil) != EOF)
 	{
-		if(fgetc(fil) != EOF)
-		{
-			returned++;
-		}
-		
+		returned++;
 	}
 
 	fclose(fil);
@@ -31,11 +31,13 @@ long int countCharInFile(char *filePath)
 }
 
 
-stringOccurrences *init_StringOccurences(const unsigned int sizeOfString)
+stringOccurrences *init_StringOccurences(size_t sizeOfString)
 {
+	
+	long *position = malloc(sizeof(long));
+	*position = -1;
 	stringOccurrences *returned = malloc(sizeof(stringOccurrences));
-	returned->pos = malloc(sizeof(long));
-	*(returned->pos) = -1;
+	returned->pos = position;
 	returned->charCount = sizeOfString;
 
 	return returned;
@@ -47,11 +49,34 @@ void free_stringOccurrences(stringOccurrences *toBeDeleted)
 	free(toBeDeleted);
 }
 
-stringOccurrences *searchStringInFile(char *filePath, const char *toSearch)
+
+stringOccurrences *searchStringInFile(char *filePath, char *toSearch) // problems are definitely here
 {
-	stringOccurrences *occurencesToSearch = init_StringOccurences(strlen(toSearch));
-	occurencesToSearch->charCount = strlen(toSearch);
 	errno = 0;
+	wchar_t toSearchW[strlen(toSearch)+1];
+
+	if (setlocale(LC_ALL, "fr_FR.UTF8") == NULL)
+	{
+		fprintf(stderr, "Error :%s\n", strerror(errno));
+		exit(EXIT_FAILURE);
+	}
+
+
+	if (mbstowcs(toSearchW, toSearch, strlen(toSearch)) == (size_t) - 1)
+	{
+		fprintf(stderr, "Error :%s\n", strerror(errno));
+		exit(EXIT_FAILURE);
+	}
+
+	toSearchW[strlen(toSearch)] = L'\0';
+
+	
+
+
+
+	stringOccurrences *occurencesToSearch = init_StringOccurences(wcslen(toSearchW));
+
+	
 	FILE *fil = fopen(filePath, "r");
 	if (fil == NULL)
 	{
@@ -60,43 +85,50 @@ stringOccurrences *searchStringInFile(char *filePath, const char *toSearch)
 	}
 	rewind(fil);
 
-	unsigned int cpt_occ = 0;
-	char temp[strlen(toSearch)];
-	for (int i = 0; i < strlen(toSearch); ++i)
-	{
-		temp[i] = ' ';
-	}
-	unsigned int cpt = 0;
-	fpos_t *cpt2 = NULL;
-	fgetpos(fil, cpt2);
 
-	while(fgetc(fil) != EOF)
+	unsigned int cpt_occ = 0;
+	wchar_t temp[wcslen(toSearchW)+1];
+	for (size_t i = 0; i < wcslen(toSearchW)+1; ++i)
 	{
-		fgetpos(fil, cpt2);
-		fseek(fil, -1, SEEK_CUR);
-		while(cpt < strlen(toSearch))
+		temp[i] = '\0';
+	}
+	size_t cpt = 0;
+	
+	long int cpt2 = 0;
+	cpt2 = ftell(fil);
+	wchar_t temp2 = fgetwc(fil);
+	while(temp2 != WEOF)
+	{
+
+		fseek(fil, cpt2, SEEK_SET);
+		while(cpt < wcslen(toSearchW)+1)
 		{
-			temp[cpt] = (char)fgetc(fil);
-			if (temp[cpt] != toSearch[cpt] || temp[cpt] == EOF)
+			temp[cpt] = fgetwc(fil);
+			
+			if (temp[cpt] != toSearchW[cpt] || temp[cpt] == WEOF)
 			{
 				break;
 			}
 			else
+			{
 				cpt++;
+			}
 		}
 
-		if (cpt == strlen(toSearch))
+		if (cpt == wcslen(toSearchW))
 		{
 			cpt_occ++;
 			occurencesToSearch->pos = realloc(occurencesToSearch->pos, cpt_occ*sizeof(long));
-			*(occurencesToSearch->pos + cpt_occ - 1) = ftell(fil) - strlen(toSearch);
+			*(occurencesToSearch->pos + cpt_occ - 1) = cpt2;
 		}
 		cpt = 0;
-		for (int i = 0; i < strlen(toSearch); ++i)
+		for (size_t i = 0; i < wcslen(toSearchW)+1; ++i)
 		{
-			temp[i] = ' ';
+			temp[i] = '\0';
 		}
-		fsetpos(fil, cpt2);
+		fseek(fil, cpt2, SEEK_SET);
+		temp2 = fgetwc(fil);
+		cpt2 = ftell(fil);
 	}
 	if (cpt_occ == 0)
 	{
@@ -113,12 +145,35 @@ stringOccurrences *searchStringInFile(char *filePath, const char *toSearch)
 	return occurencesToSearch;
 }
 
-void replaceStringInFile(char *filePath, char *toReplace, char *toAdd)
+void replaceStringInFile(char *filePath, char *toReplaceString, char *toAddString) // probably no problems here (or not a lot)
 {
-	stringOccurrences *toReplaceOccurrences = searchStringInFile(filePath, toReplace);
+	stringOccurrences *toReplaceOccurrences = searchStringInFile(filePath, toReplaceString);
 	errno = 0;
-	
-	FILE *filToR = fopen(filePath, "r");
+	wchar_t toAdd[strlen(toAddString)+1];
+	wchar_t toReplace[strlen(toReplaceString)+1];
+
+	if (setlocale(LC_ALL, "fr_FR.UTF8") == NULL)
+	{
+		fprintf(stderr, "Error :%s\n", strerror(errno));
+		exit(EXIT_FAILURE);
+	}
+
+	if (mbstowcs(toAdd, toAddString, strlen(toAddString)) == (size_t) - 1)
+	{
+		fprintf(stderr, "Error :%s\n", strerror(errno));
+		exit(EXIT_FAILURE);
+	}
+
+	if (mbstowcs(toReplace, toReplaceString, strlen(toReplaceString)) == (size_t) - 1)
+	{
+		fprintf(stderr, "Error :%s\n", strerror(errno));
+		exit(EXIT_FAILURE);
+	}
+
+	toAdd[strlen(toAddString)] = L'\0';
+	toReplace[strlen(toReplaceString)] = L'\0';
+
+	FILE *filToR = fopen(filePath, "r, ccs=UTF-8");
 	if (filToR == NULL)
 	{
 		fprintf(stderr, "Error :%s\n", strerror(errno));
@@ -126,7 +181,7 @@ void replaceStringInFile(char *filePath, char *toReplace, char *toAdd)
 	}
 	rewind(filToR);
 
-	FILE *filToW = fopen("replaced.txt", "w+");
+	FILE *filToW = fopen("replaced.txt", "w+, ccs=UTF-8");
 	if (filToW == NULL)
 	{
 		fprintf(stderr, "Error :%s\n", strerror(errno));
@@ -136,40 +191,36 @@ void replaceStringInFile(char *filePath, char *toReplace, char *toAdd)
 	
 	int cpt = 0;
 	int old_cpt = 0;
-	int temp = 0;
-	while(fgetc(filToR)!=EOF)
+	wchar_t temp = L'\0';
+	wchar_t temp2 = fgetwc(filToR);
+
+	
+	while(temp2!=WEOF)
 	{
-		fseek(filToR, -1, SEEK_CUR);
+		ungetwc(temp2, filToR);
 		while(*(toReplaceOccurrences->pos + cpt) != -1 && *(toReplaceOccurrences->pos + cpt) >= 0)
 		{
 			if (ftell(filToR) == *(toReplaceOccurrences->pos + cpt))
 			{
-				for (int i = 0; i < strlen(toAdd); ++i)
+				for (int i = 0; i < wcslen(toAdd); ++i)
 				{
-					if(fputc(toAdd[i], filToW) != (int)toAdd[i])
+					if(fputwc(toAdd[i], filToW) != toAdd[i])
 					{
 						fprintf(stderr, "ERR :%s\n", strerror(errno));
 						exit(EXIT_FAILURE);
 					}
 				}
 				cpt++;
-				if(fseek(filToR, toReplaceOccurrences->charCount - 1, SEEK_CUR) != 0)
+				for (int i = toReplaceOccurrences->charCount; i>0; --i)
 				{
-					fprintf(stderr, "ERR :%s\n", strerror(errno));
-					exit(EXIT_FAILURE);
-
+					fgetwc(filToR);
 				}
 			}
-			if (fgetc(filToR)!=EOF && old_cpt == cpt)
-			{
-				if(fseek(filToR, -1, SEEK_CUR) != 0)
-				{
-					fprintf(stderr, "ERR :%s\n", strerror(errno));
-					exit(EXIT_FAILURE);
 
-				}
-				temp = fgetc(filToR);
-				if(fputc(temp, filToW) != temp)
+			if (temp2!=WEOF && old_cpt == cpt)
+			{
+				temp = fgetwc(filToR);
+				if(fputwc(temp, filToW) != temp)
 				{
 					fprintf(stderr, "ERR :%s\n", strerror(errno));
 					exit(EXIT_FAILURE);
@@ -181,29 +232,23 @@ void replaceStringInFile(char *filePath, char *toReplace, char *toAdd)
 			}
 			
 
-			
 		}
 
-		if (fgetc(filToR)!=EOF)
+		if (temp!=WEOF)
 		{
-			if(fseek(filToR, -1, SEEK_CUR) != 0)
-			{
-				fprintf(stderr, "ERR :%s\n", strerror(errno));
-				exit(EXIT_FAILURE);
-			}
-			temp = fgetc(filToR);
-			if(fputc(temp, filToW) != temp)
+			temp = fgetwc(filToR);
+			if(fputwc(temp, filToW) != temp)
 			{
 				fprintf(stderr, "ERR :%s\n", strerror(errno));
 				exit(EXIT_FAILURE);
 			}
 		}
-
+		temp2 = fgetwc(filToR);
 	}
-
 	
 	fclose(filToR);
 	fclose(filToW);
 	free_stringOccurrences(toReplaceOccurrences);
+
 	
 }
