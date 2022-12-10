@@ -3,7 +3,7 @@
 
 
 
-void copyFileWithoutStrings(const unsigned int argc, char *filePath, ...); // to do
+int copyFileWithoutStrings(const unsigned int argc, char *filePath, ...); // to do
  
 
 

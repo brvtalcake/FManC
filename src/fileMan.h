@@ -26,9 +26,10 @@
 #endif
 
 
-void copyFileWithoutTabAndLineBreak(char *sourceFilePath, char **pathToCopy); // copied file will be named like <sourceFile name>_copied
+char *copyFileWithoutTabAndLineBreak(char *sourceFilePath, char **pathToCopy); // copied file will be named like <sourceFile name>_copied
 void fgetFileExtension(char *sourceFileName, char *extension);
 void fgetFileName(char *sourceFilePath, char *fileName);
 void fgetFilePath(char *sourceFilePath, char *filePath); 
+void fgetWorkingDir()
 
 #endif

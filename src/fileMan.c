@@ -4,7 +4,7 @@
 #include <string.h>
 #include "fileMan.h"
 
-void copyFileWithoutTabAndLineBreak(char *sourceFilePath, char **pathToCopy)
+char *copyFileWithoutTabAndLineBreak(char *sourceFilePath, char **pathToCopy)
 {
 
 	errno = 0;
@@ -18,17 +18,25 @@ void copyFileWithoutTabAndLineBreak(char *sourceFilePath, char **pathToCopy)
 	if (sourceFile == NULL)
 	{
 		fprintf(stderr, "Error :%s\n", strerror(errno));
-		exit(EXIT_FAILURE);
+		return NULL;
 	}
 	rewind(sourceFile);
 	char *copiedName = NULL;
-	copiedName = strcat(strcat(sourceFileName,"_copied"), sourceFileExtension);
+	if (pathToCopy == NULL)
+	{
+		copiedName = strcat(strcat(sourceFileName,"_copied"), sourceFileExtension);
+	}
+	else
+	{
+		copiedName = *pathToCopy;
+	}
+
 	FILE *copiedFile = fopen(copiedName, "w");
 	if (copiedFile == NULL)
 	{
 		fprintf(stderr, "Error :%s\n", strerror(errno));
 		fclose(sourceFile);
-		exit(EXIT_FAILURE);
+		return NULL;
 	}
 	rewind(copiedFile);
 
@@ -48,6 +56,7 @@ void copyFileWithoutTabAndLineBreak(char *sourceFilePath, char **pathToCopy)
 
 	fclose(copiedFile);
 	fclose(sourceFile);
+	return copiedName;
 }
 
 void fgetFileExtension(char *sourceFileName, char *extension)
