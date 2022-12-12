@@ -4,6 +4,8 @@ File manager in C
 There is still a lot to do to make this lib usable. Moreover, keep in mind that I'm just writing this lib to make easier the development of an extension of C, including :
 - structs mutators (kind of "methods")
 - new types : dictionnaries, lists, trees, graphs, vectors.
+However, if you want to download a PDF documentation, it's [here](https://github.com/brvtalcake/libfmanc/raw/main/docs/latex/refman.pdf).
+For the HTML one, in local, just download the folder html in docs and open index.html in your favorite browser.
 ## ToDoList
 - [x] Secure the library and change the returned type of functions that might dysfunction, instead of just exiting the program (I think it's good enough now)
 - [ ] Finish some function that I partially developped or just declared
