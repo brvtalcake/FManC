@@ -1,3 +1,22 @@
+/**
+ * @author     Axel PASCON (a.k.a. brvtalcake)
+ * @date       2022
+ * \defgroup lex_file Flex source files
+ * @{
+ */
+
+/**
+ * @file     noComments.l
+ *
+ * @author     Axel PASCON (a.k.a. brvtalcake)
+ * @date       2022
+ * 
+ */
+
+/**
+ * @}
+ */
+
 %option noyywrap
 
 %{

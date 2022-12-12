@@ -1,10 +1,34 @@
+/**
+ * @author     Axel PASCON (a.k.a. brvtalcake)
+ * @date       2022
+ * \defgroup fmanc_CSRC Core C source code
+ * @{
+ */
+
+
+
+/**
+ * @file 	   fileMan.c
+ *
+ * @brief      These functions are made to do operate simple operation on files or file names, when there is no neee to analyze something like orccurrences, ...
+ *
+ * @author     Axel PASCON (a.k.a. brvtalcake)
+ * @date       2022
+ * 
+ */
+
+
+/**
+ * @}
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
 #include "fileMan.h"
 
-char *copyFileWithoutTabAndLineBreak(char *sourceFilePath, char **pathToCopy)
+char *copyFileWithoutTabAndLineBreak(char *sourceFilePath, char **pathToCopy) //not finished 
 {
 
 	errno = 0;
@@ -53,10 +77,17 @@ char *copyFileWithoutTabAndLineBreak(char *sourceFilePath, char **pathToCopy)
 			}
 		}
 	}
-
+	char *returnedName;
+	int i = 0;
+	while(sourceFileName[i] != '\0')
+	{
+		*(returnedName + i) = sourceFileName[i];
+		i++;
+	}
+	*(returnedName + i) = '\0';
 	fclose(copiedFile);
 	fclose(sourceFile);
-	return copiedName;
+	return returnedName;
 }
 
 void fgetFileExtension(char *sourceFileName, char *extension)

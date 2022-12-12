@@ -1,0 +1,57 @@
+\hypertarget{file_man_8h}{}\doxysection{file\+Man.\+h File Reference}
+\label{file_man_8h}\index{fileMan.h@{fileMan.h}}
+
+
+This header contains macro definitions and function declarations that are written in \mbox{\hyperlink{file_man_8c}{this file}}. These functions are made to operate simple operation on files or file names, when there is no neee to analyze something like orccurrences, ...  
+
+
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{file_man_8h_aef2c26bbba7239793dfd266d0e8b46b4}\label{file_man_8h_aef2c26bbba7239793dfd266d0e8b46b4}} 
+\#define {\bfseries MAX\+\_\+\+FEXT\+\_\+\+SIZE}~50
+\item 
+\mbox{\Hypertarget{file_man_8h_ab0e76045bf91a8a1b4fc381488399f70}\label{file_man_8h_ab0e76045bf91a8a1b4fc381488399f70}} 
+\#define {\bfseries MAX\+\_\+\+FNAME\+\_\+\+SIZE}~256
+\item 
+\mbox{\Hypertarget{file_man_8h_ae5c03ff129a1255adb84d15ae75425b8}\label{file_man_8h_ae5c03ff129a1255adb84d15ae75425b8}} 
+\#define {\bfseries MAX\+\_\+\+FPATH\+\_\+\+SIZE}~512
+\item 
+\mbox{\Hypertarget{file_man_8h_a0a7d6e2579648dc4efbfef9d4c075ff8}\label{file_man_8h_a0a7d6e2579648dc4efbfef9d4c075ff8}} 
+\#define {\bfseries get\+File\+Extension}(source\+File\+Name,  extension)~char extension\mbox{[}MAX\+\_\+\+FEXT\+\_\+\+SIZE\mbox{]}; fget\+File\+Extension(source\+File\+Name, extension)
+\item 
+\mbox{\Hypertarget{file_man_8h_a3e855422945c4cdbaf71723d8e25d9f5}\label{file_man_8h_a3e855422945c4cdbaf71723d8e25d9f5}} 
+\#define {\bfseries get\+File\+Name}(source\+File\+Path,  name)~char name\mbox{[}MAX\+\_\+\+FNAME\+\_\+\+SIZE\mbox{]}; fget\+File\+Name(source\+File\+Path, name)
+\item 
+\mbox{\Hypertarget{file_man_8h_ac79aba55b8bda0cfc4ce3a88534adbc0}\label{file_man_8h_ac79aba55b8bda0cfc4ce3a88534adbc0}} 
+\#define {\bfseries get\+File\+Path}(source\+File\+Path,  path)~char path\mbox{[}MAX\+\_\+\+FPATH\+\_\+\+SIZE\mbox{]}; fget\+File\+Path(source\+File\+Path, path)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{file_man_8h_a95f02d94dae556d5282368721e994732}\label{file_man_8h_a95f02d94dae556d5282368721e994732}} 
+char $\ast$ {\bfseries copy\+File\+Without\+Tab\+And\+Line\+Break} (char $\ast$source\+File\+Path, char $\ast$$\ast$path\+To\+Copy)
+\item 
+\mbox{\Hypertarget{file_man_8h_ac00d5607ef908576f411582a8eb8a128}\label{file_man_8h_ac00d5607ef908576f411582a8eb8a128}} 
+int {\bfseries copy\+File\+Without\+Strings} (const unsigned int argc, char $\ast$file\+Path,...)
+\item 
+\mbox{\Hypertarget{file_man_8h_a2ae33808674f181279341940f19d60b9}\label{file_man_8h_a2ae33808674f181279341940f19d60b9}} 
+void {\bfseries fget\+File\+Extension} (char $\ast$source\+File\+Name, char $\ast$extension)
+\item 
+\mbox{\Hypertarget{file_man_8h_a1d3df2b7a44029fad789b45b4406451a}\label{file_man_8h_a1d3df2b7a44029fad789b45b4406451a}} 
+void {\bfseries fget\+File\+Name} (char $\ast$source\+File\+Path, char $\ast$file\+Name)
+\item 
+\mbox{\Hypertarget{file_man_8h_a97687e29a139210fc190ce98d836c160}\label{file_man_8h_a97687e29a139210fc190ce98d836c160}} 
+void {\bfseries fget\+File\+Path} (char $\ast$source\+File\+Path, char $\ast$file\+Path)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This header contains macro definitions and function declarations that are written in \mbox{\hyperlink{file_man_8c}{this file}}. These functions are made to operate simple operation on files or file names, when there is no neee to analyze something like orccurrences, ... 
+
+\begin{DoxyAuthor}{Author}
+Axel PASCON (a.\+k.\+a. brvtalcake) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2022 
+\end{DoxyDate}

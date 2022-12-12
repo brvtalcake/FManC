@@ -1,0 +1,80 @@
+\begin{theindex}
+
+  \item {analyze.c}, \hyperpage{15}
+    \subitem {replaceStringInFile}, \hyperpage{15}
+  \item {analyze.h}, \hyperpage{16}
+    \subitem {replaceStringInFile}, \hyperpage{17}
+
+  \indexspace
+
+  \item {C Headers for my personnal project}, \hyperpage{9}
+  \item {C Headers for my personnal project, made by me}, \hyperpage{9}
+  \item {C Headers for my personnal project, made by me and flex}, 
+		\hyperpage{10}
+  \item {C source code for my personnal project}, \hyperpage{8}
+  \item {C source code for my personnal project, made by me}, 
+		\hyperpage{8}
+  \item {C source code for my personnal project, made by me and flex}, 
+		\hyperpage{10}
+  \item {Core C headers}, \hyperpage{7}
+  \item {Core C source code}, \hyperpage{7}
+  \item {Core lib C headers}, \hyperpage{8}
+
+  \indexspace
+
+  \item {fcmx.c}, \hyperpage{18}
+  \item {fcmx.h}, \hyperpage{18}
+  \item {fileMan.c}, \hyperpage{19}
+  \item {fileMan.h}, \hyperpage{19}
+  \item {Flex source files}, \hyperpage{11}
+  \item {fmanc.h}, \hyperpage{21}
+
+  \indexspace
+
+  \item {lex\_yy.c}
+    \subitem {YY\_CURRENT\_BUFFER}, \hyperpage{25}
+    \subitem {YY\_DECL}, \hyperpage{27}
+    \subitem {YY\_DO\_BEFORE\_ACTION}, \hyperpage{25}
+    \subitem {YY\_INPUT}, \hyperpage{25}
+    \subitem {yy\_set\_bol}, \hyperpage{26}
+    \subitem {yy\_set\_interactive}, \hyperpage{26}
+    \subitem {yyless}, \hyperpage{26, 27}
+
+  \indexspace
+
+  \item {Main C header}, \hyperpage{10}
+
+  \indexspace
+
+  \item {notByMe/lex\_yy.c}, \hyperpage{22}
+  \item {notByMe/lex\_yy.h}, \hyperpage{27, 28}
+  \item {notByMe/noComments.l}, \hyperpage{28}
+
+  \indexspace
+
+  \item {replaceStringInFile}
+    \subitem {analyze.c}, \hyperpage{15}
+    \subitem {analyze.h}, \hyperpage{17}
+
+  \indexspace
+
+  \item {stringOccurrences}, \hyperpage{13}
+
+  \indexspace
+
+  \item {YY\_CURRENT\_BUFFER}
+    \subitem {lex\_yy.c}, \hyperpage{25}
+  \item {YY\_DECL}
+    \subitem {lex\_yy.c}, \hyperpage{27}
+  \item {YY\_DO\_BEFORE\_ACTION}
+    \subitem {lex\_yy.c}, \hyperpage{25}
+  \item {YY\_INPUT}
+    \subitem {lex\_yy.c}, \hyperpage{25}
+  \item {yy\_set\_bol}
+    \subitem {lex\_yy.c}, \hyperpage{26}
+  \item {yy\_set\_interactive}
+    \subitem {lex\_yy.c}, \hyperpage{26}
+  \item {yyless}
+    \subitem {lex\_yy.c}, \hyperpage{26, 27}
+
+\end{theindex}

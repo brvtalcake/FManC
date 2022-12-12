@@ -1,0 +1,44 @@
+\hypertarget{file_man_8h_source}{}\doxysection{file\+Man.\+h}
+\mbox{\hyperlink{file_man_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef FILEMAN\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define FILEMAN\_H }}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#ifndef MAX\_FEXT\_SIZE}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define MAX\_FEXT\_SIZE 50}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#ifndef MAX\_FNAME\_SIZE }}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#define MAX\_FNAME\_SIZE 256}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#ifndef MAX\_FPATH\_SIZE}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#define MAX\_FPATH\_SIZE 512}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#ifndef getFileExtension}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define getFileExtension(sourceFileName, extension) char extension[MAX\_FEXT\_SIZE]; fgetFileExtension(sourceFileName, extension)}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#ifndef getFileName}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define getFileName(sourceFilePath, name) char name[MAX\_FNAME\_SIZE]; fgetFileName(sourceFilePath, name)}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#ifndef getFilePath}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define getFilePath(sourceFilePath, path) char path[MAX\_FPATH\_SIZE]; fgetFilePath(sourceFilePath, path)}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{keywordtype}{char} *copyFileWithoutTabAndLineBreak(\textcolor{keywordtype}{char} *sourceFilePath, \textcolor{keywordtype}{char} **pathToCopy); \textcolor{comment}{// copied file will be named like <sourceFile name>\_copied}}
+\DoxyCodeLine{66 \textcolor{keywordtype}{int} copyFileWithoutStrings(\textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char} *filePath, ...); \textcolor{comment}{// to do}}
+\DoxyCodeLine{67 \textcolor{keywordtype}{void} fgetFileExtension(\textcolor{keywordtype}{char} *sourceFileName, \textcolor{keywordtype}{char} *extension);}
+\DoxyCodeLine{68 \textcolor{keywordtype}{void} fgetFileName(\textcolor{keywordtype}{char} *sourceFilePath, \textcolor{keywordtype}{char} *fileName);}
+\DoxyCodeLine{69 \textcolor{keywordtype}{void} fgetFilePath(\textcolor{keywordtype}{char} *sourceFilePath, \textcolor{keywordtype}{char} *filePath); }
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 }
+
+\end{DoxyCode}

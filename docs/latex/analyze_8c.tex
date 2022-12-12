@@ -1,0 +1,72 @@
+\hypertarget{analyze_8c}{}\doxysection{analyze.\+c File Reference}
+\label{analyze_8c}\index{analyze.c@{analyze.c}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{analyze_8c_aa6248f468ec1e84b97d59e345ad6750f}\label{analyze_8c_aa6248f468ec1e84b97d59e345ad6750f}} 
+long int {\bfseries count\+Char\+In\+File} (char $\ast$file\+Path)
+\item 
+\mbox{\Hypertarget{analyze_8c_a615c6ba607d2b90929bc2a8b1fe5e5f6}\label{analyze_8c_a615c6ba607d2b90929bc2a8b1fe5e5f6}} 
+\mbox{\hyperlink{structstring_occurrences}{string\+Occurrences}} $\ast$ {\bfseries init\+\_\+\+String\+Occurences} (size\+\_\+t size\+Of\+String)
+\item 
+\mbox{\Hypertarget{analyze_8c_a04ae2138b1c3b361f9556bd30db30c23}\label{analyze_8c_a04ae2138b1c3b361f9556bd30db30c23}} 
+void {\bfseries free\+\_\+string\+Occurrences} (\mbox{\hyperlink{structstring_occurrences}{string\+Occurrences}} $\ast$to\+Be\+Deleted)
+\item 
+\mbox{\Hypertarget{analyze_8c_ab029b1afb2f8a964dd116b825baf8741}\label{analyze_8c_ab029b1afb2f8a964dd116b825baf8741}} 
+\mbox{\hyperlink{structstring_occurrences}{string\+Occurrences}} $\ast$ {\bfseries search\+String\+In\+File} (char $\ast$file\+Path, char $\ast$to\+Search)
+\item 
+int \mbox{\hyperlink{analyze_8c_ae5a02aaad7ac0820d0b9c6c96c77abb9}{replace\+String\+In\+File}} (char $\ast$file\+Path, char $\ast$to\+Replace\+String, char $\ast$to\+Add\+String)
+\begin{DoxyCompactList}\small\item\em This function replace a wide-\/character string by another one. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+These functions are made to analyze files content and make operations on it.
+
+\begin{DoxyAuthor}{Author}
+Axel PASCON (a.\+k.\+a. brvtalcake) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2022 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{analyze_8c_ae5a02aaad7ac0820d0b9c6c96c77abb9}\label{analyze_8c_ae5a02aaad7ac0820d0b9c6c96c77abb9}} 
+\index{analyze.c@{analyze.c}!replaceStringInFile@{replaceStringInFile}}
+\index{replaceStringInFile@{replaceStringInFile}!analyze.c@{analyze.c}}
+\doxysubsubsection{\texorpdfstring{replaceStringInFile()}{replaceStringInFile()}}
+{\footnotesize\ttfamily int replace\+String\+In\+File (\begin{DoxyParamCaption}\item[{char $\ast$}]{file\+Path,  }\item[{char $\ast$}]{to\+Replace\+String,  }\item[{char $\ast$}]{to\+Add\+String }\end{DoxyParamCaption})}
+
+
+
+This function replace a wide-\/character string by another one. 
+
+If there is a problem during the call of the function, it will print strerr(errno) on stderr, and/or return an appropriate value 
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & The file path of the document (for example \+: \char`\"{}./src/example.\+txt\char`\"{}, or \char`\"{}exemple.\+txt\char`\"{} if the program is called from the same folder). For paths with backslashes, you will need to double it (\char`\"{}\textbackslash{}\textbackslash{}\char`\"{}), but no need to do this if you use a path that comes from argv arg of your main func. \\
+\hline
+{\em to\+Replace\+String} & The string to replace \\
+\hline
+{\em to\+Add\+String} & The string to add\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 if all good. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em -\/4} & Problem when converting the char string to wide char string \\
+\hline
+{\em -\/3} & Problem when calling setlocale() \\
+\hline
+{\em -\/2} & Problem when trying to get the ext, name or path of the file \\
+\hline
+{\em -\/1} & Problem when opening files \\
+\hline
+{\em 1} & Problem when writing into the new file \\
+\hline
+{\em 2} & Problem when renaming or removing files \\
+\hline
+{\em 3} & The string to replace isn\textquotesingle{}t in the file \\
+\hline
+\end{DoxyRetVals}

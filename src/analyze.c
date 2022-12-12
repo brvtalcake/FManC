@@ -1,3 +1,27 @@
+/**
+ * @author     Axel PASCON (a.k.a. brvtalcake)
+ * @date       2022
+ * \defgroup fmanc_CSRC Core C source code
+ * @{
+ */
+
+
+
+/**
+ * @file 	   analyze.c
+ *
+ * @details	   These functions are made to analyze files content and make operations on it.
+ *
+ * @author     Axel PASCON (a.k.a. brvtalcake)
+ * @date       2022
+ * 
+ */
+
+/**
+ * @}
+ */
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
@@ -31,6 +55,8 @@ long int countCharInFile(char *filePath)
 }
 
 
+
+
 stringOccurrences *init_StringOccurences(size_t sizeOfString)
 {
 	
@@ -50,7 +76,7 @@ void free_stringOccurrences(stringOccurrences *toBeDeleted)
 }
 
 
-stringOccurrences *searchStringInFile(char *filePath, char *toSearch) // problems are definitely here
+stringOccurrences *searchStringInFile(char *filePath, char *toSearch) 
 {
 	errno = 0;
 	wchar_t toSearchW[strlen(toSearch)+1];
@@ -69,10 +95,6 @@ stringOccurrences *searchStringInFile(char *filePath, char *toSearch) // problem
 	}
 
 	toSearchW[strlen(toSearch)] = L'\0';
-
-	
-
-
 
 	stringOccurrences *occurencesToSearch = init_StringOccurences(wcslen(toSearchW));
 
@@ -145,29 +167,34 @@ stringOccurrences *searchStringInFile(char *filePath, char *toSearch) // problem
 	return occurencesToSearch;
 }
 
-void replaceStringInFile(char *filePath, char *toReplaceString, char *toAddString) // probably no problems here (or not a lot)
+
+int replaceStringInFile(char *filePath, char *toReplaceString, char *toAddString) 
 {
 	stringOccurrences *toReplaceOccurrences = searchStringInFile(filePath, toReplaceString);
 	errno = 0;
 	wchar_t toAdd[strlen(toAddString)+1];
 	wchar_t toReplace[strlen(toReplaceString)+1];
 
+	if (*(toReplaceOccurrences->pos) == -1)
+	{
+		return 3;
+	}
 	if (setlocale(LC_ALL, "fr_FR.UTF8") == NULL)
 	{
 		fprintf(stderr, "Error :%s\n", strerror(errno));
-		exit(EXIT_FAILURE);
+		return -3;
 	}
 
 	if (mbstowcs(toAdd, toAddString, strlen(toAddString)) == (size_t) - 1)
 	{
 		fprintf(stderr, "Error :%s\n", strerror(errno));
-		exit(EXIT_FAILURE);
+		return -4;
 	}
 
 	if (mbstowcs(toReplace, toReplaceString, strlen(toReplaceString)) == (size_t) - 1)
 	{
 		fprintf(stderr, "Error :%s\n", strerror(errno));
-		exit(EXIT_FAILURE);
+		return -4;
 	}
 
 	toAdd[strlen(toAddString)] = L'\0';
@@ -177,15 +204,34 @@ void replaceStringInFile(char *filePath, char *toReplaceString, char *toAddStrin
 	if (filToR == NULL)
 	{
 		fprintf(stderr, "Error :%s\n", strerror(errno));
-		exit(EXIT_FAILURE);
+		return -1;
 	}
 	rewind(filToR);
 
-	FILE *filToW = fopen("replaced.txt", "w+, ccs=UTF-8");
+	getFilePath(filePath, sFilePath);
+	if (sFilePath == NULL)
+	{
+		return -2;
+	}
+
+	getFileName(filePath, sFileName);
+	if (sFileName == NULL)
+	{
+		return -2;
+	}
+	getFileExtension(filePath, sFileExt);
+	if (sFileExt == NULL)
+	{
+		return -2;
+	}
+
+	char tempName[MAX_FNAME_SIZE] = "replaced";
+	
+	FILE *filToW = fopen(strcat(sFilePath, strcat(tempName, sFileExt)), "w+, ccs=UTF-8");
 	if (filToW == NULL)
 	{
 		fprintf(stderr, "Error :%s\n", strerror(errno));
-		exit(EXIT_FAILURE);
+		return -1;
 	}
 	rewind(filToW);
 	
@@ -195,7 +241,7 @@ void replaceStringInFile(char *filePath, char *toReplaceString, char *toAddStrin
 	wchar_t temp2 = fgetwc(filToR);
 
 	
-	while(temp2!=WEOF)
+	while(temp2!=WEOF) 
 	{
 		ungetwc(temp2, filToR);
 		while(*(toReplaceOccurrences->pos + cpt) != -1 && *(toReplaceOccurrences->pos + cpt) >= 0)
@@ -207,13 +253,14 @@ void replaceStringInFile(char *filePath, char *toReplaceString, char *toAddStrin
 					if(fputwc(toAdd[i], filToW) != toAdd[i])
 					{
 						fprintf(stderr, "ERR :%s\n", strerror(errno));
-						exit(EXIT_FAILURE);
+						return 1;
 					}
 				}
 				cpt++;
 				for (int i = toReplaceOccurrences->charCount; i>0; --i)
 				{
-					fgetwc(filToR);
+					if(fgetwc(filToR) == WEOF)
+						break;
 				}
 			}
 
@@ -223,7 +270,7 @@ void replaceStringInFile(char *filePath, char *toReplaceString, char *toAddStrin
 				if(fputwc(temp, filToW) != temp)
 				{
 					fprintf(stderr, "ERR :%s\n", strerror(errno));
-					exit(EXIT_FAILURE);
+					return 1;
 				}
 			}
 			else
@@ -240,7 +287,7 @@ void replaceStringInFile(char *filePath, char *toReplaceString, char *toAddStrin
 			if(fputwc(temp, filToW) != temp)
 			{
 				fprintf(stderr, "ERR :%s\n", strerror(errno));
-				exit(EXIT_FAILURE);
+				return 1;
 			}
 		}
 		temp2 = fgetwc(filToR);
@@ -248,7 +295,18 @@ void replaceStringInFile(char *filePath, char *toReplaceString, char *toAddStrin
 	
 	fclose(filToR);
 	fclose(filToW);
+
+	if (remove(filePath) != 0)
+	{
+		fprintf(stderr, "ERR :%s\n", strerror(errno));
+		return 2;
+	}
+	else if (rename(strcat(sFilePath, strcat(tempName, sFileExt)), filePath) != 0)
+	{
+		fprintf(stderr, "ERR :%s\n", strerror(errno));
+		return 2;
+	}
 	free_stringOccurrences(toReplaceOccurrences);
 
-	
+	return 0;
 }

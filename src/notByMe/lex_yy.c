@@ -1,4 +1,35 @@
+/**
+ * @author     Axel PASCON (a.k.a. brvtalcake)
+ * @date       2022
+ * \defgroup for_meSRC C source code for my personnal project
+ * @{
+ */
 
+/**
+ * @author     Axel PASCON (a.k.a. brvtalcake)
+ * @date       2022
+ * \defgroup for_me_byMeAndFlexSRC C source code for my personnal project, made by me and flex
+ * @ingroup for_meSRC
+ * @{
+ */
+
+/**
+ * @file       lex_yy.c
+ *
+ * @brief      This is the file with the lexical scanner.
+ * @details    I let it here, but if you know how to use these functions (like me, lol), don't use them. Just Use the one defined in \link lex_yy.h lex_yy.h\endlink.
+ *             For more informations about my func, just go on the header's description.
+ * @author     Axel PASCON (a.k.a. brvtalcake)
+ * @date       2022
+ * 
+ */
+
+/**
+ * @}
+ */
+/**
+ * @}
+ */
 #line 2 "lex.yy.c"
 
 #define  YY_INT_ALIGNED short int

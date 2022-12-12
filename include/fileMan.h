@@ -1,3 +1,39 @@
+/**
+ * @author     Axel PASCON (a.k.a. brvtalcake)
+ * @date       2022
+ * \defgroup fmanc_CH Core C headers
+ * @{
+ */
+
+/**
+ * @author     Axel PASCON (a.k.a. brvtalcake)
+ * @date       2022
+ * \defgroup fmanc_CLH Core lib C headers
+ * @ingroup fmanc_CH
+ * @{
+ */
+
+
+
+/**
+ * @file 	   fileMan.h
+ *
+ * @brief      This header contains macro definitions and function declarations that are written in \link fileMan.c this file\endlink.
+ * 			   These functions are made to operate simple operation on files or file names, when there is no neee to analyze something like orccurrences, ...
+ *
+ * @author     Axel PASCON (a.k.a. brvtalcake)
+ * @date       2022
+ * 
+ */
+
+/**
+ * @}
+ */
+/**
+ * @}
+ */
+
+
 #ifndef FILEMAN_H
 #define FILEMAN_H 
 
@@ -26,9 +62,13 @@
 #endif
 
 
-void copyFileWithoutTabAndLineBreak(char *sourceFilePath, char **pathToCopy); // copied file will be named like <sourceFile name>_copied
+char *copyFileWithoutTabAndLineBreak(char *sourceFilePath, char **pathToCopy); // copied file will be named like <sourceFile name>_copied
+int copyFileWithoutStrings(const unsigned int argc, char *filePath, ...); // to do
 void fgetFileExtension(char *sourceFileName, char *extension);
 void fgetFileName(char *sourceFilePath, char *fileName);
 void fgetFilePath(char *sourceFilePath, char *filePath); 
 
+
 #endif
+
+
