@@ -19,5 +19,5 @@ For the HTML one, in local, just download the folder html in docs and open index
 - [ ] Documenting, as I'm starting to do with Doxygen 
 - [ ] Find a way to put the documentation online
 - [ ] Make a test folder with examples 
-- [ ] Make a src folder in docs with the documented source code and keep the one in the project root undocumented
-- [ ] Create a shared lib in a bin folder and potentially make a command-line app associated to the lib in bin folder
+- [x] Make a src folder in docs with the documented source code and keep the one in the project root undocumented
+- [x] Create a shared lib in a bin folder and potentially make a command-line app(not for now) associated to the lib in bin folder

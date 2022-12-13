@@ -1,3 +1,27 @@
+/**
+ * @author     Axel PASCON (a.k.a. brvtalcake)
+ * @date       2022
+ * \defgroup fmanc_CSRC Core C source code
+ * @{
+ */
+
+
+
+/**
+ * @file 	   analyze.c
+ *
+ * @details	   These functions are made to analyze files content and make operations on it.
+ *
+ * @author     Axel PASCON (a.k.a. brvtalcake)
+ * @date       2022
+ * 
+ */
+
+/**
+ * @}
+ */
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>

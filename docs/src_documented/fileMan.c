@@ -1,3 +1,27 @@
+/**
+ * @author     Axel PASCON (a.k.a. brvtalcake)
+ * @date       2022
+ * \defgroup fmanc_CSRC Core C source code
+ * @{
+ */
+
+
+
+/**
+ * @file 	   fileMan.c
+ *
+ * @brief      These functions are made to do operate simple operation on files or file names, when there is no neee to analyze something like orccurrences, ...
+ *
+ * @author     Axel PASCON (a.k.a. brvtalcake)
+ * @date       2022
+ * 
+ */
+
+
+/**
+ * @}
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
