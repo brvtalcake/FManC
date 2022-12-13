@@ -24,7 +24,7 @@ SHARED char *copyFileWithoutTabAndLineBreak(char *sourceFilePath, char **pathToC
 	char *copiedName = NULL;
 	if (pathToCopy == NULL)
 	{
-		copiedName = strcat(strcat(sourceFileName,"_copied"), sourceFileExtension);
+		copiedName = strcat(strcat(sourceFileName,"_copied"), sourceFileExtension); //modify here
 	}
 	else
 	{
