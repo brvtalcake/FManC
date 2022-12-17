@@ -172,10 +172,12 @@ SHARED void fgetFilePath(char *sourceFilePath, char *filePath)
 		} 
 	}
 	
+	
 	if (cpt < 0)
 	{
-		fprintf(stderr, "\nError : incorrect file path\n");
+		return;
 	}
+
 	else
 	{
 		char res[cpt+1];

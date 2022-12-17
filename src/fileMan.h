@@ -1,13 +1,22 @@
 #ifndef FILEMAN_H
 #define FILEMAN_H 
 
-#if defined(_WIN32)
-    #if defined(BUILD_DLL)
-        #define SHARED __declspec(dllexport)
-    #else
-        #define SHARED __declspec(dllimport)
-    #endif
-#endif
+# if defined(_WIN32)
+/***************** "-D STATIC" ******************/
+#   if defined(STATIC)
+#     define SHARED
+/**************** "-D BUILD_DLL" ****************/
+#   else
+#     if defined(BUILD_DLL)
+#       define SHARED __declspec(dllexport)
+#     else
+#       define SHARED __declspec(dllimport)
+#     endif
+#   endif
+/****************** DEFAULT *******************/
+# else
+#   define SHARED
+# endif
 
 #ifndef MAX_FEXT_SIZE
 #define MAX_FEXT_SIZE 50
