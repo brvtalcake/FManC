@@ -1,6 +1,7 @@
 # libfmanc
 File manager in C
 ## IMPORTANT NOTE
+I AM CURRENTLY NOT WORKING ON THIS REPO. I'LL COME BACK TO IT IN A COUPLE OF WEEKS :)
 There is still a lot to do to make this lib usable. Moreover, keep in mind that I'm just writing this lib to make easier the development of an extension of C (that will be implemented as a translator from my extended-C to standard C), including :
 - structs mutators (kind of "methods")
 - new types : dictionnaries, lists, trees, graphs, vectors.
