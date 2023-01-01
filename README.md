@@ -17,8 +17,9 @@ For the HTML one, in local, just download the folder html in docs and open index
 	- A function that puts the equivalent function into the the new source file code
 	- (I'm actually realizing that I should really create a new repo for it)
 - [ ] Documenting, as I'm starting to do with Doxygen 
-- [ ] Find a way to put the documentation online
+- [ ] Find a way to put the documentation online (?)
 - [x] Make a test folder 
 - [ ] Put examples in it
 - [x] Make a src folder in docs with the documented source code and keep the one in the project root undocumented
 - [x] Create a shared lib in a bin folder and potentially make a command-line app(not for now) associated to the lib in bin folder
+- [ ] Make the lib available for UNIX users
