@@ -26,24 +26,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: flawfinder_scan_one
-        uses: david-a-wheeler/flawfinder@8e4a779ad59dbfaee5da586aa9210853b701959c
-        with:
-          arguments: '--sarif ./'
-          output: 'flawfinder_results_one.sarif'
-
-      - name: flawfinder_scan_two
+      - name: flawfinder_scan
         uses: david-a-wheeler/flawfinder@2.0.19
         with:
           arguments: '--sarif ./'
-          output: 'flawfinder_results_two.sarif'
+          output: 'flawfinder_results.sarif'
 
       - name: Upload analysis results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: ${{github.workspace}}/flawfinder_results_one.sarif
-
-      - name: Upload analysis results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: ${{github.workspace}}/flawfinder_results_two.sarif
+          sarif_file: ${{github.workspace}}/flawfinder_results.sarif
