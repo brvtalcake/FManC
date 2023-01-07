@@ -1,0 +1,1 @@
+Remove-Item -Path ".\lib\*" -Include *.dll.a -Exclude libFManC.a
