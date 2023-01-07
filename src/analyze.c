@@ -82,7 +82,7 @@ SHARED stringOccurrences *searchStringInFile(char *filePath, char *toSearch)
 		fprintf(stderr, "Error : your file named \"%s\" contains too much characters\n", fErrorName);
 		return NULL;
 	}
-
+	
 
 	stringOccurrences *occurencesToSearch = init_StringOccurences(wcslen(toSearchW));
 

@@ -1,0 +1,4 @@
+*.ps1
+*Makefile
+*Doxyfile
+*/Doxyfile

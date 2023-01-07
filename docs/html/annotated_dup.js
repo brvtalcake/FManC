@@ -1,4 +1,4 @@
 var annotated_dup =
 [
-    [ "stringOccurrences", "structstring_occurrences.html", null ]
+    [ "FMANC_SO", "struct_f_m_a_n_c___s_o.html", null ]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>libfmanc: fcmx.h File Reference</title>
+<title>FManC: docs/src_documented/fcmx.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,9 +25,8 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libfmanc
+   <div id="projectname">FManC
    </div>
-   <div id="projectbrief">A C file manager</div>
   </td>
  </tr>
  </tbody>
@@ -91,6 +90,7 @@ $(document).ready(function(){initNavTree('fcmx_8h.html',''); initResizable(); })
 
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">fcmx.h File Reference<div class="ingroups"><a class="el" href="group__for__me.html">C Headers for my personnal project</a> &raquo; <a class="el" href="group__for__me__by_me.html">C Headers for my personnal project, made by me</a></div></div></div>
 </div><!--header-->
@@ -101,22 +101,109 @@ $(document).ready(function(){initNavTree('fcmx_8h.html',''); initResizable(); })
 
 <p><a href="fcmx_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a884c794595c4aa480df9022648c29564"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fcmx_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a></td></tr>
+<tr class="memdesc:a884c794595c4aa480df9022648c29564"><td class="mdescLeft">&#160;</td><td class="mdescRight">Useful to choose how to use the lib on Windows systems.  <a href="fcmx_8h.html#a884c794595c4aa480df9022648c29564">More...</a><br /></td></tr>
+<tr class="separator:a884c794595c4aa480df9022648c29564"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac00d5607ef908576f411582a8eb8a128"><td class="memItemLeft" align="right" valign="top"><a id="ac00d5607ef908576f411582a8eb8a128" name="ac00d5607ef908576f411582a8eb8a128"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>copyFileWithoutStrings</b> (const unsigned int argc, char *filePath,...)</td></tr>
+<tr class="memitem:ac00d5607ef908576f411582a8eb8a128"><td class="memItemLeft" align="right" valign="top"><a class="el" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fcmx_8h.html#ac00d5607ef908576f411582a8eb8a128">copyFileWithoutStrings</a> (const unsigned int argc, char *filePath,...)</td></tr>
+<tr class="memdesc:ac00d5607ef908576f411582a8eb8a128"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function just declared and still not done.  <a href="fcmx_8h.html#ac00d5607ef908576f411582a8eb8a128">More...</a><br /></td></tr>
 <tr class="separator:ac00d5607ef908576f411582a8eb8a128"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >This header contains function declarations that are wittent on <a class="el" href="fcmx_8c.html">this file</a> and that I will use for one of my project (which isn't still on gitHub) </p>
 <dl class="section author"><dt>Author</dt><dd>Axel PASCON (a.k.a. brvtalcake) </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2022 </dd></dl>
-</div></div><!-- contents -->
+
+<p class="definition">Definition in file <a class="el" href="fcmx_8h_source.html">fcmx.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a884c794595c4aa480df9022648c29564" name="a884c794595c4aa480df9022648c29564"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a884c794595c4aa480df9022648c29564">&#9670;&#160;</a></span>SHARED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SHARED</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Useful to choose how to use the lib on Windows systems. </p>
+<p >If you want to use the lib with the dll, you don't need to add anything in the command line. If you want to use the static version of the lib, then put "-D STATIC" in your command line when compiling, so you let the compiler know that the keyword "SHARED" is set to nothing and the function declarations are not provided with the __declspec() attribute. You can also look at the full macro block below (wich is also in the source code of all of the headers) to see what I mean </p><div class="fragment"><div class="line"><span class="preprocessor"># if defined(_WIN32)</span></div>
+<div class="line"><span class="preprocessor">#   if defined(STATIC)</span></div>
+<div class="line"><span class="preprocessor">#     define SHARED</span></div>
+<div class="line"><span class="preprocessor">#   else</span></div>
+<div class="line"><span class="preprocessor">#     if defined(BUILD_DLL)</span></div>
+<div class="line"><span class="preprocessor">#       define SHARED __declspec(dllexport)</span></div>
+<div class="line"><span class="preprocessor">#     else</span></div>
+<div class="line"><span class="preprocessor">#       define SHARED __declspec(dllimport)</span></div>
+<div class="line"><span class="preprocessor">#     endif</span></div>
+<div class="line"><span class="preprocessor">#   endif</span></div>
+<div class="line"><span class="preprocessor"># else</span></div>
+<div class="line"><span class="preprocessor">#   define SHARED</span></div>
+<div class="line"><span class="preprocessor"># endif</span></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="fcmx_8h_source.html#l00072">72</a> of file <a class="el" href="fcmx_8h_source.html">fcmx.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ac00d5607ef908576f411582a8eb8a128" name="ac00d5607ef908576f411582a8eb8a128"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac00d5607ef908576f411582a8eb8a128">&#9670;&#160;</a></span>copyFileWithoutStrings()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int copyFileWithoutStrings </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filePath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function just declared and still not done. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Do it (lol).</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">argc</td><td>The count of arguments </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">filePath</td><td>The file path </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;unnamed&gt;</td><td>{ parameter_description }</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>{ description_of_the_return_value } </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="fcmx_8h.html">fcmx.h</a></li>
+    <li class="navelem"><a class="el" href="dir_49e56c817e5e54854c35e136979f97ca.html">docs</a></li><li class="navelem"><a class="el" href="dir_389911674c031a4efb91f80ac73b062d.html">src_documented</a></li><li class="navelem"><a class="el" href="fcmx_8h.html">fcmx.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>

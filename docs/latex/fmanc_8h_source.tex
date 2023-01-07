@@ -1,18 +1,43 @@
 \hypertarget{fmanc_8h_source}{}\doxysection{fmanc.\+h}
+\label{fmanc_8h_source}\index{docs/src\_documented/fmanc.h@{docs/src\_documented/fmanc.h}}
 \mbox{\hyperlink{fmanc_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 }
-\DoxyCodeLine{36 \textcolor{preprocessor}{\#ifndef FMANC\_H}}
-\DoxyCodeLine{37 \textcolor{preprocessor}{\#define FMANC\_H}}
-\DoxyCodeLine{38 }
-\DoxyCodeLine{39 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{file_man_8h}{fileMan.h}}"{}}}
-\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{analyze_8h}{analyze.h}}"{}}}
-\DoxyCodeLine{41 \textcolor{preprocessor}{\#if defined(USE\_FCMX)}}
-\DoxyCodeLine{42 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{fcmx_8h}{fcmx.h}}"{}}}
-\DoxyCodeLine{43 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{lex__yy_8h}{./notByMe/lex\_yy.h}}"{}}}
-\DoxyCodeLine{44 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{45 }
-\DoxyCodeLine{46 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{47 }
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00036}00036 \textcolor{preprocessor}{\#ifndef FMANC\_H}}
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00037}00037 \textcolor{preprocessor}{\#define FMANC\_H}}
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00061}00061 \textcolor{preprocessor}{\# if defined(\_WIN32)}}
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00062}00062 \textcolor{comment}{/***************** "{}-\/D STATIC"{} ******************/}}
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00063}00063 \textcolor{preprocessor}{\#   if defined(STATIC)}}
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00064}00064 \textcolor{preprocessor}{\#     define SHARED}}
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00065}00065 \textcolor{comment}{/**************** "{}-\/D BUILD\_DLL"{} ****************/}}
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00066}00066 \textcolor{preprocessor}{\#   else}}
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00067}00067 \textcolor{preprocessor}{\#     if defined(BUILD\_DLL)}}
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00068}00068 \textcolor{preprocessor}{\#       define SHARED \_\_declspec(dllexport)}}
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00069}00069 \textcolor{preprocessor}{\#     else}}
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00070}00070 \textcolor{preprocessor}{\#       define SHARED \_\_declspec(dllimport)}}
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00071}00071 \textcolor{preprocessor}{\#     endif}}
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00072}00072 \textcolor{preprocessor}{\#   endif}}
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00073}00073 \textcolor{comment}{/****************** DEFAULT *******************/}}
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00074}00074 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00075}\mbox{\hyperlink{fmanc_8h_a884c794595c4aa480df9022648c29564}{00075}} \textcolor{preprocessor}{\#   define SHARED}}
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00076}00076 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00077}00077 }
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00078}00078 }
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00079}00079 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{file_man_8h}{fileMan.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00080}00080 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{analyze_8h}{analyze.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00081}00081 }
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00082}00082 \textcolor{preprocessor}{\#if defined(USE\_FCMX)}}
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00083}00083 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{fcmx_8h}{fcmx.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00084}00084 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{lex__yy_8h}{./notByMe/lex\_yy.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00085}00085 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00086}00086 }
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00087}00087 }
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00088}00088 }
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00090}00090 }
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00091}00091 }
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00092}00092 }
+\DoxyCodeLine{\Hypertarget{fmanc_8h_source_l00093}00093 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

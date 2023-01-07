@@ -217,82 +217,48 @@ struct yy_buffer_state
 	{
 	FILE *yy_input_file;
 
-	char *yy_ch_buf;		/* input buffer */
-	char *yy_buf_pos;		/* current position in input buffer */
+	char *yy_ch_buf;		
 
-	/* Size of input buffer in bytes, not including room for EOB
-	 * characters.
-	 */
 	int yy_buf_size;
 
-	/* Number of characters read into yy_ch_buf, not including EOB
-	 * characters.
-	 */
+	
 	int yy_n_chars;
 
-	/* Whether we "own" the buffer - i.e., we know we created it,
-	 * and can realloc() it to grow it, and should free() it to
-	 * delete it.
-	 */
+	
 	int yy_is_our_buffer;
 
-	/* Whether this is an "interactive" input source; if so, and
-	 * if we're using stdio for input, then we want to use getc()
-	 * instead of fread(), to make sure we stop fetching input after
-	 * each newline.
-	 */
+	
 	int yy_is_interactive;
 
-	/* Whether we're considered to be at the beginning of a line.
-	 * If so, '^' rules will be active on the next match, otherwise
-	 * not.
-	 */
+	
 	int yy_at_bol;
 
-    int yy_bs_lineno; /**< The line count. */
-    int yy_bs_column; /**< The column count. */
+    int yy_bs_lineno; 
+    int yy_bs_column; 
 
-	/* Whether to try to fill the input buffer when we reach the
-	 * end of it.
-	 */
+	
 	int yy_fill_buffer;
 
 	int yy_buffer_status;
 
 #define YY_BUFFER_NEW 0
 #define YY_BUFFER_NORMAL 1
-	/* When an EOF's been seen but there's still some text to process
-	 * then we mark the buffer as YY_EOF_PENDING, to indicate that we
-	 * shouldn't try reading from the input source any more.  We might
-	 * still have a bunch of tokens to match, though, because of
-	 * possible backing-up.
-	 *
-	 * When we actually see the EOF, we change the status to "new"
-	 * (via yyrestart()), so that the user can continue scanning by
-	 * just pointing yyin at a new input file.
-	 */
+	
 #define YY_BUFFER_EOF_PENDING 2
 
 	};
 #endif /* !YY_STRUCT_YY_BUFFER_STATE */
 
 /* Stack of input buffers. */
-static size_t yy_buffer_stack_top = 0; /**< index of top of stack. */
-static size_t yy_buffer_stack_max = 0; /**< capacity of stack. */
-static YY_BUFFER_STATE * yy_buffer_stack = NULL; /**< Stack as an array. */
+static size_t yy_buffer_stack_top = 0; 
+static size_t yy_buffer_stack_max = 0; 
+static YY_BUFFER_STATE * yy_buffer_stack = NULL; 
 
-/* We provide macros for accessing buffer states in case in the
- * future we want to put the buffer states in a more general
- * "scanner state".
- *
- * Returns the top of the stack, or NULL.
- */
+
 #define YY_CURRENT_BUFFER ( (yy_buffer_stack) \
                           ? (yy_buffer_stack)[(yy_buffer_stack_top)] \
                           : NULL)
-/* Same as previous macro, but useful when we know that the buffer stack is not
- * NULL or when we need an lvalue. For internal use only.
- */
+
 #define YY_CURRENT_BUFFER_LVALUE (yy_buffer_stack)[(yy_buffer_stack_top)]
 
 /* yy_hold_char holds the character lost when yytext is formed. */
@@ -692,7 +658,7 @@ extern int yylex (void);
 #define YY_RULE_SETUP \
 	YY_USER_ACTION
 
-/** The main scanner function which does all the work.
+/* The main scanner function which does all the work.
  */
 YY_DECL
 {
@@ -1339,7 +1305,7 @@ static int yy_get_next_buffer (void)
 }
 #endif	/* ifndef YY_NO_INPUT */
 
-/** Immediately switch to a different input stream.
+/* Immediately switch to a different input stream.
  * @param input_file A readable stream.
  * 
  * @note This function does not reset the start condition to @c INITIAL .
@@ -1357,7 +1323,7 @@ static int yy_get_next_buffer (void)
 	yy_load_buffer_state(  );
 }
 
-/** Switch to a different input buffer.
+/* Switch to a different input buffer.
  * @param new_buffer The new input buffer.
  * 
  */
@@ -1400,12 +1366,7 @@ static void yy_load_buffer_state  (void)
 	(yy_hold_char) = *(yy_c_buf_p);
 }
 
-/** Allocate and initialize an input buffer state.
- * @param file A readable stream.
- * @param size The character buffer size in bytes. When in doubt, use @c YY_BUF_SIZE.
- * 
- * @return the allocated buffer state.
- */
+
     YY_BUFFER_STATE yy_create_buffer  (FILE * file, int  size )
 {
 	YY_BUFFER_STATE b;
@@ -1430,7 +1391,7 @@ static void yy_load_buffer_state  (void)
 	return b;
 }
 
-/** Destroy the buffer.
+/* Destroy the buffer.
  * @param b a buffer created with yy_create_buffer()
  * 
  */
@@ -1477,7 +1438,7 @@ static void yy_load_buffer_state  (void)
 	errno = oerrno;
 }
 
-/** Discard all buffered characters. On the next scan, YY_INPUT will be called.
+/* Discard all buffered characters. On the next scan, YY_INPUT will be called.
  * @param b the buffer state to be flushed, usually @c YY_CURRENT_BUFFER.
  * 
  */
@@ -1504,7 +1465,7 @@ static void yy_load_buffer_state  (void)
 		yy_load_buffer_state(  );
 }
 
-/** Pushes the new state onto the stack. The new state becomes
+/* Pushes the new state onto the stack. The new state becomes
  *  the current state. This function will allocate the stack
  *  if necessary.
  *  @param new_buffer The new state.
@@ -1536,7 +1497,7 @@ void yypush_buffer_state (YY_BUFFER_STATE new_buffer )
 	(yy_did_buffer_switch_on_eof) = 1;
 }
 
-/** Removes and deletes the top of the stack, if present.
+/* Removes and deletes the top of the stack, if present.
  *  The next element becomes the new top.
  *  
  */
@@ -1602,7 +1563,7 @@ static void yyensure_buffer_stack (void)
 	}
 }
 
-/** Setup the input buffer state to scan directly from a user-specified character buffer.
+/* Setup the input buffer state to scan directly from a user-specified character buffer.
  * @param base the character buffer
  * @param size the size in bytes of the character buffer
  * 
@@ -1637,7 +1598,7 @@ YY_BUFFER_STATE yy_scan_buffer  (char * base, yy_size_t  size )
 	return b;
 }
 
-/** Setup the input buffer state to scan a string. The next call to yylex() will
+/* Setup the input buffer state to scan a string. The next call to yylex() will
  * scan from a @e copy of @a str.
  * @param yystr a NUL-terminated string to scan
  * 
@@ -1651,7 +1612,7 @@ YY_BUFFER_STATE yy_scan_string (const char * yystr )
 	return yy_scan_bytes( yystr, (int) strlen(yystr) );
 }
 
-/** Setup the input buffer state to scan the given bytes. The next call to yylex() will
+/* Setup the input buffer state to scan the given bytes. The next call to yylex() will
  * scan from a @e copy of @a bytes.
  * @param yybytes the byte buffer to scan
  * @param _yybytes_len the number of bytes in the buffer pointed to by @a bytes.
@@ -1717,7 +1678,7 @@ static void yynoreturn yy_fatal_error (const char* msg )
 
 /* Accessor  methods (get/set functions) to struct members. */
 
-/** Get the current line number.
+/* Get the current line number.
  * 
  */
 int yyget_lineno  (void)
@@ -1726,7 +1687,7 @@ int yyget_lineno  (void)
     return yylineno;
 }
 
-/** Get the input stream.
+/* Get the input stream.
  * 
  */
 FILE *yyget_in  (void)
@@ -1734,7 +1695,7 @@ FILE *yyget_in  (void)
         return yyin;
 }
 
-/** Get the output stream.
+/* Get the output stream.
  * 
  */
 FILE *yyget_out  (void)
@@ -1742,7 +1703,7 @@ FILE *yyget_out  (void)
         return yyout;
 }
 
-/** Get the length of the current token.
+/* Get the length of the current token.
  * 
  */
 int yyget_leng  (void)
@@ -1750,7 +1711,7 @@ int yyget_leng  (void)
         return yyleng;
 }
 
-/** Get the current token.
+/* Get the current token.
  * 
  */
 
@@ -1759,7 +1720,7 @@ char *yyget_text  (void)
         return yytext;
 }
 
-/** Set the current line number.
+/* Set the current line number.
  * @param _line_number line number
  * 
  */
@@ -1769,7 +1730,7 @@ void yyset_lineno (int  _line_number )
     yylineno = _line_number;
 }
 
-/** Set the input stream. This does not discard the current
+/* Set the input stream. This does not discard the current
  * input buffer.
  * @param _in_str A readable stream.
  * 

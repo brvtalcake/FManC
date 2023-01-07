@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>libfmanc: analyze.c File Reference</title>
+<title>FManC: docs/src_documented/analyze.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,9 +25,8 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libfmanc
+   <div id="projectname">FManC
    </div>
-   <div id="projectbrief">A C file manager</div>
   </td>
  </tr>
  </tbody>
@@ -95,22 +94,20 @@ $(document).ready(function(){initNavTree('analyze_8c.html',''); initResizable();
   <div class="headertitle"><div class="title">analyze.c File Reference<div class="ingroups"><a class="el" href="group__fmanc___c_s_r_c.html">Core C source code</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><a href="analyze_8c_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa6248f468ec1e84b97d59e345ad6750f"><td class="memItemLeft" align="right" valign="top"><a id="aa6248f468ec1e84b97d59e345ad6750f" name="aa6248f468ec1e84b97d59e345ad6750f"></a>
-long int&#160;</td><td class="memItemRight" valign="bottom"><b>countCharInFile</b> (char *filePath)</td></tr>
-<tr class="separator:aa6248f468ec1e84b97d59e345ad6750f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a615c6ba607d2b90929bc2a8b1fe5e5f6"><td class="memItemLeft" align="right" valign="top"><a id="a615c6ba607d2b90929bc2a8b1fe5e5f6" name="a615c6ba607d2b90929bc2a8b1fe5e5f6"></a>
-<a class="el" href="structstring_occurrences.html">stringOccurrences</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>init_StringOccurences</b> (size_t sizeOfString)</td></tr>
-<tr class="separator:a615c6ba607d2b90929bc2a8b1fe5e5f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04ae2138b1c3b361f9556bd30db30c23"><td class="memItemLeft" align="right" valign="top"><a id="a04ae2138b1c3b361f9556bd30db30c23" name="a04ae2138b1c3b361f9556bd30db30c23"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>free_stringOccurrences</b> (<a class="el" href="structstring_occurrences.html">stringOccurrences</a> *toBeDeleted)</td></tr>
-<tr class="separator:a04ae2138b1c3b361f9556bd30db30c23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab029b1afb2f8a964dd116b825baf8741"><td class="memItemLeft" align="right" valign="top"><a id="ab029b1afb2f8a964dd116b825baf8741" name="ab029b1afb2f8a964dd116b825baf8741"></a>
-<a class="el" href="structstring_occurrences.html">stringOccurrences</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>searchStringInFile</b> (char *filePath, char *toSearch)</td></tr>
-<tr class="separator:ab029b1afb2f8a964dd116b825baf8741"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5a02aaad7ac0820d0b9c6c96c77abb9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="analyze_8c.html#ae5a02aaad7ac0820d0b9c6c96c77abb9">replaceStringInFile</a> (char *filePath, char *toReplaceString, char *toAddString)</td></tr>
+<tr class="memitem:a32cfe0c44b581ae20df7414475121dfe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="analyze_8c.html#a32cfe0c44b581ae20df7414475121dfe">countCharInFile</a> (char *filePath)</td></tr>
+<tr class="separator:a32cfe0c44b581ae20df7414475121dfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab77b66e5e736e6aee7bab314f71b5782"><td class="memItemLeft" align="right" valign="top"><a class="el" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> stringOccurrences *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="analyze_8c.html#ab77b66e5e736e6aee7bab314f71b5782">init_StringOccurences</a> (size_t sizeOfString)</td></tr>
+<tr class="separator:ab77b66e5e736e6aee7bab314f71b5782"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcfb6d289c5bd79663658d080167d37c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="analyze_8c.html#adcfb6d289c5bd79663658d080167d37c">free_stringOccurrences</a> (stringOccurrences *toBeDeleted)</td></tr>
+<tr class="separator:adcfb6d289c5bd79663658d080167d37c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5db7ed994499648b825cd9451a543470"><td class="memItemLeft" align="right" valign="top"><a class="el" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> stringOccurrences *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="analyze_8c.html#a5db7ed994499648b825cd9451a543470">searchStringInFile</a> (char *filePath, char *toSearch)</td></tr>
+<tr class="separator:a5db7ed994499648b825cd9451a543470"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5a02aaad7ac0820d0b9c6c96c77abb9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="analyze_8c.html#ae5a02aaad7ac0820d0b9c6c96c77abb9">replaceStringInFile</a> (char *filePath, char *toReplaceString, char *toAddString)</td></tr>
 <tr class="memdesc:ae5a02aaad7ac0820d0b9c6c96c77abb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function replace a wide-character string by another one.  <a href="analyze_8c.html#ae5a02aaad7ac0820d0b9c6c96c77abb9">More...</a><br /></td></tr>
 <tr class="separator:ae5a02aaad7ac0820d0b9c6c96c77abb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -118,7 +115,69 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>free_stringOccurrence
 <div class="textblock"><p >These functions are made to analyze files content and make operations on it.</p>
 <dl class="section author"><dt>Author</dt><dd>Axel PASCON (a.k.a. brvtalcake) </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2022 </dd></dl>
+
+<p class="definition">Definition in file <a class="el" href="analyze_8c_source.html">analyze.c</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a32cfe0c44b581ae20df7414475121dfe" name="a32cfe0c44b581ae20df7414475121dfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32cfe0c44b581ae20df7414475121dfe">&#9670;&#160;</a></span>countCharInFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> size_t countCharInFile </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filePath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="analyze_8c_source.html#l00037">37</a> of file <a class="el" href="analyze_8c_source.html">analyze.c</a>.</p>
+
+</div>
+</div>
+<a id="adcfb6d289c5bd79663658d080167d37c" name="adcfb6d289c5bd79663658d080167d37c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcfb6d289c5bd79663658d080167d37c">&#9670;&#160;</a></span>free_stringOccurrences()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> void free_stringOccurrences </td>
+          <td>(</td>
+          <td class="paramtype">stringOccurrences *&#160;</td>
+          <td class="paramname"><em>toBeDeleted</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="analyze_8c_source.html#l00073">73</a> of file <a class="el" href="analyze_8c_source.html">analyze.c</a>.</p>
+
+</div>
+</div>
+<a id="ab77b66e5e736e6aee7bab314f71b5782" name="ab77b66e5e736e6aee7bab314f71b5782"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab77b66e5e736e6aee7bab314f71b5782">&#9670;&#160;</a></span>init_StringOccurences()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> stringOccurrences * init_StringOccurences </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>sizeOfString</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="analyze_8c_source.html#l00061">61</a> of file <a class="el" href="analyze_8c_source.html">analyze.c</a>.</p>
+
+</div>
+</div>
 <a id="ae5a02aaad7ac0820d0b9c6c96c77abb9" name="ae5a02aaad7ac0820d0b9c6c96c77abb9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae5a02aaad7ac0820d0b9c6c96c77abb9">&#9670;&#160;</a></span>replaceStringInFile()</h2>
 
@@ -174,6 +233,38 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>free_stringOccurrence
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="analyze_8c_source.html#l00186">186</a> of file <a class="el" href="analyze_8c_source.html">analyze.c</a>.</p>
+
+</div>
+</div>
+<a id="a5db7ed994499648b825cd9451a543470" name="a5db7ed994499648b825cd9451a543470"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5db7ed994499648b825cd9451a543470">&#9670;&#160;</a></span>searchStringInFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> stringOccurrences * searchStringInFile </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filePath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>toSearch</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="analyze_8c_source.html#l00080">80</a> of file <a class="el" href="analyze_8c_source.html">analyze.c</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -181,7 +272,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>free_stringOccurrence
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="analyze_8c.html">analyze.c</a></li>
+    <li class="navelem"><a class="el" href="dir_49e56c817e5e54854c35e136979f97ca.html">docs</a></li><li class="navelem"><a class="el" href="dir_389911674c031a4efb91f80ac73b062d.html">src_documented</a></li><li class="navelem"><a class="el" href="analyze_8c.html">analyze.c</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>

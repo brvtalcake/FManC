@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.12.11)  12 DEC 2022 04:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.12.11)  20 DEC 2022 03:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -886,7 +886,7 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 6.29996pt on input line 173.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 6.29996pt on input line 173.
- [1]
+ [1] [2] [3] [4]
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 7.19995pt on input line 173.
 LaTeX Font Info:    Trying to load font information for T1+pcr on input line 17
@@ -894,7 +894,7 @@ LaTeX Font Info:    Trying to load font information for T1+pcr on input line 17
 
 (C:\Programmation\LaTeX\tex/latex/psnfss\t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) [2]
+) [5] [6]
 Package hyperref Info: Option `pageanchor' set `true' on input line 176.
 
 Chapter 1.
@@ -910,20 +910,28 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 22.39185pt on input line 178.
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 (Font)              scaled to size 22.39185pt on input line 178.
-(modules.tex
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 12.9599pt on input line 1.
-) [1
+(md_docs_src_documented_not_by_me__n_o_t_b_y_m_e.tex) [1
 
 
 ] [2
 
 ]
 Chapter 2.
-(annotated.tex) [3] [4
+(todo.tex) [3] [4
 
 ]
 Chapter 3.
+(modules.tex
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 12.9599pt on input line 1.
+) [5] [6
+
+]
+Chapter 4.
+(annotated.tex) [7] [8
+
+]
+Chapter 5.
 (files.tex
 LaTeX Font Info:    Trying to load font information for TS1+phv on input line 5
 .
@@ -932,10 +940,10 @@ File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
 (Font)              scaled to size 8.99994pt on input line 5.
-) [5] [6
+) [9] [10
 
 ]
-Chapter 4.
+Chapter 6.
 (group__fmanc___c_s_r_c.tex
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 10.79993pt on input line 3.
@@ -967,7 +975,7 @@ Underfull \hbox (badness 10000) detected at line 16
 [][][]
  []
 
-) (group__fmanc___c_l_h.tex [7]
+) (group__fmanc___c_l_h.tex [11]
 Underfull \hbox (badness 10000) detected at line 13
 [][][]
  []
@@ -1006,7 +1014,7 @@ Underfull \hbox (badness 10000) detected at line 14
 [][][]
  []
 
-) (group__for__me.tex [8]
+) (group__for__me.tex [12]
 Underfull \hbox (badness 10000) detected at line 13
 [][][]
  []
@@ -1026,7 +1034,7 @@ Underfull \hbox (badness 10000) detected at line 14
 [][][]
  []
 
-) (group__fmanc___m_h.tex [9]
+) (group__fmanc___m_h.tex [13]
 Underfull \hbox (badness 10000) detected at line 11
 [][][]
  []
@@ -1056,7 +1064,7 @@ Underfull \hbox (badness 10000) detected at line 14
 [][][]
  []
 
-) (group__lex__file.tex [10]
+) (group__lex__file.tex [14]
 Underfull \hbox (badness 10000) detected at line 11
 [][][]
  []
@@ -1066,21 +1074,21 @@ Underfull \hbox (badness 10000) detected at line 14
 [][][]
  []
 
-) [11] [12
+) [15] [16
 
 ]
-Chapter 5.
-(structstring_occurrences.tex) [13] [14
+Chapter 7.
+(struct_f_m_a_n_c___s_o.tex) [17] [18
 
 ]
-Chapter 6.
+Chapter 8.
 (analyze_8c.tex
-Underfull \hbox (badness 10000) detected at line 25
+Underfull \hbox (badness 10000) detected at line 21
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 28
+Underfull \hbox (badness 10000) detected at line 24
 [][][]
  []
 
@@ -1088,27 +1096,27 @@ LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 38.
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 38.
-[15]
-Underfull \hbox (badness 10000) detected at line 53
+[19]
+Underfull \hbox (badness 10000) detected at line 83
 [][][]
  []
 
-) (analyze_8h.tex
-Underfull \hbox (badness 10000) detected at line 37
+[20]) (analyze_8c_source.tex [21] [22] [23] [24]) (analyze_8h.tex
+Underfull \hbox (badness 10000) detected at line 43
 [][][]
  []
 
-
-Underfull \hbox (badness 10000) detected at line 40
+[25]
+Underfull \hbox (badness 10000) detected at line 46
 [][][]
  []
 
-[16]
-Underfull \hbox (badness 10000) detected at line 65
+[26] [27]
+Underfull \hbox (badness 10000) detected at line 152
 [][][]
  []
 
-) (analyze_8h_source.tex [17]) (fcmx_8c.tex
+) (analyze_8h_source.tex [28]) (fcmx_8c.tex
 Underfull \hbox (badness 10000) detected at line 13
 [][][]
  []
@@ -1118,125 +1126,154 @@ Underfull \hbox (badness 10000) detected at line 16
 [][][]
  []
 
-) (fcmx_8h.tex
-Underfull \hbox (badness 10000) detected at line 19
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 22
-[][][]
- []
-
-) (fcmx_8h_source.tex [18]) (file_man_8c.tex
-Underfull \hbox (badness 10000) detected at line 28
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 31
-[][][]
- []
-
-) (file_man_8h.tex
-Underfull \hbox (badness 1960) in paragraph at lines 20--23
-[][] \T1/phv/m/n/10 #de-fine \T1/phv/b/n/10 get[]File[]Extension\T1/phv/m/n/10 
-(source[]File[]Name, ex-ten-sion) char extension[]MAX[]_[][]FEXT[]_[][]SIZE[]; 
-fget[]File[]
- []
-
-[19]
-Underfull \hbox (badness 10000) detected at line 52
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 55
-[][][]
- []
-
-) (file_man_8h_source.tex [20]) (fmanc_8h.tex
-Underfull \hbox (badness 10000) detected at line 20
-[][][]
- []
-
-
+) (fcmx_8c_source.tex) (fcmx_8h.tex [29]
 Underfull \hbox (badness 10000) detected at line 23
 [][][]
  []
 
-) (fmanc_8h_source.tex) (lex__yy_8c.tex [21] [22] [23]
-Underfull \hbox (badness 10000) detected at line 407
+
+Underfull \hbox (badness 10000) detected at line 26
 [][][]
  []
 
-[24]
-Underfull \hbox (badness 10000) detected at line 410
+[30]
+Underfull \hbox (badness 10000) detected at line 93
 [][][]
  []
 
-[25]
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 7.19995pt on input line 521.
- [26]
-pdfTeX warning (ext4): destination with the same identifier (name{lex__yy_8c_ae
-65cb72d09db0abdc4b8e8c4d533ab14}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.539 ...yy_8c_ae65cb72d09db0abdc4b8e8c4d533ab14}}
-                                                  ) (lex__yy_8h.tex [27]
-Underfull \hbox (badness 10000) detected at line 19
+) (fcmx_8h_source.tex) (file_man_8c.tex [31]
+Underfull \hbox (badness 10000) detected at line 24
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 22
-[][][]
- []
-
-) (lex__yy_8h_source.tex) (no_comments_8l.tex
 Underfull \hbox (badness 10000) detected at line 27
 [][][]
  []
 
+[32]) (file_man_8c_source.tex [33] [34] [35]) (file_man_8h.tex
+Underfull \hbox (badness 927) in paragraph at lines 19--20
+[]\T1/phv/m/n/10 #define [](source[]File[]Path, ex-ten-sion) char extension[][]
+[] = ""; fget[]File[]
+ []
 
-Underfull \hbox (badness 10000) detected at line 30
+[36]
+Underfull \hbox (badness 10000) detected at line 44
 [][][]
  []
 
-) [28] (refman.ind [29
+
+Underfull \hbox (badness 10000) detected at line 47
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--62
+|   \T1/pcr/m/sl/8 extension \T1/pcr/m/n/8 ) char extension[][][] = ""; fget[]F
+ile[]Extension(source[]File[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 74
+[][][]
+ []
+
+[37]
+Underfull \hbox (badness 10000) detected at line 98
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 122
+[][][]
+ []
+
+[38] [39] [40]) (file_man_8h_source.tex) (fmanc_8h.tex [41]
+Underfull \hbox (badness 10000) detected at line 25
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 28
+[][][]
+ []
+
+) (fmanc_8h_source.tex [42]) (lex__yy_8c.tex [43] [44] [45]
+Underfull \hbox (badness 10000) detected at line 314
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 317
+[][][]
+ []
+
+[46] [47] [48] [49] [50] [51] [52] [53] [54] [55] [56] [57]
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 7.19995pt on input line 1092.
+ [58
+pdfTeX warning (ext4): destination with the same identifier (name{lex__yy_8c_ae
+65cb72d09db0abdc4b8e8c4d533ab14}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1138 D
+        efinition at line \mbox{\hyperlink{lex__yy_8c_source_l00200}{200}} o...
+] [59] [60] [61] [62] [63]) (lex__yy_8c_source.tex [64] [65] [66] [67] [68]
+[69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81] [82] [83]
+[84]) (lex__yy_8h.tex [85]
+Underfull \hbox (badness 10000) detected at line 23
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 26
+[][][]
+ []
+
+) (lex__yy_8h_source.tex [86]) (no_comments_8l.tex
+Underfull \hbox (badness 10000) detected at line 23
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 26
+[][][]
+ []
+
+[87]) (no_comments_8l_source.tex [88] [89]) [90] (refman.ind [91
 
 
 
-]) (refman.aux)
+] [92] [93]
+[94]) (refman.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 17524B17D71D9C6E441152362FACEE3E;14306.
+(rerunfilecheck)             Checksum: D8818F2AA4FDBCBAAB17339D0942B2D2;44718.
  ) 
 Here is how much of TeX's memory you used:
- 18558 strings out of 475385
- 308152 string characters out of 2787224
- 692072 words of memory out of 3000000
- 39208 multiletter control sequences out of 15000+600000
- 528855 words of font info for 99 fonts, out of 8000000 for 9000
+ 21697 strings out of 475385
+ 382317 string characters out of 2787224
+ 735356 words of memory out of 3000000
+ 39410 multiletter control sequences out of 15000+600000
+ 529476 words of font info for 101 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,16n,117p,757b,738s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 99i,16n,117p,757b,740s stack positions out of 10000i,1000n,20000p,200000b,80000s
 {C:/Programmation/LaTeX/fonts/enc/dvips/base/8r.enc}<C:/Programmation/LaTeX/f
 onts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Programmation/LaTeX/fonts/type1/pu
 blic/amsfonts/cm/cmmi7.pfb><C:/Programmation/LaTeX/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb><C:/Programmation/LaTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-<C:/Programmation/LaTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Programmat
-ion/LaTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/Programmation/LaTeX/fonts/type
-1/urw/courier/ucrr8a.pfb><C:/Programmation/LaTeX/fonts/type1/urw/courier/ucrro8
-a.pfb><C:/Programmation/LaTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Programma
-tion/LaTeX/fonts/type1/urw/helvetic/uhvb8ac.pfb><C:/Programmation/LaTeX/fonts/t
-ype1/urw/helvetic/uhvr8a.pfb><C:/Programmation/LaTeX/fonts/type1/urw/helvetic/u
-hvro8a.pfb>
-Output written on refman.pdf (33 pages, 285814 bytes).
+cm/cmmi8.pfb><C:/Programmation/LaTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+<C:/Programmation/LaTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Programmat
+ion/LaTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Programmation/LaTeX/font
+s/type1/urw/courier/ucrb8a.pfb><C:/Programmation/LaTeX/fonts/type1/urw/courier/
+ucrr8a.pfb><C:/Programmation/LaTeX/fonts/type1/urw/courier/ucrro8a.pfb><C:/Prog
+rammation/LaTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Programmation/LaTeX/fon
+ts/type1/urw/helvetic/uhvb8ac.pfb><C:/Programmation/LaTeX/fonts/type1/urw/helve
+tic/uhvr8a.pfb><C:/Programmation/LaTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on refman.pdf (102 pages, 1080807 bytes).
 PDF statistics:
- 988 PDF objects out of 1000 (max. 8388607)
- 323 named destinations out of 1000 (max. 500000)
- 577 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6138 PDF objects out of 6186 (max. 8388607)
+ 3245 named destinations out of 3580 (max. 500000)
+ 1793 words of extra memory for PDF output out of 10000 (max. 10000000)
 

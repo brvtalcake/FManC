@@ -36,6 +36,46 @@
 #ifndef FMANC_H
 #define FMANC_H
 
+/**
+ * @def SHARED
+ * @brief Useful to choose how to use the lib on Windows systems.
+ * @details If you want to use the lib with the dll, you don't need to add anything in the command line. If you want to use the static version of the lib, then put "-D STATIC" in your command line when compiling, so you let the compiler know that the keyword "SHARED" is set to nothing and the function declarations are not provided with the __declspec() attribute.
+ You can also look at the full macro block below (wich is also in the source code of all of the headers) to see what I mean
+ * @code{.c}
+# if defined(_WIN32)
+#   if defined(STATIC)
+#     define SHARED
+#   else
+#     if defined(BUILD_DLL)
+#       define SHARED __declspec(dllexport)
+#     else
+#       define SHARED __declspec(dllimport)
+#     endif
+#   endif
+# else
+#   define SHARED
+# endif
+ * @endcode
+ */
+
+# if defined(_WIN32)
+/***************** "-D STATIC" ******************/
+#   if defined(STATIC)
+#     define SHARED
+/**************** "-D BUILD_DLL" ****************/
+#   else
+#     if defined(BUILD_DLL)
+#       define SHARED __declspec(dllexport)
+#     else
+#       define SHARED __declspec(dllimport)
+#     endif
+#   endif
+/****************** DEFAULT *******************/
+# else
+#   define SHARED
+# endif
+
+
 #include "fileMan.h"
 #include "analyze.h"
 
@@ -44,16 +84,10 @@
 #include "./notByMe/lex_yy.h"
 #endif
 
-#if defined(_WIN32)
-    #if defined(BUILD_DLL)
-        #define SHARED __declspec(dllexport)
-    #else
-        #define SHARED __declspec(dllimport)
-    #endif
-#endif
+
+
+
 
 
 
 #endif
-
-

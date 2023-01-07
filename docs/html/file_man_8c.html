@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>libfmanc: fileMan.c File Reference</title>
+<title>FManC: docs/src_documented/fileMan.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,9 +25,8 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libfmanc
+   <div id="projectname">FManC
    </div>
-   <div id="projectbrief">A C file manager</div>
   </td>
  </tr>
  </tbody>
@@ -98,32 +97,171 @@ $(document).ready(function(){initNavTree('file_man_8c.html',''); initResizable()
 
 <p>These functions are made to do operate simple operation on files or file names, when there is no neee to analyze something like orccurrences, ...  
 <a href="#details">More...</a></p>
+
+<p><a href="file_man_8c_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a95f02d94dae556d5282368721e994732"><td class="memItemLeft" align="right" valign="top"><a id="a95f02d94dae556d5282368721e994732" name="a95f02d94dae556d5282368721e994732"></a>
-char *&#160;</td><td class="memItemRight" valign="bottom"><b>copyFileWithoutTabAndLineBreak</b> (char *sourceFilePath, char **pathToCopy)</td></tr>
+<tr class="memitem:a95f02d94dae556d5282368721e994732"><td class="memItemLeft" align="right" valign="top"><a class="el" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file_man_8c.html#a95f02d94dae556d5282368721e994732">copyFileWithoutTabAndLineBreak</a> (char *sourceFilePath, char **pathToCopy)</td></tr>
+<tr class="memdesc:a95f02d94dae556d5282368721e994732"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy a file without tab and line break.  <a href="file_man_8c.html#a95f02d94dae556d5282368721e994732">More...</a><br /></td></tr>
 <tr class="separator:a95f02d94dae556d5282368721e994732"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ae33808674f181279341940f19d60b9"><td class="memItemLeft" align="right" valign="top"><a id="a2ae33808674f181279341940f19d60b9" name="a2ae33808674f181279341940f19d60b9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>fgetFileExtension</b> (char *sourceFileName, char *extension)</td></tr>
-<tr class="separator:a2ae33808674f181279341940f19d60b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d3df2b7a44029fad789b45b4406451a"><td class="memItemLeft" align="right" valign="top"><a id="a1d3df2b7a44029fad789b45b4406451a" name="a1d3df2b7a44029fad789b45b4406451a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>fgetFileName</b> (char *sourceFilePath, char *fileName)</td></tr>
-<tr class="separator:a1d3df2b7a44029fad789b45b4406451a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97687e29a139210fc190ce98d836c160"><td class="memItemLeft" align="right" valign="top"><a id="a97687e29a139210fc190ce98d836c160" name="a97687e29a139210fc190ce98d836c160"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>fgetFilePath</b> (char *sourceFilePath, char *filePath)</td></tr>
-<tr class="separator:a97687e29a139210fc190ce98d836c160"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c282c21f89a7dd9b3467023dca263cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file_man_8c.html#a8c282c21f89a7dd9b3467023dca263cc">fgetFileExtension</a> (char *sourceFilePath, char *extension)</td></tr>
+<tr class="separator:a8c282c21f89a7dd9b3467023dca263cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab47c1598b9a4b54a5fa6e281557c04c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file_man_8c.html#aab47c1598b9a4b54a5fa6e281557c04c">fgetFileName</a> (char *sourceFilePath, char *fileName)</td></tr>
+<tr class="separator:aab47c1598b9a4b54a5fa6e281557c04c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accb539b720005d8f755c08b3ccab2386"><td class="memItemLeft" align="right" valign="top"><a class="el" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file_man_8c.html#accb539b720005d8f755c08b3ccab2386">fgetFilePath</a> (char *sourceFilePath, char *filePath)</td></tr>
+<tr class="separator:accb539b720005d8f755c08b3ccab2386"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >These functions are made to do operate simple operation on files or file names, when there is no neee to analyze something like orccurrences, ... </p>
 <dl class="section author"><dt>Author</dt><dd>Axel PASCON (a.k.a. brvtalcake) </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2022 </dd></dl>
-</div></div><!-- contents -->
+
+<p class="definition">Definition in file <a class="el" href="file_man_8c_source.html">fileMan.c</a>.</p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a95f02d94dae556d5282368721e994732" name="a95f02d94dae556d5282368721e994732"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95f02d94dae556d5282368721e994732">&#9670;&#160;</a></span>copyFileWithoutTabAndLineBreak()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * copyFileWithoutTabAndLineBreak </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>sourceFilePath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>pathToCopy</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copy a file without tab and line break. </p>
+<p >The copied file with be renamed as &lt;sourceFile name&gt;_copied.&lt;sourceFileExtension&gt; if the param pathToCopy is set to NULL, and what you want if you specify the path with a name and extension. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Check if the path to copy has a name and an extension at the end.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sourceFilePath</td><td>The source file path. </td></tr>
+    <tr><td class="paramname">pathToCopy</td><td>The path to copy. You can set it to NULL if you want the copied file to be in the same directory as the source file.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">sourceFileName</td><td>This case is when no error has occured. </td></tr>
+    <tr><td class="paramname">NULL</td><td>If an error has occured. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="file_man_8c_source.html#l00031">31</a> of file <a class="el" href="file_man_8c_source.html">fileMan.c</a>.</p>
+
+</div>
+</div>
+<a id="a8c282c21f89a7dd9b3467023dca263cc" name="a8c282c21f89a7dd9b3467023dca263cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c282c21f89a7dd9b3467023dca263cc">&#9670;&#160;</a></span>fgetFileExtension()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> void fgetFileExtension </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>sourceFilePath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>extension</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="file_man_8c_source.html#l00093">93</a> of file <a class="el" href="file_man_8c_source.html">fileMan.c</a>.</p>
+
+</div>
+</div>
+<a id="aab47c1598b9a4b54a5fa6e281557c04c" name="aab47c1598b9a4b54a5fa6e281557c04c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab47c1598b9a4b54a5fa6e281557c04c">&#9670;&#160;</a></span>fgetFileName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> void fgetFileName </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>sourceFilePath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>fileName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="file_man_8c_source.html#l00130">130</a> of file <a class="el" href="file_man_8c_source.html">fileMan.c</a>.</p>
+
+</div>
+</div>
+<a id="accb539b720005d8f755c08b3ccab2386" name="accb539b720005d8f755c08b3ccab2386"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accb539b720005d8f755c08b3ccab2386">&#9670;&#160;</a></span>fgetFilePath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> void fgetFilePath </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>sourceFilePath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filePath</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="file_man_8c_source.html#l00178">178</a> of file <a class="el" href="file_man_8c_source.html">fileMan.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="file_man_8c.html">fileMan.c</a></li>
+    <li class="navelem"><a class="el" href="dir_49e56c817e5e54854c35e136979f97ca.html">docs</a></li><li class="navelem"><a class="el" href="dir_389911674c031a4efb91f80ac73b062d.html">src_documented</a></li><li class="navelem"><a class="el" href="file_man_8c.html">fileMan.c</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>

@@ -1,25 +1,49 @@
 \hypertarget{analyze_8h_source}{}\doxysection{analyze.\+h}
+\label{analyze_8h_source}\index{docs/src\_documented/analyze.h@{docs/src\_documented/analyze.h}}
 \mbox{\hyperlink{analyze_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 }
-\DoxyCodeLine{34 \textcolor{preprocessor}{\#ifndef ANALYZE\_H}}
-\DoxyCodeLine{35 \textcolor{preprocessor}{\#define ANALYZE\_H }}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{37 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }}
-\DoxyCodeLine{38 \{}
-\DoxyCodeLine{39     \textcolor{keywordtype}{size\_t} charCount;}
-\DoxyCodeLine{40     \textcolor{keywordtype}{long} *pos;}
-\DoxyCodeLine{41 \}\mbox{\hyperlink{structstring_occurrences}{stringOccurrences}};}
-\DoxyCodeLine{42 }
-\DoxyCodeLine{43 \textcolor{keywordtype}{long} \textcolor{keywordtype}{int} countCharInFile(\textcolor{keywordtype}{char} *filePath);}
-\DoxyCodeLine{44 \mbox{\hyperlink{structstring_occurrences}{stringOccurrences}} *init\_StringOccurences(\textcolor{keywordtype}{size\_t} sizeOfString);}
-\DoxyCodeLine{45 \textcolor{keywordtype}{void} free\_stringOccurrences(\mbox{\hyperlink{structstring_occurrences}{stringOccurrences}} *toBeDeleted);}
-\DoxyCodeLine{46 \mbox{\hyperlink{structstring_occurrences}{stringOccurrences}} *searchStringInFile(\textcolor{keywordtype}{char} *filePath, \textcolor{keywordtype}{char} *toSearch);}
-\DoxyCodeLine{47 }
-\DoxyCodeLine{65 \textcolor{keywordtype}{int} \mbox{\hyperlink{analyze_8h_ae5a02aaad7ac0820d0b9c6c96c77abb9}{replaceStringInFile}}(\textcolor{keywordtype}{char} *filePath, \textcolor{keywordtype}{char} *toReplaceString, \textcolor{keywordtype}{char} *toAddString);}
-\DoxyCodeLine{66 }
-\DoxyCodeLine{67 }
-\DoxyCodeLine{68 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{69 }
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00034}00034 \textcolor{preprocessor}{\#ifndef ANALYZE\_H}}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00035}00035 \textcolor{preprocessor}{\#define ANALYZE\_H }}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00059}00059 \textcolor{preprocessor}{\# if defined(\_WIN32)}}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00060}00060 \textcolor{comment}{/***************** "{}-\/D STATIC"{} ******************/}}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00061}00061 \textcolor{preprocessor}{\#   if defined(STATIC)}}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00062}00062 \textcolor{preprocessor}{\#     define SHARED}}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00063}00063 \textcolor{comment}{/**************** "{}-\/D BUILD\_DLL"{} ****************/}}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00064}00064 \textcolor{preprocessor}{\#   else}}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00065}00065 \textcolor{preprocessor}{\#     if defined(BUILD\_DLL)}}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00066}00066 \textcolor{preprocessor}{\#       define SHARED \_\_declspec(dllexport)}}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00067}00067 \textcolor{preprocessor}{\#     else}}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00068}00068 \textcolor{preprocessor}{\#       define SHARED \_\_declspec(dllimport)}}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00069}00069 \textcolor{preprocessor}{\#     endif}}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00070}00070 \textcolor{preprocessor}{\#   endif}}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00071}00071 \textcolor{comment}{/****************** DEFAULT *******************/}}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00072}00072 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00073}\mbox{\hyperlink{analyze_8h_a884c794595c4aa480df9022648c29564}{00073}} \textcolor{preprocessor}{\#   define SHARED}}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00074}00074 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00075}00075 }
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00076}00076 }
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00077}00077 \textcolor{preprocessor}{\#include <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00078}00078 }
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00079}00079 }
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00080}\mbox{\hyperlink{struct_f_m_a_n_c___s_o}{00080}} \mbox{\hyperlink{analyze_8h_a884c794595c4aa480df9022648c29564}{SHARED}} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_f_m_a_n_c___s_o}{FMANC\_SO}}}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00081}00081 \{}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00082}00082     \textcolor{keywordtype}{size\_t} charCount;}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00083}00083     \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} \textcolor{keywordtype}{int} *pos;}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00084}00084 \};}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00085}00085 }
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00086}00086 \mbox{\hyperlink{analyze_8h_a884c794595c4aa480df9022648c29564}{SHARED}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_f_m_a_n_c___s_o}{FMANC\_SO}} stringOccurrences;}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00087}00087 }
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00088}00088 \mbox{\hyperlink{analyze_8h_a884c794595c4aa480df9022648c29564}{SHARED}} \textcolor{keywordtype}{size\_t} countCharInFile(\textcolor{keywordtype}{char} *filePath);}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00089}00089 \mbox{\hyperlink{analyze_8h_a884c794595c4aa480df9022648c29564}{SHARED}} stringOccurrences *init\_StringOccurences(\textcolor{keywordtype}{size\_t} sizeOfString);}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00090}00090 \mbox{\hyperlink{analyze_8h_a884c794595c4aa480df9022648c29564}{SHARED}} \textcolor{keywordtype}{void} free\_stringOccurrences(stringOccurrences *toBeDeleted);}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00091}00091 \mbox{\hyperlink{analyze_8h_a884c794595c4aa480df9022648c29564}{SHARED}} stringOccurrences *searchStringInFile(\textcolor{keywordtype}{char} *filePath, \textcolor{keywordtype}{char} *toSearch);}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00092}00092 }
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00110}00110 \mbox{\hyperlink{analyze_8h_a884c794595c4aa480df9022648c29564}{SHARED}} \textcolor{keywordtype}{int} \mbox{\hyperlink{analyze_8h_a9af25065ed26893b120fd7656edef6fb}{replaceStringInFile}}(\textcolor{keywordtype}{char} *filePath, \textcolor{keywordtype}{char} *toReplaceString, \textcolor{keywordtype}{char} *toAddString);}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00111}00111 }
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00112}00112 }
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00113}00113 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{analyze_8h_source_l00114}00114 }
 
 \end{DoxyCode}

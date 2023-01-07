@@ -1,15 +1,19 @@
-\hypertarget{lex__yy_8h}{}\doxysection{not\+By\+Me/lex\+\_\+yy.h File Reference}
-\label{lex__yy_8h}\index{notByMe/lex\_yy.h@{notByMe/lex\_yy.h}}
+\hypertarget{lex__yy_8h}{}\doxysection{docs/src\+\_\+documented/not\+By\+Me/lex\+\_\+yy.h File Reference}
+\label{lex__yy_8h}\index{docs/src\_documented/notByMe/lex\_yy.h@{docs/src\_documented/notByMe/lex\_yy.h}}
 
 
 This header contains a function written by flex to delete C-\/style comments in a file.  
 
 
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{lex__yy_8h_a884c794595c4aa480df9022648c29564}{SHARED}}
+\begin{DoxyCompactList}\small\item\em Useful to choose how to use the lib on Windows systems. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{lex__yy_8h_a84a5fd885690b529eb3f0e64e2d4fc58}\label{lex__yy_8h_a84a5fd885690b529eb3f0e64e2d4fc58}} 
-int {\bfseries delete\+CStyle\+Comments} (char $\ast$file\+Path)
+\mbox{\hyperlink{analyze_8h_a884c794595c4aa480df9022648c29564}{SHARED}} int \mbox{\hyperlink{lex__yy_8h_a25c0277ef24c7ebf105e1f0d2c69a8a8}{delete\+CStyle\+Comments}} (char $\ast$file\+Path)
 \end{DoxyCompactItemize}
 
 
@@ -22,3 +26,54 @@ Axel PASCON (a.\+k.\+a. brvtalcake)
 \begin{DoxyDate}{Date}
 2022 
 \end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{lex__yy_8h_source}{lex\+\_\+yy.\+h}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{lex__yy_8h_a884c794595c4aa480df9022648c29564}\label{lex__yy_8h_a884c794595c4aa480df9022648c29564}} 
+\index{lex\_yy.h@{lex\_yy.h}!SHARED@{SHARED}}
+\index{SHARED@{SHARED}!lex\_yy.h@{lex\_yy.h}}
+\doxysubsubsection{\texorpdfstring{SHARED}{SHARED}}
+{\footnotesize\ttfamily \#define SHARED}
+
+
+
+Useful to choose how to use the lib on Windows systems. 
+
+If you want to use the lib with the dll, you don\textquotesingle{}t need to add anything in the command line. If you want to use the static version of the lib, then put \char`\"{}-\/\+D STATIC\char`\"{} in your command line when compiling, so you let the compiler know that the keyword \char`\"{}\+SHARED\char`\"{} is set to nothing and the function declarations are not provided with the \+\_\+\+\_\+declspec() attribute. You can also look at the full macro block below (wich is also in the source code of all of the headers) to see what I mean 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\# if defined(\_WIN32)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#   if defined(STATIC)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#     define SHARED}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#   else}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#     if defined(BUILD\_DLL)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#       define SHARED \_\_declspec(dllexport)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#     else}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#       define SHARED \_\_declspec(dllimport)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#     endif}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#   endif}}
+\DoxyCodeLine{\textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#   define SHARED}}
+\DoxyCodeLine{\textcolor{preprocessor}{\# endif}}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{lex__yy_8h_source_l00073}{73}} of file \mbox{\hyperlink{lex__yy_8h_source}{lex\+\_\+yy.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{lex__yy_8h_a25c0277ef24c7ebf105e1f0d2c69a8a8}\label{lex__yy_8h_a25c0277ef24c7ebf105e1f0d2c69a8a8}} 
+\index{lex\_yy.h@{lex\_yy.h}!deleteCStyleComments@{deleteCStyleComments}}
+\index{deleteCStyleComments@{deleteCStyleComments}!lex\_yy.h@{lex\_yy.h}}
+\doxysubsubsection{\texorpdfstring{deleteCStyleComments()}{deleteCStyleComments()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{analyze_8h_a884c794595c4aa480df9022648c29564}{SHARED}} int delete\+CStyle\+Comments (\begin{DoxyParamCaption}\item[{char $\ast$}]{file\+Path }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{lex__yy_8c_source_l01865}{1865}} of file \mbox{\hyperlink{lex__yy_8c_source}{lex\+\_\+yy.\+c}}.
+

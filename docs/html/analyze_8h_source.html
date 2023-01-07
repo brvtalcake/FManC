@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>libfmanc: analyze.h Source File</title>
+<title>FManC: docs/src_documented/analyze.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,9 +25,8 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libfmanc
+   <div id="projectname">FManC
    </div>
-   <div id="projectbrief">A C file manager</div>
   </td>
  </tr>
  </tbody>
@@ -97,30 +96,54 @@ $(document).ready(function(){initNavTree('analyze_8h_source.html',''); initResiz
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#ifndef ANALYZE_H</span></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#define ANALYZE_H </span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="structstring_occurrences.html">   37</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">size_t</span> charCount;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">long</span> *pos;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}<a class="code hl_struct" href="structstring_occurrences.html">stringOccurrences</a>;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keywordtype">long</span> <span class="keywordtype">int</span> countCharInFile(<span class="keywordtype">char</span> *filePath);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><a class="code hl_struct" href="structstring_occurrences.html">stringOccurrences</a> *init_StringOccurences(<span class="keywordtype">size_t</span> sizeOfString);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keywordtype">void</span> free_stringOccurrences(<a class="code hl_struct" href="structstring_occurrences.html">stringOccurrences</a> *toBeDeleted);</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><a class="code hl_struct" href="structstring_occurrences.html">stringOccurrences</a> *searchStringInFile(<span class="keywordtype">char</span> *filePath, <span class="keywordtype">char</span> *toSearch);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keywordtype">int</span> <a class="code hl_function" href="analyze_8h.html#ae5a02aaad7ac0820d0b9c6c96c77abb9">replaceStringInFile</a>(<span class="keywordtype">char</span> *filePath, <span class="keywordtype">char</span> *toReplaceString, <span class="keywordtype">char</span> *toAddString);</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="ttc" id="aanalyze_8h_html_ae5a02aaad7ac0820d0b9c6c96c77abb9"><div class="ttname"><a href="analyze_8h.html#ae5a02aaad7ac0820d0b9c6c96c77abb9">replaceStringInFile</a></div><div class="ttdeci">int replaceStringInFile(char *filePath, char *toReplaceString, char *toAddString)</div><div class="ttdoc">This function replace a wide-character string by another one.</div><div class="ttdef"><b>Definition:</b> analyze.c:171</div></div>
-<div class="ttc" id="astructstring_occurrences_html"><div class="ttname"><a href="structstring_occurrences.html">stringOccurrences</a></div><div class="ttdef"><b>Definition:</b> analyze.h:38</div></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor"># if defined(_WIN32)</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">/***************** &quot;-D STATIC&quot; ******************/</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#   if defined(STATIC)</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#     define SHARED</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">/**************** &quot;-D BUILD_DLL&quot; ****************/</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#   else</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#     if defined(BUILD_DLL)</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#       define SHARED __declspec(dllexport)</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#     else</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#       define SHARED __declspec(dllimport)</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#     endif</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#   endif</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">/****************** DEFAULT *******************/</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor"># else</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">   73</a></span><span class="preprocessor">#   define SHARED</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor"># endif</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="struct_f_m_a_n_c___s_o.html">   80</a></span><a class="code hl_define" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> <span class="keyword">struct </span><a class="code hl_struct" href="struct_f_m_a_n_c___s_o.html">FMANC_SO</a></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>{</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">size_t</span> charCount;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> *pos;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>};</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><a class="code hl_define" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_f_m_a_n_c___s_o.html">FMANC_SO</a> stringOccurrences;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><a class="code hl_define" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> <span class="keywordtype">size_t</span> countCharInFile(<span class="keywordtype">char</span> *filePath);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><a class="code hl_define" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> stringOccurrences *init_StringOccurences(<span class="keywordtype">size_t</span> sizeOfString);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><a class="code hl_define" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> <span class="keywordtype">void</span> free_stringOccurrences(stringOccurrences *toBeDeleted);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><a class="code hl_define" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> stringOccurrences *searchStringInFile(<span class="keywordtype">char</span> *filePath, <span class="keywordtype">char</span> *toSearch);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><a class="code hl_define" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> <span class="keywordtype">int</span> <a class="code hl_function" href="analyze_8h.html#a9af25065ed26893b120fd7656edef6fb">replaceStringInFile</a>(<span class="keywordtype">char</span> *filePath, <span class="keywordtype">char</span> *toReplaceString, <span class="keywordtype">char</span> *toAddString);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="ttc" id="aanalyze_8h_html_a884c794595c4aa480df9022648c29564"><div class="ttname"><a href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a></div><div class="ttdeci">#define SHARED</div><div class="ttdoc">Useful to choose how to use the lib on Windows systems.</div><div class="ttdef"><b>Definition:</b> <a href="analyze_8h_source.html#l00073">analyze.h:73</a></div></div>
+<div class="ttc" id="aanalyze_8h_html_a9af25065ed26893b120fd7656edef6fb"><div class="ttname"><a href="analyze_8h.html#a9af25065ed26893b120fd7656edef6fb">replaceStringInFile</a></div><div class="ttdeci">SHARED int replaceStringInFile(char *filePath, char *toReplaceString, char *toAddString)</div><div class="ttdoc">This function replace a wide-character string by another one.</div><div class="ttdef"><b>Definition:</b> <a href="analyze_8c_source.html#l00186">analyze.c:186</a></div></div>
+<div class="ttc" id="astruct_f_m_a_n_c___s_o_html"><div class="ttname"><a href="struct_f_m_a_n_c___s_o.html">FMANC_SO</a></div><div class="ttdef"><b>Definition:</b> <a href="analyze_8h_source.html#l00080">analyze.h:81</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="analyze_8h.html">analyze.h</a></li>
+    <li class="navelem"><a class="el" href="dir_49e56c817e5e54854c35e136979f97ca.html">docs</a></li><li class="navelem"><a class="el" href="dir_389911674c031a4efb91f80ac73b062d.html">src_documented</a></li><li class="navelem"><a class="el" href="analyze_8h.html">analyze.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>

@@ -1,5 +1,5 @@
-\hypertarget{file_man_8c}{}\doxysection{file\+Man.\+c File Reference}
-\label{file_man_8c}\index{fileMan.c@{fileMan.c}}
+\hypertarget{file_man_8c}{}\doxysection{docs/src\+\_\+documented/file\+Man.c File Reference}
+\label{file_man_8c}\index{docs/src\_documented/fileMan.c@{docs/src\_documented/fileMan.c}}
 
 
 These functions are made to do operate simple operation on files or file names, when there is no neee to analyze something like orccurrences, ...  
@@ -8,17 +8,13 @@ These functions are made to do operate simple operation on files or file names, 
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{file_man_8c_a95f02d94dae556d5282368721e994732}\label{file_man_8c_a95f02d94dae556d5282368721e994732}} 
-char $\ast$ {\bfseries copy\+File\+Without\+Tab\+And\+Line\+Break} (char $\ast$source\+File\+Path, char $\ast$$\ast$path\+To\+Copy)
+\mbox{\hyperlink{analyze_8h_a884c794595c4aa480df9022648c29564}{SHARED}} char $\ast$ \mbox{\hyperlink{file_man_8c_a95f02d94dae556d5282368721e994732}{copy\+File\+Without\+Tab\+And\+Line\+Break}} (char $\ast$source\+File\+Path, char $\ast$$\ast$path\+To\+Copy)
+\begin{DoxyCompactList}\small\item\em Copy a file without tab and line break. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{analyze_8h_a884c794595c4aa480df9022648c29564}{SHARED}} void \mbox{\hyperlink{file_man_8c_a8c282c21f89a7dd9b3467023dca263cc}{fget\+File\+Extension}} (char $\ast$source\+File\+Path, char $\ast$extension)
 \item 
-\mbox{\Hypertarget{file_man_8c_a2ae33808674f181279341940f19d60b9}\label{file_man_8c_a2ae33808674f181279341940f19d60b9}} 
-void {\bfseries fget\+File\+Extension} (char $\ast$source\+File\+Name, char $\ast$extension)
+\mbox{\hyperlink{analyze_8h_a884c794595c4aa480df9022648c29564}{SHARED}} void \mbox{\hyperlink{file_man_8c_aab47c1598b9a4b54a5fa6e281557c04c}{fget\+File\+Name}} (char $\ast$source\+File\+Path, char $\ast$file\+Name)
 \item 
-\mbox{\Hypertarget{file_man_8c_a1d3df2b7a44029fad789b45b4406451a}\label{file_man_8c_a1d3df2b7a44029fad789b45b4406451a}} 
-void {\bfseries fget\+File\+Name} (char $\ast$source\+File\+Path, char $\ast$file\+Name)
-\item 
-\mbox{\Hypertarget{file_man_8c_a97687e29a139210fc190ce98d836c160}\label{file_man_8c_a97687e29a139210fc190ce98d836c160}} 
-void {\bfseries fget\+File\+Path} (char $\ast$source\+File\+Path, char $\ast$file\+Path)
+\mbox{\hyperlink{analyze_8h_a884c794595c4aa480df9022648c29564}{SHARED}} void \mbox{\hyperlink{file_man_8c_accb539b720005d8f755c08b3ccab2386}{fget\+File\+Path}} (char $\ast$source\+File\+Path, char $\ast$file\+Path)
 \end{DoxyCompactItemize}
 
 
@@ -31,3 +27,72 @@ Axel PASCON (a.\+k.\+a. brvtalcake)
 \begin{DoxyDate}{Date}
 2022 
 \end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{file_man_8c_source}{file\+Man.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{file_man_8c_a95f02d94dae556d5282368721e994732}\label{file_man_8c_a95f02d94dae556d5282368721e994732}} 
+\index{fileMan.c@{fileMan.c}!copyFileWithoutTabAndLineBreak@{copyFileWithoutTabAndLineBreak}}
+\index{copyFileWithoutTabAndLineBreak@{copyFileWithoutTabAndLineBreak}!fileMan.c@{fileMan.c}}
+\doxysubsubsection{\texorpdfstring{copyFileWithoutTabAndLineBreak()}{copyFileWithoutTabAndLineBreak()}}
+{\footnotesize\ttfamily char $\ast$ copy\+File\+Without\+Tab\+And\+Line\+Break (\begin{DoxyParamCaption}\item[{char $\ast$}]{source\+File\+Path,  }\item[{char $\ast$$\ast$}]{path\+To\+Copy }\end{DoxyParamCaption})}
+
+
+
+Copy a file without tab and line break. 
+
+The copied file with be renamed as $<$source\+File name$>$\+\_\+copied.$<$source\+File\+Extension$>$ if the param path\+To\+Copy is set to NULL, and what you want if you specify the path with a name and extension. \begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000001}{Todo}}]Check if the path to copy has a name and an extension at the end.\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em source\+File\+Path} & The source file path. \\
+\hline
+{\em path\+To\+Copy} & The path to copy. You can set it to NULL if you want the copied file to be in the same directory as the source file.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em source\+File\+Name} & This case is when no error has occured. \\
+\hline
+{\em NULL} & If an error has occured. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{file_man_8c_source_l00031}{31}} of file \mbox{\hyperlink{file_man_8c_source}{file\+Man.\+c}}.
+
+\mbox{\Hypertarget{file_man_8c_a8c282c21f89a7dd9b3467023dca263cc}\label{file_man_8c_a8c282c21f89a7dd9b3467023dca263cc}} 
+\index{fileMan.c@{fileMan.c}!fgetFileExtension@{fgetFileExtension}}
+\index{fgetFileExtension@{fgetFileExtension}!fileMan.c@{fileMan.c}}
+\doxysubsubsection{\texorpdfstring{fgetFileExtension()}{fgetFileExtension()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{analyze_8h_a884c794595c4aa480df9022648c29564}{SHARED}} void fget\+File\+Extension (\begin{DoxyParamCaption}\item[{char $\ast$}]{source\+File\+Path,  }\item[{char $\ast$}]{extension }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{file_man_8c_source_l00093}{93}} of file \mbox{\hyperlink{file_man_8c_source}{file\+Man.\+c}}.
+
+\mbox{\Hypertarget{file_man_8c_aab47c1598b9a4b54a5fa6e281557c04c}\label{file_man_8c_aab47c1598b9a4b54a5fa6e281557c04c}} 
+\index{fileMan.c@{fileMan.c}!fgetFileName@{fgetFileName}}
+\index{fgetFileName@{fgetFileName}!fileMan.c@{fileMan.c}}
+\doxysubsubsection{\texorpdfstring{fgetFileName()}{fgetFileName()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{analyze_8h_a884c794595c4aa480df9022648c29564}{SHARED}} void fget\+File\+Name (\begin{DoxyParamCaption}\item[{char $\ast$}]{source\+File\+Path,  }\item[{char $\ast$}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{file_man_8c_source_l00130}{130}} of file \mbox{\hyperlink{file_man_8c_source}{file\+Man.\+c}}.
+
+\mbox{\Hypertarget{file_man_8c_accb539b720005d8f755c08b3ccab2386}\label{file_man_8c_accb539b720005d8f755c08b3ccab2386}} 
+\index{fileMan.c@{fileMan.c}!fgetFilePath@{fgetFilePath}}
+\index{fgetFilePath@{fgetFilePath}!fileMan.c@{fileMan.c}}
+\doxysubsubsection{\texorpdfstring{fgetFilePath()}{fgetFilePath()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{analyze_8h_a884c794595c4aa480df9022648c29564}{SHARED}} void fget\+File\+Path (\begin{DoxyParamCaption}\item[{char $\ast$}]{source\+File\+Path,  }\item[{char $\ast$}]{file\+Path }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{file_man_8c_source_l00178}{178}} of file \mbox{\hyperlink{file_man_8c_source}{file\+Man.\+c}}.
+

@@ -1,10 +1,15 @@
-\hypertarget{fmanc_8h}{}\doxysection{fmanc.\+h File Reference}
-\label{fmanc_8h}\index{fmanc.h@{fmanc.h}}
+\hypertarget{fmanc_8h}{}\doxysection{docs/src\+\_\+documented/fmanc.h File Reference}
+\label{fmanc_8h}\index{docs/src\_documented/fmanc.h@{docs/src\_documented/fmanc.h}}
 
 
 This is the main header of the lib, where all of the headers are included.  
 
 
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fmanc_8h_a884c794595c4aa480df9022648c29564}{SHARED}}
+\begin{DoxyCompactList}\small\item\em Useful to choose how to use the lib on Windows systems. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -23,3 +28,41 @@ Axel PASCON (a.\+k.\+a. brvtalcake)
 \begin{DoxyDate}{Date}
 2022 
 \end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{fmanc_8h_source}{fmanc.\+h}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{fmanc_8h_a884c794595c4aa480df9022648c29564}\label{fmanc_8h_a884c794595c4aa480df9022648c29564}} 
+\index{fmanc.h@{fmanc.h}!SHARED@{SHARED}}
+\index{SHARED@{SHARED}!fmanc.h@{fmanc.h}}
+\doxysubsubsection{\texorpdfstring{SHARED}{SHARED}}
+{\footnotesize\ttfamily \#define SHARED}
+
+
+
+Useful to choose how to use the lib on Windows systems. 
+
+If you want to use the lib with the dll, you don\textquotesingle{}t need to add anything in the command line. If you want to use the static version of the lib, then put \char`\"{}-\/\+D STATIC\char`\"{} in your command line when compiling, so you let the compiler know that the keyword \char`\"{}\+SHARED\char`\"{} is set to nothing and the function declarations are not provided with the \+\_\+\+\_\+declspec() attribute. You can also look at the full macro block below (wich is also in the source code of all of the headers) to see what I mean 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\# if defined(\_WIN32)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#   if defined(STATIC)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#     define SHARED}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#   else}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#     if defined(BUILD\_DLL)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#       define SHARED \_\_declspec(dllexport)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#     else}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#       define SHARED \_\_declspec(dllimport)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#     endif}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#   endif}}
+\DoxyCodeLine{\textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#   define SHARED}}
+\DoxyCodeLine{\textcolor{preprocessor}{\# endif}}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{fmanc_8h_source_l00075}{75}} of file \mbox{\hyperlink{fmanc_8h_source}{fmanc.\+h}}.
+

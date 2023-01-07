@@ -1,16 +1,20 @@
-\hypertarget{fcmx_8h}{}\doxysection{fcmx.\+h File Reference}
-\label{fcmx_8h}\index{fcmx.h@{fcmx.h}}
+\hypertarget{fcmx_8h}{}\doxysection{docs/src\+\_\+documented/fcmx.h File Reference}
+\label{fcmx_8h}\index{docs/src\_documented/fcmx.h@{docs/src\_documented/fcmx.h}}
 
 
 This header contains function declarations that are wittent on \mbox{\hyperlink{fcmx_8c}{this file}} and that I will use for one of my project (which isn\textquotesingle{}t still on git\+Hub)  
 
 
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fcmx_8h_a884c794595c4aa480df9022648c29564}{SHARED}}
+\begin{DoxyCompactList}\small\item\em Useful to choose how to use the lib on Windows systems. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{fcmx_8h_ac00d5607ef908576f411582a8eb8a128}\label{fcmx_8h_ac00d5607ef908576f411582a8eb8a128}} 
-int {\bfseries copy\+File\+Without\+Strings} (const unsigned int argc, char $\ast$file\+Path,...)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{analyze_8h_a884c794595c4aa480df9022648c29564}{SHARED}} int \mbox{\hyperlink{fcmx_8h_ac00d5607ef908576f411582a8eb8a128}{copy\+File\+Without\+Strings}} (const unsigned int argc, char $\ast$file\+Path,...)
+\begin{DoxyCompactList}\small\item\em Function just declared and still not done. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -22,3 +26,70 @@ Axel PASCON (a.\+k.\+a. brvtalcake)
 \begin{DoxyDate}{Date}
 2022 
 \end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{fcmx_8h_source}{fcmx.\+h}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{fcmx_8h_a884c794595c4aa480df9022648c29564}\label{fcmx_8h_a884c794595c4aa480df9022648c29564}} 
+\index{fcmx.h@{fcmx.h}!SHARED@{SHARED}}
+\index{SHARED@{SHARED}!fcmx.h@{fcmx.h}}
+\doxysubsubsection{\texorpdfstring{SHARED}{SHARED}}
+{\footnotesize\ttfamily \#define SHARED}
+
+
+
+Useful to choose how to use the lib on Windows systems. 
+
+If you want to use the lib with the dll, you don\textquotesingle{}t need to add anything in the command line. If you want to use the static version of the lib, then put \char`\"{}-\/\+D STATIC\char`\"{} in your command line when compiling, so you let the compiler know that the keyword \char`\"{}\+SHARED\char`\"{} is set to nothing and the function declarations are not provided with the \+\_\+\+\_\+declspec() attribute. You can also look at the full macro block below (wich is also in the source code of all of the headers) to see what I mean 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\# if defined(\_WIN32)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#   if defined(STATIC)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#     define SHARED}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#   else}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#     if defined(BUILD\_DLL)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#       define SHARED \_\_declspec(dllexport)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#     else}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#       define SHARED \_\_declspec(dllimport)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#     endif}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#   endif}}
+\DoxyCodeLine{\textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#   define SHARED}}
+\DoxyCodeLine{\textcolor{preprocessor}{\# endif}}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{fcmx_8h_source_l00072}{72}} of file \mbox{\hyperlink{fcmx_8h_source}{fcmx.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{fcmx_8h_ac00d5607ef908576f411582a8eb8a128}\label{fcmx_8h_ac00d5607ef908576f411582a8eb8a128}} 
+\index{fcmx.h@{fcmx.h}!copyFileWithoutStrings@{copyFileWithoutStrings}}
+\index{copyFileWithoutStrings@{copyFileWithoutStrings}!fcmx.h@{fcmx.h}}
+\doxysubsubsection{\texorpdfstring{copyFileWithoutStrings()}{copyFileWithoutStrings()}}
+{\footnotesize\ttfamily int copy\+File\+Without\+Strings (\begin{DoxyParamCaption}\item[{const unsigned int}]{argc,  }\item[{char $\ast$}]{file\+Path,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Function just declared and still not done. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]Do it (lol).\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em argc} & The count of arguments \\
+\hline
+ & {\em file\+Path} & The file path \\
+\hline
+\mbox{\texttt{ in}}  & {\em $<$unnamed$>$} & \{ parameter\+\_\+description \}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{ description\+\_\+of\+\_\+the\+\_\+return\+\_\+value \} 
+\end{DoxyReturn}

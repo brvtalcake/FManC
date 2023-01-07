@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>libfmanc: fileMan.h File Reference</title>
+<title>FManC: docs/src_documented/fileMan.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,9 +25,8 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libfmanc
+   <div id="projectname">FManC
    </div>
-   <div id="projectbrief">A C file manager</div>
   </td>
  </tr>
  </tbody>
@@ -104,53 +103,393 @@ $(document).ready(function(){initNavTree('file_man_8h.html',''); initResizable()
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:aef2c26bbba7239793dfd266d0e8b46b4"><td class="memItemLeft" align="right" valign="top"><a id="aef2c26bbba7239793dfd266d0e8b46b4" name="aef2c26bbba7239793dfd266d0e8b46b4"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_FEXT_SIZE</b>&#160;&#160;&#160;50</td></tr>
+<tr class="memitem:a884c794595c4aa480df9022648c29564"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file_man_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a></td></tr>
+<tr class="memdesc:a884c794595c4aa480df9022648c29564"><td class="mdescLeft">&#160;</td><td class="mdescRight">Useful to choose how to use the lib on Windows systems.  <a href="file_man_8h.html#a884c794595c4aa480df9022648c29564">More...</a><br /></td></tr>
+<tr class="separator:a884c794595c4aa480df9022648c29564"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef2c26bbba7239793dfd266d0e8b46b4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file_man_8h.html#aef2c26bbba7239793dfd266d0e8b46b4">MAX_FEXT_SIZE</a>&#160;&#160;&#160;50</td></tr>
 <tr class="separator:aef2c26bbba7239793dfd266d0e8b46b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0e76045bf91a8a1b4fc381488399f70"><td class="memItemLeft" align="right" valign="top"><a id="ab0e76045bf91a8a1b4fc381488399f70" name="ab0e76045bf91a8a1b4fc381488399f70"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_FNAME_SIZE</b>&#160;&#160;&#160;256</td></tr>
+<tr class="memitem:ab0e76045bf91a8a1b4fc381488399f70"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file_man_8h.html#ab0e76045bf91a8a1b4fc381488399f70">MAX_FNAME_SIZE</a>&#160;&#160;&#160;256</td></tr>
 <tr class="separator:ab0e76045bf91a8a1b4fc381488399f70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5c03ff129a1255adb84d15ae75425b8"><td class="memItemLeft" align="right" valign="top"><a id="ae5c03ff129a1255adb84d15ae75425b8" name="ae5c03ff129a1255adb84d15ae75425b8"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_FPATH_SIZE</b>&#160;&#160;&#160;512</td></tr>
+<tr class="memitem:ae5c03ff129a1255adb84d15ae75425b8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file_man_8h.html#ae5c03ff129a1255adb84d15ae75425b8">MAX_FPATH_SIZE</a>&#160;&#160;&#160;512</td></tr>
 <tr class="separator:ae5c03ff129a1255adb84d15ae75425b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a7d6e2579648dc4efbfef9d4c075ff8"><td class="memItemLeft" align="right" valign="top"><a id="a0a7d6e2579648dc4efbfef9d4c075ff8" name="a0a7d6e2579648dc4efbfef9d4c075ff8"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>getFileExtension</b>(sourceFileName,  extension)&#160;&#160;&#160;char extension[MAX_FEXT_SIZE]; fgetFileExtension(sourceFileName, extension)</td></tr>
-<tr class="separator:a0a7d6e2579648dc4efbfef9d4c075ff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e855422945c4cdbaf71723d8e25d9f5"><td class="memItemLeft" align="right" valign="top"><a id="a3e855422945c4cdbaf71723d8e25d9f5" name="a3e855422945c4cdbaf71723d8e25d9f5"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>getFileName</b>(sourceFilePath,  name)&#160;&#160;&#160;char name[MAX_FNAME_SIZE]; fgetFileName(sourceFilePath, name)</td></tr>
+<tr class="memitem:a68b8bb9ca6877866b30b5d71f33f1b08"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file_man_8h.html#a68b8bb9ca6877866b30b5d71f33f1b08">getFileExtension</a>(sourceFilePath,  extension)&#160;&#160;&#160;char extension[<a class="el" href="file_man_8h.html#aef2c26bbba7239793dfd266d0e8b46b4">MAX_FEXT_SIZE</a>] = &quot;&quot;; fgetFileExtension(sourceFilePath, extension)</td></tr>
+<tr class="memdesc:a68b8bb9ca6877866b30b5d71f33f1b08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives you the file extension.  <a href="file_man_8h.html#a68b8bb9ca6877866b30b5d71f33f1b08">More...</a><br /></td></tr>
+<tr class="separator:a68b8bb9ca6877866b30b5d71f33f1b08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e855422945c4cdbaf71723d8e25d9f5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file_man_8h.html#a3e855422945c4cdbaf71723d8e25d9f5">getFileName</a>(sourceFilePath,  name)&#160;&#160;&#160;char name[<a class="el" href="file_man_8h.html#ab0e76045bf91a8a1b4fc381488399f70">MAX_FNAME_SIZE</a>] = &quot;&quot;; fgetFileName(sourceFilePath, name)</td></tr>
+<tr class="memdesc:a3e855422945c4cdbaf71723d8e25d9f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives you the file name.  <a href="file_man_8h.html#a3e855422945c4cdbaf71723d8e25d9f5">More...</a><br /></td></tr>
 <tr class="separator:a3e855422945c4cdbaf71723d8e25d9f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac79aba55b8bda0cfc4ce3a88534adbc0"><td class="memItemLeft" align="right" valign="top"><a id="ac79aba55b8bda0cfc4ce3a88534adbc0" name="ac79aba55b8bda0cfc4ce3a88534adbc0"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>getFilePath</b>(sourceFilePath,  path)&#160;&#160;&#160;char path[MAX_FPATH_SIZE]; fgetFilePath(sourceFilePath, path)</td></tr>
+<tr class="memitem:ac79aba55b8bda0cfc4ce3a88534adbc0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file_man_8h.html#ac79aba55b8bda0cfc4ce3a88534adbc0">getFilePath</a>(sourceFilePath,  path)&#160;&#160;&#160;char path[<a class="el" href="file_man_8h.html#ae5c03ff129a1255adb84d15ae75425b8">MAX_FPATH_SIZE</a>] = &quot;&quot;; fgetFilePath(sourceFilePath, path)</td></tr>
+<tr class="memdesc:ac79aba55b8bda0cfc4ce3a88534adbc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives you the file path (without name and extension).  <a href="file_man_8h.html#ac79aba55b8bda0cfc4ce3a88534adbc0">More...</a><br /></td></tr>
 <tr class="separator:ac79aba55b8bda0cfc4ce3a88534adbc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a95f02d94dae556d5282368721e994732"><td class="memItemLeft" align="right" valign="top"><a id="a95f02d94dae556d5282368721e994732" name="a95f02d94dae556d5282368721e994732"></a>
-char *&#160;</td><td class="memItemRight" valign="bottom"><b>copyFileWithoutTabAndLineBreak</b> (char *sourceFilePath, char **pathToCopy)</td></tr>
-<tr class="separator:a95f02d94dae556d5282368721e994732"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac00d5607ef908576f411582a8eb8a128"><td class="memItemLeft" align="right" valign="top"><a id="ac00d5607ef908576f411582a8eb8a128" name="ac00d5607ef908576f411582a8eb8a128"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>copyFileWithoutStrings</b> (const unsigned int argc, char *filePath,...)</td></tr>
-<tr class="separator:ac00d5607ef908576f411582a8eb8a128"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ae33808674f181279341940f19d60b9"><td class="memItemLeft" align="right" valign="top"><a id="a2ae33808674f181279341940f19d60b9" name="a2ae33808674f181279341940f19d60b9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>fgetFileExtension</b> (char *sourceFileName, char *extension)</td></tr>
-<tr class="separator:a2ae33808674f181279341940f19d60b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d3df2b7a44029fad789b45b4406451a"><td class="memItemLeft" align="right" valign="top"><a id="a1d3df2b7a44029fad789b45b4406451a" name="a1d3df2b7a44029fad789b45b4406451a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>fgetFileName</b> (char *sourceFilePath, char *fileName)</td></tr>
-<tr class="separator:a1d3df2b7a44029fad789b45b4406451a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97687e29a139210fc190ce98d836c160"><td class="memItemLeft" align="right" valign="top"><a id="a97687e29a139210fc190ce98d836c160" name="a97687e29a139210fc190ce98d836c160"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>fgetFilePath</b> (char *sourceFilePath, char *filePath)</td></tr>
-<tr class="separator:a97687e29a139210fc190ce98d836c160"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae462ecddbcda66634973af8c13846a6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file_man_8h.html#ae462ecddbcda66634973af8c13846a6f">copyFileWithoutTabAndLineBreak</a> (char *sourceFilePath, char **pathToCopy)</td></tr>
+<tr class="memdesc:ae462ecddbcda66634973af8c13846a6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy a file without tab and line break.  <a href="file_man_8h.html#ae462ecddbcda66634973af8c13846a6f">More...</a><br /></td></tr>
+<tr class="separator:ae462ecddbcda66634973af8c13846a6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4436bff00c8ec175dcb290cdb19da8f0"><td class="memItemLeft" align="right" valign="top"><a id="a4436bff00c8ec175dcb290cdb19da8f0" name="a4436bff00c8ec175dcb290cdb19da8f0"></a>
+<a class="el" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> int&#160;</td><td class="memItemRight" valign="bottom"><b>copyFileWithoutStrings</b> (const unsigned int argc, char *filePath,...)</td></tr>
+<tr class="separator:a4436bff00c8ec175dcb290cdb19da8f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a98e06eeb8a9f5e6752e2e597a52d36"><td class="memItemLeft" align="right" valign="top"><a class="el" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file_man_8h.html#a0a98e06eeb8a9f5e6752e2e597a52d36">fgetFileExtension</a> (char *sourceFileName, char *extension)</td></tr>
+<tr class="separator:a0a98e06eeb8a9f5e6752e2e597a52d36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab47c1598b9a4b54a5fa6e281557c04c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file_man_8h.html#aab47c1598b9a4b54a5fa6e281557c04c">fgetFileName</a> (char *sourceFilePath, char *fileName)</td></tr>
+<tr class="separator:aab47c1598b9a4b54a5fa6e281557c04c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accb539b720005d8f755c08b3ccab2386"><td class="memItemLeft" align="right" valign="top"><a class="el" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file_man_8h.html#accb539b720005d8f755c08b3ccab2386">fgetFilePath</a> (char *sourceFilePath, char *filePath)</td></tr>
+<tr class="separator:accb539b720005d8f755c08b3ccab2386"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >This header contains macro definitions and function declarations that are written in <a class="el" href="file_man_8c.html">this file</a>. These functions are made to operate simple operation on files or file names, when there is no neee to analyze something like orccurrences, ... </p>
 <dl class="section author"><dt>Author</dt><dd>Axel PASCON (a.k.a. brvtalcake) </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2022 </dd></dl>
-</div></div><!-- contents -->
+
+<p class="definition">Definition in file <a class="el" href="file_man_8h_source.html">fileMan.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a68b8bb9ca6877866b30b5d71f33f1b08" name="a68b8bb9ca6877866b30b5d71f33f1b08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68b8bb9ca6877866b30b5d71f33f1b08">&#9670;&#160;</a></span>getFileExtension</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define getFileExtension</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">sourceFilePath, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">extension&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;char extension[<a class="el" href="file_man_8h.html#aef2c26bbba7239793dfd266d0e8b46b4">MAX_FEXT_SIZE</a>] = &quot;&quot;; fgetFileExtension(sourceFilePath, extension)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gives you the file extension. </p>
+<p >It is stored in an array of char with the name you specify (extension). </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">sourceFilePath</td><td>Full path or relative path. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">extension</td><td>The name of the array where you stock the extension. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>This doesn't really return anything, but displays an error message if no extension or invalid extension. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="file_man_8h_source.html#l00112">112</a> of file <a class="el" href="file_man_8h_source.html">fileMan.h</a>.</p>
+
+</div>
+</div>
+<a id="a3e855422945c4cdbaf71723d8e25d9f5" name="a3e855422945c4cdbaf71723d8e25d9f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e855422945c4cdbaf71723d8e25d9f5">&#9670;&#160;</a></span>getFileName</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define getFileName</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">sourceFilePath, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;char name[<a class="el" href="file_man_8h.html#ab0e76045bf91a8a1b4fc381488399f70">MAX_FNAME_SIZE</a>] = &quot;&quot;; fgetFileName(sourceFilePath, name)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gives you the file name. </p>
+<p >It is stored in an array of char with the name you specify (name). </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">sourceFilePath</td><td>Full path or relative path. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">name</td><td>The name of the array where you stock the name. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>This doesn't really return anything, but displays an error message if no name or invalid name. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="file_man_8h_source.html#l00124">124</a> of file <a class="el" href="file_man_8h_source.html">fileMan.h</a>.</p>
+
+</div>
+</div>
+<a id="ac79aba55b8bda0cfc4ce3a88534adbc0" name="ac79aba55b8bda0cfc4ce3a88534adbc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac79aba55b8bda0cfc4ce3a88534adbc0">&#9670;&#160;</a></span>getFilePath</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define getFilePath</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">sourceFilePath, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">path&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;char path[<a class="el" href="file_man_8h.html#ae5c03ff129a1255adb84d15ae75425b8">MAX_FPATH_SIZE</a>] = &quot;&quot;; fgetFilePath(sourceFilePath, path)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gives you the file path (without name and extension). </p>
+<p >It is stored in an array of char with the name you specify (extension). </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">sourceFilePath</td><td>Full path or relative path. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">path</td><td>The name of the array where you stock the path. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>This doesn't really return anything, but if the path is like "main.c", then the array will have '\0' as first character. Won't display any error message if no path. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="file_man_8h_source.html#l00136">136</a> of file <a class="el" href="file_man_8h_source.html">fileMan.h</a>.</p>
+
+</div>
+</div>
+<a id="aef2c26bbba7239793dfd266d0e8b46b4" name="aef2c26bbba7239793dfd266d0e8b46b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef2c26bbba7239793dfd266d0e8b46b4">&#9670;&#160;</a></span>MAX_FEXT_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_FEXT_SIZE&#160;&#160;&#160;50</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >This the value of the maximum size of a file extension counted in characters </p>
+
+<p class="definition">Definition at line <a class="el" href="file_man_8h_source.html#l00084">84</a> of file <a class="el" href="file_man_8h_source.html">fileMan.h</a>.</p>
+
+</div>
+</div>
+<a id="ab0e76045bf91a8a1b4fc381488399f70" name="ab0e76045bf91a8a1b4fc381488399f70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0e76045bf91a8a1b4fc381488399f70">&#9670;&#160;</a></span>MAX_FNAME_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_FNAME_SIZE&#160;&#160;&#160;256</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >This the value of the maximum size of a file name counted in characters </p>
+
+<p class="definition">Definition at line <a class="el" href="file_man_8h_source.html#l00092">92</a> of file <a class="el" href="file_man_8h_source.html">fileMan.h</a>.</p>
+
+</div>
+</div>
+<a id="ae5c03ff129a1255adb84d15ae75425b8" name="ae5c03ff129a1255adb84d15ae75425b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5c03ff129a1255adb84d15ae75425b8">&#9670;&#160;</a></span>MAX_FPATH_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_FPATH_SIZE&#160;&#160;&#160;512</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >This the value of the maximum size of a file path (full (relative or not) path without name and extension) counted in characters </p>
+
+<p class="definition">Definition at line <a class="el" href="file_man_8h_source.html#l00100">100</a> of file <a class="el" href="file_man_8h_source.html">fileMan.h</a>.</p>
+
+</div>
+</div>
+<a id="a884c794595c4aa480df9022648c29564" name="a884c794595c4aa480df9022648c29564"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a884c794595c4aa480df9022648c29564">&#9670;&#160;</a></span>SHARED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SHARED</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Useful to choose how to use the lib on Windows systems. </p>
+<p >If you want to use the lib with the dll, you don't need to add anything in the command line. If you want to use the static version of the lib, then put "-D STATIC" in your command line when compiling, so you let the compiler know that the keyword "SHARED" is set to nothing and the function declarations are not provided with the __declspec() attribute. You can also look at the full macro block below (wich is also in the source code of all of the headers) to see what I mean </p><div class="fragment"><div class="line"><span class="preprocessor"># if defined(_WIN32)</span></div>
+<div class="line"><span class="preprocessor">#   if defined(STATIC)</span></div>
+<div class="line"><span class="preprocessor">#     define SHARED</span></div>
+<div class="line"><span class="preprocessor">#   else</span></div>
+<div class="line"><span class="preprocessor">#     if defined(BUILD_DLL)</span></div>
+<div class="line"><span class="preprocessor">#       define SHARED __declspec(dllexport)</span></div>
+<div class="line"><span class="preprocessor">#     else</span></div>
+<div class="line"><span class="preprocessor">#       define SHARED __declspec(dllimport)</span></div>
+<div class="line"><span class="preprocessor">#     endif</span></div>
+<div class="line"><span class="preprocessor">#   endif</span></div>
+<div class="line"><span class="preprocessor"># else</span></div>
+<div class="line"><span class="preprocessor">#   define SHARED</span></div>
+<div class="line"><span class="preprocessor"># endif</span></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="file_man_8h_source.html#l00076">76</a> of file <a class="el" href="file_man_8h_source.html">fileMan.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ae462ecddbcda66634973af8c13846a6f" name="ae462ecddbcda66634973af8c13846a6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae462ecddbcda66634973af8c13846a6f">&#9670;&#160;</a></span>copyFileWithoutTabAndLineBreak()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> char * copyFileWithoutTabAndLineBreak </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>sourceFilePath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>pathToCopy</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copy a file without tab and line break. </p>
+<p >The copied file with be renamed as &lt;sourceFile name&gt;_copied.&lt;sourceFileExtension&gt; if the param pathToCopy is set to NULL, and what you want if you specify the path with a name and extension. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Check if the path to copy has a name and an extension at the end.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sourceFilePath</td><td>The source file path. </td></tr>
+    <tr><td class="paramname">pathToCopy</td><td>The path to copy. You can set it to NULL if you want the copied file to be in the same directory as the source file.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">sourceFileName</td><td>This case is when no error has occured. </td></tr>
+    <tr><td class="paramname">NULL</td><td>If an error has occured. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="file_man_8c_source.html#l00031">31</a> of file <a class="el" href="file_man_8c_source.html">fileMan.c</a>.</p>
+
+</div>
+</div>
+<a id="a0a98e06eeb8a9f5e6752e2e597a52d36" name="a0a98e06eeb8a9f5e6752e2e597a52d36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a98e06eeb8a9f5e6752e2e597a52d36">&#9670;&#160;</a></span>fgetFileExtension()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> void fgetFileExtension </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>sourceFileName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>extension</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="file_man_8c_source.html#l00093">93</a> of file <a class="el" href="file_man_8c_source.html">fileMan.c</a>.</p>
+
+</div>
+</div>
+<a id="aab47c1598b9a4b54a5fa6e281557c04c" name="aab47c1598b9a4b54a5fa6e281557c04c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab47c1598b9a4b54a5fa6e281557c04c">&#9670;&#160;</a></span>fgetFileName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> void fgetFileName </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>sourceFilePath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>fileName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="file_man_8c_source.html#l00130">130</a> of file <a class="el" href="file_man_8c_source.html">fileMan.c</a>.</p>
+
+</div>
+</div>
+<a id="accb539b720005d8f755c08b3ccab2386" name="accb539b720005d8f755c08b3ccab2386"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accb539b720005d8f755c08b3ccab2386">&#9670;&#160;</a></span>fgetFilePath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> void fgetFilePath </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>sourceFilePath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filePath</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="file_man_8c_source.html#l00178">178</a> of file <a class="el" href="file_man_8c_source.html">fileMan.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="file_man_8h.html">fileMan.h</a></li>
+    <li class="navelem"><a class="el" href="dir_49e56c817e5e54854c35e136979f97ca.html">docs</a></li><li class="navelem"><a class="el" href="dir_389911674c031a4efb91f80ac73b062d.html">src_documented</a></li><li class="navelem"><a class="el" href="file_man_8h.html">fileMan.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>

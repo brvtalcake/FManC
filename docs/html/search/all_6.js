@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['replacestringinfile_0',['replaceStringInFile',['../analyze_8c.html#ae5a02aaad7ac0820d0b9c6c96c77abb9',1,'replaceStringInFile(char *filePath, char *toReplaceString, char *toAddString):&#160;analyze.c'],['../analyze_8h.html#ae5a02aaad7ac0820d0b9c6c96c77abb9',1,'replaceStringInFile(char *filePath, char *toReplaceString, char *toAddString):&#160;analyze.c']]]
+  ['nocomments_2el_0',['noComments.l',['../no_comments_8l.html',1,'']]],
+  ['notbyme_1',['NOTBYME',['../md_docs_src_documented_not_by_me__n_o_t_b_y_m_e.html',1,'']]]
 ];

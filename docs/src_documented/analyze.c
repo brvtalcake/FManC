@@ -21,29 +21,30 @@
  * @}
  */
 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
 #include <stdbool.h>
 #include <locale.h>
+#include <limits.h>
 #include <stddef.h>
 #include <stdint.h>
 #include <wchar.h>
 #include "analyze.h"
 #include "fileMan.h"
 
-SHARED long int countCharInFile(char *filePath)
+SHARED size_t countCharInFile(char *filePath)
 {
 	errno = 0;
-	FILE *fil = fopen(filePath, "r");
+	setlocale(LC_ALL, "fr_FR.UTF8");
+	FILE *fil = fopen(filePath, "r, ccs=UTF-8");
 	if (fil == NULL)
 	{
 		fprintf(stderr, "Error :%s\n", strerror(errno));
-		exit(EXIT_FAILURE);
+		return -1;
 	}
-	long int returned = 0;
+	size_t returned = 0;
 	rewind(fil);
 	while (fgetwc(fil) != WEOF)
 	{
@@ -60,7 +61,7 @@ SHARED long int countCharInFile(char *filePath)
 SHARED stringOccurrences *init_StringOccurences(size_t sizeOfString)
 {
 	
-	long *position = malloc(sizeof(long));
+	long long int *position = malloc(sizeof(long long int));
 	*position = -1;
 	stringOccurrences *returned = malloc(sizeof(stringOccurrences));
 	returned->pos = position;
@@ -84,26 +85,37 @@ SHARED stringOccurrences *searchStringInFile(char *filePath, char *toSearch)
 	if (setlocale(LC_ALL, "fr_FR.UTF8") == NULL)
 	{
 		fprintf(stderr, "Error :%s\n", strerror(errno));
-		exit(EXIT_FAILURE);
+		return NULL;
 	}
 
 
 	if (mbstowcs(toSearchW, toSearch, strlen(toSearch)) == (size_t) - 1)
 	{
 		fprintf(stderr, "Error :%s\n", strerror(errno));
-		exit(EXIT_FAILURE);
+		return NULL;
 	}
 
+	
+
 	toSearchW[strlen(toSearch)] = L'\0';
+
+	if (countCharInFile(filePath) > LLONG_MAX || wcslen(toSearchW) > SIZE_MAX)
+	{
+		getFileName(filePath, fErrorName);
+		fprintf(stderr, "Error : your file named \"%s\" contains too much characters\n", fErrorName);
+		return NULL;
+	}
+
 
 	stringOccurrences *occurencesToSearch = init_StringOccurences(wcslen(toSearchW));
 
 	
-	FILE *fil = fopen(filePath, "r");
+	FILE *fil = fopen(filePath, "r, ccs=UTF-8");
 	if (fil == NULL)
 	{
 		fprintf(stderr, "Error :%s\n", strerror(errno));
-		exit(EXIT_FAILURE);
+		free_stringOccurrences(occurencesToSearch);
+		return NULL;
 	}
 	rewind(fil);
 
@@ -116,19 +128,22 @@ SHARED stringOccurrences *searchStringInFile(char *filePath, char *toSearch)
 	}
 	size_t cpt = 0;
 	
-	long int cpt2 = 0;
+	long long int cpt2 = 0;
 	cpt2 = ftell(fil);
-	wchar_t temp2 = fgetwc(fil);
+	wint_t temp2 = fgetwc(fil);
 	while(temp2 != WEOF)
 	{
-
 		fseek(fil, cpt2, SEEK_SET);
-		while(cpt < wcslen(toSearchW)+1)
+		while(cpt <= wcslen(toSearchW))
 		{
 			temp[cpt] = fgetwc(fil);
 			
 			if (temp[cpt] != toSearchW[cpt] || temp[cpt] == WEOF)
 			{
+				if (temp[cpt] == toSearchW[cpt])
+				{
+					cpt++;
+				}
 				break;
 			}
 			else
@@ -140,7 +155,7 @@ SHARED stringOccurrences *searchStringInFile(char *filePath, char *toSearch)
 		if (cpt == wcslen(toSearchW))
 		{
 			cpt_occ++;
-			occurencesToSearch->pos = realloc(occurencesToSearch->pos, cpt_occ*sizeof(long));
+			occurencesToSearch->pos = realloc(occurencesToSearch->pos, cpt_occ*sizeof(long long));
 			*(occurencesToSearch->pos + cpt_occ - 1) = cpt2;
 		}
 		cpt = 0;
@@ -154,12 +169,12 @@ SHARED stringOccurrences *searchStringInFile(char *filePath, char *toSearch)
 	}
 	if (cpt_occ == 0)
 	{
-		occurencesToSearch->pos = realloc(occurencesToSearch->pos, sizeof(long));
+		occurencesToSearch->pos = realloc(occurencesToSearch->pos, sizeof(long long));
 		*(occurencesToSearch->pos) = -1;
 	}
 	else
 	{
-		occurencesToSearch->pos = realloc(occurencesToSearch->pos, (cpt_occ + 1)*sizeof(long));
+		occurencesToSearch->pos = realloc(occurencesToSearch->pos, (cpt_occ + 1)*sizeof(long long));
 		*(occurencesToSearch->pos + cpt_occ) = -1;
 	}
 
@@ -174,11 +189,12 @@ SHARED int replaceStringInFile(char *filePath, char *toReplaceString, char *toAd
 	errno = 0;
 	wchar_t toAdd[strlen(toAddString)+1];
 	wchar_t toReplace[strlen(toReplaceString)+1];
-
-	if (*(toReplaceOccurrences->pos) == -1)
+	
+	if (toReplaceOccurrences == NULL || *(toReplaceOccurrences->pos) == -1)
 	{
 		return 3;
 	}
+	
 	if (setlocale(LC_ALL, "fr_FR.UTF8") == NULL)
 	{
 		fprintf(stderr, "Error :%s\n", strerror(errno));
@@ -208,11 +224,9 @@ SHARED int replaceStringInFile(char *filePath, char *toReplaceString, char *toAd
 	}
 	rewind(filToR);
 
+	
 	getFilePath(filePath, sFilePath);
-	if (sFilePath[0] == '\0')
-	{
-		return -2;
-	}
+	
 
 	getFileName(filePath, sFileName);
 	if (sFileName[0] == '\0')
@@ -225,9 +239,25 @@ SHARED int replaceStringInFile(char *filePath, char *toReplaceString, char *toAd
 		return -2;
 	}
 
-	char tempName[MAX_FNAME_SIZE] = "replaced";
+	FILE *filToW = NULL;
+	char *replaced = "replaced";
+	char *tempName = malloc((MAX_FNAME_SIZE + MAX_FPATH_SIZE + MAX_FEXT_SIZE)*sizeof(char));
+	*tempName = '\0';
+	if(sFilePath[0] != '\0')
+	{
+		tempName = strcat(tempName, sFilePath);
+		tempName = strcat(tempName, replaced);
+		tempName = strcat(tempName, sFileExt);
+		filToW = fopen(tempName, "w+, ccs=UTF-8");
+	}
+	else
+	{
+		tempName = strcat(tempName, replaced);
+		tempName = strcat(tempName, sFileExt);
+		filToW = fopen(tempName, "w+, ccs=UTF-8");
+	}
 	
-	FILE *filToW = fopen(strcat(sFilePath, strcat(tempName, sFileExt)), "w+, ccs=UTF-8");
+
 	if (filToW == NULL)
 	{
 		fprintf(stderr, "Error :%s\n", strerror(errno));
@@ -248,7 +278,7 @@ SHARED int replaceStringInFile(char *filePath, char *toReplaceString, char *toAd
 		{
 			if (ftell(filToR) == *(toReplaceOccurrences->pos + cpt))
 			{
-				for (long long unsigned int i = 0; i < wcslen(toAdd); ++i)
+				for (size_t i = 0; i < wcslen(toAdd); ++i)
 				{
 					if(fputwc(toAdd[i], filToW) != toAdd[i])
 					{
@@ -257,7 +287,7 @@ SHARED int replaceStringInFile(char *filePath, char *toReplaceString, char *toAd
 					}
 				}
 				cpt++;
-				for (long long unsigned int i = toReplaceOccurrences->charCount; i>0; --i)
+				for (size_t i = 0; i<toReplaceOccurrences->charCount; ++i)
 				{
 					if(fgetwc(filToR) == WEOF)
 						break;
@@ -296,16 +326,25 @@ SHARED int replaceStringInFile(char *filePath, char *toReplaceString, char *toAd
 	fclose(filToR);
 	fclose(filToW);
 
+
+
 	if (remove(filePath) != 0)
 	{
 		fprintf(stderr, "ERR :%s\n", strerror(errno));
 		return 2;
 	}
-	else if (rename(strcat(sFilePath, strcat(tempName, sFileExt)), filePath) != 0)
+	else if (rename(tempName, filePath) != 0)
 	{
 		fprintf(stderr, "ERR :%s\n", strerror(errno));
 		return 2;
 	}
+	
+	
+
+	
+
+
+	free(tempName);	
 	free_stringOccurrences(toReplaceOccurrences);
 
 	return 0;
