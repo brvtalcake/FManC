@@ -41,6 +41,7 @@ libFManC.linux.a : $(SRC_FILES) $(HEADER_FILES)
 	$(AR) $(AR_FLAGS) test/test_with_static/lib/$@ $(OBJ_FILES)
 	$(AR) $(AR_FLAGS) lib/$@ $(OBJ_FILES)
 
+# For windows dll and lib
 FManC.dll : $(SRC_FILES) $(HEADER_FILES)
 	$(CC) $(CFLAGS_DLL_1) $(SRC_FILES)
 	$(CC) $(CFLAGS_DLL_2_1) bin/$@ $(CFLAGS_DLL_2_2)
