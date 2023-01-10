@@ -1,1 +1,0 @@
-Remove-Item * -Include *.o -Exclude Makefile,*.a

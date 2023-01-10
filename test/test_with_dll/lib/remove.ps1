@@ -1,1 +1,0 @@
-Remove-Item -Path ".\test\test_with_dll\lib\*" -Include *.dll.a 
