@@ -22,7 +22,7 @@ CFLAGS_DLL_2_2="-Wl,--out-implib,libFManC.dll.a,--export-all-symbols"
 
 stat_win : libFManC.a cpHeaders_win clean_win
 
-stat_lin : libFManC.linux.a cpHeaders_lin clean_lin
+stat_lin : libFManC.linux.a clean_lin
 
 dyn_win : FManC.dll cpHeaders_win clean_win
 
@@ -37,9 +37,9 @@ libFManC.a : $(SRC_FILES) $(HEADER_FILES)
 
 # For linux static lib
 libFManC.linux.a : $(SRC_FILES) $(HEADER_FILES)
-	$(CC) $(CFLAGS_STATIC) $(SRC_FILES)
-	$(AR) $(AR_FLAGS) test/test_with_static/lib/$@ $(OBJ_FILES)
-	$(AR) $(AR_FLAGS) lib/$@ $(OBJ_FILES)
+	sh $(CC) $(CFLAGS_STATIC) $(SRC_FILES)
+	sh $(AR) $(AR_FLAGS) test/test_with_static/lib/$@ $(OBJ_FILES)
+	sh $(AR) $(AR_FLAGS) lib/$@ $(OBJ_FILES)
 
 # For windows dll and lib
 FManC.dll : $(SRC_FILES) $(HEADER_FILES)
@@ -65,7 +65,7 @@ clean_win :
 	@erase *.o
 
 clean_lin :
-	#@rm -f *.o
+	@rm -f *.o
 
 #gcc -O3 -Wall -Wextra -Werror -std=c11 -c -fPIC src/*.c src/notByMe/*.c
 #gcc -O3 -Wall -Wextra -Werror -std=c11 -fPIC -shared *.o -o lib/libFManC.so.$(VERSION) -Wl,-soname
