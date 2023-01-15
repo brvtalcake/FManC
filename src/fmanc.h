@@ -25,7 +25,7 @@
 
 #if defined(USE_FCMX)
 #include "fcmx.h"
-#include "./notByMe/lex_yy.h"
+#include "./third_party/lex_yy.h"
 #endif
 
 

@@ -1,28 +1,32 @@
 VERSION=1.0.0
 MAJOR_VERSION=1
 
-SHELL=cmd
+ifneq (,$(findstring Windows,$(OS)))
+	SHELL=cmd
+else ifneq (,$(findstring windows,$(OS)))
+	SHELL=cmd
+endif
 
-SRC_FILES=$(wildcard src/*.c) $(wildcard src/notByMe/*.c)
-HEADER_FILES=$(wildcard src/*.h) $(wildcard src/notByMe/*.h)
-OBJ_FILES=$(subst src/,,$(subst notByMe/,,$(SRC_FILES:.c=.o)))
+SRC_FILES=$(wildcard src/*.c) $(wildcard src/third_party/*.c)
+HEADER_FILES=$(wildcard src/*.h) $(wildcard src/third_party/*.h)
+OBJ_FILES=$(subst src/,,$(subst third_party/,,$(SRC_FILES:.c=.o)))
 
 CC=gcc
 AR=ar
 
 AR_FLAGS=-rsc
 
-CFLAGS_STATIC=-O3 -D STATIC -Wall -Werror -std=c11 -c
+CFLAGS_STATIC=-O3 -D STATIC -Wall -Wextra -pedantic -Werror -std=c11 -c
 
-CFLAGS_DLL_1=-O3 -Wall -Werror -std=c11 -c -D BUILD_DLL
-CFLAGS_DLL_2_1=-O3 -Wall -Werror -std=c11 -shared $(OBJ_FILES) -o
+CFLAGS_DLL_1=-O3 -Wall -Werror -Wextra -pedantic -std=c11 -c -D BUILD_DLL
+CFLAGS_DLL_2_1=-O3 -Wall -Werror -Wextra -pedantic -std=c11 -shared $(OBJ_FILES) -o
 CFLAGS_DLL_2_2="-Wl,--out-implib,libFManC.dll.a,--export-all-symbols"
 
 .PHONY : stat_win stat_lin dyn_win dyn_lin clean_win clean_lin 
 
 stat_win : libFManC.a cpHeaders_win clean_win
 
-stat_lin : libFManC.linux.a clean_lin
+stat_lin : libFManC.linux.a cpHeaders_lin clean_lin
 
 dyn_win : FManC.dll cpHeaders_win clean_win
 
@@ -51,15 +55,23 @@ FManC.dll : $(SRC_FILES) $(HEADER_FILES)
 
 cpHeaders_win : $(HEADER_FILES)
 	@copy /V /Y .\\src\\*.h .\\include\\
-	@copy /V /Y .\\src\\notByMe\\*.h .\\include\\notByMe\\
+	@copy /V /Y .\\src\\third_party\\*.h .\\include\\third_party\\
 	@copy /V /Y .\\src\\*.h .\\test\\test_with_dll\\include\\
-	@copy /V /Y .\\src\\notByMe\\*.h .\\test\\test_with_dll\\include\\notByMe\\
+	@copy /V /Y .\\src\\third_party\\*.h .\\test\\test_with_dll\\include\\third_party\\
 	@copy /V /Y .\\src\\*.h .\\test\\test_with_static\\include\\
-	@copy /V /Y .\\src\\notByMe\\*.h .\\test\\test_with_static\\include\\notByMe\\
+	@copy /V /Y .\\src\\third_party\\*.h .\\test\\test_with_static\\include\\third_party\\
 	@copy /V /Y .\\src\\*.h .\\test\\test_with_so\\include\\
-	@copy /V /Y .\\src\\notByMe\\*.h .\\test\\test_with_so\\include\\notByMe\\
+	@copy /V /Y .\\src\\third_party\\*.h .\\test\\test_with_so\\include\\third_party\\
 
 cpHeaders_lin : $(HEADER_FILES)
+	@cp *.h ./src/ ./include/
+	@cp *.h ./src/third_party/ ./include/third_party/
+	@cp *.h ./src/ ./test/test_with_dll/include/
+	@cp *.h ./src/third_party/ ./test/test_with_dll/include/third_party/
+	@cp *.h ./src/ ./test/test_with_static/include/
+	@cp *.h ./src/third_party/ ./test/test_with_static/include/third_party/
+	@cp *.h ./src/ ./test/test_with_so/include/
+	@cp *.h ./src/third_party/ ./test/test_with_so/include/third_party/
 
 clean_win :
 	@erase *.o
@@ -67,6 +79,6 @@ clean_win :
 clean_lin :
 	@rm -f *.o
 
-#gcc -O3 -Wall -Wextra -Werror -std=c11 -c -fPIC src/*.c src/notByMe/*.c
+#gcc -O3 -Wall -Wextra -Werror -std=c11 -c -fPIC src/*.c src/third_party/*.c
 #gcc -O3 -Wall -Wextra -Werror -std=c11 -fPIC -shared *.o -o lib/libFManC.so.$(VERSION) -Wl,-soname
 #gcc -O3 -Wall -Wextra -Werror -std=c11 -fPIC -shared *.o -o test/test_with_so/lib/libFManC.so.$(VERSION) -Wl,-soname

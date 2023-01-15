@@ -89,12 +89,12 @@ SHARED void fgetFileExtension(char *sourceFilePath, char *extension)
 	else
 	{
 		char res[strlen(sourceFilePath)-cpt+1];
-		for (int i = cpt; i < strlen(sourceFilePath); ++i)
+		for (size_t i = cpt; i < strlen(sourceFilePath); ++i)
 		{
 			res[i - cpt] = *(sourceFilePath + i);
 		}
 		res[strlen(sourceFilePath)-cpt] = '\0';
-		for (int i = 0; i < strlen(res); ++i)
+		for (size_t i = 0; i < strlen(res); ++i)
 		{
 			*(extension + i) = res[i];
 		}
@@ -131,12 +131,12 @@ SHARED void fgetFileName(char *sourceFilePath, char *fileName)
 	else
 	{
 		char res[strlen(sourceFilePath)-cpt+1];
-		for (int i = cpt; i < strlen(sourceFilePath); ++i)
+		for (size_t i = cpt; i < strlen(sourceFilePath); ++i)
 		{
 			res[i - cpt] = *(sourceFilePath + i);
 		}
 		res[strlen(sourceFilePath)-cpt] = '\0';
-		for (int i = 0; i < strlen(res); ++i)
+		for (size_t i = 0; i < strlen(res); ++i)
 		{
 			*(fileName + i) = res[i];
 		}
@@ -181,12 +181,12 @@ SHARED void fgetFilePath(char *sourceFilePath, char *filePath)
 	else
 	{
 		char res[cpt+1];
-		for (int i = 0; i < cpt; ++i)
+		for (size_t i = 0; i < (size_t)cpt; ++i) // cpt >= 0 anyway so we can actually do this to avoid this useless gcc -Wextra warning
 		{
 			res[i] = *(sourceFilePath + i);
 		}
 		res[cpt + 1] = '\0';
-		for (int i = 0; i < strlen(res); ++i)
+		for (size_t i = 0; i < strlen(res); ++i)
 		{
 			*(filePath + i) = res[i];
 		}
