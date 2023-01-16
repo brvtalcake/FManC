@@ -247,7 +247,7 @@
   <option  id='EXTRA_SEARCH_MAPPINGS' default='yes' type='stringlist'>
   </option>
   <option  id='GENERATE_LATEX' default='yes' type='bool'><value>YES</value></option>
-  <option  id='LATEX_OUTPUT' default='no' type='string'><value><![CDATA[D:/Programmation/C/FManC/docs/man]]></value></option>
+  <option  id='LATEX_OUTPUT' default='no' type='string'><value><![CDATA[D:/Programmation/C/FManC/man]]></value></option>
   <option  id='LATEX_CMD_NAME' default='yes' type='string'><value><![CDATA[]]></value></option>
   <option  id='MAKEINDEX_CMD_NAME' default='yes' type='string'><value><![CDATA[makeindex]]></value></option>
   <option  id='LATEX_MAKEINDEX_CMD' default='yes' type='string'><value><![CDATA[makeindex]]></value></option>

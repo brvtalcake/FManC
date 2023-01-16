@@ -79,7 +79,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/analyze.h" line="33" column="9" bodyfile="src/analyze.c" bodystart="14" bodyend="33" declfile="src/analyze.h" declline="33" declcolumn="9"/>
-        <referencedby refid="d7/d93/analyze_8c_1ab029b1afb2f8a964dd116b825baf8741" compoundref="d7/d93/analyze_8c" startline="57" endline="160">searchStringInFile</referencedby>
+        <referencedby refid="d7/d93/analyze_8c_1ab029b1afb2f8a964dd116b825baf8741" compoundref="d7/d93/analyze_8c" startline="54" endline="152">searchStringInFile</referencedby>
       </memberdef>
       <memberdef kind="function" id="d8/d07/analyze_8h_1a04ae2138b1c3b361f9556bd30db30c23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -96,10 +96,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/analyze.h" line="35" column="7" bodyfile="src/analyze.c" bodystart="50" bodyend="54" declfile="src/analyze.h" declline="35" declcolumn="7"/>
+        <location file="src/analyze.h" line="35" column="7" bodyfile="src/analyze.c" bodystart="47" bodyend="51" declfile="src/analyze.h" declline="35" declcolumn="7"/>
         <references refid="d4/dd7/struct_f_m_a_n_c___s_o_1ab8a4e00f471ad246be90b80b7bcba569" compoundref="d8/d07/analyze_8h" startline="28">FMANC_SO::pos</references>
-        <referencedby refid="d7/d93/analyze_8c_1ae5a02aaad7ac0820d0b9c6c96c77abb9" compoundref="d7/d93/analyze_8c" startline="163" endline="328">replaceStringInFile</referencedby>
-        <referencedby refid="d7/d93/analyze_8c_1ab029b1afb2f8a964dd116b825baf8741" compoundref="d7/d93/analyze_8c" startline="57" endline="160">searchStringInFile</referencedby>
+        <referencedby refid="d7/d93/analyze_8c_1ae5a02aaad7ac0820d0b9c6c96c77abb9" compoundref="d7/d93/analyze_8c" startline="155" endline="311">replaceStringInFile</referencedby>
+        <referencedby refid="d7/d93/analyze_8c_1ab029b1afb2f8a964dd116b825baf8741" compoundref="d7/d93/analyze_8c" startline="54" endline="152">searchStringInFile</referencedby>
       </memberdef>
       <memberdef kind="function" id="d8/d07/analyze_8h_1a615c6ba607d2b90929bc2a8b1fe5e5f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="d8/d07/analyze_8h_1a5e32095c9ad9463f40cc04dbcf4b77a4" kindref="member">stringOccurrences</ref> *</type>
@@ -116,10 +116,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/analyze.h" line="34" column="20" bodyfile="src/analyze.c" bodystart="38" bodyend="48" declfile="src/analyze.h" declline="34" declcolumn="20"/>
+        <location file="src/analyze.h" line="34" column="20" bodyfile="src/analyze.c" bodystart="35" bodyend="45" declfile="src/analyze.h" declline="34" declcolumn="20"/>
         <references refid="d4/dd7/struct_f_m_a_n_c___s_o_1a1e2ca1cd40105cbb3505ce646cb01568" compoundref="d8/d07/analyze_8h" startline="27">FMANC_SO::charCount</references>
         <references refid="d4/dd7/struct_f_m_a_n_c___s_o_1ab8a4e00f471ad246be90b80b7bcba569" compoundref="d8/d07/analyze_8h" startline="28">FMANC_SO::pos</references>
-        <referencedby refid="d7/d93/analyze_8c_1ab029b1afb2f8a964dd116b825baf8741" compoundref="d7/d93/analyze_8c" startline="57" endline="160">searchStringInFile</referencedby>
+        <referencedby refid="d7/d93/analyze_8c_1ab029b1afb2f8a964dd116b825baf8741" compoundref="d7/d93/analyze_8c" startline="54" endline="152">searchStringInFile</referencedby>
       </memberdef>
       <memberdef kind="function" id="d8/d07/analyze_8h_1ae5a02aaad7ac0820d0b9c6c96c77abb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -144,9 +144,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/analyze.h" line="37" column="6" bodyfile="src/analyze.c" bodystart="163" bodyend="328" declfile="src/analyze.h" declline="37" declcolumn="6"/>
+        <location file="src/analyze.h" line="37" column="6" bodyfile="src/analyze.c" bodystart="155" bodyend="311" declfile="src/analyze.h" declline="37" declcolumn="6"/>
         <references refid="d4/dd7/struct_f_m_a_n_c___s_o_1a1e2ca1cd40105cbb3505ce646cb01568" compoundref="d8/d07/analyze_8h" startline="27">FMANC_SO::charCount</references>
-        <references refid="d7/d93/analyze_8c_1a04ae2138b1c3b361f9556bd30db30c23" compoundref="d7/d93/analyze_8c" startline="50" endline="54">free_stringOccurrences</references>
+        <references refid="d7/d93/analyze_8c_1a04ae2138b1c3b361f9556bd30db30c23" compoundref="d7/d93/analyze_8c" startline="47" endline="51">free_stringOccurrences</references>
         <references refid="df/d56/file_man_8h_1a68b8bb9ca6877866b30b5d71f33f1b08" compoundref="df/d56/file_man_8h" startline="34">getFileExtension</references>
         <references refid="df/d56/file_man_8h_1a3e855422945c4cdbaf71723d8e25d9f5" compoundref="df/d56/file_man_8h" startline="38">getFileName</references>
         <references refid="df/d56/file_man_8h_1ac79aba55b8bda0cfc4ce3a88534adbc0" compoundref="df/d56/file_man_8h" startline="42">getFilePath</references>
@@ -154,7 +154,7 @@
         <references refid="df/d56/file_man_8h_1ab0e76045bf91a8a1b4fc381488399f70" compoundref="df/d56/file_man_8h" startline="26">MAX_FNAME_SIZE</references>
         <references refid="df/d56/file_man_8h_1ae5c03ff129a1255adb84d15ae75425b8" compoundref="df/d56/file_man_8h" startline="30">MAX_FPATH_SIZE</references>
         <references refid="d4/dd7/struct_f_m_a_n_c___s_o_1ab8a4e00f471ad246be90b80b7bcba569" compoundref="d8/d07/analyze_8h" startline="28">FMANC_SO::pos</references>
-        <references refid="d7/d93/analyze_8c_1ab029b1afb2f8a964dd116b825baf8741" compoundref="d7/d93/analyze_8c" startline="57" endline="160">searchStringInFile</references>
+        <references refid="d7/d93/analyze_8c_1ab029b1afb2f8a964dd116b825baf8741" compoundref="d7/d93/analyze_8c" startline="54" endline="152">searchStringInFile</references>
       </memberdef>
       <memberdef kind="function" id="d8/d07/analyze_8h_1ab029b1afb2f8a964dd116b825baf8741" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="d8/d07/analyze_8h_1a5e32095c9ad9463f40cc04dbcf4b77a4" kindref="member">stringOccurrences</ref> *</type>
@@ -175,13 +175,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/analyze.h" line="36" column="20" bodyfile="src/analyze.c" bodystart="57" bodyend="160" declfile="src/analyze.h" declline="36" declcolumn="20"/>
+        <location file="src/analyze.h" line="36" column="20" bodyfile="src/analyze.c" bodystart="54" bodyend="152" declfile="src/analyze.h" declline="36" declcolumn="20"/>
         <references refid="d7/d93/analyze_8c_1a2fae470a9f2ba64ed544ecb0efdf3113" compoundref="d7/d93/analyze_8c" startline="14" endline="33">countCharInFile</references>
-        <references refid="d7/d93/analyze_8c_1a04ae2138b1c3b361f9556bd30db30c23" compoundref="d7/d93/analyze_8c" startline="50" endline="54">free_stringOccurrences</references>
+        <references refid="d7/d93/analyze_8c_1a04ae2138b1c3b361f9556bd30db30c23" compoundref="d7/d93/analyze_8c" startline="47" endline="51">free_stringOccurrences</references>
         <references refid="df/d56/file_man_8h_1a3e855422945c4cdbaf71723d8e25d9f5" compoundref="df/d56/file_man_8h" startline="38">getFileName</references>
-        <references refid="d7/d93/analyze_8c_1a615c6ba607d2b90929bc2a8b1fe5e5f6" compoundref="d7/d93/analyze_8c" startline="38" endline="48">init_StringOccurences</references>
+        <references refid="d7/d93/analyze_8c_1a615c6ba607d2b90929bc2a8b1fe5e5f6" compoundref="d7/d93/analyze_8c" startline="35" endline="45">init_StringOccurences</references>
         <references refid="d4/dd7/struct_f_m_a_n_c___s_o_1ab8a4e00f471ad246be90b80b7bcba569" compoundref="d8/d07/analyze_8h" startline="28">FMANC_SO::pos</references>
-        <referencedby refid="d7/d93/analyze_8c_1ae5a02aaad7ac0820d0b9c6c96c77abb9" compoundref="d7/d93/analyze_8c" startline="163" endline="328">replaceStringInFile</referencedby>
+        <referencedby refid="d7/d93/analyze_8c_1ae5a02aaad7ac0820d0b9c6c96c77abb9" compoundref="d7/d93/analyze_8c" startline="155" endline="311">replaceStringInFile</referencedby>
       </memberdef>
       </sectiondef>
     <briefdescription>

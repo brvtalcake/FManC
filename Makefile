@@ -93,4 +93,4 @@ clean_lin :
 
 doxy :
 	@doxygen Doxyfile
-	cd docs/man && make
+	cd man && make

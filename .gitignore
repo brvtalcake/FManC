@@ -1,5 +1,5 @@
 *Doxyfile
 */Doxyfile
 docs/source*
-docs/man/*
-!docs/man/refman.pdf
+man/*
+!man/refman.pdf

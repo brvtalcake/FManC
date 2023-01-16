@@ -164,7 +164,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/fileMan.h" line="46" column="7" bodyfile="src/fileMan.c" bodystart="7" bodyend="67" declfile="src/fileMan.h" declline="46" declcolumn="7"/>
+        <location file="src/fileMan.h" line="46" column="7" bodyfile="src/fileMan.c" bodystart="7" bodyend="65" declfile="src/fileMan.h" declline="46" declcolumn="7"/>
         <references refid="df/d56/file_man_8h_1a68b8bb9ca6877866b30b5d71f33f1b08" compoundref="df/d56/file_man_8h" startline="34">getFileExtension</references>
         <references refid="df/d56/file_man_8h_1a3e855422945c4cdbaf71723d8e25d9f5" compoundref="df/d56/file_man_8h" startline="38">getFileName</references>
       </memberdef>
@@ -187,7 +187,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/fileMan.h" line="48" column="7" bodyfile="src/fileMan.c" bodystart="69" bodyend="104" declfile="src/fileMan.h" declline="48" declcolumn="7"/>
+        <location file="src/fileMan.h" line="48" column="7" bodyfile="src/fileMan.c" bodystart="67" bodyend="102" declfile="src/fileMan.h" declline="48" declcolumn="7"/>
         <references refid="df/d56/file_man_8h_1aef2c26bbba7239793dfd266d0e8b46b4" compoundref="df/d56/file_man_8h" startline="22">MAX_FEXT_SIZE</references>
         <references refid="df/d56/file_man_8h_1ab0e76045bf91a8a1b4fc381488399f70" compoundref="df/d56/file_man_8h" startline="26">MAX_FNAME_SIZE</references>
         <references refid="df/d56/file_man_8h_1ae5c03ff129a1255adb84d15ae75425b8" compoundref="df/d56/file_man_8h" startline="30">MAX_FPATH_SIZE</references>
@@ -211,7 +211,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/fileMan.h" line="49" column="7" bodyfile="src/fileMan.c" bodystart="106" bodyend="152" declfile="src/fileMan.h" declline="49" declcolumn="7"/>
+        <location file="src/fileMan.h" line="49" column="7" bodyfile="src/fileMan.c" bodystart="104" bodyend="149" declfile="src/fileMan.h" declline="49" declcolumn="7"/>
         <references refid="df/d56/file_man_8h_1aef2c26bbba7239793dfd266d0e8b46b4" compoundref="df/d56/file_man_8h" startline="22">MAX_FEXT_SIZE</references>
         <references refid="df/d56/file_man_8h_1ab0e76045bf91a8a1b4fc381488399f70" compoundref="df/d56/file_man_8h" startline="26">MAX_FNAME_SIZE</references>
         <references refid="df/d56/file_man_8h_1ae5c03ff129a1255adb84d15ae75425b8" compoundref="df/d56/file_man_8h" startline="30">MAX_FPATH_SIZE</references>
@@ -235,7 +235,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/fileMan.h" line="50" column="7" bodyfile="src/fileMan.c" bodystart="154" bodyend="204" declfile="src/fileMan.h" declline="50" declcolumn="7"/>
+        <location file="src/fileMan.h" line="50" column="7" bodyfile="src/fileMan.c" bodystart="151" bodyend="199" declfile="src/fileMan.h" declline="50" declcolumn="7"/>
         <references refid="df/d56/file_man_8h_1aef2c26bbba7239793dfd266d0e8b46b4" compoundref="df/d56/file_man_8h" startline="22">MAX_FEXT_SIZE</references>
         <references refid="df/d56/file_man_8h_1ab0e76045bf91a8a1b4fc381488399f70" compoundref="df/d56/file_man_8h" startline="26">MAX_FNAME_SIZE</references>
         <references refid="df/d56/file_man_8h_1ae5c03ff129a1255adb84d15ae75425b8" compoundref="df/d56/file_man_8h" startline="30">MAX_FPATH_SIZE</references>
@@ -298,9 +298,7 @@
 <codeline lineno="50"><highlight class="normal"><ref refid="df/d56/file_man_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="df/d56/file_man_8h_1a97687e29a139210fc190ce98d836c160" kindref="member">fgetFilePath</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*sourceFilePath,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*filePath);<sp/></highlight></codeline>
 <codeline lineno="51"><highlight class="normal"></highlight></codeline>
 <codeline lineno="52"><highlight class="normal"></highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="54"><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="src/fileMan.h"/>
   </compounddef>
