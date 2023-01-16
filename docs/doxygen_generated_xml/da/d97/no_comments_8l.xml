@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="da/d97/no_comments_8l" kind="file" language="Lex">
+    <compoundname>noComments.l</compoundname>
+    <includes local="no">string.h</includes>
+    <includes local="no">errno.h</includes>
+    <includes refid="df/d56/file_man_8h" local="yes">../fileMan.h</includes>
+    <includes refid="d3/d5f/lex__yy_8h" local="yes">lex_yy.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>../fileMan.h</label>
+        <link refid="df/d56/file_man_8h"/>
+      </node>
+      <node id="5">
+        <label>lex_yy.h</label>
+        <link refid="d3/d5f/lex__yy_8h"/>
+      </node>
+      <node id="1">
+        <label>src/third_party/noComments.l</label>
+        <link refid="da/d97/no_comments_8l"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>errno.h</label>
+      </node>
+      <node id="2">
+        <label>string.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="da/d97/no_comments_8l_1a02157edcb3985957c136d92567f1d207" prot="public" static="no" mutable="no">
+        <type>int(*</type>
+        <definition>int(* jj2_junk) (void)</definition>
+        <argsstring>)(void)</argsstring>
+        <name>jj2_junk</name>
+        <initializer>= input</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/third_party/noComments.l" line="55" column="1" bodyfile="src/third_party/noComments.l" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="da/d97/no_comments_8l_1aaf20938dba06f4e30975aa2fdd306ec4" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* jj_junk) (int, char *)</definition>
+        <argsstring>)(int, char *)</argsstring>
+        <name>jj_junk</name>
+        <initializer>= yyunput</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/third_party/noComments.l" line="54" column="1" bodyfile="src/third_party/noComments.l" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="da/d97/no_comments_8l_1a84a5fd885690b529eb3f0e64e2d4fc58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int deleteCStyleComments</definition>
+        <argsstring>(char *filePath)</argsstring>
+        <name>deleteCStyleComments</name>
+        <param>
+          <type>char *</type>
+          <declname>filePath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/third_party/noComments.l" line="57" column="5" bodyfile="src/third_party/noComments.l" bodystart="57" bodyend="81"/>
+        <references refid="df/d56/file_man_8h_1a68b8bb9ca6877866b30b5d71f33f1b08" compoundref="df/d56/file_man_8h" startline="34">getFileExtension</references>
+        <references refid="df/d56/file_man_8h_1a3e855422945c4cdbaf71723d8e25d9f5" compoundref="df/d56/file_man_8h" startline="38">getFileName</references>
+        <references refid="df/d56/file_man_8h_1ac79aba55b8bda0cfc4ce3a88534adbc0" compoundref="df/d56/file_man_8h" startline="42">getFilePath</references>
+        <references refid="da/d97/no_comments_8l_1a9a7bd1b3d14701eb97c03f3ef34deff1" compoundref="da/d97/no_comments_8l" startline="17" endline="52">yylex</references>
+      </memberdef>
+      <memberdef kind="function" id="da/d97/no_comments_8l_1a3c38c8473d0772765dbbd8f0d6c373bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int fileno</definition>
+        <argsstring>(FILE *)</argsstring>
+        <name>fileno</name>
+        <param>
+          <type>FILE *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/third_party/noComments.l" line="12" column="12" declfile="src/third_party/noComments.l" declline="12" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="da/d97/no_comments_8l_1a9a7bd1b3d14701eb97c03f3ef34deff1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int yylex</definition>
+        <argsstring>(void)</argsstring>
+        <name>yylex</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/third_party/noComments.l" line="17" column="5" bodyfile="src/third_party/noComments.l" bodystart="17" bodyend="52"/>
+        <referencedby refid="d3/d5f/lex__yy_8h_1a84a5fd885690b529eb3f0e64e2d4fc58" compoundref="da/d97/no_comments_8l" startline="57" endline="81">deleteCStyleComments</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal">%option<sp/>noyywrap</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal">%{</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;errno.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../fileMan.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d3/d5f/lex__yy_8h" kindref="compound">lex_yy.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>remove<sp/>C<sp/>comments<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>replace<sp/>each<sp/>comment<sp/>with<sp/>a<sp/>single<sp/>blank<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="da/d97/no_comments_8l_1a3c38c8473d0772765dbbd8f0d6c373bc" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="da/d97/no_comments_8l_1a3c38c8473d0772765dbbd8f0d6c373bc" kindref="member">fileno</ref>(FILE<sp/>*);<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>avoid<sp/>gcc<sp/>warning<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal">%}</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">%x<sp/>String<sp/>Char<sp/>Comment<sp/>CPPComment</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="da/d97/no_comments_8l_1a9a7bd1b3d14701eb97c03f3ef34deff1" refkind="member"><highlight class="normal">%%</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="stringliteral">\&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>&quot;String&quot;<sp/>*/</highlight><highlight class="normal"><sp/>ECHO;<sp/>BEGIN(<sp/>String);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="stringliteral">\&apos;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>&apos;Char&apos;<sp/>*/</highlight><highlight class="normal"><sp/>ECHO;<sp/>BEGIN(<sp/>Char);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="stringliteral">&quot;/*&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>comment<sp/>*/</highlight><highlight class="normal"><sp/>BEGIN(<sp/>Comment);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="stringliteral">&quot;//&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>C++<sp/>comment<sp/>*/</highlight><highlight class="normal"><sp/>BEGIN(<sp/>CPPComment);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="stringliteral">.|\n</highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>everything<sp/>else<sp/>*/</highlight><highlight class="normal"><sp/>ECHO;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="stringliteral">&lt;String&gt;{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="stringliteral">\\.</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>escape<sp/>sequence<sp/>*/</highlight><highlight class="normal"><sp/>ECHO;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="stringliteral">[^&quot;]</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>not<sp/>&quot;quote&quot;<sp/>*/</highlight><highlight class="normal"><sp/>ECHO;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="stringliteral">\&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>end<sp/>of<sp/>&quot;String&quot;<sp/>*/</highlight><highlight class="normal"><sp/>ECHO;<sp/>BEGIN(<sp/>INITIAL);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="stringliteral">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="stringliteral">&lt;Char&gt;{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="stringliteral">\\.</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>escape<sp/>sequence<sp/>*/</highlight><highlight class="normal"><sp/>ECHO;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="stringliteral">[^&apos;]</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>not<sp/>&apos;quote&apos;<sp/>*/</highlight><highlight class="normal"><sp/>ECHO;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="stringliteral">\&apos;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>end<sp/>of<sp/>&apos;Char&apos;<sp/>*/</highlight><highlight class="normal"><sp/>ECHO;<sp/>BEGIN(<sp/>INITIAL);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="stringliteral">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="stringliteral">&lt;Comment&gt;{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="stringliteral">[^*]*</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>not<sp/>a<sp/>&apos;*&apos;<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="stringliteral">&quot;*&quot;+[^/]</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>&apos;*&apos;s<sp/>not<sp/>followed<sp/>by<sp/>&apos;/&apos;<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="stringliteral">&quot;*&quot;+&quot;/&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>end<sp/>of<sp/>Comment<sp/>*/</highlight><highlight class="normal"><sp/>putchar(<sp/></highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">);<sp/>BEGIN(INITIAL);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="stringliteral">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="stringliteral">&lt;CPPComment&gt;{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="stringliteral">.*</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>to<sp/>end<sp/>of<sp/>line<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="stringliteral">\n</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ECHO;<sp/>BEGIN(<sp/>INITIAL);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="stringliteral">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal">%%</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="da/d97/no_comments_8l_1aaf20938dba06f4e30975aa2fdd306ec4" refkind="member"><highlight class="normal">void<sp/>(*<ref refid="da/d97/no_comments_8l_1aaf20938dba06f4e30975aa2fdd306ec4" kindref="member">jj_junk</ref>)(int,</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*)<sp/>=<sp/>yyunput;<sp/></highlight><highlight class="comment">/*<sp/>avoid<sp/>gcc<sp/>warnings<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="da/d97/no_comments_8l_1a02157edcb3985957c136d92567f1d207" refkind="member"><highlight class="normal">int<sp/>(*<ref refid="da/d97/no_comments_8l_1a02157edcb3985957c136d92567f1d207" kindref="member">jj2_junk</ref>)(void)<sp/>=<sp/>input;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="d3/d5f/lex__yy_8h_1a84a5fd885690b529eb3f0e64e2d4fc58" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="da/d97/no_comments_8l_1a84a5fd885690b529eb3f0e64e2d4fc58" kindref="member">deleteCStyleComments</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*filePath)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>errno<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>yyin=fopen(filePath,</highlight><highlight class="stringliteral">&quot;r&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="df/d56/file_man_8h_1a3e855422945c4cdbaf71723d8e25d9f5" kindref="member">getFileName</ref>(filePath,<sp/>sName);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="df/d56/file_man_8h_1a68b8bb9ca6877866b30b5d71f33f1b08" kindref="member">getFileExtension</ref>(filePath,<sp/>sExtension);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="df/d56/file_man_8h_1ac79aba55b8bda0cfc4ce3a88534adbc0" kindref="member">getFilePath</ref>(filePath,<sp/>sPath);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*filToR<sp/>=<sp/>strcat(sPath,<sp/>strcat(strcat(sName,</highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal">),sExtension));</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>yyout=fopen(filToR,</highlight><highlight class="stringliteral">&quot;w&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><ref refid="da/d97/no_comments_8l_1a9a7bd1b3d14701eb97c03f3ef34deff1" kindref="member">yylex</ref>();</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>fclose(yyin);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>fclose(yyout);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(remove(filePath)<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf(stderr,<sp/></highlight><highlight class="stringliteral">&quot;%s\n&quot;</highlight><highlight class="normal">,<sp/>strerror(errno));</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-2;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(rename(filToR,filePath)<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf(stderr,<sp/></highlight><highlight class="stringliteral">&quot;%s\n&quot;</highlight><highlight class="normal">,<sp/>strerror(errno));</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/third_party/noComments.l"/>
+  </compounddef>
+</doxygen>

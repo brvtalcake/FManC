@@ -32,9 +32,6 @@ SHARED size_t countCharInFile(char *filePath)
 	return returned;
 }
 
-
-
-
 SHARED stringOccurrences *init_StringOccurences(size_t sizeOfString)
 {
 	
@@ -65,14 +62,11 @@ SHARED stringOccurrences *searchStringInFile(char *filePath, char *toSearch)
 		return NULL;
 	}
 
-
 	if (mbstowcs(toSearchW, toSearch, strlen(toSearch)) == (size_t) - 1)
 	{
 		fprintf(stderr, "Error :%s\n", strerror(errno));
 		return NULL;
 	}
-
-	
 
 	toSearchW[strlen(toSearch)] = L'\0';
 
@@ -83,7 +77,6 @@ SHARED stringOccurrences *searchStringInFile(char *filePath, char *toSearch)
 		return NULL;
 	}
 	
-
 	stringOccurrences *occurencesToSearch = init_StringOccurences(wcslen(toSearchW));
 
 	
@@ -95,7 +88,6 @@ SHARED stringOccurrences *searchStringInFile(char *filePath, char *toSearch)
 		return NULL;
 	}
 	rewind(fil);
-
 
 	unsigned int cpt_occ = 0;
 	wchar_t temp[wcslen(toSearchW)+1];
@@ -284,8 +276,6 @@ SHARED int replaceStringInFile(char *filePath, char *toReplaceString, char *toAd
 			{
 				old_cpt++;
 			}
-			
-
 		}
 
 		if (temp!=WEOF)
@@ -303,8 +293,6 @@ SHARED int replaceStringInFile(char *filePath, char *toReplaceString, char *toAd
 	fclose(filToR);
 	fclose(filToW);
 
-
-
 	if (remove(filePath) != 0)
 	{
 		fprintf(stderr, "ERR :%s\n", strerror(errno));
@@ -315,11 +303,6 @@ SHARED int replaceStringInFile(char *filePath, char *toReplaceString, char *toAd
 		fprintf(stderr, "ERR :%s\n", strerror(errno));
 		return 2;
 	}
-	
-	
-
-	
-
 
 	free(tempName);	
 	free_stringOccurrences(toReplaceOccurrences);

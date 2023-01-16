@@ -11,8 +11,6 @@ SHARED char *copyFileWithoutTabAndLineBreak(char *sourceFilePath, char **pathToC
 	getFileName(sourceFilePath, sourceFileName);
 	getFileExtension(sourceFilePath, sourceFileExtension);
 	
-
-
 	FILE *sourceFile = fopen(sourceFilePath, "r");
 
 	if (sourceFile == NULL)
@@ -113,7 +111,6 @@ SHARED void fgetFileName(char *sourceFilePath, char *fileName)
 	int cpt = strlen(sourceFilePath);
 	char pt = *(sourceFilePath + cpt);
 	
-	
 	while(cpt >= 0)
 	{
 		cpt--;
@@ -161,7 +158,6 @@ SHARED void fgetFilePath(char *sourceFilePath, char *filePath)
 	int cpt = strlen(sourceFilePath);
 	char pt = *(sourceFilePath + cpt);
 	
-	
 	while(cpt >= 0)
 	{
 		cpt--;
@@ -171,7 +167,6 @@ SHARED void fgetFilePath(char *sourceFilePath, char *filePath)
 			break;
 		} 
 	}
-	
 	
 	if (cpt < 0)
 	{

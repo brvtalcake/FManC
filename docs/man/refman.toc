@@ -1,225 +1,68 @@
 \@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
-\contentsline {chapter}{\numberline {1}NOTBYME}{1}{chapter.1}%
-\contentsline {chapter}{\numberline {2}Todo List}{3}{chapter.2}%
-\contentsline {chapter}{\numberline {3}Module Index}{5}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Modules}{5}{section.3.1}%
-\contentsline {chapter}{\numberline {4}Data Structure Index}{7}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Data Structures}{7}{section.4.1}%
-\contentsline {chapter}{\numberline {5}File Index}{9}{chapter.5}%
-\contentsline {section}{\numberline {5.1}File List}{9}{section.5.1}%
-\contentsline {chapter}{\numberline {6}Module Documentation}{11}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Core C source code}{11}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Detailed Description}{11}{subsection.6.1.1}%
-\contentsline {section}{\numberline {6.2}Core C headers}{11}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Detailed Description}{11}{subsection.6.2.1}%
-\contentsline {section}{\numberline {6.3}Core lib C headers}{12}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Detailed Description}{12}{subsection.6.3.1}%
-\contentsline {section}{\numberline {6.4}C source code for my personnal project}{12}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Detailed Description}{12}{subsection.6.4.1}%
-\contentsline {section}{\numberline {6.5}C source code for my personnal project, made by me}{12}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}Detailed Description}{13}{subsection.6.5.1}%
-\contentsline {section}{\numberline {6.6}C Headers for my personnal project}{13}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}Detailed Description}{13}{subsection.6.6.1}%
-\contentsline {section}{\numberline {6.7}C Headers for my personnal project, made by me}{13}{section.6.7}%
-\contentsline {subsection}{\numberline {6.7.1}Detailed Description}{13}{subsection.6.7.1}%
-\contentsline {section}{\numberline {6.8}Main C header}{14}{section.6.8}%
-\contentsline {subsection}{\numberline {6.8.1}Detailed Description}{14}{subsection.6.8.1}%
-\contentsline {section}{\numberline {6.9}C source code for my personnal project, made by me and flex}{14}{section.6.9}%
-\contentsline {subsection}{\numberline {6.9.1}Detailed Description}{14}{subsection.6.9.1}%
-\contentsline {section}{\numberline {6.10}C Headers for my personnal project, made by me and flex}{14}{section.6.10}%
-\contentsline {subsection}{\numberline {6.10.1}Detailed Description}{15}{subsection.6.10.1}%
-\contentsline {section}{\numberline {6.11}Flex source files}{15}{section.6.11}%
-\contentsline {subsection}{\numberline {6.11.1}Detailed Description}{15}{subsection.6.11.1}%
-\contentsline {chapter}{\numberline {7}Data Structure Documentation}{17}{chapter.7}%
-\contentsline {section}{\numberline {7.1}FMANC\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}SO Struct Reference}{17}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}Detailed Description}{17}{subsection.7.1.1}%
-\contentsline {subsection}{\numberline {7.1.2}Field Documentation}{17}{subsection.7.1.2}%
-\contentsline {subsubsection}{\numberline {7.1.2.1}charCount}{17}{subsubsection.7.1.2.1}%
-\contentsline {subsubsection}{\numberline {7.1.2.2}pos}{17}{subsubsection.7.1.2.2}%
-\contentsline {chapter}{\numberline {8}File Documentation}{19}{chapter.8}%
-\contentsline {section}{\numberline {8.1}docs/src\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}documented/analyze.c File Reference}{19}{section.8.1}%
-\contentsline {subsection}{\numberline {8.1.1}Detailed Description}{19}{subsection.8.1.1}%
-\contentsline {subsection}{\numberline {8.1.2}Function Documentation}{19}{subsection.8.1.2}%
-\contentsline {subsubsection}{\numberline {8.1.2.1}countCharInFile()}{20}{subsubsection.8.1.2.1}%
-\contentsline {subsubsection}{\numberline {8.1.2.2}free\_stringOccurrences()}{20}{subsubsection.8.1.2.2}%
-\contentsline {subsubsection}{\numberline {8.1.2.3}init\_StringOccurences()}{20}{subsubsection.8.1.2.3}%
-\contentsline {subsubsection}{\numberline {8.1.2.4}replaceStringInFile()}{20}{subsubsection.8.1.2.4}%
-\contentsline {subsubsection}{\numberline {8.1.2.5}searchStringInFile()}{21}{subsubsection.8.1.2.5}%
-\contentsline {section}{\numberline {8.2}analyze.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{21}{section.8.2}%
-\contentsline {section}{\numberline {8.3}docs/src\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}documented/analyze.h File Reference}{25}{section.8.3}%
-\contentsline {subsection}{\numberline {8.3.1}Detailed Description}{26}{subsection.8.3.1}%
-\contentsline {subsection}{\numberline {8.3.2}Macro Definition Documentation}{26}{subsection.8.3.2}%
-\contentsline {subsubsection}{\numberline {8.3.2.1}SHARED}{26}{subsubsection.8.3.2.1}%
-\contentsline {subsection}{\numberline {8.3.3}Typedef Documentation}{26}{subsection.8.3.3}%
-\contentsline {subsubsection}{\numberline {8.3.3.1}stringOccurrences}{27}{subsubsection.8.3.3.1}%
-\contentsline {subsection}{\numberline {8.3.4}Function Documentation}{27}{subsection.8.3.4}%
-\contentsline {subsubsection}{\numberline {8.3.4.1}countCharInFile()}{27}{subsubsection.8.3.4.1}%
-\contentsline {subsubsection}{\numberline {8.3.4.2}free\_stringOccurrences()}{27}{subsubsection.8.3.4.2}%
-\contentsline {subsubsection}{\numberline {8.3.4.3}init\_StringOccurences()}{27}{subsubsection.8.3.4.3}%
-\contentsline {subsubsection}{\numberline {8.3.4.4}replaceStringInFile()}{27}{subsubsection.8.3.4.4}%
-\contentsline {subsubsection}{\numberline {8.3.4.5}searchStringInFile()}{28}{subsubsection.8.3.4.5}%
-\contentsline {section}{\numberline {8.4}analyze.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{28}{section.8.4}%
-\contentsline {section}{\numberline {8.5}docs/src\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}documented/fcmx.c File Reference}{29}{section.8.5}%
-\contentsline {subsection}{\numberline {8.5.1}Detailed Description}{29}{subsection.8.5.1}%
-\contentsline {section}{\numberline {8.6}fcmx.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{29}{section.8.6}%
-\contentsline {section}{\numberline {8.7}docs/src\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}documented/fcmx.h File Reference}{29}{section.8.7}%
-\contentsline {subsection}{\numberline {8.7.1}Detailed Description}{30}{subsection.8.7.1}%
-\contentsline {subsection}{\numberline {8.7.2}Macro Definition Documentation}{30}{subsection.8.7.2}%
-\contentsline {subsubsection}{\numberline {8.7.2.1}SHARED}{30}{subsubsection.8.7.2.1}%
-\contentsline {subsection}{\numberline {8.7.3}Function Documentation}{31}{subsection.8.7.3}%
-\contentsline {subsubsection}{\numberline {8.7.3.1}copyFileWithoutStrings()}{31}{subsubsection.8.7.3.1}%
-\contentsline {section}{\numberline {8.8}fcmx.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{31}{section.8.8}%
-\contentsline {section}{\numberline {8.9}docs/src\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}documented/file\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Man.c File Reference}{32}{section.8.9}%
-\contentsline {subsection}{\numberline {8.9.1}Detailed Description}{32}{subsection.8.9.1}%
-\contentsline {subsection}{\numberline {8.9.2}Function Documentation}{32}{subsection.8.9.2}%
-\contentsline {subsubsection}{\numberline {8.9.2.1}copyFileWithoutTabAndLineBreak()}{32}{subsubsection.8.9.2.1}%
-\contentsline {subsubsection}{\numberline {8.9.2.2}fgetFileExtension()}{33}{subsubsection.8.9.2.2}%
-\contentsline {subsubsection}{\numberline {8.9.2.3}fgetFileName()}{33}{subsubsection.8.9.2.3}%
-\contentsline {subsubsection}{\numberline {8.9.2.4}fgetFilePath()}{33}{subsubsection.8.9.2.4}%
-\contentsline {section}{\numberline {8.10}file\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Man.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{34}{section.8.10}%
-\contentsline {section}{\numberline {8.11}docs/src\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}documented/file\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Man.h File Reference}{36}{section.8.11}%
-\contentsline {subsection}{\numberline {8.11.1}Detailed Description}{37}{subsection.8.11.1}%
-\contentsline {subsection}{\numberline {8.11.2}Macro Definition Documentation}{37}{subsection.8.11.2}%
-\contentsline {subsubsection}{\numberline {8.11.2.1}getFileExtension}{37}{subsubsection.8.11.2.1}%
-\contentsline {subsubsection}{\numberline {8.11.2.2}getFileName}{38}{subsubsection.8.11.2.2}%
-\contentsline {subsubsection}{\numberline {8.11.2.3}getFilePath}{38}{subsubsection.8.11.2.3}%
-\contentsline {subsubsection}{\numberline {8.11.2.4}MAX\_FEXT\_SIZE}{39}{subsubsection.8.11.2.4}%
-\contentsline {subsubsection}{\numberline {8.11.2.5}MAX\_FNAME\_SIZE}{39}{subsubsection.8.11.2.5}%
-\contentsline {subsubsection}{\numberline {8.11.2.6}MAX\_FPATH\_SIZE}{39}{subsubsection.8.11.2.6}%
-\contentsline {subsubsection}{\numberline {8.11.2.7}SHARED}{39}{subsubsection.8.11.2.7}%
-\contentsline {subsection}{\numberline {8.11.3}Function Documentation}{40}{subsection.8.11.3}%
-\contentsline {subsubsection}{\numberline {8.11.3.1}copyFileWithoutTabAndLineBreak()}{40}{subsubsection.8.11.3.1}%
-\contentsline {subsubsection}{\numberline {8.11.3.2}fgetFileExtension()}{40}{subsubsection.8.11.3.2}%
-\contentsline {subsubsection}{\numberline {8.11.3.3}fgetFileName()}{40}{subsubsection.8.11.3.3}%
-\contentsline {subsubsection}{\numberline {8.11.3.4}fgetFilePath()}{41}{subsubsection.8.11.3.4}%
-\contentsline {section}{\numberline {8.12}file\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Man.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{41}{section.8.12}%
-\contentsline {section}{\numberline {8.13}docs/src\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}documented/fmanc.h File Reference}{41}{section.8.13}%
-\contentsline {subsection}{\numberline {8.13.1}Detailed Description}{42}{subsection.8.13.1}%
-\contentsline {subsection}{\numberline {8.13.2}Macro Definition Documentation}{42}{subsection.8.13.2}%
-\contentsline {subsubsection}{\numberline {8.13.2.1}SHARED}{42}{subsubsection.8.13.2.1}%
-\contentsline {section}{\numberline {8.14}fmanc.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{43}{section.8.14}%
-\contentsline {section}{\numberline {8.15}docs/src\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}documented/not\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}By\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Me/lex\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}yy.c File Reference}{43}{section.8.15}%
-\contentsline {subsection}{\numberline {8.15.1}Detailed Description}{46}{subsection.8.15.1}%
-\contentsline {subsection}{\numberline {8.15.2}Macro Definition Documentation}{46}{subsection.8.15.2}%
-\contentsline {subsubsection}{\numberline {8.15.2.1}BEGIN}{46}{subsubsection.8.15.2.1}%
-\contentsline {subsubsection}{\numberline {8.15.2.2}Char}{46}{subsubsection.8.15.2.2}%
-\contentsline {subsubsection}{\numberline {8.15.2.3}Comment}{47}{subsubsection.8.15.2.3}%
-\contentsline {subsubsection}{\numberline {8.15.2.4}CPPComment}{47}{subsubsection.8.15.2.4}%
-\contentsline {subsubsection}{\numberline {8.15.2.5}ECHO}{47}{subsubsection.8.15.2.5}%
-\contentsline {subsubsection}{\numberline {8.15.2.6}EOB\_ACT\_CONTINUE\_SCAN}{47}{subsubsection.8.15.2.6}%
-\contentsline {subsubsection}{\numberline {8.15.2.7}EOB\_ACT\_END\_OF\_FILE}{47}{subsubsection.8.15.2.7}%
-\contentsline {subsubsection}{\numberline {8.15.2.8}EOB\_ACT\_LAST\_MATCH}{47}{subsubsection.8.15.2.8}%
-\contentsline {subsubsection}{\numberline {8.15.2.9}FLEX\_BETA}{48}{subsubsection.8.15.2.9}%
-\contentsline {subsubsection}{\numberline {8.15.2.10}FLEX\_SCANNER}{48}{subsubsection.8.15.2.10}%
-\contentsline {subsubsection}{\numberline {8.15.2.11}FLEXINT\_H}{48}{subsubsection.8.15.2.11}%
-\contentsline {subsubsection}{\numberline {8.15.2.12}INITIAL}{48}{subsubsection.8.15.2.12}%
-\contentsline {subsubsection}{\numberline {8.15.2.13}INT16\_MAX}{48}{subsubsection.8.15.2.13}%
-\contentsline {subsubsection}{\numberline {8.15.2.14}INT16\_MIN}{48}{subsubsection.8.15.2.14}%
-\contentsline {subsubsection}{\numberline {8.15.2.15}INT32\_MAX}{49}{subsubsection.8.15.2.15}%
-\contentsline {subsubsection}{\numberline {8.15.2.16}INT32\_MIN}{49}{subsubsection.8.15.2.16}%
-\contentsline {subsubsection}{\numberline {8.15.2.17}INT8\_MAX}{49}{subsubsection.8.15.2.17}%
-\contentsline {subsubsection}{\numberline {8.15.2.18}INT8\_MIN}{49}{subsubsection.8.15.2.18}%
-\contentsline {subsubsection}{\numberline {8.15.2.19}REJECT}{49}{subsubsection.8.15.2.19}%
-\contentsline {subsubsection}{\numberline {8.15.2.20}SIZE\_MAX}{49}{subsubsection.8.15.2.20}%
-\contentsline {subsubsection}{\numberline {8.15.2.21}String}{50}{subsubsection.8.15.2.21}%
-\contentsline {subsubsection}{\numberline {8.15.2.22}UINT16\_MAX}{50}{subsubsection.8.15.2.22}%
-\contentsline {subsubsection}{\numberline {8.15.2.23}UINT32\_MAX}{50}{subsubsection.8.15.2.23}%
-\contentsline {subsubsection}{\numberline {8.15.2.24}UINT8\_MAX}{50}{subsubsection.8.15.2.24}%
-\contentsline {subsubsection}{\numberline {8.15.2.25}unput}{50}{subsubsection.8.15.2.25}%
-\contentsline {subsubsection}{\numberline {8.15.2.26}YY\_AT\_BOL}{50}{subsubsection.8.15.2.26}%
-\contentsline {subsubsection}{\numberline {8.15.2.27}YY\_BREAK}{51}{subsubsection.8.15.2.27}%
-\contentsline {subsubsection}{\numberline {8.15.2.28}YY\_BUF\_SIZE}{51}{subsubsection.8.15.2.28}%
-\contentsline {subsubsection}{\numberline {8.15.2.29}YY\_BUFFER\_EOF\_PENDING}{51}{subsubsection.8.15.2.29}%
-\contentsline {subsubsection}{\numberline {8.15.2.30}YY\_BUFFER\_NEW}{51}{subsubsection.8.15.2.30}%
-\contentsline {subsubsection}{\numberline {8.15.2.31}YY\_BUFFER\_NORMAL}{51}{subsubsection.8.15.2.31}%
-\contentsline {subsubsection}{\numberline {8.15.2.32}YY\_CURRENT\_BUFFER}{51}{subsubsection.8.15.2.32}%
-\contentsline {subsubsection}{\numberline {8.15.2.33}YY\_CURRENT\_BUFFER\_LVALUE}{52}{subsubsection.8.15.2.33}%
-\contentsline {subsubsection}{\numberline {8.15.2.34}YY\_DECL}{52}{subsubsection.8.15.2.34}%
-\contentsline {subsubsection}{\numberline {8.15.2.35}YY\_DECL\_IS\_OURS}{52}{subsubsection.8.15.2.35}%
-\contentsline {subsubsection}{\numberline {8.15.2.36}YY\_DO\_BEFORE\_ACTION}{52}{subsubsection.8.15.2.36}%
-\contentsline {subsubsection}{\numberline {8.15.2.37}YY\_END\_OF\_BUFFER}{52}{subsubsection.8.15.2.37}%
-\contentsline {subsubsection}{\numberline {8.15.2.38}YY\_END\_OF\_BUFFER\_CHAR}{52}{subsubsection.8.15.2.38}%
-\contentsline {subsubsection}{\numberline {8.15.2.39}YY\_EXTRA\_TYPE}{53}{subsubsection.8.15.2.39}%
-\contentsline {subsubsection}{\numberline {8.15.2.40}YY\_FATAL\_ERROR}{53}{subsubsection.8.15.2.40}%
-\contentsline {subsubsection}{\numberline {8.15.2.41}YY\_FLEX\_MAJOR\_VERSION}{53}{subsubsection.8.15.2.41}%
-\contentsline {subsubsection}{\numberline {8.15.2.42}YY\_FLEX\_MINOR\_VERSION}{53}{subsubsection.8.15.2.42}%
-\contentsline {subsubsection}{\numberline {8.15.2.43}YY\_FLEX\_SUBMINOR\_VERSION}{53}{subsubsection.8.15.2.43}%
-\contentsline {subsubsection}{\numberline {8.15.2.44}YY\_FLUSH\_BUFFER}{53}{subsubsection.8.15.2.44}%
-\contentsline {subsubsection}{\numberline {8.15.2.45}YY\_INPUT}{54}{subsubsection.8.15.2.45}%
-\contentsline {subsubsection}{\numberline {8.15.2.46}YY\_INT\_ALIGNED}{54}{subsubsection.8.15.2.46}%
-\contentsline {subsubsection}{\numberline {8.15.2.47}YY\_LESS\_LINENO}{54}{subsubsection.8.15.2.47}%
-\contentsline {subsubsection}{\numberline {8.15.2.48}YY\_LINENO\_REWIND\_TO}{54}{subsubsection.8.15.2.48}%
-\contentsline {subsubsection}{\numberline {8.15.2.49}YY\_MORE\_ADJ}{55}{subsubsection.8.15.2.49}%
-\contentsline {subsubsection}{\numberline {8.15.2.50}yy\_new\_buffer}{55}{subsubsection.8.15.2.50}%
-\contentsline {subsubsection}{\numberline {8.15.2.51}YY\_NEW\_FILE}{55}{subsubsection.8.15.2.51}%
-\contentsline {subsubsection}{\numberline {8.15.2.52}YY\_NULL}{55}{subsubsection.8.15.2.52}%
-\contentsline {subsubsection}{\numberline {8.15.2.53}YY\_NUM\_RULES}{55}{subsubsection.8.15.2.53}%
-\contentsline {subsubsection}{\numberline {8.15.2.54}YY\_READ\_BUF\_SIZE}{55}{subsubsection.8.15.2.54}%
-\contentsline {subsubsection}{\numberline {8.15.2.55}YY\_RESTORE\_YY\_MORE\_OFFSET}{56}{subsubsection.8.15.2.55}%
-\contentsline {subsubsection}{\numberline {8.15.2.56}YY\_RULE\_SETUP}{56}{subsubsection.8.15.2.56}%
-\contentsline {subsubsection}{\numberline {8.15.2.57}YY\_SC\_TO\_UI}{56}{subsubsection.8.15.2.57}%
-\contentsline {subsubsection}{\numberline {8.15.2.58}yy\_set\_bol}{56}{subsubsection.8.15.2.58}%
-\contentsline {subsubsection}{\numberline {8.15.2.59}yy\_set\_interactive}{56}{subsubsection.8.15.2.59}%
-\contentsline {subsubsection}{\numberline {8.15.2.60}YY\_SKIP\_YYWRAP}{57}{subsubsection.8.15.2.60}%
-\contentsline {subsubsection}{\numberline {8.15.2.61}YY\_START}{57}{subsubsection.8.15.2.61}%
-\contentsline {subsubsection}{\numberline {8.15.2.62}YY\_START\_STACK\_INCR}{57}{subsubsection.8.15.2.62}%
-\contentsline {subsubsection}{\numberline {8.15.2.63}YY\_STATE\_BUF\_SIZE}{57}{subsubsection.8.15.2.63}%
-\contentsline {subsubsection}{\numberline {8.15.2.64}YY\_STATE\_EOF}{57}{subsubsection.8.15.2.64}%
-\contentsline {subsubsection}{\numberline {8.15.2.65}YY\_STRUCT\_YY\_BUFFER\_STATE}{57}{subsubsection.8.15.2.65}%
-\contentsline {subsubsection}{\numberline {8.15.2.66}YY\_TYPEDEF\_YY\_BUFFER\_STATE}{58}{subsubsection.8.15.2.66}%
-\contentsline {subsubsection}{\numberline {8.15.2.67}YY\_TYPEDEF\_YY\_SIZE\_T}{58}{subsubsection.8.15.2.67}%
-\contentsline {subsubsection}{\numberline {8.15.2.68}YY\_USER\_ACTION}{58}{subsubsection.8.15.2.68}%
-\contentsline {subsubsection}{\numberline {8.15.2.69}yyconst}{58}{subsubsection.8.15.2.69}%
-\contentsline {subsubsection}{\numberline {8.15.2.70}yyless\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{58}{subsubsection.8.15.2.70}%
-\contentsline {subsubsection}{\numberline {8.15.2.71}yyless\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{59}{subsubsection.8.15.2.71}%
-\contentsline {subsubsection}{\numberline {8.15.2.72}yymore}{59}{subsubsection.8.15.2.72}%
-\contentsline {subsubsection}{\numberline {8.15.2.73}yynoreturn}{59}{subsubsection.8.15.2.73}%
-\contentsline {subsubsection}{\numberline {8.15.2.74}YYSTATE}{59}{subsubsection.8.15.2.74}%
-\contentsline {subsubsection}{\numberline {8.15.2.75}yyterminate}{59}{subsubsection.8.15.2.75}%
-\contentsline {subsubsection}{\numberline {8.15.2.76}yytext\_ptr}{60}{subsubsection.8.15.2.76}%
-\contentsline {subsubsection}{\numberline {8.15.2.77}yywrap}{60}{subsubsection.8.15.2.77}%
-\contentsline {subsection}{\numberline {8.15.3}Typedef Documentation}{60}{subsection.8.15.3}%
-\contentsline {subsubsection}{\numberline {8.15.3.1}flex\_int16\_t}{60}{subsubsection.8.15.3.1}%
-\contentsline {subsubsection}{\numberline {8.15.3.2}flex\_int32\_t}{60}{subsubsection.8.15.3.2}%
-\contentsline {subsubsection}{\numberline {8.15.3.3}flex\_int8\_t}{60}{subsubsection.8.15.3.3}%
-\contentsline {subsubsection}{\numberline {8.15.3.4}flex\_uint16\_t}{60}{subsubsection.8.15.3.4}%
-\contentsline {subsubsection}{\numberline {8.15.3.5}flex\_uint32\_t}{61}{subsubsection.8.15.3.5}%
-\contentsline {subsubsection}{\numberline {8.15.3.6}flex\_uint8\_t}{61}{subsubsection.8.15.3.6}%
-\contentsline {subsubsection}{\numberline {8.15.3.7}YY\_BUFFER\_STATE}{61}{subsubsection.8.15.3.7}%
-\contentsline {subsubsection}{\numberline {8.15.3.8}YY\_CHAR}{61}{subsubsection.8.15.3.8}%
-\contentsline {subsubsection}{\numberline {8.15.3.9}yy\_size\_t}{61}{subsubsection.8.15.3.9}%
-\contentsline {subsubsection}{\numberline {8.15.3.10}yy\_state\_type}{61}{subsubsection.8.15.3.10}%
-\contentsline {subsection}{\numberline {8.15.4}Function Documentation}{62}{subsection.8.15.4}%
-\contentsline {subsubsection}{\numberline {8.15.4.1}deleteCStyleComments()}{62}{subsubsection.8.15.4.1}%
-\contentsline {subsubsection}{\numberline {8.15.4.2}if()}{62}{subsubsection.8.15.4.2}%
-\contentsline {subsubsection}{\numberline {8.15.4.3}yylex()}{62}{subsubsection.8.15.4.3}%
-\contentsline {subsection}{\numberline {8.15.5}Variable Documentation}{62}{subsection.8.15.5}%
-\contentsline {subsubsection}{\numberline {8.15.5.1}jj2\_junk}{62}{subsubsection.8.15.5.1}%
-\contentsline {subsubsection}{\numberline {8.15.5.2}yy\_act}{62}{subsubsection.8.15.5.2}%
-\contentsline {subsubsection}{\numberline {8.15.5.3}yy\_bp}{63}{subsubsection.8.15.5.3}%
-\contentsline {subsubsection}{\numberline {8.15.5.4}yy\_cp}{63}{subsubsection.8.15.5.4}%
-\contentsline {subsubsection}{\numberline {8.15.5.5}YY\_DECL}{63}{subsubsection.8.15.5.5}%
-\contentsline {subsubsection}{\numberline {8.15.5.6}yy\_flex\_debug}{63}{subsubsection.8.15.5.6}%
-\contentsline {subsubsection}{\numberline {8.15.5.7}yyin}{63}{subsubsection.8.15.5.7}%
-\contentsline {subsubsection}{\numberline {8.15.5.8}yyleng}{63}{subsubsection.8.15.5.8}%
-\contentsline {subsubsection}{\numberline {8.15.5.9}yylineno}{64}{subsubsection.8.15.5.9}%
-\contentsline {subsubsection}{\numberline {8.15.5.10}yyout}{64}{subsubsection.8.15.5.10}%
-\contentsline {subsubsection}{\numberline {8.15.5.11}yytext}{64}{subsubsection.8.15.5.11}%
-\contentsline {section}{\numberline {8.16}lex\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}yy.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{64}{section.8.16}%
-\contentsline {section}{\numberline {8.17}docs/src\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}documented/not\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}By\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Me/lex\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}yy.h File Reference}{85}{section.8.17}%
-\contentsline {subsection}{\numberline {8.17.1}Detailed Description}{86}{subsection.8.17.1}%
-\contentsline {subsection}{\numberline {8.17.2}Macro Definition Documentation}{86}{subsection.8.17.2}%
-\contentsline {subsubsection}{\numberline {8.17.2.1}SHARED}{86}{subsubsection.8.17.2.1}%
-\contentsline {subsection}{\numberline {8.17.3}Function Documentation}{87}{subsection.8.17.3}%
-\contentsline {subsubsection}{\numberline {8.17.3.1}deleteCStyleComments()}{87}{subsubsection.8.17.3.1}%
-\contentsline {section}{\numberline {8.18}lex\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}yy.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{87}{section.8.18}%
-\contentsline {section}{\numberline {8.19}docs/src\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}documented/not\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}By\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Me/no\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Comments.l File Reference}{87}{section.8.19}%
-\contentsline {subsection}{\numberline {8.19.1}Detailed Description}{88}{subsection.8.19.1}%
-\contentsline {subsection}{\numberline {8.19.2}Function Documentation}{88}{subsection.8.19.2}%
-\contentsline {subsubsection}{\numberline {8.19.2.1}deleteCStyleComments()}{88}{subsubsection.8.19.2.1}%
-\contentsline {subsubsection}{\numberline {8.19.2.2}yylex()}{88}{subsubsection.8.19.2.2}%
-\contentsline {subsection}{\numberline {8.19.3}Variable Documentation}{88}{subsection.8.19.3}%
-\contentsline {subsubsection}{\numberline {8.19.3.1}jj2\_junk}{88}{subsubsection.8.19.3.1}%
-\contentsline {subsubsection}{\numberline {8.19.3.2}jj\_junk}{89}{subsubsection.8.19.3.2}%
-\contentsline {section}{\numberline {8.20}no\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Comments.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}l}{89}{section.8.20}%
-\contentsline {chapter}{Index}{91}{section*.32}%
+\contentsline {section}{\numberline {1}File Index}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}File List}{1}{subsection.1.1}%
+\contentsline {section}{\numberline {2}File Documentation}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}src/analyze.c File Reference}{2}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Function Documentation}{2}{subsubsection.2.1.1}%
+\contentsline {paragraph}{\numberline {2.1.1.1}countCharInFile()}{2}{paragraph.2.1.1.1}%
+\contentsline {paragraph}{\numberline {2.1.1.2}free\_stringOccurrences()}{2}{paragraph.2.1.1.2}%
+\contentsline {paragraph}{\numberline {2.1.1.3}init\_StringOccurences()}{3}{paragraph.2.1.1.3}%
+\contentsline {paragraph}{\numberline {2.1.1.4}replaceStringInFile()}{3}{paragraph.2.1.1.4}%
+\contentsline {paragraph}{\numberline {2.1.1.5}searchStringInFile()}{3}{paragraph.2.1.1.5}%
+\contentsline {subsection}{\numberline {2.2}analyze.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}src/analyze.h File Reference}{7}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Data Structure Documentation}{7}{subsubsection.2.3.1}%
+\contentsline {paragraph}{\numberline {2.3.1.1}struct FMANC\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}SO}{7}{paragraph.2.3.1.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Macro Definition Documentation}{8}{subsubsection.2.3.2}%
+\contentsline {paragraph}{\numberline {2.3.2.1}SHARED}{8}{paragraph.2.3.2.1}%
+\contentsline {subsubsection}{\numberline {2.3.3}Typedef Documentation}{8}{subsubsection.2.3.3}%
+\contentsline {paragraph}{\numberline {2.3.3.1}stringOccurrences}{8}{paragraph.2.3.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.4}Function Documentation}{8}{subsubsection.2.3.4}%
+\contentsline {paragraph}{\numberline {2.3.4.1}countCharInFile()}{8}{paragraph.2.3.4.1}%
+\contentsline {paragraph}{\numberline {2.3.4.2}free\_stringOccurrences()}{8}{paragraph.2.3.4.2}%
+\contentsline {paragraph}{\numberline {2.3.4.3}init\_StringOccurences()}{9}{paragraph.2.3.4.3}%
+\contentsline {paragraph}{\numberline {2.3.4.4}replaceStringInFile()}{9}{paragraph.2.3.4.4}%
+\contentsline {paragraph}{\numberline {2.3.4.5}searchStringInFile()}{9}{paragraph.2.3.4.5}%
+\contentsline {subsection}{\numberline {2.4}analyze.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{9}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}src/fcmx.c File Reference}{10}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}fcmx.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{10}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}src/fcmx.h File Reference}{10}{subsection.2.7}%
+\contentsline {subsubsection}{\numberline {2.7.1}Macro Definition Documentation}{10}{subsubsection.2.7.1}%
+\contentsline {paragraph}{\numberline {2.7.1.1}SHARED}{10}{paragraph.2.7.1.1}%
+\contentsline {subsubsection}{\numberline {2.7.2}Function Documentation}{10}{subsubsection.2.7.2}%
+\contentsline {paragraph}{\numberline {2.7.2.1}copyFileWithoutStrings()}{10}{paragraph.2.7.2.1}%
+\contentsline {subsection}{\numberline {2.8}fcmx.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{11}{subsection.2.8}%
+\contentsline {subsection}{\numberline {2.9}src/file\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Man.c File Reference}{11}{subsection.2.9}%
+\contentsline {subsubsection}{\numberline {2.9.1}Function Documentation}{11}{subsubsection.2.9.1}%
+\contentsline {paragraph}{\numberline {2.9.1.1}copyFileWithoutTabAndLineBreak()}{11}{paragraph.2.9.1.1}%
+\contentsline {paragraph}{\numberline {2.9.1.2}fgetFileExtension()}{11}{paragraph.2.9.1.2}%
+\contentsline {paragraph}{\numberline {2.9.1.3}fgetFileName()}{12}{paragraph.2.9.1.3}%
+\contentsline {paragraph}{\numberline {2.9.1.4}fgetFilePath()}{12}{paragraph.2.9.1.4}%
+\contentsline {subsection}{\numberline {2.10}file\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Man.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{12}{subsection.2.10}%
+\contentsline {subsection}{\numberline {2.11}src/file\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Man.h File Reference}{14}{subsection.2.11}%
+\contentsline {subsubsection}{\numberline {2.11.1}Macro Definition Documentation}{15}{subsubsection.2.11.1}%
+\contentsline {paragraph}{\numberline {2.11.1.1}getFileExtension}{15}{paragraph.2.11.1.1}%
+\contentsline {paragraph}{\numberline {2.11.1.2}getFileName}{15}{paragraph.2.11.1.2}%
+\contentsline {paragraph}{\numberline {2.11.1.3}getFilePath}{15}{paragraph.2.11.1.3}%
+\contentsline {paragraph}{\numberline {2.11.1.4}MAX\_FEXT\_SIZE}{15}{paragraph.2.11.1.4}%
+\contentsline {paragraph}{\numberline {2.11.1.5}MAX\_FNAME\_SIZE}{16}{paragraph.2.11.1.5}%
+\contentsline {paragraph}{\numberline {2.11.1.6}MAX\_FPATH\_SIZE}{16}{paragraph.2.11.1.6}%
+\contentsline {paragraph}{\numberline {2.11.1.7}SHARED}{16}{paragraph.2.11.1.7}%
+\contentsline {subsubsection}{\numberline {2.11.2}Function Documentation}{16}{subsubsection.2.11.2}%
+\contentsline {paragraph}{\numberline {2.11.2.1}copyFileWithoutStrings()}{16}{paragraph.2.11.2.1}%
+\contentsline {paragraph}{\numberline {2.11.2.2}copyFileWithoutTabAndLineBreak()}{16}{paragraph.2.11.2.2}%
+\contentsline {paragraph}{\numberline {2.11.2.3}fgetFileExtension()}{16}{paragraph.2.11.2.3}%
+\contentsline {paragraph}{\numberline {2.11.2.4}fgetFileName()}{17}{paragraph.2.11.2.4}%
+\contentsline {paragraph}{\numberline {2.11.2.5}fgetFilePath()}{17}{paragraph.2.11.2.5}%
+\contentsline {subsection}{\numberline {2.12}file\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Man.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{17}{subsection.2.12}%
+\contentsline {subsection}{\numberline {2.13}src/fmanc.h File Reference}{18}{subsection.2.13}%
+\contentsline {subsubsection}{\numberline {2.13.1}Macro Definition Documentation}{18}{subsubsection.2.13.1}%
+\contentsline {paragraph}{\numberline {2.13.1.1}SHARED}{18}{paragraph.2.13.1.1}%
+\contentsline {subsection}{\numberline {2.14}fmanc.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{18}{subsection.2.14}%
+\contentsline {subsection}{\numberline {2.15}src/third\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}party/lex\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}yy.h File Reference}{18}{subsection.2.15}%
+\contentsline {subsubsection}{\numberline {2.15.1}Macro Definition Documentation}{19}{subsubsection.2.15.1}%
+\contentsline {paragraph}{\numberline {2.15.1.1}SHARED}{19}{paragraph.2.15.1.1}%
+\contentsline {subsubsection}{\numberline {2.15.2}Function Documentation}{19}{subsubsection.2.15.2}%
+\contentsline {paragraph}{\numberline {2.15.2.1}deleteCStyleComments()}{19}{paragraph.2.15.2.1}%
+\contentsline {subsection}{\numberline {2.16}lex\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}yy.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{19}{subsection.2.16}%
+\contentsline {section}{Index}{21}{section*.14}%

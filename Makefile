@@ -22,15 +22,19 @@ CFLAGS_DLL_1=-O3 -Wall -Werror -Wextra -pedantic -std=c11 -c -D BUILD_DLL
 CFLAGS_DLL_2_1=-O3 -Wall -Werror -Wextra -pedantic -std=c11 -shared $(OBJ_FILES) -o
 CFLAGS_DLL_2_2="-Wl,--out-implib,libFManC.dll.a,--export-all-symbols"
 
-.PHONY : stat_win stat_lin dyn_win dyn_lin clean_win clean_lin 
+CFLAGS_DYN_LIN_1=-O3 -Wall -Wextra -pedantic -Werror -std=c11 -c -fPIC
+CFLAGS_DYN_LIN_2_1=-O3 -Wall -Wextra -pedantic -Werror -std=c11 -fPIC -shared $(OBJ_FILES) -o
+CFLAGS_DYN_LIN_2_2=-Wl,-soname,
 
-stat_win : libFManC.a cpHeaders_win clean_win
+.PHONY : stat_win stat_lin dyn_win dyn_lin clean_win clean_lin doxy
 
-stat_lin : libFManC.linux.a cpHeaders_lin clean_lin
+stat_win : libFManC.a cpHeaders_win clean_win doxy
 
-dyn_win : FManC.dll cpHeaders_win clean_win
+stat_lin : libFManC.linux.a cpHeaders_lin clean_lin doxy
+ 
+dyn_win : FManC.dll cpHeaders_win clean_win doxy
 
-dyn_lin : test/test_with_so/lib/FManC.so lib/FManC.so cpHeaders_lin clean_lin
+dyn_lin : libFManC.so cpHeaders_lin clean_lin doxy
 
 
 # For the windows static lib	
@@ -52,6 +56,14 @@ FManC.dll : $(SRC_FILES) $(HEADER_FILES)
 	$(CC) $(CFLAGS_DLL_2_1) test/test_with_dll/bin/$@ $(CFLAGS_DLL_2_2)
 	@copy /Y .\\libFManC.dll.a .\\lib\\
 	@move /Y .\\libFManC.dll.a .\\test\\test_with_dll\\lib\\
+
+# For linux dynamic lib
+libFManC.so : $(SRC_FILES) $(HEADER_FILES)
+	$(CC) $(CFLAGS_DYN_LIN_1) $(SRC_FILES)
+	$(CC) $(CFLAGS_DYN_LIN_2_1) lib/$@.$(VERSION) $(CFLAGS_DYN_LIN_2_2)$@.$(MAJOR_VERSION)
+	$(CC) $(CFLAGS_DYN_LIN_2_1) test/test_with_so/lib/$@.$(VERSION) $(CFLAGS_DYN_LIN_2_2)$@.$(MAJOR_VERSION)
+	cd ./lib/ && ln -s $@.$(VERSION) $@.$(MAJOR_VERSION) && ln -s $@.$(MAJOR_VERSION) $@
+	cd ./test/test_with_so/lib/ && ln -s $@.$(VERSION) $@.$(MAJOR_VERSION) && ln -s $@.$(MAJOR_VERSION) $@
 
 cpHeaders_win : $(HEADER_FILES)
 	@copy /V /Y .\\src\\*.h .\\include\\
@@ -79,6 +91,6 @@ clean_win :
 clean_lin :
 	@rm -f *.o
 
-#gcc -O3 -Wall -Wextra -Werror -std=c11 -c -fPIC src/*.c src/third_party/*.c
-#gcc -O3 -Wall -Wextra -Werror -std=c11 -fPIC -shared *.o -o lib/libFManC.so.$(VERSION) -Wl,-soname
-#gcc -O3 -Wall -Wextra -Werror -std=c11 -fPIC -shared *.o -o test/test_with_so/lib/libFManC.so.$(VERSION) -Wl,-soname
+doxy :
+	@doxygen Doxyfile
+	cd docs/man && make

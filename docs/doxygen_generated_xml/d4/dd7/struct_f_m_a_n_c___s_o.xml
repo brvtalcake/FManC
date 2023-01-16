@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="d4/dd7/struct_f_m_a_n_c___s_o" kind="struct" language="C++" prot="public">
+    <compoundname>FMANC_SO</compoundname>
+    <includes refid="d8/d07/analyze_8h" local="no">analyze.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="d4/dd7/struct_f_m_a_n_c___s_o_1a1e2ca1cd40105cbb3505ce646cb01568" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t FMANC_SO::charCount</definition>
+        <argsstring></argsstring>
+        <name>charCount</name>
+        <qualifiedname>FMANC_SO::charCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/analyze.h" line="27" column="8" bodyfile="src/analyze.h" bodystart="27" bodyend="-1"/>
+        <referencedby refid="d7/d93/analyze_8c_1a615c6ba607d2b90929bc2a8b1fe5e5f6" compoundref="d7/d93/analyze_8c" startline="38" endline="48">init_StringOccurences</referencedby>
+        <referencedby refid="d7/d93/analyze_8c_1ae5a02aaad7ac0820d0b9c6c96c77abb9" compoundref="d7/d93/analyze_8c" startline="163" endline="328">replaceStringInFile</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d4/dd7/struct_f_m_a_n_c___s_o_1ab8a4e00f471ad246be90b80b7bcba569" prot="public" static="no" mutable="no">
+        <type>long long int *</type>
+        <definition>long long int* FMANC_SO::pos</definition>
+        <argsstring></argsstring>
+        <name>pos</name>
+        <qualifiedname>FMANC_SO::pos</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/analyze.h" line="28" column="15" bodyfile="src/analyze.h" bodystart="28" bodyend="-1"/>
+        <referencedby refid="d7/d93/analyze_8c_1a04ae2138b1c3b361f9556bd30db30c23" compoundref="d7/d93/analyze_8c" startline="50" endline="54">free_stringOccurrences</referencedby>
+        <referencedby refid="d7/d93/analyze_8c_1a615c6ba607d2b90929bc2a8b1fe5e5f6" compoundref="d7/d93/analyze_8c" startline="38" endline="48">init_StringOccurences</referencedby>
+        <referencedby refid="d7/d93/analyze_8c_1ae5a02aaad7ac0820d0b9c6c96c77abb9" compoundref="d7/d93/analyze_8c" startline="163" endline="328">replaceStringInFile</referencedby>
+        <referencedby refid="d7/d93/analyze_8c_1ab029b1afb2f8a964dd116b825baf8741" compoundref="d7/d93/analyze_8c" startline="57" endline="160">searchStringInFile</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/analyze.h" line="25" column="2" bodyfile="src/analyze.h" bodystart="26" bodyend="29"/>
+    <listofallmembers>
+      <member refid="d4/dd7/struct_f_m_a_n_c___s_o_1a1e2ca1cd40105cbb3505ce646cb01568" prot="public" virt="non-virtual"><scope>FMANC_SO</scope><name>charCount</name></member>
+      <member refid="d4/dd7/struct_f_m_a_n_c___s_o_1ab8a4e00f471ad246be90b80b7bcba569" prot="public" virt="non-virtual"><scope>FMANC_SO</scope><name>pos</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

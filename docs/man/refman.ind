@@ -1,488 +1,132 @@
 \begin{theindex}
 
   \item {analyze.c}
-    \subitem {countCharInFile}, \hyperpage{19}
-    \subitem {free\_stringOccurrences}, \hyperpage{20}
-    \subitem {init\_StringOccurences}, \hyperpage{20}
-    \subitem {replaceStringInFile}, \hyperpage{20}
-    \subitem {searchStringInFile}, \hyperpage{21}
+    \subitem {countCharInFile}, \hyperpage{2}
+    \subitem {free\_stringOccurrences}, \hyperpage{2}
+    \subitem {init\_StringOccurences}, \hyperpage{2}
+    \subitem {replaceStringInFile}, \hyperpage{3}
+    \subitem {searchStringInFile}, \hyperpage{3}
   \item {analyze.h}
-    \subitem {countCharInFile}, \hyperpage{27}
-    \subitem {free\_stringOccurrences}, \hyperpage{27}
-    \subitem {init\_StringOccurences}, \hyperpage{27}
-    \subitem {replaceStringInFile}, \hyperpage{27}
-    \subitem {searchStringInFile}, \hyperpage{28}
-    \subitem {SHARED}, \hyperpage{26}
-    \subitem {stringOccurrences}, \hyperpage{26}
+    \subitem {countCharInFile}, \hyperpage{8}
+    \subitem {free\_stringOccurrences}, \hyperpage{8}
+    \subitem {init\_StringOccurences}, \hyperpage{8}
+    \subitem {replaceStringInFile}, \hyperpage{9}
+    \subitem {searchStringInFile}, \hyperpage{9}
+    \subitem {SHARED}, \hyperpage{8}
+    \subitem {stringOccurrences}, \hyperpage{8}
 
   \indexspace
 
-  \item {BEGIN}
-    \subitem {lex\_yy.c}, \hyperpage{46}
-
-  \indexspace
-
-  \item {C Headers for my personnal project}, \hyperpage{13}
-  \item {C Headers for my personnal project, made by me}, 
-		\hyperpage{13}
-  \item {C Headers for my personnal project, made by me and flex}, 
-		\hyperpage{14}
-  \item {C source code for my personnal project}, \hyperpage{12}
-  \item {C source code for my personnal project, made by me}, 
-		\hyperpage{12}
-  \item {C source code for my personnal project, made by me and flex}, 
-		\hyperpage{14}
-  \item {Char}
-    \subitem {lex\_yy.c}, \hyperpage{46}
-  \item {charCount}
-    \subitem {FMANC\_SO}, \hyperpage{17}
-  \item {Comment}
-    \subitem {lex\_yy.c}, \hyperpage{46}
   \item {copyFileWithoutStrings}
-    \subitem {fcmx.h}, \hyperpage{31}
+    \subitem {fcmx.h}, \hyperpage{10}
+    \subitem {fileMan.h}, \hyperpage{16}
   \item {copyFileWithoutTabAndLineBreak}
-    \subitem {fileMan.c}, \hyperpage{32}
-    \subitem {fileMan.h}, \hyperpage{40}
-  \item {Core C headers}, \hyperpage{11}
-  \item {Core C source code}, \hyperpage{11}
-  \item {Core lib C headers}, \hyperpage{12}
+    \subitem {fileMan.c}, \hyperpage{11}
+    \subitem {fileMan.h}, \hyperpage{16}
   \item {countCharInFile}
-    \subitem {analyze.c}, \hyperpage{19}
-    \subitem {analyze.h}, \hyperpage{27}
-  \item {CPPComment}
-    \subitem {lex\_yy.c}, \hyperpage{47}
+    \subitem {analyze.c}, \hyperpage{2}
+    \subitem {analyze.h}, \hyperpage{8}
 
   \indexspace
 
   \item {deleteCStyleComments}
-    \subitem {lex\_yy.c}, \hyperpage{62}
-    \subitem {lex\_yy.h}, \hyperpage{87}
-    \subitem {noComments.l}, \hyperpage{88}
-  \item {docs/src\_documented/analyze.c}, \hyperpage{19}, 
-		\hyperpage{21}
-  \item {docs/src\_documented/analyze.h}, \hyperpage{25}, 
-		\hyperpage{28}
-  \item {docs/src\_documented/fcmx.c}, \hyperpage{29}
-  \item {docs/src\_documented/fcmx.h}, \hyperpage{29}, \hyperpage{31}
-  \item {docs/src\_documented/fileMan.c}, \hyperpage{32}, 
-		\hyperpage{34}
-  \item {docs/src\_documented/fileMan.h}, \hyperpage{36}, 
-		\hyperpage{41}
-  \item {docs/src\_documented/fmanc.h}, \hyperpage{41}, \hyperpage{43}
-  \item {docs/src\_documented/notByMe/lex\_yy.c}, \hyperpage{43}, 
-		\hyperpage{64}
-  \item {docs/src\_documented/notByMe/lex\_yy.h}, \hyperpage{85}, 
-		\hyperpage{87}
-  \item {docs/src\_documented/notByMe/noComments.l}, \hyperpage{87}, 
-		\hyperpage{89}
-
-  \indexspace
-
-  \item {ECHO}
-    \subitem {lex\_yy.c}, \hyperpage{47}
-  \item {EOB\_ACT\_CONTINUE\_SCAN}
-    \subitem {lex\_yy.c}, \hyperpage{47}
-  \item {EOB\_ACT\_END\_OF\_FILE}
-    \subitem {lex\_yy.c}, \hyperpage{47}
-  \item {EOB\_ACT\_LAST\_MATCH}
-    \subitem {lex\_yy.c}, \hyperpage{47}
+    \subitem {lex\_yy.h}, \hyperpage{19}
 
   \indexspace
 
   \item {fcmx.h}
-    \subitem {copyFileWithoutStrings}, \hyperpage{31}
-    \subitem {SHARED}, \hyperpage{30}
+    \subitem {copyFileWithoutStrings}, \hyperpage{10}
+    \subitem {SHARED}, \hyperpage{10}
   \item {fgetFileExtension}
-    \subitem {fileMan.c}, \hyperpage{33}
-    \subitem {fileMan.h}, \hyperpage{40}
+    \subitem {fileMan.c}, \hyperpage{11}
+    \subitem {fileMan.h}, \hyperpage{16}
   \item {fgetFileName}
-    \subitem {fileMan.c}, \hyperpage{33}
-    \subitem {fileMan.h}, \hyperpage{40}
+    \subitem {fileMan.c}, \hyperpage{11}
+    \subitem {fileMan.h}, \hyperpage{16}
   \item {fgetFilePath}
-    \subitem {fileMan.c}, \hyperpage{33}
-    \subitem {fileMan.h}, \hyperpage{40}
+    \subitem {fileMan.c}, \hyperpage{12}
+    \subitem {fileMan.h}, \hyperpage{17}
   \item {fileMan.c}
-    \subitem {copyFileWithoutTabAndLineBreak}, \hyperpage{32}
-    \subitem {fgetFileExtension}, \hyperpage{33}
-    \subitem {fgetFileName}, \hyperpage{33}
-    \subitem {fgetFilePath}, \hyperpage{33}
+    \subitem {copyFileWithoutTabAndLineBreak}, \hyperpage{11}
+    \subitem {fgetFileExtension}, \hyperpage{11}
+    \subitem {fgetFileName}, \hyperpage{11}
+    \subitem {fgetFilePath}, \hyperpage{12}
   \item {fileMan.h}
-    \subitem {copyFileWithoutTabAndLineBreak}, \hyperpage{40}
-    \subitem {fgetFileExtension}, \hyperpage{40}
-    \subitem {fgetFileName}, \hyperpage{40}
-    \subitem {fgetFilePath}, \hyperpage{40}
-    \subitem {getFileExtension}, \hyperpage{37}
-    \subitem {getFileName}, \hyperpage{38}
-    \subitem {getFilePath}, \hyperpage{38}
-    \subitem {MAX\_FEXT\_SIZE}, \hyperpage{38}
-    \subitem {MAX\_FNAME\_SIZE}, \hyperpage{39}
-    \subitem {MAX\_FPATH\_SIZE}, \hyperpage{39}
-    \subitem {SHARED}, \hyperpage{39}
-  \item {Flex source files}, \hyperpage{15}
-  \item {FLEX\_BETA}
-    \subitem {lex\_yy.c}, \hyperpage{47}
-  \item {flex\_int16\_t}
-    \subitem {lex\_yy.c}, \hyperpage{60}
-  \item {flex\_int32\_t}
-    \subitem {lex\_yy.c}, \hyperpage{60}
-  \item {flex\_int8\_t}
-    \subitem {lex\_yy.c}, \hyperpage{60}
-  \item {FLEX\_SCANNER}
-    \subitem {lex\_yy.c}, \hyperpage{48}
-  \item {flex\_uint16\_t}
-    \subitem {lex\_yy.c}, \hyperpage{60}
-  \item {flex\_uint32\_t}
-    \subitem {lex\_yy.c}, \hyperpage{60}
-  \item {flex\_uint8\_t}
-    \subitem {lex\_yy.c}, \hyperpage{61}
-  \item {FLEXINT\_H}
-    \subitem {lex\_yy.c}, \hyperpage{48}
+    \subitem {copyFileWithoutStrings}, \hyperpage{16}
+    \subitem {copyFileWithoutTabAndLineBreak}, \hyperpage{16}
+    \subitem {fgetFileExtension}, \hyperpage{16}
+    \subitem {fgetFileName}, \hyperpage{16}
+    \subitem {fgetFilePath}, \hyperpage{17}
+    \subitem {getFileExtension}, \hyperpage{15}
+    \subitem {getFileName}, \hyperpage{15}
+    \subitem {getFilePath}, \hyperpage{15}
+    \subitem {MAX\_FEXT\_SIZE}, \hyperpage{15}
+    \subitem {MAX\_FNAME\_SIZE}, \hyperpage{15}
+    \subitem {MAX\_FPATH\_SIZE}, \hyperpage{16}
+    \subitem {SHARED}, \hyperpage{16}
   \item {fmanc.h}
-    \subitem {SHARED}, \hyperpage{42}
-  \item {FMANC\_SO}, \hyperpage{17}
-    \subitem {charCount}, \hyperpage{17}
-    \subitem {pos}, \hyperpage{17}
+    \subitem {SHARED}, \hyperpage{18}
+  \item {FMANC\_SO}, \hyperpage{7}
   \item {free\_stringOccurrences}
-    \subitem {analyze.c}, \hyperpage{20}
-    \subitem {analyze.h}, \hyperpage{27}
+    \subitem {analyze.c}, \hyperpage{2}
+    \subitem {analyze.h}, \hyperpage{8}
 
   \indexspace
 
   \item {getFileExtension}
-    \subitem {fileMan.h}, \hyperpage{37}
+    \subitem {fileMan.h}, \hyperpage{15}
   \item {getFileName}
-    \subitem {fileMan.h}, \hyperpage{38}
+    \subitem {fileMan.h}, \hyperpage{15}
   \item {getFilePath}
-    \subitem {fileMan.h}, \hyperpage{38}
+    \subitem {fileMan.h}, \hyperpage{15}
 
   \indexspace
 
-  \item {if}
-    \subitem {lex\_yy.c}, \hyperpage{62}
   \item {init\_StringOccurences}
-    \subitem {analyze.c}, \hyperpage{20}
-    \subitem {analyze.h}, \hyperpage{27}
-  \item {INITIAL}
-    \subitem {lex\_yy.c}, \hyperpage{48}
-  \item {INT16\_MAX}
-    \subitem {lex\_yy.c}, \hyperpage{48}
-  \item {INT16\_MIN}
-    \subitem {lex\_yy.c}, \hyperpage{48}
-  \item {INT32\_MAX}
-    \subitem {lex\_yy.c}, \hyperpage{48}
-  \item {INT32\_MIN}
-    \subitem {lex\_yy.c}, \hyperpage{49}
-  \item {INT8\_MAX}
-    \subitem {lex\_yy.c}, \hyperpage{49}
-  \item {INT8\_MIN}
-    \subitem {lex\_yy.c}, \hyperpage{49}
+    \subitem {analyze.c}, \hyperpage{2}
+    \subitem {analyze.h}, \hyperpage{8}
 
   \indexspace
 
-  \item {jj2\_junk}
-    \subitem {lex\_yy.c}, \hyperpage{62}
-    \subitem {noComments.l}, \hyperpage{88}
-  \item {jj\_junk}
-    \subitem {noComments.l}, \hyperpage{88}
-
-  \indexspace
-
-  \item {lex\_yy.c}
-    \subitem {BEGIN}, \hyperpage{46}
-    \subitem {Char}, \hyperpage{46}
-    \subitem {Comment}, \hyperpage{46}
-    \subitem {CPPComment}, \hyperpage{47}
-    \subitem {deleteCStyleComments}, \hyperpage{62}
-    \subitem {ECHO}, \hyperpage{47}
-    \subitem {EOB\_ACT\_CONTINUE\_SCAN}, \hyperpage{47}
-    \subitem {EOB\_ACT\_END\_OF\_FILE}, \hyperpage{47}
-    \subitem {EOB\_ACT\_LAST\_MATCH}, \hyperpage{47}
-    \subitem {FLEX\_BETA}, \hyperpage{47}
-    \subitem {flex\_int16\_t}, \hyperpage{60}
-    \subitem {flex\_int32\_t}, \hyperpage{60}
-    \subitem {flex\_int8\_t}, \hyperpage{60}
-    \subitem {FLEX\_SCANNER}, \hyperpage{48}
-    \subitem {flex\_uint16\_t}, \hyperpage{60}
-    \subitem {flex\_uint32\_t}, \hyperpage{60}
-    \subitem {flex\_uint8\_t}, \hyperpage{61}
-    \subitem {FLEXINT\_H}, \hyperpage{48}
-    \subitem {if}, \hyperpage{62}
-    \subitem {INITIAL}, \hyperpage{48}
-    \subitem {INT16\_MAX}, \hyperpage{48}
-    \subitem {INT16\_MIN}, \hyperpage{48}
-    \subitem {INT32\_MAX}, \hyperpage{48}
-    \subitem {INT32\_MIN}, \hyperpage{49}
-    \subitem {INT8\_MAX}, \hyperpage{49}
-    \subitem {INT8\_MIN}, \hyperpage{49}
-    \subitem {jj2\_junk}, \hyperpage{62}
-    \subitem {REJECT}, \hyperpage{49}
-    \subitem {SIZE\_MAX}, \hyperpage{49}
-    \subitem {String}, \hyperpage{49}
-    \subitem {UINT16\_MAX}, \hyperpage{50}
-    \subitem {UINT32\_MAX}, \hyperpage{50}
-    \subitem {UINT8\_MAX}, \hyperpage{50}
-    \subitem {unput}, \hyperpage{50}
-    \subitem {yy\_act}, \hyperpage{62}
-    \subitem {YY\_AT\_BOL}, \hyperpage{50}
-    \subitem {yy\_bp}, \hyperpage{62}
-    \subitem {YY\_BREAK}, \hyperpage{50}
-    \subitem {YY\_BUF\_SIZE}, \hyperpage{51}
-    \subitem {YY\_BUFFER\_EOF\_PENDING}, \hyperpage{51}
-    \subitem {YY\_BUFFER\_NEW}, \hyperpage{51}
-    \subitem {YY\_BUFFER\_NORMAL}, \hyperpage{51}
-    \subitem {YY\_BUFFER\_STATE}, \hyperpage{61}
-    \subitem {YY\_CHAR}, \hyperpage{61}
-    \subitem {yy\_cp}, \hyperpage{63}
-    \subitem {YY\_CURRENT\_BUFFER}, \hyperpage{51}
-    \subitem {YY\_CURRENT\_BUFFER\_LVALUE}, \hyperpage{51}
-    \subitem {YY\_DECL}, \hyperpage{52}, \hyperpage{63}
-    \subitem {YY\_DECL\_IS\_OURS}, \hyperpage{52}
-    \subitem {YY\_DO\_BEFORE\_ACTION}, \hyperpage{52}
-    \subitem {YY\_END\_OF\_BUFFER}, \hyperpage{52}
-    \subitem {YY\_END\_OF\_BUFFER\_CHAR}, \hyperpage{52}
-    \subitem {YY\_EXTRA\_TYPE}, \hyperpage{52}
-    \subitem {YY\_FATAL\_ERROR}, \hyperpage{53}
-    \subitem {yy\_flex\_debug}, \hyperpage{63}
-    \subitem {YY\_FLEX\_MAJOR\_VERSION}, \hyperpage{53}
-    \subitem {YY\_FLEX\_MINOR\_VERSION}, \hyperpage{53}
-    \subitem {YY\_FLEX\_SUBMINOR\_VERSION}, \hyperpage{53}
-    \subitem {YY\_FLUSH\_BUFFER}, \hyperpage{53}
-    \subitem {YY\_INPUT}, \hyperpage{53}
-    \subitem {YY\_INT\_ALIGNED}, \hyperpage{54}
-    \subitem {YY\_LESS\_LINENO}, \hyperpage{54}
-    \subitem {YY\_LINENO\_REWIND\_TO}, \hyperpage{54}
-    \subitem {YY\_MORE\_ADJ}, \hyperpage{54}
-    \subitem {yy\_new\_buffer}, \hyperpage{55}
-    \subitem {YY\_NEW\_FILE}, \hyperpage{55}
-    \subitem {YY\_NULL}, \hyperpage{55}
-    \subitem {YY\_NUM\_RULES}, \hyperpage{55}
-    \subitem {YY\_READ\_BUF\_SIZE}, \hyperpage{55}
-    \subitem {YY\_RESTORE\_YY\_MORE\_OFFSET}, \hyperpage{55}
-    \subitem {YY\_RULE\_SETUP}, \hyperpage{56}
-    \subitem {YY\_SC\_TO\_UI}, \hyperpage{56}
-    \subitem {yy\_set\_bol}, \hyperpage{56}
-    \subitem {yy\_set\_interactive}, \hyperpage{56}
-    \subitem {yy\_size\_t}, \hyperpage{61}
-    \subitem {YY\_SKIP\_YYWRAP}, \hyperpage{56}
-    \subitem {YY\_START}, \hyperpage{57}
-    \subitem {YY\_START\_STACK\_INCR}, \hyperpage{57}
-    \subitem {YY\_STATE\_BUF\_SIZE}, \hyperpage{57}
-    \subitem {YY\_STATE\_EOF}, \hyperpage{57}
-    \subitem {yy\_state\_type}, \hyperpage{61}
-    \subitem {YY\_STRUCT\_YY\_BUFFER\_STATE}, \hyperpage{57}
-    \subitem {YY\_TYPEDEF\_YY\_BUFFER\_STATE}, \hyperpage{57}
-    \subitem {YY\_TYPEDEF\_YY\_SIZE\_T}, \hyperpage{58}
-    \subitem {YY\_USER\_ACTION}, \hyperpage{58}
-    \subitem {yyconst}, \hyperpage{58}
-    \subitem {yyin}, \hyperpage{63}
-    \subitem {yyleng}, \hyperpage{63}
-    \subitem {yyless}, \hyperpage{58}
-    \subitem {yylex}, \hyperpage{62}
-    \subitem {yylineno}, \hyperpage{63}
-    \subitem {yymore}, \hyperpage{59}
-    \subitem {yynoreturn}, \hyperpage{59}
-    \subitem {yyout}, \hyperpage{64}
-    \subitem {YYSTATE}, \hyperpage{59}
-    \subitem {yyterminate}, \hyperpage{59}
-    \subitem {yytext}, \hyperpage{64}
-    \subitem {yytext\_ptr}, \hyperpage{59}
-    \subitem {yywrap}, \hyperpage{60}
   \item {lex\_yy.h}
-    \subitem {deleteCStyleComments}, \hyperpage{87}
-    \subitem {SHARED}, \hyperpage{86}
+    \subitem {deleteCStyleComments}, \hyperpage{19}
+    \subitem {SHARED}, \hyperpage{19}
 
   \indexspace
 
-  \item {Main C header}, \hyperpage{14}
   \item {MAX\_FEXT\_SIZE}
-    \subitem {fileMan.h}, \hyperpage{38}
+    \subitem {fileMan.h}, \hyperpage{15}
   \item {MAX\_FNAME\_SIZE}
-    \subitem {fileMan.h}, \hyperpage{39}
+    \subitem {fileMan.h}, \hyperpage{15}
   \item {MAX\_FPATH\_SIZE}
-    \subitem {fileMan.h}, \hyperpage{39}
+    \subitem {fileMan.h}, \hyperpage{16}
 
   \indexspace
 
-  \item {noComments.l}
-    \subitem {deleteCStyleComments}, \hyperpage{88}
-    \subitem {jj2\_junk}, \hyperpage{88}
-    \subitem {jj\_junk}, \hyperpage{88}
-    \subitem {yylex}, \hyperpage{88}
-
-  \indexspace
-
-  \item {pos}
-    \subitem {FMANC\_SO}, \hyperpage{17}
-
-  \indexspace
-
-  \item {REJECT}
-    \subitem {lex\_yy.c}, \hyperpage{49}
   \item {replaceStringInFile}
-    \subitem {analyze.c}, \hyperpage{20}
-    \subitem {analyze.h}, \hyperpage{27}
+    \subitem {analyze.c}, \hyperpage{3}
+    \subitem {analyze.h}, \hyperpage{9}
 
   \indexspace
 
   \item {searchStringInFile}
-    \subitem {analyze.c}, \hyperpage{21}
-    \subitem {analyze.h}, \hyperpage{28}
+    \subitem {analyze.c}, \hyperpage{3}
+    \subitem {analyze.h}, \hyperpage{9}
   \item {SHARED}
-    \subitem {analyze.h}, \hyperpage{26}
-    \subitem {fcmx.h}, \hyperpage{30}
-    \subitem {fileMan.h}, \hyperpage{39}
-    \subitem {fmanc.h}, \hyperpage{42}
-    \subitem {lex\_yy.h}, \hyperpage{86}
-  \item {SIZE\_MAX}
-    \subitem {lex\_yy.c}, \hyperpage{49}
-  \item {String}
-    \subitem {lex\_yy.c}, \hyperpage{49}
+    \subitem {analyze.h}, \hyperpage{8}
+    \subitem {fcmx.h}, \hyperpage{10}
+    \subitem {fileMan.h}, \hyperpage{16}
+    \subitem {fmanc.h}, \hyperpage{18}
+    \subitem {lex\_yy.h}, \hyperpage{19}
+  \item {src/analyze.c}, \hyperpage{2, 3}
+  \item {src/analyze.h}, \hyperpage{7}, \hyperpage{9}
+  \item {src/fcmx.c}, \hyperpage{10}
+  \item {src/fcmx.h}, \hyperpage{10, 11}
+  \item {src/fileMan.c}, \hyperpage{11, 12}
+  \item {src/fileMan.h}, \hyperpage{14}, \hyperpage{17}
+  \item {src/fmanc.h}, \hyperpage{18}
+  \item {src/third\_party/lex\_yy.h}, \hyperpage{18, 19}
   \item {stringOccurrences}
-    \subitem {analyze.h}, \hyperpage{26}
-
-  \indexspace
-
-  \item {UINT16\_MAX}
-    \subitem {lex\_yy.c}, \hyperpage{50}
-  \item {UINT32\_MAX}
-    \subitem {lex\_yy.c}, \hyperpage{50}
-  \item {UINT8\_MAX}
-    \subitem {lex\_yy.c}, \hyperpage{50}
-  \item {unput}
-    \subitem {lex\_yy.c}, \hyperpage{50}
-
-  \indexspace
-
-  \item {yy\_act}
-    \subitem {lex\_yy.c}, \hyperpage{62}
-  \item {YY\_AT\_BOL}
-    \subitem {lex\_yy.c}, \hyperpage{50}
-  \item {yy\_bp}
-    \subitem {lex\_yy.c}, \hyperpage{62}
-  \item {YY\_BREAK}
-    \subitem {lex\_yy.c}, \hyperpage{50}
-  \item {YY\_BUF\_SIZE}
-    \subitem {lex\_yy.c}, \hyperpage{51}
-  \item {YY\_BUFFER\_EOF\_PENDING}
-    \subitem {lex\_yy.c}, \hyperpage{51}
-  \item {YY\_BUFFER\_NEW}
-    \subitem {lex\_yy.c}, \hyperpage{51}
-  \item {YY\_BUFFER\_NORMAL}
-    \subitem {lex\_yy.c}, \hyperpage{51}
-  \item {YY\_BUFFER\_STATE}
-    \subitem {lex\_yy.c}, \hyperpage{61}
-  \item {YY\_CHAR}
-    \subitem {lex\_yy.c}, \hyperpage{61}
-  \item {yy\_cp}
-    \subitem {lex\_yy.c}, \hyperpage{63}
-  \item {YY\_CURRENT\_BUFFER}
-    \subitem {lex\_yy.c}, \hyperpage{51}
-  \item {YY\_CURRENT\_BUFFER\_LVALUE}
-    \subitem {lex\_yy.c}, \hyperpage{51}
-  \item {YY\_DECL}
-    \subitem {lex\_yy.c}, \hyperpage{52}, \hyperpage{63}
-  \item {YY\_DECL\_IS\_OURS}
-    \subitem {lex\_yy.c}, \hyperpage{52}
-  \item {YY\_DO\_BEFORE\_ACTION}
-    \subitem {lex\_yy.c}, \hyperpage{52}
-  \item {YY\_END\_OF\_BUFFER}
-    \subitem {lex\_yy.c}, \hyperpage{52}
-  \item {YY\_END\_OF\_BUFFER\_CHAR}
-    \subitem {lex\_yy.c}, \hyperpage{52}
-  \item {YY\_EXTRA\_TYPE}
-    \subitem {lex\_yy.c}, \hyperpage{52}
-  \item {YY\_FATAL\_ERROR}
-    \subitem {lex\_yy.c}, \hyperpage{53}
-  \item {yy\_flex\_debug}
-    \subitem {lex\_yy.c}, \hyperpage{63}
-  \item {YY\_FLEX\_MAJOR\_VERSION}
-    \subitem {lex\_yy.c}, \hyperpage{53}
-  \item {YY\_FLEX\_MINOR\_VERSION}
-    \subitem {lex\_yy.c}, \hyperpage{53}
-  \item {YY\_FLEX\_SUBMINOR\_VERSION}
-    \subitem {lex\_yy.c}, \hyperpage{53}
-  \item {YY\_FLUSH\_BUFFER}
-    \subitem {lex\_yy.c}, \hyperpage{53}
-  \item {YY\_INPUT}
-    \subitem {lex\_yy.c}, \hyperpage{53}
-  \item {YY\_INT\_ALIGNED}
-    \subitem {lex\_yy.c}, \hyperpage{54}
-  \item {YY\_LESS\_LINENO}
-    \subitem {lex\_yy.c}, \hyperpage{54}
-  \item {YY\_LINENO\_REWIND\_TO}
-    \subitem {lex\_yy.c}, \hyperpage{54}
-  \item {YY\_MORE\_ADJ}
-    \subitem {lex\_yy.c}, \hyperpage{54}
-  \item {yy\_new\_buffer}
-    \subitem {lex\_yy.c}, \hyperpage{55}
-  \item {YY\_NEW\_FILE}
-    \subitem {lex\_yy.c}, \hyperpage{55}
-  \item {YY\_NULL}
-    \subitem {lex\_yy.c}, \hyperpage{55}
-  \item {YY\_NUM\_RULES}
-    \subitem {lex\_yy.c}, \hyperpage{55}
-  \item {YY\_READ\_BUF\_SIZE}
-    \subitem {lex\_yy.c}, \hyperpage{55}
-  \item {YY\_RESTORE\_YY\_MORE\_OFFSET}
-    \subitem {lex\_yy.c}, \hyperpage{55}
-  \item {YY\_RULE\_SETUP}
-    \subitem {lex\_yy.c}, \hyperpage{56}
-  \item {YY\_SC\_TO\_UI}
-    \subitem {lex\_yy.c}, \hyperpage{56}
-  \item {yy\_set\_bol}
-    \subitem {lex\_yy.c}, \hyperpage{56}
-  \item {yy\_set\_interactive}
-    \subitem {lex\_yy.c}, \hyperpage{56}
-  \item {yy\_size\_t}
-    \subitem {lex\_yy.c}, \hyperpage{61}
-  \item {YY\_SKIP\_YYWRAP}
-    \subitem {lex\_yy.c}, \hyperpage{56}
-  \item {YY\_START}
-    \subitem {lex\_yy.c}, \hyperpage{57}
-  \item {YY\_START\_STACK\_INCR}
-    \subitem {lex\_yy.c}, \hyperpage{57}
-  \item {YY\_STATE\_BUF\_SIZE}
-    \subitem {lex\_yy.c}, \hyperpage{57}
-  \item {YY\_STATE\_EOF}
-    \subitem {lex\_yy.c}, \hyperpage{57}
-  \item {yy\_state\_type}
-    \subitem {lex\_yy.c}, \hyperpage{61}
-  \item {YY\_STRUCT\_YY\_BUFFER\_STATE}
-    \subitem {lex\_yy.c}, \hyperpage{57}
-  \item {YY\_TYPEDEF\_YY\_BUFFER\_STATE}
-    \subitem {lex\_yy.c}, \hyperpage{57}
-  \item {YY\_TYPEDEF\_YY\_SIZE\_T}
-    \subitem {lex\_yy.c}, \hyperpage{58}
-  \item {YY\_USER\_ACTION}
-    \subitem {lex\_yy.c}, \hyperpage{58}
-  \item {yyconst}
-    \subitem {lex\_yy.c}, \hyperpage{58}
-  \item {yyin}
-    \subitem {lex\_yy.c}, \hyperpage{63}
-  \item {yyleng}
-    \subitem {lex\_yy.c}, \hyperpage{63}
-  \item {yyless}
-    \subitem {lex\_yy.c}, \hyperpage{58}
-  \item {yylex}
-    \subitem {lex\_yy.c}, \hyperpage{62}
-    \subitem {noComments.l}, \hyperpage{88}
-  \item {yylineno}
-    \subitem {lex\_yy.c}, \hyperpage{63}
-  \item {yymore}
-    \subitem {lex\_yy.c}, \hyperpage{59}
-  \item {yynoreturn}
-    \subitem {lex\_yy.c}, \hyperpage{59}
-  \item {yyout}
-    \subitem {lex\_yy.c}, \hyperpage{64}
-  \item {YYSTATE}
-    \subitem {lex\_yy.c}, \hyperpage{59}
-  \item {yyterminate}
-    \subitem {lex\_yy.c}, \hyperpage{59}
-  \item {yytext}
-    \subitem {lex\_yy.c}, \hyperpage{64}
-  \item {yytext\_ptr}
-    \subitem {lex\_yy.c}, \hyperpage{59}
-  \item {yywrap}
-    \subitem {lex\_yy.c}, \hyperpage{60}
+    \subitem {analyze.h}, \hyperpage{8}
 
 \end{theindex}

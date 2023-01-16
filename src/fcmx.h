@@ -19,8 +19,5 @@
 # endif
 
 SHARED int copyFileWithoutStrings(const unsigned int argc, char *filePath, ...); // to do
- 
-
 
 #endif
-
