@@ -4,6 +4,5 @@ on:
       - main
 
 jobs:
-  call-workflow-in-another-repo:
+  call-workflow-in-brvtalcake_readme:
     uses: brvtalcake/brvtalcake/.github/workflows/waka_readme.yml@main
-    
