@@ -1,4 +1,4 @@
-# libfmanc
+# libFManC
 File manager in C 
 ## IMPORTANT NOTE
 There is still a lot to do to make this lib usable, or at least to make it interesting and with enough interesting content. But before all I really want to organize the repo, with a perfect structure, so that'll be more easy to develop it. 
