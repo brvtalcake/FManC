@@ -1,9 +1,12 @@
-# libfmanc
+# libFManC 
 File manager in C 
 ## IMPORTANT NOTE
-There is still a lot to do to make this lib usable, or at least to make it interesting and with enough interesting content. But before all I really want to organize the repo, with a perfect structure, so that'll be more easy to develop it. <!--- Moreover, keep in mind that I'm just writing this lib to make easier the development of an extension of C (that will be implemented as a translator from my extended-C to standard C), including :
+There is still a lot to do to make this lib usable, or at least to make it interesting and with enough interesting content. But before all I really want to organize the repo, with a perfect structure, so that'll be more easy to develop it. 
+
+<!--- Moreover, keep in mind that I'm just writing this lib to make easier the development of an extension of C (that will be implemented as a translator from my extended-C to standard C), including :
 - structs mutators (kind of "methods")
-- new types : dictionnaries, lists, trees, graphs, vectors. -->
+- new types : dictionnaries, lists, trees, graphs, vectors.
+--->
 
 However, if you want to download a PDF documentation, it's [here](https://github.com/brvtalcake/libfmanc/raw/main/man/refman.pdf).
 For the HTML one, in local, just download the folder html in docs and open index.html in your favorite browser.
@@ -16,7 +19,7 @@ For the HTML one, in local, just download the folder html in docs and open index
 	- A function that copy the source code from a .cmx or .hmx into a .c or .h file without the mutators and return the position (and the name of the file) where should be the equivalent function declaration, etc... (that will also be the great moment to see which coding restriction will be needed to do it in an easier way)
 	- A function that puts the equivalent function into the the new source file code
 	- (I'm actually realizing that I should really create a new repo for it)
--->
+--->
 - [ ] Documenting, as I'm starting to do with Doxygen 
 - [x] Find a way to put the documentation online (?) (didn't know github pages were existing)
 - [ ] Rename test folder as example and put actual exemples in it
@@ -25,3 +28,4 @@ For the HTML one, in local, just download the folder html in docs and open index
 - [x] Create a shared lib in a bin folder and potentially make a command-line app(not for now) associated to the lib in bin folder
 - [ ] Make the lib available for UNIX users
 - [ ] Make my own web documentation since the one created by Doxygen isn't satisfying to me
+- [ ] Rename the fcmx* files

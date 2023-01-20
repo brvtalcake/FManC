@@ -1,0 +1,8 @@
+on:
+  push: 
+    branches: 
+      - main
+
+jobs:
+  call-workflow-in-brvtalcake_readme:
+    uses: brvtalcake/brvtalcake/.github/workflows/waka_readme.yml@main
