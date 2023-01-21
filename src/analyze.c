@@ -90,10 +90,10 @@ SHARED stringOccurrences *searchStringInFile(char *filePath, char *toSearch)
 	rewind(fil);
 
 	unsigned int cpt_occ = 0;
-	wchar_t temp[wcslen(toSearchW)+1];
+	wint_t temp[wcslen(toSearchW)+1];
 	for (size_t i = 0; i < wcslen(toSearchW)+1; ++i)
 	{
-		temp[i] = '\0';
+		temp[i] = L'\0';
 	}
 	size_t cpt = 0;
 	
@@ -106,10 +106,10 @@ SHARED stringOccurrences *searchStringInFile(char *filePath, char *toSearch)
 		while(cpt <= wcslen(toSearchW))
 		{
 			temp[cpt] = fgetwc(fil);
-			
-			if (temp[cpt] != toSearchW[cpt] || temp[cpt] == WEOF)
+
+			if (temp[cpt] != (wint_t)toSearchW[cpt] || temp[cpt] == WEOF)
 			{
-				if (temp[cpt] == toSearchW[cpt])
+				if (temp[cpt] == (wint_t)toSearchW[cpt])
 				{
 					cpt++;
 				}
@@ -130,7 +130,7 @@ SHARED stringOccurrences *searchStringInFile(char *filePath, char *toSearch)
 		cpt = 0;
 		for (size_t i = 0; i < wcslen(toSearchW)+1; ++i)
 		{
-			temp[i] = '\0';
+			temp[i] = L'\0';
 		}
 		fseek(fil, cpt2, SEEK_SET);
 		temp2 = fgetwc(fil);
@@ -236,8 +236,8 @@ SHARED int replaceStringInFile(char *filePath, char *toReplaceString, char *toAd
 	
 	int cpt = 0;
 	int old_cpt = 0;
-	wchar_t temp = L'\0';
-	wchar_t temp2 = fgetwc(filToR);
+	wint_t temp = L'\0';
+	wint_t temp2 = fgetwc(filToR);
 
 	
 	while(temp2!=WEOF) 
@@ -249,7 +249,7 @@ SHARED int replaceStringInFile(char *filePath, char *toReplaceString, char *toAd
 			{
 				for (size_t i = 0; i < wcslen(toAdd); ++i)
 				{
-					if(fputwc(toAdd[i], filToW) != toAdd[i])
+					if(fputwc(toAdd[i], filToW) != (wint_t) toAdd[i])
 					{
 						fprintf(stderr, "ERR :%s\n", strerror(errno));
 						return 1;

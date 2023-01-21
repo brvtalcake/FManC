@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.5" xml:lang="en-US">
-  <compound refid="d4/dd7/struct_f_m_a_n_c___s_o" kind="struct"><name>FMANC_SO</name>
-    <member refid="d4/dd7/struct_f_m_a_n_c___s_o_1a1e2ca1cd40105cbb3505ce646cb01568" kind="variable"><name>charCount</name></member>
-    <member refid="d4/dd7/struct_f_m_a_n_c___s_o_1ab8a4e00f471ad246be90b80b7bcba569" kind="variable"><name>pos</name></member>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.6" xml:lang="en-US">
+  <compound refid="df/db7/structFMANC__SO" kind="struct"><name>FMANC_SO</name>
+    <member refid="df/db7/structFMANC__SO_1a1e2ca1cd40105cbb3505ce646cb01568" kind="variable"><name>charCount</name></member>
+    <member refid="df/db7/structFMANC__SO_1ab8a4e00f471ad246be90b80b7bcba569" kind="variable"><name>pos</name></member>
   </compound>
   <compound refid="d7/d93/analyze_8c" kind="file"><name>analyze.c</name>
     <member refid="d7/d93/analyze_8c_1a2fae470a9f2ba64ed544ecb0efdf3113" kind="function"><name>countCharInFile</name></member>
@@ -26,25 +26,25 @@
     <member refid="d3/d63/fcmx_8h_1a884c794595c4aa480df9022648c29564" kind="define"><name>SHARED</name></member>
     <member refid="d3/d63/fcmx_8h_1ac00d5607ef908576f411582a8eb8a128" kind="function"><name>copyFileWithoutStrings</name></member>
   </compound>
-  <compound refid="d9/d5a/file_man_8c" kind="file"><name>fileMan.c</name>
-    <member refid="d9/d5a/file_man_8c_1a95f02d94dae556d5282368721e994732" kind="function"><name>copyFileWithoutTabAndLineBreak</name></member>
-    <member refid="d9/d5a/file_man_8c_1a3033d108e5b43f14a469648071ee8439" kind="function"><name>fgetFileExtension</name></member>
-    <member refid="d9/d5a/file_man_8c_1a1d3df2b7a44029fad789b45b4406451a" kind="function"><name>fgetFileName</name></member>
-    <member refid="d9/d5a/file_man_8c_1a97687e29a139210fc190ce98d836c160" kind="function"><name>fgetFilePath</name></member>
+  <compound refid="d2/d77/fileMan_8c" kind="file"><name>fileMan.c</name>
+    <member refid="d2/d77/fileMan_8c_1a95f02d94dae556d5282368721e994732" kind="function"><name>copyFileWithoutTabAndLineBreak</name></member>
+    <member refid="d2/d77/fileMan_8c_1a3033d108e5b43f14a469648071ee8439" kind="function"><name>fgetFileExtension</name></member>
+    <member refid="d2/d77/fileMan_8c_1a1d3df2b7a44029fad789b45b4406451a" kind="function"><name>fgetFileName</name></member>
+    <member refid="d2/d77/fileMan_8c_1a97687e29a139210fc190ce98d836c160" kind="function"><name>fgetFilePath</name></member>
   </compound>
-  <compound refid="df/d56/file_man_8h" kind="file"><name>fileMan.h</name>
-    <member refid="df/d56/file_man_8h_1a68b8bb9ca6877866b30b5d71f33f1b08" kind="define"><name>getFileExtension</name></member>
-    <member refid="df/d56/file_man_8h_1a3e855422945c4cdbaf71723d8e25d9f5" kind="define"><name>getFileName</name></member>
-    <member refid="df/d56/file_man_8h_1ac79aba55b8bda0cfc4ce3a88534adbc0" kind="define"><name>getFilePath</name></member>
-    <member refid="df/d56/file_man_8h_1aef2c26bbba7239793dfd266d0e8b46b4" kind="define"><name>MAX_FEXT_SIZE</name></member>
-    <member refid="df/d56/file_man_8h_1ab0e76045bf91a8a1b4fc381488399f70" kind="define"><name>MAX_FNAME_SIZE</name></member>
-    <member refid="df/d56/file_man_8h_1ae5c03ff129a1255adb84d15ae75425b8" kind="define"><name>MAX_FPATH_SIZE</name></member>
-    <member refid="df/d56/file_man_8h_1a884c794595c4aa480df9022648c29564" kind="define"><name>SHARED</name></member>
-    <member refid="df/d56/file_man_8h_1ac00d5607ef908576f411582a8eb8a128" kind="function"><name>copyFileWithoutStrings</name></member>
-    <member refid="df/d56/file_man_8h_1a95f02d94dae556d5282368721e994732" kind="function"><name>copyFileWithoutTabAndLineBreak</name></member>
-    <member refid="df/d56/file_man_8h_1a2ae33808674f181279341940f19d60b9" kind="function"><name>fgetFileExtension</name></member>
-    <member refid="df/d56/file_man_8h_1a1d3df2b7a44029fad789b45b4406451a" kind="function"><name>fgetFileName</name></member>
-    <member refid="df/d56/file_man_8h_1a97687e29a139210fc190ce98d836c160" kind="function"><name>fgetFilePath</name></member>
+  <compound refid="d7/d5b/fileMan_8h" kind="file"><name>fileMan.h</name>
+    <member refid="d7/d5b/fileMan_8h_1a68b8bb9ca6877866b30b5d71f33f1b08" kind="define"><name>getFileExtension</name></member>
+    <member refid="d7/d5b/fileMan_8h_1a3e855422945c4cdbaf71723d8e25d9f5" kind="define"><name>getFileName</name></member>
+    <member refid="d7/d5b/fileMan_8h_1ac79aba55b8bda0cfc4ce3a88534adbc0" kind="define"><name>getFilePath</name></member>
+    <member refid="d7/d5b/fileMan_8h_1aef2c26bbba7239793dfd266d0e8b46b4" kind="define"><name>MAX_FEXT_SIZE</name></member>
+    <member refid="d7/d5b/fileMan_8h_1ab0e76045bf91a8a1b4fc381488399f70" kind="define"><name>MAX_FNAME_SIZE</name></member>
+    <member refid="d7/d5b/fileMan_8h_1ae5c03ff129a1255adb84d15ae75425b8" kind="define"><name>MAX_FPATH_SIZE</name></member>
+    <member refid="d7/d5b/fileMan_8h_1a884c794595c4aa480df9022648c29564" kind="define"><name>SHARED</name></member>
+    <member refid="d7/d5b/fileMan_8h_1ac00d5607ef908576f411582a8eb8a128" kind="function"><name>copyFileWithoutStrings</name></member>
+    <member refid="d7/d5b/fileMan_8h_1a95f02d94dae556d5282368721e994732" kind="function"><name>copyFileWithoutTabAndLineBreak</name></member>
+    <member refid="d7/d5b/fileMan_8h_1a2ae33808674f181279341940f19d60b9" kind="function"><name>fgetFileExtension</name></member>
+    <member refid="d7/d5b/fileMan_8h_1a1d3df2b7a44029fad789b45b4406451a" kind="function"><name>fgetFileName</name></member>
+    <member refid="d7/d5b/fileMan_8h_1a97687e29a139210fc190ce98d836c160" kind="function"><name>fgetFilePath</name></member>
   </compound>
   <compound refid="d5/dc4/fmanc_8h" kind="file"><name>fmanc.h</name>
     <member refid="d5/dc4/fmanc_8h_1a884c794595c4aa480df9022648c29564" kind="define"><name>SHARED</name></member>

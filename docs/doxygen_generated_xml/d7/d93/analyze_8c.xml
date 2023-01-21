@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
   <compounddef id="d7/d93/analyze_8c" kind="file" language="C++">
     <compoundname>analyze.c</compoundname>
     <includes local="no">stdio.h</includes>
@@ -13,7 +13,7 @@
     <includes local="no">stdint.h</includes>
     <includes local="no">wchar.h</includes>
     <includes refid="d8/d07/analyze_8h" local="yes">analyze.h</includes>
-    <includes refid="df/d56/file_man_8h" local="yes">fileMan.h</includes>
+    <includes refid="d7/d5b/fileMan_8h" local="yes">fileMan.h</includes>
     <incdepgraph>
       <node id="1">
         <label>src/analyze.c</label>
@@ -51,7 +51,7 @@
       </node>
       <node id="13">
         <label>fileMan.h</label>
-        <link refid="df/d56/file_man_8h"/>
+        <link refid="d7/d5b/fileMan_8h"/>
       </node>
       <node id="4">
         <label>errno.h</label>
@@ -119,7 +119,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/analyze.c" line="47" column="7" bodyfile="src/analyze.c" bodystart="47" bodyend="51"/>
-        <references refid="d4/dd7/struct_f_m_a_n_c___s_o_1ab8a4e00f471ad246be90b80b7bcba569" compoundref="d8/d07/analyze_8h" startline="28">FMANC_SO::pos</references>
+        <references refid="df/db7/structFMANC__SO_1ab8a4e00f471ad246be90b80b7bcba569" compoundref="d8/d07/analyze_8h" startline="28">FMANC_SO::pos</references>
         <referencedby refid="d7/d93/analyze_8c_1ae5a02aaad7ac0820d0b9c6c96c77abb9" compoundref="d7/d93/analyze_8c" startline="155" endline="311">replaceStringInFile</referencedby>
         <referencedby refid="d7/d93/analyze_8c_1ab029b1afb2f8a964dd116b825baf8741" compoundref="d7/d93/analyze_8c" startline="54" endline="152">searchStringInFile</referencedby>
       </memberdef>
@@ -139,8 +139,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/analyze.c" line="35" column="20" bodyfile="src/analyze.c" bodystart="35" bodyend="45"/>
-        <references refid="d4/dd7/struct_f_m_a_n_c___s_o_1a1e2ca1cd40105cbb3505ce646cb01568" compoundref="d8/d07/analyze_8h" startline="27">FMANC_SO::charCount</references>
-        <references refid="d4/dd7/struct_f_m_a_n_c___s_o_1ab8a4e00f471ad246be90b80b7bcba569" compoundref="d8/d07/analyze_8h" startline="28">FMANC_SO::pos</references>
+        <references refid="df/db7/structFMANC__SO_1a1e2ca1cd40105cbb3505ce646cb01568" compoundref="d8/d07/analyze_8h" startline="27">FMANC_SO::charCount</references>
+        <references refid="df/db7/structFMANC__SO_1ab8a4e00f471ad246be90b80b7bcba569" compoundref="d8/d07/analyze_8h" startline="28">FMANC_SO::pos</references>
         <referencedby refid="d7/d93/analyze_8c_1ab029b1afb2f8a964dd116b825baf8741" compoundref="d7/d93/analyze_8c" startline="54" endline="152">searchStringInFile</referencedby>
       </memberdef>
       <memberdef kind="function" id="d7/d93/analyze_8c_1ae5a02aaad7ac0820d0b9c6c96c77abb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -167,15 +167,15 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/analyze.c" line="155" column="6" bodyfile="src/analyze.c" bodystart="155" bodyend="311"/>
-        <references refid="d4/dd7/struct_f_m_a_n_c___s_o_1a1e2ca1cd40105cbb3505ce646cb01568" compoundref="d8/d07/analyze_8h" startline="27">FMANC_SO::charCount</references>
+        <references refid="df/db7/structFMANC__SO_1a1e2ca1cd40105cbb3505ce646cb01568" compoundref="d8/d07/analyze_8h" startline="27">FMANC_SO::charCount</references>
         <references refid="d7/d93/analyze_8c_1a04ae2138b1c3b361f9556bd30db30c23" compoundref="d7/d93/analyze_8c" startline="47" endline="51">free_stringOccurrences</references>
-        <references refid="df/d56/file_man_8h_1a68b8bb9ca6877866b30b5d71f33f1b08" compoundref="df/d56/file_man_8h" startline="34">getFileExtension</references>
-        <references refid="df/d56/file_man_8h_1a3e855422945c4cdbaf71723d8e25d9f5" compoundref="df/d56/file_man_8h" startline="38">getFileName</references>
-        <references refid="df/d56/file_man_8h_1ac79aba55b8bda0cfc4ce3a88534adbc0" compoundref="df/d56/file_man_8h" startline="42">getFilePath</references>
-        <references refid="df/d56/file_man_8h_1aef2c26bbba7239793dfd266d0e8b46b4" compoundref="df/d56/file_man_8h" startline="22">MAX_FEXT_SIZE</references>
-        <references refid="df/d56/file_man_8h_1ab0e76045bf91a8a1b4fc381488399f70" compoundref="df/d56/file_man_8h" startline="26">MAX_FNAME_SIZE</references>
-        <references refid="df/d56/file_man_8h_1ae5c03ff129a1255adb84d15ae75425b8" compoundref="df/d56/file_man_8h" startline="30">MAX_FPATH_SIZE</references>
-        <references refid="d4/dd7/struct_f_m_a_n_c___s_o_1ab8a4e00f471ad246be90b80b7bcba569" compoundref="d8/d07/analyze_8h" startline="28">FMANC_SO::pos</references>
+        <references refid="d7/d5b/fileMan_8h_1a68b8bb9ca6877866b30b5d71f33f1b08" compoundref="d7/d5b/fileMan_8h" startline="34">getFileExtension</references>
+        <references refid="d7/d5b/fileMan_8h_1a3e855422945c4cdbaf71723d8e25d9f5" compoundref="d7/d5b/fileMan_8h" startline="38">getFileName</references>
+        <references refid="d7/d5b/fileMan_8h_1ac79aba55b8bda0cfc4ce3a88534adbc0" compoundref="d7/d5b/fileMan_8h" startline="42">getFilePath</references>
+        <references refid="d7/d5b/fileMan_8h_1aef2c26bbba7239793dfd266d0e8b46b4" compoundref="d7/d5b/fileMan_8h" startline="22">MAX_FEXT_SIZE</references>
+        <references refid="d7/d5b/fileMan_8h_1ab0e76045bf91a8a1b4fc381488399f70" compoundref="d7/d5b/fileMan_8h" startline="26">MAX_FNAME_SIZE</references>
+        <references refid="d7/d5b/fileMan_8h_1ae5c03ff129a1255adb84d15ae75425b8" compoundref="d7/d5b/fileMan_8h" startline="30">MAX_FPATH_SIZE</references>
+        <references refid="df/db7/structFMANC__SO_1ab8a4e00f471ad246be90b80b7bcba569" compoundref="d8/d07/analyze_8h" startline="28">FMANC_SO::pos</references>
         <references refid="d7/d93/analyze_8c_1ab029b1afb2f8a964dd116b825baf8741" compoundref="d7/d93/analyze_8c" startline="54" endline="152">searchStringInFile</references>
       </memberdef>
       <memberdef kind="function" id="d7/d93/analyze_8c_1ab029b1afb2f8a964dd116b825baf8741" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -200,9 +200,9 @@
         <location file="src/analyze.c" line="54" column="20" bodyfile="src/analyze.c" bodystart="54" bodyend="152"/>
         <references refid="d7/d93/analyze_8c_1a2fae470a9f2ba64ed544ecb0efdf3113" compoundref="d7/d93/analyze_8c" startline="14" endline="33">countCharInFile</references>
         <references refid="d7/d93/analyze_8c_1a04ae2138b1c3b361f9556bd30db30c23" compoundref="d7/d93/analyze_8c" startline="47" endline="51">free_stringOccurrences</references>
-        <references refid="df/d56/file_man_8h_1a3e855422945c4cdbaf71723d8e25d9f5" compoundref="df/d56/file_man_8h" startline="38">getFileName</references>
+        <references refid="d7/d5b/fileMan_8h_1a3e855422945c4cdbaf71723d8e25d9f5" compoundref="d7/d5b/fileMan_8h" startline="38">getFileName</references>
         <references refid="d7/d93/analyze_8c_1a615c6ba607d2b90929bc2a8b1fe5e5f6" compoundref="d7/d93/analyze_8c" startline="35" endline="45">init_StringOccurences</references>
-        <references refid="d4/dd7/struct_f_m_a_n_c___s_o_1ab8a4e00f471ad246be90b80b7bcba569" compoundref="d8/d07/analyze_8h" startline="28">FMANC_SO::pos</references>
+        <references refid="df/db7/structFMANC__SO_1ab8a4e00f471ad246be90b80b7bcba569" compoundref="d8/d07/analyze_8h" startline="28">FMANC_SO::pos</references>
         <referencedby refid="d7/d93/analyze_8c_1ae5a02aaad7ac0820d0b9c6c96c77abb9" compoundref="d7/d93/analyze_8c" startline="155" endline="311">replaceStringInFile</referencedby>
       </memberdef>
       </sectiondef>
@@ -222,7 +222,7 @@
 <codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;wchar.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d8/d07/analyze_8h" kindref="compound">analyze.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="df/d56/file_man_8h" kindref="compound">fileMan.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d7/d5b/fileMan_8h" kindref="compound">fileMan.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight></codeline>
 <codeline lineno="14" refid="d7/d93/analyze_8c_1a2fae470a9f2ba64ed544ecb0efdf3113" refkind="member"><highlight class="normal"><ref refid="d8/d07/analyze_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="d7/d93/analyze_8c_1a2fae470a9f2ba64ed544ecb0efdf3113" kindref="member">countCharInFile</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*filePath)</highlight></codeline>
 <codeline lineno="15"><highlight class="normal">{</highlight></codeline>
@@ -245,26 +245,26 @@
 <codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returned;</highlight></codeline>
 <codeline lineno="33"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="35" refid="d7/d93/analyze_8c_1a615c6ba607d2b90929bc2a8b1fe5e5f6" refkind="member"><highlight class="normal"><ref refid="d8/d07/analyze_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/><ref refid="d4/dd7/struct_f_m_a_n_c___s_o" kindref="compound">stringOccurrences</ref><sp/>*<ref refid="d7/d93/analyze_8c_1a615c6ba607d2b90929bc2a8b1fe5e5f6" kindref="member">init_StringOccurences</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>sizeOfString)</highlight></codeline>
+<codeline lineno="35" refid="d7/d93/analyze_8c_1a615c6ba607d2b90929bc2a8b1fe5e5f6" refkind="member"><highlight class="normal"><ref refid="d8/d07/analyze_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/><ref refid="df/db7/structFMANC__SO" kindref="compound">stringOccurrences</ref><sp/>*<ref refid="d7/d93/analyze_8c_1a615c6ba607d2b90929bc2a8b1fe5e5f6" kindref="member">init_StringOccurences</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>sizeOfString)</highlight></codeline>
 <codeline lineno="36"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*position<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">));</highlight></codeline>
 <codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>*position<sp/>=<sp/>-1;</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d4/dd7/struct_f_m_a_n_c___s_o" kindref="compound">stringOccurrences</ref><sp/>*returned<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="d4/dd7/struct_f_m_a_n_c___s_o" kindref="compound">stringOccurrences</ref>));</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>returned-&gt;<ref refid="d4/dd7/struct_f_m_a_n_c___s_o_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref><sp/>=<sp/>position;</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>returned-&gt;<ref refid="d4/dd7/struct_f_m_a_n_c___s_o_1a1e2ca1cd40105cbb3505ce646cb01568" kindref="member">charCount</ref><sp/>=<sp/>sizeOfString;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="df/db7/structFMANC__SO" kindref="compound">stringOccurrences</ref><sp/>*returned<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="df/db7/structFMANC__SO" kindref="compound">stringOccurrences</ref>));</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>returned-&gt;<ref refid="df/db7/structFMANC__SO_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref><sp/>=<sp/>position;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>returned-&gt;<ref refid="df/db7/structFMANC__SO_1a1e2ca1cd40105cbb3505ce646cb01568" kindref="member">charCount</ref><sp/>=<sp/>sizeOfString;</highlight></codeline>
 <codeline lineno="43"><highlight class="normal"></highlight></codeline>
 <codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returned;</highlight></codeline>
 <codeline lineno="45"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"></highlight></codeline>
-<codeline lineno="47" refid="d7/d93/analyze_8c_1a04ae2138b1c3b361f9556bd30db30c23" refkind="member"><highlight class="normal"><ref refid="d8/d07/analyze_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/d93/analyze_8c_1a04ae2138b1c3b361f9556bd30db30c23" kindref="member">free_stringOccurrences</ref>(<ref refid="d4/dd7/struct_f_m_a_n_c___s_o" kindref="compound">stringOccurrences</ref><sp/>*toBeDeleted)</highlight></codeline>
+<codeline lineno="47" refid="d7/d93/analyze_8c_1a04ae2138b1c3b361f9556bd30db30c23" refkind="member"><highlight class="normal"><ref refid="d8/d07/analyze_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/d93/analyze_8c_1a04ae2138b1c3b361f9556bd30db30c23" kindref="member">free_stringOccurrences</ref>(<ref refid="df/db7/structFMANC__SO" kindref="compound">stringOccurrences</ref><sp/>*toBeDeleted)</highlight></codeline>
 <codeline lineno="48"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>free(toBeDeleted-&gt;<ref refid="d4/dd7/struct_f_m_a_n_c___s_o_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref>);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>free(toBeDeleted-&gt;<ref refid="df/db7/structFMANC__SO_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref>);</highlight></codeline>
 <codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>free(toBeDeleted);</highlight></codeline>
 <codeline lineno="51"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="52"><highlight class="normal"></highlight></codeline>
 <codeline lineno="53"><highlight class="normal"></highlight></codeline>
-<codeline lineno="54" refid="d7/d93/analyze_8c_1ab029b1afb2f8a964dd116b825baf8741" refkind="member"><highlight class="normal"><ref refid="d8/d07/analyze_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/><ref refid="d4/dd7/struct_f_m_a_n_c___s_o" kindref="compound">stringOccurrences</ref><sp/>*<ref refid="d7/d93/analyze_8c_1ab029b1afb2f8a964dd116b825baf8741" kindref="member">searchStringInFile</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*filePath,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*toSearch)<sp/></highlight></codeline>
+<codeline lineno="54" refid="d7/d93/analyze_8c_1ab029b1afb2f8a964dd116b825baf8741" refkind="member"><highlight class="normal"><ref refid="d8/d07/analyze_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/><ref refid="df/db7/structFMANC__SO" kindref="compound">stringOccurrences</ref><sp/>*<ref refid="d7/d93/analyze_8c_1ab029b1afb2f8a964dd116b825baf8741" kindref="member">searchStringInFile</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*filePath,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*toSearch)<sp/></highlight></codeline>
 <codeline lineno="55"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>errno<sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">wchar_t</highlight><highlight class="normal"><sp/>toSearchW[strlen(toSearch)+1];</highlight></codeline>
@@ -285,12 +285,12 @@
 <codeline lineno="72"><highlight class="normal"></highlight></codeline>
 <codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d7/d93/analyze_8c_1a2fae470a9f2ba64ed544ecb0efdf3113" kindref="member">countCharInFile</ref>(filePath)<sp/>&gt;<sp/>LLONG_MAX<sp/>||<sp/>wcslen(toSearchW)<sp/>&gt;<sp/>SIZE_MAX)</highlight></codeline>
 <codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="df/d56/file_man_8h_1a3e855422945c4cdbaf71723d8e25d9f5" kindref="member">getFileName</ref>(filePath,<sp/>fErrorName);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d5b/fileMan_8h_1a3e855422945c4cdbaf71723d8e25d9f5" kindref="member">getFileName</ref>(filePath,<sp/>fErrorName);</highlight></codeline>
 <codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf(stderr,<sp/></highlight><highlight class="stringliteral">&quot;Error<sp/>:<sp/>your<sp/>file<sp/>named<sp/>\&quot;%s\&quot;<sp/>contains<sp/>too<sp/>much<sp/>characters\n&quot;</highlight><highlight class="normal">,<sp/>fErrorName);</highlight></codeline>
 <codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
 <codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d4/dd7/struct_f_m_a_n_c___s_o" kindref="compound">stringOccurrences</ref><sp/>*occurencesToSearch<sp/>=<sp/><ref refid="d7/d93/analyze_8c_1a615c6ba607d2b90929bc2a8b1fe5e5f6" kindref="member">init_StringOccurences</ref>(wcslen(toSearchW));</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="df/db7/structFMANC__SO" kindref="compound">stringOccurrences</ref><sp/>*occurencesToSearch<sp/>=<sp/><ref refid="d7/d93/analyze_8c_1a615c6ba607d2b90929bc2a8b1fe5e5f6" kindref="member">init_StringOccurences</ref>(wcslen(toSearchW));</highlight></codeline>
 <codeline lineno="81"><highlight class="normal"></highlight></codeline>
 <codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>FILE<sp/>*fil<sp/>=<sp/>fopen(filePath,<sp/></highlight><highlight class="stringliteral">&quot;r,<sp/>ccs=UTF-8&quot;</highlight><highlight class="normal">);</highlight></codeline>
@@ -303,10 +303,10 @@
 <codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>rewind(fil);</highlight></codeline>
 <codeline lineno="91"><highlight class="normal"></highlight></codeline>
 <codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cpt_occ<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">wchar_t</highlight><highlight class="normal"><sp/>temp[wcslen(toSearchW)+1];</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>wint_t<sp/>temp[wcslen(toSearchW)+1];</highlight></codeline>
 <codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>wcslen(toSearchW)+1;<sp/>++i)</highlight></codeline>
 <codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>temp[i]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>temp[i]<sp/>=<sp/>L</highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>cpt<sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
@@ -319,10 +319,10 @@
 <codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(cpt<sp/>&lt;=<sp/>wcslen(toSearchW))</highlight></codeline>
 <codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>temp[cpt]<sp/>=<sp/>fgetwc(fil);</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(temp[cpt]<sp/>!=<sp/>toSearchW[cpt]<sp/>||<sp/>temp[cpt]<sp/>==<sp/>WEOF)</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(temp[cpt]<sp/>!=<sp/>(wint_t)toSearchW[cpt]<sp/>||<sp/>temp[cpt]<sp/>==<sp/>WEOF)</highlight></codeline>
 <codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(temp[cpt]<sp/>==<sp/>toSearchW[cpt])</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(temp[cpt]<sp/>==<sp/>(wint_t)toSearchW[cpt])</highlight></codeline>
 <codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cpt++;</highlight></codeline>
 <codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -337,13 +337,13 @@
 <codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cpt<sp/>==<sp/>wcslen(toSearchW))</highlight></codeline>
 <codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cpt_occ++;</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>occurencesToSearch-&gt;<ref refid="d4/dd7/struct_f_m_a_n_c___s_o_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref><sp/>=<sp/>realloc(occurencesToSearch-&gt;<ref refid="d4/dd7/struct_f_m_a_n_c___s_o_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref>,<sp/>cpt_occ*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*(occurencesToSearch-&gt;<ref refid="d4/dd7/struct_f_m_a_n_c___s_o_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref><sp/>+<sp/>cpt_occ<sp/>-<sp/>1)<sp/>=<sp/>cpt2;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>occurencesToSearch-&gt;<ref refid="df/db7/structFMANC__SO_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref><sp/>=<sp/>realloc(occurencesToSearch-&gt;<ref refid="df/db7/structFMANC__SO_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref>,<sp/>cpt_occ*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*(occurencesToSearch-&gt;<ref refid="df/db7/structFMANC__SO_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref><sp/>+<sp/>cpt_occ<sp/>-<sp/>1)<sp/>=<sp/>cpt2;</highlight></codeline>
 <codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cpt<sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>wcslen(toSearchW)+1;<sp/>++i)</highlight></codeline>
 <codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>temp[i]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>temp[i]<sp/>=<sp/>L</highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fseek(fil,<sp/>cpt2,<sp/>SEEK_SET);</highlight></codeline>
 <codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>temp2<sp/>=<sp/>fgetwc(fil);</highlight></codeline>
@@ -351,13 +351,13 @@
 <codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cpt_occ<sp/>==<sp/>0)</highlight></codeline>
 <codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>occurencesToSearch-&gt;<ref refid="d4/dd7/struct_f_m_a_n_c___s_o_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref><sp/>=<sp/>realloc(occurencesToSearch-&gt;<ref refid="d4/dd7/struct_f_m_a_n_c___s_o_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*(occurencesToSearch-&gt;<ref refid="d4/dd7/struct_f_m_a_n_c___s_o_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref>)<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>occurencesToSearch-&gt;<ref refid="df/db7/structFMANC__SO_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref><sp/>=<sp/>realloc(occurencesToSearch-&gt;<ref refid="df/db7/structFMANC__SO_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*(occurencesToSearch-&gt;<ref refid="df/db7/structFMANC__SO_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref>)<sp/>=<sp/>-1;</highlight></codeline>
 <codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>occurencesToSearch-&gt;<ref refid="d4/dd7/struct_f_m_a_n_c___s_o_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref><sp/>=<sp/>realloc(occurencesToSearch-&gt;<ref refid="d4/dd7/struct_f_m_a_n_c___s_o_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref>,<sp/>(cpt_occ<sp/>+<sp/>1)*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*(occurencesToSearch-&gt;<ref refid="d4/dd7/struct_f_m_a_n_c___s_o_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref><sp/>+<sp/>cpt_occ)<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>occurencesToSearch-&gt;<ref refid="df/db7/structFMANC__SO_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref><sp/>=<sp/>realloc(occurencesToSearch-&gt;<ref refid="df/db7/structFMANC__SO_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref>,<sp/>(cpt_occ<sp/>+<sp/>1)*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*(occurencesToSearch-&gt;<ref refid="df/db7/structFMANC__SO_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref><sp/>+<sp/>cpt_occ)<sp/>=<sp/>-1;</highlight></codeline>
 <codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="149"><highlight class="normal"></highlight></codeline>
 <codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>fclose(fil);</highlight></codeline>
@@ -367,12 +367,12 @@
 <codeline lineno="154"><highlight class="normal"></highlight></codeline>
 <codeline lineno="155" refid="d7/d93/analyze_8c_1ae5a02aaad7ac0820d0b9c6c96c77abb9" refkind="member"><highlight class="normal"><ref refid="d8/d07/analyze_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d7/d93/analyze_8c_1ae5a02aaad7ac0820d0b9c6c96c77abb9" kindref="member">replaceStringInFile</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*filePath,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*toReplaceString,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*toAddString)<sp/></highlight></codeline>
 <codeline lineno="156"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d4/dd7/struct_f_m_a_n_c___s_o" kindref="compound">stringOccurrences</ref><sp/>*toReplaceOccurrences<sp/>=<sp/><ref refid="d7/d93/analyze_8c_1ab029b1afb2f8a964dd116b825baf8741" kindref="member">searchStringInFile</ref>(filePath,<sp/>toReplaceString);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="df/db7/structFMANC__SO" kindref="compound">stringOccurrences</ref><sp/>*toReplaceOccurrences<sp/>=<sp/><ref refid="d7/d93/analyze_8c_1ab029b1afb2f8a964dd116b825baf8741" kindref="member">searchStringInFile</ref>(filePath,<sp/>toReplaceString);</highlight></codeline>
 <codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>errno<sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">wchar_t</highlight><highlight class="normal"><sp/>toAdd[strlen(toAddString)+1];</highlight></codeline>
 <codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">wchar_t</highlight><highlight class="normal"><sp/>toReplace[strlen(toReplaceString)+1];</highlight></codeline>
 <codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(toReplaceOccurrences<sp/>==<sp/>NULL<sp/>||<sp/>*(toReplaceOccurrences-&gt;<ref refid="d4/dd7/struct_f_m_a_n_c___s_o_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref>)<sp/>==<sp/>-1)</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(toReplaceOccurrences<sp/>==<sp/>NULL<sp/>||<sp/>*(toReplaceOccurrences-&gt;<ref refid="df/db7/structFMANC__SO_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref>)<sp/>==<sp/>-1)</highlight></codeline>
 <codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>3;</highlight></codeline>
 <codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -407,15 +407,15 @@
 <codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>rewind(filToR);</highlight></codeline>
 <codeline lineno="195"><highlight class="normal"></highlight></codeline>
 <codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="df/d56/file_man_8h_1ac79aba55b8bda0cfc4ce3a88534adbc0" kindref="member">getFilePath</ref>(filePath,<sp/>sFilePath);</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d7/d5b/fileMan_8h_1ac79aba55b8bda0cfc4ce3a88534adbc0" kindref="member">getFilePath</ref>(filePath,<sp/>sFilePath);</highlight></codeline>
 <codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="199"><highlight class="normal"></highlight></codeline>
-<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="df/d56/file_man_8h_1a3e855422945c4cdbaf71723d8e25d9f5" kindref="member">getFileName</ref>(filePath,<sp/>sFileName);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d7/d5b/fileMan_8h_1a3e855422945c4cdbaf71723d8e25d9f5" kindref="member">getFileName</ref>(filePath,<sp/>sFileName);</highlight></codeline>
 <codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(sFileName[0]<sp/>==<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">)</highlight></codeline>
 <codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-2;</highlight></codeline>
 <codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="df/d56/file_man_8h_1a68b8bb9ca6877866b30b5d71f33f1b08" kindref="member">getFileExtension</ref>(filePath,<sp/>sFileExt);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d7/d5b/fileMan_8h_1a68b8bb9ca6877866b30b5d71f33f1b08" kindref="member">getFileExtension</ref>(filePath,<sp/>sFileExt);</highlight></codeline>
 <codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(sFileExt[0]<sp/>==<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">)</highlight></codeline>
 <codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-2;</highlight></codeline>
@@ -423,7 +423,7 @@
 <codeline lineno="210"><highlight class="normal"></highlight></codeline>
 <codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>FILE<sp/>*filToW<sp/>=<sp/>NULL;</highlight></codeline>
 <codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*replaced<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;replaced&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*tempName<sp/>=<sp/>malloc((<ref refid="df/d56/file_man_8h_1ab0e76045bf91a8a1b4fc381488399f70" kindref="member">MAX_FNAME_SIZE</ref><sp/>+<sp/><ref refid="df/d56/file_man_8h_1ae5c03ff129a1255adb84d15ae75425b8" kindref="member">MAX_FPATH_SIZE</ref><sp/>+<sp/><ref refid="df/d56/file_man_8h_1aef2c26bbba7239793dfd266d0e8b46b4" kindref="member">MAX_FEXT_SIZE</ref>)*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*tempName<sp/>=<sp/>malloc((<ref refid="d7/d5b/fileMan_8h_1ab0e76045bf91a8a1b4fc381488399f70" kindref="member">MAX_FNAME_SIZE</ref><sp/>+<sp/><ref refid="d7/d5b/fileMan_8h_1ae5c03ff129a1255adb84d15ae75425b8" kindref="member">MAX_FPATH_SIZE</ref><sp/>+<sp/><ref refid="d7/d5b/fileMan_8h_1aef2c26bbba7239793dfd266d0e8b46b4" kindref="member">MAX_FEXT_SIZE</ref>)*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">));</highlight></codeline>
 <codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>*tempName<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(sFilePath[0]<sp/>!=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">)</highlight></codeline>
 <codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -449,27 +449,27 @@
 <codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cpt<sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>old_cpt<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">wchar_t</highlight><highlight class="normal"><sp/>temp<sp/>=<sp/>L</highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">wchar_t</highlight><highlight class="normal"><sp/>temp2<sp/>=<sp/>fgetwc(filToR);</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/>wint_t<sp/>temp<sp/>=<sp/>L</highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/>wint_t<sp/>temp2<sp/>=<sp/>fgetwc(filToR);</highlight></codeline>
 <codeline lineno="241"><highlight class="normal"></highlight></codeline>
 <codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(temp2!=WEOF)<sp/></highlight></codeline>
 <codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ungetwc(temp2,<sp/>filToR);</highlight></codeline>
-<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(*(toReplaceOccurrences-&gt;<ref refid="d4/dd7/struct_f_m_a_n_c___s_o_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref><sp/>+<sp/>cpt)<sp/>!=<sp/>-1<sp/>&amp;&amp;<sp/>*(toReplaceOccurrences-&gt;<ref refid="d4/dd7/struct_f_m_a_n_c___s_o_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref><sp/>+<sp/>cpt)<sp/>&gt;=<sp/>0)</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(*(toReplaceOccurrences-&gt;<ref refid="df/db7/structFMANC__SO_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref><sp/>+<sp/>cpt)<sp/>!=<sp/>-1<sp/>&amp;&amp;<sp/>*(toReplaceOccurrences-&gt;<ref refid="df/db7/structFMANC__SO_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref><sp/>+<sp/>cpt)<sp/>&gt;=<sp/>0)</highlight></codeline>
 <codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ftell(filToR)<sp/>==<sp/>*(toReplaceOccurrences-&gt;<ref refid="d4/dd7/struct_f_m_a_n_c___s_o_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref><sp/>+<sp/>cpt))</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ftell(filToR)<sp/>==<sp/>*(toReplaceOccurrences-&gt;<ref refid="df/db7/structFMANC__SO_1ab8a4e00f471ad246be90b80b7bcba569" kindref="member">pos</ref><sp/>+<sp/>cpt))</highlight></codeline>
 <codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>wcslen(toAdd);<sp/>++i)</highlight></codeline>
 <codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(fputwc(toAdd[i],<sp/>filToW)<sp/>!=<sp/>toAdd[i])</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(fputwc(toAdd[i],<sp/>filToW)<sp/>!=<sp/>(wint_t)<sp/>toAdd[i])</highlight></codeline>
 <codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf(stderr,<sp/></highlight><highlight class="stringliteral">&quot;ERR<sp/>:%s\n&quot;</highlight><highlight class="normal">,<sp/>strerror(errno));</highlight></codeline>
 <codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
 <codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cpt++;</highlight></codeline>
-<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i&lt;toReplaceOccurrences-&gt;<ref refid="d4/dd7/struct_f_m_a_n_c___s_o_1a1e2ca1cd40105cbb3505ce646cb01568" kindref="member">charCount</ref>;<sp/>++i)</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i&lt;toReplaceOccurrences-&gt;<ref refid="df/db7/structFMANC__SO_1a1e2ca1cd40105cbb3505ce646cb01568" kindref="member">charCount</ref>;<sp/>++i)</highlight></codeline>
 <codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(fgetwc(filToR)<sp/>==<sp/>WEOF)</highlight></codeline>
 <codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>

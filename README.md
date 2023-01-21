@@ -11,8 +11,6 @@ There is still a lot to do to make this lib usable, or at least to make it inter
 However, if you want to download a PDF documentation, it's [here](https://github.com/brvtalcake/libfmanc/raw/main/man/refman.pdf).
 For the HTML one, in local, just download the folder html in docs and open index.html in your favorite browser.
 ## ToDoList
-- [x] Secure the library and change the returned type of functions that might dysfunction, instead of just exiting the program (I think it's good enough now)
-- [x] Finish some function that I partially developped or just declared
 <!---
 - [ ] Adding features to develop my C "dialect", I would say (still don't really know how to call it and what extension I should use). Next things to implement should be : 
 	- A function that translates declared mutators into the equivalent function stored in the program
@@ -24,8 +22,9 @@ For the HTML one, in local, just download the folder html in docs and open index
 - [x] Find a way to put the documentation online (?) (didn't know github pages were existing)
 - [ ] Rename test folder as example and put actual exemples in it
 - [ ] Make a real test folder 
-- [x] Make a src folder in docs with the documented source code and keep the one in the project root undocumented
-- [x] Create a shared lib in a bin folder and potentially make a command-line app(not for now) associated to the lib in bin folder
-- [ ] Make the lib available for UNIX users
-- [ ] Make my own web documentation since the one created by Doxygen isn't satisfying to me
+- [x] Make the lib available for UNIX users
 - [ ] Rename the fcmx* files
+- [ ] Let the possibility to define the locale
+
+## Credits
+The doxygen theme I'll use for my documentation is provided by [jothepro](https://github.com/jothepro) and hosted in [this repository](https://github.com/jothepro/doxygen-awesome-css) under the terms of the MIT license.

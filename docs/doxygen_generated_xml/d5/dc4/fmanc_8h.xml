@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
   <compounddef id="d5/dc4/fmanc_8h" kind="file" language="C++">
     <compoundname>fmanc.h</compoundname>
-    <includes refid="df/d56/file_man_8h" local="yes">fileMan.h</includes>
+    <includes refid="d7/d5b/fileMan_8h" local="yes">fileMan.h</includes>
     <includes refid="d8/d07/analyze_8h" local="yes">analyze.h</includes>
     <incdepgraph>
       <node id="3">
@@ -13,7 +13,7 @@
       </node>
       <node id="2">
         <label>fileMan.h</label>
-        <link refid="df/d56/file_man_8h"/>
+        <link refid="d7/d5b/fileMan_8h"/>
       </node>
       <node id="1">
         <label>src/fmanc.h</label>
@@ -66,7 +66,7 @@
 <codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="21"><highlight class="normal"></highlight></codeline>
 <codeline lineno="22"><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="df/d56/file_man_8h" kindref="compound">fileMan.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d7/d5b/fileMan_8h" kindref="compound">fileMan.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d8/d07/analyze_8h" kindref="compound">analyze.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="25"><highlight class="normal"></highlight></codeline>
 <codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(USE_FCMX)</highlight><highlight class="normal"></highlight></codeline>

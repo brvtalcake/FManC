@@ -1,3 +1,4 @@
 docs/source*
 man/*
 !man/refman.pdf
+docs/doxygen-awesome-css/*
