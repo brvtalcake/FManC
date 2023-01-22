@@ -2,7 +2,7 @@ name: Codecov Workflow for windows tests
 on: [push, pull_request, workflow_dispatch]
 jobs:
   run:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
