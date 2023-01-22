@@ -1,10 +1,14 @@
 VERSION=1.0.0
 MAJOR_VERSION=1
 
+TEST_RES_FOLD=lin
+
 ifneq (,$(findstring Windows,$(OS)))
+	TEST_RES_FOLD=win
 	SHELL=cmd
 else ifneq (,$(findstring windows,$(OS)))
 	SHELL=cmd
+	TEST_RES_FOLD=win
 endif
 
 SRC_FILES=$(wildcard src/*.c) $(wildcard src/third_party/*.c)
@@ -28,21 +32,31 @@ CFLAGS_DYN_LIN_1=-O3 -Wall -Wextra -pedantic -Werror -std=c11 -c -fPIC
 CFLAGS_DYN_LIN_2_1=-O3 -Wall -Wextra -pedantic -Werror -std=c11 -fPIC -shared $(OBJ_FILES) -o
 CFLAGS_DYN_LIN_2_2=-Wl,-soname,
 
-.PHONY : stat_win stat_lin dyn_win dyn_lin clean_win clean_lin doxy clean_so stat_win_only stat_lin_only dyn_win_only dyn_lin_only
+.PHONY : stat_win stat_lin dyn_win dyn_lin
 
-stat_win : libFManC.a cpHeaders_win clean_win doxy
+.PHONY : clean_win clean_lin doxy clean_so 
+
+.PHONY : stat_win_only stat_lin_only dyn_win_only dyn_lin_only
+
+.PHONY : test_lin test_win
+
+test_lin : cpHeaders_lin test # rep_cov
+
+test_win : cpHeaders_win test # rep_cov
+
+stat_win : libFManC.a cpHeaders_win clean_win doxy test_win
 
 stat_win_only : libFManC.a cpHeaders_win clean_win # For GitHub Action
 
-stat_lin : libFManC.linux.a cpHeaders_lin clean_lin doxy 
+stat_lin : libFManC.linux.a cpHeaders_lin clean_lin doxy test_lin
 
 stat_lin_only : libFManC.linux.a cpHeaders_lin clean_lin # For GitHub Action
  
-dyn_win : FManC.dll cpHeaders_win clean_win doxy
+dyn_win : FManC.dll cpHeaders_win clean_win doxy test_win
 
 dyn_win_only : FManC.dll cpHeaders_win clean_win # For GitHub Action
 
-dyn_lin : clean_so libFManC.so cpHeaders_lin clean_lin doxy
+dyn_lin : clean_so libFManC.so cpHeaders_lin clean_lin doxy test_lin
 
 dyn_lin_only : clean_so libFManC.so cpHeaders_lin clean_lin # For GitHub Action
 
@@ -50,50 +64,41 @@ dyn_lin_only : clean_so libFManC.so cpHeaders_lin clean_lin # For GitHub Action
 # For the windows static lib	
 libFManC.a : $(SRC_FILES) $(HEADER_FILES)
 	$(CC) $(CFLAGS_STATIC) $(SRC_FILES)
-	$(AR) $(AR_FLAGS) test/test_with_static/lib/$@ $(OBJ_FILES)
 	$(AR) $(AR_FLAGS) lib/$@ $(OBJ_FILES)
 
 # For linux static lib
 libFManC.linux.a : $(SRC_FILES) $(HEADER_FILES)
 	$(CC) $(CFLAGS_STATIC) $(SRC_FILES)
-	$(AR) $(AR_FLAGS) test/test_with_static/lib/$@ $(OBJ_FILES)
 	$(AR) $(AR_FLAGS) lib/$@ $(OBJ_FILES)
 
 # For windows dll and lib
 FManC.dll : $(SRC_FILES) $(HEADER_FILES)
 	$(CC) $(CFLAGS_DLL_1) $(SRC_FILES)
 	$(CC) $(CFLAGS_DLL_2_1) bin/$@ $(CFLAGS_DLL_2_2)
-	$(CC) $(CFLAGS_DLL_2_1) test/test_with_dll/bin/$@ $(CFLAGS_DLL_2_2)
-	@copy /Y .\\libFManC.dll.a .\\lib\\
-	@move /Y .\\libFManC.dll.a .\\test\\test_with_dll\\lib\\
+	@move /Y .\\libFManC.dll.a .\\lib\\
 
 # For linux dynamic lib
 libFManC.so : $(SRC_FILES) $(HEADER_FILES)
 	$(CC) $(CFLAGS_DYN_LIN_1) $(SRC_FILES)
 	$(CC) $(CFLAGS_DYN_LIN_2_1) lib/$@.$(VERSION) $(CFLAGS_DYN_LIN_2_2)$@.$(MAJOR_VERSION)
-	$(CC) $(CFLAGS_DYN_LIN_2_1) test/test_with_so/lib/$@.$(VERSION) $(CFLAGS_DYN_LIN_2_2)$@.$(MAJOR_VERSION)
 	cd ./lib/ && ln -s $@.$(VERSION) $@.$(MAJOR_VERSION) && ln -s $@.$(MAJOR_VERSION) $@
-	cd ./test/test_with_so/lib/ && ln -s $@.$(VERSION) $@.$(MAJOR_VERSION) && ln -s $@.$(MAJOR_VERSION) $@
 
-cpHeaders_win : $(HEADER_FILES)
+# I should change the name of these two following rules since they don't only copy header now
+cpHeaders_win : $(HEADER_FILES) $(SRC_FILES) 
 	@copy /V /Y .\\src\\*.h .\\include\\
 	@copy /V /Y .\\src\\third_party\\*.h .\\include\\third_party\\
-	@copy /V /Y .\\src\\*.h .\\test\\test_with_dll\\include\\
-	@copy /V /Y .\\src\\third_party\\*.h .\\test\\test_with_dll\\include\\third_party\\
-	@copy /V /Y .\\src\\*.h .\\test\\test_with_static\\include\\
-	@copy /V /Y .\\src\\third_party\\*.h .\\test\\test_with_static\\include\\third_party\\
-	@copy /V /Y .\\src\\*.h .\\test\\test_with_so\\include\\
-	@copy /V /Y .\\src\\third_party\\*.h .\\test\\test_with_so\\include\\third_party\\
+	@copy /V /Y .\\src\\*.h .\\test\\src_lib\\
+	@copy /V /Y .\\src\\third_party\\*.h .\\test\\src_lib\\third_party\\
+	@copy /V /Y .\\src\\*.c .\\test\\src_lib\\
+	@copy /V /Y .\\src\\third_party\\*.c .\\test\\src_lib\\third_party\\
 
-cpHeaders_lin : $(HEADER_FILES)
+cpHeaders_lin : $(HEADER_FILES) $(SRC_FILES)
 	@cp ./src/*.h ./include/
 	@cp ./src/third_party/*.h ./include/third_party/
-	@cp ./src/*.h ./test/test_with_dll/include/
-	@cp ./src/third_party/*.h ./test/test_with_dll/include/third_party/
-	@cp ./src/*.h ./test/test_with_static/include/
-	@cp ./src/third_party/*.h ./test/test_with_static/include/third_party/
-	@cp ./src/*.h ./test/test_with_so/include/
-	@cp ./src/third_party/*.h ./test/test_with_so/include/third_party/
+	@cp ./src/*.h ./test/src_lib/
+	@cp ./src/third_party/*.h ./test/src_lib/third_party/
+	@cp ./src/*.c ./test/src_lib/
+	@cp ./src/third_party/*.c ./test/src_lib/third_party/
 
 clean_win :
 	@erase *.o
@@ -106,5 +111,16 @@ doxy :
 	cd man && make
 
 clean_so : 
-	@cd test/test_with_so/lib/ && rm -f libFManC.so && rm -f libFManC.so.$(MAJOR_VERSION) && rm -f libFManC.so.$(VERSION)
 	@cd lib/ && rm -f libFManC.so && rm -f libFManC.so.$(MAJOR_VERSION) && rm -f libFManC.so.$(VERSION)
+
+TEST_DEPENDENCIES_FILES=$(wildcard test/src_lib/*.c) $(wildcard test/src_lib/third_party/*.c) $(wildcard test/src_lib/*.h) $(wildcard test/src_lib/third_party/*.h) $(wildcard test/src_test/*.h) $(wildcard test/src_test/*.c) 
+
+TEST_FILES_TO_COMPILE=$(wildcard test/src_lib/*.c) $(wildcard test/src_lib/third_party/*.c) $(wildcard test/src_test/*.c) 
+
+CFLAGS_DEBUG=-fprofile-arcs -ftest-coverage -O0 -Wall -Wextra -pedantic -Werror -std=c11
+
+test : $(TEST_DEPENDENCIES_FILES)
+	$(CC) $(CFLAGS_DEBUG) $(TEST_FILES_TO_COMPILE) -o test/test_builds/$(TEST_RES_FOLD)/$@
+	cd test/test_builds/$(TEST_RES_FOLD)/ && ./test
+
+# rep_cov : 

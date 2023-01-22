@@ -29,7 +29,7 @@
 <codeline><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>define<sp/>SHARED</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>endif<sp/></highlight><highlight class="comment">//<sp/>Definition<sp/>of<sp/>SHARED<sp/>macro</highlight></codeline>
 </programlisting></para>
-<para><xrefsect id="dd/da0/todo_1_todo000002"><xreftitle>Todo</xreftitle><xrefdescription><para>I should change the name of &quot;STATIC&quot; to something like &quot;FMANC_STATIC&quot; to avoid any problems in case someone wants to use two libs with the same define system</para>
+<para><xrefsect id="dd/da0/todo_1_todo000001"><xreftitle>Todo</xreftitle><xrefdescription><para>I should change the name of &quot;STATIC&quot; to something like &quot;FMANC_STATIC&quot; to avoid any problems in case someone wants to use two libs with the same define system</para>
 </xrefdescription></xrefsect></para>
         </detaileddescription>
         <inbodydescription>

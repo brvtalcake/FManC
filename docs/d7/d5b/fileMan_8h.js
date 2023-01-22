@@ -9,7 +9,7 @@ var fileMan_8h =
     [ "SHARED", "d7/d5b/fileMan_8h.html#a884c794595c4aa480df9022648c29564", null ],
     [ "copyFileWithoutStrings", "d7/d5b/fileMan_8h.html#ac00d5607ef908576f411582a8eb8a128", null ],
     [ "copyFileWithoutTabAndLineBreak", "db/de3/group__fmanc__FM__UTILS__func.html#ga95f02d94dae556d5282368721e994732", null ],
-    [ "fgetFileExtension", "d7/d5b/fileMan_8h.html#a2ae33808674f181279341940f19d60b9", null ],
-    [ "fgetFileName", "d7/d5b/fileMan_8h.html#a1d3df2b7a44029fad789b45b4406451a", null ],
-    [ "fgetFilePath", "d7/d5b/fileMan_8h.html#a97687e29a139210fc190ce98d836c160", null ]
+    [ "fgetFileExtension", "d7/d5b/fileMan_8h.html#a14f6c4e1fce0d3538953f200e9d0e156", null ],
+    [ "fgetFileName", "d7/d5b/fileMan_8h.html#ab6e3e0e014160f3696c8dd3da350fb0d", null ],
+    [ "fgetFilePath", "d7/d5b/fileMan_8h.html#ab6ee0c8809c264cbc527f3cca7320fb4", null ]
 ];

@@ -31,7 +31,7 @@ SHARED struct FManC_StrOcc
 SHARED typedef struct FManC_StrOcc stringOccurrences;
 
 SHARED size_t countCharInFile(char *filePath);
-SHARED stringOccurrences *init_StringOccurences(size_t sizeOfString);
+SHARED stringOccurrences *init_stringOccurences(size_t sizeOfString);
 SHARED void free_stringOccurrences(stringOccurrences *toBeDeleted);
 SHARED stringOccurrences *searchStringInFile(char *filePath, char *toSearch);
 SHARED int replaceStringInFile(char *filePath, char *toReplaceString, char *toAddString);

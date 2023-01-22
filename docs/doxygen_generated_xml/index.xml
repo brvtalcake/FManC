@@ -9,7 +9,7 @@
   <compound refid="d7/d93/analyze_8c" kind="file"><name>analyze.c</name>
     <member refid="d7/d93/analyze_8c_1a2fae470a9f2ba64ed544ecb0efdf3113" kind="function"><name>countCharInFile</name></member>
     <member refid="d7/d93/analyze_8c_1a04ae2138b1c3b361f9556bd30db30c23" kind="function"><name>free_stringOccurrences</name></member>
-    <member refid="d7/d93/analyze_8c_1a615c6ba607d2b90929bc2a8b1fe5e5f6" kind="function"><name>init_StringOccurences</name></member>
+    <member refid="d7/d93/analyze_8c_1a00a81359d75f930d3e47239dbd6dd324" kind="function"><name>init_stringOccurences</name></member>
     <member refid="d7/d93/analyze_8c_1ae5a02aaad7ac0820d0b9c6c96c77abb9" kind="function"><name>replaceStringInFile</name></member>
     <member refid="d7/d93/analyze_8c_1ab029b1afb2f8a964dd116b825baf8741" kind="function"><name>searchStringInFile</name></member>
   </compound>
@@ -19,7 +19,7 @@
     <member refid="d8/d07/analyze_8h_1ac00d5607ef908576f411582a8eb8a128" kind="function"><name>copyFileWithoutStrings</name></member>
     <member refid="d8/d07/analyze_8h_1a2fae470a9f2ba64ed544ecb0efdf3113" kind="function"><name>countCharInFile</name></member>
     <member refid="d8/d07/analyze_8h_1a04ae2138b1c3b361f9556bd30db30c23" kind="function"><name>free_stringOccurrences</name></member>
-    <member refid="d8/d07/analyze_8h_1a615c6ba607d2b90929bc2a8b1fe5e5f6" kind="function"><name>init_StringOccurences</name></member>
+    <member refid="d8/d07/analyze_8h_1a00a81359d75f930d3e47239dbd6dd324" kind="function"><name>init_stringOccurences</name></member>
     <member refid="d8/d07/analyze_8h_1ae5a02aaad7ac0820d0b9c6c96c77abb9" kind="function"><name>replaceStringInFile</name></member>
     <member refid="d8/d07/analyze_8h_1ab029b1afb2f8a964dd116b825baf8741" kind="function"><name>searchStringInFile</name></member>
   </compound>
@@ -30,9 +30,9 @@
   </compound>
   <compound refid="d2/d77/fileMan_8c" kind="file"><name>fileMan.c</name>
     <member refid="db/de3/group__fmanc__FM__UTILS__func_1ga95f02d94dae556d5282368721e994732" kind="function"><name>copyFileWithoutTabAndLineBreak</name></member>
-    <member refid="d2/d77/fileMan_8c_1a3033d108e5b43f14a469648071ee8439" kind="function"><name>fgetFileExtension</name></member>
-    <member refid="d2/d77/fileMan_8c_1a1d3df2b7a44029fad789b45b4406451a" kind="function"><name>fgetFileName</name></member>
-    <member refid="d2/d77/fileMan_8c_1a97687e29a139210fc190ce98d836c160" kind="function"><name>fgetFilePath</name></member>
+    <member refid="d2/d77/fileMan_8c_1a1d7baece5ab38639830477d55c951928" kind="function"><name>fgetFileExtension</name></member>
+    <member refid="d2/d77/fileMan_8c_1ab6e3e0e014160f3696c8dd3da350fb0d" kind="function"><name>fgetFileName</name></member>
+    <member refid="d2/d77/fileMan_8c_1ab6ee0c8809c264cbc527f3cca7320fb4" kind="function"><name>fgetFilePath</name></member>
   </compound>
   <compound refid="d7/d5b/fileMan_8h" kind="file"><name>fileMan.h</name>
     <member refid="dd/d72/group__fmanc__FM__UTILS__macros_1ga68b8bb9ca6877866b30b5d71f33f1b08" kind="define"><name>getFileExtension</name></member>
@@ -44,9 +44,9 @@
     <member refid="d7/d5b/fileMan_8h_1a884c794595c4aa480df9022648c29564" kind="define"><name>SHARED</name></member>
     <member refid="d7/d5b/fileMan_8h_1ac00d5607ef908576f411582a8eb8a128" kind="function"><name>copyFileWithoutStrings</name></member>
     <member refid="db/de3/group__fmanc__FM__UTILS__func_1ga95f02d94dae556d5282368721e994732" kind="function"><name>copyFileWithoutTabAndLineBreak</name></member>
-    <member refid="d7/d5b/fileMan_8h_1a2ae33808674f181279341940f19d60b9" kind="function"><name>fgetFileExtension</name></member>
-    <member refid="d7/d5b/fileMan_8h_1a1d3df2b7a44029fad789b45b4406451a" kind="function"><name>fgetFileName</name></member>
-    <member refid="d7/d5b/fileMan_8h_1a97687e29a139210fc190ce98d836c160" kind="function"><name>fgetFilePath</name></member>
+    <member refid="d7/d5b/fileMan_8h_1a14f6c4e1fce0d3538953f200e9d0e156" kind="function"><name>fgetFileExtension</name></member>
+    <member refid="d7/d5b/fileMan_8h_1ab6e3e0e014160f3696c8dd3da350fb0d" kind="function"><name>fgetFileName</name></member>
+    <member refid="d7/d5b/fileMan_8h_1ab6ee0c8809c264cbc527f3cca7320fb4" kind="function"><name>fgetFilePath</name></member>
   </compound>
   <compound refid="d5/dc4/fmanc_8h" kind="file"><name>fmanc.h</name>
     <member refid="d0/d40/group__GEN__MACROS_1ga884c794595c4aa480df9022648c29564" kind="define"><name>SHARED</name></member>

@@ -2,6 +2,8 @@
 
 # libFManC 
 File manager in C 
+
+
 ## IMPORTANT NOTE
 There is still a lot to do to make this lib usable, or at least to make it interesting and with enough interesting content. But before all I really want to organize the repo, with a perfect structure, so that'll be more easy to develop it. 
 
@@ -11,7 +13,9 @@ There is still a lot to do to make this lib usable, or at least to make it inter
 --->
 
 However, if you want to download a PDF documentation, it's [here](https://github.com/brvtalcake/libfmanc/raw/main/man/refman.pdf).
-For the HTML one, in local, just download the folder html in docs and open index.html in your favorite browser.
+[Here is the HTML documentation](https://brvtalcake.github.io/FManC/), wich looks better to me.
+
+
 ## ToDoList
 <!---
 - [ ] Adding features to develop my C "dialect", I would say (still don't really know how to call it and what extension I should use). Next things to implement should be : 

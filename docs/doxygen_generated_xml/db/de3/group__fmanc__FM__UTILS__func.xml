@@ -25,7 +25,7 @@
 </simplesect>
 <simplesect kind="date"><para>2022</para>
 </simplesect>
-The copied file with be renamed as &lt;sourceFile name&gt;_copied.&lt;sourceFileExtension&gt; if the param pathToCopy is set to NULL, and what you want if you specify the path with a name and extension. <xrefsect id="dd/da0/todo_1_todo000001"><xreftitle>Todo</xreftitle><xrefdescription><para>Check if the path to copy has a name and an extension at the end. </para>
+The copied file with be renamed as &lt;sourceFile name&gt;_copied.&lt;sourceFileExtension&gt; if the param pathToCopy is set to NULL, and what you want if you specify the path with a name and extension. <xrefsect id="dd/da0/todo_1_todo000002"><xreftitle>Todo</xreftitle><xrefdescription><para>Check if the path to copy has a name and an extension at the end. </para>
 <para>Move it to <ref refid="d3/dd5/code__utils_8h" kindref="compound">code_utils.h</ref></para>
 </xrefdescription></xrefsect></para>
 <para><parameterlist kind="param"><parameteritem>

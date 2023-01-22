@@ -9,7 +9,7 @@ var analyze_8h =
     [ "copyFileWithoutStrings", "d8/d07/analyze_8h.html#ac00d5607ef908576f411582a8eb8a128", null ],
     [ "countCharInFile", "d8/d07/analyze_8h.html#a2fae470a9f2ba64ed544ecb0efdf3113", null ],
     [ "free_stringOccurrences", "d8/d07/analyze_8h.html#a04ae2138b1c3b361f9556bd30db30c23", null ],
-    [ "init_StringOccurences", "d8/d07/analyze_8h.html#a615c6ba607d2b90929bc2a8b1fe5e5f6", null ],
+    [ "init_stringOccurences", "d8/d07/analyze_8h.html#a00a81359d75f930d3e47239dbd6dd324", null ],
     [ "replaceStringInFile", "d8/d07/analyze_8h.html#ae5a02aaad7ac0820d0b9c6c96c77abb9", null ],
     [ "searchStringInFile", "d8/d07/analyze_8h.html#ab029b1afb2f8a964dd116b825baf8741", null ]
 ];

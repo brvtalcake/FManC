@@ -41,7 +41,7 @@
         <name>getFileExtension</name>
         <param><defname>sourceFilePath</defname></param>
         <param><defname>extension</defname></param>
-        <initializer>char extension[<ref refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gaef2c26bbba7239793dfd266d0e8b46b4" kindref="member">MAX_FEXT_SIZE</ref>] = &quot;&quot;; <ref refid="d2/d77/fileMan_8c_1a3033d108e5b43f14a469648071ee8439" kindref="member">fgetFileExtension</ref>(sourceFilePath, extension)</initializer>
+        <initializer>char extension[<ref refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gaef2c26bbba7239793dfd266d0e8b46b4" kindref="member">MAX_FEXT_SIZE</ref>] = &quot;&quot;; <ref refid="d2/d77/fileMan_8c_1a1d7baece5ab38639830477d55c951928" kindref="member">fgetFileExtension</ref>(sourceFilePath, extension)</initializer>
         <briefdescription>
 <para>Gives you the file extension. </para>
         </briefdescription>
@@ -79,7 +79,7 @@ It is stored in an array of char with the name you specify (extension). <paramet
         <name>getFileName</name>
         <param><defname>sourceFilePath</defname></param>
         <param><defname>name</defname></param>
-        <initializer>char name[<ref refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gab0e76045bf91a8a1b4fc381488399f70" kindref="member">MAX_FNAME_SIZE</ref>] = &quot;&quot;; <ref refid="d2/d77/fileMan_8c_1a1d3df2b7a44029fad789b45b4406451a" kindref="member">fgetFileName</ref>(sourceFilePath, name)</initializer>
+        <initializer>char name[<ref refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gab0e76045bf91a8a1b4fc381488399f70" kindref="member">MAX_FNAME_SIZE</ref>] = &quot;&quot;; <ref refid="d2/d77/fileMan_8c_1ab6e3e0e014160f3696c8dd3da350fb0d" kindref="member">fgetFileName</ref>(sourceFilePath, name)</initializer>
         <briefdescription>
 <para>Gives you the file name. </para>
         </briefdescription>
@@ -117,7 +117,7 @@ It is stored in an array of char with the name you specify (name). <parameterlis
         <name>getFilePath</name>
         <param><defname>sourceFilePath</defname></param>
         <param><defname>path</defname></param>
-        <initializer>char path[<ref refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gae5c03ff129a1255adb84d15ae75425b8" kindref="member">MAX_FPATH_SIZE</ref>] = &quot;&quot;; <ref refid="d2/d77/fileMan_8c_1a97687e29a139210fc190ce98d836c160" kindref="member">fgetFilePath</ref>(sourceFilePath, path)</initializer>
+        <initializer>char path[<ref refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gae5c03ff129a1255adb84d15ae75425b8" kindref="member">MAX_FPATH_SIZE</ref>] = &quot;&quot;; <ref refid="d2/d77/fileMan_8c_1ab6ee0c8809c264cbc527f3cca7320fb4" kindref="member">fgetFilePath</ref>(sourceFilePath, path)</initializer>
         <briefdescription>
 <para>Gives you the file path (without name and extension). </para>
         </briefdescription>
@@ -262,7 +262,7 @@ For more informations, please see <ref refid="d0/d40/group__GEN__MACROS_1SHARED_
 </simplesect>
 <simplesect kind="date"><para>2022</para>
 </simplesect>
-The copied file with be renamed as &lt;sourceFile name&gt;_copied.&lt;sourceFileExtension&gt; if the param pathToCopy is set to NULL, and what you want if you specify the path with a name and extension. <xrefsect id="dd/da0/todo_1_todo000001"><xreftitle>Todo</xreftitle><xrefdescription><para>Check if the path to copy has a name and an extension at the end. </para>
+The copied file with be renamed as &lt;sourceFile name&gt;_copied.&lt;sourceFileExtension&gt; if the param pathToCopy is set to NULL, and what you want if you specify the path with a name and extension. <xrefsect id="dd/da0/todo_1_todo000002"><xreftitle>Todo</xreftitle><xrefdescription><para>Check if the path to copy has a name and an extension at the end. </para>
 <para>Move it to <ref refid="d3/dd5/code__utils_8h" kindref="compound">code_utils.h</ref></para>
 </xrefdescription></xrefsect></para>
 <para><parameterlist kind="param"><parameteritem>
@@ -307,13 +307,13 @@ The copied file with be renamed as &lt;sourceFile name&gt;_copied.&lt;sourceFile
         <references refid="dd/d72/group__fmanc__FM__UTILS__macros_1ga68b8bb9ca6877866b30b5d71f33f1b08" compoundref="d7/d5b/fileMan_8h" startline="137">getFileExtension</references>
         <references refid="dd/d72/group__fmanc__FM__UTILS__macros_1ga3e855422945c4cdbaf71723d8e25d9f5" compoundref="d7/d5b/fileMan_8h" startline="153">getFileName</references>
       </memberdef>
-      <memberdef kind="function" id="d7/d5b/fileMan_8h_1a2ae33808674f181279341940f19d60b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="d7/d5b/fileMan_8h_1a14f6c4e1fce0d3538953f200e9d0e156" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void fgetFileExtension</definition>
-        <argsstring>(char *sourceFileName, char *extension)</argsstring>
+        <argsstring>(const char *const sourceFileName, char *extension)</argsstring>
         <name>fgetFileExtension</name>
         <param>
-          <type>char *</type>
+          <type>const char *const</type>
           <declname>sourceFileName</declname>
         </param>
         <param>
@@ -326,18 +326,18 @@ The copied file with be renamed as &lt;sourceFile name&gt;_copied.&lt;sourceFile
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/fileMan.h" line="199" column="7" bodyfile="src/fileMan.c" bodystart="67" bodyend="102" declfile="src/fileMan.h" declline="199" declcolumn="7"/>
+        <location file="src/fileMan.h" line="199" column="7" bodyfile="src/fileMan.c" bodystart="67" bodyend="113" declfile="src/fileMan.h" declline="199" declcolumn="7"/>
         <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gaef2c26bbba7239793dfd266d0e8b46b4" compoundref="d7/d5b/fileMan_8h" startline="91">MAX_FEXT_SIZE</references>
         <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gab0e76045bf91a8a1b4fc381488399f70" compoundref="d7/d5b/fileMan_8h" startline="102">MAX_FNAME_SIZE</references>
         <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gae5c03ff129a1255adb84d15ae75425b8" compoundref="d7/d5b/fileMan_8h" startline="113">MAX_FPATH_SIZE</references>
       </memberdef>
-      <memberdef kind="function" id="d7/d5b/fileMan_8h_1a1d3df2b7a44029fad789b45b4406451a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="d7/d5b/fileMan_8h_1ab6e3e0e014160f3696c8dd3da350fb0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void fgetFileName</definition>
-        <argsstring>(char *sourceFilePath, char *fileName)</argsstring>
+        <argsstring>(const char *const sourceFilePath, char *fileName)</argsstring>
         <name>fgetFileName</name>
         <param>
-          <type>char *</type>
+          <type>const char *const</type>
           <declname>sourceFilePath</declname>
         </param>
         <param>
@@ -350,18 +350,18 @@ The copied file with be renamed as &lt;sourceFile name&gt;_copied.&lt;sourceFile
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/fileMan.h" line="200" column="7" bodyfile="src/fileMan.c" bodystart="104" bodyend="149" declfile="src/fileMan.h" declline="200" declcolumn="7"/>
+        <location file="src/fileMan.h" line="200" column="7" bodyfile="src/fileMan.c" bodystart="115" bodyend="186" declfile="src/fileMan.h" declline="200" declcolumn="7"/>
         <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gaef2c26bbba7239793dfd266d0e8b46b4" compoundref="d7/d5b/fileMan_8h" startline="91">MAX_FEXT_SIZE</references>
         <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gab0e76045bf91a8a1b4fc381488399f70" compoundref="d7/d5b/fileMan_8h" startline="102">MAX_FNAME_SIZE</references>
         <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gae5c03ff129a1255adb84d15ae75425b8" compoundref="d7/d5b/fileMan_8h" startline="113">MAX_FPATH_SIZE</references>
       </memberdef>
-      <memberdef kind="function" id="d7/d5b/fileMan_8h_1a97687e29a139210fc190ce98d836c160" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="d7/d5b/fileMan_8h_1ab6ee0c8809c264cbc527f3cca7320fb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void fgetFilePath</definition>
-        <argsstring>(char *sourceFilePath, char *filePath)</argsstring>
+        <argsstring>(const char *const sourceFilePath, char *filePath)</argsstring>
         <name>fgetFilePath</name>
         <param>
-          <type>char *</type>
+          <type>const char *const</type>
           <declname>sourceFilePath</declname>
         </param>
         <param>
@@ -374,7 +374,7 @@ The copied file with be renamed as &lt;sourceFile name&gt;_copied.&lt;sourceFile
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/fileMan.h" line="201" column="7" bodyfile="src/fileMan.c" bodystart="151" bodyend="199" declfile="src/fileMan.h" declline="201" declcolumn="7"/>
+        <location file="src/fileMan.h" line="201" column="7" bodyfile="src/fileMan.c" bodystart="188" bodyend="240" declfile="src/fileMan.h" declline="201" declcolumn="7"/>
         <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gaef2c26bbba7239793dfd266d0e8b46b4" compoundref="d7/d5b/fileMan_8h" startline="91">MAX_FEXT_SIZE</references>
         <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gab0e76045bf91a8a1b4fc381488399f70" compoundref="d7/d5b/fileMan_8h" startline="102">MAX_FNAME_SIZE</references>
         <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gae5c03ff129a1255adb84d15ae75425b8" compoundref="d7/d5b/fileMan_8h" startline="113">MAX_FPATH_SIZE</references>
@@ -448,9 +448,9 @@ The copied file with be renamed as &lt;sourceFile name&gt;_copied.&lt;sourceFile
 <codeline lineno="172"><highlight class="normal"></highlight></codeline>
 <codeline lineno="197"><highlight class="normal"><ref refid="d7/d5b/fileMan_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="db/de3/group__fmanc__FM__UTILS__func_1ga95f02d94dae556d5282368721e994732" kindref="member">copyFileWithoutTabAndLineBreak</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*sourceFilePath,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**pathToCopy);<sp/></highlight><highlight class="comment">//<sp/>copied<sp/>file<sp/>will<sp/>be<sp/>named<sp/>like<sp/>&lt;sourceFile<sp/>name&gt;_copied</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="198" refid="d7/d5b/fileMan_8h_1ac00d5607ef908576f411582a8eb8a128" refkind="member"><highlight class="normal"><ref refid="d7/d5b/fileMan_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d7/d5b/fileMan_8h_1ac00d5607ef908576f411582a8eb8a128" kindref="member">copyFileWithoutStrings</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*filePath,<sp/>...);<sp/></highlight><highlight class="comment">//<sp/>to<sp/>do</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="199"><highlight class="normal"><ref refid="d7/d5b/fileMan_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/d5b/fileMan_8h_1a2ae33808674f181279341940f19d60b9" kindref="member">fgetFileExtension</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*sourceFileName,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*extension);</highlight></codeline>
-<codeline lineno="200"><highlight class="normal"><ref refid="d7/d5b/fileMan_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/d5b/fileMan_8h_1a1d3df2b7a44029fad789b45b4406451a" kindref="member">fgetFileName</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*sourceFilePath,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*fileName);</highlight></codeline>
-<codeline lineno="201"><highlight class="normal"><ref refid="d7/d5b/fileMan_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/d5b/fileMan_8h_1a97687e29a139210fc190ce98d836c160" kindref="member">fgetFilePath</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*sourceFilePath,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*filePath);<sp/></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><ref refid="d7/d5b/fileMan_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/d5b/fileMan_8h_1a14f6c4e1fce0d3538953f200e9d0e156" kindref="member">fgetFileExtension</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>sourceFileName,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*extension);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><ref refid="d7/d5b/fileMan_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/d5b/fileMan_8h_1ab6e3e0e014160f3696c8dd3da350fb0d" kindref="member">fgetFileName</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>sourceFilePath,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*fileName);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><ref refid="d7/d5b/fileMan_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/d5b/fileMan_8h_1ab6ee0c8809c264cbc527f3cca7320fb4" kindref="member">fgetFilePath</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>sourceFilePath,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*filePath);<sp/></highlight></codeline>
 <codeline lineno="202"><highlight class="normal"></highlight></codeline>
 <codeline lineno="203"><highlight class="normal"></highlight></codeline>
 <codeline lineno="204"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>

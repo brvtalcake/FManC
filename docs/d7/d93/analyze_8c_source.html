@@ -129,7 +129,7 @@ $(document).ready(function(){initNavTree('d7/d93/analyze_8c_source.html','../../
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">return</span> returned;</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d7/d93/analyze_8c.html#a615c6ba607d2b90929bc2a8b1fe5e5f6">   35</a></span><a class="code hl_define" href="../../d8/d07/analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> <a class="code hl_struct" href="../../d8/d07/analyze_8h.html#d4/df4/structFManC__StrOcc">stringOccurrences</a> *<a class="code hl_function" href="../../d7/d93/analyze_8c.html#a615c6ba607d2b90929bc2a8b1fe5e5f6">init_StringOccurences</a>(<span class="keywordtype">size_t</span> sizeOfString)</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d7/d93/analyze_8c.html#a00a81359d75f930d3e47239dbd6dd324">   35</a></span><a class="code hl_define" href="../../d8/d07/analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> <a class="code hl_struct" href="../../d8/d07/analyze_8h.html#d4/df4/structFManC__StrOcc">stringOccurrences</a> *<a class="code hl_function" href="../../d7/d93/analyze_8c.html#a00a81359d75f930d3e47239dbd6dd324">init_stringOccurences</a>(<span class="keywordtype">size_t</span> sizeOfString)</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    </div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> *position = malloc(<span class="keyword">sizeof</span>(<span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span>));</div>
@@ -174,7 +174,7 @@ $(document).ready(function(){initNavTree('d7/d93/analyze_8c_source.html','../../
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    }</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <a class="code hl_struct" href="../../d8/d07/analyze_8h.html#d4/df4/structFManC__StrOcc">stringOccurrences</a> *occurencesToSearch = <a class="code hl_function" href="../../d7/d93/analyze_8c.html#a615c6ba607d2b90929bc2a8b1fe5e5f6">init_StringOccurences</a>(wcslen(toSearchW));</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <a class="code hl_struct" href="../../d8/d07/analyze_8h.html#d4/df4/structFManC__StrOcc">stringOccurrences</a> *occurencesToSearch = <a class="code hl_function" href="../../d7/d93/analyze_8c.html#a00a81359d75f930d3e47239dbd6dd324">init_stringOccurences</a>(wcslen(toSearchW));</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    </div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    FILE *fil = fopen(filePath, <span class="stringliteral">&quot;r, ccs=UTF-8&quot;</span>);</div>
@@ -406,9 +406,9 @@ $(document).ready(function(){initNavTree('d7/d93/analyze_8c_source.html','../../
 <div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span> </div>
 <div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>}</div>
+<div class="ttc" id="aanalyze_8c_html_a00a81359d75f930d3e47239dbd6dd324"><div class="ttname"><a href="../../d7/d93/analyze_8c.html#a00a81359d75f930d3e47239dbd6dd324">init_stringOccurences</a></div><div class="ttdeci">stringOccurrences * init_stringOccurences(size_t sizeOfString)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d93/analyze_8c_source.html#l00035">analyze.c:35</a></div></div>
 <div class="ttc" id="aanalyze_8c_html_a04ae2138b1c3b361f9556bd30db30c23"><div class="ttname"><a href="../../d7/d93/analyze_8c.html#a04ae2138b1c3b361f9556bd30db30c23">free_stringOccurrences</a></div><div class="ttdeci">void free_stringOccurrences(stringOccurrences *toBeDeleted)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d93/analyze_8c_source.html#l00047">analyze.c:47</a></div></div>
 <div class="ttc" id="aanalyze_8c_html_a2fae470a9f2ba64ed544ecb0efdf3113"><div class="ttname"><a href="../../d7/d93/analyze_8c.html#a2fae470a9f2ba64ed544ecb0efdf3113">countCharInFile</a></div><div class="ttdeci">size_t countCharInFile(char *filePath)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d93/analyze_8c_source.html#l00014">analyze.c:14</a></div></div>
-<div class="ttc" id="aanalyze_8c_html_a615c6ba607d2b90929bc2a8b1fe5e5f6"><div class="ttname"><a href="../../d7/d93/analyze_8c.html#a615c6ba607d2b90929bc2a8b1fe5e5f6">init_StringOccurences</a></div><div class="ttdeci">stringOccurrences * init_StringOccurences(size_t sizeOfString)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d93/analyze_8c_source.html#l00035">analyze.c:35</a></div></div>
 <div class="ttc" id="aanalyze_8c_html_ab029b1afb2f8a964dd116b825baf8741"><div class="ttname"><a href="../../d7/d93/analyze_8c.html#ab029b1afb2f8a964dd116b825baf8741">searchStringInFile</a></div><div class="ttdeci">stringOccurrences * searchStringInFile(char *filePath, char *toSearch)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d93/analyze_8c_source.html#l00054">analyze.c:54</a></div></div>
 <div class="ttc" id="aanalyze_8c_html_ae5a02aaad7ac0820d0b9c6c96c77abb9"><div class="ttname"><a href="../../d7/d93/analyze_8c.html#ae5a02aaad7ac0820d0b9c6c96c77abb9">replaceStringInFile</a></div><div class="ttdeci">int replaceStringInFile(char *filePath, char *toReplaceString, char *toAddString)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d93/analyze_8c_source.html#l00155">analyze.c:155</a></div></div>
 <div class="ttc" id="aanalyze_8h_html"><div class="ttname"><a href="../../d8/d07/analyze_8h.html">analyze.h</a></div></div>
@@ -429,7 +429,7 @@ $(document).ready(function(){initNavTree('d7/d93/analyze_8c_source.html','../../
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../d7/d93/analyze_8c.html">analyze.c</a></li>
-    <li class="footer">Generated on Sun Jan 22 2023 04:26:24 for FManC by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+    <li class="footer">Generated on Sun Jan 22 2023 21:47:19 for FManC by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
   </ul>
 </div>
 </body>

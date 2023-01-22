@@ -196,9 +196,9 @@
  */
 SHARED char *copyFileWithoutTabAndLineBreak(char *sourceFilePath, char **pathToCopy); // copied file will be named like <sourceFile name>_copied
 SHARED int copyFileWithoutStrings(const unsigned int argc, char *filePath, ...); // to do
-SHARED void fgetFileExtension(char *sourceFileName, char *extension);
-SHARED void fgetFileName(char *sourceFilePath, char *fileName);
-SHARED void fgetFilePath(char *sourceFilePath, char *filePath); 
+SHARED void fgetFileExtension(const char* const sourceFileName, char *extension);
+SHARED void fgetFileName(const char* const sourceFilePath, char *fileName);
+SHARED void fgetFilePath(const char* const sourceFilePath, char *filePath); 
 
 
 #endif

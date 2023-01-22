@@ -8,12 +8,12 @@
     <detaileddescription>
 <para><variablelist>
 <varlistentry><term>Global <ref refid="db/de3/group__fmanc__FM__UTILS__func_1ga95f02d94dae556d5282368721e994732" kindref="member">copyFileWithoutTabAndLineBreak</ref>  (char *sourceFilePath, char **pathToCopy)</term></varlistentry>
-<listitem><para><anchor id="dd/da0/todo_1_todo000001"/>Check if the path to copy has a name and an extension at the end. </para>
+<listitem><para><anchor id="dd/da0/todo_1_todo000002"/>Check if the path to copy has a name and an extension at the end. </para>
 <para></para>
 <para>Move it to <ref refid="d3/dd5/code__utils_8h" kindref="compound">code_utils.h</ref> </para>
 </listitem>
 <varlistentry><term>Global <ref refid="d0/d40/group__GEN__MACROS_1ga884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref>  </term></varlistentry>
-<listitem><para><anchor id="dd/da0/todo_1_todo000002"/>I should change the name of &quot;STATIC&quot; to something like &quot;FMANC_STATIC&quot; to avoid any problems in case someone wants to use two libs with the same define system</para>
+<listitem><para><anchor id="dd/da0/todo_1_todo000001"/>I should change the name of &quot;STATIC&quot; to something like &quot;FMANC_STATIC&quot; to avoid any problems in case someone wants to use two libs with the same define system</para>
 <para></para>
 </listitem>
 </variablelist>

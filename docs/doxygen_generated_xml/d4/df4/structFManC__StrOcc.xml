@@ -17,7 +17,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/analyze.h" line="27" column="8" bodyfile="src/analyze.h" bodystart="27" bodyend="-1"/>
-        <referencedby refid="d7/d93/analyze_8c_1a615c6ba607d2b90929bc2a8b1fe5e5f6" compoundref="d7/d93/analyze_8c" startline="35" endline="45">init_StringOccurences</referencedby>
+        <referencedby refid="d7/d93/analyze_8c_1a00a81359d75f930d3e47239dbd6dd324" compoundref="d7/d93/analyze_8c" startline="35" endline="45">init_stringOccurences</referencedby>
         <referencedby refid="d7/d93/analyze_8c_1ae5a02aaad7ac0820d0b9c6c96c77abb9" compoundref="d7/d93/analyze_8c" startline="155" endline="311">replaceStringInFile</referencedby>
       </memberdef>
       <memberdef kind="variable" id="d4/df4/structFManC__StrOcc_1aa771d096daea4bd1c01973da82d931c8" prot="public" static="no" mutable="no">
@@ -34,7 +34,7 @@
         </inbodydescription>
         <location file="src/analyze.h" line="28" column="15" bodyfile="src/analyze.h" bodystart="28" bodyend="-1"/>
         <referencedby refid="d7/d93/analyze_8c_1a04ae2138b1c3b361f9556bd30db30c23" compoundref="d7/d93/analyze_8c" startline="47" endline="51">free_stringOccurrences</referencedby>
-        <referencedby refid="d7/d93/analyze_8c_1a615c6ba607d2b90929bc2a8b1fe5e5f6" compoundref="d7/d93/analyze_8c" startline="35" endline="45">init_StringOccurences</referencedby>
+        <referencedby refid="d7/d93/analyze_8c_1a00a81359d75f930d3e47239dbd6dd324" compoundref="d7/d93/analyze_8c" startline="35" endline="45">init_stringOccurences</referencedby>
         <referencedby refid="d7/d93/analyze_8c_1ae5a02aaad7ac0820d0b9c6c96c77abb9" compoundref="d7/d93/analyze_8c" startline="155" endline="311">replaceStringInFile</referencedby>
         <referencedby refid="d7/d93/analyze_8c_1ab029b1afb2f8a964dd116b825baf8741" compoundref="d7/d93/analyze_8c" startline="54" endline="152">searchStringInFile</referencedby>
       </memberdef>

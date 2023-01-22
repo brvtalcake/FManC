@@ -71,9 +71,9 @@
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="../../d7/d93/analyze_8c.html#a615c6ba607d2b90929bc2a8b1fe5e5f6" target="_top" xlink:title=" ">
+<g id="a_node5"><a xlink:href="../../d7/d93/analyze_8c.html#a00a81359d75f930d3e47239dbd6dd324" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="408.5,-19 286.5,-19 286.5,0 408.5,0 408.5,-19"/>
-<text text-anchor="middle" x="347.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">init_StringOccurences</text>
+<text text-anchor="middle" x="347.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">init_stringOccurences</text>
 </a>
 </g>
 </g>
