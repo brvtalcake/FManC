@@ -14,6 +14,8 @@ OBJ_FILES=$(subst src/,,$(subst third_party/,,$(SRC_FILES:.c=.o)))
 CC=gcc
 AR=ar
 
+AR_GH_ACTION=gcc-ar
+
 AR_FLAGS=-rsc
 
 CFLAGS_STATIC=-O3 -D STATIC -Wall -Wextra -pedantic -Werror -std=c11 -c
@@ -26,15 +28,23 @@ CFLAGS_DYN_LIN_1=-O3 -Wall -Wextra -pedantic -Werror -std=c11 -c -fPIC
 CFLAGS_DYN_LIN_2_1=-O3 -Wall -Wextra -pedantic -Werror -std=c11 -fPIC -shared $(OBJ_FILES) -o
 CFLAGS_DYN_LIN_2_2=-Wl,-soname,
 
-.PHONY : stat_win stat_lin dyn_win dyn_lin clean_win clean_lin doxy clean_so
+.PHONY : stat_win stat_lin dyn_win dyn_lin clean_win clean_lin doxy clean_so stat_win_only stat_lin_only dyn_win_only dyn_lin_only
 
 stat_win : libFManC.a cpHeaders_win clean_win doxy
 
-stat_lin : libFManC.linux.a cpHeaders_lin clean_lin doxy
+stat_win_only : libFManC.a cpHeaders_win clean_win # For GitHub Action
+
+stat_lin : libFManC.linux.a cpHeaders_lin clean_lin doxy 
+
+stat_lin_only : libFManC.linux.a cpHeaders_lin clean_lin # For GitHub Action
  
 dyn_win : FManC.dll cpHeaders_win clean_win doxy
 
+dyn_win_only : FManC.dll cpHeaders_win clean_win # For GitHub Action
+
 dyn_lin : clean_so libFManC.so cpHeaders_lin clean_lin doxy
+
+dyn_lin_only : clean_so libFManC.so cpHeaders_lin clean_lin # For GitHub Action
 
 
 # For the windows static lib	

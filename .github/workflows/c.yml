@@ -11,34 +11,54 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Install Dependencies
-      run: npm install doxygen
     - name: make static lib for linux
-      run: make stat_lin
+      run: make stat_lin_only
       
   build-dyn_lin:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Install Dependencies
-      run: npm install doxygen
     - name: make dynamic lib for linux
-      run: make dyn_lin
+      run: make dyn_lin_only
       
   build-stat_win:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Install Dependencies
-      run: npm install doxygen
+
+    - name: Set up Cygwin
+      uses: egor-tensin/setup-cygwin@v4
+      with:
+        packages: make gcc gcc-core binutils
+    - run: |
+        ls.exe -Al
+        pwd.exe
+
+    - name: Set up MinGW
+      uses: egor-tensin/setup-mingw@v2
+      with:
+        platform: x64
+        
     - name: make static lib for windows
-      run: make stat_win
+      run: make stat_win_only
       
   build-dyn_win:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Install Dependencies
-      run: npm install doxygen
+
+    - name: Set up Cygwin
+      uses: egor-tensin/setup-cygwin@v4
+      with:
+        packages: make gcc gcc-core binutils
+    - run: |
+        ls.exe -Al
+        pwd.exe
+
+    - name: Set up MinGW
+      uses: egor-tensin/setup-mingw@v2
+      with:
+        platform: x64
+
     - name: make dynamic lib for windows
-      run: make dyn_win
+      run: make dyn_win_only
