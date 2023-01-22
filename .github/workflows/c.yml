@@ -40,7 +40,7 @@ jobs:
         platform: x64
         
     - name: make static lib for windows
-      run: make stat_win_only
+      run: gcc -O3 src/*.c src/third_party/*.c -c 
       shell: cmd
       
   build-dyn_win:
