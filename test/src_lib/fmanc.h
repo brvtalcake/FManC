@@ -99,10 +99,10 @@
  * @ingroup GEN_MACROS
  */
 
-
-// #define USE_CODE_UTILS 
-// #undef USE_CODE_UTILS
-
+/*
+#define USE_CODE_UTILS // just to make doxygen generate the doc
+#undef USE_CODE_UTILS
+*/
 
 #if defined(USE_CODE_UTILS)
     #include "code_utils.h"

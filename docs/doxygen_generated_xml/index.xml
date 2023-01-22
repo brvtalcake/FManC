@@ -50,7 +50,6 @@
   </compound>
   <compound refid="d5/dc4/fmanc_8h" kind="file"><name>fmanc.h</name>
     <member refid="d0/d40/group__GEN__MACROS_1ga884c794595c4aa480df9022648c29564" kind="define"><name>SHARED</name></member>
-    <member refid="d0/d40/group__GEN__MACROS_1ga0a8a2a2c522eed02f28f609d728d97e4" kind="define"><name>USE_CODE_UTILS</name></member>
   </compound>
   <compound refid="d3/d5f/lex__yy_8h" kind="file"><name>lex_yy.h</name>
     <member refid="d3/d5f/lex__yy_8h_1a884c794595c4aa480df9022648c29564" kind="define"><name>SHARED</name></member>
@@ -68,7 +67,6 @@
   </compound>
   <compound refid="d0/d40/group__GEN__MACROS" kind="group"><name>GEN_MACROS</name>
     <member refid="d0/d40/group__GEN__MACROS_1ga884c794595c4aa480df9022648c29564" kind="define"><name>SHARED</name></member>
-    <member refid="d0/d40/group__GEN__MACROS_1ga0a8a2a2c522eed02f28f609d728d97e4" kind="define"><name>USE_CODE_UTILS</name></member>
   </compound>
   <compound refid="dd/d72/group__fmanc__FM__UTILS__macros" kind="group"><name>fmanc_FM_UTILS_macros</name>
     <member refid="dd/d72/group__fmanc__FM__UTILS__macros_1ga68b8bb9ca6877866b30b5d71f33f1b08" kind="define"><name>getFileExtension</name></member>

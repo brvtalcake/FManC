@@ -60,24 +60,6 @@
         </inbodydescription>
         <location file="src/fmanc.h" line="78" column="14" bodyfile="src/fmanc.h" bodystart="78" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="d0/d40/group__GEN__MACROS_1ga0a8a2a2c522eed02f28f609d728d97e4" prot="public" static="no">
-        <name>USE_CODE_UTILS</name>
-        <briefdescription>
-<para>This macro provides access to more functions. </para>
-        </briefdescription>
-        <detaileddescription>
-<para><simplesect kind="author"><para>Axel PASCON (a.k.a. brvtalcake) </para>
-</simplesect>
-<simplesect kind="date"><para>2022</para>
-</simplesect>
-For example, if you want to use the functions defined in <ref refid="d3/dd5/code__utils_8h" kindref="compound">this</ref> or <ref refid="d3/d5f/lex__yy_8h" kindref="compound">this</ref> source file, then write something like <programlisting filename=".c"><codeline><highlight class="preprocessor">#define<sp/>USE_CODE_UTILS<sp/>TRUE</highlight></codeline>
-</programlisting> or <programlisting filename=".sh"><codeline><highlight class="normal">cc<sp/>-D<sp/>USE_CODE_UTILS<sp/>...</highlight></codeline>
-</programlisting> (actually, just define USE_CODE_UTILS with no value or with a certain value, no matter what it is). USE_CODE_UTILS isn&apos;t defined by default. </para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/fmanc.h" line="101" column="9" bodyfile="src/fmanc.h" bodystart="101" bodyend="-1"/>
-      </memberdef>
       </sectiondef>
     <briefdescription>
 <para>This is the main header of the lib, where all of the headers are included. </para>
@@ -115,16 +97,18 @@ If you don&apos;t want to have troubles, just include this one instead of includ
 <codeline lineno="82"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d7/d5b/fileMan_8h" kindref="compound">fileMan.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="83"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d8/d07/analyze_8h" kindref="compound">analyze.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="84"><highlight class="normal"></highlight></codeline>
-<codeline lineno="101" refid="d0/d40/group__GEN__MACROS_1ga0a8a2a2c522eed02f28f609d728d97e4" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USE_CODE_UTILS<sp/></highlight><highlight class="comment">//<sp/>just<sp/>to<sp/>make<sp/>doxygen<sp/>generate<sp/>the<sp/>doc</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="102"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>USE_CODE_UTILS</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="103"><highlight class="normal"></highlight></codeline>
-<codeline lineno="104"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(USE_CODE_UTILS)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="105"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#include<sp/>&quot;<ref refid="d3/dd5/code__utils_8h" kindref="compound">code_utils.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="106"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#include<sp/>&quot;<ref refid="d3/d5f/lex__yy_8h" kindref="compound">./third_party/lex_yy.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="107"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>USE_CODE_UTILS</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="108"><highlight class="normal"></highlight></codeline>
-<codeline lineno="109"><highlight class="normal"></highlight></codeline>
-<codeline lineno="110"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>fmanc.h</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="103"><highlight class="comment">#define<sp/>USE_CODE_UTILS<sp/>//<sp/>just<sp/>to<sp/>make<sp/>doxygen<sp/>generate<sp/>the<sp/>doc</highlight></codeline>
+<codeline lineno="104"><highlight class="comment">#undef<sp/>USE_CODE_UTILS</highlight></codeline>
+<codeline lineno="105"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(USE_CODE_UTILS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#include<sp/>&quot;<ref refid="d3/dd5/code__utils_8h" kindref="compound">code_utils.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#include<sp/>&quot;<ref refid="d3/d5f/lex__yy_8h" kindref="compound">./third_party/lex_yy.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>USE_CODE_UTILS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>fmanc.h</highlight></codeline>
     </programlisting>
     <location file="src/fmanc.h"/>
   </compounddef>
