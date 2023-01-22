@@ -1,0 +1,15 @@
+name: Codecov Workflow for linux tests
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Compile tests and run tests
+        run: make test_lin
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          gcov: true
+          gcov_include: test/test_builds/lin/

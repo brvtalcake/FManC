@@ -1,4 +1,4 @@
-name: Codecov Workflow
+name: Codecov Workflow for linux tests
 on: [push, pull_request, workflow_dispatch]
 jobs:
   run:
@@ -6,8 +6,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Set up MinGW
+        uses: egor-tensin/setup-mingw@v2
+        with:
+          platform: x64
+
       - name: Compile tests and run tests
-        run: make test_lin
+        run: mingw32-make test_win
+        shell: cmd
+        
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:

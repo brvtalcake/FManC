@@ -117,7 +117,7 @@ TEST_DEPENDENCIES_FILES=$(wildcard test/src_lib/*.c) $(wildcard test/src_lib/thi
 
 TEST_FILES_TO_COMPILE=$(wildcard test/src_lib/*.c) $(wildcard test/src_lib/third_party/*.c) $(wildcard test/src_test/*.c) 
 
-CFLAGS_DEBUG=-fprofile-arcs -ftest-coverage -O0 -Wall -Wextra -pedantic -Werror -std=c11
+CFLAGS_DEBUG=-fprofile-arcs -ftest-coverage -O0 -Wall -Wextra -pedantic -Werror -std=c11 -D USE_CODE_UTILS
 
 test : $(TEST_DEPENDENCIES_FILES)
 	$(CC) $(CFLAGS_DEBUG) $(TEST_FILES_TO_COMPILE) -o test/test_builds/$(TEST_RES_FOLD)/$@
