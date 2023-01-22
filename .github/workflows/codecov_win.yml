@@ -1,4 +1,4 @@
-name: Codecov Workflow for linux tests
+name: Codecov Workflow for windows tests
 on: [push, pull_request, workflow_dispatch]
 jobs:
   run:
