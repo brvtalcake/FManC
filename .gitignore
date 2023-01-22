@@ -2,3 +2,7 @@ docs/source*
 man/*
 !man/refman.pdf
 docs/doxygen-awesome-css/*
+src/documentation_pages/*
+codecov
+/.vscode
+/api

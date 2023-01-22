@@ -1,7 +1,7 @@
 #ifndef LEX_YY_H
 #define LEX_YY_H 
 
-# if defined(_WIN32)
+# if (defined(_WIN32) || defined(WIN32))
 /***************** "-D STATIC" ******************/
 #   if defined(STATIC)
 #     define SHARED

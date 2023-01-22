@@ -25,6 +25,9 @@
 var NAVTREE =
 [
   [ "FManC", "index.html", [
+    [ "Welcome to the FManC documentation website !", "index.html", null ],
+    [ "Todo List", "dd/da0/todo.html", null ],
+    [ "Modules", "modules.html", "modules" ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],

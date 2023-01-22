@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="d3/d7f/group__fmanc__FM__UTILS" kind="group">
+    <compoundname>fmanc_FM_UTILS</compoundname>
+    <title>File management utilities</title>
+    <innergroup refid="d4/d42/group__fmanc__FM__UTILS__const__macros">Constant macros</innergroup>
+    <innergroup refid="db/de3/group__fmanc__FM__UTILS__func">Functions</innergroup>
+    <innergroup refid="dd/d72/group__fmanc__FM__UTILS__macros">Macros</innergroup>
+    <innergroup refid="d4/dd8/group__fmanc__FM__UTILS__files">Source files</innergroup>
+    <briefdescription>
+<para>This module provides utilities to manage informations about files. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Axel PASCON (a.k.a. brvtalcake) </para>
+</simplesect>
+<simplesect kind="date"><para>2022 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

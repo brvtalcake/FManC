@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="d1/dfb/intro" kind="page">
+    <compoundname>intro</compoundname>
+    <title>Introduction</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This page introduces the user to the topic. Now you can proceed to the <ref refid="d5/d05/advanced" kindref="compound">advanced section</ref>. </para>
+    </detaileddescription>
+    <location file="docs/documentation_pages/main_page.dox"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>Welcome to the FManC documentation website !</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="copyright"><para>This C library is licenced under the MIT license terms </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="docs/documentation_pages/main_page.dox"/>
+  </compounddef>
+</doxygen>

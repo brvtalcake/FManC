@@ -1,0 +1,44 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-stat_lin:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install Dependencies
+      run: npm install doxygen
+    - name: make static lib for linux
+      run: make stat_lin
+      
+  build-dyn_lin:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install Dependencies
+      run: npm install doxygen
+    - name: make dynamic lib for linux
+      run: make dyn_lin
+      
+  build-stat_win:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install Dependencies
+      run: npm install doxygen
+    - name: make static lib for windows
+      run: make stat_win
+      
+  build-dyn_win:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install Dependencies
+      run: npm install doxygen
+    - name: make dynamic lib for windows
+      run: make dyn_win

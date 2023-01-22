@@ -3,7 +3,7 @@
   <compounddef id="d7/d5b/fileMan_8h" kind="file" language="C++">
     <compoundname>fileMan.h</compoundname>
     <includedby refid="d7/d93/analyze_8c" local="yes">src/analyze.c</includedby>
-    <includedby refid="d6/dba/fcmx_8c" local="yes">src/fcmx.c</includedby>
+    <includedby refid="d2/dfa/code__utils_8c" local="yes">src/code_utils.c</includedby>
     <includedby refid="d2/d77/fileMan_8c" local="yes">src/fileMan.c</includedby>
     <includedby refid="d5/dc4/fmanc_8h" local="yes">src/fmanc.h</includedby>
     <invincdepgraph>
@@ -12,8 +12,8 @@
         <link refid="d7/d93/analyze_8c"/>
       </node>
       <node id="3">
-        <label>src/fcmx.c</label>
-        <link refid="d6/dba/fcmx_8c"/>
+        <label>src/code_utils.c</label>
+        <link refid="d2/dfa/code__utils_8c"/>
       </node>
       <node id="4">
         <label>src/fileMan.c</label>
@@ -37,87 +37,183 @@
       </node>
     </invincdepgraph>
       <sectiondef kind="define">
-      <memberdef kind="define" id="d7/d5b/fileMan_8h_1a68b8bb9ca6877866b30b5d71f33f1b08" prot="public" static="no">
+      <memberdef kind="define" id="dd/d72/group__fmanc__FM__UTILS__macros_1ga68b8bb9ca6877866b30b5d71f33f1b08" prot="public" static="no">
         <name>getFileExtension</name>
         <param><defname>sourceFilePath</defname></param>
         <param><defname>extension</defname></param>
-        <initializer>char extension[<ref refid="d7/d5b/fileMan_8h_1aef2c26bbba7239793dfd266d0e8b46b4" kindref="member">MAX_FEXT_SIZE</ref>] = &quot;&quot;; <ref refid="d2/d77/fileMan_8c_1a3033d108e5b43f14a469648071ee8439" kindref="member">fgetFileExtension</ref>(sourceFilePath, extension)</initializer>
+        <initializer>char extension[<ref refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gaef2c26bbba7239793dfd266d0e8b46b4" kindref="member">MAX_FEXT_SIZE</ref>] = &quot;&quot;; <ref refid="d2/d77/fileMan_8c_1a3033d108e5b43f14a469648071ee8439" kindref="member">fgetFileExtension</ref>(sourceFilePath, extension)</initializer>
         <briefdescription>
+<para>Gives you the file extension. </para>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="author"><para>Axel PASCON (a.k.a. brvtalcake) </para>
+</simplesect>
+<simplesect kind="date"><para>2022</para>
+</simplesect>
+It is stored in an array of char with the name you specify (extension). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">sourceFilePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Full path or relative path. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">extension</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the array where you store the extension. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>This doesn&apos;t really return anything, but displays an error message if no extension or invalid extension. Moreover, you should check the emptyness of the created variable. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/fileMan.h" line="34" column="9" bodyfile="src/fileMan.h" bodystart="34" bodyend="-1"/>
+        <location file="src/fileMan.h" line="137" column="9" bodyfile="src/fileMan.h" bodystart="137" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="d7/d5b/fileMan_8h_1a3e855422945c4cdbaf71723d8e25d9f5" prot="public" static="no">
+      <memberdef kind="define" id="dd/d72/group__fmanc__FM__UTILS__macros_1ga3e855422945c4cdbaf71723d8e25d9f5" prot="public" static="no">
         <name>getFileName</name>
         <param><defname>sourceFilePath</defname></param>
         <param><defname>name</defname></param>
-        <initializer>char name[<ref refid="d7/d5b/fileMan_8h_1ab0e76045bf91a8a1b4fc381488399f70" kindref="member">MAX_FNAME_SIZE</ref>] = &quot;&quot;; <ref refid="d2/d77/fileMan_8c_1a1d3df2b7a44029fad789b45b4406451a" kindref="member">fgetFileName</ref>(sourceFilePath, name)</initializer>
+        <initializer>char name[<ref refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gab0e76045bf91a8a1b4fc381488399f70" kindref="member">MAX_FNAME_SIZE</ref>] = &quot;&quot;; <ref refid="d2/d77/fileMan_8c_1a1d3df2b7a44029fad789b45b4406451a" kindref="member">fgetFileName</ref>(sourceFilePath, name)</initializer>
         <briefdescription>
+<para>Gives you the file name. </para>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="author"><para>Axel PASCON (a.k.a. brvtalcake) </para>
+</simplesect>
+<simplesect kind="date"><para>2022</para>
+</simplesect>
+It is stored in an array of char with the name you specify (name). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">sourceFilePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Full path or relative path. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the array where you stock the name. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>This doesn&apos;t really return anything, but displays an error message if no name or invalid name. Moreover, you should check the emptyness of the created variable. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/fileMan.h" line="38" column="9" bodyfile="src/fileMan.h" bodystart="38" bodyend="-1"/>
+        <location file="src/fileMan.h" line="153" column="9" bodyfile="src/fileMan.h" bodystart="153" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="d7/d5b/fileMan_8h_1ac79aba55b8bda0cfc4ce3a88534adbc0" prot="public" static="no">
+      <memberdef kind="define" id="dd/d72/group__fmanc__FM__UTILS__macros_1gac79aba55b8bda0cfc4ce3a88534adbc0" prot="public" static="no">
         <name>getFilePath</name>
         <param><defname>sourceFilePath</defname></param>
         <param><defname>path</defname></param>
-        <initializer>char path[<ref refid="d7/d5b/fileMan_8h_1ae5c03ff129a1255adb84d15ae75425b8" kindref="member">MAX_FPATH_SIZE</ref>] = &quot;&quot;; <ref refid="d2/d77/fileMan_8c_1a97687e29a139210fc190ce98d836c160" kindref="member">fgetFilePath</ref>(sourceFilePath, path)</initializer>
+        <initializer>char path[<ref refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gae5c03ff129a1255adb84d15ae75425b8" kindref="member">MAX_FPATH_SIZE</ref>] = &quot;&quot;; <ref refid="d2/d77/fileMan_8c_1a97687e29a139210fc190ce98d836c160" kindref="member">fgetFilePath</ref>(sourceFilePath, path)</initializer>
         <briefdescription>
+<para>Gives you the file path (without name and extension). </para>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="author"><para>Axel PASCON (a.k.a. brvtalcake) </para>
+</simplesect>
+<simplesect kind="date"><para>2022</para>
+</simplesect>
+It is stored in an array of char with the name you specify (extension). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">sourceFilePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Full path or relative path. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the array where you stock the path. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>This doesn&apos;t really return anything, but if the path is like &quot;main.c&quot;, then the array will have &apos;\0&apos; as only character. Won&apos;t display any error message if no path. Here again, check the emptyness of the created variable. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/fileMan.h" line="42" column="9" bodyfile="src/fileMan.h" bodystart="42" bodyend="-1"/>
+        <location file="src/fileMan.h" line="169" column="9" bodyfile="src/fileMan.h" bodystart="169" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="d7/d5b/fileMan_8h_1aef2c26bbba7239793dfd266d0e8b46b4" prot="public" static="no">
+      <memberdef kind="define" id="d4/d42/group__fmanc__FM__UTILS__const__macros_1gaef2c26bbba7239793dfd266d0e8b46b4" prot="public" static="no">
         <name>MAX_FEXT_SIZE</name>
         <initializer>50</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="author"><para>Axel PASCON (a.k.a. brvtalcake) </para>
+</simplesect>
+<simplesect kind="date"><para>2022</para>
+</simplesect>
+This the value of the maximum size of a file extension counted in characters. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/fileMan.h" line="22" column="9" bodyfile="src/fileMan.h" bodystart="22" bodyend="-1"/>
+        <location file="src/fileMan.h" line="91" column="9" bodyfile="src/fileMan.h" bodystart="91" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="d7/d5b/fileMan_8h_1ab0e76045bf91a8a1b4fc381488399f70" prot="public" static="no">
+      <memberdef kind="define" id="d4/d42/group__fmanc__FM__UTILS__const__macros_1gab0e76045bf91a8a1b4fc381488399f70" prot="public" static="no">
         <name>MAX_FNAME_SIZE</name>
         <initializer>256</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="author"><para>Axel PASCON (a.k.a. brvtalcake) </para>
+</simplesect>
+<simplesect kind="date"><para>2022</para>
+</simplesect>
+This the value of the maximum size of a file name counted in characters. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/fileMan.h" line="26" column="9" bodyfile="src/fileMan.h" bodystart="26" bodyend="-1"/>
+        <location file="src/fileMan.h" line="102" column="9" bodyfile="src/fileMan.h" bodystart="102" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="d7/d5b/fileMan_8h_1ae5c03ff129a1255adb84d15ae75425b8" prot="public" static="no">
+      <memberdef kind="define" id="d4/d42/group__fmanc__FM__UTILS__const__macros_1gae5c03ff129a1255adb84d15ae75425b8" prot="public" static="no">
         <name>MAX_FPATH_SIZE</name>
         <initializer>512</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="author"><para>Axel PASCON (a.k.a. brvtalcake) </para>
+</simplesect>
+<simplesect kind="date"><para>2022</para>
+</simplesect>
+This the value of the maximum size of a file path (full (relative or not) path without name and extension) counted in characters. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/fileMan.h" line="30" column="9" bodyfile="src/fileMan.h" bodystart="30" bodyend="-1"/>
+        <location file="src/fileMan.h" line="113" column="9" bodyfile="src/fileMan.h" bodystart="113" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="d7/d5b/fileMan_8h_1a884c794595c4aa480df9022648c29564" prot="public" static="no">
         <name>SHARED</name>
         <briefdescription>
+<para>Useful to choose how to use the lib on Windows systems. </para>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="author"><para>Axel PASCON (a.k.a. brvtalcake) </para>
+</simplesect>
+<simplesect kind="date"><para>2022</para>
+</simplesect>
+For more informations, please see <ref refid="d0/d40/group__GEN__MACROS_1SHARED_def" kindref="member">the definition of the SHARED macro</ref> in the main header </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/fileMan.h" line="18" column="14" bodyfile="src/fileMan.h" bodystart="18" bodyend="-1"/>
+        <location file="src/fileMan.h" line="71" column="14" bodyfile="src/fileMan.h" bodystart="71" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -143,9 +239,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/fileMan.h" line="47" column="6" declfile="src/fileMan.h" declline="47" declcolumn="6"/>
+        <location file="src/fileMan.h" line="198" column="6" declfile="src/fileMan.h" declline="198" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="d7/d5b/fileMan_8h_1a95f02d94dae556d5282368721e994732" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="db/de3/group__fmanc__FM__UTILS__func_1ga95f02d94dae556d5282368721e994732" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>char *</type>
         <definition>char * copyFileWithoutTabAndLineBreak</definition>
         <argsstring>(char *sourceFilePath, char **pathToCopy)</argsstring>
@@ -159,14 +255,57 @@
           <declname>pathToCopy</declname>
         </param>
         <briefdescription>
+<para>Copy a file without tab and line break. </para>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="author"><para>Axel PASCON (a.k.a. brvtalcake) </para>
+</simplesect>
+<simplesect kind="date"><para>2022</para>
+</simplesect>
+The copied file with be renamed as &lt;sourceFile name&gt;_copied.&lt;sourceFileExtension&gt; if the param pathToCopy is set to NULL, and what you want if you specify the path with a name and extension. <xrefsect id="dd/da0/todo_1_todo000001"><xreftitle>Todo</xreftitle><xrefdescription><para>Check if the path to copy has a name and an extension at the end. </para>
+<para>Move it to <ref refid="d3/dd5/code__utils_8h" kindref="compound">code_utils.h</ref></para>
+</xrefdescription></xrefsect></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sourceFilePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The source file path. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pathToCopy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path to copy. You can set it to NULL if you want the copied file to be in the same directory as the source file.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>sourceFileName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>This case is when no error has occured. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NULL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If an error has occured. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/fileMan.h" line="46" column="7" bodyfile="src/fileMan.c" bodystart="7" bodyend="65" declfile="src/fileMan.h" declline="46" declcolumn="7"/>
-        <references refid="d7/d5b/fileMan_8h_1a68b8bb9ca6877866b30b5d71f33f1b08" compoundref="d7/d5b/fileMan_8h" startline="34">getFileExtension</references>
-        <references refid="d7/d5b/fileMan_8h_1a3e855422945c4cdbaf71723d8e25d9f5" compoundref="d7/d5b/fileMan_8h" startline="38">getFileName</references>
+        <location file="src/fileMan.h" line="197" column="7" bodyfile="src/fileMan.c" bodystart="7" bodyend="65" declfile="src/fileMan.h" declline="197" declcolumn="7"/>
+        <references refid="dd/d72/group__fmanc__FM__UTILS__macros_1ga68b8bb9ca6877866b30b5d71f33f1b08" compoundref="d7/d5b/fileMan_8h" startline="137">getFileExtension</references>
+        <references refid="dd/d72/group__fmanc__FM__UTILS__macros_1ga3e855422945c4cdbaf71723d8e25d9f5" compoundref="d7/d5b/fileMan_8h" startline="153">getFileName</references>
       </memberdef>
       <memberdef kind="function" id="d7/d5b/fileMan_8h_1a2ae33808674f181279341940f19d60b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -187,10 +326,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/fileMan.h" line="48" column="7" bodyfile="src/fileMan.c" bodystart="67" bodyend="102" declfile="src/fileMan.h" declline="48" declcolumn="7"/>
-        <references refid="d7/d5b/fileMan_8h_1aef2c26bbba7239793dfd266d0e8b46b4" compoundref="d7/d5b/fileMan_8h" startline="22">MAX_FEXT_SIZE</references>
-        <references refid="d7/d5b/fileMan_8h_1ab0e76045bf91a8a1b4fc381488399f70" compoundref="d7/d5b/fileMan_8h" startline="26">MAX_FNAME_SIZE</references>
-        <references refid="d7/d5b/fileMan_8h_1ae5c03ff129a1255adb84d15ae75425b8" compoundref="d7/d5b/fileMan_8h" startline="30">MAX_FPATH_SIZE</references>
+        <location file="src/fileMan.h" line="199" column="7" bodyfile="src/fileMan.c" bodystart="67" bodyend="102" declfile="src/fileMan.h" declline="199" declcolumn="7"/>
+        <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gaef2c26bbba7239793dfd266d0e8b46b4" compoundref="d7/d5b/fileMan_8h" startline="91">MAX_FEXT_SIZE</references>
+        <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gab0e76045bf91a8a1b4fc381488399f70" compoundref="d7/d5b/fileMan_8h" startline="102">MAX_FNAME_SIZE</references>
+        <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gae5c03ff129a1255adb84d15ae75425b8" compoundref="d7/d5b/fileMan_8h" startline="113">MAX_FPATH_SIZE</references>
       </memberdef>
       <memberdef kind="function" id="d7/d5b/fileMan_8h_1a1d3df2b7a44029fad789b45b4406451a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -211,10 +350,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/fileMan.h" line="49" column="7" bodyfile="src/fileMan.c" bodystart="104" bodyend="149" declfile="src/fileMan.h" declline="49" declcolumn="7"/>
-        <references refid="d7/d5b/fileMan_8h_1aef2c26bbba7239793dfd266d0e8b46b4" compoundref="d7/d5b/fileMan_8h" startline="22">MAX_FEXT_SIZE</references>
-        <references refid="d7/d5b/fileMan_8h_1ab0e76045bf91a8a1b4fc381488399f70" compoundref="d7/d5b/fileMan_8h" startline="26">MAX_FNAME_SIZE</references>
-        <references refid="d7/d5b/fileMan_8h_1ae5c03ff129a1255adb84d15ae75425b8" compoundref="d7/d5b/fileMan_8h" startline="30">MAX_FPATH_SIZE</references>
+        <location file="src/fileMan.h" line="200" column="7" bodyfile="src/fileMan.c" bodystart="104" bodyend="149" declfile="src/fileMan.h" declline="200" declcolumn="7"/>
+        <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gaef2c26bbba7239793dfd266d0e8b46b4" compoundref="d7/d5b/fileMan_8h" startline="91">MAX_FEXT_SIZE</references>
+        <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gab0e76045bf91a8a1b4fc381488399f70" compoundref="d7/d5b/fileMan_8h" startline="102">MAX_FNAME_SIZE</references>
+        <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gae5c03ff129a1255adb84d15ae75425b8" compoundref="d7/d5b/fileMan_8h" startline="113">MAX_FPATH_SIZE</references>
       </memberdef>
       <memberdef kind="function" id="d7/d5b/fileMan_8h_1a97687e29a139210fc190ce98d836c160" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -235,70 +374,86 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/fileMan.h" line="50" column="7" bodyfile="src/fileMan.c" bodystart="151" bodyend="199" declfile="src/fileMan.h" declline="50" declcolumn="7"/>
-        <references refid="d7/d5b/fileMan_8h_1aef2c26bbba7239793dfd266d0e8b46b4" compoundref="d7/d5b/fileMan_8h" startline="22">MAX_FEXT_SIZE</references>
-        <references refid="d7/d5b/fileMan_8h_1ab0e76045bf91a8a1b4fc381488399f70" compoundref="d7/d5b/fileMan_8h" startline="26">MAX_FNAME_SIZE</references>
-        <references refid="d7/d5b/fileMan_8h_1ae5c03ff129a1255adb84d15ae75425b8" compoundref="d7/d5b/fileMan_8h" startline="30">MAX_FPATH_SIZE</references>
+        <location file="src/fileMan.h" line="201" column="7" bodyfile="src/fileMan.c" bodystart="151" bodyend="199" declfile="src/fileMan.h" declline="201" declcolumn="7"/>
+        <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gaef2c26bbba7239793dfd266d0e8b46b4" compoundref="d7/d5b/fileMan_8h" startline="91">MAX_FEXT_SIZE</references>
+        <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gab0e76045bf91a8a1b4fc381488399f70" compoundref="d7/d5b/fileMan_8h" startline="102">MAX_FNAME_SIZE</references>
+        <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gae5c03ff129a1255adb84d15ae75425b8" compoundref="d7/d5b/fileMan_8h" startline="113">MAX_FPATH_SIZE</references>
       </memberdef>
       </sectiondef>
     <briefdescription>
+<para>This header contains macro definitions and function declarations that are written in <ref refid="d2/d77/fileMan_8c" kindref="compound">this file</ref>. </para>
     </briefdescription>
     <detaileddescription>
+<para><simplesect kind="author"><para>Axel PASCON (a.k.a. brvtalcake) </para>
+</simplesect>
+<simplesect kind="date"><para>2022</para>
+</simplesect>
+</para>
+<para>These functions are made to operate simple operation on files or file names, when there is no need to analyze something like occurrences,</para>
+<para><simplesect kind="author"><para>Axel PASCON (a.k.a. brvtalcake) </para>
+</simplesect>
+<simplesect kind="date"><para>2022 </para>
+</simplesect>
+</para>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>FILEMAN_H</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FILEMAN_H<sp/></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>if<sp/>defined(_WIN32)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">/*****************<sp/>&quot;-D<sp/>STATIC&quot;<sp/>******************/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>if<sp/>defined(STATIC)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/>define<sp/>SHARED</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">/****************<sp/>&quot;-D<sp/>BUILD_DLL&quot;<sp/>****************/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/>if<sp/>defined(BUILD_DLL)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/><sp/><sp/>define<sp/>SHARED<sp/>__declspec(dllexport)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/>else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/><sp/><sp/>define<sp/>SHARED<sp/>__declspec(dllimport)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/>endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">/******************<sp/>DEFAULT<sp/>*******************/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="18" refid="d7/d5b/fileMan_8h_1a884c794595c4aa480df9022648c29564" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>define<sp/>SHARED</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>MAX_FEXT_SIZE</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="22" refid="d7/d5b/fileMan_8h_1aef2c26bbba7239793dfd266d0e8b46b4" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_FEXT_SIZE<sp/>50</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>MAX_FNAME_SIZE<sp/></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="26" refid="d7/d5b/fileMan_8h_1ab0e76045bf91a8a1b4fc381488399f70" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_FNAME_SIZE<sp/>256</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>MAX_FPATH_SIZE</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="30" refid="d7/d5b/fileMan_8h_1ae5c03ff129a1255adb84d15ae75425b8" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_FPATH_SIZE<sp/>512</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>getFileExtension</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="34" refid="d7/d5b/fileMan_8h_1a68b8bb9ca6877866b30b5d71f33f1b08" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>getFileExtension(sourceFilePath,<sp/>extension)<sp/>char<sp/>extension[MAX_FEXT_SIZE]<sp/>=<sp/>&quot;&quot;</highlight><highlight class="normal">;<sp/>fgetFileExtension(sourceFilePath,<sp/>extension)</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>getFileName</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="38" refid="d7/d5b/fileMan_8h_1a3e855422945c4cdbaf71723d8e25d9f5" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>getFileName(sourceFilePath,<sp/>name)<sp/>char<sp/>name[MAX_FNAME_SIZE]<sp/>=<sp/>&quot;&quot;</highlight><highlight class="normal">;<sp/>fgetFileName(sourceFilePath,<sp/>name)</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>getFilePath</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="42" refid="d7/d5b/fileMan_8h_1ac79aba55b8bda0cfc4ce3a88534adbc0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>getFilePath(sourceFilePath,<sp/>path)<sp/>char<sp/>path[MAX_FPATH_SIZE]<sp/>=<sp/>&quot;&quot;</highlight><highlight class="normal">;<sp/>fgetFilePath(sourceFilePath,<sp/>path)</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><ref refid="d7/d5b/fileMan_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d7/d5b/fileMan_8h_1a95f02d94dae556d5282368721e994732" kindref="member">copyFileWithoutTabAndLineBreak</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*sourceFilePath,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**pathToCopy);<sp/></highlight><highlight class="comment">//<sp/>copied<sp/>file<sp/>will<sp/>be<sp/>named<sp/>like<sp/>&lt;sourceFile<sp/>name&gt;_copied</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="47" refid="d7/d5b/fileMan_8h_1ac00d5607ef908576f411582a8eb8a128" refkind="member"><highlight class="normal"><ref refid="d7/d5b/fileMan_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d7/d5b/fileMan_8h_1ac00d5607ef908576f411582a8eb8a128" kindref="member">copyFileWithoutStrings</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*filePath,<sp/>...);<sp/></highlight><highlight class="comment">//<sp/>to<sp/>do</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><ref refid="d7/d5b/fileMan_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/d5b/fileMan_8h_1a2ae33808674f181279341940f19d60b9" kindref="member">fgetFileExtension</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*sourceFileName,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*extension);</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><ref refid="d7/d5b/fileMan_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/d5b/fileMan_8h_1a1d3df2b7a44029fad789b45b4406451a" kindref="member">fgetFileName</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*sourceFilePath,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*fileName);</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><ref refid="d7/d5b/fileMan_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/d5b/fileMan_8h_1a97687e29a139210fc190ce98d836c160" kindref="member">fgetFilePath</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*sourceFilePath,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*filePath);<sp/></highlight></codeline>
-<codeline lineno="51"><highlight class="normal"></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"></highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FILEMAN_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FILEMAN_H<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>if<sp/>(defined(_WIN32)<sp/>||<sp/>defined(WIN32))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment">/*****************<sp/>&quot;-D<sp/>STATIC&quot;<sp/>******************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>if<sp/>defined(STATIC)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/>define<sp/>SHARED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="comment">/****************<sp/>&quot;-D<sp/>BUILD_DLL&quot;<sp/>****************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/>if<sp/>defined(BUILD_DLL)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/><sp/><sp/>define<sp/>SHARED<sp/>__declspec(dllexport)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/>else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/><sp/><sp/>define<sp/>SHARED<sp/>__declspec(dllimport)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/>endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment">/******************<sp/>DEFAULT<sp/>*******************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="d7/d5b/fileMan_8h_1a884c794595c4aa480df9022648c29564" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>define<sp/>SHARED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>MAX_FEXT_SIZE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91" refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gaef2c26bbba7239793dfd266d0e8b46b4" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_FEXT_SIZE<sp/>50</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>MAX_FNAME_SIZE<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102" refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gab0e76045bf91a8a1b4fc381488399f70" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_FNAME_SIZE<sp/>256</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>MAX_FPATH_SIZE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113" refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gae5c03ff129a1255adb84d15ae75425b8" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_FPATH_SIZE<sp/>512</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>getFileExtension</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137" refid="dd/d72/group__fmanc__FM__UTILS__macros_1ga68b8bb9ca6877866b30b5d71f33f1b08" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>getFileExtension(sourceFilePath,<sp/>extension)<sp/>char<sp/>extension[MAX_FEXT_SIZE]<sp/>=<sp/>&quot;&quot;</highlight><highlight class="normal">;<sp/>fgetFileExtension(sourceFilePath,<sp/>extension)</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>getFileName</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153" refid="dd/d72/group__fmanc__FM__UTILS__macros_1ga3e855422945c4cdbaf71723d8e25d9f5" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>getFileName(sourceFilePath,<sp/>name)<sp/>char<sp/>name[MAX_FNAME_SIZE]<sp/>=<sp/>&quot;&quot;</highlight><highlight class="normal">;<sp/>fgetFileName(sourceFilePath,<sp/>name)</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>getFilePath</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169" refid="dd/d72/group__fmanc__FM__UTILS__macros_1gac79aba55b8bda0cfc4ce3a88534adbc0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>getFilePath(sourceFilePath,<sp/>path)<sp/>char<sp/>path[MAX_FPATH_SIZE]<sp/>=<sp/>&quot;&quot;</highlight><highlight class="normal">;<sp/>fgetFilePath(sourceFilePath,<sp/>path)</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><ref refid="d7/d5b/fileMan_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="db/de3/group__fmanc__FM__UTILS__func_1ga95f02d94dae556d5282368721e994732" kindref="member">copyFileWithoutTabAndLineBreak</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*sourceFilePath,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**pathToCopy);<sp/></highlight><highlight class="comment">//<sp/>copied<sp/>file<sp/>will<sp/>be<sp/>named<sp/>like<sp/>&lt;sourceFile<sp/>name&gt;_copied</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198" refid="d7/d5b/fileMan_8h_1ac00d5607ef908576f411582a8eb8a128" refkind="member"><highlight class="normal"><ref refid="d7/d5b/fileMan_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d7/d5b/fileMan_8h_1ac00d5607ef908576f411582a8eb8a128" kindref="member">copyFileWithoutStrings</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*filePath,<sp/>...);<sp/></highlight><highlight class="comment">//<sp/>to<sp/>do</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><ref refid="d7/d5b/fileMan_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/d5b/fileMan_8h_1a2ae33808674f181279341940f19d60b9" kindref="member">fgetFileExtension</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*sourceFileName,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*extension);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><ref refid="d7/d5b/fileMan_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/d5b/fileMan_8h_1a1d3df2b7a44029fad789b45b4406451a" kindref="member">fgetFileName</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*sourceFilePath,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*fileName);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><ref refid="d7/d5b/fileMan_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/d5b/fileMan_8h_1a97687e29a139210fc190ce98d836c160" kindref="member">fgetFilePath</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*sourceFilePath,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*filePath);<sp/></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="src/fileMan.h"/>
   </compounddef>

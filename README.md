@@ -1,3 +1,5 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/brvtalcake/fmanc/badge)](https://www.codefactor.io/repository/github/brvtalcake/fmanc)
+
 # libFManC 
 File manager in C 
 ## IMPORTANT NOTE
@@ -23,7 +25,6 @@ For the HTML one, in local, just download the folder html in docs and open index
 - [ ] Rename test folder as example and put actual exemples in it
 - [ ] Make a real test folder 
 - [x] Make the lib available for UNIX users
-- [ ] Rename the fcmx* files
 - [ ] Let the possibility to define the locale
 
 ## Credits

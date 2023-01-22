@@ -120,6 +120,7 @@
   <option  id='WARN_LOGFILE' default='yes' type='string'><value><![CDATA[]]></value></option>
   <option  id='INPUT' default='no' type='stringlist'>
     <value><![CDATA[src/]]></value>
+    <value><![CDATA[docs/documentation_pages/]]></value>
   </option>
   <option  id='INPUT_ENCODING' default='yes' type='string'><value><![CDATA[UTF-8]]></value></option>
   <option  id='INPUT_FILE_ENCODING' default='yes' type='stringlist'>
@@ -193,8 +194,7 @@
   <option  id='HTML_EXTRA_STYLESHEET' default='no' type='stringlist'>
     <value><![CDATA[docs/doxygen-awesome-css/doxygen-awesome.css]]></value>
   </option>
-  <option  id='HTML_EXTRA_FILES' default='no' type='stringlist'>
-    <value><![CDATA[docs/doxygen_theme/src/img]]></value>
+  <option  id='HTML_EXTRA_FILES' default='yes' type='stringlist'>
   </option>
   <option  id='HTML_COLORSTYLE' default='no' type='string'><value>AUTO_DARK</value></option>
   <option  id='HTML_COLORSTYLE_HUE' default='no' type='int'><value>240</value></option>
@@ -317,8 +317,8 @@
   <option  id='EXTERNAL_GROUPS' default='yes' type='bool'><value>YES</value></option>
   <option  id='EXTERNAL_PAGES' default='yes' type='bool'><value>YES</value></option>
   <option  id='DIA_PATH' default='yes' type='string'><value><![CDATA[]]></value></option>
-  <option  id='HIDE_UNDOC_RELATIONS' default='yes' type='bool'><value>YES</value></option>
-  <option  id='HAVE_DOT' default='yes' type='bool'><value>NO</value></option>
+  <option  id='HIDE_UNDOC_RELATIONS' default='no' type='bool'><value>NO</value></option>
+  <option  id='HAVE_DOT' default='no' type='bool'><value>YES</value></option>
   <option  id='DOT_NUM_THREADS' default='yes' type='int'><value>0</value></option>
   <option  id='DOT_COMMON_ATTR' default='yes' type='string'><value><![CDATA["fontname=Helvetica,fontsize=10"]]></value></option>
   <option  id='DOT_EDGE_ATTR' default='yes' type='string'><value><![CDATA["labelfontname=Helvetica,labelfontsize=10"]]></value></option>
@@ -327,20 +327,20 @@
   <option  id='CLASS_GRAPH' default='yes' type='string'><value>YES</value></option>
   <option  id='COLLABORATION_GRAPH' default='yes' type='bool'><value>YES</value></option>
   <option  id='GROUP_GRAPHS' default='yes' type='bool'><value>YES</value></option>
-  <option  id='UML_LOOK' default='yes' type='bool'><value>NO</value></option>
+  <option  id='UML_LOOK' default='no' type='bool'><value>YES</value></option>
   <option  id='UML_LIMIT_NUM_FIELDS' default='yes' type='int'><value>10</value></option>
-  <option  id='DOT_UML_DETAILS' default='yes' type='string'><value>NO</value></option>
+  <option  id='DOT_UML_DETAILS' default='no' type='string'><value>YES</value></option>
   <option  id='DOT_WRAP_THRESHOLD' default='yes' type='int'><value>17</value></option>
-  <option  id='TEMPLATE_RELATIONS' default='yes' type='bool'><value>NO</value></option>
+  <option  id='TEMPLATE_RELATIONS' default='no' type='bool'><value>YES</value></option>
   <option  id='INCLUDE_GRAPH' default='yes' type='bool'><value>YES</value></option>
   <option  id='INCLUDED_BY_GRAPH' default='yes' type='bool'><value>YES</value></option>
-  <option  id='CALL_GRAPH' default='yes' type='bool'><value>NO</value></option>
-  <option  id='CALLER_GRAPH' default='yes' type='bool'><value>NO</value></option>
+  <option  id='CALL_GRAPH' default='no' type='bool'><value>YES</value></option>
+  <option  id='CALLER_GRAPH' default='no' type='bool'><value>YES</value></option>
   <option  id='GRAPHICAL_HIERARCHY' default='yes' type='bool'><value>YES</value></option>
   <option  id='DIRECTORY_GRAPH' default='yes' type='bool'><value>YES</value></option>
-  <option  id='DIR_GRAPH_MAX_DEPTH' default='yes' type='int'><value>1</value></option>
-  <option  id='DOT_IMAGE_FORMAT' default='yes' type='string'><value>png</value></option>
-  <option  id='INTERACTIVE_SVG' default='yes' type='bool'><value>NO</value></option>
+  <option  id='DIR_GRAPH_MAX_DEPTH' default='no' type='int'><value>10</value></option>
+  <option  id='DOT_IMAGE_FORMAT' default='no' type='string'><value>svg</value></option>
+  <option  id='INTERACTIVE_SVG' default='no' type='bool'><value>YES</value></option>
   <option  id='DOT_PATH' default='yes' type='string'><value><![CDATA[]]></value></option>
   <option  id='DOTFILE_DIRS' default='yes' type='stringlist'>
   </option>

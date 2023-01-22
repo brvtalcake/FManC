@@ -1,7 +1,7 @@
-#ifndef FCMX_H
-#define FCMX_H 
+#ifndef CODE_UTILS_H
+#define CODE_UTILS_H 
 
-# if defined(_WIN32)
+# if (defined(_WIN32) || defined(WIN32))
 /***************** "-D STATIC" ******************/
 #   if defined(STATIC)
 #     define SHARED
@@ -17,7 +17,5 @@
 # else
 #   define SHARED
 # endif
-
-SHARED int copyFileWithoutStrings(const unsigned int argc, char *filePath, ...); // to do
 
 #endif
