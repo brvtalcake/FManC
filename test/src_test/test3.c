@@ -2,27 +2,28 @@
 #include <assert.h>
 #include <string.h>
 #include "test_suite.h"
-
+#include <stdio.h>
 void test_getFilePath(void)
 {
-	getFilePath("~/Desktop/prog/c/ext_test1.c", ext1);
-	assert(strcmp("~/Desktop/prog/c/", ext1) == 0);
+	getFilePath("~/Desktop/prog/c/ext_test1.c", path1);
+	printf("%s\n", path1);
+	assert(strcmp("~/Desktop/prog/c/", path1) == 0);
 
-	getFilePath("ext_test2.html", ext2);
-	assert(strcmp("", ext2) == 0);
+	getFilePath("ext_test2.html", path2);
+	assert(strcmp("", path2) == 0);
 
-	getFilePath("~ext_test3/", ext3);
-	assert(strcmp("~ext_test3/", ext3) == 0);
+	getFilePath("~ext_test3/", path3);
+	assert(strcmp("~ext_test3/", path3) == 0);
 
-	getFilePath(".\\.github\\test4.loremipsum", ext4);
-	assert(strcmp(".\\.github\\", ext4) == 0);
+	getFilePath(".\\.github\\test4.loremipsum", path4);
+	assert(strcmp(".\\.github\\", path4) == 0);
 
-	getFilePath("FManC\\.git\\", ext5);
-	assert(strcmp("FManC\\.git\\", ext5) == 0);
+	getFilePath("FManC\\.git\\", path5);
+	assert(strcmp("FManC\\.git\\", path5) == 0);
 
-	getFilePath("FManC\\.git\\test6", ext6);
-	assert(strcmp("FManC\\.git\\", ext6) == 0);
+	getFilePath("FManC\\.git\\test6", path6);
+	assert(strcmp("FManC\\.git\\", path6) == 0);
 
-	getFilePath("FManC\\.git\\test7.zip", ext7);
-	assert(strcmp("FManC\\.git\\", ext7) == 0);
+	getFilePath("FManC\\.git\\test7.zip", path7);
+	assert(strcmp("FManC\\.git\\", path7) == 0);
 }
