@@ -7,7 +7,7 @@
 void test_countCharInFile(void)
 {
     assert(countCharInFile(NULL)==0);
-    printf("%zu\n", countCharInFile("../../plain_text_data/rand_5040"));
+    fprintf(stderr,"%zu\n", countCharInFile("../../plain_text_data/rand_5040"));
     assert(countCharInFile("../../plain_text_data/rand_5040")==5040+1);
     
     assert(countCharInFile("../../plain_text_data/rand_528000")==528000+1);
