@@ -6,7 +6,6 @@
 
 SHARED char *copyFileWithoutTabAndLineBreak(char *sourceFilePath, char *pathToCopy) //not finished. TODO : change the return value
 {
-	
 	errno = 0;
 	getFileName(sourceFilePath, sourceFileName);
 	getFileExtension(sourceFilePath, sourceFileExtension);
