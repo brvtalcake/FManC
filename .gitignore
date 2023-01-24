@@ -9,4 +9,3 @@ codecov
 *.gcno
 *.gcda
 *.gcov
-test/test_builds/*
