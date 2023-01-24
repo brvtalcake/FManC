@@ -1,15 +1,4 @@
-text eol=crlf
-
-# Sources
-*.c     text diff=cpp
-*.cc    text diff=cpp
-*.cxx   text diff=cpp
-*.cpp   text diff=cpp
-*.c++   text diff=cpp
-*.hpp   text diff=cpp
-*.h     text diff=cpp
-*.h++   text diff=cpp
-*.hh    text diff=cpp
+* text=auto
 
 # Compiled Object files
 *.slo   binary

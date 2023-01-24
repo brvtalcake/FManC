@@ -118,11 +118,8 @@ TEST_FILES_TO_COMPILE=$(wildcard test/src_lib/*.c) $(wildcard test/src_lib/third
 CFLAGS_DEBUG=-fprofile-arcs -ftest-coverage -O0 -Wall -Wextra -pedantic -Werror -std=c11 -D USE_CODE_UTILS
 
 test_lin : cpHeaders_lin $(TEST_DEPENDENCIES_FILES)
+	export FMANC="$PWD"
 	$(CC) $(CFLAGS_DEBUG) $(TEST_FILES_TO_COMPILE) -o test/test_builds/$(TEST_RES_FOLD)/$@.out -I./test/third_party/
-	ls
-	cd test && ls
-	cd test/plain_text_data/ && ls
-	cd test/plain_text_data/ && cat rand_5040
 	cd test/test_builds/$(TEST_RES_FOLD)/ && ./$@.out
 
 test_win : cpHeaders_win $(TEST_DEPENDENCIES_FILES)

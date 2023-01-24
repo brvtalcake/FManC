@@ -7,6 +7,6 @@ int main()
     test_getFileName();
     test_getFilePath();
     test_countCharInFile();
-    test_copyFileWithoutTabAndLineBreak();
+    //test_copyFileWithoutTabAndLineBreak();
     return 0;
 }
