@@ -119,6 +119,9 @@ CFLAGS_DEBUG=-fprofile-arcs -ftest-coverage -O0 -Wall -Wextra -pedantic -Werror 
 
 test_lin : cpHeaders_lin $(TEST_DEPENDENCIES_FILES)
 	$(CC) $(CFLAGS_DEBUG) $(TEST_FILES_TO_COMPILE) -o test/test_builds/$(TEST_RES_FOLD)/$@.out -I./test/third_party/
+	ls
+	cd test && ls
+	cd test/plain_text_data/ && ls
 	cd test/test_builds/$(TEST_RES_FOLD)/ && ./$@.out
 
 test_win : cpHeaders_win $(TEST_DEPENDENCIES_FILES)
