@@ -32,6 +32,7 @@ CFLAGS_DYN_LIN_1=-O3 -Wall -Wextra -pedantic -Werror -std=c11 -c -fPIC
 CFLAGS_DYN_LIN_2_1=-O3 -Wall -Wextra -pedantic -Werror -std=c11 -fPIC -shared $(OBJ_FILES) -o
 CFLAGS_DYN_LIN_2_2=-Wl,-soname,
 
+
 .PHONY : stat_win stat_lin dyn_win dyn_lin
 
 .PHONY : clean_win clean_lin doxy clean_so 
@@ -40,9 +41,6 @@ CFLAGS_DYN_LIN_2_2=-Wl,-soname,
 
 .PHONY : test_lin test_win
 
-test_lin : cpHeaders_lin test # rep_cov
-
-test_win : cpHeaders_win test # rep_cov
 
 stat_win : libFManC.a cpHeaders_win clean_win doxy test_win
 
@@ -119,8 +117,12 @@ TEST_FILES_TO_COMPILE=$(wildcard test/src_lib/*.c) $(wildcard test/src_lib/third
 
 CFLAGS_DEBUG=-fprofile-arcs -ftest-coverage -O0 -Wall -Wextra -pedantic -Werror -std=c11 -D USE_CODE_UTILS
 
-test : $(TEST_DEPENDENCIES_FILES)
+test_lin : cpHeaders_lin $(TEST_DEPENDENCIES_FILES)
 	$(CC) $(CFLAGS_DEBUG) $(TEST_FILES_TO_COMPILE) -o test/test_builds/$(TEST_RES_FOLD)/$@ -I./test/third_party/
-	cd test/test_builds/$(TEST_RES_FOLD)/ && ./test
+	cd test/test_builds/$(TEST_RES_FOLD)/ && ./$@
+
+test_win : cpHeaders_win $(TEST_DEPENDENCIES_FILES)
+	$(CC) $(CFLAGS_DEBUG) $(TEST_FILES_TO_COMPILE) -o test/test_builds/$(TEST_RES_FOLD)/$@ -I./test/third_party/
+	cd test/test_builds/$(TEST_RES_FOLD)/ && ./$@
 
 # rep_cov : 
