@@ -6,6 +6,8 @@
 void test_getFilePath(void)
 {
 	getFilePath("~/Desktop/prog/c/ext_test1.c", path1);
+	fprintf(stderr, "%s\n", path1);
+	fprintf(stderr, "%d\n", strcmp("~/Desktop/prog/c/", path1) );
 	assert(strcmp("~/Desktop/prog/c/", path1) == 0);
 
 	getFilePath("ext_test2.html", path2);

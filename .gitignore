@@ -4,6 +4,7 @@ man/*
 docs/doxygen-awesome-css/*
 src/documentation_pages/*
 codecov
+codecov.exe
 /.vscode
 /api
 *.gcno

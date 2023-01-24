@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="d7/dd8/group__fmanc___f_m___u_t_i_l_s__const__macros" kind="group">
+    <compoundname>fmanc_FM_UTILS_const_macros</compoundname>
+    <title>Constant macros</title>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="d7/dd8/group__fmanc___f_m___u_t_i_l_s__const__macros_1gaef2c26bbba7239793dfd266d0e8b46b4" prot="public" static="no">
+        <name>MAX_FEXT_SIZE</name>
+        <initializer>50</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Axel PASCON (a.k.a. brvtalcake) </para>
+</simplesect>
+<simplesect kind="date"><para>2022</para>
+</simplesect>
+This the value of the maximum size of a file extension counted in characters. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/fileMan.h" line="91" column="9" bodyfile="src/fileMan.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d7/dd8/group__fmanc___f_m___u_t_i_l_s__const__macros_1gab0e76045bf91a8a1b4fc381488399f70" prot="public" static="no">
+        <name>MAX_FNAME_SIZE</name>
+        <initializer>256</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Axel PASCON (a.k.a. brvtalcake) </para>
+</simplesect>
+<simplesect kind="date"><para>2022</para>
+</simplesect>
+This the value of the maximum size of a file name counted in characters. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/fileMan.h" line="102" column="9" bodyfile="src/fileMan.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d7/dd8/group__fmanc___f_m___u_t_i_l_s__const__macros_1gae5c03ff129a1255adb84d15ae75425b8" prot="public" static="no">
+        <name>MAX_FPATH_SIZE</name>
+        <initializer>512</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Axel PASCON (a.k.a. brvtalcake) </para>
+</simplesect>
+<simplesect kind="date"><para>2022</para>
+</simplesect>
+This the value of the maximum size of a file path (full (relative or not) path without name and extension) counted in characters. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/fileMan.h" line="113" column="9" bodyfile="src/fileMan.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This submodule contains constant macros used by the lib. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Axel PASCON (a.k.a. brvtalcake) </para>
+</simplesect>
+<simplesect kind="date"><para>2022 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

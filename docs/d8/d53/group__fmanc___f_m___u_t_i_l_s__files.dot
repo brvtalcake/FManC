@@ -1,0 +1,12 @@
+digraph "Source files"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir=LR;
+  Node2 [label="File management utilities",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$da/d4d/group__fmanc___f_m___u_t_i_l_s.html",tooltip="This module provides utilities to manage informations about files."];
+  Node1 [label="Source files",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="This submodule contains files related to file management utilities."];
+  Node2->Node1 [shape=plaintext, dir="back", style="solid"];
+}

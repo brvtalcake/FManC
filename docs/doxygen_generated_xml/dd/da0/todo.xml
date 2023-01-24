@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
   <compounddef id="dd/da0/todo" kind="page">
     <compoundname>todo</compoundname>
     <title>Todo List</title>
@@ -7,12 +7,12 @@
     </briefdescription>
     <detaileddescription>
 <para><variablelist>
-<varlistentry><term>Global <ref refid="db/de3/group__fmanc__FM__UTILS__func_1ga970b51561bea3b8d75dcc91f9fc977d9" kindref="member">copyFileWithoutTabAndLineBreak</ref>  (char *sourceFilePath, char *pathToCopy)</term></varlistentry>
+<varlistentry><term>Global <ref refid="de/dc0/group__fmanc___f_m___u_t_i_l_s__func_1ga970b51561bea3b8d75dcc91f9fc977d9" kindref="member">copyFileWithoutTabAndLineBreak</ref>  (char *sourceFilePath, char *pathToCopy)</term></varlistentry>
 <listitem><para><anchor id="dd/da0/todo_1_todo000002"/>Check if the path to copy has a name and an extension at the end. </para>
 <para></para>
 <para>Move it to <ref refid="d3/dd5/code__utils_8h" kindref="compound">code_utils.h</ref> </para>
 </listitem>
-<varlistentry><term>Global <ref refid="d0/d40/group__GEN__MACROS_1ga884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref>  </term></varlistentry>
+<varlistentry><term>Global <ref refid="d6/d99/group___g_e_n___m_a_c_r_o_s_1ga884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref>  </term></varlistentry>
 <listitem><para><anchor id="dd/da0/todo_1_todo000001"/>I should change the name of &quot;STATIC&quot; to something like &quot;FMANC_STATIC&quot; to avoid any problems in case someone wants to use two libs with the same define system</para>
 <para></para>
 </listitem>

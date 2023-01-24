@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxyfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="doxyfile.xsd" version="1.9.6" xml:lang="en-US">
+<doxyfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="doxyfile.xsd" version="1.9.5" xml:lang="en-US">
   <option  id='DOXYFILE_ENCODING' default='yes' type='string'><value><![CDATA[UTF-8]]></value></option>
   <option  id='PROJECT_NAME' default='no' type='string'><value><![CDATA[FManC]]></value></option>
-  <option  id='PROJECT_NUMBER' default='no' type='string'><value><![CDATA[1.0.0]]></value></option>
+  <option  id='PROJECT_NUMBER' default='no' type='string'><value><![CDATA[0.0.1]]></value></option>
   <option  id='PROJECT_BRIEF' default='no' type='string'><value><![CDATA["File Manager in C"]]></value></option>
   <option  id='PROJECT_LOGO' default='no' type='string'><value><![CDATA[docs/images/FManC.png]]></value></option>
   <option  id='OUTPUT_DIRECTORY' default='no' type='string'><value><![CDATA[docs]]></value></option>
@@ -113,7 +113,6 @@
   <option  id='WARN_IF_DOC_ERROR' default='yes' type='bool'><value>YES</value></option>
   <option  id='WARN_IF_INCOMPLETE_DOC' default='no' type='bool'><value>NO</value></option>
   <option  id='WARN_NO_PARAMDOC' default='yes' type='bool'><value>NO</value></option>
-  <option  id='WARN_IF_UNDOC_ENUM_VAL' default='yes' type='bool'><value>NO</value></option>
   <option  id='WARN_AS_ERROR' default='yes' type='string'><value>NO</value></option>
   <option  id='WARN_FORMAT' default='yes' type='string'><value><![CDATA["$file:$line: $text"]]></value></option>
   <option  id='WARN_LINE_FORMAT' default='yes' type='string'><value><![CDATA["at line $line of file $file"]]></value></option>
@@ -177,16 +176,11 @@
   <option  id='SOURCE_TOOLTIPS' default='yes' type='bool'><value>YES</value></option>
   <option  id='USE_HTAGS' default='yes' type='bool'><value>NO</value></option>
   <option  id='VERBATIM_HEADERS' default='yes' type='bool'><value>YES</value></option>
-  <option  id='CLANG_ASSISTED_PARSING' default='yes' type='bool'><value>NO</value></option>
-  <option  id='CLANG_ADD_INC_PATHS' default='yes' type='bool'><value>YES</value></option>
-  <option  id='CLANG_OPTIONS' default='yes' type='stringlist'>
-  </option>
-  <option  id='CLANG_DATABASE_PATH' default='yes' type='string'><value><![CDATA[]]></value></option>
   <option  id='ALPHABETICAL_INDEX' default='yes' type='bool'><value>YES</value></option>
   <option  id='IGNORE_PREFIX' default='yes' type='stringlist'>
   </option>
   <option  id='GENERATE_HTML' default='yes' type='bool'><value>YES</value></option>
-  <option  id='HTML_OUTPUT' default='no' type='string'><value><![CDATA[/home/axel/Documents/programmation/c/FManC/docs]]></value></option>
+  <option  id='HTML_OUTPUT' default='no' type='string'><value><![CDATA[./]]></value></option>
   <option  id='HTML_FILE_EXTENSION' default='yes' type='string'><value><![CDATA[.html]]></value></option>
   <option  id='HTML_HEADER' default='yes' type='string'><value><![CDATA[]]></value></option>
   <option  id='HTML_FOOTER' default='yes' type='string'><value><![CDATA[]]></value></option>

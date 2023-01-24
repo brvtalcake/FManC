@@ -196,7 +196,7 @@ SHARED void fgetFilePath(const char* const sourceFilePath, char *filePath)
 		return;
 	}
 	int cpt = strlen(sourceFilePath);
-	char pt = *(sourceFilePath + cpt);
+	char pt = *(sourceFilePath + cpt); // pt = '\0'
 	
 	while(cpt >= 0)
 	{
@@ -211,16 +211,17 @@ SHARED void fgetFilePath(const char* const sourceFilePath, char *filePath)
 			break;
 		} 
 	}
-	
 	if (cpt < 0)
 	{
 		return;
 	}
 
+	// cpt = position in sourcefilepath of the last '/' or '\\'
+
 	else
 	{
-		char res[cpt+1];
-		for (size_t i = 0; i < (size_t)cpt; ++i) // cpt >= 0 anyway so we can actually do this cast to avoid this useless gcc -Wextra warning
+		char res[cpt+1+1]; // nb of chars in the (path\{filename, ext}) + '\0' so cpt+1 due to the index +1 again for '\0'
+		for (size_t i = 0; i < (size_t)cpt+1; ++i) // cpt >= 0 anyway so we can actually do this cast to avoid this useless gcc -Wextra warning
 		{
 			res[i] = *(sourceFilePath + i);
 		}
