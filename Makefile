@@ -118,11 +118,11 @@ TEST_FILES_TO_COMPILE=$(wildcard test/src_lib/*.c) $(wildcard test/src_lib/third
 CFLAGS_DEBUG=-fprofile-arcs -ftest-coverage -O0 -Wall -Wextra -pedantic -Werror -std=c11 -D USE_CODE_UTILS
 
 test_lin : cpHeaders_lin $(TEST_DEPENDENCIES_FILES)
-	$(CC) $(CFLAGS_DEBUG) $(TEST_FILES_TO_COMPILE) -o test/test_builds/$(TEST_RES_FOLD)/$@ -I./test/third_party/
-	cd test/test_builds/$(TEST_RES_FOLD)/ && ./$@
+	$(CC) $(CFLAGS_DEBUG) $(TEST_FILES_TO_COMPILE) -o test/test_builds/$(TEST_RES_FOLD)/$@.out -I./test/third_party/
+	cd test/test_builds/$(TEST_RES_FOLD)/ && ./$@.out
 
 test_win : cpHeaders_win $(TEST_DEPENDENCIES_FILES)
-	$(CC) $(CFLAGS_DEBUG) -D STATIC $(TEST_FILES_TO_COMPILE) -o test/test_builds/$(TEST_RES_FOLD)/$@ -I./test/third_party/
-	cd test/test_builds/$(TEST_RES_FOLD)/ && $@
+	$(CC) $(CFLAGS_DEBUG) -D STATIC $(TEST_FILES_TO_COMPILE) -o test/test_builds/$(TEST_RES_FOLD)/$@.exe -I./test/third_party/
+	cd test/test_builds/$(TEST_RES_FOLD)/ && $@.exe
 
 # rep_cov : 
