@@ -120,7 +120,7 @@ CFLAGS_DEBUG=-fprofile-arcs -ftest-coverage -O0 -Wall -Wextra -pedantic -Werror 
 test_lin : cpHeaders_lin $(TEST_DEPENDENCIES_FILES)
 	export FMANC="$PWD"
 	$(CC) $(CFLAGS_DEBUG) $(TEST_FILES_TO_COMPILE) -o test/test_builds/$(TEST_RES_FOLD)/$@.out -I./test/third_party/
-	locate test_lin | grep FManC/
+	find test_lin && find rand_5040
 	cd test/test_builds/$(TEST_RES_FOLD)/ && ./$@.out
 
 test_win : cpHeaders_win $(TEST_DEPENDENCIES_FILES)
