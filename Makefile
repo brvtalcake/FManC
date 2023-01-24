@@ -122,6 +122,7 @@ test_lin : cpHeaders_lin $(TEST_DEPENDENCIES_FILES)
 	ls
 	cd test && ls
 	cd test/plain_text_data/ && ls
+	cd test/plain_text_data/ && cat rand_5040
 	cd test/test_builds/$(TEST_RES_FOLD)/ && ./$@.out
 
 test_win : cpHeaders_win $(TEST_DEPENDENCIES_FILES)
