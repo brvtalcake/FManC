@@ -123,6 +123,6 @@ test_lin : cpHeaders_lin $(TEST_DEPENDENCIES_FILES)
 
 test_win : cpHeaders_win $(TEST_DEPENDENCIES_FILES)
 	$(CC) $(CFLAGS_DEBUG) -D STATIC $(TEST_FILES_TO_COMPILE) -o test/test_builds/$(TEST_RES_FOLD)/$@ -I./test/third_party/
-	cd test/test_builds/$(TEST_RES_FOLD)/ && ./$@
+	cd test/test_builds/$(TEST_RES_FOLD)/ && $@
 
 # rep_cov : 
