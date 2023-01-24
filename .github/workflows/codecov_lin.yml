@@ -6,8 +6,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install locate
-        run: apt install plocate
       - name: Compile tests and run tests
         run: make test_lin
       - name: Upload coverage to Codecov
