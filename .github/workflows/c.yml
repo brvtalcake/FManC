@@ -7,28 +7,28 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build-stat_lin:
+  build-stat-lin:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - name: make static lib for linux
       run: make stat_lin_only
       
-  make test_lin:
+  make test lin:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - name: make tests on linux
       run: make test_lin
   
-  build-dyn_lin:
+  build-dyn-lin:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - name: make dynamic lib for linux
       run: make dyn_lin_only
       
-  build-stat_win:
+  build-stat-win:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v3
@@ -43,7 +43,7 @@ jobs:
       run: mingw32-make stat_win_only
       shell: cmd
       
-  build-dyn_win:
+  build-dyn-win:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v3
