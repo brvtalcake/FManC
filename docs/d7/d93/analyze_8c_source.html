@@ -116,9 +116,9 @@ $(document).ready(function(){initNavTree('d7/d93/analyze_8c_source.html','../../
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordflow">if</span> (fil == NULL)</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    {</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        fprintf(stderr, <span class="stringliteral">&quot;Error :%s\n&quot;</span>, strerror(errno));</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    }</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">size_t</span> returned = 0;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">size_t</span> returned = 1;</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    rewind(fil);</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordflow">while</span> (fgetwc(fil) != WEOF)</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    {</div>
@@ -132,9 +132,9 @@ $(document).ready(function(){initNavTree('d7/d93/analyze_8c_source.html','../../
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d7/d93/analyze_8c.html#a00a81359d75f930d3e47239dbd6dd324">   35</a></span><a class="code hl_define" href="../../d8/d07/analyze_8h.html#a884c794595c4aa480df9022648c29564">SHARED</a> <a class="code hl_struct" href="../../d8/d07/analyze_8h.html#d4/df4/structFManC__StrOcc">stringOccurrences</a> *<a class="code hl_function" href="../../d7/d93/analyze_8c.html#a00a81359d75f930d3e47239dbd6dd324">init_stringOccurences</a>(<span class="keywordtype">size_t</span> sizeOfString)</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> *position = malloc(<span class="keyword">sizeof</span>(<span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span>));</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> *position = (<span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> *) malloc(<span class="keyword">sizeof</span>(<span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span>));</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    *position = -1;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_struct" href="../../d8/d07/analyze_8h.html#d4/df4/structFManC__StrOcc">stringOccurrences</a> *returned = malloc(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="../../d8/d07/analyze_8h.html#d4/df4/structFManC__StrOcc">stringOccurrences</a>));</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_struct" href="../../d8/d07/analyze_8h.html#d4/df4/structFManC__StrOcc">stringOccurrences</a> *returned = (<a class="code hl_struct" href="../../d8/d07/analyze_8h.html#d4/df4/structFManC__StrOcc">stringOccurrences</a>*) malloc(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="../../d8/d07/analyze_8h.html#d4/df4/structFManC__StrOcc">stringOccurrences</a>));</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    returned-&gt;<a class="code hl_variable" href="../../d8/d07/analyze_8h.html#aa771d096daea4bd1c01973da82d931c8">pos</a> = position;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    returned-&gt;<a class="code hl_variable" href="../../d8/d07/analyze_8h.html#a2c2bf2c7bc3d0a8938f383c8296e0886">charCount</a> = sizeOfString;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
@@ -429,7 +429,7 @@ $(document).ready(function(){initNavTree('d7/d93/analyze_8c_source.html','../../
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../d7/d93/analyze_8c.html">analyze.c</a></li>
-    <li class="footer">Generated on Sun Jan 22 2023 22:10:34 for FManC by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+    <li class="footer">Generated on Tue Jan 24 2023 04:37:47 for FManC by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
   </ul>
 </div>
 </body>

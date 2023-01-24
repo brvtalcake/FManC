@@ -7,7 +7,7 @@
     </briefdescription>
     <detaileddescription>
 <para><variablelist>
-<varlistentry><term>Global <ref refid="db/de3/group__fmanc__FM__UTILS__func_1ga95f02d94dae556d5282368721e994732" kindref="member">copyFileWithoutTabAndLineBreak</ref>  (char *sourceFilePath, char **pathToCopy)</term></varlistentry>
+<varlistentry><term>Global <ref refid="db/de3/group__fmanc__FM__UTILS__func_1ga970b51561bea3b8d75dcc91f9fc977d9" kindref="member">copyFileWithoutTabAndLineBreak</ref>  (char *sourceFilePath, char *pathToCopy)</term></varlistentry>
 <listitem><para><anchor id="dd/da0/todo_1_todo000002"/>Check if the path to copy has a name and an extension at the end. </para>
 <para></para>
 <para>Move it to <ref refid="d3/dd5/code__utils_8h" kindref="compound">code_utils.h</ref> </para>

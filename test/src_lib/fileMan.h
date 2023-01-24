@@ -181,7 +181,7 @@
 /**
  * @author     Axel PASCON (a.k.a. brvtalcake)
  * @date       2022
- * @fn         char *copyFileWithoutTabAndLineBreak(char *sourceFilePath, char **pathToCopy);
+ * @fn         char *copyFileWithoutTabAndLineBreak(char *sourceFilePath, char *pathToCopy);
  * @brief      Copy a file without tab and line break.
  * @details    The copied file with be renamed as <sourceFile name>_copied.<sourceFileExtension> if the param pathToCopy is set to NULL, and what you want if you specify the path with a name and extension.
  * @todo       Check if the path to copy has a name and an extension at the end.
@@ -194,7 +194,7 @@
  * @retval     NULL           If an error has occured.
  * @ingroup fmanc_FM_UTILS_func
  */
-SHARED char *copyFileWithoutTabAndLineBreak(char *sourceFilePath, char **pathToCopy); // copied file will be named like <sourceFile name>_copied
+SHARED char *copyFileWithoutTabAndLineBreak(char *sourceFilePath, char *pathToCopy); // copied file will be named like <sourceFile name>_copied
 SHARED int copyFileWithoutStrings(const unsigned int argc, char *filePath, ...); // to do
 SHARED void fgetFileExtension(const char* const sourceFileName, char *extension);
 SHARED void fgetFileName(const char* const sourceFilePath, char *fileName);

@@ -19,9 +19,9 @@ SHARED size_t countCharInFile(char *filePath)
 	if (fil == NULL)
 	{
 		fprintf(stderr, "Error :%s\n", strerror(errno));
-		return -1;
+		return 0;
 	}
-	size_t returned = 0;
+	size_t returned = 1;
 	rewind(fil);
 	while (fgetwc(fil) != WEOF)
 	{
@@ -35,9 +35,9 @@ SHARED size_t countCharInFile(char *filePath)
 SHARED stringOccurrences *init_stringOccurences(size_t sizeOfString)
 {
 	
-	long long int *position = malloc(sizeof(long long int));
+	long long int *position = (long long int *) malloc(sizeof(long long int));
 	*position = -1;
-	stringOccurrences *returned = malloc(sizeof(stringOccurrences));
+	stringOccurrences *returned = (stringOccurrences*) malloc(sizeof(stringOccurrences));
 	returned->pos = position;
 	returned->charCount = sizeOfString;
 

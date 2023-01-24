@@ -4,9 +4,9 @@
 #include <string.h>
 #include "fileMan.h"
 
-SHARED char *copyFileWithoutTabAndLineBreak(char *sourceFilePath, char **pathToCopy) //not finished 
+SHARED char *copyFileWithoutTabAndLineBreak(char *sourceFilePath, char *pathToCopy) //not finished. TODO : change the return value
 {
-
+	
 	errno = 0;
 	getFileName(sourceFilePath, sourceFileName);
 	getFileExtension(sourceFilePath, sourceFileExtension);
@@ -19,16 +19,18 @@ SHARED char *copyFileWithoutTabAndLineBreak(char *sourceFilePath, char **pathToC
 		return NULL;
 	}
 	rewind(sourceFile);
-	char *copiedName = NULL;
+	char *copiedName = (char*) malloc((strlen(pathToCopy)+10)*sizeof(char));
+	
+	if(copiedName == NULL) return copiedName;
 	if (pathToCopy == NULL)
 	{
-		copiedName = strcat(strcat(sourceFileName,"_copied"), sourceFileExtension); //modify here
+		copiedName = strcat(strcat(sourceFileName,"_copied"), sourceFileExtension); 
 	}
 	else
 	{
-		copiedName = *pathToCopy;
+		copiedName = strcpy(copiedName, pathToCopy);
 	}
-
+	if(copiedName == NULL) return copiedName;
 	FILE *copiedFile = fopen(copiedName, "w");
 	if (copiedFile == NULL)
 	{
@@ -51,16 +53,18 @@ SHARED char *copyFileWithoutTabAndLineBreak(char *sourceFilePath, char **pathToC
 			}
 		}
 	}
-	char *returnedName = NULL;
+	static char returnedName[MAX_FEXT_SIZE+MAX_FNAME_SIZE+MAX_FPATH_SIZE] = {'\0'}; // find a way to modify this
 	int i = 0;
-	while(sourceFileName[i] != '\0')
+	while(sourceFileName[i] != '\0' && (size_t) i < strlen(sourceFileName))
 	{
 		*(returnedName + i) = sourceFileName[i];
 		i++;
 	}
 	*(returnedName + i) = '\0';
+
 	fclose(copiedFile);
 	fclose(sourceFile);
+	free(copiedName);
 	return returnedName;
 }
 

@@ -8,7 +8,7 @@ var fileMan_8h =
     [ "MAX_FPATH_SIZE", "d4/d42/group__fmanc__FM__UTILS__const__macros.html#gae5c03ff129a1255adb84d15ae75425b8", null ],
     [ "SHARED", "d7/d5b/fileMan_8h.html#a884c794595c4aa480df9022648c29564", null ],
     [ "copyFileWithoutStrings", "d7/d5b/fileMan_8h.html#ac00d5607ef908576f411582a8eb8a128", null ],
-    [ "copyFileWithoutTabAndLineBreak", "db/de3/group__fmanc__FM__UTILS__func.html#ga95f02d94dae556d5282368721e994732", null ],
+    [ "copyFileWithoutTabAndLineBreak", "db/de3/group__fmanc__FM__UTILS__func.html#ga970b51561bea3b8d75dcc91f9fc977d9", null ],
     [ "fgetFileExtension", "d7/d5b/fileMan_8h.html#a14f6c4e1fce0d3538953f200e9d0e156", null ],
     [ "fgetFileName", "d7/d5b/fileMan_8h.html#ab6e3e0e014160f3696c8dd3da350fb0d", null ],
     [ "fgetFilePath", "d7/d5b/fileMan_8h.html#ab6ee0c8809c264cbc527f3cca7320fb4", null ]

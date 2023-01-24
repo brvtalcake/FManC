@@ -29,7 +29,7 @@
     <member refid="d3/dd5/code__utils_8h_1a884c794595c4aa480df9022648c29564" kind="define"><name>SHARED</name></member>
   </compound>
   <compound refid="d2/d77/fileMan_8c" kind="file"><name>fileMan.c</name>
-    <member refid="db/de3/group__fmanc__FM__UTILS__func_1ga95f02d94dae556d5282368721e994732" kind="function"><name>copyFileWithoutTabAndLineBreak</name></member>
+    <member refid="db/de3/group__fmanc__FM__UTILS__func_1ga970b51561bea3b8d75dcc91f9fc977d9" kind="function"><name>copyFileWithoutTabAndLineBreak</name></member>
     <member refid="d2/d77/fileMan_8c_1a1d7baece5ab38639830477d55c951928" kind="function"><name>fgetFileExtension</name></member>
     <member refid="d2/d77/fileMan_8c_1ab6e3e0e014160f3696c8dd3da350fb0d" kind="function"><name>fgetFileName</name></member>
     <member refid="d2/d77/fileMan_8c_1ab6ee0c8809c264cbc527f3cca7320fb4" kind="function"><name>fgetFilePath</name></member>
@@ -43,7 +43,7 @@
     <member refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gae5c03ff129a1255adb84d15ae75425b8" kind="define"><name>MAX_FPATH_SIZE</name></member>
     <member refid="d7/d5b/fileMan_8h_1a884c794595c4aa480df9022648c29564" kind="define"><name>SHARED</name></member>
     <member refid="d7/d5b/fileMan_8h_1ac00d5607ef908576f411582a8eb8a128" kind="function"><name>copyFileWithoutStrings</name></member>
-    <member refid="db/de3/group__fmanc__FM__UTILS__func_1ga95f02d94dae556d5282368721e994732" kind="function"><name>copyFileWithoutTabAndLineBreak</name></member>
+    <member refid="db/de3/group__fmanc__FM__UTILS__func_1ga970b51561bea3b8d75dcc91f9fc977d9" kind="function"><name>copyFileWithoutTabAndLineBreak</name></member>
     <member refid="d7/d5b/fileMan_8h_1a14f6c4e1fce0d3538953f200e9d0e156" kind="function"><name>fgetFileExtension</name></member>
     <member refid="d7/d5b/fileMan_8h_1ab6e3e0e014160f3696c8dd3da350fb0d" kind="function"><name>fgetFileName</name></member>
     <member refid="d7/d5b/fileMan_8h_1ab6ee0c8809c264cbc527f3cca7320fb4" kind="function"><name>fgetFilePath</name></member>
@@ -63,7 +63,7 @@
   <compound refid="d3/d7f/group__fmanc__FM__UTILS" kind="group"><name>fmanc_FM_UTILS</name>
   </compound>
   <compound refid="db/de3/group__fmanc__FM__UTILS__func" kind="group"><name>fmanc_FM_UTILS_func</name>
-    <member refid="db/de3/group__fmanc__FM__UTILS__func_1ga95f02d94dae556d5282368721e994732" kind="function"><name>copyFileWithoutTabAndLineBreak</name></member>
+    <member refid="db/de3/group__fmanc__FM__UTILS__func_1ga970b51561bea3b8d75dcc91f9fc977d9" kind="function"><name>copyFileWithoutTabAndLineBreak</name></member>
   </compound>
   <compound refid="d0/d40/group__GEN__MACROS" kind="group"><name>GEN_MACROS</name>
     <member refid="d0/d40/group__GEN__MACROS_1ga884c794595c4aa480df9022648c29564" kind="define"><name>SHARED</name></member>

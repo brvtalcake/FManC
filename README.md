@@ -30,6 +30,10 @@ However, if you want to download a PDF documentation, it's [here](https://github
 - [ ] Make a real test folder 
 - [x] Make the lib available for UNIX users
 - [ ] Let the possibility to define the locale
+- [ ] Let the possibility to disable error messages 
+<!---
+(by defining an extern variable in fmanc.h)
+--->
 
 ## Credits
 The doxygen theme I'll use for my documentation is provided by [jothepro](https://github.com/jothepro) and hosted in [this repository](https://github.com/jothepro/doxygen-awesome-css) under the terms of the MIT license.

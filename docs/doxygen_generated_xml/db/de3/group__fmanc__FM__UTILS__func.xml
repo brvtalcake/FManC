@@ -4,17 +4,17 @@
     <compoundname>fmanc_FM_UTILS_func</compoundname>
     <title>Functions</title>
       <sectiondef kind="func">
-      <memberdef kind="function" id="db/de3/group__fmanc__FM__UTILS__func_1ga95f02d94dae556d5282368721e994732" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="db/de3/group__fmanc__FM__UTILS__func_1ga970b51561bea3b8d75dcc91f9fc977d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>char *</type>
         <definition>char * copyFileWithoutTabAndLineBreak</definition>
-        <argsstring>(char *sourceFilePath, char **pathToCopy)</argsstring>
+        <argsstring>(char *sourceFilePath, char *pathToCopy)</argsstring>
         <name>copyFileWithoutTabAndLineBreak</name>
         <param>
           <type>char *</type>
           <declname>sourceFilePath</declname>
         </param>
         <param>
-          <type>char **</type>
+          <type>char *</type>
           <declname>pathToCopy</declname>
         </param>
         <briefdescription>
@@ -66,9 +66,12 @@ The copied file with be renamed as &lt;sourceFile name&gt;_copied.&lt;sourceFile
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/fileMan.c" line="7" column="7" bodyfile="src/fileMan.c" bodystart="7" bodyend="65"/>
+        <location file="src/fileMan.c" line="7" column="7" bodyfile="src/fileMan.c" bodystart="7" bodyend="69"/>
         <references refid="dd/d72/group__fmanc__FM__UTILS__macros_1ga68b8bb9ca6877866b30b5d71f33f1b08" compoundref="d7/d5b/fileMan_8h" startline="137">getFileExtension</references>
         <references refid="dd/d72/group__fmanc__FM__UTILS__macros_1ga3e855422945c4cdbaf71723d8e25d9f5" compoundref="d7/d5b/fileMan_8h" startline="153">getFileName</references>
+        <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gaef2c26bbba7239793dfd266d0e8b46b4" compoundref="d7/d5b/fileMan_8h" startline="91">MAX_FEXT_SIZE</references>
+        <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gab0e76045bf91a8a1b4fc381488399f70" compoundref="d7/d5b/fileMan_8h" startline="102">MAX_FNAME_SIZE</references>
+        <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gae5c03ff129a1255adb84d15ae75425b8" compoundref="d7/d5b/fileMan_8h" startline="113">MAX_FPATH_SIZE</references>
       </memberdef>
       </sectiondef>
     <briefdescription>
