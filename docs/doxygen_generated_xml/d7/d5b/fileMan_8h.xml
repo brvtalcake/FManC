@@ -303,7 +303,7 @@ The copied file with be renamed as &lt;sourceFile name&gt;_copied.&lt;sourceFile
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/fileMan.h" line="197" column="7" bodyfile="src/fileMan.c" bodystart="7" bodyend="69" declfile="src/fileMan.h" declline="197" declcolumn="7"/>
+        <location file="src/fileMan.h" line="197" column="7" bodyfile="src/fileMan.c" bodystart="7" bodyend="68" declfile="src/fileMan.h" declline="197" declcolumn="7"/>
         <references refid="dd/d72/group__fmanc__FM__UTILS__macros_1ga68b8bb9ca6877866b30b5d71f33f1b08" compoundref="d7/d5b/fileMan_8h" startline="137">getFileExtension</references>
         <references refid="dd/d72/group__fmanc__FM__UTILS__macros_1ga3e855422945c4cdbaf71723d8e25d9f5" compoundref="d7/d5b/fileMan_8h" startline="153">getFileName</references>
         <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gaef2c26bbba7239793dfd266d0e8b46b4" compoundref="d7/d5b/fileMan_8h" startline="91">MAX_FEXT_SIZE</references>
@@ -329,7 +329,7 @@ The copied file with be renamed as &lt;sourceFile name&gt;_copied.&lt;sourceFile
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/fileMan.h" line="199" column="7" bodyfile="src/fileMan.c" bodystart="71" bodyend="117" declfile="src/fileMan.h" declline="199" declcolumn="7"/>
+        <location file="src/fileMan.h" line="199" column="7" bodyfile="src/fileMan.c" bodystart="70" bodyend="116" declfile="src/fileMan.h" declline="199" declcolumn="7"/>
         <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gaef2c26bbba7239793dfd266d0e8b46b4" compoundref="d7/d5b/fileMan_8h" startline="91">MAX_FEXT_SIZE</references>
         <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gab0e76045bf91a8a1b4fc381488399f70" compoundref="d7/d5b/fileMan_8h" startline="102">MAX_FNAME_SIZE</references>
         <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gae5c03ff129a1255adb84d15ae75425b8" compoundref="d7/d5b/fileMan_8h" startline="113">MAX_FPATH_SIZE</references>
@@ -353,7 +353,7 @@ The copied file with be renamed as &lt;sourceFile name&gt;_copied.&lt;sourceFile
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/fileMan.h" line="200" column="7" bodyfile="src/fileMan.c" bodystart="119" bodyend="190" declfile="src/fileMan.h" declline="200" declcolumn="7"/>
+        <location file="src/fileMan.h" line="200" column="7" bodyfile="src/fileMan.c" bodystart="118" bodyend="189" declfile="src/fileMan.h" declline="200" declcolumn="7"/>
         <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gaef2c26bbba7239793dfd266d0e8b46b4" compoundref="d7/d5b/fileMan_8h" startline="91">MAX_FEXT_SIZE</references>
         <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gab0e76045bf91a8a1b4fc381488399f70" compoundref="d7/d5b/fileMan_8h" startline="102">MAX_FNAME_SIZE</references>
         <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gae5c03ff129a1255adb84d15ae75425b8" compoundref="d7/d5b/fileMan_8h" startline="113">MAX_FPATH_SIZE</references>
@@ -377,7 +377,7 @@ The copied file with be renamed as &lt;sourceFile name&gt;_copied.&lt;sourceFile
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/fileMan.h" line="201" column="7" bodyfile="src/fileMan.c" bodystart="192" bodyend="244" declfile="src/fileMan.h" declline="201" declcolumn="7"/>
+        <location file="src/fileMan.h" line="201" column="7" bodyfile="src/fileMan.c" bodystart="191" bodyend="243" declfile="src/fileMan.h" declline="201" declcolumn="7"/>
         <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gaef2c26bbba7239793dfd266d0e8b46b4" compoundref="d7/d5b/fileMan_8h" startline="91">MAX_FEXT_SIZE</references>
         <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gab0e76045bf91a8a1b4fc381488399f70" compoundref="d7/d5b/fileMan_8h" startline="102">MAX_FNAME_SIZE</references>
         <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gae5c03ff129a1255adb84d15ae75425b8" compoundref="d7/d5b/fileMan_8h" startline="113">MAX_FPATH_SIZE</references>

@@ -24,7 +24,6 @@ However, if you want to download a PDF documentation, it's [here](https://github
 	- A function that puts the equivalent function into the the new source file code
 	- (I'm actually realizing that I should really create a new repo for it)
 --->
-- [ ] Fix the problem of tests not working in github workflow (although they're working on my computer). Check if it a LF/CRLF problem. Maybe add a .gitattributes to fix this
 - [ ] Documenting, as I'm starting to do with Doxygen 
 - [x] Find a way to put the documentation online (?) (didn't know github pages were existing)
 - [ ] Rename test folder as example and put actual exemples in it

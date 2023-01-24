@@ -1,5 +1,5 @@
-VERSION=1.0.0
-MAJOR_VERSION=1
+VERSION=0.0.1
+MAJOR_VERSION=0
 
 TEST_RES_FOLD=lin
 
@@ -118,9 +118,7 @@ TEST_FILES_TO_COMPILE=$(wildcard test/src_lib/*.c) $(wildcard test/src_lib/third
 CFLAGS_DEBUG=-fprofile-arcs -ftest-coverage -O0 -Wall -Wextra -pedantic -Werror -std=c11 -D USE_CODE_UTILS
 
 test_lin : cpHeaders_lin $(TEST_DEPENDENCIES_FILES)
-	export FMANC="$PWD"
 	$(CC) $(CFLAGS_DEBUG) $(TEST_FILES_TO_COMPILE) -o test/test_builds/$(TEST_RES_FOLD)/$@.out -I./test/third_party/
-	find $$PWD -name "*.out" && find $$PWD -name "*rand_5040"
 	cd test/test_builds/$(TEST_RES_FOLD)/ && ./$@.out
 
 test_win : cpHeaders_win $(TEST_DEPENDENCIES_FILES)
