@@ -9,3 +9,4 @@ codecov
 *.gcno
 *.gcda
 *.gcov
+test/tmp/*
