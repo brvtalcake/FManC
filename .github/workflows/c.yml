@@ -14,6 +14,13 @@ jobs:
     - name: make static lib for linux
       run: make stat_lin_only
       
+  make test_lin:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: make tests on linux
+      run: make test_lin
+  
   build-dyn_lin:
     runs-on: ubuntu-latest
     steps:
