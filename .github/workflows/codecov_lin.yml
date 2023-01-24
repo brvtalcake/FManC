@@ -8,6 +8,9 @@ jobs:
         uses: actions/checkout@v3
       - name: Compile tests and run tests
         run: make test_lin
+      - name: Re-run last step
+        if: success() || failure()
+        run: make test_lin
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
