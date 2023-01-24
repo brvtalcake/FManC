@@ -12,6 +12,7 @@ void test_getFilePath(void)
 	assert(strcmp("", path2) == 0);
 
 	getFilePath("~ext_test3/", path3);
+	printf("%s\n", path3);
 	assert(strcmp("~ext_test3/", path3) == 0);
 
 	getFilePath(".\\.github\\test4.loremipsum", path4);
