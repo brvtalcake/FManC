@@ -1,6 +1,6 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/brvtalcake/fmanc/badge)](https://www.codefactor.io/repository/github/brvtalcake/fmanc)
 
-# libFManC 
+# FManC 
 File manager in C 
 
 
