@@ -30,7 +30,7 @@ SOFTWARE.
 #include <string.h>
 #include <wchar.h>
 #include <locale.h>
-#include "../../general/FMC_data.h"
+#include "../../general/FMC_general.h"
 
 #include "FMC_encodings.h"
 
@@ -105,7 +105,7 @@ SHARED FMC_Encodings FMC_getEncoding(FILE *file)
 
 SHARED FMC_Encodings FMC_checkEncodingFlag(int encoding)
 {
-    int value = encoding | ASCII | UTF8 | UTF8_BOM | UTF16_LE | UTF16_BE | UTF32_LE | UTF32_BE;
+    int value = encoding;
     switch (value)
     {
         case ASCII:
