@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
   <compounddef id="d5/dc4/fmanc_8h" kind="file" language="C++">
     <compoundname>fmanc.h</compoundname>
-    <includes refid="df/d56/file_man_8h" local="yes">fileMan.h</includes>
+    <includes refid="d7/d5b/fileMan_8h" local="yes">fileMan.h</includes>
     <includes refid="d8/d07/analyze_8h" local="yes">analyze.h</includes>
     <incdepgraph>
       <node id="3">
@@ -13,7 +13,7 @@
       </node>
       <node id="2">
         <label>fileMan.h</label>
-        <link refid="df/d56/file_man_8h"/>
+        <link refid="d7/d5b/fileMan_8h"/>
       </node>
       <node id="1">
         <label>src/fmanc.h</label>
@@ -28,7 +28,7 @@
       </node>
     </incdepgraph>
       <sectiondef kind="define">
-      <memberdef kind="define" id="d6/d99/group___g_e_n___m_a_c_r_o_s_1ga884c794595c4aa480df9022648c29564" prot="public" static="no">
+      <memberdef kind="define" id="d0/d40/group__GEN__MACROS_1ga884c794595c4aa480df9022648c29564" prot="public" static="no">
         <name>SHARED</name>
         <briefdescription>
 <para>Useful to choose how to use the lib on Windows systems. </para>
@@ -38,7 +38,7 @@
 </simplesect>
 <simplesect kind="date"><para>2022</para>
 </simplesect>
-<anchor id="d6/d99/group___g_e_n___m_a_c_r_o_s_1SHARED_def"/></para>
+<anchor id="d0/d40/group__GEN__MACROS_1SHARED_def"/></para>
 <para>If you want to use the lib with the dll, you don&apos;t need to add anything in the command line. If you want to use the static version of the lib, then put &quot;-D STATIC&quot; in your command line when compiling, so you let the compiler know that the keyword &quot;SHARED&quot; is set to nothing and the function declarations are not provided with the __declspec() attribute. You can also look at the full macro block below (wich is also in the source code of all of the headers) to see what I mean <programlisting filename=".c"><codeline><highlight class="preprocessor">#<sp/>if<sp/>(defined(_WIN32)<sp/>||<sp/>defined(WIN32))</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>if<sp/>defined(STATIC)</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/>define<sp/>SHARED</highlight><highlight class="normal"></highlight></codeline>
@@ -90,11 +90,11 @@ If you don&apos;t want to have troubles, just include this one instead of includ
 <codeline lineno="75"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="76"><highlight class="normal"></highlight><highlight class="comment">/******************<sp/>DEFAULT<sp/>*******************/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="77"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="78" refid="d6/d99/group___g_e_n___m_a_c_r_o_s_1ga884c794595c4aa480df9022648c29564" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>define<sp/>SHARED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="d0/d40/group__GEN__MACROS_1ga884c794595c4aa480df9022648c29564" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>define<sp/>SHARED</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="79"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>endif<sp/></highlight><highlight class="comment">//<sp/>Definition<sp/>of<sp/>SHARED<sp/>macro</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="80"><highlight class="normal"></highlight></codeline>
 <codeline lineno="81"><highlight class="normal"></highlight></codeline>
-<codeline lineno="82"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="df/d56/file_man_8h" kindref="compound">fileMan.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d7/d5b/fileMan_8h" kindref="compound">fileMan.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="83"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d8/d07/analyze_8h" kindref="compound">analyze.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="84"><highlight class="normal"></highlight></codeline>
 <codeline lineno="102"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>

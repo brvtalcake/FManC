@@ -30,13 +30,12 @@ SOFTWARE.
 #include <string.h>
 #include <wchar.h>
 #include <locale.h>
-#include "../../general/FMC_general.h"
 
 #include "FMC_encodings.h"
 
 
 
-SHARED FMC_Encodings FMC_getEncoding(FILE *file)
+FMC_SHARED FMC_Encodings FMC_getEncoding(FILE *file)
 {
     if (file == NULL)
     {
@@ -103,7 +102,7 @@ SHARED FMC_Encodings FMC_getEncoding(FILE *file)
     }
 }
 
-SHARED FMC_Encodings FMC_checkEncodingFlag(int encoding)
+FMC_SHARED FMC_Encodings FMC_checkEncodingFlag(int encoding)
 {
     int value = encoding;
     switch (value)
@@ -135,7 +134,7 @@ SHARED FMC_Encodings FMC_checkEncodingFlag(int encoding)
     }
 }
 
-SHARED FMC_Char FMC_getc(FMC_File file)
+FMC_SHARED FMC_Char FMC_getc(FMC_File file)
 {
     FMC_Char c = {.encoding = file.encoding, .comp = {.mostLeft = 0, .middleLeft = 0, .middleRight = 0, .mostRight = 0}, .isNull = 0};
     if(file.file == NULL || file.encoding == error || file.encoding == unknown)

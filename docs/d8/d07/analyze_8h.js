@@ -1,6 +1,6 @@
 var analyze_8h =
 [
-    [ "FManC_StrOcc", "d8/d07/analyze_8h.html#d5/d85/struct_f_man_c___str_occ", [
+    [ "FManC_StrOcc", "d8/d07/analyze_8h.html#d4/df4/structFManC__StrOcc", [
       [ "charCount", "d8/d07/analyze_8h.html#a2c2bf2c7bc3d0a8938f383c8296e0886", null ],
       [ "pos", "d8/d07/analyze_8h.html#aa771d096daea4bd1c01973da82d931c8", null ]
     ] ],

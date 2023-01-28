@@ -29,31 +29,14 @@ SOFTWARE.
 #ifndef FMC_H
 #define FMC_H
 
-#if defined(_WIN32) || defined(WIN32) || defined(_WIN64) || defined(WIN64) || defined(__WIN32__) || defined(__TOS_WIN__) || defined(__WINDOWS__) && !defined(STATIC)
-    #if defined(BUILD_DLL)
-        #define SHARED __declspec(dllexport)
-    #elif defined(USE_FMC_DLL)
-        #define SHARED __declspec(dllimport)
-    #else
-        #error "You must define BUILD_DLL to build the DLL or USE_FMC_DLL to use the built DLL. To use or build the static library, please define STATIC."
-    #endif
-#elif defined(_WIN32) || defined(WIN32) || defined(_WIN64) || defined(WIN64) || defined(__WIN32__) || defined(__TOS_WIN__) || defined(__WINDOWS__) && defined(STATIC)
-   #define SHARED
-#elif defined(__linux__) || defined(__unix__) || defined(__APPLE__) || defined(__MACH__) && !defined(STATIC) && !defined(USE_FMC_DLL) && !defined(BUILD_DLL) // Linux, Unix, Mac OS X
 
-    #if defined(STATIC) || defined(USE_FMC_DLL) || defined(BUILD_DLL)
-        #warning "You don't have to specify STATIC, USE_FMC_DLL or BUILD_DLL on Linux, Unix or Mac OS X."
-    #endif
-    #define SHARED
-#else
-    #error "Unsupported platform"
-#endif // PLATFORMS
 
 // includes
+#include "general/FMC_general.h"
 #include "code_utils/FMC_code_utils.h"
 #include "file_management/FMC_file_management.h"
 #include "data_analyze/FMC_data_analyze.h"
-#include "general/FMC_general.h"
+
 
 
 

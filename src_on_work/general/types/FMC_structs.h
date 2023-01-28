@@ -29,30 +29,12 @@ SOFTWARE.
 #ifndef FMC_STRUCTS_H
 #define FMC_STRUCTS_H
 
-#if defined(_WIN32) || defined(WIN32) || defined(_WIN64) || defined(WIN64) || defined(__WIN32__) || defined(__TOS_WIN__) || defined(__WINDOWS__) && !defined(STATIC)
-    #if defined(BUILD_DLL)
-        #define SHARED __declspec(dllexport)
-    #elif defined(USE_FMC_DLL)
-        #define SHARED __declspec(dllimport)
-    #else
-        #error "You must define BUILD_DLL to build the DLL or USE_FMC_DLL to use the built DLL. To use or build the static library, please define STATIC."
-    #endif
-#elif defined(_WIN32) || defined(WIN32) || defined(_WIN64) || defined(WIN64) || defined(__WIN32__) || defined(__TOS_WIN__) || defined(__WINDOWS__) && defined(STATIC)
-   #define SHARED
-#elif defined(__linux__) || defined(__unix__) || defined(__APPLE__) || defined(__MACH__) && !defined(STATIC) && !defined(USE_FMC_DLL) && !defined(BUILD_DLL) // Linux, Unix, Mac OS X
-
-    #if defined(STATIC) || defined(USE_FMC_DLL) || defined(BUILD_DLL)
-        #warning "You don't have to specify STATIC, USE_FMC_DLL or BUILD_DLL on Linux, Unix or Mac OS X."
-    #endif
-    #define SHARED
-#else
-    #error "Unsupported platform"
-#endif // PLATFORMS
 
 #include <stdio.h>
 #include "../preprocessor/FMC_consts.h"
+#include "../preprocessor/FMC_macros.h"
 
-SHARED struct FManC_File
+FMC_SHARED struct FManC_File
 {
     FILE *file;
     char path[MAX_FPATH_SIZE];
@@ -61,17 +43,17 @@ SHARED struct FManC_File
     FMC_Encodings encoding;
 };
 
-SHARED typedef struct FManC_File FMC_File;
+FMC_SHARED typedef struct FManC_File FMC_File;
 
-SHARED struct FManC_StrOcc
+FMC_SHARED struct FManC_StrOcc
 {
 	size_t charCount;
 	long long int *pos;
 };
 
-SHARED typedef struct FManC_StrOcc FMC_StrOcc;
+FMC_SHARED typedef struct FManC_StrOcc FMC_StrOcc;
 
-SHARED struct FManC_CharComp
+FMC_SHARED struct FManC_CharComp
 {
     int mostLeft : 8;
     int middleLeft : 8;
@@ -79,15 +61,15 @@ SHARED struct FManC_CharComp
     int mostRight : 8;
 };
 
-SHARED typedef struct FManC_CharComp FMC_CharComp;
+FMC_SHARED typedef struct FManC_CharComp FMC_CharComp;
 
-SHARED struct FManC_Char
+FMC_SHARED struct FManC_Char
 {
     FMC_Encodings encoding;
     FMC_CharComp comp;
     FMC_CharControl isNull;
 };
 
-SHARED typedef struct FManC_Char FMC_Char;
+FMC_SHARED typedef struct FManC_Char FMC_Char;
 
 #endif // FMC_STRUCTS_H
