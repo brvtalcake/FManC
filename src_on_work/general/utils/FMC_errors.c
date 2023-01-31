@@ -25,11 +25,22 @@ SOFTWARE.
 */
 
 #include "FMC_errors.h"
-
+#include "../preprocessor/FMC_macros.h"
 #include <stdio.h>
 
-void FMC_printRedErr(const char *str)
-{
-    printf("\033[1;31m%s\033[0m", str);
-    
-}
+extern FMC_INLINE void FMC_resetStreamOutputStyle(FILE *stream);
+extern FMC_INLINE void FMC_changeStreamTextColorToRed(FILE *stream);
+extern FMC_INLINE void FMC_changeStreamTextColorToGreen(FILE *stream);
+extern FMC_INLINE void FMC_changeStreamTextColorToYellow(FILE *stream);
+extern FMC_INLINE void FMC_changeStreamTextColorToBlue(FILE *stream);
+extern FMC_INLINE void FMC_changeStreamTextColorToMagenta(FILE *stream);
+extern FMC_INLINE void FMC_changeStreamTextColorToCyan(FILE *stream);
+extern FMC_INLINE void FMC_changeStreamTextColorToWhite(FILE *stream);
+extern FMC_INLINE void FMC_changeStreamTextColorToBrightRed(FILE *stream);
+extern FMC_INLINE void FMC_changeStreamTextColorToBrightGreen(FILE *stream);
+extern FMC_INLINE void FMC_changeStreamTextColorToBrightYellow(FILE *stream);
+extern FMC_INLINE void FMC_changeStreamTextColorToBrightBlue(FILE *stream);
+extern FMC_INLINE void FMC_changeStreamTextColorToBrightMagenta(FILE *stream);
+extern FMC_INLINE void FMC_changeStreamTextColorToBrightCyan(FILE *stream);
+extern FMC_INLINE void FMC_changeStreamTextColorToBrightWhite(FILE *stream);
+

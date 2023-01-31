@@ -32,11 +32,151 @@ SOFTWARE.
 #include "../preprocessor/FMC_consts.h"
 #include "../preprocessor/FMC_macros.h"
 
-// TODO : Implement a better error system
-// TODO : Add a functions to print custom errors with different styles
+FMC_INLINE void FMC_resetStreamOutputStyle(FILE *stream)
+{
+    fprintf(stream, RESET);
+}
 
 
+FMC_INLINE void FMC_changeStreamTextColorToRed(FILE *stream)
+{
+    fprintf(stream, FG_RED);
+}
 
+FMC_INLINE void FMC_changeStreamTextColorToGreen(FILE *stream)
+{
+    fprintf(stream, FG_GREEN);
+}
+
+FMC_INLINE void FMC_changeStreamTextColorToYellow(FILE *stream)
+{
+    fprintf(stream, FG_YELLOW);
+}
+
+FMC_INLINE void FMC_changeStreamTextColorToBlue(FILE *stream)
+{
+    fprintf(stream, FG_BLUE);
+}
+
+FMC_INLINE void FMC_changeStreamTextColorToMagenta(FILE *stream)
+{
+    fprintf(stream, FG_MAGENTA);
+}
+
+FMC_INLINE void FMC_changeStreamTextColorToCyan(FILE *stream)
+{
+    fprintf(stream, FG_CYAN);
+}
+
+FMC_INLINE void FMC_changeStreamTextColorToWhite(FILE *stream)
+{
+    fprintf(stream, FG_WHITE);
+}
+
+FMC_INLINE void FMC_changeStreamTextColorToBrightRed(FILE *stream)
+{
+    fprintf(stream, FG_BRIGHT_RED);
+}
+
+FMC_INLINE void FMC_changeStreamTextColorToBrightGreen(FILE *stream)
+{
+    fprintf(stream, FG_BRIGHT_GREEN);
+}
+
+FMC_INLINE void FMC_changeStreamTextColorToBrightYellow(FILE *stream)
+{
+    fprintf(stream, FG_BRIGHT_YELLOW);
+}
+
+FMC_INLINE void FMC_changeStreamTextColorToBrightBlue(FILE *stream)
+{
+    fprintf(stream, FG_BRIGHT_BLUE);
+}
+
+FMC_INLINE void FMC_changeStreamTextColorToBrightMagenta(FILE *stream)
+{
+    fprintf(stream, FG_BRIGHT_MAGENTA);
+}
+
+FMC_INLINE void FMC_changeStreamTextColorToBrightCyan(FILE *stream)
+{
+    fprintf(stream, FG_BRIGHT_CYAN);
+}
+
+FMC_INLINE void FMC_changeStreamTextColorToBrightWhite(FILE *stream)
+{
+    fprintf(stream, FG_BRIGHT_WHITE);
+}
+
+FMC_INLINE void FMC_setBGStreamColorToRed(FILE *stream)
+{
+    fprintf(stream, BG_RED);
+}
+
+FMC_INLINE void FMC_setBGStreamColorToGreen(FILE *stream)
+{
+    fprintf(stream, BG_GREEN);
+}
+
+FMC_INLINE void FMC_setBGStreamColorToYellow(FILE *stream)
+{
+    fprintf(stream, BG_YELLOW);
+}
+
+FMC_INLINE void FMC_setBGStreamColorToBlue(FILE *stream)
+{
+    fprintf(stream, BG_BLUE);
+}
+
+FMC_INLINE void FMC_setBGStreamColorToMagenta(FILE *stream)
+{
+    fprintf(stream, BG_MAGENTA);
+}
+
+FMC_INLINE void FMC_setBGStreamColorToCyan(FILE *stream)
+{
+    fprintf(stream, BG_CYAN);
+}
+
+FMC_INLINE void FMC_setBGStreamColorToWhite(FILE *stream)
+{
+    fprintf(stream, BG_WHITE);
+}
+
+FMC_INLINE void FMC_setBGStreamColorToBrightRed(FILE *stream)
+{
+    fprintf(stream, BG_BRIGHT_RED);
+}
+
+FMC_INLINE void FMC_setBGStreamColorToBrightGreen(FILE *stream)
+{
+    fprintf(stream, BG_BRIGHT_GREEN);
+}
+
+FMC_INLINE void FMC_setBGStreamColorToBrightYellow(FILE *stream)
+{
+    fprintf(stream, BG_BRIGHT_YELLOW);
+}
+
+FMC_INLINE void FMC_setBGStreamColorToBrightBlue(FILE *stream)
+{
+    fprintf(stream, BG_BRIGHT_BLUE);
+}
+
+FMC_INLINE void FMC_setBGStreamColorToBrightMagenta(FILE *stream)
+{
+    fprintf(stream, BG_BRIGHT_MAGENTA);
+}
+
+FMC_INLINE void FMC_setBGStreamColorToBrightCyan(FILE *stream)
+{
+    fprintf(stream, BG_BRIGHT_CYAN);
+}
+
+FMC_INLINE void FMC_setBGStreamColorToBrightWhite(FILE *stream)
+{
+    fprintf(stream, BG_BRIGHT_WHITE);
+}
 
 
 #endif // FMC_ERRORS_H
