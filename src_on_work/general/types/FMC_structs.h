@@ -33,6 +33,8 @@ SOFTWARE.
 #include <stdio.h>
 #include "../preprocessor/FMC_consts.h"
 #include "../preprocessor/FMC_macros.h"
+#include "FMC_enums.h"
+#include "FMC_typedefs.h"
 
 FMC_SHARED struct FManC_File
 {

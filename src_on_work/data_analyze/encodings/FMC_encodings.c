@@ -33,8 +33,6 @@ SOFTWARE.
 
 #include "FMC_encodings.h"
 
-
-
 FMC_SHARED FMC_Encodings FMC_getEncoding(FILE *file)
 {
     if (file == NULL)
@@ -45,44 +43,47 @@ FMC_SHARED FMC_Encodings FMC_getEncoding(FILE *file)
     fseek(file, 0, SEEK_END);
     sizeOfFile = ftell(file);
     rewind(file);
-    int buff[4] = {0};
-    if (sizeOfFile < 4 && sizeOfFile > 0) fread(buff, 1, sizeOfFile, file);
+    char buff[4] = {0};
+    if (sizeOfFile <= 4 && sizeOfFile >= 0) fread(buff, 1, sizeOfFile, file);
     else fread(buff, 1, 4, file);
     
-    if (sizeOfFile >= 3 && buff[0] == 0xEF && buff[1] == 0xBB && buff[2] == 0xBF)
+    printf("buff = %x %x %x %x\n", buff[0], buff[1], buff[2], buff[3]);
+
+    if (sizeOfFile >= 3 && buff[0] == 0xFFFFFFEF && buff[1] == 0xFFFFFFBB && buff[2] == 0xFFFFFFBF)
     {
         rewind(file);
         return utf8_bom;
     }
-    else if (sizeOfFile >= 2 && buff[0] == 0xFF && buff[1] == 0xFE)
+    else if (sizeOfFile >= 2 && buff[0] == 0xFFFFFFFF && buff[1] == 0xFFFFFFFE)
     {
         rewind(file);
         return utf16_le;
     }
-    else if (sizeOfFile >= 2 && buff[0] == 0xFE && buff[1] == 0xFF)
+    else if (sizeOfFile >= 2 && buff[0] == 0xFFFFFFFE && buff[1] == 0xFFFFFFFF)
     {
         rewind(file);
         return utf16_be;
     }
-    else if (sizeOfFile >= 4 && buff[0] == 0x00 && buff[1] == 0x00 && buff[2] == 0xFE && buff[3] == 0xFF)
+    else if (sizeOfFile >= 4 && buff[0] == 0xFFFFFF00 && buff[1] == 0xFFFFFF00 && buff[2] == 0xFFFFFFFE && buff[3] == 0xFFFFFFFF)
     {
         rewind(file);
         return utf32_be;
     }
-    else if (sizeOfFile >= 4 && buff[0] == 0xFF && buff[1] == 0xFE && buff[2] == 0x00 && buff[3] == 0x00)
+    else if (sizeOfFile >= 4 && buff[0] == 0xFFFFFFFF && buff[1] == 0xFFFFFFFE && buff[2] == 0xFFFFFF00 && buff[3] == 0xFFFFFF00)
     {
         rewind(file);
         return utf32_le;
     }
     else
     {
+        rewind(file);
         if (sizeOfFile == 0)
         {
             rewind(file);
             return unknown;
         }
         
-        int currentChar = 0;
+        char currentChar = 0;
         size_t cpt = 0;
         while((currentChar = fgetc(file)) != EOF)
         {

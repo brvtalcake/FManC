@@ -11,3 +11,6 @@ codecov.exe
 *.gcda
 *.gcov
 test/tmp/*
+main.c 
+prog
+txt.txt
