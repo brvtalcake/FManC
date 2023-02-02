@@ -14,3 +14,4 @@ test/tmp/*
 main.c 
 prog
 txt.txt
+*.old
