@@ -1,3 +1,4 @@
+#define NOBUILD_IMPLEMENTATION
 #include "build.h"
 #include "../nobuild.h"
 
@@ -13,3 +14,4 @@ int check_if_modified(const char* const file, const char* const target)
     }
     return 0;
 }
+

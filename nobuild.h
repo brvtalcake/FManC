@@ -203,14 +203,14 @@ void chain_echo(Chain chain);
 #ifndef REBUILD_URSELF
 #  if _WIN32
 #    if defined(__GNUC__)
-#       define REBUILD_URSELF(binary_path, source_path) CMD("gcc", "-O3","-o", binary_path, source_path)
+#       define REBUILD_URSELF(binary_path, source_path) CMD("gcc", "-O3","-o", binary_path, "build_lib/*.c", source_path)
 #    elif defined(__clang__)
-#       define REBUILD_URSELF(binary_path, source_path) CMD("clang", "-O3", "-o", binary_path, source_path)
+#       define REBUILD_URSELF(binary_path, source_path) CMD("clang", "-O3", "-o", binary_path, "build_lib/*.c", source_path)
 #    elif defined(_MSC_VER)
-#       define REBUILD_URSELF(binary_path, source_path) CMD("cl.exe", source_path)
+#       define REBUILD_URSELF(binary_path, source_path) CMD("cl.exe", "build_lib/*.c", source_path)
 #    endif
 #  else
-#    define REBUILD_URSELF(binary_path, source_path) CMD("gcc","-O3", "-o", binary_path, source_path)
+#    define REBUILD_URSELF(binary_path, source_path) CMD("gcc","-O3", "-o", binary_path, "build_lib/*.c", source_path)
 #  endif
 #endif
 
