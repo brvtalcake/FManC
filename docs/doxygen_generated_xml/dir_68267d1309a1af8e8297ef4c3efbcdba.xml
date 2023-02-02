@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
   <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
     <compoundname>src</compoundname>
     <innerdir refid="dir_c30bdf76ce759a4eae8387be42921388">src/third_party</innerdir>
@@ -7,8 +7,8 @@
     <innerfile refid="d8/d07/analyze_8h">analyze.h</innerfile>
     <innerfile refid="d2/dfa/code__utils_8c">code_utils.c</innerfile>
     <innerfile refid="d3/dd5/code__utils_8h">code_utils.h</innerfile>
-    <innerfile refid="d9/d5a/file_man_8c">fileMan.c</innerfile>
-    <innerfile refid="df/d56/file_man_8h">fileMan.h</innerfile>
+    <innerfile refid="d2/d77/fileMan_8c">fileMan.c</innerfile>
+    <innerfile refid="d7/d5b/fileMan_8h">fileMan.h</innerfile>
     <innerfile refid="d5/dc4/fmanc_8h">fmanc.h</innerfile>
     <briefdescription>
     </briefdescription>
