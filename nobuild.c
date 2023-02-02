@@ -1,5 +1,4 @@
 #define NOBUILD_IMPLEMENTATION
-#include "nobuild.h"
 #include "build_lib/build.h"
 #include <stdio.h>
 #include <string.h>
@@ -60,12 +59,9 @@ int main(int argc, char **argv)
 {
     GO_REBUILD_URSELF(argc, argv);
 
-    printf("%d\n", check_for_static_lin_obj("test.c"));
-
-    /*if (argv[1] && strcmp(argv[1], "win") == 0)
+    if (argv[1] && strcmp(argv[1], "win") == 0)
     {
-        // make the same as under this line but with text colored in red, i.e "Windows build successful" printed red as if it was in a printf
-        build_static_windows() ? INFO("\x1b[32;1mWindows build successful\x1b[0m") : INFO("\x1b[34;1mFiles didn't change\x1b[0m");
+        // build_static_windows() ? INFO("\x1b[32;1mWindows build successful\x1b[0m") : INFO("\x1b[34;1mFiles didn't change\x1b[0m");
     }
     else if (argv[1] && strcmp(argv[1], "lin") == 0)
     {
@@ -75,7 +71,7 @@ int main(int argc, char **argv)
     {
         INFO("Usage: ./nobuild win|lin");
     }
-    */
+    
     
     return 0;
 }

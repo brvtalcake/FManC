@@ -1,6 +1,6 @@
-#define NOBUILD_IMPLEMENTATION
 #include "build.h"
-#include "../nobuild.h"
+
+extern int is_path1_modified_after_path2(const char* const path1, const char* const path2);
 
 int check_if_modified(const char* const file, const char* const target)
 {

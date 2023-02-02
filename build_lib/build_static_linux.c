@@ -1,6 +1,5 @@
-#define NOBUILD_IMPLEMENTATION
+
 #include "build.h"
-#include "../nobuild.h"
 
 #define CFLAGS "-Wall", "-Wextra", "-std=c11", "-pedantic", "-Werror", "-O3"
 
@@ -52,7 +51,7 @@ static void build_all_objs_recursively(const char *path)
     }
 }
 
-static int check_for_static_lin_obj(const char* src_file)
+int check_for_static_lin_obj(const char* src_file)
 {
     char *temp1 = malloc(256*sizeof(char));
     if(!temp1)
@@ -188,14 +187,15 @@ int build_static_linux(void)
         return 1;
     }
 
-    state_deps_recursively("./src/");
+    state_deps_recursively("./src");
 
     if (rebuild_everything)
     {
+        WARN("Rebuilding everything");
         built_something = 1;
         build_all_objs_recursively("./src/");
     }
-    // to be finished 
+    // to be finished : we need to copy headers, and then archive the objects in the newly built lib
 
     free(buff_file);
     return built_something;
