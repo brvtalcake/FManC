@@ -12,3 +12,6 @@ else ifneq (,$(findstring windows,$(OS)))
 	TEST_RES_FOLD=win
 endif
 
+.PHONY : stat_win stat_lin dyn_win dyn_lin
+
+stat_lin : 

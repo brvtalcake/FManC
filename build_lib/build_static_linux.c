@@ -17,7 +17,7 @@ static void state_deps_recursively(const char *path)
             buff_file = strcpy(buff_file, "obj/lin/static/");
             buff_file = strcat(buff_file, temp2);
             buff_file = strcat(buff_file, ".o");
-            if (!IS_DIR(child) &&  ENDS_WITH(child, ".c") && !rebuild_everything && (!check_for_static_lin_obj(child) || check_if_modified(child, buff_file))) {
+            if (!IS_DIR(child) &&  ENDS_WITH(child, ".c") && !rebuild_everything && (!check_for_static_lin_obj(child) || check_if_modified(child, buff_file) || check_if_modified(child, "lib/libFManC.linux.a"))) {
                 CMD("gcc", child, CFLAGS, "-c", "-o", buff_file);
                 built_something = 1;
             }
@@ -61,7 +61,7 @@ int check_for_static_lin_obj(const char* src_file)
     }
     
     Cstr temp2 = NOEXT(src_file);
-    temp1 = strcpy(temp1, "./obj/lin/static/");
+    temp1 = strcpy(temp1, "obj/lin/static/");
     temp1 = strcat(temp1, temp2);
     temp1 = strcat(temp1, ".o");
     if (PATH_EXISTS(temp1))
@@ -74,107 +74,22 @@ int check_for_static_lin_obj(const char* src_file)
     return 0;
 }
 
-
-/*
-int build_static_linux(void)
+static void copy_headers_recursively_lin(const char *path)
 {
-    clean_objs_lin();
-    int built_something = 0;
-    int rebuild_everything = 0;
-    char *buff_file = malloc(256*sizeof(char));
-    if(!buff_file)
-    {
-        ERROR("Failed to allocate memory at line %d", __LINE__);
-        return 1;
-    }
-
-    FOREACH_FILE_IN_DIR(file, "./src/",
-    {
-        if(!IS_DIR(file) && !rebuild_everything)
-        {
-            if(ENDS_WITH(file, ".c") && !rebuild_everything)
-            {
-                buff_file = strcpy(buff_file, "./src/");
-                buff_file = strcat(buff_file, file);
-                if(check_if_modified(buff_file, "./lib/libFManC.linux.a") && !rebuild_everything)
-                {
-                    built_something = 1;
-                    CMD("gcc", buff_file, "-c");
-                }
+    if (IS_DIR(path)) {
+        FOREACH_FILE_IN_DIR(file, path, {
+            const char *child = PATH(path, file);
+            buff_file = strcpy(buff_file, "include/");
+            buff_file = strcat(buff_file, file);
+            if (!IS_DIR(child) && ENDS_WITH(child, ".h") && check_if_modified(child, buff_file)) {
+                CMD("cp", child, "include/");
             }
-            else if(ENDS_WITH(file, ".h") && !rebuild_everything)
-            {
-                buff_file = strcpy(buff_file, "./src/");
-                buff_file = strcat(buff_file, file);
-                if(check_if_modified(buff_file, "./lib/libFManC.linux.a") && !rebuild_everything)
-                {
-                    rebuild_everything = 1;
-                }
-            }
-        }
-    });
-
-    FOREACH_FILE_IN_DIR(file, "./src/third_party/",
-    {
-        if(!IS_DIR(file) && !rebuild_everything)
-        {
-            if(ENDS_WITH(file, ".c") && !rebuild_everything)
-            {
-                buff_file = strcpy(buff_file, "./src/third_party/");
-                buff_file = strcat(buff_file, file);
-                if(check_if_modified(buff_file, "./lib/libFManC.linux.a") && !rebuild_everything)
-                {
-                    built_something = 1;
-                    CMD("gcc", buff_file, "-c");
-                }
-            }
-            else if(ENDS_WITH(file, ".h") && !rebuild_everything)
-            {
-                buff_file = strcpy(buff_file, "./src/third_party/");
-                buff_file = strcat(buff_file, file);
-                if(check_if_modified(buff_file, "./lib/libFManC.linux.a") && !rebuild_everything)
-                {
-                    rebuild_everything = 1;
-                }
-            }
-        }
-    });
-
-    if(rebuild_everything)
-    {
-        built_something = 1;
-        FOREACH_FILE_IN_DIR(file, "./src/third_party/",
-        {
-            if(!IS_DIR(file))
-            {
-                if(ENDS_WITH(file, ".c"))
-                {
-                    buff_file = strcpy(buff_file, "./src/third_party/");
-                    buff_file = strcat(buff_file, file);
-                    CMD("gcc", buff_file, "-c");
-                }
-            }
-        });
-
-        FOREACH_FILE_IN_DIR(file, "./src/",
-        {
-            if(!IS_DIR(file))
-            {
-                if(ENDS_WITH(file, ".c"))
-                {
-                    buff_file = strcpy(buff_file, "./src/");
-                    buff_file = strcat(buff_file, file);
-                    CMD("gcc", buff_file, "-c");
-                }
+            else if (IS_DIR(child) && !ENDS_WITH(child, ".")) {
+                copy_headers_recursively_lin(child);
             }
         });
     }
-    clean_objs_lin();
-    free(buff_file);
-    return built_something;
-} 
-
-*/
+}
 
 int build_static_linux(void)
 {
@@ -186,16 +101,25 @@ int build_static_linux(void)
         ERROR("Failed to allocate memory at line %d", __LINE__);
         return 1;
     }
-
-    state_deps_recursively("./src");
+    if(!PATH_EXISTS("./lib/libFManC.linux.a"))
+    {
+        rebuild_everything = 1;
+    }
+    else
+    {
+        check_for_state_deps_recursively("src");
+    }
 
     if (rebuild_everything)
     {
         WARN("Rebuilding everything");
         built_something = 1;
-        build_all_objs_recursively("./src/");
+        build_all_objs_recursively("src");
     }
     // to be finished : we need to copy headers, and then archive the objects in the newly built lib
+    CMD("ar", "-rcs", "lib/libFManC.linux.a", "obj/lin/static/*.o");
+    copy_headers_recursively_lin("src");
+    
 
     free(buff_file);
     return built_something;
