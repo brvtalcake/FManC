@@ -1,6 +1,12 @@
 # Project informations
 VERSION=1.0.0
 MAJOR_VERSION=1
+MINOR_VERSION=0
+PATCH_VERSION=0
+PROJECT_NAME=FManC
+PROJECT_DESCRIPTION="File Management C Library"
+PROJECT_AUTHOR="Axel PASCON"
+PROJECT_AUTHOR_EMAIL="axlpascon@gmail.com"
 
 # OS-dependant variables
 DETECTED_OS=lin
@@ -84,55 +90,54 @@ DOC_TARGET=$(addsuffix _$(DETECTED_OS), doc)
 all : $(ALL_TARGET)
 
 all_lin : static shared copy_headers doc test 
-	@echo "\e[32mBuilt everything for $(PRINTED_OS)\e[0m"
+	@printf "\e[32mBuilt everything for $(PRINTED_OS)\e[0m"
 
 all_win : static shared copy_headers doc test
-	@echo "\e[32mBuilt everything for $(PRINTED_OS)\e[0m"
+	@printf "\e[32mBuilt everything for $(PRINTED_OS)\e[0m"
 
 static : $(STAT_TARGET)
 
 static_lin : $(LIB_LIN_STATIC_FILES) copy_headers doc test
-	@echo "\e[32mBuilt static library for $(PRINTED_OS)\e[0m"
+	@printf "\e[32mBuilt static library for $(PRINTED_OS)\e[0m"
 
 static_win : $(LIB_WIN_STATIC_FILES) copy_headers doc test
-	@echo "\e[32mBuilt static library for $(PRINTED_OS)\e[0m"
+	@printf "\e[32mBuilt static library for $(PRINTED_OS)\e[0m"
 
 shared : $(SHARED_TARGET)
 
 shared_lin : $(LIB_LIN_SHARED_FILES) copy_headers doc test
-	@echo "\e[32mBuilt shared library for $(PRINTED_OS)\e[0m"
+	@printf "\e[32mBuilt shared library for $(PRINTED_OS)\e[0m"
 
 shared_win : $(LIB_WIN_SHARED_FILES) copy_headers doc test
-	@echo "\e[32mBuilt shared library for $(PRINTED_OS)\e[0m"
+	@printf "\e[32mBuilt shared library for $(PRINTED_OS)\e[0m"
 
 test : $(TEST_TARGET)
 
 test_lin : $(LIB_LIN_STATIC_FILES) $(LIB_LIN_SHARED_FILES)
-	@echo "\e[32mRunning tests for $(PRINTED_OS)\e[0m"
+	@printf "\e[32mRunning tests for $(PRINTED_OS)\e[0m"
 ## TO DO
 
 test_win : $(LIB_WIN_STATIC_FILES) $(LIB_WIN_SHARED_FILES)
-	@echo "\e[32mRunning tests for $(PRINTED_OS)\e[0m"
+	@printf "\e[32mRunning tests for $(PRINTED_OS)\e[0m"
 ## TO DO
 
 clean : $(CLEAN_TARGET)
 
 clean_lin : $(O_LIN_STATIC_FILES) $(O_LIN_SHARED_FILES) $(LIB_LIN_STATIC_FILES) $(LIB_LIN_SHARED_FILES)
-	@echo "\e[32mCleaned everything for $(PRINTED_OS)\e[0m"
+	@printf "\e[32mCleaned everything for $(PRINTED_OS)\e[0m"
 	@rm -f $(O_LIN_STATIC_FILES) $(O_LIN_SHARED_FILES) $(LIB_LIN_STATIC_FILES) $(LIB_LIN_SHARED_FILES)
 
 clean_win : $(O_WIN_STATIC_FILES) $(O_WIN_SHARED_FILES) $(LIB_WIN_STATIC_FILES) $(LIB_WIN_SHARED_FILES)
-	@echo "\e[32mCleaned everything for $(PRINTED_OS)\e[0m"
+	@printf "\e[32mCleaned everything for $(PRINTED_OS)\e[0m"
 	@rm -f $(O_WIN_STATIC_FILES) $(O_WIN_SHARED_FILES) $(LIB_WIN_STATIC_FILES) $(LIB_WIN_SHARED_FILES)
 ## TO DO : check if rm exists on windows
 
 copy_headers : $(COPY_HEADERS_TARGET)
 
 copy_headers_lin : $(H_SRC_FILES) 
-	@echo "\e[32mCopied headers for $(PRINTED_OS)\e[0m"
+	@printf "\e[32mCopied headers for $(PRINTED_OS)\e[0m"
 	@cp $(addsuffix /,$(addprefix ./,$(H_SRC_FILES))) -t ./include/
 
 copy_headers_win : $(H_SRC_FILES) # This one should not work.
-	@echo "\e[32mCopied headers for $(PRINTED_OS)\e[0m"
+	@printf "\e[32mCopied headers for $(PRINTED_OS)\e[0m"
 	@cp $(addsuffix \,$(addprefix .\,$(H_SRC_FILES))) .\\include\\ 
-
