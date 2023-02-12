@@ -2,7 +2,7 @@
 
 MIT License
 
-Copyright (c) 2022 Axel PASCON
+Copyright (c) 2022-2023 Axel PASCON
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -39,6 +39,7 @@ SOFTWARE.
 FMC_SHARED struct FManC_File
 {
     FILE *file;
+    FMC_FileState isOpened;
     char path[MAX_FPATH_SIZE];
     char name[MAX_FNAME_SIZE];
     char extension[MAX_FEXT_SIZE];
@@ -57,10 +58,10 @@ FMC_SHARED typedef struct FManC_StrOcc FMC_StrOcc;
 
 FMC_SHARED struct FManC_CharComp
 {
-    int mostLeft : 8;
-    int middleLeft : 8;
-    int middleRight : 8;
-    int mostRight : 8;
+    unsigned int mostLeft : 8;
+    unsigned int middleLeft : 8;
+    unsigned int middleRight : 8;
+    unsigned int mostRight : 8;
 };
 
 FMC_SHARED typedef struct FManC_CharComp FMC_CharComp;

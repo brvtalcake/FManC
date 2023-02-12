@@ -38,7 +38,7 @@ SOFTWARE.
         #define FMC_FUNC_ACCESS(access_type, ...) __attribute__((access(access_type, __VA_ARGS__)))
     #endif // FMC_FUNC_ACCESS
 
-    #ifndef FMC_FUNC_ALIAS(aliased)
+    #ifndef FMC_FUNC_ALIAS
         #define FMC_FUNC_ALIAS(aliased) __attribute__((alias(FMC_STRINGIZE(aliased)))) 
     #endif // FMC_FUNC_ALIAS
 
@@ -168,7 +168,7 @@ SOFTWARE.
 
 
 
-    #ifndef FMC_FUNC_STRONG_ALIAS(func_name, aliased)
+    #ifndef FMC_FUNC_STRONG_ALIAS
         #define FMC_FUNC_STRONG_ALIAS(func_name, aliased) FMC_FUNC_ALIAS(aliased) FMC_FUNC_COPY(aliased) __typeof__(aliased) func_name
     #endif // FMC_FUNC_STRONG_ALIAS
 
@@ -193,7 +193,122 @@ SOFTWARE.
         #define FMC_VAR_CLEANUP(func_name) __attribute__((cleanup(func_name)))
     #endif // FMC_VAR_CLEANUP
     
+    #ifndef FMC_VAR_COMMON
+        #define FMC_VAR_COMMON __attribute__((common))
+    #endif // FMC_VAR_COMMON
+
+    #ifndef FMC_VAR_NO_COMMON
+        #define FMC_VAR_NO_COMMON __attribute__((nocommon))
+    #endif // FMC_VAR_NO_COMMON
+
+    #ifndef FMC_VAR_COPY
+        #define FMC_VAR_COPY(var) __attribute__((copy(var)))
+    #endif // FMC_VAR_COPY
+
+    #ifndef FMC_VAR_DEPRECATED
+        #define FMC_VAR_DEPRECATED(msg) __attribute__((deprecated(FMC_STRINGIZE(msg))))
+    #endif // FMC_VAR_DEPRECATED
+
+    #ifndef FMC_VAR_UNAVAILABLE
+        #define FMC_VAR_UNAVAILABLE(msg) __attribute__((unavailable(FMC_STRINGIZE(msg))))
+    #endif // FMC_VAR_UNAVAILABLE
+
+    #ifndef FMC_VAR_MACH_MODE
+        #define FMC_VAR_MACH_MODE(mode) __attribute__((mode(mode)))
+    #endif // FMC_VAR_MACH_MODE
+
+    #ifndef FMC_VAR_NON_STRING
+        #define FMC_VAR_NON_STRING __attribute__((nonstring))
+    #endif // FMC_VAR_NON_STRING
+
+    #ifndef FMC_VAR_SECTION
+        #define FMC_VAR_SECTION(section_name) __attribute__((section(FMC_STRINGIZE(section_name))))
+    #endif // FMC_VAR_SECTION
+
+    #ifndef FMC_VAR_UNUSED
+        #define FMC_VAR_UNUSED __attribute__((unused))
+    #endif // FMC_VAR_UNUSED
+
+    #ifndef FMC_VAR_USED
+        #define FMC_VAR_USED __attribute__((used))
+    #endif // FMC_VAR_USED
+
+    #ifndef FMC_VAR_UNINITIALIZED
+        #define FMC_VAR_UNINITIALIZED __attribute__((uninitialized))
+    #endif // FMC_VAR_UNINITIALIZED
+
+    #ifndef FMC_VAR_VISIBILITY
+        #define FMC_VAR_VISIBILITY(visibility_type) __attribute__((visibility(FMC_STRINGIZE(visibility_type))))
+    #endif // FMC_VAR_VISIBILITY
+
+    #ifndef FMC_VAR_WEAK
+        #define FMC_VAR_WEAK __attribute__((weak))
+    #endif // FMC_VAR_WEAK
+
 #endif // FMC_VAR_ATTRIBUTES
 
+#ifndef FMC_TYPE_ATTRIBUTES
+    #define FMC_TYPE_ATTRIBUTES
+
+    #ifndef FMC_TYPE_DEPRECATED
+        #define FMC_TYPE_DEPRECATED(msg) __attribute__((deprecated(FMC_STRINGIZE(msg))))
+    #endif // FMC_TYPE_DEPRECATED
+
+    #ifndef FMC_TYPE_UNAVAILABLE
+        #define FMC_TYPE_UNAVAILABLE(msg) __attribute__((unavailable(FMC_STRINGIZE(msg))))
+    #endif // FMC_TYPE_UNAVAILABLE
+
+    #ifndef FMC_TYPE_MACH_MODE
+        #define FMC_TYPE_MACH_MODE(mode) __attribute__((mode(mode)))
+    #endif // FMC_TYPE_MACH_MODE
+
+    #ifndef FMC_TYPE_UNUSED
+        #define FMC_TYPE_UNUSED __attribute__((unused))
+    #endif // FMC_TYPE_UNUSED
+
+    #ifndef FMC_TYPE_VISIBILITY
+        #define FMC_TYPE_VISIBILITY(visibility_type) __attribute__((visibility(FMC_STRINGIZE(visibility_type))))
+    #endif // FMC_TYPE_VISIBILITY
+
+#endif // FMC_TYPE_ATTRIBUTES
+
+#ifndef FMC_LABEL_ATTRIBUTES
+    #define FMC_LABEL_ATTRIBUTES
+    
+    #ifndef FMC_LABEL_UNUSED
+        #define FMC_LABEL_UNUSED __attribute__((unused))
+    #endif // FMC_LABEL_UNUSED
+
+    #ifndef FMC_LABEL_HOT
+        #define FMC_LABEL_HOT __attribute__((hot))
+    #endif // FMC_LABEL_HOT
+
+    #ifndef FMC_LABEL_COLD
+        #define FMC_LABEL_COLD __attribute__((cold))
+    #endif // FMC_LABEL_COLD
+
+#endif // FMC_LABEL_ATTRIBUTES
+
+#ifndef FMC_ENUM_ATTRIBUTES
+    #define FMC_ENUM_ATTRIBUTES
+
+    #ifndef FMC_ENUM_DEPRECATED
+        #define FMC_ENUM_DEPRECATED(msg) __attribute__((deprecated(FMC_STRINGIZE(msg))))
+    #endif // FMC_ENUM_DEPRECATED
+
+    #ifndef FMC_ENUM_UNAVAILABLE
+        #define FMC_ENUM_UNAVAILABLE(msg) __attribute__((unavailable(FMC_STRINGIZE(msg))))
+    #endif // FMC_ENUM_UNAVAILABLE
+
+#endif // FMC_ENUM_ATTRIBUTES
+
+#ifndef FMC_STMT_ATTRIBUTES
+    #define FMC_STMT_ATTRIBUTES
+
+    #ifndef FMC_STMT_FALLTHROUGH
+        #define FMC_STMT_FALLTHROUGH __attribute__((fallthrough))
+    #endif // FM_STMT_FALLTHROUGH
+
+#endif // FMC_STMT_ATTRIBUTES
 
 #endif // FMC_ATTRIBUTES_H

@@ -2,7 +2,7 @@
 
 MIT License
 
-Copyright (c) 2022 Axel PASCON
+Copyright (c) 2023 Axel PASCON
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -26,12 +26,12 @@ SOFTWARE.
 
 #pragma once
 
-#ifndef FMC_ENCODINGS_H
-#define FMC_ENCODINGS_H
+#ifndef FMC_ENCODINGS
+#define FMC_ENCODINGS
 
 #include "../../general/FMC_general.h"
 
 FMC_SHARED FMC_Encodings FMC_getEncoding(FILE *file);
 FMC_SHARED FMC_Encodings FMC_checkEncodingFlag(int encoding);
 
-#endif // FMC_ENCODINGS_H
+#endif // FMC_ENCODINGS

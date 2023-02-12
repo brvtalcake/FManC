@@ -2,7 +2,7 @@
 
 MIT License
 
-Copyright (c) 2022 Axel PASCON
+Copyright (c) 2022-2023 Axel PASCON
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -24,21 +24,9 @@ SOFTWARE.
 
 */
 
-#pragma once
+#ifndef FMC_GLOBALS_H
+#define FMC_GLOBALS_H
 
-#ifndef FMC_FLAGS
-#define FMC_FLAGS
+extern _Bool FMC_ENABLE_DEBUG;
 
-#ifndef FMC_ENCODING_FLAGS
-    #define FMC_ENCODING_FLAGS
-    #define UTF8 1
-    #define UTF8_BOM 2
-    #define UTF16_LE 4
-    #define UTF16_BE 8
-    #define UTF32_LE 16
-    #define UTF32_BE 32
-    #define ASCII 64
-    #define UNKNOWN 128
-#endif
-
-#endif // FMC_FLAGS
+#endif // FMC_GLOBALS_H

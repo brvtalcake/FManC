@@ -82,7 +82,7 @@ int main()
  *      Author: sboehler
  */
 
-#include <stdio.h>
+
 
 /*
 void foo_void(void)
@@ -224,7 +224,45 @@ void foo_char_char(char c, char d)
     \
         __attribute__((cleanup(func_##__LINE__))) int ____##__LINE__
 #endif // FMC_DEFER
+#define FMC_STRINGIZE_MACROS
+    #define FMC_STRINGIZE10(x) #x
+    #define FMC_STRINGIZE9(x) FMC_STRINGIZE10(x)
+    #define FMC_STRINGIZE8(x) FMC_STRINGIZE9(x)
+    #define FMC_STRINGIZE7(x) FMC_STRINGIZE8(x)
+    #define FMC_STRINGIZE6(x) FMC_STRINGIZE7(x)
+    #define FMC_STRINGIZE5(x) FMC_STRINGIZE6(x)
+    #define FMC_STRINGIZE4(x) FMC_STRINGIZE5(x)
+    #define FMC_STRINGIZE3(x) FMC_STRINGIZE4(x)
+    #define FMC_STRINGIZE2(x) FMC_STRINGIZE3(x)
+    #define FMC_STRINGIZE(x) FMC_STRINGIZE2(x)
 
+    #define DECL_METHOD(name, ret, ...) \
+        ret (*name)(__VA_ARGS__)
+
+    #define INIT_STRUCT_METHOD(method, associated_function) \
+        .method = associated_function
+
+    #define INIT_STRUCT(field) \
+        {.field1 = field, \
+        INIT_STRUCT_METHOD(method, &return_field), \
+        INIT_STRUCT_METHOD(method2, &return_int) }
+
+typedef struct mystruct
+{
+    int field1;
+    DECL_METHOD(method, int, struct mystruct self, int);
+    DECL_METHOD(method2, int, struct mystruct self, int);
+} mystruct;
+
+int return_field(mystruct self, int a)
+{
+    return self.field1;
+}
+
+int return_int(mystruct self, int a)
+{
+    return a;
+}
 int main(int argc, char** argv)
 {
 //    foo();
@@ -238,9 +276,8 @@ int main(int argc, char** argv)
 //   __typeof__("ciao") a = "ciao";
 
     //FMC_DEFER(printf("ciao\n"));
-    __attribute__((externally_visible)) void func(void){; printf("ciao\n"); };
-    func();
-
+    mystruct s = INIT_STRUCT(10);
+    printf("%d\n%d\n%s\n%s\n", s.method(s, 2), s.method2(s, 2), FMC_STRINGIZE(typeof(int (struct mystruct self))), FMC_STRINGIZE(typeof(typeof(int (struct mystruct self))*)));
     return 0;
     //ML99_EVAL(ML99_call(ML99_if, ML99_boolEq(TAKE_2ND(1,2,3,4,5,6), v(2)), v(printf("empty")), v(printf("not empty"))));
 }

@@ -2,7 +2,7 @@
 
 MIT License
 
-Copyright (c) 2022 Axel PASCON
+Copyright (c) 2022-2023 Axel PASCON
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -35,5 +35,8 @@ typedef int found_bs_n;
 typedef int found_bs_t;
 typedef int found_bs_r_bs_n;
 typedef _Bool FMC_CharControl;
+typedef _Bool FMC_FileState;
+typedef _Bool FMC_ERRORS_AND_WARNINGS_STATE;
+
 
 #endif // FMC_TYPEDEFS_H

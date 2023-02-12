@@ -2,7 +2,7 @@
 
 MIT License
 
-Copyright (c) 2023 Axel PASCON
+Copyright (c) 2022-2023 Axel PASCON
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -24,7 +24,7 @@ SOFTWARE.
 
 */
 
-/* Compilers support macros need to be revised and reformulated */
+
 #pragma once
 
 #ifndef FMC_MACROS_H
@@ -79,7 +79,8 @@ SOFTWARE.
     #define FMC_STRINGIZE(x) FMC_STRINGIZE2(x)
 #endif
 
-#ifndef FMC_STRINGIZE_2
+#ifndef FMC_STRINGIZE_X
+    #define FMC_STRINGIZE_X
     #define FMC_STRINGIZE_2(x, y) FMC_STRINGIZE(FMC_CONCAT(x, y))
     #define FMC_STRINGIZE_3(x, y, z) FMC_STRINGIZE(FMC_CONCAT(FMC_CONCAT(x, y), z))
     #define FMC_STRINGIZE_4(x, y, z, w) FMC_STRINGIZE(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(x, y), z), w))
@@ -90,9 +91,22 @@ SOFTWARE.
     #define FMC_STRINGIZE_9(x, y, z, w, v, u, t, s, r) FMC_STRINGIZE(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(x, y), z), w), v), u), t), s), r))
 #endif
 
-#ifndef FMC_DEFER
-    #define FMC_DEFER(stmt, body) do body while (0); stmt
-#endif // FMC_DEFER
+#ifdef FMC_DEFER
+    #undef FMC_DEFER
+#endif
+#define FMC_DEFER(stmt, body) do body while (0); stmt
+
+
+#ifndef FMC_METHODS
+    #define FMC_METHODS
+
+    #define DECL_METHOD(name, ret, ...) \
+        ret (*name)(__VA_ARGS__)
+
+    #define INIT_STRUCT_METHOD(method, associated_function) \
+        .method = associated_function
+
+#endif // FMC_METHODS
 
 /*#ifndef FMC_OVERLOAD
     #define FMC_OVERLOAD(func)
@@ -115,7 +129,7 @@ SOFTWARE.
 #define FMC_VERSION_NUMBER FMC_CONCAT_4(FMC_MAJOR_VERSION, FMC_MINOR_VERSION, FMC_PATCH_VERSION, L)
 
 
-
+/* Maybe I'll have to modify this, even though it sounds fine to me now. */
 #ifndef FMC_SHARED
     #if FMC_COMPILING_ON_WINDOWS && !defined(FMC_STATIC)
         #if defined(FMC_BUILD_DLL)
@@ -137,9 +151,19 @@ SOFTWARE.
     #endif // PLATFORMS
 #endif // FMC_SHARED
 
-#ifndef FMC_COMPILE_TIME_ERROR
-        #define FMC_COMPILE_TIME_ERROR(msg) _Pragma(STRINGIZE(GCC error STRINGIZE(msg)))
+#ifdef FMC_COMPILE_TIME_ERROR
+    #undef FMC_COMPILE_TIME_ERROR
 #endif // FMC_COMPILE_TIME_ERROR
+#define FMC_COMPILE_TIME_ERROR(msg) _Pragma(STRINGIZE(GCC error STRINGIZE(msg)))
+
+
+#ifdef FMC_ERROR_CHECK
+    #undef FMC_ERROR_CHECK
+#endif // FMC_ERROR_CHECK
+#define FMC_ERROR_CHECK(cond) \
+    if (cond) 
+
+
 
 
 #endif // FMC_MACROS_H

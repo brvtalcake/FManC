@@ -2,7 +2,7 @@
 
 MIT License
 
-Copyright (c) 2022 Axel PASCON
+Copyright (c) 2023 Axel PASCON
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -23,53 +23,81 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 */
-
+#define __STDC_WANT_LIB_EXT1__ 1
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
 #include <wchar.h>
-#include <locale.h>
 
+#include "../../general/utils/FMC_errors.h"
+#include "../../general/utils/FMC_globals.h"
 #include "FMC_encodings.h"
 
-FMC_SHARED FMC_Encodings FMC_getEncoding(FILE *file)
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_Encodings FMC_getEncoding(FILE *file)
 {
     if (file == NULL)
     {
+        if (FMC_ENABLE_DEBUG) 
+        {
+            FMC_makeMsg(err_null, 2, "ERROR : ", "The provided file is NULL.");
+            FMC_printBrightRedError(stderr, err_null);
+        }
         return error;
     }
+
+    // check orientation
+    if (fwide(file, -1) >= 0)
+    {
+        if (FMC_ENABLE_DEBUG) 
+        {
+            FMC_makeMsg(err_wide, 2, "ERROR : ", "The provided file must be opened with by orientation.");
+            FMC_printBrightRedError(stderr, err_wide);
+        }
+        return error;
+    }
+
     size_t sizeOfFile = 0;
-    fseek(file, 0, SEEK_END);
+    if(fseek(file, 0, SEEK_END)) 
+    {
+        FMC_makeMsg(err_seek_1, 2, "FMC INTERNAL ERROR : ", "fseek failure.");
+        FMC_printBrightRedError(stderr, err_seek_1);
+        return error;
+    }
+    errno = 0;
     sizeOfFile = ftell(file);
+    if (errno)
+    {
+        FMC_makeMsg(err_tell, 3, "FMC INTERNAL ERROR : ", "ftell failure.", strerror(errno));
+        FMC_printBrightRedError(stderr, err_tell);
+        return error;
+    }
     rewind(file);
     char buff[4] = {0};
     if (sizeOfFile <= 4 && sizeOfFile >= 0) fread(buff, 1, sizeOfFile, file);
     else fread(buff, 1, 4, file);
     
-    printf("buff = %x %x %x %x\n", buff[0], buff[1], buff[2], buff[3]);
-
-    if (sizeOfFile >= 3 && buff[0] == 0xFFFFFFEF && buff[1] == 0xFFFFFFBB && buff[2] == 0xFFFFFFBF)
+    if (sizeOfFile >= 3 && (unsigned char) buff[0] == 0xEF && (unsigned char) buff[1] == 0xBB && (unsigned char) buff[2] == 0xBF)
     {
         rewind(file);
         return utf8_bom;
     }
-    else if (sizeOfFile >= 2 && buff[0] == 0xFFFFFFFF && buff[1] == 0xFFFFFFFE)
+    else if (sizeOfFile >= 2 && (unsigned char) buff[0] == 0xFF && (unsigned char) buff[1] == 0xFE)
     {
         rewind(file);
         return utf16_le;
     }
-    else if (sizeOfFile >= 2 && buff[0] == 0xFFFFFFFE && buff[1] == 0xFFFFFFFF)
+    else if (sizeOfFile >= 2 && (unsigned char) buff[0] == 0xFE && (unsigned char) buff[1] == 0xFF)
     {
         rewind(file);
         return utf16_be;
     }
-    else if (sizeOfFile >= 4 && buff[0] == 0xFFFFFF00 && buff[1] == 0xFFFFFF00 && buff[2] == 0xFFFFFFFE && buff[3] == 0xFFFFFFFF)
+    else if (sizeOfFile >= 4 && (unsigned char) buff[0] == 0x00 && (unsigned char) buff[1] == 0x00 && (unsigned char) buff[2] == 0xFE && (unsigned char) buff[3] == 0xFF)
     {
         rewind(file);
         return utf32_be;
     }
-    else if (sizeOfFile >= 4 && buff[0] == 0xFFFFFFFF && buff[1] == 0xFFFFFFFE && buff[2] == 0xFFFFFF00 && buff[3] == 0xFFFFFF00)
+    else if (sizeOfFile >= 4 && (unsigned char) buff[0] == 0xFF && (unsigned char) buff[1] == 0xFE && (unsigned char) buff[2] == 0x00 && (unsigned char) buff[3] == 0x00)
     {
         rewind(file);
         return utf32_le;
@@ -80,6 +108,11 @@ FMC_SHARED FMC_Encodings FMC_getEncoding(FILE *file)
         if (sizeOfFile == 0)
         {
             rewind(file);
+            if (FMC_ENABLE_DEBUG) 
+            {
+                FMC_makeMsg(err_empty, 2, "WARNING : ", "The provided file is empty.");
+                FMC_printBrightYellowError(stderr, err_empty);
+            }
             return unknown;
         }
         
@@ -87,7 +120,7 @@ FMC_SHARED FMC_Encodings FMC_getEncoding(FILE *file)
         size_t cpt = 0;
         while((currentChar = fgetc(file)) != EOF)
         {
-            if (currentChar > 127 || currentChar < 0 && currentChar != EOF)
+            if (currentChar != EOF &&  (unsigned char) currentChar > 127)
             {
                 rewind(file);
                 return utf8;
@@ -103,7 +136,7 @@ FMC_SHARED FMC_Encodings FMC_getEncoding(FILE *file)
     }
 }
 
-FMC_SHARED FMC_Encodings FMC_checkEncodingFlag(int encoding)
+FMC_SHARED FMC_FUNC_PURE FMC_Encodings FMC_checkEncodingFlag(int encoding)
 {
     int value = encoding;
     switch (value)

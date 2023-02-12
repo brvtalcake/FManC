@@ -38,5 +38,6 @@ SOFTWARE.
 #include "types/FMC_typedefs.h"
 #include "types/FMC_enums.h"
 #include "utils/FMC_errors.h"
+#include "utils/FMC_globals.h"
 
 #endif /* FMC_DATA_H */
