@@ -30,57 +30,170 @@ SOFTWARE.
 #include "FMC_platform.h"
 #include "FMC_macros.h"
 
-#if defined(__has_attribute)
-    #define FMC_HAS_ATTRIBUTE(to_test) __has_attribute(to_test)
-#else
-    #define FMC_HAS_ATTRIBUTE(to_test) 0
-#endif // __has_attribute
 
 #ifndef FMC_FUNC_ATTRIBUTES
     #define FMC_FUNC_ATTRIBUTES 1
 
-    #ifndef FMC_ACCESS
-        #define FMC_ACCESS(access_type, position) __attribute__((access(access_type, position)))
-    #endif // FMC_ACCESS
-    
-    #ifndef FMC_ALWAYS_INLINE
-        #define FMC_ALWAYS_INLINE __attribute__((always_inline))
-    #endif // FMC_ALWAYS_INLINE
+    #ifndef FMC_FUNC_ACCESS
+        #define FMC_FUNC_ACCESS(access_type, ...) __attribute__((access(access_type, __VA_ARGS__)))
+    #endif // FMC_FUNC_ACCESS
 
-    #ifndef FMC_COLD
-        #define FMC_COLD __attribute__((cold))
-    #endif // FMC_COLD
+    #ifndef FMC_FUNC_ALIAS(aliased)
+        #define FMC_FUNC_ALIAS(aliased) __attribute__((alias(FMC_STRINGIZE(aliased)))) 
+    #endif // FMC_FUNC_ALIAS
 
-    #ifndef FMC_CONST
-        #define FMC_CONST __attribute__((const))
-    #endif // FMC_CONST
+    #ifndef FMC_FUNC_ALWAYS_INLINE
+        #define FMC_FUNC_ALWAYS_INLINE __attribute__((always_inline))
+    #endif // FMC_FUNC_ALWAYS_INLINE
 
-    #ifndef FMC_CONSTRUCTOR
-        #define FMC_CONSTRUCTOR(priority) __attribute__((constructor(priority)))
-    #endif // FMC_CONSTRUCTOR
+    #ifndef FMC_FUNC_COLD
+        #define FMC_FUNC_COLD __attribute__((cold))
+    #endif // FMC_FUNC_COLD
 
-    #ifndef FMC_DESTRUCTOR
-        #define FMC_DESTRUCTOR(priority) __attribute__((destructor(priority)))
-    #endif // FMC_DESTRUCTOR
+    #ifndef FMC_FUNC_CONST
+        #define FMC_FUNC_CONST __attribute__((const))
+    #endif // FMC_FUNC_CONST
+
+    #ifndef FMC_FUNC_CONSTRUCTOR
+        #define FMC_FUNC_CONSTRUCTOR(priority) __attribute__((constructor(priority)))
+    #endif // FMC_FUNC_CONSTRUCTOR
+
+    #ifndef FMC_FUNC_DESTRUCTOR
+        #define FMC_FUNC_DESTRUCTOR(priority) __attribute__((destructor(priority)))
+    #endif // FMC_FUNC_DESTRUCTOR
+
+    #ifndef FMC_FUNC_COPY
+        #define FMC_FUNC_COPY(func) __attribute__((copy(func)))
+    #endif // FMC_FUNC_COPY
+
+    #ifndef FMC_FUNC_DEPRECATED
+        #define FMC_FUNC_DEPRECATED(msg) __attribute__((deprecated(FMC_STRINGIZE(msg))))
+    #endif // FMC_FUNC_DEPRECATED
+
+    #ifndef FMC_FUNC_UNAVAILABLE
+        #define FMC_FUNC_UNAVAILABLE(msg) __attribute__((unavailable(FMC_STRINGIZE(msg))))
+    #endif // FMC_FUNC_UNAVAILABLE
+
+    #ifndef FMC_FUNC_ERROR
+        #define FMC_FUNC_ERROR(msg) __attribute__((error(FMC_STRINGIZE(msg))))
+    #endif // FMC_FUNC_ERROR
+
+    #ifndef FMC_FUNC_WARNING
+        #define FMC_FUNC_WARNING(msg) __attribute__((warning(FMC_STRINGIZE(msg))))
+    #endif // FMC_FUNC_WARNING
+
+    #ifndef FMC_FUNC_EXTERNALLY_VISIBLE
+        #define FMC_FUNC_EXTERNALLY_VISIBLE __attribute__((externally_visible))
+    #endif // FMC_FUNC_EXTERNALLY_VISIBLE
+
+    #ifndef FMC_FUNC_FLATTEN
+        #define FMC_FUNC_FLATTEN __attribute__((flatten))
+    #endif // FMC_FUNC_FLATTEN
+
+    #ifndef FMC_FUNC_FORMAT
+        #define FMC_FUNC_FORMAT(func_fmt, fmt_pos, args_pos) __attribute__((format(func_fmt, fmt_pos, args_pos)))
+    #endif // FMC_FUNC_FORMAT
+
+    #ifndef FMC_FUNC_HOT
+        #define FMC_FUNC_HOT __attribute__((hot))
+    #endif // FMC_FUNC_HOT
+
+    #ifndef FMC_FUNC_MALLOC
+        #define FMC_FUNC_MALLOC(...) __attribute__((malloc(__VA_ARGS__)))
+    #endif // FMC_FUNC_MALLOC
+
+    #ifndef FMC_FUNC_NONNULL
+        #define FMC_FUNC_NONNULL(...) __attribute__((nonnull(__VA_ARGS__)))
+    #endif // FMC_FUNC_NONNULL
+
+    #ifndef FMC_FUNC_NORETURN
+        #define FMC_FUNC_NORETURN __attribute__((noreturn))
+    #endif // FMC_FUNC_NORETURN
+
+    #ifndef FMC_FUNC_OPTIMIZE
+        #define FMC_FUNC_OPTIMIZE(level) __attribute__((optimize(FMC_STRINGIZE(level))))
+    #endif // FMC_FUNC_OPTIMIZE
+
+    #ifndef FMC_FUNC_PURE
+        #define FMC_FUNC_PURE __attribute__((pure))
+    #endif // FMC_FUNC_PURE
+
+    #ifndef FMC_FUNC_RETURNS_NONNULL
+        #define FMC_FUNC_RETURNS_NONNULL __attribute__((returns_nonnull))
+    #endif // FMC_FUNC_RETURNS_NONNULL
+
+    #ifndef FMC_FUNC_SECTION
+        #define FMC_FUNC_SECTION(section_name) __attribute__((section(FMC_STRINGIZE(section_name))))
+    #endif // FMC_FUNC_SECTION
+
+    #ifndef FMC_FUNC_SENTINEL
+        #define FMC_FUNC_SENTINEL(pos) __attribute__((sentinel(pos)))
+    #endif // FMC_FUNC_SENTINEL
+
+    #ifndef FMC_FUNC_STACK_PROTECT
+        #define FMC_FUNC_STACK_PROTECT __attribute__((stack_protect))
+    #endif // FMC_FUNC_STACK_PROTECT
+
+    #ifndef FMC_FUNC_SYMVER
+        #define FMC_FUNC_SYMVER(name, major, minor, patch) __attribute__((symver(FMC_STRINGIZE(FMC_CONCAT_6(name, @, v, major, minor, patch)))))
+    #endif // FMC_FUNC_SYMVER
+
+    #ifndef FMC_FUNC_UNUSED
+        #define FMC_FUNC_UNUSED __attribute__((unused))
+    #endif // FMC_FUNC_UNUSED
+
+    #ifndef FMC_FUNC_USED
+        #define FMC_FUNC_USED __attribute__((used))
+    #endif // FMC_FUNC_USED
+
+    #ifndef FMC_FUNC_VISIBILITY
+        #define FMC_FUNC_VISIBILITY(visibility_type) __attribute__((visibility(FMC_STRINGIZE(visibility_type))))
+    #endif // FMC_FUNC_VISIBILITY
+
+    #ifndef FMC_FUNC_WARN_UNUSED_RESULT
+        #define FMC_FUNC_WARN_UNUSED_RESULT __attribute__((warn_unused_result))
+    #endif // FMC_FUNC_WARN_UNUSED_RESULT
+
+    #ifndef FMC_FUNC_WEAK
+        #define FMC_FUNC_WEAK __attribute__((weak))
+    #endif // FMC_FUNC_WEAK
+
+    #ifndef FMC_FUNC_WEAK_REF
+        #define FMC_FUNC_WEAK_REF(...) __attribute__((weakref(FMC_STRINGIZE(__VA_ARGS__))))
+    #endif // FMC_FUNC_WEAK_REF
+
+    #ifndef FMC_FUNC_ZERO_REGISTERS
+        #define FMC_FUNC_ZERO_REGISTERS(to_zero) __attribute__((zero_call_used_regs(FMC_STRINGIZE(to_zero))))
+    #endif // FMC_FUNC_ZERO_REGISTERS
 
 
 
-    #ifndef FMC_INLINE
-        #define FMC_INLINE inline FMC_ALWAYS_INLINE
-    #endif // FMC_INLINE
+    #ifndef FMC_FUNC_STRONG_ALIAS(func_name, aliased)
+        #define FMC_FUNC_STRONG_ALIAS(func_name, aliased) FMC_FUNC_ALIAS(aliased) FMC_FUNC_COPY(aliased) __typeof__(aliased) func_name
+    #endif // FMC_FUNC_STRONG_ALIAS
 
-    #ifndef FMC_PRINTF_FMT
-        #define FMC_PRINTF_FMT(fmt_pos, args_pos) __attribute__((format(printf, fmt_pos, args_pos)))
-    #endif // FMC_PRINTF_FMT
+    #ifndef FMC_FUNC_INLINE
+        #define FMC_FUNC_INLINE inline FMC_FUNC_ALWAYS_INLINE
+    #endif // FMC_FUNC_INLINE
+
+    #ifndef FMC_FUNC_PRINTF_FMT
+        #define FMC_FUNC_PRINTF_FMT(fmt_pos, args_pos) FMC_FUNC_FORMAT(printf, fmt_pos, args_pos)
+    #endif // FMC_FUNC_PRINTF_FMT
 
 #endif //FMC_FUNC_ATTRIBUTES
 
+#ifndef FMC_VAR_ATTRIBUTES
+    #define FMC_VAR_ATTRIBUTES
+
+    #ifndef FMC_VAR_ALIAS
+        #define FMC_VAR_ALIAS(aliased) __attribute__((alias(FMC_STRINGIZE(aliased))))
+    #endif // FMC_VAR_ALIAS
+
+    #ifndef FMC_VAR_CLEANUP
+        #define FMC_VAR_CLEANUP(func_name) __attribute__((cleanup(func_name)))
+    #endif // FMC_VAR_CLEANUP
+    
+#endif // FMC_VAR_ATTRIBUTES
+
 
 #endif // FMC_ATTRIBUTES_H
-
-/*
-#ifndef FMC_ALIAS_FUNC
-        #define FMC_ALIAS_FUNC(func_name, aliased) __attribute__((alias(FMC_STRINGIZE(aliased)))) __attribute__((copy(aliased))) __typeof__(aliased) func_name
-    #endif // FMC_ALIAS_FUNC
-
-*/

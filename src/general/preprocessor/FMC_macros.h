@@ -31,6 +31,7 @@ SOFTWARE.
 #define FMC_MACROS_H
 
 #include "FMC_platform.h"
+#include "FMC_attributes.h"
 
 /* Used to avoid false warnings (for example "attribute destructor/constructor does not take argument", when it actually can) */
 #if defined(__INTELLISENSE__ )
@@ -89,8 +90,13 @@ SOFTWARE.
     #define FMC_STRINGIZE_9(x, y, z, w, v, u, t, s, r) FMC_STRINGIZE(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(x, y), z), w), v), u), t), s), r))
 #endif
 
-#ifndef FMC_OVERLOAD
+#ifndef FMC_DEFER
+    #define FMC_DEFER(stmt, body) do body while (0); stmt
+#endif // FMC_DEFER
+
+/*#ifndef FMC_OVERLOAD
     #define FMC_OVERLOAD(func)
+*/
 
 #ifdef FMC_VERSION
     #undef FMC_VERSION

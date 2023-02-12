@@ -4,6 +4,7 @@
 # 1 "/usr/include/stdc-predef.h" 1 3 4
 # 0 "<command-line>" 2
 # 1 "test.c"
+
 # 1 "/usr/include/stdio.h" 1 3 4
 # 27 "/usr/include/stdio.h" 3 4
 # 1 "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h" 1 3 4
@@ -306,7 +307,18 @@ struct _IO_FILE
   char _unused2[15 * sizeof (int) - 4 * sizeof (void *) - sizeof (size_t)];
 };
 # 44 "/usr/include/stdio.h" 2 3 4
-# 84 "/usr/include/stdio.h" 3 4
+# 52 "/usr/include/stdio.h" 3 4
+typedef __gnuc_va_list va_list;
+# 63 "/usr/include/stdio.h" 3 4
+typedef __off_t off_t;
+# 77 "/usr/include/stdio.h" 3 4
+typedef __ssize_t ssize_t;
+
+
+
+
+
+
 typedef __fpos_t fpos_t;
 # 133 "/usr/include/stdio.h" 3 4
 # 1 "/usr/include/x86_64-linux-gnu/bits/stdio_lim.h" 1 3 4
@@ -324,6 +336,11 @@ extern FILE *stderr;
 extern int remove (const char *__filename) __attribute__ ((__nothrow__ , __leaf__));
 
 extern int rename (const char *__old, const char *__new) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+extern int renameat (int __oldfd, const char *__old, int __newfd,
+       const char *__new) __attribute__ ((__nothrow__ , __leaf__));
 # 178 "/usr/include/stdio.h" 3 4
 extern int fclose (FILE *__stream);
 # 188 "/usr/include/stdio.h" 3 4
@@ -331,8 +348,23 @@ extern FILE *tmpfile (void)
   __attribute__ ((__malloc__)) __attribute__ ((__malloc__ (fclose, 1))) ;
 # 205 "/usr/include/stdio.h" 3 4
 extern char *tmpnam (char[20]) __attribute__ ((__nothrow__ , __leaf__)) ;
-# 230 "/usr/include/stdio.h" 3 4
+
+
+
+
+extern char *tmpnam_r (char __s[20]) __attribute__ ((__nothrow__ , __leaf__)) ;
+# 222 "/usr/include/stdio.h" 3 4
+extern char *tempnam (const char *__dir, const char *__pfx)
+   __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) __attribute__ ((__malloc__ (__builtin_free, 1)));
+
+
+
+
+
+
 extern int fflush (FILE *__stream);
+# 239 "/usr/include/stdio.h" 3 4
+extern int fflush_unlocked (FILE *__stream);
 # 258 "/usr/include/stdio.h" 3 4
 extern FILE *fopen (const char *__restrict __filename,
       const char *__restrict __modes)
@@ -344,6 +376,18 @@ extern FILE *fopen (const char *__restrict __filename,
 extern FILE *freopen (const char *__restrict __filename,
         const char *__restrict __modes,
         FILE *__restrict __stream) ;
+# 293 "/usr/include/stdio.h" 3 4
+extern FILE *fdopen (int __fd, const char *__modes) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__malloc__)) __attribute__ ((__malloc__ (fclose, 1))) ;
+# 308 "/usr/include/stdio.h" 3 4
+extern FILE *fmemopen (void *__s, size_t __len, const char *__modes)
+  __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) __attribute__ ((__malloc__ (fclose, 1))) ;
+
+
+
+
+extern FILE *open_memstream (char **__bufloc, size_t *__sizeloc) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__malloc__)) __attribute__ ((__malloc__ (fclose, 1))) ;
 # 328 "/usr/include/stdio.h" 3 4
 extern void setbuf (FILE *__restrict __stream, char *__restrict __buf) __attribute__ ((__nothrow__ , __leaf__));
 
@@ -351,7 +395,22 @@ extern void setbuf (FILE *__restrict __stream, char *__restrict __buf) __attribu
 
 extern int setvbuf (FILE *__restrict __stream, char *__restrict __buf,
       int __modes, size_t __n) __attribute__ ((__nothrow__ , __leaf__));
-# 350 "/usr/include/stdio.h" 3 4
+
+
+
+
+extern void setbuffer (FILE *__restrict __stream, char *__restrict __buf,
+         size_t __size) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern void setlinebuf (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
+
+
+
 extern int fprintf (FILE *__restrict __stream,
       const char *__restrict __format, ...);
 
@@ -387,7 +446,19 @@ extern int snprintf (char *__restrict __s, size_t __maxlen,
 extern int vsnprintf (char *__restrict __s, size_t __maxlen,
         const char *__restrict __format, __gnuc_va_list __arg)
      __attribute__ ((__nothrow__)) __attribute__ ((__format__ (__printf__, 3, 0)));
-# 415 "/usr/include/stdio.h" 3 4
+# 403 "/usr/include/stdio.h" 3 4
+extern int vdprintf (int __fd, const char *__restrict __fmt,
+       __gnuc_va_list __arg)
+     __attribute__ ((__format__ (__printf__, 2, 0)));
+extern int dprintf (int __fd, const char *__restrict __fmt, ...)
+     __attribute__ ((__format__ (__printf__, 2, 3)));
+
+
+
+
+
+
+
 extern int fscanf (FILE *__restrict __stream,
      const char *__restrict __format, ...) ;
 
@@ -465,6 +536,16 @@ extern int getc (FILE *__stream);
 
 
 extern int getchar (void);
+
+
+
+
+
+
+extern int getc_unlocked (FILE *__stream);
+extern int getchar_unlocked (void);
+# 538 "/usr/include/stdio.h" 3 4
+extern int fgetc_unlocked (FILE *__stream);
 # 549 "/usr/include/stdio.h" 3 4
 extern int fputc (int __c, FILE *__stream);
 extern int putc (int __c, FILE *__stream);
@@ -474,10 +555,60 @@ extern int putc (int __c, FILE *__stream);
 
 
 extern int putchar (int __c);
-# 592 "/usr/include/stdio.h" 3 4
+# 565 "/usr/include/stdio.h" 3 4
+extern int fputc_unlocked (int __c, FILE *__stream);
+
+
+
+
+
+
+
+extern int putc_unlocked (int __c, FILE *__stream);
+extern int putchar_unlocked (int __c);
+
+
+
+
+
+
+extern int getw (FILE *__stream);
+
+
+extern int putw (int __w, FILE *__stream);
+
+
+
+
+
+
+
 extern char *fgets (char *__restrict __s, int __n, FILE *__restrict __stream)
      __attribute__ ((__access__ (__write_only__, 1, 2)));
-# 655 "/usr/include/stdio.h" 3 4
+# 632 "/usr/include/stdio.h" 3 4
+extern __ssize_t __getdelim (char **__restrict __lineptr,
+                             size_t *__restrict __n, int __delimiter,
+                             FILE *__restrict __stream) ;
+extern __ssize_t getdelim (char **__restrict __lineptr,
+                           size_t *__restrict __n, int __delimiter,
+                           FILE *__restrict __stream) ;
+
+
+
+
+
+
+
+extern __ssize_t getline (char **__restrict __lineptr,
+                          size_t *__restrict __n,
+                          FILE *__restrict __stream) ;
+
+
+
+
+
+
+
 extern int fputs (const char *__restrict __s, FILE *__restrict __stream);
 
 
@@ -506,7 +637,18 @@ extern size_t fread (void *__restrict __ptr, size_t __size,
 
 extern size_t fwrite (const void *__restrict __ptr, size_t __size,
         size_t __n, FILE *__restrict __s);
-# 713 "/usr/include/stdio.h" 3 4
+# 702 "/usr/include/stdio.h" 3 4
+extern size_t fread_unlocked (void *__restrict __ptr, size_t __size,
+         size_t __n, FILE *__restrict __stream) ;
+extern size_t fwrite_unlocked (const void *__restrict __ptr, size_t __size,
+          size_t __n, FILE *__restrict __stream);
+
+
+
+
+
+
+
 extern int fseek (FILE *__stream, long int __off, int __whence);
 
 
@@ -518,6 +660,13 @@ extern long int ftell (FILE *__stream) ;
 
 
 extern void rewind (FILE *__stream);
+# 736 "/usr/include/stdio.h" 3 4
+extern int fseeko (FILE *__stream, __off_t __off, int __whence);
+
+
+
+
+extern __off_t ftello (FILE *__stream) ;
 # 760 "/usr/include/stdio.h" 3 4
 extern int fgetpos (FILE *__restrict __stream, fpos_t *__restrict __pos);
 
@@ -531,14 +680,62 @@ extern void clearerr (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
 extern int feof (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
 
 extern int ferror (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
-# 804 "/usr/include/stdio.h" 3 4
+
+
+
+extern void clearerr_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
+extern int feof_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
+extern int ferror_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
+
+
+
+
+
+
+
 extern void perror (const char *__s);
+
+
+
+
+extern int fileno (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
+
+
+
+
+extern int fileno_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
+# 823 "/usr/include/stdio.h" 3 4
+extern int pclose (FILE *__stream);
+
+
+
+
+
+extern FILE *popen (const char *__command, const char *__modes)
+  __attribute__ ((__malloc__)) __attribute__ ((__malloc__ (pclose, 1))) ;
+
+
+
+
+
+
+extern char *ctermid (char *__s) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__access__ (__write_only__, 1)));
+# 867 "/usr/include/stdio.h" 3 4
+extern void flockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+extern int ftrylockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
+
+
+extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
 # 885 "/usr/include/stdio.h" 3 4
 extern int __uflow (FILE *);
 extern int __overflow (FILE *, int);
 # 909 "/usr/include/stdio.h" 3 4
 
-# 2 "test.c" 2
+# 3 "test.c" 2
 # 1 "/usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h" 1 3 4
 # 9 "/usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h" 3 4
 # 1 "/usr/include/stdint.h" 1 3 4
@@ -610,10 +807,10 @@ typedef unsigned long int uintptr_t;
 typedef __intmax_t intmax_t;
 typedef __uintmax_t uintmax_t;
 # 10 "/usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h" 2 3 4
-# 3 "test.c" 2
-# 86 "test.c"
+# 4 "test.c" 2
+# 87 "test.c"
 
-# 86 "test.c"
+# 87 "test.c"
 void foo_void(void)
 {
     puts("void");
@@ -642,7 +839,7 @@ void foo_char_char(char c, char d)
 {
     printf("char: %c, char: %c\n", c, d);
 }
-# 192 "test.c"
+# 193 "test.c"
 # 1 "test/third_party/metalang99.h" 1
 
 
@@ -740,8 +937,8 @@ void foo_char_char(char c, char d)
 # 1 "test/third_party/metalang99/stmt.h" 1
 # 22 "test/third_party/metalang99/gen.h" 2
 # 13 "test/third_party/metalang99.h" 2
-# 193 "test.c" 2
-# 218 "test.c"
+# 194 "test.c" 2
+# 219 "test.c"
 int main(int argc, char** argv)
 {
     ;
@@ -771,4 +968,4 @@ int main(int argc, char** argv)
 0
 1
 
-(0,2,4,9,8) , (543,68,2,16) , (1,2,3,4,5,6)
+ #1 , 2 , 3 , 4 , 5 , 6

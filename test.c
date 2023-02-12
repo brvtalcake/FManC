@@ -1,3 +1,4 @@
+/* This file contains a bunch of personnal tests with third-party libs */
 #include <stdio.h>
 #include <stdint.h>
 /*
@@ -83,6 +84,7 @@ int main()
 
 #include <stdio.h>
 
+/*
 void foo_void(void)
 {
     puts("void");
@@ -110,10 +112,11 @@ void foo_double_char(double c, char d)
 void foo_char_char(char c, char d)
 {
     printf("char: %c, char: %c\n", c, d);
-}
+}*/
 /*
 #define foo(...) SELECT(__VA_ARGS__)(__VA_ARGS__)
 */
+/*
 #define SELECT(...) CONCAT(SELECT_, NARG(__VA_ARGS__))(__VA_ARGS__)
 #define CONCAT(X, Y) CONCAT_(X, Y)
 #define CONCAT_(X, Y) X ## Y
@@ -213,24 +216,36 @@ void foo_char_char(char c, char d)
 
 #define foo(...) \
 
+*/
 
+#ifndef FMC_DEFER
+    #define FMC_DEFER(stmt) \
+    void func_##__LINE__(void) { stmt; }; \
+    \
+        __attribute__((cleanup(func_##__LINE__))) int ____##__LINE__
+#endif // FMC_DEFER
 
 int main(int argc, char** argv)
 {
-    foo();
-    foo(7);
-    foo(10.12);
-    foo(12.10, 7);
-    foo((char)'s');
-    foo(12.10, (char)'s');
-    foo((char)'s', (char)'b');
+//    foo();
+//    foo(7);
+//    foo(10.12);
+//    foo(12.10, 7);
+//    foo((char)'s');
+//    foo(12.10, (char)'s');
+//    foo((char)'s', (char)'b');
    // printf("%d\n", TAKE_2ND(1,2,3,6,9));
-   __typeof__("ciao") a = "ciao";
+//   __typeof__("ciao") a = "ciao";
+
+    //FMC_DEFER(printf("ciao\n"));
+    __attribute__((externally_visible)) void func(void){; printf("ciao\n"); };
+    func();
+
     return 0;
     //ML99_EVAL(ML99_call(ML99_if, ML99_boolEq(TAKE_2ND(1,2,3,4,5,6), v(2)), v(printf("empty")), v(printf("not empty"))));
 }
 
-
+/*
 ML99_EVAL(ML99_call(TAKE_2ND, v(1), v(2), v(3), v(4), v(5), v(6)))
 
 ML99_EVAL(TAKE_2ND(v(1), v(2), v(3), v(4), v(5), v(6)))
@@ -244,8 +259,8 @@ ML99_EVAL(ML99_call(take_2nd, make_list((0,2,4,9,8),(543,68,2,16),(1,2,3,4,5,6))
 ML99_EVAL(compare(1,2))
 ML99_EVAL(compare(1,1))
 
-ML99_EVAL(ML99_call(ML99_listUnwrapCommaSep, make_list((0,2,4,9,8),(543,68,2,16),(1,2,3,4,5,6))))
-
+ML99_EVAL(ML99_call(ML99_listUnwrapCommaSep, make_list(1,2,3,4,5,6)))
+*/
 /*#define X_IMPL(op)        ML99_call(op, v(123))
 #define CALL_X_IMPL(a) ML99_call(X, v(ID))
 #define ID_IMPL(x)        v(x)
