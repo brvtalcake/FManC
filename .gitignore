@@ -20,5 +20,6 @@ test.c
 test_.c
 test__.c 
 nobuild*
-build_lib/*
+build_lib*
 Makefile_
+test_ 
