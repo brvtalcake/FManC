@@ -2,7 +2,7 @@
 
 MIT License
 
-Copyright (c) 2022 Axel PASCON
+Copyright (c) 2022-2023 Axel PASCON
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -24,12 +24,13 @@ SOFTWARE.
 
 */
 
-#pragma once
-
-#ifndef FMC_FILE_MANAGEMENT_H
-#define FMC_FILE_MANAGEMENT_H
-
-#include "../general/FMC_general.h"
-
-
-#endif // FMC_FILE_MANAGEMENT_H
+#include "FMC_file_management.h"
+#if FMC_COMPILING_ON_WINDOWS == 1
+    #include <windows.h>
+    #include 
+#elif FMC_COMPILING_ON_LINUX == 1
+    #include <sys/stat.h>
+    #include <sys/types.h>
+    #include <dirent.h>
+    #include <unistd.h>
+#endif

@@ -36,7 +36,7 @@ typedef int found_bs_t;
 typedef int found_bs_r_bs_n;
 typedef _Bool FMC_CharControl;
 typedef _Bool FMC_FileState;
-typedef _Bool FMC_ERRORS_AND_WARNINGS_STATE;
+typedef _Bool FMC_Bool;
 
 
 #endif // FMC_TYPEDEFS_H

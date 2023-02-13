@@ -1,0 +1,3 @@
+[submodule "third_party_libs/libfs"]
+	path = third_party_libs/libfs
+	url = https://github.com/Nauja/libfs.git

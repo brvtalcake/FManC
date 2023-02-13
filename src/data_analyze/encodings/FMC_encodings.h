@@ -31,7 +31,7 @@ SOFTWARE.
 
 #include "../../general/FMC_general.h"
 
-FMC_SHARED FMC_Encodings FMC_getEncoding(FILE *file);
-FMC_SHARED FMC_Encodings FMC_checkEncodingFlag(int encoding);
+FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_getEncoding(FILE *file);
+FMC_SHARED FMC_FUNC_CONST FMC_Encodings FMC_checkEncodingFlag(int encoding);
 
 #endif // FMC_ENCODINGS

@@ -75,4 +75,13 @@ FMC_SHARED struct FManC_Char
 
 FMC_SHARED typedef struct FManC_Char FMC_Char;
 
+
+FMC_SHARED struct FManC_string
+{
+    FMC_Char *chars;
+    size_t size;
+};
+
+FMC_SHARED typedef struct FManC_string FMC_string;
+
 #endif // FMC_STRUCTS_H

@@ -32,6 +32,7 @@ SOFTWARE.
 
 
 #include "preprocessor/FMC_macros.h"
+#include "preprocessor/FMC_platform.h"
 #include "preprocessor/FMC_consts.h"
 #include "types/FMC_structs.h"
 #include "preprocessor/FMC_flags.h"

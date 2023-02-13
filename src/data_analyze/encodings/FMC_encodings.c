@@ -30,17 +30,15 @@ SOFTWARE.
 #include <string.h>
 #include <wchar.h>
 
-#include "../../general/utils/FMC_errors.h"
-#include "../../general/utils/FMC_globals.h"
 #include "FMC_encodings.h"
 
-FMC_SHARED FMC_FUNC_NONNULL(1) FMC_Encodings FMC_getEncoding(FILE *file)
+FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_getEncoding(FILE *file)
 {
     if (file == NULL)
     {
         if (FMC_ENABLE_DEBUG) 
         {
-            FMC_makeMsg(err_null, 2, "ERROR : ", "The provided file is NULL.");
+            FMC_makeMsg(err_null, 4, "ERROR : ", "In function : ", __func__, ". The provided file must not be NULL.");
             FMC_printBrightRedError(stderr, err_null);
         }
         return error;
@@ -51,7 +49,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_Encodings FMC_getEncoding(FILE *file)
     {
         if (FMC_ENABLE_DEBUG) 
         {
-            FMC_makeMsg(err_wide, 2, "ERROR : ", "The provided file must be opened with by orientation.");
+            FMC_makeMsg(err_wide, 4, "ERROR : ", "In function : ", __func__, ". The provided file must be opened with by orientation.");
             FMC_printBrightRedError(stderr, err_wide);
         }
         return error;
@@ -60,7 +58,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_Encodings FMC_getEncoding(FILE *file)
     size_t sizeOfFile = 0;
     if(fseek(file, 0, SEEK_END)) 
     {
-        FMC_makeMsg(err_seek_1, 2, "FMC INTERNAL ERROR : ", "fseek failure.");
+        FMC_makeMsg(err_seek_1, 4, "FMC INTERNAL ERROR : ", "In function : ", __func__, ". fseek failure.");
         FMC_printBrightRedError(stderr, err_seek_1);
         return error;
     }
@@ -68,15 +66,64 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_Encodings FMC_getEncoding(FILE *file)
     sizeOfFile = ftell(file);
     if (errno)
     {
-        FMC_makeMsg(err_tell, 3, "FMC INTERNAL ERROR : ", "ftell failure.", strerror(errno));
+        FMC_makeMsg(err_tell, 5, "FMC INTERNAL ERROR : ", "In function : ", __func__, ". ftell failure.", strerror(errno));
         FMC_printBrightRedError(stderr, err_tell);
         return error;
     }
     rewind(file);
     char buff[4] = {0};
-    if (sizeOfFile <= 4 && sizeOfFile >= 0) fread(buff, 1, sizeOfFile, file);
-    else fread(buff, 1, 4, file);
-    
+    if (sizeOfFile <= 4 && sizeOfFile >= 0) 
+    {
+        int ret = fread(buff, 1, sizeOfFile, file);
+        if(ret != sizeOfFile) goto check_error_type_1;
+        else if (ret == sizeOfFile) goto end_check_1;
+        else return error;
+
+        check_error_type_1 : 
+        if (feof(file))
+        {
+            FMC_makeMsg(err_feof, 4, "FMC INTERNAL ERROR : ", "In function : ", __func__, ". EOF indicator set.");
+            FMC_printBrightRedError(stderr, err_feof);
+            return error;
+        }
+        else if (ferror(file))
+        {
+            FMC_makeMsg(err_ferror, 5, "FMC INTERNAL ERROR : ", "In function : ", __func__, ". Error indicator set.", strerror(errno));
+            FMC_printBrightRedError(stderr, err_ferror);
+            return error;
+        }
+        else
+        {
+            FMC_makeMsg(err_fread, 4, "FMC INTERNAL ERROR : ", "In function : ", __func__, ". fread failure.");
+            FMC_printBrightRedError(stderr, err_fread);
+            return error;
+        }
+        
+    }
+
+    else if(fread(buff, 1, 4, file) != 4)
+    {
+        if (feof(file))
+        {
+            FMC_makeMsg(err_feof, 4, "FMC INTERNAL ERROR : ", "In function : ", __func__, ". EOF indicator set.");
+            FMC_printBrightRedError(stderr, err_feof);
+            return error;
+        }
+        else if (ferror(file))
+        {
+            FMC_makeMsg(err_ferror, 5, "FMC INTERNAL ERROR : ", "In function : ", __func__, ". Error indicator set.", strerror(errno));
+            FMC_printBrightRedError(stderr, err_ferror);
+            return error;
+        }
+        else
+        {
+            FMC_makeMsg(err_fread, 4, "FMC INTERNAL ERROR : ", "In function : ", __func__, ". fread failure.");
+            FMC_printBrightRedError(stderr, err_fread);
+            return error;
+        }
+    }
+
+    end_check_1 :
     if (sizeOfFile >= 3 && (unsigned char) buff[0] == 0xEF && (unsigned char) buff[1] == 0xBB && (unsigned char) buff[2] == 0xBF)
     {
         rewind(file);
@@ -110,7 +157,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_Encodings FMC_getEncoding(FILE *file)
             rewind(file);
             if (FMC_ENABLE_DEBUG) 
             {
-                FMC_makeMsg(err_empty, 2, "WARNING : ", "The provided file is empty.");
+                FMC_makeMsg(err_empty, 4, "WARNING : ", "In function : ", __func__, ". The provided file is empty.");
                 FMC_printBrightYellowError(stderr, err_empty);
             }
             return unknown;
@@ -136,10 +183,9 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_Encodings FMC_getEncoding(FILE *file)
     }
 }
 
-FMC_SHARED FMC_FUNC_PURE FMC_Encodings FMC_checkEncodingFlag(int encoding)
+FMC_SHARED FMC_FUNC_CONST FMC_Encodings FMC_checkEncodingFlag(int encoding)
 {
-    int value = encoding;
-    switch (value)
+    switch (encoding)
     {
         case ASCII:
             return ascii;
@@ -162,10 +208,11 @@ FMC_SHARED FMC_FUNC_PURE FMC_Encodings FMC_checkEncodingFlag(int encoding)
         case UTF32_BE:
             return utf32_be;
             break;
-        default:
-            return error;
+        default: // TODO : add error in case of unknown encoding
+            return unknown;
             break;
     }
+    return unknown;
 }
 
 FMC_SHARED FMC_Char FMC_getc(FMC_File file)

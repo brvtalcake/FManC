@@ -26,7 +26,7 @@ else ifneq (,$(findstring windows,$(OS)))
 endif
 
 # Project subdirectories
-SRC_SUBDIRS=src src/general src/general/preprocessor src/general/types src/general/utils src/file_management src/file_management src/data_analyze src/data_analyze/encodings src/data_analyze/strings src/code_utils
+SRC_SUBDIRS=src src/general src/general/preprocessor src/general/types src/general/utils src/files src/data_analyze src/data_analyze/encodings src/data_analyze/strings src/code_utils
 
 # Project files
 C_SRC_FILES=$(foreach dir,$(SRC_SUBDIRS),$(wildcard $(dir)/*.c))

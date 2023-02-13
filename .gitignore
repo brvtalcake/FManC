@@ -16,3 +16,9 @@ prog
 txt.txt
 *.old
 *.o
+test.c
+test_.c
+test__.c 
+nobuild*
+build_lib/*
+Makefile_

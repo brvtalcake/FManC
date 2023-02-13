@@ -84,13 +84,13 @@ SOFTWARE.
 
 #endif // FMC_STYLES
 
-#ifndef FMC_VER
-    #define FMC_VER
-    #define FMC_VER_MAJOR 0
-    #define FMC_VER_MINOR 1
-    #define FMC_VER_PATCH 0
-    #define FMC_VER_STR "0.1.0"
-#endif // FMC_VER
-
+#if defined(FMC_BOOLEANS) || defined(True) || defined(False)
+    #undef FMC_BOOLEANS
+    #undef True
+    #undef False
+#endif // FMC_BOOLEANS
+#define FMC_BOOLEANS
+#define True 1
+#define False 0
 
 #endif // FMC_CONSTS_H
