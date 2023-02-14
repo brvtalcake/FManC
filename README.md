@@ -22,7 +22,10 @@ If you want to download a PDF documentation, it's [here](https://github.com/brvt
 
 ## Architecture of the repository
 
-The repository is organized as follow :
+### Folder structure
+
+#### The repository is organized as follow
+
 | Folder | Content |
 |:------:|:-------:|
 | [.github](https://github.com/brvtalcake/FManC/tree/main/.github) | This folder contains the usual workflow files for GitHub actions, and so on. |
@@ -36,10 +39,15 @@ The repository is organized as follow :
 | [src](https://github.com/brvtalcake/FManC/tree/main/src) | This folder contains the source files of the library. This folder is divided into many subfolders. |
 | [test](https://github.com/brvtalcake/FManC/tree/main/test) | This folder contains the source files of the unit tests and coverage reports that you may not be able to see (again). |
 
+#### Source code folder structure
+
+**TODO**.
+
 ## ToDoList
 
 - [ ] Implement the dir API in C++, and write a C wrapper to make it available in C
 - [ ] Update these files due to the above TODO : FMC_macros.h, FMC_platform.h, Makefile, (... ?)
+- [ ] Make more issue / pull request templates
 - [ ] Documenting, as I'm starting to do with Doxygen
 - [x] Make a real test folder with unit tests
 - [x] Let the possibility to disable error messages

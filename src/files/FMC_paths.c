@@ -40,7 +40,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
         }
         return NULL;
     }
-    memset(filename, 0, sizeof(filename) / sizeof(filename[0]));
+    memset(filename, 0, sizeof(filename));
     size_t path_len = 0;
     if ((path_len = strnlen(path, MAX_FEXT_SIZE + MAX_FNAME_SIZE + MAX_FPATH_SIZE)) >= MAX_FEXT_SIZE + MAX_FNAME_SIZE + MAX_FPATH_SIZE)
     {
@@ -115,7 +115,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
         }
         return NULL;
     }
-    memset(dirs, 0, sizeof(dirs) / sizeof(dirs[0]));
+    memset(dirs, 0, sizeof(dirs));
     size_t path_len = 0;
     if ((path_len = strnlen(path, MAX_FEXT_SIZE + MAX_FNAME_SIZE + MAX_FPATH_SIZE)) >= MAX_FEXT_SIZE + MAX_FNAME_SIZE + MAX_FPATH_SIZE)
     {
@@ -191,7 +191,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
         }
         return NULL;
     }
-    memset(ext, 0, sizeof(ext) / sizeof(ext[0]));
+    memset(ext, 0, sizeof(ext));
     char name[MAX_FNAME_SIZE];
     if (!FMC_extractFilename(path, name))
     {

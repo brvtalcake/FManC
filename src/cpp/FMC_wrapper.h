@@ -24,13 +24,33 @@ SOFTWARE.
 
 */
 
-#include "FMC_file_management.h"
-#if FMC_COMPILING_ON_WINDOWS == 1
-    #include <windows.h>
-    #include 
-#elif FMC_COMPILING_ON_LINUX == 1
-    #include <sys/stat.h>
-    #include <sys/types.h>
-    #include <dirent.h>
-    #include <unistd.h>
+#ifndef FMC_WRAPPER_H
+#define FMC_WRAPPER_H
+
+#ifdef __cplusplus
+extern "C" {
 #endif
+
+#include "../general/preprocessor/FMC_macros.h"
+
+// FMC_dir
+FMC_SHARED int FMC_dirExists(const char *path);
+FMC_SHARED int FMC_isDir(const char *path);
+FMC_SHARED int FMC_isRegFile(const char *path);
+FMC_SHARED int FMC_isSymLink(const char *path);
+FMC_SHARED int FMC_isBlock(const char* path);
+FMC_SHARED int FMC_isCharFile(const char* path);
+FMC_SHARED int FMC_isSocket(const char* path);
+FMC_SHARED int FMC_isFIFO(const char* path);
+FMC_SHARED int FMC_isOther(const char* path);
+FMC_SHARED int FMC_isEmpty(const char *path);
+FMC_SHARED char *FMC_getCurrentPath(char *path);
+FMC_SHARED char *FMC_getAbsolutePath(char *path, char *buffer);
+// !FMC_dir
+
+#ifdef __cplusplus
+}
+#endif
+
+
+#endif // FMC_WRAPPER_H

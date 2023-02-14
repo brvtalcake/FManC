@@ -55,8 +55,14 @@ SOFTWARE.
 #endif // Compiler and environment management
 
 // check C17 standard
-#if __STDC_VERSION__ < 201710L
-    #error "FManC requires C17 standard or higher."
+#ifndef __cplusplus
+    #if __STDC_VERSION__ < 201710L
+        #error "FManC requires C17 standard or higher."
+    #endif
+#else
+    #if __cplusplus < 201703L
+        #error "FManC requires C++17 standard or higher."
+    #endif
 #endif
 
 #endif /* FMC_PLATFORM_H */

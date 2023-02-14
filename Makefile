@@ -50,14 +50,16 @@ AR=ar
 
 # Compiler and archiver flags
 AR_FLAGS=-rsc
-CFLAGS=-O3 -Wall -Wextra -pedantic -Werror -std=c11
-CFLAGS_STATIC=-O3 -D STATIC -Wall -Wextra -pedantic -Werror -std=c11 -c
-CFLAGS_DLL_1=-O3 -Wall -Werror -Wextra -pedantic -std=c11 -c -D BUILD_DLL
-CFLAGS_DLL_2_1=-O3 -Wall -Werror -Wextra -pedantic -std=c11 -shared -o
-CFLAGS_DLL_2_2="-Wl,--out-implib,libFManC.dll.a,--export-all-symbols"
-CFLAGS_DYN_LIN_1=-O3 -Wall -Wextra -pedantic -Werror -std=c11 -c -fPIC
-CFLAGS_DYN_LIN_2_1=-O3 -Wall -Wextra -pedantic -Werror -std=c11 -fPIC -shared -o
-CFLAGS_DYN_LIN_2_2=-Wl,-soname,
+CFLAGS=-O3 -Wall -Wextra -pedantic -Werror -std=gnu17
+CFLAGS_STATIC=-O3 -D STATIC -Wall -Wextra -pedantic -Werror -std=gnu17 -c
+CFLAGS_DLL_1=-O3 -Wall -Werror -Wextra -pedantic -std=gnu17 -c -D BUILD_DLL
+CFLAGS_DLL_2=-O3 -Wall -Werror -Wextra -pedantic -std=gnu17 -shared -o
+LDFLAGS_DLL_2="-Wl,--out-implib,libFManC.dll.a,--export-all-symbols"
+CFLAGS_DYN_LIN_1=-O3 -Wall -Wextra -pedantic -Werror -std=gnu17 -c -fPIC
+CFLAGS_DYN_LIN_2=-O3 -Wall -Wextra -pedantic -Werror -std=gnu17 -fPIC -shared -o
+LDFLAGS_DYN_LIN_2=-Wl,-soname,
+
+CXX_FLAGS=-O3 -Wall -Wextra -pedantic -Werror -std=gnu++17
 
 # All target
 ALL_TARGET=$(addsuffix _$(DETECTED_OS), all)

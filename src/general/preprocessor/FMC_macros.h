@@ -31,7 +31,9 @@ SOFTWARE.
 #define FMC_MACROS_H
 
 #include "FMC_platform.h"
+
 #include "FMC_attributes.h"
+
 
 /* Used to avoid false warnings (for example "attribute destructor/constructor does not take argument", when it actually can) */
 #if defined(__INTELLISENSE__ )
@@ -160,10 +162,11 @@ SOFTWARE.
 #ifdef FMC_ERROR_CHECK
     #undef FMC_ERROR_CHECK
 #endif // FMC_ERROR_CHECK
-#define FMC_ERROR_CHECK(cond) \
-    if (cond) 
-
-
-
+// thought about this for lisibility, not sure if I'll use it though
+#define FMC_ERROR_CHECK(cond, todo_stmt, enable_debug, todo_before) \
+    if (cond)                                                       \
+    {   if(enable_debug) todo_before                                \
+        todo_stmt;                                                  \
+    }
 
 #endif // FMC_MACROS_H
