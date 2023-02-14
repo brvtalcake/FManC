@@ -37,19 +37,12 @@ The repository is organized as follow :
 | [test](https://github.com/brvtalcake/FManC/tree/main/test) | This folder contains the source files of the unit tests and coverage reports that you may not be able to see (again). |
 
 ## ToDoList
-<!---
-- [ ] Adding features to develop my C "dialect", I would say (still don't really know how to call it and what extension I should use). Next things to implement should be : 
-	- A function that translates declared mutators into the equivalent function stored in the program
-	- A function that copy the source code from a .cmx or .hmx into a .c or .h file without the mutators and return the position (and the name of the file) where should be the equivalent function declaration, etc... (that will also be the great moment to see which coding restriction will be needed to do it in an easier way)
-	- A function that puts the equivalent function into the the new source file code
-	- (I'm actually realizing that I should really create a new repo for it)
---->
+
+- [ ] Implement the dir API in C++, and write a C wrapper to make it available in C
+- [ ] Update these files due to the above TODO : FMC_macros.h, FMC_platform.h, Makefile, (... ?)
 - [ ] Documenting, as I'm starting to do with Doxygen
 - [x] Make a real test folder with unit tests
-- [ ] Let the possibility to disable error messages
-<!---
-(by defining an extern variable in fmanc.h)
---->
+- [x] Let the possibility to disable error messages
 
 ## Credits
 
