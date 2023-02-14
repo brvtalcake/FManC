@@ -1,4 +1,4 @@
-# General notes that I want myself to remind of (especially when it'll come to write documentation the project)
+# General notes that I want myself to remind of (especially when it'll come to write documentation for the project)
 
 ## About paths
 
@@ -7,4 +7,4 @@
   - The same happens when specifying something like "C:\\Users\\Someone_s__dir".
 - Only this set {'/' , '\'} of separators are detected.
 - '~' : this character can figure in paths since it's not useful to detect filenames and so on.
-- "~somepath/to/file" or "C:Something" are of course not valid paths, even though they are not detected.
+- "~somepath/to/file" or "C:Something" are of course not valid paths, even though they are not detected yet.

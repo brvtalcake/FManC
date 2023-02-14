@@ -8,7 +8,7 @@ A portable file manager library in C
 
 ### Why did I start this project ?
 
-I'm currently with no formation, since I previously decided to stop my studies in mathematics to switch to computer science. I'm planning to try to be received at [42](https://42.fr/en/homepage/). That's pretty much the whole thing that motivated me to start this little project : I have time (even if I'm searching a temporary job in parallel) and I want to learn more about computer science in general. Moreover, if I manage to make something great, I'll remain a great reusable ressource for future projects, even if it's just for me.
+I'm currently with no formation, since I previously decided to stop my studies in mathematics to switch to computer science. That's pretty much the whole thing that motivated me to start this little project : I have time and I want to learn more about computer science in general. Moreover, if I manage to make something great, it'll remain a great reusable ressource for future projects, even if it's just for me.
 
 ### The goals
 
@@ -27,7 +27,7 @@ The repository is organized as follow :
 |:------:|:-------:|
 | [.github](https://github.com/brvtalcake/FManC/tree/main/.github) | This folder contains the usual workflow files for GitHub actions, and so on. |
 | [bin](https://github.com/brvtalcake/FManC/tree/main/bin) | This folder simply contains the Windows DLL (and maybe one day will contain the binary for a CLI app). |
-| [build_lib](https://github.com/brvtalcake/FManC/tree/main/build_lib) | This folder contains the files needed to build my customized [nobuild](https://github.com/tsoding/nobuild) build system. |
+| [third_party_libs](https://github.com/brvtalcake/FManC/tree/main/third_party_libs) | This folder contains the submodules used in the library. Please read the [additionnal README](https://github.com/brvtalcake/FManC/tree/main/third_party_libs). |
 | [docs](https://github.com/brvtalcake/FManC/tree/main/docs) | This folder contains the built HTML documentation (as mentionned above). |
 | [include](https://github.com/brvtalcake/FManC/tree/main/include) | This folder contains the header files of the library. |
 | [lib](https://github.com/brvtalcake/FManC/tree/main/lib) | This folder contains the built library. |
