@@ -8,8 +8,6 @@
       <node id="5">
         <label>FMC_attributes.h</label>
         <link refid="d1/d2e/FMC__attributes_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
         <childnode refid="3" relation="include">
         </childnode>
       </node>
@@ -131,7 +129,10 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_globals.h" line="32" column="17" declfile="src/general/utils/FMC_globals.h" declline="32" declcolumn="17"/>
-        <referencedby refid="db/dc4/FMC__encodings_8c_1a4766bf9887ba1fc50aae7d71f16a0128" compoundref="db/dc4/FMC__encodings_8c" startline="35" endline="186">FMC_FUNC_NONNULL</referencedby>
+        <referencedby refid="d2/deb/FMC__file__management_8h_1a93ee980e87b59d6a3af6e5d4f1ec7ac0" compoundref="dc/d5e/FMC__paths_8c" startline="109" endline="185">FMC_cutFilename</referencedby>
+        <referencedby refid="d2/deb/FMC__file__management_8h_1a1fa62fd52b6e1fa12794f480d51ba683" compoundref="dc/d5e/FMC__paths_8c" startline="32" endline="107">FMC_extractFilename</referencedby>
+        <referencedby refid="db/dc4/FMC__encodings_8c_1ac43872885563da059b7870132977db9d" compoundref="db/dc4/FMC__encodings_8c" startline="36" endline="200">FMC_getEncoding</referencedby>
+        <referencedby refid="d2/deb/FMC__file__management_8h_1ab8632eb234af95cea6075bc166278cff" compoundref="dc/d5e/FMC__paths_8c" startline="187" endline="225">FMC_getExtension</referencedby>
       </memberdef>
       </sectiondef>
     <briefdescription>

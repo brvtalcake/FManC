@@ -41,8 +41,6 @@
       <node id="6">
         <label>FMC_attributes.h</label>
         <link refid="d1/d2e/FMC__attributes_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
         <childnode refid="4" relation="include">
         </childnode>
       </node>
@@ -112,25 +110,6 @@
         <label>stdio.h</label>
       </node>
     </incdepgraph>
-      <sectiondef kind="func">
-      <memberdef kind="function" id="d1/d8c/FMC__chars_8c_1aa0a5b7fd8732097933a5320830413215" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>FMC_SHARED <ref refid="d5/de5/FMC__structs_8h_1a91bf224b337633794ac39078baa701dc" kindref="member">FMC_Char</ref></type>
-        <definition>FMC_SHARED FMC_Char FMC_getChar</definition>
-        <argsstring>(FMC_File *file)</argsstring>
-        <name>FMC_getChar</name>
-        <param>
-          <type><ref refid="d5/de5/FMC__structs_8h_1a539e71cd5e352a7cee2dcb3d0755ebb0" kindref="member">FMC_File</ref> *</type>
-          <declname>file</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/data_analyze/strings/FMC_chars.c" line="29" column="21" bodyfile="src/data_analyze/strings/FMC_chars.c" bodystart="29" bodyend="32"/>
-      </memberdef>
-      </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
@@ -164,10 +143,10 @@
 <codeline lineno="26"><highlight class="normal"></highlight></codeline>
 <codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d9/db5/FMC__strings_8h" kindref="compound">FMC_strings.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="28"><highlight class="normal"></highlight></codeline>
-<codeline lineno="29" refid="d1/d8c/FMC__chars_8c_1aa0a5b7fd8732097933a5320830413215" refkind="member"><highlight class="normal">FMC_SHARED<sp/><ref refid="d5/de5/FMC__structs_8h_1a91bf224b337633794ac39078baa701dc" kindref="member">FMC_Char</ref><sp/><ref refid="d1/d8c/FMC__chars_8c_1aa0a5b7fd8732097933a5320830413215" kindref="member">FMC_getChar</ref>(<ref refid="d5/de5/FMC__structs_8h_1a539e71cd5e352a7cee2dcb3d0755ebb0" kindref="member">FMC_File</ref><sp/>*file)</highlight></codeline>
-<codeline lineno="30"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">/*FMC_SHARED<sp/>FMC_Char<sp/>FMC_getChar(FMC_File<sp/>*file)</highlight></codeline>
+<codeline lineno="30"><highlight class="comment">{</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment">}*/</highlight></codeline>
     </programlisting>
     <location file="src/data_analyze/strings/FMC_chars.c"/>
   </compounddef>

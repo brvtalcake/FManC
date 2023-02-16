@@ -31,6 +31,7 @@ SOFTWARE.
 #include "FMC_dir.hpp"
 #include <filesystem>
 #include <string.h>
+#include <string>
 
 namespace fs = std::filesystem;
 
@@ -112,11 +113,11 @@ int FMC_isOther_(const char* path)
 }
 
 /*
-char *FMC_readSymlink_(char *path_sym, const char * path)
+char *FMC_readSymlink_(char *path_sym, const char * path, const int size)
 {
-    memset(path_sym, 0, sizeof(path_sym));
+    memset(path_sym, 0, size);
     fs::path p(path);
-    if (is_symlink(p) && exists(p) && sizeof(path_sym)/sizeof(path_sym[0]) >= fs::read_symlink(p).string().size()) 
+    if (is_symlink(p) && exists(p) && size) >= fs::read_symlink(p).string().size()) // to be changed 
     {
         fs::path target = fs::read_symlink(p);
         strcpy(path_sym, target.c_str());
@@ -138,25 +139,26 @@ int FMC_isEmpty_(const char *path)
     return fs::create_directory(path);
 }*/
 
-char *FMC_getCurrentPath_(char *path)
+char *FMC_getCurrentPath_(char *path, const size_t size)
 {
-    memset(path, 0, sizeof(path));
-    if (sizeof(path)/sizeof(path[0]) >= sizeof(fs::current_path().c_str())) 
+    std::string s = fs::current_path().string();
+    if (size >= s.length()) 
     {
+        memset(path, 0, size);
         strcpy(path, fs::current_path().c_str());
+        return path;
     }
-    return path;
+    else return NULL;
 }
 
-char *FMC_getAbsolutePath_(char *path, char *buffer)
+char *FMC_getAbsolutePath_(char *path, char *buffer, const size_t size)
 {
-    memset(buffer, 0, sizeof(buffer));
-    if(fs::exists(path))
+    
+    if(fs::exists(path) && size > fs::absolute(path).string().length())
     {
-        if (sizeof(path)/sizeof(path[0]) >= sizeof(fs::absolute(path).c_str()))
-        {
-            strcpy(buffer, fs::absolute(path).c_str());
-        }
+        memset(buffer, 0, size);
+        strncpy(buffer, fs::absolute(path).c_str(), fs::absolute(path).string().length());
+        return buffer;
     }
-    return buffer;
+    else return NULL;
 }

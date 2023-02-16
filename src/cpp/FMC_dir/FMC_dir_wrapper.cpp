@@ -26,6 +26,7 @@ SOFTWARE.
 
 #include "../FMC_wrapper.h"
 #include "FMC_dir.hpp"
+#include <stddef.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -83,14 +84,14 @@ FMC_SHARED int FMC_isEmpty(const char *path)
 
 //FMC_SHARED int FMC_createDir_(const char *path);
 
-FMC_SHARED char *FMC_getCurrentPath(char *path)
+FMC_SHARED char *FMC_getCurrentPath(char *path, const size_t size)
 {
-    return FMC_getCurrentPath_(path);
+    return FMC_getCurrentPath_(path, size);
 }
 
-FMC_SHARED char *FMC_getAbsolutePath(char *path, char *buffer)
+FMC_SHARED char *FMC_getAbsolutePath(char *path, char *buffer, const size_t size)
 {
-    return FMC_getAbsolutePath_(path, buffer);
+    return FMC_getAbsolutePath_(path, buffer, size);
 }
 
 #ifdef __cplusplus

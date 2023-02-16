@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="../../dd/d0d/FMC__dir__wrapper_8cpp.html#a817c845743892d1975fb1131346bd21a" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="../../dd/d0d/FMC__dir__wrapper_8cpp.html#adb5c0f21b42c41182dbbd37d4a5d64c0" target="_top" xlink:title="Checks if a path is a FIFO.">
 <polygon fill="white" stroke="#666666" points="74,-19 0,-19 0,0 74,0 74,-19"/>
 <text text-anchor="middle" x="37" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">FMC_isFIFO</text>
 </a>

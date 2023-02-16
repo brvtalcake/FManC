@@ -9,8 +9,6 @@
       <node id="4">
         <label>FMC_attributes.h</label>
         <link refid="d1/d2e/FMC__attributes_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
@@ -215,13 +213,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/types/FMC_enums.h" line="34" column="11" bodyfile="src/general/types/FMC_enums.h" bodystart="35" bodyend="45"/>
+        <location file="src/general/types/FMC_enums.h" line="34" column="2" bodyfile="src/general/types/FMC_enums.h" bodystart="35" bodyend="45"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
-      <memberdef kind="typedef" id="d6/d25/FMC__enums_8h_1a924a40403a4780b7e738234c582abf56" prot="public" static="no">
-        <type>typedefFMC_SHARED enum <ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0" kindref="member">FManC_Encodings</ref></type>
-        <definition>typedef typedefFMC_SHARED enum FManC_Encodings FMC_Encodings</definition>
+      <memberdef kind="typedef" id="d6/d25/FMC__enums_8h_1a546a84b4fb65bfbc272304d6bcee764e" prot="public" static="no">
+        <type>enum <ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0" kindref="member">FManC_Encodings</ref></type>
+        <definition>typedef enum FManC_Encodings FMC_Encodings</definition>
         <argsstring></argsstring>
         <name>FMC_Encodings</name>
         <briefdescription>
@@ -230,7 +228,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/types/FMC_enums.h" line="47" column="40" bodyfile="src/general/types/FMC_enums.h" bodystart="47" bodyend="-1"/>
+        <location file="src/general/types/FMC_enums.h" line="47" column="30" bodyfile="src/general/types/FMC_enums.h" bodystart="47" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -284,7 +282,7 @@
 <codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref><sp/>=<sp/>256</highlight></codeline>
 <codeline lineno="45" refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" refkind="member"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"></highlight></codeline>
-<codeline lineno="47" refid="d6/d25/FMC__enums_8h_1a924a40403a4780b7e738234c582abf56" refkind="member"><highlight class="normal">FMC_SHARED<sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0" kindref="member">FManC_Encodings</ref><sp/><ref refid="d6/d25/FMC__enums_8h_1a924a40403a4780b7e738234c582abf56" kindref="member">FMC_Encodings</ref>;<sp/></highlight></codeline>
+<codeline lineno="47" refid="d6/d25/FMC__enums_8h_1a546a84b4fb65bfbc272304d6bcee764e" refkind="member"><highlight class="normal">FMC_SHARED<sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0" kindref="member">FManC_Encodings</ref><sp/><ref refid="d6/d25/FMC__enums_8h_1a546a84b4fb65bfbc272304d6bcee764e" kindref="member">FMC_Encodings</ref>;<sp/></highlight></codeline>
 <codeline lineno="48"><highlight class="normal"></highlight></codeline>
 <codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_ENUMS_H</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>

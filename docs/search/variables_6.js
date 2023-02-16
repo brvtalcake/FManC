@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['middleleft_0',['middleLeft',['../d5/de5/FMC__structs_8h.html#a0e93d5246e1cbf1610c30955f0e6c0cd',1,'FManC_CharComp']]],
-  ['middleright_1',['middleRight',['../d5/de5/FMC__structs_8h.html#a76161b0372f154ca9139c5ef31c2fce7',1,'FManC_CharComp']]],
-  ['mostleft_2',['mostLeft',['../d5/de5/FMC__structs_8h.html#ab5bef0acf34cd37487ae4e4c819fdcac',1,'FManC_CharComp']]],
-  ['mostright_3',['mostRight',['../d5/de5/FMC__structs_8h.html#ae80fb7059c701006b85e053ed34c7388',1,'FManC_CharComp']]]
+  ['path_0',['path',['../d5/de5/FMC__structs_8h.html#a1e8a9001da85d6e7b3a0c0da6b07d4b6',1,'FManC_File']]],
+  ['pos_1',['pos',['../d5/de5/FMC__structs_8h.html#aa771d096daea4bd1c01973da82d931c8',1,'FManC_StrOcc']]]
 ];

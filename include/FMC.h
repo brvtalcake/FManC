@@ -37,6 +37,4 @@ SOFTWARE.
 #include "cpp/FMC_wrapper.h"
 
 
-
-
 #endif // FMC_H

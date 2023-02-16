@@ -5,7 +5,7 @@
     <includes refid="d5/de5/FMC__structs_8h" local="no">FMC_structs.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="d8/dc1/structFManC__Char_1a9ddbbb74dabf0b896e8c54854ef70407" prot="public" static="no" mutable="no">
-        <type><ref refid="d5/de5/FMC__structs_8h_1ae76c83252942e748637637a7c5dc656e" kindref="member">FMC_CharComp</ref></type>
+        <type><ref refid="d5/de5/FMC__structs_8h_1a2e2aed3ee5d09638f6e66ead4387d822" kindref="member">FMC_CharComp</ref></type>
         <definition>FMC_CharComp FManC_Char::comp</definition>
         <argsstring></argsstring>
         <name>comp</name>
@@ -19,7 +19,7 @@
         <location file="src/general/types/FMC_structs.h" line="72" column="18" bodyfile="src/general/types/FMC_structs.h" bodystart="72" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d8/dc1/structFManC__Char_1a3012c74536dbec440d803fa51a51a918" prot="public" static="no" mutable="no">
-        <type><ref refid="d6/d25/FMC__enums_8h_1a924a40403a4780b7e738234c582abf56" kindref="member">FMC_Encodings</ref></type>
+        <type><ref refid="d6/d25/FMC__enums_8h_1a546a84b4fb65bfbc272304d6bcee764e" kindref="member">FMC_Encodings</ref></type>
         <definition>FMC_Encodings FManC_Char::encoding</definition>
         <argsstring></argsstring>
         <name>encoding</name>
@@ -79,13 +79,13 @@
         <label>_Bool</label>
       </node>
       <node id="2">
-        <label>typedefFMC_SHARED enum FManC_Encodings</label>
+        <label>enum FManC_Encodings</label>
       </node>
       <node id="4">
         <label>unsigned int</label>
       </node>
     </collaborationgraph>
-    <location file="src/general/types/FMC_structs.h" line="69" column="11" bodyfile="src/general/types/FMC_structs.h" bodystart="70" bodyend="74"/>
+    <location file="src/general/types/FMC_structs.h" line="69" column="2" bodyfile="src/general/types/FMC_structs.h" bodystart="70" bodyend="74"/>
     <listofallmembers>
       <member refid="d8/dc1/structFManC__Char_1a9ddbbb74dabf0b896e8c54854ef70407" prot="public" virt="non-virtual"><scope>FManC_Char</scope><name>comp</name></member>
       <member refid="d8/dc1/structFManC__Char_1a3012c74536dbec440d803fa51a51a918" prot="public" virt="non-virtual"><scope>FManC_Char</scope><name>encoding</name></member>

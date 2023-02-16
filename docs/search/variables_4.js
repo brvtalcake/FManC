@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['file_0',['file',['../d5/de5/FMC__structs_8h.html#a0289441a83f1d429169ccf15fc3a973b',1,'FManC_File']]],
-  ['filename_1',['filename',['../d2/deb/FMC__file__management_8h.html#a9dbcd8ea8b392cc94306ffa15f14ba6e',1,'FMC_file_management.h']]],
-  ['fmc_5fenable_5fdebug_2',['FMC_ENABLE_DEBUG',['../de/d86/FMC__globals_8h.html#a960129b2b6979dc20bdf03180b173766',1,'FMC_globals.h']]]
+  ['middleleft_0',['middleLeft',['../d5/de5/FMC__structs_8h.html#a0e93d5246e1cbf1610c30955f0e6c0cd',1,'FManC_CharComp']]],
+  ['middleright_1',['middleRight',['../d5/de5/FMC__structs_8h.html#a76161b0372f154ca9139c5ef31c2fce7',1,'FManC_CharComp']]],
+  ['mostleft_2',['mostLeft',['../d5/de5/FMC__structs_8h.html#ab5bef0acf34cd37487ae4e4c819fdcac',1,'FManC_CharComp']]],
+  ['mostright_3',['mostRight',['../d5/de5/FMC__structs_8h.html#ae80fb7059c701006b85e053ed34c7388',1,'FManC_CharComp']]]
 ];

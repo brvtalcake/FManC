@@ -55,7 +55,7 @@
         <label>size_t</label>
       </node>
     </collaborationgraph>
-    <location file="src/general/types/FMC_structs.h" line="51" column="11" bodyfile="src/general/types/FMC_structs.h" bodystart="52" bodyend="55"/>
+    <location file="src/general/types/FMC_structs.h" line="51" column="2" bodyfile="src/general/types/FMC_structs.h" bodystart="52" bodyend="55"/>
     <listofallmembers>
       <member refid="d4/df4/structFManC__StrOcc_1a2c2bf2c7bc3d0a8938f383c8296e0886" prot="public" virt="non-virtual"><scope>FManC_StrOcc</scope><name>charCount</name></member>
       <member refid="d4/df4/structFManC__StrOcc_1aa771d096daea4bd1c01973da82d931c8" prot="public" virt="non-virtual"><scope>FManC_StrOcc</scope><name>pos</name></member>

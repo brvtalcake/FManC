@@ -27,6 +27,8 @@ SOFTWARE.
 #ifndef FMC_DIR_HPP
 #define FMC_DIR_HPP
 
+#include <cstddef>
+
 int FMC_dirExists_(const char *path);
 int FMC_isDir_(const char *path);
 int FMC_isRegFile_(const char *path);
@@ -39,7 +41,7 @@ int FMC_isOther_(const char* path);
 //char *FMC_readSymlink_(char *path_sym, const char * path);
 int FMC_isEmpty_(const char *path);
 //int FMC_createDir_(const char *path);
-char *FMC_getCurrentPath_(char *path);
-char *FMC_getAbsolutePath_(char *path, char *buffer);
+char *FMC_getCurrentPath_(char *path, const size_t size);
+char *FMC_getAbsolutePath_(char *path, char *buffer, const size_t size);
 
 #endif // FMC_DIR_HPP

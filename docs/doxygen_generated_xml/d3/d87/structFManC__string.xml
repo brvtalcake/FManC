@@ -5,7 +5,7 @@
     <includes refid="d5/de5/FMC__structs_8h" local="no">FMC_structs.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="d3/d87/structFManC__string_1a76b2cfeeace3a519c1e6aff60f955912" prot="public" static="no" mutable="no">
-        <type><ref refid="d5/de5/FMC__structs_8h_1a91bf224b337633794ac39078baa701dc" kindref="member">FMC_Char</ref> *</type>
+        <type><ref refid="d5/de5/FMC__structs_8h_1a2d29b4e54e0020a9ed2ca313bcb4cab2" kindref="member">FMC_Char</ref> *</type>
         <definition>FMC_Char* FManC_string::chars</definition>
         <argsstring></argsstring>
         <name>chars</name>
@@ -39,7 +39,27 @@
     </detaileddescription>
     <collaborationgraph>
       <node id="2">
-        <label>FMC_Char *</label>
+        <label>FManC_Char</label>
+        <link refid="d8/dc1/structFManC__Char"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>+encoding</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>+comp</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>+isNull</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>FManC_CharComp</label>
+        <link refid="dc/d1a/structFManC__CharComp"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>+middleLeft</edgelabel>
+          <edgelabel>+middleRight</edgelabel>
+          <edgelabel>+mostLeft</edgelabel>
+          <edgelabel>+mostRight</edgelabel>
+        </childnode>
       </node>
       <node id="1">
         <label>FManC_string</label>
@@ -47,15 +67,24 @@
         <childnode refid="2" relation="usage">
           <edgelabel>+chars</edgelabel>
         </childnode>
-        <childnode refid="3" relation="usage">
+        <childnode refid="7" relation="usage">
           <edgelabel>+size</edgelabel>
         </childnode>
       </node>
+      <node id="6">
+        <label>_Bool</label>
+      </node>
       <node id="3">
+        <label>enum FManC_Encodings</label>
+      </node>
+      <node id="7">
         <label>size_t</label>
       </node>
+      <node id="5">
+        <label>unsigned int</label>
+      </node>
     </collaborationgraph>
-    <location file="src/general/types/FMC_structs.h" line="79" column="11" bodyfile="src/general/types/FMC_structs.h" bodystart="80" bodyend="83"/>
+    <location file="src/general/types/FMC_structs.h" line="79" column="2" bodyfile="src/general/types/FMC_structs.h" bodystart="80" bodyend="83"/>
     <listofallmembers>
       <member refid="d3/d87/structFManC__string_1a76b2cfeeace3a519c1e6aff60f955912" prot="public" virt="non-virtual"><scope>FManC_string</scope><name>chars</name></member>
       <member refid="d3/d87/structFManC__string_1aef362721bc1734d70aa0245097d3552a" prot="public" virt="non-virtual"><scope>FManC_string</scope><name>size</name></member>

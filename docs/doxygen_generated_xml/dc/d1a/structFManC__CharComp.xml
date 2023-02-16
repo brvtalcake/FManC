@@ -84,7 +84,7 @@
         <label>unsigned int</label>
       </node>
     </collaborationgraph>
-    <location file="src/general/types/FMC_structs.h" line="59" column="11" bodyfile="src/general/types/FMC_structs.h" bodystart="60" bodyend="65"/>
+    <location file="src/general/types/FMC_structs.h" line="59" column="2" bodyfile="src/general/types/FMC_structs.h" bodystart="60" bodyend="65"/>
     <listofallmembers>
       <member refid="dc/d1a/structFManC__CharComp_1a0e93d5246e1cbf1610c30955f0e6c0cd" prot="public" virt="non-virtual"><scope>FManC_CharComp</scope><name>middleLeft</name></member>
       <member refid="dc/d1a/structFManC__CharComp_1a76161b0372f154ca9139c5ef31c2fce7" prot="public" virt="non-virtual"><scope>FManC_CharComp</scope><name>middleRight</name></member>

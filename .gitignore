@@ -17,6 +17,7 @@ txt.txt
 *.old
 *.o
 test.c
+!test/src_test/test.c
 test_.c
 test__.c 
 nobuild*

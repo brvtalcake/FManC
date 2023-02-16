@@ -38,8 +38,6 @@
       <node id="5">
         <label>FMC_attributes.h</label>
         <link refid="d1/d2e/FMC__attributes_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
         <childnode refid="3" relation="include">
         </childnode>
       </node>
@@ -145,60 +143,23 @@
         <location file="src/files/FMC_file_management.h" line="30" column="9" bodyfile="src/files/FMC_file_management.h" bodystart="30" bodyend="-1"/>
       </memberdef>
       </sectiondef>
-      <sectiondef kind="var">
-      <memberdef kind="variable" id="d2/deb/FMC__file__management_8h_1a8c03e962512d87874a1e2b20ca475ea9" prot="public" static="no" mutable="no">
-        <type>FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT char *restrict</type>
-        <definition>FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT char* restrict dirs</definition>
-        <argsstring></argsstring>
-        <name>dirs</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/files/FMC_file_management.h" line="35" column="103" bodyfile="src/files/FMC_file_management.h" bodystart="35" bodyend="-1"/>
-        <referencedby refid="d2/deb/FMC__file__management_8h_1a5f9cc14eaaba8f526225c896d990aeab" compoundref="dc/d5e/FMC__paths_8c" startline="109" endline="185">FMC_FUNC_NONNULL</referencedby>
-      </memberdef>
-      <memberdef kind="variable" id="d2/deb/FMC__file__management_8h_1ad0da82ad6c4515eb29c865e34abb0c8d" prot="public" static="no" mutable="no">
-        <type>FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT char *restrict</type>
-        <definition>FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT char* restrict ext</definition>
-        <argsstring></argsstring>
-        <name>ext</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/files/FMC_file_management.h" line="36" column="103" bodyfile="src/files/FMC_file_management.h" bodystart="36" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="d2/deb/FMC__file__management_8h_1a9dbcd8ea8b392cc94306ffa15f14ba6e" prot="public" static="no" mutable="no">
-        <type>FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT char *restrict</type>
-        <definition>FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT char* restrict filename</definition>
-        <argsstring></argsstring>
-        <name>filename</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/files/FMC_file_management.h" line="34" column="103" bodyfile="src/files/FMC_file_management.h" bodystart="34" bodyend="-1"/>
-        <referencedby refid="dc/d5e/FMC__paths_8c_1aead839330b350653b1573a2e42a33243" compoundref="dc/d5e/FMC__paths_8c" startline="32" endline="107">FMC_FUNC_NONNULL</referencedby>
-      </memberdef>
-      </sectiondef>
       <sectiondef kind="func">
-      <memberdef kind="function" id="d2/deb/FMC__file__management_8h_1a5f9cc14eaaba8f526225c896d990aeab" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT</type>
-        <definition>FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL</definition>
-        <argsstring>(1, 2) char *FMC_extractFilename(const char *restrict const path</argsstring>
-        <name>FMC_FUNC_NONNULL</name>
+      <memberdef kind="function" id="d2/deb/FMC__file__management_8h_1a93ee980e87b59d6a3af6e5d4f1ec7ac0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char * FMC_cutFilename</definition>
+        <argsstring>(const char *restrict const path, char *restrict dirs, const size_t dirs_size)</argsstring>
+        <name>FMC_cutFilename</name>
         <param>
-          <type>1</type>
+          <type>const char *restrict const</type>
+          <declname>path</declname>
         </param>
         <param>
-          <type>2</type>
+          <type>char *restrict</type>
+          <declname>dirs</declname>
+        </param>
+        <param>
+          <type>const size_t</type>
+          <declname>dirs_size</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -206,14 +167,122 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/files/FMC_file_management.h" line="34" column="53" bodyfile="src/files/FMC_paths.c" bodystart="109" bodyend="185"/>
-        <references refid="d2/deb/FMC__file__management_8h_1a8c03e962512d87874a1e2b20ca475ea9" compoundref="d2/deb/FMC__file__management_8h" startline="35">dirs</references>
+        <location file="src/files/FMC_file_management.h" line="49" column="11" bodyfile="src/files/FMC_paths.c" bodystart="109" bodyend="185" declfile="src/files/FMC_file_management.h" declline="49" declcolumn="11"/>
         <references refid="de/d86/FMC__globals_8h_1a960129b2b6979dc20bdf03180b173766">FMC_ENABLE_DEBUG</references>
         <references refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" compoundref="dd/ddf/FMC__errors_8h" startline="38">FMC_makeMsg</references>
-        <references refid="de/dab/FMC__errors_8c_1a6f3db48b5173e8c1c93b0080aa95fa61" compoundref="dd/ddf/FMC__errors_8h" startline="373" endline="379">FMC_printBrightRedError</references>
+        <references refid="de/dab/FMC__errors_8c_1ae3486f9bf81a6979471cdbab89635aa3" compoundref="dd/ddf/FMC__errors_8h" startline="373" endline="379">FMC_printBrightRedError</references>
         <references refid="da/dd3/FMC__consts_8h_1aef2c26bbba7239793dfd266d0e8b46b4" compoundref="da/dd3/FMC__consts_8h" startline="34">MAX_FEXT_SIZE</references>
         <references refid="da/dd3/FMC__consts_8h_1ab0e76045bf91a8a1b4fc381488399f70" compoundref="da/dd3/FMC__consts_8h" startline="35">MAX_FNAME_SIZE</references>
         <references refid="da/dd3/FMC__consts_8h_1ae5c03ff129a1255adb84d15ae75425b8" compoundref="da/dd3/FMC__consts_8h" startline="36">MAX_FPATH_SIZE</references>
+      </memberdef>
+      <memberdef kind="function" id="d2/deb/FMC__file__management_8h_1a1fa62fd52b6e1fa12794f480d51ba683" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char * FMC_extractFilename</definition>
+        <argsstring>(const char *restrict const path, char *restrict filename, const size_t filename_size)</argsstring>
+        <name>FMC_extractFilename</name>
+        <param>
+          <type>const char *restrict const</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>char *restrict</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>const size_t</type>
+          <declname>filename_size</declname>
+        </param>
+        <briefdescription>
+<para>Gets the filename from a complete path. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Axel PASCON </para>
+</simplesect>
+<simplesect kind="date"><para>2023</para>
+</simplesect>
+Basically, this function only detects the last &apos;/&apos; or &apos;\&apos; character. For example, if the path is &quot;C:\\Users\\someone\\Documents\\MyFile.txt&quot;, the function will return &quot;MyFile.txt&quot;. If the path is &quot;/home/someone/Desktop&quot;, then Desktop will be considered as the filename. This function is designed to only operate on strings, and do not check if the path is valid, is a file or a directory, etc. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path to extract the filename from. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer where the filename will be stored. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">filename_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the filename buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to the filename buffer. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>NULL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If the path is NULL, if the filename buffer is NULL or if an error occured. The error can be viewed by setting <ref refid="de/d86/FMC__globals_8h_1a960129b2b6979dc20bdf03180b173766" kindref="member">FMC_ENABLE_DEBUG </ref> to <ref refid="da/dd3/FMC__consts_8h_1add3ca9eefe3b5b754426f51d3043e579" kindref="member">True </ref>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="warning"><para>The filename buffer must be at least as big as the path. </para>
+</simplesect>
+<simplesect kind="note"><para>The maximum filename size is <ref refid="da/dd3/FMC__consts_8h_1ab0e76045bf91a8a1b4fc381488399f70" kindref="member">MAX_FNAME_SIZE </ref>. You can disable some warnings or error messages by defining <ref refid="de/d86/FMC__globals_8h_1a960129b2b6979dc20bdf03180b173766" kindref="member">FMC_ENABLE_DEBUG </ref> to <ref refid="da/dd3/FMC__consts_8h_1a306ebd41c0cd1303b1372c6153f0caf8" kindref="member">False </ref>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/files/FMC_file_management.h" line="48" column="11" bodyfile="src/files/FMC_paths.c" bodystart="32" bodyend="107" declfile="src/files/FMC_file_management.h" declline="48" declcolumn="11"/>
+        <references refid="de/d86/FMC__globals_8h_1a960129b2b6979dc20bdf03180b173766">FMC_ENABLE_DEBUG</references>
+        <references refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" compoundref="dd/ddf/FMC__errors_8h" startline="38">FMC_makeMsg</references>
+        <references refid="de/dab/FMC__errors_8c_1ae3486f9bf81a6979471cdbab89635aa3" compoundref="dd/ddf/FMC__errors_8h" startline="373" endline="379">FMC_printBrightRedError</references>
+        <references refid="da/dd3/FMC__consts_8h_1aef2c26bbba7239793dfd266d0e8b46b4" compoundref="da/dd3/FMC__consts_8h" startline="34">MAX_FEXT_SIZE</references>
+        <references refid="da/dd3/FMC__consts_8h_1ab0e76045bf91a8a1b4fc381488399f70" compoundref="da/dd3/FMC__consts_8h" startline="35">MAX_FNAME_SIZE</references>
+        <references refid="da/dd3/FMC__consts_8h_1ae5c03ff129a1255adb84d15ae75425b8" compoundref="da/dd3/FMC__consts_8h" startline="36">MAX_FPATH_SIZE</references>
+        <referencedby refid="d2/deb/FMC__file__management_8h_1ab8632eb234af95cea6075bc166278cff" compoundref="dc/d5e/FMC__paths_8c" startline="187" endline="225">FMC_getExtension</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d2/deb/FMC__file__management_8h_1ab8632eb234af95cea6075bc166278cff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char * FMC_getExtension</definition>
+        <argsstring>(const char *restrict const path, char *restrict ext, const size_t ext_size)</argsstring>
+        <name>FMC_getExtension</name>
+        <param>
+          <type>const char *restrict const</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>char *restrict</type>
+          <declname>ext</declname>
+        </param>
+        <param>
+          <type>const size_t</type>
+          <declname>ext_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/files/FMC_file_management.h" line="50" column="11" bodyfile="src/files/FMC_paths.c" bodystart="187" bodyend="225" declfile="src/files/FMC_file_management.h" declline="50" declcolumn="11"/>
+        <references refid="de/d86/FMC__globals_8h_1a960129b2b6979dc20bdf03180b173766">FMC_ENABLE_DEBUG</references>
+        <references refid="dc/d5e/FMC__paths_8c_1a1fa62fd52b6e1fa12794f480d51ba683" compoundref="dc/d5e/FMC__paths_8c" startline="32" endline="107">FMC_extractFilename</references>
+        <references refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" compoundref="dd/ddf/FMC__errors_8h" startline="38">FMC_makeMsg</references>
+        <references refid="de/dab/FMC__errors_8c_1ae3486f9bf81a6979471cdbab89635aa3" compoundref="dd/ddf/FMC__errors_8h" startline="373" endline="379">FMC_printBrightRedError</references>
+        <references refid="da/dd3/FMC__consts_8h_1aef2c26bbba7239793dfd266d0e8b46b4" compoundref="da/dd3/FMC__consts_8h" startline="34">MAX_FEXT_SIZE</references>
+        <references refid="da/dd3/FMC__consts_8h_1ab0e76045bf91a8a1b4fc381488399f70" compoundref="da/dd3/FMC__consts_8h" startline="35">MAX_FNAME_SIZE</references>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -254,11 +323,11 @@
 <codeline lineno="31"><highlight class="normal"></highlight></codeline>
 <codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../general/FMC_general.h&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="33"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34" refid="d2/deb/FMC__file__management_8h_1a9dbcd8ea8b392cc94306ffa15f14ba6e" refkind="member"><highlight class="normal">FMC_SHARED<sp/>FMC_FUNC_HOT<sp/>FMC_FUNC_WARN_UNUSED_RESULT<sp/><ref refid="d2/deb/FMC__file__management_8h_1a5f9cc14eaaba8f526225c896d990aeab" kindref="member">FMC_FUNC_NONNULL</ref>(1,<sp/>2)<sp/>char<sp/>*FMC_extractFilename(const<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>restrict<sp/>const<sp/>path,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>restrict<sp/><ref refid="d2/deb/FMC__file__management_8h_1a9dbcd8ea8b392cc94306ffa15f14ba6e" kindref="member">filename</ref>);</highlight></codeline>
-<codeline lineno="35" refid="d2/deb/FMC__file__management_8h_1a8c03e962512d87874a1e2b20ca475ea9" refkind="member"><highlight class="normal">FMC_SHARED<sp/>FMC_FUNC_HOT<sp/>FMC_FUNC_WARN_UNUSED_RESULT<sp/><ref refid="d2/deb/FMC__file__management_8h_1a5f9cc14eaaba8f526225c896d990aeab" kindref="member">FMC_FUNC_NONNULL</ref>(1,<sp/>2)<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*FMC_cutFilename(const<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>restrict<sp/>const<sp/>path,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>restrict<sp/><ref refid="d2/deb/FMC__file__management_8h_1a8c03e962512d87874a1e2b20ca475ea9" kindref="member">dirs</ref>);</highlight></codeline>
-<codeline lineno="36" refid="d2/deb/FMC__file__management_8h_1ad0da82ad6c4515eb29c865e34abb0c8d" refkind="member"><highlight class="normal">FMC_SHARED<sp/>FMC_FUNC_HOT<sp/>FMC_FUNC_WARN_UNUSED_RESULT<sp/><ref refid="d2/deb/FMC__file__management_8h_1a5f9cc14eaaba8f526225c896d990aeab" kindref="member">FMC_FUNC_NONNULL</ref>(1,<sp/>2)<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*FMC_getExtension(const<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>restrict<sp/>const<sp/>path,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>restrict<sp/><ref refid="d2/deb/FMC__file__management_8h_1ad0da82ad6c4515eb29c865e34abb0c8d" kindref="member">ext</ref>);</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_FILE_MANAGEMENT_H</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">FMC_SHARED<sp/>FMC_FUNC_HOT<sp/>FMC_FUNC_WARN_UNUSED_RESULT<sp/>FMC_FUNC_NONNULL(1,<sp/>2)<sp/>char<sp/>*<ref refid="d2/deb/FMC__file__management_8h_1a1fa62fd52b6e1fa12794f480d51ba683" kindref="member">FMC_extractFilename</ref>(const<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>restrict<sp/>const<sp/>path,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>restrict<sp/>filename,<sp/>const<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>filename_size);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">FMC_SHARED<sp/>FMC_FUNC_HOT<sp/>FMC_FUNC_WARN_UNUSED_RESULT<sp/>FMC_FUNC_NONNULL(1,<sp/>2)<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d2/deb/FMC__file__management_8h_1a93ee980e87b59d6a3af6e5d4f1ec7ac0" kindref="member">FMC_cutFilename</ref>(const<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>restrict<sp/>const<sp/>path,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>restrict<sp/>dirs,<sp/>const<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>dirs_size);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">FMC_SHARED<sp/>FMC_FUNC_HOT<sp/>FMC_FUNC_WARN_UNUSED_RESULT<sp/>FMC_FUNC_NONNULL(1,<sp/>2)<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d2/deb/FMC__file__management_8h_1ab8632eb234af95cea6075bc166278cff" kindref="member">FMC_getExtension</ref>(const<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>restrict<sp/>const<sp/>path,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>restrict<sp/>ext,<sp/>const<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>ext_size);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_FILE_MANAGEMENT_H</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="src/files/FMC_file_management.h"/>
   </compounddef>

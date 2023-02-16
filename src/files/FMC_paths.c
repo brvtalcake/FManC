@@ -29,7 +29,7 @@ SOFTWARE.
 
 #include "FMC_file_management.h"
 
-FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char *FMC_extractFilename(const char * restrict const path, char * restrict filename)
+FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char *FMC_extractFilename(const char * restrict const path, char * restrict filename, const size_t filename_size)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare" // get an error at compile time without this (because of attribute nonnull)
     if (!path || !filename)
@@ -42,7 +42,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
         return NULL;
     }
     #pragma GCC diagnostic pop
-    memset(filename, 0, sizeof(filename));
+    memset(filename, 0, filename_size);
     size_t path_len = 0;
     if ((path_len = strnlen(path, MAX_FEXT_SIZE + MAX_FNAME_SIZE + MAX_FPATH_SIZE)) >= MAX_FEXT_SIZE + MAX_FNAME_SIZE + MAX_FPATH_SIZE)
     {
@@ -106,7 +106,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
     }
 }
 
-FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char *FMC_cutFilename(const char * restrict const path, char * restrict dirs)
+FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char *FMC_cutFilename(const char * restrict const path, char * restrict dirs, const size_t dirs_size)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare" // get an error at compile time without this (because of attribute nonnull)
     if (!path || !dirs)
@@ -119,7 +119,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
         return NULL;
     }
     #pragma GCC diagnostic pop
-    memset(dirs, 0, sizeof(dirs));
+    memset(dirs, 0, dirs_size);
     size_t path_len = 0;
     if ((path_len = strnlen(path, MAX_FEXT_SIZE + MAX_FNAME_SIZE + MAX_FPATH_SIZE)) >= MAX_FEXT_SIZE + MAX_FNAME_SIZE + MAX_FPATH_SIZE)
     {
@@ -184,7 +184,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
     
 }
 
-FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char *FMC_getExtension(const char * restrict const path, char * restrict ext)
+FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char *FMC_getExtension(const char * restrict const path, char * restrict ext, const size_t ext_size)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare" // get an error at compile time without this (because of attribute nonnull)
     if (!path || !ext)
@@ -197,9 +197,9 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
         return NULL;
     }
     #pragma GCC diagnostic pop
-    memset(ext, 0, sizeof(ext));
+    memset(ext, 0, ext_size);
     char name[MAX_FNAME_SIZE];
-    if (!FMC_extractFilename(path, name))
+    if (!FMC_extractFilename(path, name, MAX_FNAME_SIZE))
     {
         FMC_makeMsg(err_path6, 4, "FMC INTERNAL ERROR : ", "In function : ", __func__, ". FMC_extractFilename call failed.");
         FMC_printBrightRedError(stderr, err_path6);

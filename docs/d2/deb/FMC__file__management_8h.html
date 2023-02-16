@@ -27,7 +27,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../FManC.png"/></td>
   <td id="projectalign">
-   <div id="projectname">FManC<span id="projectnumber">&#160;0.0.1</span>
+   <div id="projectname">FManC<span id="projectnumber">&#160;1.0.0</span>
    </div>
    <div id="projectbrief">File Manager in C</div>
   </td>
@@ -94,8 +94,7 @@ $(document).ready(function(){initNavTree('d2/deb/FMC__file__management_8h.html',
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">FMC_file_management.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -123,17 +122,13 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a5f9cc14eaaba8f526225c896d990aeab"><td class="memItemLeft" align="right" valign="top">FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/deb/FMC__file__management_8h.html#a5f9cc14eaaba8f526225c896d990aeab">FMC_FUNC_NONNULL</a> (1, 2) char *FMC_extractFilename(const char *restrict const path</td></tr>
-<tr class="separator:a5f9cc14eaaba8f526225c896d990aeab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a8c03e962512d87874a1e2b20ca475ea9"><td class="memItemLeft" align="right" valign="top">FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT char *restrict&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/deb/FMC__file__management_8h.html#a8c03e962512d87874a1e2b20ca475ea9">dirs</a></td></tr>
-<tr class="separator:a8c03e962512d87874a1e2b20ca475ea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0da82ad6c4515eb29c865e34abb0c8d"><td class="memItemLeft" align="right" valign="top">FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT char *restrict&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/deb/FMC__file__management_8h.html#ad0da82ad6c4515eb29c865e34abb0c8d">ext</a></td></tr>
-<tr class="separator:ad0da82ad6c4515eb29c865e34abb0c8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dbcd8ea8b392cc94306ffa15f14ba6e"><td class="memItemLeft" align="right" valign="top">FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT char *restrict&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/deb/FMC__file__management_8h.html#a9dbcd8ea8b392cc94306ffa15f14ba6e">filename</a></td></tr>
-<tr class="separator:a9dbcd8ea8b392cc94306ffa15f14ba6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93ee980e87b59d6a3af6e5d4f1ec7ac0"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/deb/FMC__file__management_8h.html#a93ee980e87b59d6a3af6e5d4f1ec7ac0">FMC_cutFilename</a> (const char *restrict const path, char *restrict dirs, const size_t dirs_size)</td></tr>
+<tr class="separator:a93ee980e87b59d6a3af6e5d4f1ec7ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fa62fd52b6e1fa12794f480d51ba683"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/deb/FMC__file__management_8h.html#a1fa62fd52b6e1fa12794f480d51ba683">FMC_extractFilename</a> (const char *restrict const path, char *restrict filename, const size_t filename_size)</td></tr>
+<tr class="memdesc:a1fa62fd52b6e1fa12794f480d51ba683"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the filename from a complete path.  <br /></td></tr>
+<tr class="separator:a1fa62fd52b6e1fa12794f480d51ba683"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8632eb234af95cea6075bc166278cff"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/deb/FMC__file__management_8h.html#ab8632eb234af95cea6075bc166278cff">FMC_getExtension</a> (const char *restrict const path, char *restrict ext, const size_t ext_size)</td></tr>
+<tr class="separator:ab8632eb234af95cea6075bc166278cff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a8428d33137ff221ccd58e6472a20e654" name="a8428d33137ff221ccd58e6472a20e654"></a>
@@ -153,95 +148,171 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a5f9cc14eaaba8f526225c896d990aeab" name="a5f9cc14eaaba8f526225c896d990aeab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f9cc14eaaba8f526225c896d990aeab">&#9670;&#160;</a></span>FMC_FUNC_NONNULL()</h2>
+<a id="a93ee980e87b59d6a3af6e5d4f1ec7ac0" name="a93ee980e87b59d6a3af6e5d4f1ec7ac0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93ee980e87b59d6a3af6e5d4f1ec7ac0">&#9670;&#160;</a></span>FMC_cutFilename()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL </td>
+          <td class="memname">char * FMC_cutFilename </td>
           <td>(</td>
-          <td class="paramtype">1&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramtype">const char *restrict const&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">2&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramtype">char *restrict&#160;</td>
+          <td class="paramname"><em>dirs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>dirs_size</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../dc/d5e/FMC__paths_8c_source.html#l00109">109</a> of file <a class="el" href="../../dc/d5e/FMC__paths_8c_source.html">FMC_paths.c</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d2/deb/FMC__file__management_8h_source.html#l00035">dirs</a>, <a class="el" href="../../de/d86/FMC__globals_8h.html#a960129b2b6979dc20bdf03180b173766">FMC_ENABLE_DEBUG</a>, <a class="el" href="../../dd/ddf/FMC__errors_8h_source.html#l00038">FMC_makeMsg</a>, <a class="el" href="../../dd/ddf/FMC__errors_8h_source.html#l00373">FMC_printBrightRedError()</a>, <a class="el" href="../../da/dd3/FMC__consts_8h_source.html#l00034">MAX_FEXT_SIZE</a>, <a class="el" href="../../da/dd3/FMC__consts_8h_source.html#l00035">MAX_FNAME_SIZE</a>, and <a class="el" href="../../da/dd3/FMC__consts_8h_source.html#l00036">MAX_FPATH_SIZE</a>.</p>
+<p class="reference">References <a class="el" href="../../de/d86/FMC__globals_8h.html#a960129b2b6979dc20bdf03180b173766">FMC_ENABLE_DEBUG</a>, <a class="el" href="../../dd/ddf/FMC__errors_8h_source.html#l00038">FMC_makeMsg</a>, <a class="el" href="../../dd/ddf/FMC__errors_8h_source.html#l00373">FMC_printBrightRedError()</a>, <a class="el" href="../../da/dd3/FMC__consts_8h_source.html#l00034">MAX_FEXT_SIZE</a>, <a class="el" href="../../da/dd3/FMC__consts_8h_source.html#l00035">MAX_FNAME_SIZE</a>, and <a class="el" href="../../da/dd3/FMC__consts_8h_source.html#l00036">MAX_FPATH_SIZE</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d2/deb/FMC__file__management_8h_a5f9cc14eaaba8f526225c896d990aeab_cgraph.svg" width="100%" height="413"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d2/deb/FMC__file__management_8h_a93ee980e87b59d6a3af6e5d4f1ec7ac0_cgraph.svg" width="643" height="151"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 
 </div>
 </div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a8c03e962512d87874a1e2b20ca475ea9" name="a8c03e962512d87874a1e2b20ca475ea9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c03e962512d87874a1e2b20ca475ea9">&#9670;&#160;</a></span>dirs</h2>
+<a id="a1fa62fd52b6e1fa12794f480d51ba683" name="a1fa62fd52b6e1fa12794f480d51ba683"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fa62fd52b6e1fa12794f480d51ba683">&#9670;&#160;</a></span>FMC_extractFilename()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT char* restrict dirs</td>
+          <td class="memname">char * FMC_extractFilename </td>
+          <td>(</td>
+          <td class="paramtype">const char *restrict const&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *restrict&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>filename_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/deb/FMC__file__management_8h_source.html#l00035">35</a> of file <a class="el" href="../../d2/deb/FMC__file__management_8h_source.html">FMC_file_management.h</a>.</p>
+<p>Gets the filename from a complete path. </p>
+<dl class="section author"><dt>Author</dt><dd>Axel PASCON </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2023</dd></dl>
+<p>Basically, this function only detects the last '/' or '\' character. For example, if the path is "C:\\Users\\someone\\Documents\\MyFile.txt", the function will return "MyFile.txt". If the path is "/home/someone/Desktop", then Desktop will be considered as the filename. This function is designed to only operate on strings, and do not check if the path is valid, is a file or a directory, etc. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>The path to extract the filename from. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">filename</td><td>The buffer where the filename will be stored. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filename_size</td><td>The size of the filename buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the filename buffer. </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">NULL</td><td>If the path is NULL, if the filename buffer is NULL or if an error occured. The error can be viewed by setting <a class="el" href="../../de/d86/FMC__globals_8h.html#a960129b2b6979dc20bdf03180b173766">FMC_ENABLE_DEBUG </a> to <a class="el" href="../../da/dd3/FMC__consts_8h.html#add3ca9eefe3b5b754426f51d3043e579">True </a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>The filename buffer must be at least as big as the path. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The maximum filename size is <a class="el" href="../../da/dd3/FMC__consts_8h.html#ab0e76045bf91a8a1b4fc381488399f70">MAX_FNAME_SIZE </a>. You can disable some warnings or error messages by defining <a class="el" href="../../de/d86/FMC__globals_8h.html#a960129b2b6979dc20bdf03180b173766">FMC_ENABLE_DEBUG </a> to <a class="el" href="../../da/dd3/FMC__consts_8h.html#a306ebd41c0cd1303b1372c6153f0caf8">False </a>. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="../../dc/d5e/FMC__paths_8c_source.html#l00109">FMC_FUNC_NONNULL()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/d5e/FMC__paths_8c_source.html#l00032">32</a> of file <a class="el" href="../../dc/d5e/FMC__paths_8c_source.html">FMC_paths.c</a>.</p>
+
+<p class="reference">References <a class="el" href="../../de/d86/FMC__globals_8h.html#a960129b2b6979dc20bdf03180b173766">FMC_ENABLE_DEBUG</a>, <a class="el" href="../../dd/ddf/FMC__errors_8h_source.html#l00038">FMC_makeMsg</a>, <a class="el" href="../../dd/ddf/FMC__errors_8h_source.html#l00373">FMC_printBrightRedError()</a>, <a class="el" href="../../da/dd3/FMC__consts_8h_source.html#l00034">MAX_FEXT_SIZE</a>, <a class="el" href="../../da/dd3/FMC__consts_8h_source.html#l00035">MAX_FNAME_SIZE</a>, and <a class="el" href="../../da/dd3/FMC__consts_8h_source.html#l00036">MAX_FPATH_SIZE</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../dc/d5e/FMC__paths_8c_source.html#l00187">FMC_getExtension()</a>.</p>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d2/deb/FMC__file__management_8h_a1fa62fd52b6e1fa12794f480d51ba683_cgraph.svg" width="100%" height="413"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d2/deb/FMC__file__management_8h_a1fa62fd52b6e1fa12794f480d51ba683_icgraph.svg" width="366" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="ad0da82ad6c4515eb29c865e34abb0c8d" name="ad0da82ad6c4515eb29c865e34abb0c8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0da82ad6c4515eb29c865e34abb0c8d">&#9670;&#160;</a></span>ext</h2>
+<a id="ab8632eb234af95cea6075bc166278cff" name="ab8632eb234af95cea6075bc166278cff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8632eb234af95cea6075bc166278cff">&#9670;&#160;</a></span>FMC_getExtension()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT char* restrict ext</td>
+          <td class="memname">char * FMC_getExtension </td>
+          <td>(</td>
+          <td class="paramtype">const char *restrict const&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d2/deb/FMC__file__management_8h_source.html#l00036">36</a> of file <a class="el" href="../../d2/deb/FMC__file__management_8h_source.html">FMC_file_management.h</a>.</p>
-
-</div>
-</div>
-<a id="a9dbcd8ea8b392cc94306ffa15f14ba6e" name="a9dbcd8ea8b392cc94306ffa15f14ba6e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9dbcd8ea8b392cc94306ffa15f14ba6e">&#9670;&#160;</a></span>filename</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT char* restrict filename</td>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *restrict&#160;</td>
+          <td class="paramname"><em>ext</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>ext_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/deb/FMC__file__management_8h_source.html#l00034">34</a> of file <a class="el" href="../../d2/deb/FMC__file__management_8h_source.html">FMC_file_management.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/d5e/FMC__paths_8c_source.html#l00187">187</a> of file <a class="el" href="../../dc/d5e/FMC__paths_8c_source.html">FMC_paths.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dc/d5e/FMC__paths_8c_source.html#l00032">FMC_FUNC_NONNULL()</a>.</p>
+<p class="reference">References <a class="el" href="../../de/d86/FMC__globals_8h.html#a960129b2b6979dc20bdf03180b173766">FMC_ENABLE_DEBUG</a>, <a class="el" href="../../dc/d5e/FMC__paths_8c_source.html#l00032">FMC_extractFilename()</a>, <a class="el" href="../../dd/ddf/FMC__errors_8h_source.html#l00038">FMC_makeMsg</a>, <a class="el" href="../../dd/ddf/FMC__errors_8h_source.html#l00373">FMC_printBrightRedError()</a>, <a class="el" href="../../da/dd3/FMC__consts_8h_source.html#l00034">MAX_FEXT_SIZE</a>, and <a class="el" href="../../da/dd3/FMC__consts_8h_source.html#l00035">MAX_FNAME_SIZE</a>.</p>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d2/deb/FMC__file__management_8h_ab8632eb234af95cea6075bc166278cff_cgraph.svg" width="100%" height="413"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
 
 </div>
 </div>
@@ -251,7 +322,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../dir_251697ed71d3107a084c4be76de6bea7.html">files</a></li><li class="navelem"><a class="el" href="../../d2/deb/FMC__file__management_8h.html">FMC_file_management.h</a></li>
-    <li class="footer">Generated on Thu Feb 16 2023 17:54:21 for FManC by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+    <li class="footer">Generated on Fri Feb 17 2023 00:36:47 for FManC by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
   </ul>
 </div>
 </body>

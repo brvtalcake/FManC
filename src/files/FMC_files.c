@@ -26,8 +26,9 @@ SOFTWARE.
 
 #include "FMC_file_management.h"
 
+/*
 FMC_SHARED FMC_File *FMC_createFile(const char * const path)
 {
     FMC_File *file = NULL;
     
-}
+}*/

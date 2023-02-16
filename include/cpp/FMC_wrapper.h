@@ -33,6 +33,8 @@ extern "C" {
 
 #include "../general/preprocessor/FMC_macros.h"
 
+#include <cstddef>
+
 // FMC_dir
 FMC_SHARED int FMC_dirExists(const char *path);
 FMC_SHARED int FMC_isDir(const char *path);
@@ -44,8 +46,8 @@ FMC_SHARED int FMC_isSocket(const char* path);
 FMC_SHARED int FMC_isFIFO(const char* path);
 FMC_SHARED int FMC_isOther(const char* path);
 FMC_SHARED int FMC_isEmpty(const char *path);
-FMC_SHARED char *FMC_getCurrentPath(char *path);
-FMC_SHARED char *FMC_getAbsolutePath(char *path, char *buffer);
+FMC_SHARED char *FMC_getCurrentPath(char *path, const size_t size);
+FMC_SHARED char *FMC_getAbsolutePath(char *path, char *buffer, const size_t size);
 // !FMC_dir
 
 #ifdef __cplusplus

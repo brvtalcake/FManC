@@ -26,7 +26,7 @@ SOFTWARE.
 
 #include "FMC_strings.h"
 
-FMC_SHARED FMC_Char FMC_getChar(FMC_File *file)
+/*FMC_SHARED FMC_Char FMC_getChar(FMC_File *file)
 {
     
-}
+}*/

@@ -25,10 +25,11 @@ SOFTWARE.
 */
 #define __STDC_WANT_LIB_EXT1__ 1
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdlib.h> 
 #include <errno.h>
 #include <string.h>
-#include <wchar.h>
+#include <wchar.h> // fwide
+#include <stdint.h>
 
 #include "FMC_encodings.h"
 
@@ -57,7 +58,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_get
         return error;
     }
 
-    size_t sizeOfFile = 0;
+    long long sizeOfFile = 0;
     if(fseek(file, 0, SEEK_END)) 
     {
         FMC_makeMsg(err_seek_1, 4, "FMC INTERNAL ERROR : ", "In function : ", __func__, ". fseek failure.");
@@ -66,19 +67,31 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_get
     }
     errno = 0;
     sizeOfFile = ftell(file);
-    if (errno)
+    if (errno || sizeOfFile == -1L)
     {
         FMC_makeMsg(err_tell, 5, "FMC INTERNAL ERROR : ", "In function : ", __func__, ". ftell failure.", strerror(errno));
         FMC_printBrightRedError(stderr, err_tell);
         return error;
     }
+    
     rewind(file);
     char buff[4] = {0};
-    if (sizeOfFile <= 4 && sizeOfFile >= 0) 
+    // 1st if
+    if(sizeOfFile < 0) // no error, must have overflowed
     {
-        int ret = fread(buff, 1, sizeOfFile, file);
-        if(ret != sizeOfFile) goto check_error_type_1;
-        else if (ret == sizeOfFile) goto end_check_1;
+        sizeOfFile = SIZE_MAX;
+        size_t ret = fread(buff, 1, 4, file);
+        if(ret != 4) goto check_error_type_1;
+        else if (ret == 4) goto end_check_1;
+        else return error;
+    }
+
+    // 2nd if
+    else if (sizeOfFile <= 4 && sizeOfFile >= 0) 
+    {
+        size_t ret = fread(buff, 1, sizeOfFile, file);
+        if(ret != (size_t) sizeOfFile) goto check_error_type_1;
+        else if (ret == (size_t) sizeOfFile) goto end_check_1;
         else return error;
 
         check_error_type_1 : 
@@ -103,6 +116,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_get
         
     }
 
+    // 3rd if
     else if(fread(buff, 1, 4, file) != 4)
     {
         if (feof(file))
@@ -175,7 +189,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_get
                 return utf8;
             }
             cpt++;
-            if (cpt >= sizeOfFile)
+            if ((long long) cpt >= sizeOfFile)
             {
                 break;
             }
@@ -217,7 +231,7 @@ FMC_SHARED FMC_FUNC_CONST FMC_Encodings FMC_checkEncodingFlag(int encoding)
     return unknown;
 }
 
-FMC_SHARED FMC_Char FMC_getc(FMC_File file)
+/*FMC_SHARED FMC_Char FMC_getc(FMC_File file)
 {
     FMC_Char c = {.encoding = file.encoding, .comp = {.mostLeft = 0, .middleLeft = 0, .middleRight = 0, .mostRight = 0}, .isNull = 0};
     if(file.file == NULL || file.encoding == error || file.encoding == unknown)
@@ -239,4 +253,4 @@ FMC_SHARED FMC_Char FMC_getc(FMC_File file)
         }
         
     }
-}
+}*/
