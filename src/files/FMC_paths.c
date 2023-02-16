@@ -31,6 +31,7 @@ SOFTWARE.
 
 FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char *FMC_extractFilename(const char * restrict const path, char * restrict filename)
 {
+    #pragma GCC diagnostic ignored "-Wnonnull-compare" // get an error at compile time without this (because of attribute nonnull)
     if (!path || !filename)
     {
         if (FMC_ENABLE_DEBUG)
@@ -40,6 +41,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
         }
         return NULL;
     }
+    #pragma GCC diagnostic pop
     memset(filename, 0, sizeof(filename));
     size_t path_len = 0;
     if ((path_len = strnlen(path, MAX_FEXT_SIZE + MAX_FNAME_SIZE + MAX_FPATH_SIZE)) >= MAX_FEXT_SIZE + MAX_FNAME_SIZE + MAX_FPATH_SIZE)
@@ -106,6 +108,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
 
 FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char *FMC_cutFilename(const char * restrict const path, char * restrict dirs)
 {
+    #pragma GCC diagnostic ignored "-Wnonnull-compare" // get an error at compile time without this (because of attribute nonnull)
     if (!path || !dirs)
     {
         if (FMC_ENABLE_DEBUG)
@@ -115,6 +118,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
         }
         return NULL;
     }
+    #pragma GCC diagnostic pop
     memset(dirs, 0, sizeof(dirs));
     size_t path_len = 0;
     if ((path_len = strnlen(path, MAX_FEXT_SIZE + MAX_FNAME_SIZE + MAX_FPATH_SIZE)) >= MAX_FEXT_SIZE + MAX_FNAME_SIZE + MAX_FPATH_SIZE)
@@ -182,6 +186,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
 
 FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char *FMC_getExtension(const char * restrict const path, char * restrict ext)
 {
+    #pragma GCC diagnostic ignored "-Wnonnull-compare" // get an error at compile time without this (because of attribute nonnull)
     if (!path || !ext)
     {
         if (FMC_ENABLE_DEBUG)
@@ -191,6 +196,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
         }
         return NULL;
     }
+    #pragma GCC diagnostic pop
     memset(ext, 0, sizeof(ext));
     char name[MAX_FNAME_SIZE];
     if (!FMC_extractFilename(path, name))

@@ -34,6 +34,7 @@ SOFTWARE.
 
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_getEncoding(FILE *file)
 {
+    #pragma GCC diagnostic ignored "-Wnonnull-compare" // get an error at compile time without this (because of attribute nonnull)
     if (file == NULL)
     {
         if (FMC_ENABLE_DEBUG) 
@@ -43,6 +44,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_get
         }
         return error;
     }
+    #pragma GCC diagnostic pop
 
     // check orientation
     if (fwide(file, -1) >= 0)

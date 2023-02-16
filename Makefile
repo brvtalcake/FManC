@@ -26,17 +26,24 @@ else ifneq (,$(findstring windows,$(OS)))
 endif
 
 # Project subdirectories
-SRC_SUBDIRS=src src/general src/general/preprocessor src/general/types src/general/utils src/files src/data_analyze src/data_analyze/encodings src/data_analyze/strings src/code_utils
+CPP_SRC_SUBDIRS=src/cpp/ src/cpp/FMC_dir/
+C_SRC_SUBDIRS=src/ src/general/ src/general/preprocessor/ src/general/types/ src/general/utils/ src/files/ src/data_analyze/ src/data_analyze/encodings/ src/data_analyze/strings/ src/code_utils/
+SRC_SUBDIRS=$(C_SRC_SUBDIRS) $(CPP_SRC_SUBDIRS)
+
+VPATH=$(subst / ,/:,$(SRC_SUBDIRS))
 
 # Project files
+CPP_SRC_FILES=$(foreach dir,$(SRC_SUBDIRS),$(wildcard $(dir)/*.cpp))
+HPP_SRC_FILES=$(foreach dir,$(SRC_SUBDIRS),$(wildcard $(dir)/*.hpp))
 C_SRC_FILES=$(foreach dir,$(SRC_SUBDIRS),$(wildcard $(dir)/*.c))
 H_SRC_FILES=$(foreach dir,$(SRC_SUBDIRS),$(wildcard $(dir)/*.h))
+SRC_FILES=$(CPP_SRC_FILES) $(C_SRC_FILES) $(HPP_SRC_FILES) $(H_SRC_FILES)
 
 # Object files
-O_LIN_STATIC_FILES=$(addprefix obj/lin/static/,$(notdir $(C_SRC_FILES:.c=.o)))
-O_LIN_SHARED_FILES=$(addprefix obj/lin/shared/,$(notdir $(C_SRC_FILES:.c=.o)))
-O_WIN_STATIC_FILES=$(addprefix obj/win/static/,$(notdir $(C_SRC_FILES:.c=.o)))
-O_WIN_SHARED_FILES=$(addprefix obj/win/shared/,$(notdir $(C_SRC_FILES:.c=.o)))
+O_LIN_STATIC_FILES=$(addprefix obj/lin/static/,$(notdir $(C_SRC_FILES:.c=.o))) $(addprefix obj/lin/static/,$(notdir $(CPP_SRC_FILES:.cpp=.o)))
+O_LIN_SHARED_FILES=$(addprefix obj/lin/shared/,$(notdir $(C_SRC_FILES:.c=.o))) $(addprefix obj/lin/shared/,$(notdir $(CPP_SRC_FILES:.cpp=.o)))
+O_WIN_STATIC_FILES=$(addprefix obj/win/static/,$(notdir $(C_SRC_FILES:.c=.o))) $(addprefix obj/win/static/,$(notdir $(CPP_SRC_FILES:.cpp=.o)))
+O_WIN_SHARED_FILES=$(addprefix obj/win/shared/,$(notdir $(C_SRC_FILES:.c=.o))) $(addprefix obj/win/shared/,$(notdir $(CPP_SRC_FILES:.cpp=.o)))
 
 # Library files
 LIB_LIN_STATIC_FILES=lib/libFManC_linux_x86_64.a
@@ -46,20 +53,14 @@ LIB_WIN_SHARED_FILES=bin/libFManC_x86_64.dll lib/libFManC_x86_64.dll.a
 
 # Compiler and friends
 CC=gcc
+CCXX=g++
 AR=ar
 
 # Compiler and archiver flags
 AR_FLAGS=-rsc
 CFLAGS=-O3 -Wall -Wextra -pedantic -Werror -std=gnu17
-CFLAGS_STATIC=-O3 -D STATIC -Wall -Wextra -pedantic -Werror -std=gnu17 -c
-CFLAGS_DLL_1=-O3 -Wall -Werror -Wextra -pedantic -std=gnu17 -c -D BUILD_DLL
-CFLAGS_DLL_2=-O3 -Wall -Werror -Wextra -pedantic -std=gnu17 -shared -o
-LDFLAGS_DLL_2="-Wl,--out-implib,libFManC.dll.a,--export-all-symbols"
-CFLAGS_DYN_LIN_1=-O3 -Wall -Wextra -pedantic -Werror -std=gnu17 -c -fPIC
-CFLAGS_DYN_LIN_2=-O3 -Wall -Wextra -pedantic -Werror -std=gnu17 -fPIC -shared -o
-LDFLAGS_DYN_LIN_2=-Wl,-soname,
-
 CXX_FLAGS=-O3 -Wall -Wextra -pedantic -Werror -std=gnu++17
+
 
 # All target
 ALL_TARGET=$(addsuffix _$(DETECTED_OS), all)
@@ -126,20 +127,38 @@ test_win : $(LIB_WIN_STATIC_FILES) $(LIB_WIN_SHARED_FILES)
 clean : $(CLEAN_TARGET)
 
 clean_lin : $(O_LIN_STATIC_FILES) $(O_LIN_SHARED_FILES) $(LIB_LIN_STATIC_FILES) $(LIB_LIN_SHARED_FILES)
-	@printf "\e[32mCleaned everything for $(PRINTED_OS)\e[0m"
 	@rm -f $(O_LIN_STATIC_FILES) $(O_LIN_SHARED_FILES) $(LIB_LIN_STATIC_FILES) $(LIB_LIN_SHARED_FILES)
+	@printf "\e[32mCleaned everything for $(PRINTED_OS)\e[0m"
 
 clean_win : $(O_WIN_STATIC_FILES) $(O_WIN_SHARED_FILES) $(LIB_WIN_STATIC_FILES) $(LIB_WIN_SHARED_FILES)
-	@printf "\e[32mCleaned everything for $(PRINTED_OS)\e[0m"
 	@rm -f $(O_WIN_STATIC_FILES) $(O_WIN_SHARED_FILES) $(LIB_WIN_STATIC_FILES) $(LIB_WIN_SHARED_FILES)
+	@printf "\e[32mCleaned everything for $(PRINTED_OS)\e[0m"
 ## TO DO : check if rm exists on windows
 
 copy_headers : $(COPY_HEADERS_TARGET)
 
-copy_headers_lin : $(H_SRC_FILES) 
-	@printf "\e[32mCopied headers for $(PRINTED_OS)\e[0m"
+copy_headers_lin : $(H_SRC_FILES) $(HPP_SRC_FILES)
 	@cp $(addsuffix /,$(addprefix ./,$(H_SRC_FILES))) -t ./include/
-
-copy_headers_win : $(H_SRC_FILES) # This one should not work.
 	@printf "\e[32mCopied headers for $(PRINTED_OS)\e[0m"
+
+copy_headers_win : $(H_SRC_FILES)
 	@cp $(addsuffix \,$(addprefix .\,$(H_SRC_FILES))) .\\include\\ 
+	@printf "\e[32mCopied headers for $(PRINTED_OS)\e[0m"
+
+lib/libFManC_linux_x86_64.a : $(O_LIN_STATIC_FILES)
+	$(AR) $(AR_FLAGS) $@ $^
+
+lib/libFManC_win_x86_64.a : $(O_WIN_STATIC_FILES)
+	$(AR) $(AR_FLAGS) $@ $^
+
+obj/lin/static/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
+	$(CC) $< $(CFLAGS) -c -o $@
+
+obj/lin/static/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
+	$(CCXX) $< $(CXX_FLAGS) -c -o $@
+
+obj/win/static/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
+	$(CC) -D FMC_STATIC $< $(CFLAGS) -c -o $@
+
+obj/win/static/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
+	$(CCXX) -D FMC_STATIC $< $(CXX_FLAGS) -c -o $@
