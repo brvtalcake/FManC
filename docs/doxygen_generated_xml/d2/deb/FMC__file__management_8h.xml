@@ -1,0 +1,265 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="d2/deb/FMC__file__management_8h" kind="file" language="C++">
+    <compoundname>FMC_file_management.h</compoundname>
+    <includes refid="d9/de1/FMC__general_8h" local="yes">../general/FMC_general.h</includes>
+    <includedby refid="de/d47/FMC_8h" local="yes">src/FMC.h</includedby>
+    <includedby refid="d0/dc0/FMC__files_8c" local="yes">src/files/FMC_files.c</includedby>
+    <includedby refid="dc/d5e/FMC__paths_8c" local="yes">src/files/FMC_paths.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/files/FMC_file_management.h</label>
+        <link refid="d2/deb/FMC__file__management_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>../general/FMC_general.h</label>
+        <link refid="d9/de1/FMC__general_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>FMC_attributes.h</label>
+        <link refid="d1/d2e/FMC__attributes_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>preprocessor/FMC_consts.h</label>
+        <link refid="da/dd3/FMC__consts_8h"/>
+      </node>
+      <node id="11">
+        <label>preprocessor/FMC_flags.h</label>
+        <link refid="d2/d5e/FMC__flags_8h"/>
+      </node>
+      <node id="3">
+        <label>preprocessor/FMC_macros.h</label>
+        <link refid="d0/d28/FMC__macros_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>FMC_platform.h</label>
+        <link refid="d7/dff/FMC__platform_8h"/>
+      </node>
+      <node id="9">
+        <label>FMC_enums.h</label>
+        <link refid="d6/d25/FMC__enums_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>types/FMC_structs.h</label>
+        <link refid="d5/de5/FMC__structs_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>FMC_typedefs.h</label>
+        <link refid="df/df8/FMC__typedefs_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>utils/FMC_errors.h</label>
+        <link refid="dd/ddf/FMC__errors_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>utils/FMC_globals.h</label>
+        <link refid="de/d86/FMC__globals_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/FMC.h</label>
+        <link refid="de/d47/FMC_8h"/>
+      </node>
+      <node id="1">
+        <label>src/files/FMC_file_management.h</label>
+        <link refid="d2/deb/FMC__file__management_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>src/files/FMC_files.c</label>
+        <link refid="d0/dc0/FMC__files_8c"/>
+      </node>
+      <node id="4">
+        <label>src/files/FMC_paths.c</label>
+        <link refid="dc/d5e/FMC__paths_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="d2/deb/FMC__file__management_8h_1a8428d33137ff221ccd58e6472a20e654" prot="public" static="no">
+        <name>FMC_FILE_MANAGEMENT_H</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/files/FMC_file_management.h" line="30" column="9" bodyfile="src/files/FMC_file_management.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="d2/deb/FMC__file__management_8h_1a8c03e962512d87874a1e2b20ca475ea9" prot="public" static="no" mutable="no">
+        <type>FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT char *restrict</type>
+        <definition>FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT char* restrict dirs</definition>
+        <argsstring></argsstring>
+        <name>dirs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/files/FMC_file_management.h" line="35" column="103" bodyfile="src/files/FMC_file_management.h" bodystart="35" bodyend="-1"/>
+        <referencedby refid="d2/deb/FMC__file__management_8h_1a5f9cc14eaaba8f526225c896d990aeab" compoundref="dc/d5e/FMC__paths_8c" startline="109" endline="185">FMC_FUNC_NONNULL</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d2/deb/FMC__file__management_8h_1ad0da82ad6c4515eb29c865e34abb0c8d" prot="public" static="no" mutable="no">
+        <type>FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT char *restrict</type>
+        <definition>FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT char* restrict ext</definition>
+        <argsstring></argsstring>
+        <name>ext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/files/FMC_file_management.h" line="36" column="103" bodyfile="src/files/FMC_file_management.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d2/deb/FMC__file__management_8h_1a9dbcd8ea8b392cc94306ffa15f14ba6e" prot="public" static="no" mutable="no">
+        <type>FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT char *restrict</type>
+        <definition>FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT char* restrict filename</definition>
+        <argsstring></argsstring>
+        <name>filename</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/files/FMC_file_management.h" line="34" column="103" bodyfile="src/files/FMC_file_management.h" bodystart="34" bodyend="-1"/>
+        <referencedby refid="dc/d5e/FMC__paths_8c_1aead839330b350653b1573a2e42a33243" compoundref="dc/d5e/FMC__paths_8c" startline="32" endline="107">FMC_FUNC_NONNULL</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="d2/deb/FMC__file__management_8h_1a5f9cc14eaaba8f526225c896d990aeab" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT</type>
+        <definition>FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL</definition>
+        <argsstring>(1, 2) char *FMC_extractFilename(const char *restrict const path</argsstring>
+        <name>FMC_FUNC_NONNULL</name>
+        <param>
+          <type>1</type>
+        </param>
+        <param>
+          <type>2</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/files/FMC_file_management.h" line="34" column="53" bodyfile="src/files/FMC_paths.c" bodystart="109" bodyend="185"/>
+        <references refid="d2/deb/FMC__file__management_8h_1a8c03e962512d87874a1e2b20ca475ea9" compoundref="d2/deb/FMC__file__management_8h" startline="35">dirs</references>
+        <references refid="de/d86/FMC__globals_8h_1a960129b2b6979dc20bdf03180b173766">FMC_ENABLE_DEBUG</references>
+        <references refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" compoundref="dd/ddf/FMC__errors_8h" startline="38">FMC_makeMsg</references>
+        <references refid="de/dab/FMC__errors_8c_1a6f3db48b5173e8c1c93b0080aa95fa61" compoundref="dd/ddf/FMC__errors_8h" startline="373" endline="379">FMC_printBrightRedError</references>
+        <references refid="da/dd3/FMC__consts_8h_1aef2c26bbba7239793dfd266d0e8b46b4" compoundref="da/dd3/FMC__consts_8h" startline="34">MAX_FEXT_SIZE</references>
+        <references refid="da/dd3/FMC__consts_8h_1ab0e76045bf91a8a1b4fc381488399f70" compoundref="da/dd3/FMC__consts_8h" startline="35">MAX_FNAME_SIZE</references>
+        <references refid="da/dd3/FMC__consts_8h_1ae5c03ff129a1255adb84d15ae75425b8" compoundref="da/dd3/FMC__consts_8h" startline="36">MAX_FPATH_SIZE</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"></highlight></codeline>
+<codeline lineno="3"><highlight class="comment">MIT<sp/>License</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"></highlight></codeline>
+<codeline lineno="5"><highlight class="comment">Copyright<sp/>(c)<sp/>2022<sp/>Axel<sp/>PASCON</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"></highlight></codeline>
+<codeline lineno="7"><highlight class="comment">Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline lineno="8"><highlight class="comment">of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"></highlight></codeline>
+<codeline lineno="14"><highlight class="comment">The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in<sp/>all</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"></highlight></codeline>
+<codeline lineno="17"><highlight class="comment">THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline lineno="20"><highlight class="comment">AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline lineno="22"><highlight class="comment">OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment">SOFTWARE.</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"></highlight></codeline>
+<codeline lineno="25"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FMC_FILE_MANAGEMENT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="d2/deb/FMC__file__management_8h_1a8428d33137ff221ccd58e6472a20e654" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_FILE_MANAGEMENT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../general/FMC_general.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="d2/deb/FMC__file__management_8h_1a9dbcd8ea8b392cc94306ffa15f14ba6e" refkind="member"><highlight class="normal">FMC_SHARED<sp/>FMC_FUNC_HOT<sp/>FMC_FUNC_WARN_UNUSED_RESULT<sp/><ref refid="d2/deb/FMC__file__management_8h_1a5f9cc14eaaba8f526225c896d990aeab" kindref="member">FMC_FUNC_NONNULL</ref>(1,<sp/>2)<sp/>char<sp/>*FMC_extractFilename(const<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>restrict<sp/>const<sp/>path,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>restrict<sp/><ref refid="d2/deb/FMC__file__management_8h_1a9dbcd8ea8b392cc94306ffa15f14ba6e" kindref="member">filename</ref>);</highlight></codeline>
+<codeline lineno="35" refid="d2/deb/FMC__file__management_8h_1a8c03e962512d87874a1e2b20ca475ea9" refkind="member"><highlight class="normal">FMC_SHARED<sp/>FMC_FUNC_HOT<sp/>FMC_FUNC_WARN_UNUSED_RESULT<sp/><ref refid="d2/deb/FMC__file__management_8h_1a5f9cc14eaaba8f526225c896d990aeab" kindref="member">FMC_FUNC_NONNULL</ref>(1,<sp/>2)<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*FMC_cutFilename(const<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>restrict<sp/>const<sp/>path,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>restrict<sp/><ref refid="d2/deb/FMC__file__management_8h_1a8c03e962512d87874a1e2b20ca475ea9" kindref="member">dirs</ref>);</highlight></codeline>
+<codeline lineno="36" refid="d2/deb/FMC__file__management_8h_1ad0da82ad6c4515eb29c865e34abb0c8d" refkind="member"><highlight class="normal">FMC_SHARED<sp/>FMC_FUNC_HOT<sp/>FMC_FUNC_WARN_UNUSED_RESULT<sp/><ref refid="d2/deb/FMC__file__management_8h_1a5f9cc14eaaba8f526225c896d990aeab" kindref="member">FMC_FUNC_NONNULL</ref>(1,<sp/>2)<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*FMC_getExtension(const<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>restrict<sp/>const<sp/>path,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>restrict<sp/><ref refid="d2/deb/FMC__file__management_8h_1ad0da82ad6c4515eb29c865e34abb0c8d" kindref="member">ext</ref>);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_FILE_MANAGEMENT_H</highlight></codeline>
+    </programlisting>
+    <location file="src/files/FMC_file_management.h"/>
+  </compounddef>
+</doxygen>

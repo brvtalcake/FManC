@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dir_2f601d846e8e89e376af36b1a1fc90a5" kind="dir">
+    <compoundname>src/general/preprocessor</compoundname>
+    <innerfile refid="d1/d2e/FMC__attributes_8h">FMC_attributes.h</innerfile>
+    <innerfile refid="da/dd3/FMC__consts_8h">FMC_consts.h</innerfile>
+    <innerfile refid="d2/d5e/FMC__flags_8h">FMC_flags.h</innerfile>
+    <innerfile refid="d0/d28/FMC__macros_8h">FMC_macros.h</innerfile>
+    <innerfile refid="d7/dff/FMC__platform_8h">FMC_platform.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/general/preprocessor/"/>
+  </compounddef>
+</doxygen>

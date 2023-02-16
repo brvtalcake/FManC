@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="da/d8c/structFManC__File" kind="struct" language="C++" prot="public">
+    <compoundname>FManC_File</compoundname>
+    <includes refid="d5/de5/FMC__structs_8h" local="no">FMC_structs.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="da/d8c/structFManC__File_1a2127709b2080c6aec708836109cdac13" prot="public" static="no" mutable="no">
+        <type><ref refid="d6/d25/FMC__enums_8h_1a924a40403a4780b7e738234c582abf56" kindref="member">FMC_Encodings</ref></type>
+        <definition>FMC_Encodings FManC_File::encoding</definition>
+        <argsstring></argsstring>
+        <name>encoding</name>
+        <qualifiedname>FManC_File::encoding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/types/FMC_structs.h" line="46" column="19" bodyfile="src/general/types/FMC_structs.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="da/d8c/structFManC__File_1a8cb3fb53ef42c2a53586e1c7852970f1" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char FManC_File::extension[MAX_FEXT_SIZE]</definition>
+        <argsstring>[MAX_FEXT_SIZE]</argsstring>
+        <name>extension</name>
+        <qualifiedname>FManC_File::extension</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/types/FMC_structs.h" line="45" column="10" bodyfile="src/general/types/FMC_structs.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="da/d8c/structFManC__File_1a0289441a83f1d429169ccf15fc3a973b" prot="public" static="no" mutable="no">
+        <type>FILE *</type>
+        <definition>FILE* FManC_File::file</definition>
+        <argsstring></argsstring>
+        <name>file</name>
+        <qualifiedname>FManC_File::file</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/types/FMC_structs.h" line="41" column="10" bodyfile="src/general/types/FMC_structs.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="da/d8c/structFManC__File_1afa09ca2cdf3308641a55c8a6c0ad8b56" prot="public" static="no" mutable="no">
+        <type><ref refid="df/df8/FMC__typedefs_8h_1a489c111832999f477ac15fa670c98e4c" kindref="member">FMC_FileState</ref></type>
+        <definition>FMC_FileState FManC_File::isOpened</definition>
+        <argsstring></argsstring>
+        <name>isOpened</name>
+        <qualifiedname>FManC_File::isOpened</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/types/FMC_structs.h" line="42" column="19" bodyfile="src/general/types/FMC_structs.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="da/d8c/structFManC__File_1a4c22936cb69f73ec4e0d8ba7a56c6248" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char FManC_File::name[MAX_FNAME_SIZE]</definition>
+        <argsstring>[MAX_FNAME_SIZE]</argsstring>
+        <name>name</name>
+        <qualifiedname>FManC_File::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/types/FMC_structs.h" line="44" column="10" bodyfile="src/general/types/FMC_structs.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="da/d8c/structFManC__File_1a1e8a9001da85d6e7b3a0c0da6b07d4b6" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char FManC_File::path[MAX_FPATH_SIZE]</definition>
+        <argsstring>[MAX_FPATH_SIZE]</argsstring>
+        <name>path</name>
+        <qualifiedname>FManC_File::path</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/types/FMC_structs.h" line="43" column="10" bodyfile="src/general/types/FMC_structs.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>FILE *</label>
+      </node>
+      <node id="1">
+        <label>FManC_File</label>
+        <link refid="da/d8c/structFManC__File"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+file</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>+isOpened</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>+extension</edgelabel>
+          <edgelabel>+name</edgelabel>
+          <edgelabel>+path</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>+encoding</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>_Bool</label>
+      </node>
+      <node id="4">
+        <label>char</label>
+      </node>
+      <node id="5">
+        <label>typedefFMC_SHARED enum FManC_Encodings</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/general/types/FMC_structs.h" line="39" column="11" bodyfile="src/general/types/FMC_structs.h" bodystart="40" bodyend="47"/>
+    <listofallmembers>
+      <member refid="da/d8c/structFManC__File_1a2127709b2080c6aec708836109cdac13" prot="public" virt="non-virtual"><scope>FManC_File</scope><name>encoding</name></member>
+      <member refid="da/d8c/structFManC__File_1a8cb3fb53ef42c2a53586e1c7852970f1" prot="public" virt="non-virtual"><scope>FManC_File</scope><name>extension</name></member>
+      <member refid="da/d8c/structFManC__File_1a0289441a83f1d429169ccf15fc3a973b" prot="public" virt="non-virtual"><scope>FManC_File</scope><name>file</name></member>
+      <member refid="da/d8c/structFManC__File_1afa09ca2cdf3308641a55c8a6c0ad8b56" prot="public" virt="non-virtual"><scope>FManC_File</scope><name>isOpened</name></member>
+      <member refid="da/d8c/structFManC__File_1a4c22936cb69f73ec4e0d8ba7a56c6248" prot="public" virt="non-virtual"><scope>FManC_File</scope><name>name</name></member>
+      <member refid="da/d8c/structFManC__File_1a1e8a9001da85d6e7b3a0c0da6b07d4b6" prot="public" virt="non-virtual"><scope>FManC_File</scope><name>path</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,10 +1,6 @@
 var searchData=
 [
-  ['charcount_0',['charCount',['../d8/d07/analyze_8h.html#a2c2bf2c7bc3d0a8938f383c8296e0886',1,'FManC_StrOcc']]],
-  ['code_5futils_2ec_1',['code_utils.c',['../d2/dfa/code__utils_8c.html',1,'']]],
-  ['code_5futils_2eh_2',['code_utils.h',['../d3/dd5/code__utils_8h.html',1,'']]],
-  ['constant_20macros_3',['Constant macros',['../d4/d42/group__fmanc__FM__UTILS__const__macros.html',1,'']]],
-  ['copyfilewithoutstrings_4',['copyFileWithoutStrings',['../d8/d07/analyze_8h.html#ac00d5607ef908576f411582a8eb8a128',1,'copyFileWithoutStrings(const unsigned int argc, char *filePath,...):&#160;analyze.h'],['../d7/d5b/fileMan_8h.html#ac00d5607ef908576f411582a8eb8a128',1,'copyFileWithoutStrings(const unsigned int argc, char *filePath,...):&#160;fileMan.h']]],
-  ['copyfilewithouttabandlinebreak_5',['copyFileWithoutTabAndLineBreak',['../db/de3/group__fmanc__FM__UTILS__func.html#ga970b51561bea3b8d75dcc91f9fc977d9',1,'copyFileWithoutTabAndLineBreak(char *sourceFilePath, char *pathToCopy):&#160;fileMan.c'],['../db/de3/group__fmanc__FM__UTILS__func.html#ga970b51561bea3b8d75dcc91f9fc977d9',1,'copyFileWithoutTabAndLineBreak(char *sourceFilePath, char *pathToCopy):&#160;fileMan.c']]],
-  ['countcharinfile_6',['countCharInFile',['../d7/d93/analyze_8c.html#a2fae470a9f2ba64ed544ecb0efdf3113',1,'countCharInFile(char *filePath):&#160;analyze.c'],['../d8/d07/analyze_8h.html#a2fae470a9f2ba64ed544ecb0efdf3113',1,'countCharInFile(char *filePath):&#160;analyze.c']]]
+  ['argc_0',['argc',['../dd/ddf/FMC__errors_8h.html#adbacf17d8414b4b4dfd7bc8ae34ac1fe',1,'FMC_errors.h']]],
+  ['ascii_1',['ascii',['../d6/d25/FMC__enums_8h.html#a5e2307d2045933b22773217fcce67ea0a1fc467976b8e2979150a99beb709443e',1,'FMC_enums.h']]],
+  ['ascii_2',['ASCII',['../d2/d5e/FMC__flags_8h.html#a60710bac11b4f1135f61ded06542d661',1,'FMC_flags.h']]]
 ];

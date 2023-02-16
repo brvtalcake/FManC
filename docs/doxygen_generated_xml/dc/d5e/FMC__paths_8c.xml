@@ -1,0 +1,385 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dc/d5e/FMC__paths_8c" kind="file" language="C++">
+    <compoundname>FMC_paths.c</compoundname>
+    <includes local="no">string.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes refid="d2/deb/FMC__file__management_8h" local="yes">FMC_file_management.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>FMC_file_management.h</label>
+        <link refid="d2/deb/FMC__file__management_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/files/FMC_paths.c</label>
+        <link refid="dc/d5e/FMC__paths_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>../general/FMC_general.h</label>
+        <link refid="d9/de1/FMC__general_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>FMC_attributes.h</label>
+        <link refid="d1/d2e/FMC__attributes_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>preprocessor/FMC_consts.h</label>
+        <link refid="da/dd3/FMC__consts_8h"/>
+      </node>
+      <node id="13">
+        <label>preprocessor/FMC_flags.h</label>
+        <link refid="d2/d5e/FMC__flags_8h"/>
+      </node>
+      <node id="6">
+        <label>preprocessor/FMC_macros.h</label>
+        <link refid="d0/d28/FMC__macros_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>FMC_platform.h</label>
+        <link refid="d7/dff/FMC__platform_8h"/>
+      </node>
+      <node id="11">
+        <label>FMC_enums.h</label>
+        <link refid="d6/d25/FMC__enums_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>types/FMC_structs.h</label>
+        <link refid="d5/de5/FMC__structs_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>FMC_typedefs.h</label>
+        <link refid="df/df8/FMC__typedefs_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>utils/FMC_errors.h</label>
+        <link refid="dd/ddf/FMC__errors_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>utils/FMC_globals.h</label>
+        <link refid="de/d86/FMC__globals_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>stdio.h</label>
+      </node>
+      <node id="2">
+        <label>string.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="dc/d5e/FMC__paths_8c_1aead839330b350653b1573a2e42a33243" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT</type>
+        <definition>FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL</definition>
+        <argsstring>(1, 2)</argsstring>
+        <name>FMC_FUNC_NONNULL</name>
+        <param>
+          <type>1</type>
+        </param>
+        <param>
+          <type>2</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/files/FMC_paths.c" line="32" column="53" bodyfile="src/files/FMC_paths.c" bodystart="32" bodyend="107"/>
+        <references refid="d2/deb/FMC__file__management_8h_1a9dbcd8ea8b392cc94306ffa15f14ba6e" compoundref="d2/deb/FMC__file__management_8h" startline="34">filename</references>
+        <references refid="de/d86/FMC__globals_8h_1a960129b2b6979dc20bdf03180b173766">FMC_ENABLE_DEBUG</references>
+        <references refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" compoundref="dd/ddf/FMC__errors_8h" startline="38">FMC_makeMsg</references>
+        <references refid="de/dab/FMC__errors_8c_1a6f3db48b5173e8c1c93b0080aa95fa61" compoundref="dd/ddf/FMC__errors_8h" startline="373" endline="379">FMC_printBrightRedError</references>
+        <references refid="da/dd3/FMC__consts_8h_1aef2c26bbba7239793dfd266d0e8b46b4" compoundref="da/dd3/FMC__consts_8h" startline="34">MAX_FEXT_SIZE</references>
+        <references refid="da/dd3/FMC__consts_8h_1ab0e76045bf91a8a1b4fc381488399f70" compoundref="da/dd3/FMC__consts_8h" startline="35">MAX_FNAME_SIZE</references>
+        <references refid="da/dd3/FMC__consts_8h_1ae5c03ff129a1255adb84d15ae75425b8" compoundref="da/dd3/FMC__consts_8h" startline="36">MAX_FPATH_SIZE</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"></highlight></codeline>
+<codeline lineno="3"><highlight class="comment">MIT<sp/>License</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"></highlight></codeline>
+<codeline lineno="5"><highlight class="comment">Copyright<sp/>(c)<sp/>2022-2023<sp/>Axel<sp/>PASCON</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"></highlight></codeline>
+<codeline lineno="7"><highlight class="comment">Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline lineno="8"><highlight class="comment">of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"></highlight></codeline>
+<codeline lineno="14"><highlight class="comment">The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in<sp/>all</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"></highlight></codeline>
+<codeline lineno="17"><highlight class="comment">THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline lineno="20"><highlight class="comment">AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline lineno="22"><highlight class="comment">OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment">SOFTWARE.</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"></highlight></codeline>
+<codeline lineno="25"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d2/deb/FMC__file__management_8h" kindref="compound">FMC_file_management.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="dc/d5e/FMC__paths_8c_1aead839330b350653b1573a2e42a33243" refkind="member"><highlight class="normal">FMC_SHARED<sp/>FMC_FUNC_HOT<sp/>FMC_FUNC_WARN_UNUSED_RESULT<sp/><ref refid="dc/d5e/FMC__paths_8c_1aead839330b350653b1573a2e42a33243" kindref="member">FMC_FUNC_NONNULL</ref>(1,<sp/>2)<sp/>char<sp/>*FMC_extractFilename(const<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>restrict<sp/>const<sp/>path,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>restrict<sp/><ref refid="d2/deb/FMC__file__management_8h_1a9dbcd8ea8b392cc94306ffa15f14ba6e" kindref="member">filename</ref>)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#pragma<sp/>GCC<sp/>diagnostic<sp/>ignored<sp/>&quot;-Wnonnull-compare&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">//<sp/>get<sp/>an<sp/>error<sp/>at<sp/>compile<sp/>time<sp/>without<sp/>this<sp/>(because<sp/>of<sp/>attribute<sp/>nonnull)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!path<sp/>||<sp/>!<ref refid="d2/deb/FMC__file__management_8h_1a9dbcd8ea8b392cc94306ffa15f14ba6e" kindref="member">filename</ref>)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="de/d86/FMC__globals_8h_1a960129b2b6979dc20bdf03180b173766" kindref="member">FMC_ENABLE_DEBUG</ref>)</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" kindref="member">FMC_makeMsg</ref>(err_null,<sp/>4,<sp/></highlight><highlight class="stringliteral">&quot;ERROR<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;In<sp/>function<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/>__func__,<sp/></highlight><highlight class="stringliteral">&quot;.<sp/>At<sp/>least<sp/>one<sp/>of<sp/>the<sp/>provided<sp/>pointers<sp/>is<sp/>NULL.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/dab/FMC__errors_8c_1a6f3db48b5173e8c1c93b0080aa95fa61" kindref="member">FMC_printBrightRedError</ref>(stderr,<sp/>err_null);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#pragma<sp/>GCC<sp/>diagnostic<sp/>pop</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>memset(<ref refid="d2/deb/FMC__file__management_8h_1a9dbcd8ea8b392cc94306ffa15f14ba6e" kindref="member">filename</ref>,<sp/>0,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="d2/deb/FMC__file__management_8h_1a9dbcd8ea8b392cc94306ffa15f14ba6e" kindref="member">filename</ref>));</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>path_len<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((path_len<sp/>=<sp/>strnlen(path,<sp/><ref refid="da/dd3/FMC__consts_8h_1aef2c26bbba7239793dfd266d0e8b46b4" kindref="member">MAX_FEXT_SIZE</ref><sp/>+<sp/><ref refid="da/dd3/FMC__consts_8h_1ab0e76045bf91a8a1b4fc381488399f70" kindref="member">MAX_FNAME_SIZE</ref><sp/>+<sp/><ref refid="da/dd3/FMC__consts_8h_1ae5c03ff129a1255adb84d15ae75425b8" kindref="member">MAX_FPATH_SIZE</ref>))<sp/>&gt;=<sp/><ref refid="da/dd3/FMC__consts_8h_1aef2c26bbba7239793dfd266d0e8b46b4" kindref="member">MAX_FEXT_SIZE</ref><sp/>+<sp/><ref refid="da/dd3/FMC__consts_8h_1ab0e76045bf91a8a1b4fc381488399f70" kindref="member">MAX_FNAME_SIZE</ref><sp/>+<sp/><ref refid="da/dd3/FMC__consts_8h_1ae5c03ff129a1255adb84d15ae75425b8" kindref="member">MAX_FPATH_SIZE</ref>)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" kindref="member">FMC_makeMsg</ref>(err_path,<sp/>4,<sp/></highlight><highlight class="stringliteral">&quot;ERROR<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;In<sp/>function<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/>__func__,<sp/></highlight><highlight class="stringliteral">&quot;.<sp/>The<sp/>provided<sp/>path<sp/>is<sp/>too<sp/>long<sp/>(or<sp/>doesn&apos;t<sp/>contain<sp/>any<sp/>nul-character).&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/dab/FMC__errors_8c_1a6f3db48b5173e8c1c93b0080aa95fa61" kindref="member">FMC_printBrightRedError</ref>(stderr,<sp/>err_path);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>path_cpy[<ref refid="da/dd3/FMC__consts_8h_1aef2c26bbba7239793dfd266d0e8b46b4" kindref="member">MAX_FEXT_SIZE</ref><sp/>+<sp/><ref refid="da/dd3/FMC__consts_8h_1ab0e76045bf91a8a1b4fc381488399f70" kindref="member">MAX_FNAME_SIZE</ref><sp/>+<sp/><ref refid="da/dd3/FMC__consts_8h_1ae5c03ff129a1255adb84d15ae75425b8" kindref="member">MAX_FPATH_SIZE</ref>];</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>strncpy(path_cpy,<sp/>path,<sp/>path_len+1);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strcmp(path_cpy,<sp/>path)<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" kindref="member">FMC_makeMsg</ref>(err_path2,<sp/>4,<sp/></highlight><highlight class="stringliteral">&quot;FMC<sp/>INTERNAL<sp/>ERROR<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;In<sp/>function<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/>__func__,<sp/></highlight><highlight class="stringliteral">&quot;.<sp/>strncpy<sp/>failure.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/dab/FMC__errors_8c_1a6f3db48b5173e8c1c93b0080aa95fa61" kindref="member">FMC_printBrightRedError</ref>(stderr,<sp/>err_path2);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*last_sep<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>last_sep<sp/>=<sp/>strrchr(path_cpy,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)</highlight><highlight class="charliteral">&apos;/&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!strrchr(path_cpy,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)</highlight><highlight class="charliteral">&apos;/&apos;</highlight><highlight class="normal">)<sp/>&amp;&amp;<sp/>!strrchr(path_cpy,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)</highlight><highlight class="charliteral">&apos;\\&apos;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/deb/FMC__file__management_8h_1a9dbcd8ea8b392cc94306ffa15f14ba6e" kindref="member">filename</ref><sp/>=<sp/>strncpy(<ref refid="d2/deb/FMC__file__management_8h_1a9dbcd8ea8b392cc94306ffa15f14ba6e" kindref="member">filename</ref>,<sp/>path_cpy,<sp/>path_len+1);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strcmp(<ref refid="d2/deb/FMC__file__management_8h_1a9dbcd8ea8b392cc94306ffa15f14ba6e" kindref="member">filename</ref>,<sp/>path_cpy)<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" kindref="member">FMC_makeMsg</ref>(err_path3,<sp/>4,<sp/></highlight><highlight class="stringliteral">&quot;FMC<sp/>INTERNAL<sp/>ERROR<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;In<sp/>function<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/>__func__,<sp/></highlight><highlight class="stringliteral">&quot;.<sp/>strncpy<sp/>failure.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/dab/FMC__errors_8c_1a6f3db48b5173e8c1c93b0080aa95fa61" kindref="member">FMC_printBrightRedError</ref>(stderr,<sp/>err_path3);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d2/deb/FMC__file__management_8h_1a9dbcd8ea8b392cc94306ffa15f14ba6e" kindref="member">filename</ref>;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strrchr(path_cpy,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)</highlight><highlight class="charliteral">&apos;\\&apos;</highlight><highlight class="normal">)<sp/>&amp;&amp;<sp/>strrchr(path_cpy,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)</highlight><highlight class="charliteral">&apos;/&apos;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="de/d86/FMC__globals_8h_1a960129b2b6979dc20bdf03180b173766" kindref="member">FMC_ENABLE_DEBUG</ref>)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" kindref="member">FMC_makeMsg</ref>(err_path5,<sp/>4,<sp/></highlight><highlight class="stringliteral">&quot;ERROR<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;In<sp/>function<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/>__func__,<sp/></highlight><highlight class="stringliteral">&quot;.<sp/>The<sp/>path<sp/>contains<sp/>both<sp/>&apos;/&apos;<sp/>and<sp/>&apos;\\&apos;.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/dab/FMC__errors_8c_1a6f3db48b5173e8c1c93b0080aa95fa61" kindref="member">FMC_printBrightRedError</ref>(stderr,<sp/>err_path5);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(last_sep)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/deb/FMC__file__management_8h_1a9dbcd8ea8b392cc94306ffa15f14ba6e" kindref="member">filename</ref><sp/>=<sp/>strncpy(<ref refid="d2/deb/FMC__file__management_8h_1a9dbcd8ea8b392cc94306ffa15f14ba6e" kindref="member">filename</ref>,<sp/>last_sep+1,<sp/>path_len+1);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strcmp(<ref refid="d2/deb/FMC__file__management_8h_1a9dbcd8ea8b392cc94306ffa15f14ba6e" kindref="member">filename</ref>,<sp/>last_sep+1)<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" kindref="member">FMC_makeMsg</ref>(err_path4,<sp/>4,<sp/></highlight><highlight class="stringliteral">&quot;FMC<sp/>INTERNAL<sp/>ERROR<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;In<sp/>function<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/>__func__,<sp/></highlight><highlight class="stringliteral">&quot;.<sp/>strncpy<sp/>failure.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/dab/FMC__errors_8c_1a6f3db48b5173e8c1c93b0080aa95fa61" kindref="member">FMC_printBrightRedError</ref>(stderr,<sp/>err_path4);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d2/deb/FMC__file__management_8h_1a9dbcd8ea8b392cc94306ffa15f14ba6e" kindref="member">filename</ref>;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>last_sep<sp/>=<sp/>strrchr(path_cpy,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)</highlight><highlight class="charliteral">&apos;\\&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/deb/FMC__file__management_8h_1a9dbcd8ea8b392cc94306ffa15f14ba6e" kindref="member">filename</ref><sp/>=<sp/>strncpy(<ref refid="d2/deb/FMC__file__management_8h_1a9dbcd8ea8b392cc94306ffa15f14ba6e" kindref="member">filename</ref>,<sp/>last_sep+1,<sp/>path_len+1);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strcmp(<ref refid="d2/deb/FMC__file__management_8h_1a9dbcd8ea8b392cc94306ffa15f14ba6e" kindref="member">filename</ref>,<sp/>last_sep+1)<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" kindref="member">FMC_makeMsg</ref>(err_path4,<sp/>4,<sp/></highlight><highlight class="stringliteral">&quot;FMC<sp/>INTERNAL<sp/>ERROR<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;In<sp/>function<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/>__func__,<sp/></highlight><highlight class="stringliteral">&quot;.<sp/>strncpy<sp/>failure.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/dab/FMC__errors_8c_1a6f3db48b5173e8c1c93b0080aa95fa61" kindref="member">FMC_printBrightRedError</ref>(stderr,<sp/>err_path4);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d2/deb/FMC__file__management_8h_1a9dbcd8ea8b392cc94306ffa15f14ba6e" kindref="member">filename</ref>;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109" refid="d2/deb/FMC__file__management_8h_1a5f9cc14eaaba8f526225c896d990aeab" refkind="member"><highlight class="normal">FMC_SHARED<sp/>FMC_FUNC_HOT<sp/>FMC_FUNC_WARN_UNUSED_RESULT<sp/><ref refid="dc/d5e/FMC__paths_8c_1aead839330b350653b1573a2e42a33243" kindref="member">FMC_FUNC_NONNULL</ref>(1,<sp/>2)<sp/>char<sp/>*FMC_cutFilename(const<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>restrict<sp/>const<sp/>path,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>restrict<sp/><ref refid="d2/deb/FMC__file__management_8h_1a8c03e962512d87874a1e2b20ca475ea9" kindref="member">dirs</ref>)</highlight></codeline>
+<codeline lineno="110"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#pragma<sp/>GCC<sp/>diagnostic<sp/>ignored<sp/>&quot;-Wnonnull-compare&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">//<sp/>get<sp/>an<sp/>error<sp/>at<sp/>compile<sp/>time<sp/>without<sp/>this<sp/>(because<sp/>of<sp/>attribute<sp/>nonnull)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!path<sp/>||<sp/>!<ref refid="d2/deb/FMC__file__management_8h_1a8c03e962512d87874a1e2b20ca475ea9" kindref="member">dirs</ref>)</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="de/d86/FMC__globals_8h_1a960129b2b6979dc20bdf03180b173766" kindref="member">FMC_ENABLE_DEBUG</ref>)</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" kindref="member">FMC_makeMsg</ref>(err_null,<sp/>4,<sp/></highlight><highlight class="stringliteral">&quot;ERROR<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;In<sp/>function<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/>__func__,<sp/></highlight><highlight class="stringliteral">&quot;.<sp/>At<sp/>least<sp/>one<sp/>of<sp/>the<sp/>provided<sp/>pointers<sp/>is<sp/>NULL.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/dab/FMC__errors_8c_1a6f3db48b5173e8c1c93b0080aa95fa61" kindref="member">FMC_printBrightRedError</ref>(stderr,<sp/>err_null);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#pragma<sp/>GCC<sp/>diagnostic<sp/>pop</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>memset(<ref refid="d2/deb/FMC__file__management_8h_1a8c03e962512d87874a1e2b20ca475ea9" kindref="member">dirs</ref>,<sp/>0,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="d2/deb/FMC__file__management_8h_1a8c03e962512d87874a1e2b20ca475ea9" kindref="member">dirs</ref>));</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>path_len<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((path_len<sp/>=<sp/>strnlen(path,<sp/><ref refid="da/dd3/FMC__consts_8h_1aef2c26bbba7239793dfd266d0e8b46b4" kindref="member">MAX_FEXT_SIZE</ref><sp/>+<sp/><ref refid="da/dd3/FMC__consts_8h_1ab0e76045bf91a8a1b4fc381488399f70" kindref="member">MAX_FNAME_SIZE</ref><sp/>+<sp/><ref refid="da/dd3/FMC__consts_8h_1ae5c03ff129a1255adb84d15ae75425b8" kindref="member">MAX_FPATH_SIZE</ref>))<sp/>&gt;=<sp/><ref refid="da/dd3/FMC__consts_8h_1aef2c26bbba7239793dfd266d0e8b46b4" kindref="member">MAX_FEXT_SIZE</ref><sp/>+<sp/><ref refid="da/dd3/FMC__consts_8h_1ab0e76045bf91a8a1b4fc381488399f70" kindref="member">MAX_FNAME_SIZE</ref><sp/>+<sp/><ref refid="da/dd3/FMC__consts_8h_1ae5c03ff129a1255adb84d15ae75425b8" kindref="member">MAX_FPATH_SIZE</ref>)</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" kindref="member">FMC_makeMsg</ref>(err_path,<sp/>4,<sp/></highlight><highlight class="stringliteral">&quot;ERROR<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;In<sp/>function<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/>__func__,<sp/></highlight><highlight class="stringliteral">&quot;.<sp/>The<sp/>provided<sp/>path<sp/>is<sp/>too<sp/>long<sp/>(or<sp/>doesn&apos;t<sp/>contain<sp/>any<sp/>nul-character).&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/dab/FMC__errors_8c_1a6f3db48b5173e8c1c93b0080aa95fa61" kindref="member">FMC_printBrightRedError</ref>(stderr,<sp/>err_path);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>path_cpy[<ref refid="da/dd3/FMC__consts_8h_1aef2c26bbba7239793dfd266d0e8b46b4" kindref="member">MAX_FEXT_SIZE</ref><sp/>+<sp/><ref refid="da/dd3/FMC__consts_8h_1ab0e76045bf91a8a1b4fc381488399f70" kindref="member">MAX_FNAME_SIZE</ref><sp/>+<sp/><ref refid="da/dd3/FMC__consts_8h_1ae5c03ff129a1255adb84d15ae75425b8" kindref="member">MAX_FPATH_SIZE</ref>];</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>strncpy(path_cpy,<sp/>path,<sp/>path_len+1);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strcmp(path_cpy,<sp/>path)<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" kindref="member">FMC_makeMsg</ref>(err_path2,<sp/>4,<sp/></highlight><highlight class="stringliteral">&quot;FMC<sp/>INTERNAL<sp/>ERROR<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;In<sp/>function<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/>__func__,<sp/></highlight><highlight class="stringliteral">&quot;.<sp/>strncpy<sp/>failure.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/dab/FMC__errors_8c_1a6f3db48b5173e8c1c93b0080aa95fa61" kindref="member">FMC_printBrightRedError</ref>(stderr,<sp/>err_path2);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*last_sep<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((last_sep<sp/>=<sp/>strrchr(path_cpy,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)</highlight><highlight class="charliteral">&apos;/&apos;</highlight><highlight class="normal">))<sp/>&amp;&amp;<sp/>(last_sep<sp/>=<sp/>strrchr(path_cpy,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)</highlight><highlight class="charliteral">&apos;\\&apos;</highlight><highlight class="normal">)))</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="de/d86/FMC__globals_8h_1a960129b2b6979dc20bdf03180b173766" kindref="member">FMC_ENABLE_DEBUG</ref>)</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" kindref="member">FMC_makeMsg</ref>(err_path5,<sp/>4,<sp/></highlight><highlight class="stringliteral">&quot;ERROR<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;In<sp/>function<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/>__func__,<sp/></highlight><highlight class="stringliteral">&quot;.<sp/>The<sp/>path<sp/>contains<sp/>both<sp/>&apos;/&apos;<sp/>and<sp/>&apos;\\&apos;.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/dab/FMC__errors_8c_1a6f3db48b5173e8c1c93b0080aa95fa61" kindref="member">FMC_printBrightRedError</ref>(stderr,<sp/>err_path5);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((last_sep<sp/>=<sp/>strrchr(path_cpy,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)</highlight><highlight class="charliteral">&apos;/&apos;</highlight><highlight class="normal">)))</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>strncpy(<ref refid="d2/deb/FMC__file__management_8h_1a8c03e962512d87874a1e2b20ca475ea9" kindref="member">dirs</ref>,<sp/>path_cpy,<sp/>strnlen(path_cpy,<sp/>path_len)<sp/>-<sp/>strnlen(last_sep,<sp/>path_len)<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/deb/FMC__file__management_8h_1a8c03e962512d87874a1e2b20ca475ea9" kindref="member">dirs</ref>[strnlen(path_cpy,<sp/>path_len)<sp/>-<sp/>strnlen(last_sep,<sp/>path_len)<sp/>+<sp/>1]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d2/deb/FMC__file__management_8h_1a8c03e962512d87874a1e2b20ca475ea9" kindref="member">dirs</ref>;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((last_sep<sp/>=<sp/>strrchr(path_cpy,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)</highlight><highlight class="charliteral">&apos;\\&apos;</highlight><highlight class="normal">)))</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>strncpy(<ref refid="d2/deb/FMC__file__management_8h_1a8c03e962512d87874a1e2b20ca475ea9" kindref="member">dirs</ref>,<sp/>path_cpy,<sp/>strnlen(path_cpy,<sp/>path_len)<sp/>-<sp/>strnlen(last_sep,<sp/>path_len)<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/deb/FMC__file__management_8h_1a8c03e962512d87874a1e2b20ca475ea9" kindref="member">dirs</ref>[strnlen(path_cpy,<sp/>path_len)<sp/>-<sp/>strnlen(last_sep,<sp/>path_len)<sp/>+<sp/>1]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d2/deb/FMC__file__management_8h_1a8c03e962512d87874a1e2b20ca475ea9" kindref="member">dirs</ref>;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((last_sep<sp/>=<sp/>strrchr(path_cpy,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)</highlight><highlight class="charliteral">&apos;~&apos;</highlight><highlight class="normal">)))</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>strncpy(<ref refid="d2/deb/FMC__file__management_8h_1a8c03e962512d87874a1e2b20ca475ea9" kindref="member">dirs</ref>,<sp/></highlight><highlight class="stringliteral">&quot;~/&quot;</highlight><highlight class="normal">,<sp/>4);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strcmp(<ref refid="d2/deb/FMC__file__management_8h_1a8c03e962512d87874a1e2b20ca475ea9" kindref="member">dirs</ref>,<sp/></highlight><highlight class="stringliteral">&quot;~/&quot;</highlight><highlight class="normal">)<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" kindref="member">FMC_makeMsg</ref>(err_path4,<sp/>4,<sp/></highlight><highlight class="stringliteral">&quot;FMC<sp/>INTERNAL<sp/>ERROR<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;In<sp/>function<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/>__func__,<sp/></highlight><highlight class="stringliteral">&quot;.<sp/>strncpy<sp/>failure.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/dab/FMC__errors_8c_1a6f3db48b5173e8c1c93b0080aa95fa61" kindref="member">FMC_printBrightRedError</ref>(stderr,<sp/>err_path4);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d2/deb/FMC__file__management_8h_1a8c03e962512d87874a1e2b20ca475ea9" kindref="member">dirs</ref>;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/deb/FMC__file__management_8h_1a8c03e962512d87874a1e2b20ca475ea9" kindref="member">dirs</ref><sp/>=<sp/>strncpy(<ref refid="d2/deb/FMC__file__management_8h_1a8c03e962512d87874a1e2b20ca475ea9" kindref="member">dirs</ref>,<sp/></highlight><highlight class="stringliteral">&quot;./&quot;</highlight><highlight class="normal">,<sp/>4);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strcmp(<ref refid="d2/deb/FMC__file__management_8h_1a8c03e962512d87874a1e2b20ca475ea9" kindref="member">dirs</ref>,<sp/></highlight><highlight class="stringliteral">&quot;./&quot;</highlight><highlight class="normal">)<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" kindref="member">FMC_makeMsg</ref>(err_path3,<sp/>4,<sp/></highlight><highlight class="stringliteral">&quot;FMC<sp/>INTERNAL<sp/>ERROR<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;In<sp/>function<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/>__func__,<sp/></highlight><highlight class="stringliteral">&quot;.<sp/>strncpy<sp/>failure.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/dab/FMC__errors_8c_1a6f3db48b5173e8c1c93b0080aa95fa61" kindref="member">FMC_printBrightRedError</ref>(stderr,<sp/>err_path3);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d2/deb/FMC__file__management_8h_1a8c03e962512d87874a1e2b20ca475ea9" kindref="member">dirs</ref>;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="185"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal">FMC_SHARED<sp/>FMC_FUNC_HOT<sp/>FMC_FUNC_WARN_UNUSED_RESULT<sp/><ref refid="dc/d5e/FMC__paths_8c_1aead839330b350653b1573a2e42a33243" kindref="member">FMC_FUNC_NONNULL</ref>(1,<sp/>2)<sp/>char<sp/>*FMC_getExtension(const<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>restrict<sp/>const<sp/>path,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>restrict<sp/><ref refid="d2/deb/FMC__file__management_8h_1ad0da82ad6c4515eb29c865e34abb0c8d" kindref="member">ext</ref>)</highlight></codeline>
+<codeline lineno="188"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#pragma<sp/>GCC<sp/>diagnostic<sp/>ignored<sp/>&quot;-Wnonnull-compare&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">//<sp/>get<sp/>an<sp/>error<sp/>at<sp/>compile<sp/>time<sp/>without<sp/>this<sp/>(because<sp/>of<sp/>attribute<sp/>nonnull)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!path<sp/>||<sp/>!<ref refid="d2/deb/FMC__file__management_8h_1ad0da82ad6c4515eb29c865e34abb0c8d" kindref="member">ext</ref>)</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="de/d86/FMC__globals_8h_1a960129b2b6979dc20bdf03180b173766" kindref="member">FMC_ENABLE_DEBUG</ref>)</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" kindref="member">FMC_makeMsg</ref>(err_null,<sp/>4,<sp/></highlight><highlight class="stringliteral">&quot;ERROR<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;In<sp/>function<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/>__func__,<sp/></highlight><highlight class="stringliteral">&quot;.<sp/>At<sp/>least<sp/>one<sp/>of<sp/>the<sp/>provided<sp/>pointers<sp/>is<sp/>NULL.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/dab/FMC__errors_8c_1a6f3db48b5173e8c1c93b0080aa95fa61" kindref="member">FMC_printBrightRedError</ref>(stderr,<sp/>err_null);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#pragma<sp/>GCC<sp/>diagnostic<sp/>pop</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>memset(<ref refid="d2/deb/FMC__file__management_8h_1ad0da82ad6c4515eb29c865e34abb0c8d" kindref="member">ext</ref>,<sp/>0,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="d2/deb/FMC__file__management_8h_1ad0da82ad6c4515eb29c865e34abb0c8d" kindref="member">ext</ref>));</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>name[<ref refid="da/dd3/FMC__consts_8h_1ab0e76045bf91a8a1b4fc381488399f70" kindref="member">MAX_FNAME_SIZE</ref>];</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!FMC_extractFilename(path,<sp/>name))</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" kindref="member">FMC_makeMsg</ref>(err_path6,<sp/>4,<sp/></highlight><highlight class="stringliteral">&quot;FMC<sp/>INTERNAL<sp/>ERROR<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;In<sp/>function<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/>__func__,<sp/></highlight><highlight class="stringliteral">&quot;.<sp/>FMC_extractFilename<sp/>call<sp/>failed.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/dab/FMC__errors_8c_1a6f3db48b5173e8c1c93b0080aa95fa61" kindref="member">FMC_printBrightRedError</ref>(stderr,<sp/>err_path6);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!strchr(name,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)</highlight><highlight class="charliteral">&apos;.&apos;</highlight><highlight class="normal">))<sp/>{strncpy(<ref refid="d2/deb/FMC__file__management_8h_1ad0da82ad6c4515eb29c865e34abb0c8d" kindref="member">ext</ref>,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/>2);<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d2/deb/FMC__file__management_8h_1ad0da82ad6c4515eb29c865e34abb0c8d" kindref="member">ext</ref>;}</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*last_dot<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((last_dot<sp/>=<sp/>strrchr(name,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)</highlight><highlight class="charliteral">&apos;.&apos;</highlight><highlight class="normal">)))</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>strncpy(<ref refid="d2/deb/FMC__file__management_8h_1ad0da82ad6c4515eb29c865e34abb0c8d" kindref="member">ext</ref>,<sp/>last_dot,<sp/>strnlen(last_dot+1,<sp/><ref refid="da/dd3/FMC__consts_8h_1aef2c26bbba7239793dfd266d0e8b46b4" kindref="member">MAX_FEXT_SIZE</ref>)+1);</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d2/deb/FMC__file__management_8h_1ad0da82ad6c4515eb29c865e34abb0c8d" kindref="member">ext</ref>;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" kindref="member">FMC_makeMsg</ref>(err_path7,<sp/>4,<sp/></highlight><highlight class="stringliteral">&quot;FMC<sp/>INTERNAL<sp/>ERROR<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;In<sp/>function<sp/>:<sp/>&quot;</highlight><highlight class="normal">,<sp/>__func__,<sp/></highlight><highlight class="stringliteral">&quot;.<sp/>strrchr<sp/>call<sp/>failed.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/dab/FMC__errors_8c_1a6f3db48b5173e8c1c93b0080aa95fa61" kindref="member">FMC_printBrightRedError</ref>(stderr,<sp/>err_path7);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="225"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/files/FMC_paths.c"/>
+  </compounddef>
+</doxygen>

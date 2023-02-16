@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
   <compounddef id="d4/df4/structFManC__StrOcc" kind="struct" language="C++" prot="public">
     <compoundname>FManC_StrOcc</compoundname>
-    <includes refid="d8/d07/analyze_8h" local="no">analyze.h</includes>
+    <includes refid="d5/de5/FMC__structs_8h" local="no">FMC_structs.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="d4/df4/structFManC__StrOcc_1a2c2bf2c7bc3d0a8938f383c8296e0886" prot="public" static="no" mutable="no">
         <type>size_t</type>
@@ -16,9 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/analyze.h" line="27" column="8" bodyfile="src/analyze.h" bodystart="27" bodyend="-1"/>
-        <referencedby refid="d7/d93/analyze_8c_1a00a81359d75f930d3e47239dbd6dd324" compoundref="d7/d93/analyze_8c" startline="35" endline="45">init_stringOccurences</referencedby>
-        <referencedby refid="d7/d93/analyze_8c_1ae5a02aaad7ac0820d0b9c6c96c77abb9" compoundref="d7/d93/analyze_8c" startline="155" endline="311">replaceStringInFile</referencedby>
+        <location file="src/general/types/FMC_structs.h" line="53" column="8" bodyfile="src/general/types/FMC_structs.h" bodystart="53" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d4/df4/structFManC__StrOcc_1aa771d096daea4bd1c01973da82d931c8" prot="public" static="no" mutable="no">
         <type>long long int *</type>
@@ -32,11 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/analyze.h" line="28" column="15" bodyfile="src/analyze.h" bodystart="28" bodyend="-1"/>
-        <referencedby refid="d7/d93/analyze_8c_1a04ae2138b1c3b361f9556bd30db30c23" compoundref="d7/d93/analyze_8c" startline="47" endline="51">free_stringOccurrences</referencedby>
-        <referencedby refid="d7/d93/analyze_8c_1a00a81359d75f930d3e47239dbd6dd324" compoundref="d7/d93/analyze_8c" startline="35" endline="45">init_stringOccurences</referencedby>
-        <referencedby refid="d7/d93/analyze_8c_1ae5a02aaad7ac0820d0b9c6c96c77abb9" compoundref="d7/d93/analyze_8c" startline="155" endline="311">replaceStringInFile</referencedby>
-        <referencedby refid="d7/d93/analyze_8c_1ab029b1afb2f8a964dd116b825baf8741" compoundref="d7/d93/analyze_8c" startline="54" endline="152">searchStringInFile</referencedby>
+        <location file="src/general/types/FMC_structs.h" line="54" column="15" bodyfile="src/general/types/FMC_structs.h" bodystart="54" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -61,7 +55,7 @@
         <label>size_t</label>
       </node>
     </collaborationgraph>
-    <location file="src/analyze.h" line="25" column="2" bodyfile="src/analyze.h" bodystart="26" bodyend="29"/>
+    <location file="src/general/types/FMC_structs.h" line="51" column="11" bodyfile="src/general/types/FMC_structs.h" bodystart="52" bodyend="55"/>
     <listofallmembers>
       <member refid="d4/df4/structFManC__StrOcc_1a2c2bf2c7bc3d0a8938f383c8296e0886" prot="public" virt="non-virtual"><scope>FManC_StrOcc</scope><name>charCount</name></member>
       <member refid="d4/df4/structFManC__StrOcc_1aa771d096daea4bd1c01973da82d931c8" prot="public" virt="non-virtual"><scope>FManC_StrOcc</scope><name>pos</name></member>

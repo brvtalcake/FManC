@@ -1,0 +1,300 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="d8/d5e/FMC__dir_8hpp" kind="file" language="C++">
+    <compoundname>FMC_dir.hpp</compoundname>
+    <includedby refid="d7/dda/FMC__dir_8cpp" local="yes">src/cpp/FMC_dir/FMC_dir.cpp</includedby>
+    <includedby refid="dd/d0d/FMC__dir__wrapper_8cpp" local="yes">src/cpp/FMC_dir/FMC_dir_wrapper.cpp</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/cpp/FMC_dir/FMC_dir.cpp</label>
+        <link refid="d7/dda/FMC__dir_8cpp"/>
+      </node>
+      <node id="1">
+        <label>src/cpp/FMC_dir/FMC_dir.hpp</label>
+        <link refid="d8/d5e/FMC__dir_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>src/cpp/FMC_dir/FMC_dir_wrapper.cpp</label>
+        <link refid="dd/d0d/FMC__dir__wrapper_8cpp"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="d8/d5e/FMC__dir_8hpp_1aaf5d595ffddd8346cd60550fb22f76a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int FMC_dirExists_</definition>
+        <argsstring>(const char *path)</argsstring>
+        <name>FMC_dirExists_</name>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpp/FMC_dir/FMC_dir.hpp" line="30" column="5" bodyfile="src/cpp/FMC_dir/FMC_dir.cpp" bodystart="37" bodyend="40" declfile="src/cpp/FMC_dir/FMC_dir.hpp" declline="30" declcolumn="5"/>
+        <referencedby refid="dd/d0d/FMC__dir__wrapper_8cpp_1a95055862d1dcdae3e1536a9ea1737854" compoundref="dd/d0d/FMC__dir__wrapper_8cpp" startline="34" endline="37">FMC_dirExists</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d5e/FMC__dir_8hpp_1ad684f7f4fe4e0802152197e9e763b578" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char * FMC_getAbsolutePath_</definition>
+        <argsstring>(char *path, char *buffer)</argsstring>
+        <name>FMC_getAbsolutePath_</name>
+        <param>
+          <type>char *</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpp/FMC_dir/FMC_dir.hpp" line="43" column="6" bodyfile="src/cpp/FMC_dir/FMC_dir.cpp" bodystart="151" bodyend="162" declfile="src/cpp/FMC_dir/FMC_dir.hpp" declline="43" declcolumn="6"/>
+        <referencedby refid="dd/d0d/FMC__dir__wrapper_8cpp_1a4f3f8ed7e1a0c874640e1a57e95c582c" compoundref="dd/d0d/FMC__dir__wrapper_8cpp" startline="91" endline="94">FMC_getAbsolutePath</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d5e/FMC__dir_8hpp_1ab560ab381848ca1b182590bc12bd8e4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char * FMC_getCurrentPath_</definition>
+        <argsstring>(char *path)</argsstring>
+        <name>FMC_getCurrentPath_</name>
+        <param>
+          <type>char *</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpp/FMC_dir/FMC_dir.hpp" line="42" column="6" bodyfile="src/cpp/FMC_dir/FMC_dir.cpp" bodystart="141" bodyend="149" declfile="src/cpp/FMC_dir/FMC_dir.hpp" declline="42" declcolumn="6"/>
+        <referencedby refid="dd/d0d/FMC__dir__wrapper_8cpp_1a727c89321ef5bcc70040561e056f183a" compoundref="dd/d0d/FMC__dir__wrapper_8cpp" startline="86" endline="89">FMC_getCurrentPath</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d5e/FMC__dir_8hpp_1a67662caff0d4650b4c02b339c26a74e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int FMC_isBlock_</definition>
+        <argsstring>(const char *path)</argsstring>
+        <name>FMC_isBlock_</name>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpp/FMC_dir/FMC_dir.hpp" line="34" column="5" bodyfile="src/cpp/FMC_dir/FMC_dir.cpp" bodystart="69" bodyend="76" declfile="src/cpp/FMC_dir/FMC_dir.hpp" declline="34" declcolumn="5"/>
+        <referencedby refid="dd/d0d/FMC__dir__wrapper_8cpp_1a41cdc5c2d770aa7f8e184ab4c2ddd892" compoundref="dd/d0d/FMC__dir__wrapper_8cpp" startline="54" endline="57">FMC_isBlock</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d5e/FMC__dir_8hpp_1adc3a2ee135c9927fd21e6d106f94dd60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int FMC_isCharFile_</definition>
+        <argsstring>(const char *path)</argsstring>
+        <name>FMC_isCharFile_</name>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpp/FMC_dir/FMC_dir.hpp" line="35" column="5" bodyfile="src/cpp/FMC_dir/FMC_dir.cpp" bodystart="78" bodyend="85" declfile="src/cpp/FMC_dir/FMC_dir.hpp" declline="35" declcolumn="5"/>
+        <referencedby refid="dd/d0d/FMC__dir__wrapper_8cpp_1a60b92f8679788028bd1f423511165018" compoundref="dd/d0d/FMC__dir__wrapper_8cpp" startline="59" endline="62">FMC_isCharFile</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d5e/FMC__dir_8hpp_1a428cb6fcc384b2da41979b8a7a636b95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int FMC_isDir_</definition>
+        <argsstring>(const char *path)</argsstring>
+        <name>FMC_isDir_</name>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpp/FMC_dir/FMC_dir.hpp" line="31" column="5" bodyfile="src/cpp/FMC_dir/FMC_dir.cpp" bodystart="42" bodyend="49" declfile="src/cpp/FMC_dir/FMC_dir.hpp" declline="31" declcolumn="5"/>
+        <referencedby refid="dd/d0d/FMC__dir__wrapper_8cpp_1a43da7c3199b7540c72cb19cf6dbdd01a" compoundref="dd/d0d/FMC__dir__wrapper_8cpp" startline="39" endline="42">FMC_isDir</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d5e/FMC__dir_8hpp_1a0122f9dd710ccc38324fb9fc5affa1bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int FMC_isEmpty_</definition>
+        <argsstring>(const char *path)</argsstring>
+        <name>FMC_isEmpty_</name>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpp/FMC_dir/FMC_dir.hpp" line="40" column="5" bodyfile="src/cpp/FMC_dir/FMC_dir.cpp" bodystart="127" bodyend="134" declfile="src/cpp/FMC_dir/FMC_dir.hpp" declline="40" declcolumn="5"/>
+        <referencedby refid="dd/d0d/FMC__dir__wrapper_8cpp_1a2cee073dd0ff12537c7687f1ad46ad5e" compoundref="dd/d0d/FMC__dir__wrapper_8cpp" startline="79" endline="82">FMC_isEmpty</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d5e/FMC__dir_8hpp_1a491c73d926fea63ac3dd81085e5ff3e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int FMC_isFIFO_</definition>
+        <argsstring>(const char *path)</argsstring>
+        <name>FMC_isFIFO_</name>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpp/FMC_dir/FMC_dir.hpp" line="37" column="5" bodyfile="src/cpp/FMC_dir/FMC_dir.cpp" bodystart="96" bodyend="103" declfile="src/cpp/FMC_dir/FMC_dir.hpp" declline="37" declcolumn="5"/>
+        <referencedby refid="dd/d0d/FMC__dir__wrapper_8cpp_1a817c845743892d1975fb1131346bd21a" compoundref="dd/d0d/FMC__dir__wrapper_8cpp" startline="69" endline="72">FMC_isFIFO</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d5e/FMC__dir_8hpp_1a90ec35a5fd18475fc1427fa977e7d961" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int FMC_isOther_</definition>
+        <argsstring>(const char *path)</argsstring>
+        <name>FMC_isOther_</name>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpp/FMC_dir/FMC_dir.hpp" line="38" column="5" bodyfile="src/cpp/FMC_dir/FMC_dir.cpp" bodystart="105" bodyend="112" declfile="src/cpp/FMC_dir/FMC_dir.hpp" declline="38" declcolumn="5"/>
+        <referencedby refid="dd/d0d/FMC__dir__wrapper_8cpp_1a996ffddca109f08acfda9f10ff522b1c" compoundref="dd/d0d/FMC__dir__wrapper_8cpp" startline="74" endline="77">FMC_isOther</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d5e/FMC__dir_8hpp_1ad6cbcaa0f3e5275320aacd68d8c9b250" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int FMC_isRegFile_</definition>
+        <argsstring>(const char *path)</argsstring>
+        <name>FMC_isRegFile_</name>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpp/FMC_dir/FMC_dir.hpp" line="32" column="5" bodyfile="src/cpp/FMC_dir/FMC_dir.cpp" bodystart="51" bodyend="58" declfile="src/cpp/FMC_dir/FMC_dir.hpp" declline="32" declcolumn="5"/>
+        <referencedby refid="dd/d0d/FMC__dir__wrapper_8cpp_1a758948c3002ce92ad01082d2c5b4452a" compoundref="dd/d0d/FMC__dir__wrapper_8cpp" startline="44" endline="47">FMC_isRegFile</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d5e/FMC__dir_8hpp_1aec75555a8a1096ed6616b513e8d27b11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int FMC_isSocket_</definition>
+        <argsstring>(const char *path)</argsstring>
+        <name>FMC_isSocket_</name>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpp/FMC_dir/FMC_dir.hpp" line="36" column="5" bodyfile="src/cpp/FMC_dir/FMC_dir.cpp" bodystart="87" bodyend="94" declfile="src/cpp/FMC_dir/FMC_dir.hpp" declline="36" declcolumn="5"/>
+        <referencedby refid="dd/d0d/FMC__dir__wrapper_8cpp_1abcb3146fbb28021ca4ba2346882df3f8" compoundref="dd/d0d/FMC__dir__wrapper_8cpp" startline="64" endline="67">FMC_isSocket</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d5e/FMC__dir_8hpp_1a92183d7ac82222d73caebc4b7443f1e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int FMC_isSymLink_</definition>
+        <argsstring>(const char *path)</argsstring>
+        <name>FMC_isSymLink_</name>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpp/FMC_dir/FMC_dir.hpp" line="33" column="5" bodyfile="src/cpp/FMC_dir/FMC_dir.cpp" bodystart="60" bodyend="67" declfile="src/cpp/FMC_dir/FMC_dir.hpp" declline="33" declcolumn="5"/>
+        <referencedby refid="dd/d0d/FMC__dir__wrapper_8cpp_1ab68c615a8bcea9bd49be284e0f2aa1df" compoundref="dd/d0d/FMC__dir__wrapper_8cpp" startline="49" endline="52">FMC_isSymLink</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"></highlight></codeline>
+<codeline lineno="3"><highlight class="comment">MIT<sp/>License</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"></highlight></codeline>
+<codeline lineno="5"><highlight class="comment">Copyright<sp/>(c)<sp/>2022-2023<sp/>Axel<sp/>PASCON</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"></highlight></codeline>
+<codeline lineno="7"><highlight class="comment">Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline lineno="8"><highlight class="comment">of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"></highlight></codeline>
+<codeline lineno="14"><highlight class="comment">The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in<sp/>all</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"></highlight></codeline>
+<codeline lineno="17"><highlight class="comment">THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline lineno="20"><highlight class="comment">AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline lineno="22"><highlight class="comment">OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment">SOFTWARE.</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"></highlight></codeline>
+<codeline lineno="25"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FMC_DIR_HPP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_DIR_HPP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d8/d5e/FMC__dir_8hpp_1aaf5d595ffddd8346cd60550fb22f76a6" kindref="member">FMC_dirExists_</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*path);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d8/d5e/FMC__dir_8hpp_1a428cb6fcc384b2da41979b8a7a636b95" kindref="member">FMC_isDir_</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*path);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d8/d5e/FMC__dir_8hpp_1ad6cbcaa0f3e5275320aacd68d8c9b250" kindref="member">FMC_isRegFile_</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*path);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d8/d5e/FMC__dir_8hpp_1a92183d7ac82222d73caebc4b7443f1e0" kindref="member">FMC_isSymLink_</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*path);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d8/d5e/FMC__dir_8hpp_1a67662caff0d4650b4c02b339c26a74e8" kindref="member">FMC_isBlock_</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>path);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d8/d5e/FMC__dir_8hpp_1adc3a2ee135c9927fd21e6d106f94dd60" kindref="member">FMC_isCharFile_</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>path);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d8/d5e/FMC__dir_8hpp_1aec75555a8a1096ed6616b513e8d27b11" kindref="member">FMC_isSocket_</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>path);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d8/d5e/FMC__dir_8hpp_1a491c73d926fea63ac3dd81085e5ff3e7" kindref="member">FMC_isFIFO_</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>path);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d8/d5e/FMC__dir_8hpp_1a90ec35a5fd18475fc1427fa977e7d961" kindref="member">FMC_isOther_</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>path);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">//char<sp/>*FMC_readSymlink_(char<sp/>*path_sym,<sp/>const<sp/>char<sp/>*<sp/>path);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d8/d5e/FMC__dir_8hpp_1a0122f9dd710ccc38324fb9fc5affa1bd" kindref="member">FMC_isEmpty_</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*path);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">//int<sp/>FMC_createDir_(const<sp/>char<sp/>*path);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d8/d5e/FMC__dir_8hpp_1ab560ab381848ca1b182590bc12bd8e4c" kindref="member">FMC_getCurrentPath_</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*path);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d8/d5e/FMC__dir_8hpp_1ad684f7f4fe4e0802152197e9e763b578" kindref="member">FMC_getAbsolutePath_</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*path,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*buffer);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_DIR_HPP</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/cpp/FMC_dir/FMC_dir.hpp"/>
+  </compounddef>
+</doxygen>

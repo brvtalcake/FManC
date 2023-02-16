@@ -1,0 +1,492 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="d0/d28/FMC__macros_8h" kind="file" language="C++">
+    <compoundname>FMC_macros.h</compoundname>
+    <includes refid="d7/dff/FMC__platform_8h" local="yes">FMC_platform.h</includes>
+    <includes refid="d1/d2e/FMC__attributes_8h" local="yes">FMC_attributes.h</includes>
+    <includedby refid="d4/db9/FMC__wrapper_8h" local="yes">src/cpp/FMC_wrapper.h</includedby>
+    <includedby refid="d9/de1/FMC__general_8h" local="yes">src/general/FMC_general.h</includedby>
+    <includedby refid="d1/d2e/FMC__attributes_8h" local="yes">src/general/preprocessor/FMC_attributes.h</includedby>
+    <includedby refid="d6/d25/FMC__enums_8h" local="yes">src/general/types/FMC_enums.h</includedby>
+    <includedby refid="d5/de5/FMC__structs_8h" local="yes">src/general/types/FMC_structs.h</includedby>
+    <includedby refid="df/df8/FMC__typedefs_8h" local="yes">src/general/types/FMC_typedefs.h</includedby>
+    <includedby refid="de/dab/FMC__errors_8c" local="yes">src/general/utils/FMC_errors.c</includedby>
+    <includedby refid="dd/ddf/FMC__errors_8h" local="yes">src/general/utils/FMC_errors.h</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>FMC_attributes.h</label>
+        <link refid="d1/d2e/FMC__attributes_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/general/preprocessor/FMC_macros.h</label>
+        <link refid="d0/d28/FMC__macros_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>FMC_platform.h</label>
+        <link refid="d7/dff/FMC__platform_8h"/>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>src/FMC.h</label>
+        <link refid="de/d47/FMC_8h"/>
+      </node>
+      <node id="6">
+        <label>src/code_utils/FMC_code_utils.h</label>
+        <link refid="db/d26/FMC__code__utils_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>src/cpp/FMC_dir/FMC_dir_wrapper.cpp</label>
+        <link refid="dd/d0d/FMC__dir__wrapper_8cpp"/>
+      </node>
+      <node id="2">
+        <label>src/cpp/FMC_wrapper.h</label>
+        <link refid="d4/db9/FMC__wrapper_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>src/data_analyze/FMC_data_analyze.h</label>
+        <link refid="da/db0/FMC__data__analyze_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>src/data_analyze/encodings/FMC_encodings.c</label>
+        <link refid="db/dc4/FMC__encodings_8c"/>
+      </node>
+      <node id="7">
+        <label>src/data_analyze/encodings/FMC_encodings.h</label>
+        <link refid="db/d30/FMC__encodings_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>src/data_analyze/strings/FMC_chars.c</label>
+        <link refid="d1/d8c/FMC__chars_8c"/>
+      </node>
+      <node id="10">
+        <label>src/data_analyze/strings/FMC_strings.h</label>
+        <link refid="d9/db5/FMC__strings_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>src/files/FMC_file_management.h</label>
+        <link refid="d2/deb/FMC__file__management_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>src/files/FMC_files.c</label>
+        <link refid="d0/dc0/FMC__files_8c"/>
+      </node>
+      <node id="14">
+        <label>src/files/FMC_paths.c</label>
+        <link refid="dc/d5e/FMC__paths_8c"/>
+      </node>
+      <node id="5">
+        <label>src/general/FMC_general.h</label>
+        <link refid="d9/de1/FMC__general_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>src/general/preprocessor/FMC_attributes.h</label>
+        <link refid="d1/d2e/FMC__attributes_8h"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/general/preprocessor/FMC_macros.h</label>
+        <link refid="d0/d28/FMC__macros_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>src/general/types/FMC_enums.h</label>
+        <link refid="d6/d25/FMC__enums_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>src/general/types/FMC_structs.h</label>
+        <link refid="d5/de5/FMC__structs_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>src/general/types/FMC_typedefs.h</label>
+        <link refid="df/df8/FMC__typedefs_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>src/general/utils/FMC_errors.c</label>
+        <link refid="de/dab/FMC__errors_8c"/>
+      </node>
+      <node id="21">
+        <label>src/general/utils/FMC_errors.h</label>
+        <link refid="dd/ddf/FMC__errors_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>src/general/utils/FMC_globals.h</label>
+        <link refid="de/d86/FMC__globals_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1a8933cedeeee70736360b8b2e0bf7887e" prot="public" static="no">
+        <name>FMC_COMPILE_TIME_ERROR</name>
+        <param><defname>msg</defname></param>
+        <initializer>_Pragma(STRINGIZE(GCC <ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref> STRINGIZE(msg)))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_macros.h" line="159" column="16" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1af17b667adedacf123932fc419fde83ad" prot="public" static="no">
+        <name>FMC_DEFER</name>
+        <param><defname>stmt</defname></param>
+        <param><defname>body</defname></param>
+        <initializer>do body while (0); stmt</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_macros.h" line="99" column="15" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1a5ce01b85b1e5d65a1908f8cc3b882e7b" prot="public" static="no">
+        <name>FMC_ERROR_CHECK</name>
+        <param><defname>cond</defname></param>
+        <param><defname>todo_stmt</defname></param>
+        <param><defname>enable_debug</defname></param>
+        <param><defname>todo_before</defname></param>
+        <initializer>    if (cond)                                                       \
+    {   if(enable_debug) todo_before                                \
+        todo_stmt;                                                  \
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_macros.h" line="166" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1a35dc024d6bb352f60a0f2e52e3d784ed" prot="public" static="no">
+        <name>FMC_MACROS_H</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_macros.h" line="31" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1a97a1bda70e3e8a6f6a961b8ce97bcf0a" prot="public" static="no">
+        <name>FMC_MAJOR_VERSION</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_macros.h" line="126" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1aed9fdca39ca8fd6ee84e35da759701b3" prot="public" static="no">
+        <name>FMC_MINOR_VERSION</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_macros.h" line="127" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1a4af38455403279d21f2cadc395ea695e" prot="public" static="no">
+        <name>FMC_PATCH_VERSION</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_macros.h" line="128" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1aca1b0dcf6a53b2ba371dff30bfa122fd" prot="public" static="no">
+        <name>FMC_VERSION</name>
+        <initializer>FMC_CONCAT_5(<ref refid="d0/d28/FMC__macros_8h_1a97a1bda70e3e8a6f6a961b8ce97bcf0a" kindref="member">FMC_MAJOR_VERSION</ref>, FMC_PP_POINT(), <ref refid="d0/d28/FMC__macros_8h_1aed9fdca39ca8fd6ee84e35da759701b3" kindref="member">FMC_MINOR_VERSION</ref>, FMC_PP_POINT(), <ref refid="d0/d28/FMC__macros_8h_1a4af38455403279d21f2cadc395ea695e" kindref="member">FMC_PATCH_VERSION</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_macros.h" line="129" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1ae0b0c019ae2d1ed7ee336d5604573386" prot="public" static="no">
+        <name>FMC_VERSION_NUMBER</name>
+        <initializer>FMC_CONCAT_2(<ref refid="d0/d28/FMC__macros_8h_1a97a1bda70e3e8a6f6a961b8ce97bcf0a" kindref="member">FMC_MAJOR_VERSION</ref>*10000 + <ref refid="d0/d28/FMC__macros_8h_1aed9fdca39ca8fd6ee84e35da759701b3" kindref="member">FMC_MINOR_VERSION</ref>*100 + <ref refid="d0/d28/FMC__macros_8h_1a4af38455403279d21f2cadc395ea695e" kindref="member">FMC_PATCH_VERSION</ref>, L)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_macros.h" line="131" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1a107db5c1eda77fae902cbf8040df85ba" prot="public" static="no">
+        <name>FMC_VERSION_STRING</name>
+        <initializer>FMC_STRINGIZE_5(<ref refid="d0/d28/FMC__macros_8h_1a97a1bda70e3e8a6f6a961b8ce97bcf0a" kindref="member">FMC_MAJOR_VERSION</ref>, FMC_PP_POINT(), <ref refid="d0/d28/FMC__macros_8h_1aed9fdca39ca8fd6ee84e35da759701b3" kindref="member">FMC_MINOR_VERSION</ref>, FMC_PP_POINT(), <ref refid="d0/d28/FMC__macros_8h_1a4af38455403279d21f2cadc395ea695e" kindref="member">FMC_PATCH_VERSION</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_macros.h" line="130" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"></highlight></codeline>
+<codeline lineno="3"><highlight class="comment">MIT<sp/>License</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"></highlight></codeline>
+<codeline lineno="5"><highlight class="comment">Copyright<sp/>(c)<sp/>2022-2023<sp/>Axel<sp/>PASCON</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"></highlight></codeline>
+<codeline lineno="7"><highlight class="comment">Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline lineno="8"><highlight class="comment">of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"></highlight></codeline>
+<codeline lineno="14"><highlight class="comment">The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in<sp/>all</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"></highlight></codeline>
+<codeline lineno="17"><highlight class="comment">THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline lineno="20"><highlight class="comment">AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline lineno="22"><highlight class="comment">OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment">SOFTWARE.</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"></highlight></codeline>
+<codeline lineno="25"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FMC_MACROS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="d0/d28/FMC__macros_8h_1a35dc024d6bb352f60a0f2e52e3d784ed" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_MACROS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d7/dff/FMC__platform_8h" kindref="compound">FMC_platform.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d1/d2e/FMC__attributes_8h" kindref="compound">FMC_attributes.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Used<sp/>to<sp/>avoid<sp/>false<sp/>warnings<sp/>(for<sp/>example<sp/>&quot;attribute<sp/>destructor/constructor<sp/>does<sp/>not<sp/>take<sp/>argument&quot;,<sp/>when<sp/>it<sp/>actually<sp/>can)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__INTELLISENSE__<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#pragma<sp/>diag_suppress<sp/>1094</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FMC_PP_POINT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_PP_POINT()<sp/>.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FMC_CONCAT_MACROS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_CONCAT_MACROS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_CONCAT10(x,<sp/>y)<sp/>x##y</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_CONCAT9(x,<sp/>y)<sp/>FMC_CONCAT10(x,<sp/>y)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_CONCAT8(x,<sp/>y)<sp/>FMC_CONCAT9(x,<sp/>y)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_CONCAT7(x,<sp/>y)<sp/>FMC_CONCAT8(x,<sp/>y)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_CONCAT6(x,<sp/>y)<sp/>FMC_CONCAT7(x,<sp/>y)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_CONCAT5(x,<sp/>y)<sp/>FMC_CONCAT6(x,<sp/>y)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_CONCAT4(x,<sp/>y)<sp/>FMC_CONCAT5(x,<sp/>y)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_CONCAT3(x,<sp/>y)<sp/>FMC_CONCAT4(x,<sp/>y)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_CONCAT2(x,<sp/>y)<sp/>FMC_CONCAT3(x,<sp/>y)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_CONCAT(x,<sp/>y)<sp/>FMC_CONCAT2(x,<sp/>y)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_CONCAT_2(x,<sp/>y)<sp/>FMC_CONCAT(x,<sp/>y)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_CONCAT_3(x,<sp/>y,<sp/>z)<sp/>FMC_CONCAT(FMC_CONCAT(x,<sp/>y),<sp/>z)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_CONCAT_4(x,<sp/>y,<sp/>z,<sp/>w)<sp/>FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(x,<sp/>y),<sp/>z),<sp/>w)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_CONCAT_5(x,<sp/>y,<sp/>z,<sp/>w,<sp/>v)<sp/>FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(x,<sp/>y),<sp/>z),<sp/>w),<sp/>v)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_CONCAT_6(x,<sp/>y,<sp/>z,<sp/>w,<sp/>v,<sp/>u)<sp/>FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(x,<sp/>y),<sp/>z),<sp/>w),<sp/>v),<sp/>u)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_CONCAT_7(x,<sp/>y,<sp/>z,<sp/>w,<sp/>v,<sp/>u,<sp/>t)<sp/>FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(x,<sp/>y),<sp/>z),<sp/>w),<sp/>v),<sp/>u),<sp/>t)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_CONCAT_8(x,<sp/>y,<sp/>z,<sp/>w,<sp/>v,<sp/>u,<sp/>t,<sp/>s)<sp/>FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(x,<sp/>y),<sp/>z),<sp/>w),<sp/>v),<sp/>u),<sp/>t),<sp/>s)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_CONCAT_9(x,<sp/>y,<sp/>z,<sp/>w,<sp/>v,<sp/>u,<sp/>t,<sp/>s,<sp/>r)<sp/>FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(x,<sp/>y),<sp/>z),<sp/>w),<sp/>v),<sp/>u),<sp/>t),<sp/>s),<sp/>r)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FMC_STRINGIZE_MACROS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_STRINGIZE_MACROS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_STRINGIZE10(x)<sp/>#x</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_STRINGIZE9(x)<sp/>FMC_STRINGIZE10(x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_STRINGIZE8(x)<sp/>FMC_STRINGIZE9(x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_STRINGIZE7(x)<sp/>FMC_STRINGIZE8(x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_STRINGIZE6(x)<sp/>FMC_STRINGIZE7(x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_STRINGIZE5(x)<sp/>FMC_STRINGIZE6(x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_STRINGIZE4(x)<sp/>FMC_STRINGIZE5(x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_STRINGIZE3(x)<sp/>FMC_STRINGIZE4(x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_STRINGIZE2(x)<sp/>FMC_STRINGIZE3(x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_STRINGIZE(x)<sp/>FMC_STRINGIZE2(x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FMC_STRINGIZE_X</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_STRINGIZE_X</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_STRINGIZE_2(x,<sp/>y)<sp/>FMC_STRINGIZE(FMC_CONCAT(x,<sp/>y))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_STRINGIZE_3(x,<sp/>y,<sp/>z)<sp/>FMC_STRINGIZE(FMC_CONCAT(FMC_CONCAT(x,<sp/>y),<sp/>z))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_STRINGIZE_4(x,<sp/>y,<sp/>z,<sp/>w)<sp/>FMC_STRINGIZE(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(x,<sp/>y),<sp/>z),<sp/>w))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_STRINGIZE_5(x,<sp/>y,<sp/>z,<sp/>w,<sp/>v)<sp/>FMC_STRINGIZE(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(x,<sp/>y),<sp/>z),<sp/>w),<sp/>v))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_STRINGIZE_6(x,<sp/>y,<sp/>z,<sp/>w,<sp/>v,<sp/>u)<sp/>FMC_STRINGIZE(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(x,<sp/>y),<sp/>z),<sp/>w),<sp/>v),<sp/>u))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_STRINGIZE_7(x,<sp/>y,<sp/>z,<sp/>w,<sp/>v,<sp/>u,<sp/>t)<sp/>FMC_STRINGIZE(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(x,<sp/>y),<sp/>z),<sp/>w),<sp/>v),<sp/>u),<sp/>t))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_STRINGIZE_8(x,<sp/>y,<sp/>z,<sp/>w,<sp/>v,<sp/>u,<sp/>t,<sp/>s)<sp/>FMC_STRINGIZE(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(x,<sp/>y),<sp/>z),<sp/>w),<sp/>v),<sp/>u),<sp/>t),<sp/>s))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_STRINGIZE_9(x,<sp/>y,<sp/>z,<sp/>w,<sp/>v,<sp/>u,<sp/>t,<sp/>s,<sp/>r)<sp/>FMC_STRINGIZE(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(x,<sp/>y),<sp/>z),<sp/>w),<sp/>v),<sp/>u),<sp/>t),<sp/>s),<sp/>r))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>FMC_DEFER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_DEFER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99" refid="d0/d28/FMC__macros_8h_1af17b667adedacf123932fc419fde83ad" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_DEFER(stmt,<sp/>body)<sp/>do<sp/>body<sp/>while<sp/>(0);<sp/>stmt</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FMC_METHODS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_METHODS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>DECL_METHOD(name,<sp/>ret,<sp/>...)<sp/>\</highlight></codeline>
+<codeline lineno="106"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ret<sp/>(*name)(__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>INIT_STRUCT_METHOD(method,<sp/>associated_function)<sp/>\</highlight></codeline>
+<codeline lineno="109"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.method<sp/>=<sp/>associated_function</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_METHODS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="comment">/*#ifndef<sp/>FMC_OVERLOAD</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/><sp/><sp/><sp/>#define<sp/>FMC_OVERLOAD(func)</highlight></codeline>
+<codeline lineno="115"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>FMC_VERSION</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_VERSION</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_VERSION_STRING</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_VERSION_NUMBER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_MAJOR_VERSION</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_MINOR_VERSION</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_PATCH_VERSION</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_VERSION</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126" refid="d0/d28/FMC__macros_8h_1a97a1bda70e3e8a6f6a961b8ce97bcf0a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_MAJOR_VERSION<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127" refid="d0/d28/FMC__macros_8h_1aed9fdca39ca8fd6ee84e35da759701b3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_MINOR_VERSION<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128" refid="d0/d28/FMC__macros_8h_1a4af38455403279d21f2cadc395ea695e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_PATCH_VERSION<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129" refid="d0/d28/FMC__macros_8h_1aca1b0dcf6a53b2ba371dff30bfa122fd" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_VERSION<sp/>FMC_CONCAT_5(FMC_MAJOR_VERSION,<sp/>FMC_PP_POINT(),<sp/>FMC_MINOR_VERSION,<sp/>FMC_PP_POINT(),<sp/>FMC_PATCH_VERSION)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130" refid="d0/d28/FMC__macros_8h_1a107db5c1eda77fae902cbf8040df85ba" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_VERSION_STRING<sp/>FMC_STRINGIZE_5(FMC_MAJOR_VERSION,<sp/>FMC_PP_POINT(),<sp/>FMC_MINOR_VERSION,<sp/>FMC_PP_POINT(),<sp/>FMC_PATCH_VERSION)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131" refid="d0/d28/FMC__macros_8h_1ae0b0c019ae2d1ed7ee336d5604573386" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_VERSION_NUMBER<sp/>FMC_CONCAT_2(FMC_MAJOR_VERSION*10000<sp/>+<sp/>FMC_MINOR_VERSION*100<sp/>+<sp/>FMC_PATCH_VERSION,<sp/>L)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Maybe<sp/>I&apos;ll<sp/>have<sp/>to<sp/>modify<sp/>this,<sp/>even<sp/>though<sp/>it<sp/>sounds<sp/>fine<sp/>to<sp/>me<sp/>now.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FMC_SHARED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#if<sp/>FMC_COMPILING_ON_WINDOWS<sp/>&amp;&amp;<sp/>!defined(FMC_STATIC)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#if<sp/>defined(FMC_BUILD_DLL)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>FMC_SHARED<sp/>__declspec(dllexport)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#elif<sp/>defined(USE_FMC_DLL)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>FMC_SHARED<sp/>__declspec(dllimport)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#error<sp/>&quot;You<sp/>must<sp/>define<sp/>FMC_BUILD_DLL<sp/>to<sp/>build<sp/>the<sp/>DLL<sp/>or<sp/>USE_FMC_DLL<sp/>to<sp/>use<sp/>the<sp/>built<sp/>DLL.<sp/>To<sp/>use<sp/>or<sp/>build<sp/>the<sp/>static<sp/>library,<sp/>please<sp/>define<sp/>FMC_STATIC.&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#elif<sp/>FMC_COMPILING_ON_WINDOWS<sp/>&amp;&amp;<sp/>defined(FMC_STATIC)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>FMC_SHARED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#elif<sp/>FMC_COMPILING_ON_LINUX<sp/>||<sp/>FMC_COMPILING_ON_MACOS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#if<sp/>defined(FMC_STATIC)<sp/>||<sp/>defined(USE_FMC_DLL)<sp/>||<sp/>defined(FMC_BUILD_DLL)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#warning<sp/>&quot;You<sp/>don&apos;t<sp/>have<sp/>to<sp/>specify<sp/>FMC_STATIC,<sp/>USE_FMC_DLL<sp/>or<sp/>FMC_BUILD_DLL<sp/>on<sp/>Linux,<sp/>Unix<sp/>or<sp/>Mac<sp/>OS<sp/>X.<sp/>These<sp/>are<sp/>ignored<sp/>on<sp/>your<sp/>system.&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>FMC_SHARED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#error<sp/>&quot;Unsupported<sp/>OS&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#endif<sp/></highlight><highlight class="comment">//<sp/>PLATFORMS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_SHARED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>FMC_COMPILE_TIME_ERROR</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_COMPILE_TIME_ERROR</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_COMPILE_TIME_ERROR</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159" refid="d0/d28/FMC__macros_8h_1a8933cedeeee70736360b8b2e0bf7887e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_COMPILE_TIME_ERROR(msg)<sp/>_Pragma(STRINGIZE(GCC<sp/>error<sp/>STRINGIZE(msg)))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>FMC_ERROR_CHECK</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_ERROR_CHECK</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_ERROR_CHECK</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="comment">//<sp/>thought<sp/>about<sp/>this<sp/>for<sp/>lisibility,<sp/>not<sp/>sure<sp/>if<sp/>I&apos;ll<sp/>use<sp/>it<sp/>though</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166" refid="d0/d28/FMC__macros_8h_1a5ce01b85b1e5d65a1908f8cc3b882e7b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_ERROR_CHECK(cond,<sp/>todo_stmt,<sp/>enable_debug,<sp/>todo_before)<sp/>\</highlight></codeline>
+<codeline lineno="167"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(cond)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="168"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/>if(enable_debug)<sp/>todo_before<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="169"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>todo_stmt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="170"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_MACROS_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/general/preprocessor/FMC_macros.h"/>
+  </compounddef>
+</doxygen>
