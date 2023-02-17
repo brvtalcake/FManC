@@ -39,17 +39,32 @@ C_SRC_FILES=$(foreach dir,$(SRC_SUBDIRS),$(wildcard $(dir)/*.c))
 H_SRC_FILES=$(foreach dir,$(SRC_SUBDIRS),$(wildcard $(dir)/*.h))
 SRC_FILES=$(CPP_SRC_FILES) $(C_SRC_FILES) $(HPP_SRC_FILES) $(H_SRC_FILES)
 
+TEST_SUITE_FILES=$(addprefix test/src_test/,test.c test1_2.c test2_2.c)
+
+
 # Object files
 O_LIN_STATIC_FILES=$(addprefix obj/lin/static/,$(notdir $(C_SRC_FILES:.c=.o))) $(addprefix obj/lin/static/,$(notdir $(CPP_SRC_FILES:.cpp=.o)))
 O_LIN_SHARED_FILES=$(addprefix obj/lin/shared/,$(notdir $(C_SRC_FILES:.c=.o))) $(addprefix obj/lin/shared/,$(notdir $(CPP_SRC_FILES:.cpp=.o)))
 O_WIN_STATIC_FILES=$(addprefix obj/win/static/,$(notdir $(C_SRC_FILES:.c=.o))) $(addprefix obj/win/static/,$(notdir $(CPP_SRC_FILES:.cpp=.o)))
 O_WIN_SHARED_FILES=$(addprefix obj/win/shared/,$(notdir $(C_SRC_FILES:.c=.o))) $(addprefix obj/win/shared/,$(notdir $(CPP_SRC_FILES:.cpp=.o)))
 
+O_LIN_TEST=$(addprefix test/obj/lin/,$(notdir $(C_SRC_FILES:.c=.o))) $(addprefix test/obj/lin/,$(notdir $(CPP_SRC_FILES:.cpp=.o)))
+O_WIN_TEST=$(addprefix test/obj/win/,$(notdir $(C_SRC_FILES:.c=.o))) $(addprefix test/obj/win/,$(notdir $(CPP_SRC_FILES:.cpp=.o)))
+GCNO_LIN_FILES=$(O_LIN_TEST:.o=.gcno)
+GCDA_LIN_FILES=$(O_LIN_TEST:.o=.gcda)
+GCNO_WIN_FILES=$(O_WIN_TEST:.o=.gcno)
+GCDA_WIN_FILES=$(O_WIN_TEST:.o=.gcda)
+
+COV_FILES=$(addsuffix .gcov,$(notdir $(SRC_FILES)))
+
 # Library files
 LIB_LIN_STATIC_FILES=lib/libFManC_linux_x86_64.a
 LIB_LIN_SHARED_FILES=bin/libFManC_x86_64.so
 LIB_WIN_STATIC_FILES=lib/libFManC_win_x86_64.a
 LIB_WIN_SHARED_FILES=bin/libFManC_x86_64.dll lib/libFManC_x86_64.dll.a
+
+LIB_LIN_TEST=test/$(LIB_LIN_STATIC_FILES)
+LIB_WIN_TEST=test/$(LIB_WIN_STATIC_FILES)
 
 # Compiler and friends
 CC=gcc
@@ -60,6 +75,9 @@ AR=ar
 AR_FLAGS=-rsc
 CFLAGS=-O3 -Wall -Wextra -Werror -std=gnu17
 CXX_FLAGS=-O3 -Wall -Wextra -Werror -std=gnu++17
+
+C_DEBUG_FLAGS=-g3 -std=gnu17 -fprofile-arcs -ftest-coverage
+CXX_DEBUG_FLAGS=-g3 -std=gnu++17 -fprofile-arcs -ftest-coverage
 
 LD_FLAGS_DLL=-lstdc++ "-Wl,--out-implib,libFManC.dll.a,--export-all-symbols"
 LD_FLAGS_SO=-lstdc++ -Wl,-soname,
@@ -93,6 +111,17 @@ COPY_HEADERS_TARGET=$(addsuffix _$(DETECTED_OS), copy_headers)
 DOC_TARGET=$(addsuffix _$(DETECTED_OS), doc)
 .PHONY : doc
 
+COV_TARGET=$(addsuffix _$(DETECTED_OS), exp_cov)
+.PHONY : exp_cov
+
+exp_cov : $(COV_TARGET)
+
+exp_cov_lin :
+	./export_cov.sh $(COV_FILES)
+	rm -f --verbose *.gcov
+
+exp_cov_win :
+
 all : $(ALL_TARGET)
 
 all_lin : static shared copy_headers doc test 
@@ -117,24 +146,46 @@ shared_lin : $(LIB_LIN_SHARED_FILES) copy_headers
 shared_win : $(LIB_WIN_SHARED_FILES) copy_headers
 	@echo Built shared library for $(PRINTED_OS)
 
-test : $(TEST_TARGET)
+test : copy_headers $(TEST_TARGET) exp_cov
 
-test_lin : $(LIB_LIN_STATIC_FILES) $(LIB_LIN_SHARED_FILES)
+test_lin : $(LIB_LIN_TEST)
+	$(CC) $(TEST_SUITE_FILES) -fprofile-arcs -ftest-coverage -std=gnu17 -o test/test_builds/$(TEST_RES_FOLD)/$@.out -Ltest/lib/ -lFManC_linux_x86_64 -lstdc++
 	@printf "\e[92mRunning tests for $(PRINTED_OS)\n\e[0m"
-## TO DO
+	@cd ./test/test_builds/$(TEST_RES_FOLD) && ./$@.out
+	gcov $(GCNO_LIN_FILES)
 
-test_win : $(LIB_WIN_STATIC_FILES) $(LIB_WIN_SHARED_FILES)
+test_win : $(LIB_WIN_TEST)
+	$(CC) -D FMC_STATIC $(TEST_SUITE_FILES) -fprofile-arcs -ftest-coverage -std=gnu17 -o test/test_builds/$(TEST_RES_FOLD)/$@.exe -Ltest/lib -lFManC_linux_x86_64 -lstdc++
 	@echo Running tests for $(PRINTED_OS)
-## TO DO
+	@cd .\test\test_builds\$(TEST_RES_FOLD) && $@.exe
+	gcov $(GCNO_LIN_FILES)
+
+$(LIB_LIN_TEST) : $(O_LIN_TEST)
+	$(AR) $(AR_FLAGS) $@ $^
+
+test/obj/lin/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
+	$(CC) -D BUILDING_FMANC $< $(C_DEBUG_FLAGS) -c -o $@ -lstdc++
+
+test/obj/lin/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
+	$(CCXX) -D BUILDING_FMANC $< $(CXX_DEBUG_FLAGS) -c -o $@ -lstdc++
+
+$(LIB_WIN_TEST) : $(O_WIN_TEST)
+	$(AR) $(AR_FLAGS) $@ $^
+
+test/obj/win/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
+	$(CC) -D FMC_STATIC -D BUILDING_FMANC $< $(C_DEBUG_FLAGS) -c -o $@ -lstdc++
+
+test/obj/win/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
+	$(CCXX) -D FMC_STATIC -D BUILDING_FMANC $< $(CXX_DEBUG_FLAGS) -c -o $@ -lstdc++
 
 clean : $(CLEAN_TARGET)
 
 clean_lin : 
-	@rm -f $(O_LIN_STATIC_FILES) $(O_LIN_SHARED_FILES) $(LIB_LIN_STATIC_FILES) $(LIB_LIN_SHARED_FILES)
+	@rm -f --verbose $(O_LIN_STATIC_FILES) $(O_LIN_SHARED_FILES) $(LIB_LIN_STATIC_FILES) $(LIB_LIN_SHARED_FILES) $(O_LIN_TEST) $(LIB_LIN_TEST) test/obj/lin/*.gcda test/obj/lin/*.gcno *.gcov
 	@printf "\e[92mCleaned everything for $(PRINTED_OS)\n\e[0m"
 
 clean_win : 
-	@erase -f $(subst /,\,$(O_WIN_STATIC_FILES) $(O_WIN_SHARED_FILES) $(LIB_WIN_STATIC_FILES) $(LIB_WIN_SHARED_FILES))
+	@erase -f --verbose $(subst /,\,$(O_WIN_STATIC_FILES) $(O_WIN_SHARED_FILES) $(LIB_WIN_STATIC_FILES) $(LIB_WIN_SHARED_FILES) $(O_WIN_TEST) $(LIB_WIN_TEST)) test/obj/win/*.gcda test/obj/win/*.gcno *.gcov
 	@echo Cleaned everything for $(PRINTED_OS)
 ## TO DO : check if rm exists on windows
 
@@ -169,46 +220,45 @@ lib/libFManC_win_x86_64.a : $(O_WIN_STATIC_FILES)
 	@echo Built $@ sucessfully
 
 obj/lin/static/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
-	$(CC) $< $(CFLAGS) -c -o $@
+	$(CC) -D BUILDING_FMANC $< $(CFLAGS) -c -o $@ -lstdc++
 	@printf "\e[92mBuilt $@ sucessfully\n\n\e[0m"
 
 obj/lin/static/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
-	$(CCXX) $< $(CXX_FLAGS) -c -o $@
+	$(CCXX) -D BUILDING_FMANC $< $(CXX_FLAGS) -c -o $@ -lstdc++
 	@printf "\e[92mBuilt $@ sucessfully\n\n\e[0m"
 
 obj/win/static/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
-	$(CC) -D FMC_STATIC $< $(CFLAGS) -c -o $@
+	$(CC) -D BUILDING_FMANC -D FMC_STATIC $< $(CFLAGS) -c -o $@ -lstdc++
 	@echo Built $@ sucessfully
 
 obj/win/static/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
-	$(CCXX) -D FMC_STATIC $< $(CXX_FLAGS) -c -o $@
+	$(CCXX) -D BUILDING_FMANC -D FMC_STATIC $< $(CXX_FLAGS) -c -o $@ -lstdc++
 	@echo Built $@ sucessfully
 
 bin/libFManC_x86_64.so : $(O_LIN_SHARED_FILES)
 	rm -f $@ && rm -f $@.$(MAJOR_VERSION) && rm -f $@.$(VERSION)
-	$(CC) $(O_LIN_SHARED_FILES) $(CFLAGS) -shared -fPIC -o $@.$(VERSION) $(LD_FLAGS_SO)libFManC_x86_64.so.$(MAJOR_VERSION)
-
-	ln -s $@.$(VERSION) $@.$(MAJOR_VERSION) && ln -s $@.$(MAJOR_VERSION) $@
+	$(CC) -D BUILDING_FMANC $(O_LIN_SHARED_FILES) $(CFLAGS) -shared -fPIC -o $@.$(VERSION) -lstdc++ $(LD_FLAGS_SO)libFManC_x86_64.so.$(MAJOR_VERSION)
+	cd ./bin/ && ln -s $(notdir $@).$(VERSION) $(notdir $@).$(MAJOR_VERSION) && ln -s $(notdir $@).$(MAJOR_VERSION) $(notdir $@)
 	@printf "\e[92mBuilt $@ sucessfully\n\n\e[0m"
 
 bin/libFManC_x86_64.dll : lib/libFManC_x86_64.dll.a
 	@echo Built DLL for $(PRINTED_OS)
 
 lib/libFManC_x86_64.dll.a : $(O_WIN_SHARED_FILES)
-	$(CC) $(O_WIN_SHARED_FILES) $(CFLAGS) -shared -o bin/libFManC_x86_64.dll $(LD_FLAGS_DLL)
+	$(CC) -D BUILDING_FMANC $(O_WIN_SHARED_FILES) $(CFLAGS) -shared -o bin/libFManC_x86_64.dll -lstdc++ $(LD_FLAGS_DLL)
 	@move /Y .\\libFManC.dll.a .\\lib\\
 	@echo Built $@ sucessfully
 
 obj/lin/shared/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
-	$(CC) $< $(CFLAGS) -c -fPIC -o $@
+	$(CC) -D BUILDING_FMANC $< $(CFLAGS) -c -fPIC -o $@ -lstdc++
 	@printf "\e[92mBuilt $@ sucessfully\n\n\e[0m"
 
 obj/lin/shared/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
-	$(CCXX) $< $(CXX_FLAGS) -c -fPIC -o $@
+	$(CCXX) -D BUILDING_FMANC $< $(CXX_FLAGS) -c -fPIC -o $@ -lstdc++
 	@printf "\e[92mBuilt $@ sucessfully\n\n\e[0m"
 
 obj/win/shared/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
-	$(CC) -D FMC_BUILD_DLL $< $(CFLAGS) -c -o $@
+	$(CC) -D BUILDING_FMANC -D FMC_BUILD_DLL $< $(CFLAGS) -c -o $@ -lstdc++
 
 obj/win/shared/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
-	$(CCXX) -D FMC_BUILD_DLL $< $(CXX_FLAGS) -c -o $@
+	$(CCXX) -D BUILDING_FMANC -D FMC_BUILD_DLL $< $(CXX_FLAGS) -c -o $@ -lstdc++

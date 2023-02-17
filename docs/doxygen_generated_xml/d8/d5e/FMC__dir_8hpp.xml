@@ -76,7 +76,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/cpp/FMC_dir/FMC_dir.hpp" line="45" column="6" bodyfile="src/cpp/FMC_dir/FMC_dir.cpp" bodystart="154" bodyend="164" declfile="src/cpp/FMC_dir/FMC_dir.hpp" declline="45" declcolumn="6"/>
+        <location file="src/cpp/FMC_dir/FMC_dir.hpp" line="45" column="6" bodyfile="src/cpp/FMC_dir/FMC_dir.cpp" bodystart="157" bodyend="170" declfile="src/cpp/FMC_dir/FMC_dir.hpp" declline="45" declcolumn="6"/>
         <referencedby refid="dd/d0d/FMC__dir__wrapper_8cpp_1aeeebe9211250e7cd0886dae14a766234" compoundref="dd/d0d/FMC__dir__wrapper_8cpp" startline="92" endline="95">FMC_getAbsolutePath</referencedby>
       </memberdef>
       <memberdef kind="function" id="d8/d5e/FMC__dir_8hpp_1ae8f5ab29f2f72767e8a20083d58cdf9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -98,7 +98,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/cpp/FMC_dir/FMC_dir.hpp" line="44" column="6" bodyfile="src/cpp/FMC_dir/FMC_dir.cpp" bodystart="142" bodyend="152" declfile="src/cpp/FMC_dir/FMC_dir.hpp" declline="44" declcolumn="6"/>
+        <location file="src/cpp/FMC_dir/FMC_dir.hpp" line="44" column="6" bodyfile="src/cpp/FMC_dir/FMC_dir.cpp" bodystart="142" bodyend="155" declfile="src/cpp/FMC_dir/FMC_dir.hpp" declline="44" declcolumn="6"/>
         <referencedby refid="dd/d0d/FMC__dir__wrapper_8cpp_1a708f25a8190cd874ce947f6ed79d37a2" compoundref="dd/d0d/FMC__dir__wrapper_8cpp" startline="87" endline="90">FMC_getCurrentPath</referencedby>
       </memberdef>
       <memberdef kind="function" id="d8/d5e/FMC__dir_8hpp_1a67662caff0d4650b4c02b339c26a74e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">

@@ -32,6 +32,8 @@
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
       </node>
       <node id="5">
         <label>FMC_attributes.h</label>
@@ -85,6 +87,14 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
+      <node id="14">
+        <label>utils/FMC_deprecated.h</label>
+        <link refid="d4/d06/FMC__deprecated_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
       <node id="12">
         <label>utils/FMC_errors.h</label>
         <link refid="dd/ddf/FMC__errors_8h"/>
@@ -100,6 +110,9 @@
         <link refid="de/d86/FMC__globals_8h"/>
         <childnode refid="10" relation="include">
         </childnode>
+      </node>
+      <node id="15">
+        <label>stddef.h</label>
       </node>
       <node id="8">
         <label>stdio.h</label>

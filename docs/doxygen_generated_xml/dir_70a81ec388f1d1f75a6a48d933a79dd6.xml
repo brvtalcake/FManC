@@ -2,6 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
   <compounddef id="dir_70a81ec388f1d1f75a6a48d933a79dd6" kind="dir">
     <compoundname>src/general/utils</compoundname>
+    <innerfile refid="d4/d06/FMC__deprecated_8h">FMC_deprecated.h</innerfile>
     <innerfile refid="de/dab/FMC__errors_8c">FMC_errors.c</innerfile>
     <innerfile refid="dd/ddf/FMC__errors_8h">FMC_errors.h</innerfile>
     <innerfile refid="de/d86/FMC__globals_8h">FMC_globals.h</innerfile>

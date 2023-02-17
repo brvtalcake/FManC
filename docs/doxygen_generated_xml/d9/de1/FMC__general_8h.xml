@@ -11,6 +11,7 @@
     <includes refid="d6/d25/FMC__enums_8h" local="yes">types/FMC_enums.h</includes>
     <includes refid="dd/ddf/FMC__errors_8h" local="yes">utils/FMC_errors.h</includes>
     <includes refid="de/d86/FMC__globals_8h" local="yes">utils/FMC_globals.h</includes>
+    <includes refid="d4/d06/FMC__deprecated_8h" local="yes">utils/FMC_deprecated.h</includes>
     <includedby refid="de/d47/FMC_8h" local="yes">src/FMC.h</includedby>
     <includedby refid="db/d26/FMC__code__utils_8h" local="yes">src/code_utils/FMC_code_utils.h</includedby>
     <includedby refid="db/d30/FMC__encodings_8h" local="yes">src/data_analyze/encodings/FMC_encodings.h</includedby>
@@ -37,6 +38,8 @@
         <childnode refid="11" relation="include">
         </childnode>
         <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
         </childnode>
       </node>
       <node id="4">
@@ -91,6 +94,14 @@
         <childnode refid="2" relation="include">
         </childnode>
       </node>
+      <node id="13">
+        <label>utils/FMC_deprecated.h</label>
+        <link refid="d4/d06/FMC__deprecated_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
       <node id="11">
         <label>utils/FMC_errors.h</label>
         <link refid="dd/ddf/FMC__errors_8h"/>
@@ -106,6 +117,9 @@
         <link refid="de/d86/FMC__globals_8h"/>
         <childnode refid="9" relation="include">
         </childnode>
+      </node>
+      <node id="14">
+        <label>stddef.h</label>
       </node>
       <node id="7">
         <label>stdio.h</label>
@@ -244,8 +258,9 @@
 <codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d6/d25/FMC__enums_8h" kindref="compound">types/FMC_enums.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="dd/ddf/FMC__errors_8h" kindref="compound">utils/FMC_errors.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="de/d86/FMC__globals_8h" kindref="compound">utils/FMC_globals.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>FMC_DATA_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d4/d06/FMC__deprecated_8h" kindref="compound">utils/FMC_deprecated.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>FMC_DATA_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
     </programlisting>
     <location file="src/general/FMC_general.h"/>
   </compounddef>

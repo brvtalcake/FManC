@@ -82,8 +82,8 @@
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="49" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="63" bodyend="66" declfile="src/general/utils/FMC_errors.c" declline="49" declcolumn="15"/>
         <references refid="da/dd3/FMC__consts_8h_1a4e411f6bd6ac8d6c2bd23d866c097e91" compoundref="da/dd3/FMC__consts_8h" startline="48">FG_BLUE</references>
-        <referencedby refid="de/dab/FMC__errors_8c_1ac4c186bffe86549c0997b764c8c27b40" compoundref="dd/ddf/FMC__errors_8h" startline="341" endline="347">FMC_printBlueError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a0ca75a6adae89226439be84f4ca65399" compoundref="dd/ddf/FMC__errors_8h" startline="240" endline="245">FMC_printBlueText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a5820ba295df9ea6e2dd3df119a90396f" compoundref="dd/ddf/FMC__errors_8h" startline="341" endline="347">FMC_printBlueError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a11ce969a03ee03a50ddcf342e73e8b2b" compoundref="dd/ddf/FMC__errors_8h" startline="240" endline="245">FMC_printBlueText</referencedby>
       </memberdef>
       <memberdef kind="function" id="de/dab/FMC__errors_8c_1a86a623de91eaef521314035a9288905c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -102,8 +102,8 @@
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="56" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="98" bodyend="101" declfile="src/general/utils/FMC_errors.c" declline="56" declcolumn="15"/>
         <references refid="da/dd3/FMC__consts_8h_1a34622e90f931a17220cc1c610fdedc39" compoundref="da/dd3/FMC__consts_8h" startline="56">FG_BRIGHT_BLUE</references>
-        <referencedby refid="de/dab/FMC__errors_8c_1a862092a78b791a46ebc40cfab323365c" compoundref="dd/ddf/FMC__errors_8h" startline="397" endline="403">FMC_printBrightBlueError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a85df3b6daaf127dfc0d53142235c9363" compoundref="dd/ddf/FMC__errors_8h" startline="289" endline="294">FMC_printBrightBlueText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a69d43ae7c72935565e2f6d5848c7b371" compoundref="dd/ddf/FMC__errors_8h" startline="397" endline="403">FMC_printBrightBlueError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1afc9ee400cd0f85ae6baf1cf5b5b83f49" compoundref="dd/ddf/FMC__errors_8h" startline="289" endline="294">FMC_printBrightBlueText</referencedby>
       </memberdef>
       <memberdef kind="function" id="de/dab/FMC__errors_8c_1a56705cd41fc34ddc9e7f33d38be73169" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -122,8 +122,8 @@
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="58" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="108" bodyend="111" declfile="src/general/utils/FMC_errors.c" declline="58" declcolumn="15"/>
         <references refid="da/dd3/FMC__consts_8h_1af0799c3709bd37bdeab42adf1754b88f" compoundref="da/dd3/FMC__consts_8h" startline="58">FG_BRIGHT_CYAN</references>
-        <referencedby refid="de/dab/FMC__errors_8c_1a1f26dc19a2b1b6b2c285eef8ab6422ca" compoundref="dd/ddf/FMC__errors_8h" startline="413" endline="419">FMC_printBrightCyanError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a445b93a7bd9e3ab7c43a32f49e7cd30c" compoundref="dd/ddf/FMC__errors_8h" startline="303" endline="308">FMC_printBrightCyanText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1af08f34aa818a9a290a6b5efc5949cc0a" compoundref="dd/ddf/FMC__errors_8h" startline="413" endline="419">FMC_printBrightCyanError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a1064b3b56fdee59b2e1fa27494204da0" compoundref="dd/ddf/FMC__errors_8h" startline="303" endline="308">FMC_printBrightCyanText</referencedby>
       </memberdef>
       <memberdef kind="function" id="de/dab/FMC__errors_8c_1aaa9ba0e7a25ccb25481bf9b9826917b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -142,8 +142,8 @@
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="54" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="88" bodyend="91" declfile="src/general/utils/FMC_errors.c" declline="54" declcolumn="15"/>
         <references refid="da/dd3/FMC__consts_8h_1af545750086fbaebce5e6bc734aac4b5b" compoundref="da/dd3/FMC__consts_8h" startline="54">FG_BRIGHT_GREEN</references>
-        <referencedby refid="de/dab/FMC__errors_8c_1a6dfc2522d5b6a4d5236a4d02eea99ee6" compoundref="dd/ddf/FMC__errors_8h" startline="381" endline="387">FMC_printBrightGreenError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1ab35ae5bcf27e3ff75a38c44a682e225d" compoundref="dd/ddf/FMC__errors_8h" startline="275" endline="280">FMC_printBrightGreenText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a133abc0a18c0f9f52d027fa9dad3f21f" compoundref="dd/ddf/FMC__errors_8h" startline="381" endline="387">FMC_printBrightGreenError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a0b9d431b21e604d61e2bad26eb6ff307" compoundref="dd/ddf/FMC__errors_8h" startline="275" endline="280">FMC_printBrightGreenText</referencedby>
       </memberdef>
       <memberdef kind="function" id="de/dab/FMC__errors_8c_1ac66dd1b13b6e381601d4c37b3a3acb9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -162,8 +162,8 @@
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="57" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="103" bodyend="106" declfile="src/general/utils/FMC_errors.c" declline="57" declcolumn="15"/>
         <references refid="da/dd3/FMC__consts_8h_1aab68a0fbaf7dbb21906fd6ea370bd8a1" compoundref="da/dd3/FMC__consts_8h" startline="57">FG_BRIGHT_MAGENTA</references>
-        <referencedby refid="de/dab/FMC__errors_8c_1a1b30b2b2018dfbc2870f4073e0250f87" compoundref="dd/ddf/FMC__errors_8h" startline="405" endline="411">FMC_printBrightMagentaError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1afe16aa39ab2efc5c95ed7a8628800133" compoundref="dd/ddf/FMC__errors_8h" startline="296" endline="301">FMC_printBrightMagentaText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a8b30c700dfc669e1bd513a249cf10870" compoundref="dd/ddf/FMC__errors_8h" startline="405" endline="411">FMC_printBrightMagentaError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1aab6408cca4d942122d73844d14153705" compoundref="dd/ddf/FMC__errors_8h" startline="296" endline="301">FMC_printBrightMagentaText</referencedby>
       </memberdef>
       <memberdef kind="function" id="de/dab/FMC__errors_8c_1abfd332c091d02782f186ebfa172b6acd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -182,8 +182,8 @@
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="53" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="83" bodyend="86" declfile="src/general/utils/FMC_errors.c" declline="53" declcolumn="15"/>
         <references refid="da/dd3/FMC__consts_8h_1af43f4725c5086825faafbb98126fc086" compoundref="da/dd3/FMC__consts_8h" startline="53">FG_BRIGHT_RED</references>
-        <referencedby refid="de/dab/FMC__errors_8c_1ae3486f9bf81a6979471cdbab89635aa3" compoundref="dd/ddf/FMC__errors_8h" startline="373" endline="379">FMC_printBrightRedError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a4a31043dad5e76666cf2978f4fbe05b4" compoundref="dd/ddf/FMC__errors_8h" startline="268" endline="273">FMC_printBrightRedText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1aa53062880249a772fa5af75cbb637d14" compoundref="dd/ddf/FMC__errors_8h" startline="373" endline="379">FMC_printBrightRedError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1af60117aab20c2e6247320fd68e54f585" compoundref="dd/ddf/FMC__errors_8h" startline="268" endline="273">FMC_printBrightRedText</referencedby>
       </memberdef>
       <memberdef kind="function" id="de/dab/FMC__errors_8c_1a688870ccf4e322ce9dcf56cd9a1011dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -202,8 +202,8 @@
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="59" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="113" bodyend="116" declfile="src/general/utils/FMC_errors.c" declline="59" declcolumn="15"/>
         <references refid="da/dd3/FMC__consts_8h_1a179db2ee70bc78a771c0ddcfab031026" compoundref="da/dd3/FMC__consts_8h" startline="59">FG_BRIGHT_WHITE</references>
-        <referencedby refid="de/dab/FMC__errors_8c_1a58fdee7a96133ba2d9859ce13eeb6746" compoundref="dd/ddf/FMC__errors_8h" startline="421" endline="427">FMC_printBrightWhiteError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a349d45fc10978efc9086363725d4a05f" compoundref="dd/ddf/FMC__errors_8h" startline="310" endline="315">FMC_printBrightWhiteText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1affdab952330911966f092113573bc8f7" compoundref="dd/ddf/FMC__errors_8h" startline="421" endline="427">FMC_printBrightWhiteError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1acbd079da4200c21ed0e95d1c207beda8" compoundref="dd/ddf/FMC__errors_8h" startline="310" endline="315">FMC_printBrightWhiteText</referencedby>
       </memberdef>
       <memberdef kind="function" id="de/dab/FMC__errors_8c_1ae7a53e0773baed28896abfe5743a3a68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -222,8 +222,8 @@
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="55" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="93" bodyend="96" declfile="src/general/utils/FMC_errors.c" declline="55" declcolumn="15"/>
         <references refid="da/dd3/FMC__consts_8h_1a8733916c1205343e3c8abb6951159e00" compoundref="da/dd3/FMC__consts_8h" startline="55">FG_BRIGHT_YELLOW</references>
-        <referencedby refid="de/dab/FMC__errors_8c_1ad88b59522d44764cbf3aaaac2674af14" compoundref="dd/ddf/FMC__errors_8h" startline="389" endline="395">FMC_printBrightYellowError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1ae7dc5079936ba774fc7567b10bd8c35d" compoundref="dd/ddf/FMC__errors_8h" startline="282" endline="287">FMC_printBrightYellowText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a8a9d04ab3b4e6f06e7eead7abd20581c" compoundref="dd/ddf/FMC__errors_8h" startline="389" endline="395">FMC_printBrightYellowError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1ada66fd50420541f0e864c6a56fdd7bad" compoundref="dd/ddf/FMC__errors_8h" startline="282" endline="287">FMC_printBrightYellowText</referencedby>
       </memberdef>
       <memberdef kind="function" id="de/dab/FMC__errors_8c_1a783bb339d04854160955cc2af5d9b8f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -242,8 +242,8 @@
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="51" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="73" bodyend="76" declfile="src/general/utils/FMC_errors.c" declline="51" declcolumn="15"/>
         <references refid="da/dd3/FMC__consts_8h_1afb40e6e076755308612ed6e18a34dbeb" compoundref="da/dd3/FMC__consts_8h" startline="50">FG_CYAN</references>
-        <referencedby refid="de/dab/FMC__errors_8c_1a30942f1a63adf98b32508b45f7c3c102" compoundref="dd/ddf/FMC__errors_8h" startline="357" endline="363">FMC_printCyanError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a9f873f776ba4ffc6f5d01d87be2628c9" compoundref="dd/ddf/FMC__errors_8h" startline="254" endline="259">FMC_printCyanText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1adde48fd1fee52588fc8c415ffee6cbf4" compoundref="dd/ddf/FMC__errors_8h" startline="357" endline="363">FMC_printCyanError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1aae9c62a751ad01c4a6a08b33a70e4ad9" compoundref="dd/ddf/FMC__errors_8h" startline="254" endline="259">FMC_printCyanText</referencedby>
       </memberdef>
       <memberdef kind="function" id="de/dab/FMC__errors_8c_1ab8572eccf1615a1c6694e200d3ce3665" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -262,8 +262,8 @@
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="47" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="53" bodyend="56" declfile="src/general/utils/FMC_errors.c" declline="47" declcolumn="15"/>
         <references refid="da/dd3/FMC__consts_8h_1a0af1e03653ace4d21aebf3b2e03a6535" compoundref="da/dd3/FMC__consts_8h" startline="46">FG_GREEN</references>
-        <referencedby refid="de/dab/FMC__errors_8c_1a1b99d16ba51d2fb14721918b3b8d6fc3" compoundref="dd/ddf/FMC__errors_8h" startline="325" endline="331">FMC_printGreenError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a69656dae06138d7ab414e60df63301bc" compoundref="dd/ddf/FMC__errors_8h" startline="226" endline="231">FMC_printGreenText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a3c06d7ced3399b1c6908f9d7fb1a3001" compoundref="dd/ddf/FMC__errors_8h" startline="325" endline="331">FMC_printGreenError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1aca146d0de6fca1c0f6293eb08cea1dfa" compoundref="dd/ddf/FMC__errors_8h" startline="226" endline="231">FMC_printGreenText</referencedby>
       </memberdef>
       <memberdef kind="function" id="de/dab/FMC__errors_8c_1a8975895d083a6168dcf9c56de3bed1fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -282,8 +282,8 @@
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="50" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="68" bodyend="71" declfile="src/general/utils/FMC_errors.c" declline="50" declcolumn="15"/>
         <references refid="da/dd3/FMC__consts_8h_1aacf8f7d7b2a3f4ba0d0a131fcd1f1933" compoundref="da/dd3/FMC__consts_8h" startline="49">FG_MAGENTA</references>
-        <referencedby refid="de/dab/FMC__errors_8c_1a65517ff4ad1e4113facb636733f82058" compoundref="dd/ddf/FMC__errors_8h" startline="349" endline="355">FMC_printMagentaError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1aa8091231bdc72a725b68bb7e49dd543e" compoundref="dd/ddf/FMC__errors_8h" startline="247" endline="252">FMC_printMagentaText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a5baf70d47076d8a69e144a29f96aaa83" compoundref="dd/ddf/FMC__errors_8h" startline="349" endline="355">FMC_printMagentaError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1ac070f77b4b4bb3dd42d9e4bbbebf247e" compoundref="dd/ddf/FMC__errors_8h" startline="247" endline="252">FMC_printMagentaText</referencedby>
       </memberdef>
       <memberdef kind="function" id="de/dab/FMC__errors_8c_1a4a9e7b1b2d781c6b3c57500f8e5f1b4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -302,8 +302,8 @@
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="46" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="48" bodyend="51" declfile="src/general/utils/FMC_errors.c" declline="46" declcolumn="15"/>
         <references refid="da/dd3/FMC__consts_8h_1a1dc5215d084174df6f00a9267cec2f17" compoundref="da/dd3/FMC__consts_8h" startline="45">FG_RED</references>
-        <referencedby refid="de/dab/FMC__errors_8c_1aae89617d40bfc3c1b7d5917e814852af" compoundref="dd/ddf/FMC__errors_8h" startline="317" endline="323">FMC_printRedError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a11e06f8ed9dfb849013631d1ab786cd8" compoundref="dd/ddf/FMC__errors_8h" startline="219" endline="224">FMC_printRedText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a7e1dc9f65cdc87f4553b3df4e8a886d6" compoundref="dd/ddf/FMC__errors_8h" startline="317" endline="323">FMC_printRedError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1ae3c3c0d47d890c38b0930fe0afc0e011" compoundref="dd/ddf/FMC__errors_8h" startline="219" endline="224">FMC_printRedText</referencedby>
       </memberdef>
       <memberdef kind="function" id="de/dab/FMC__errors_8c_1a8341db3979a9fb2f84cfdc1a700a901a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -322,8 +322,8 @@
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="52" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="78" bodyend="81" declfile="src/general/utils/FMC_errors.c" declline="52" declcolumn="15"/>
         <references refid="da/dd3/FMC__consts_8h_1a7fbb956b9e769a1020c2eff1f6743857" compoundref="da/dd3/FMC__consts_8h" startline="51">FG_WHITE</references>
-        <referencedby refid="de/dab/FMC__errors_8c_1a9cfd067edb94dcc4184153a66cdef3e9" compoundref="dd/ddf/FMC__errors_8h" startline="365" endline="371">FMC_printWhiteError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a0eff9a40de9ed2a73439191f4e3811ef" compoundref="dd/ddf/FMC__errors_8h" startline="261" endline="266">FMC_printWhiteText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a1e2616f3954e78e99866f2d3c12303c6" compoundref="dd/ddf/FMC__errors_8h" startline="365" endline="371">FMC_printWhiteError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1ad08b9bd97a59064bdc4350050bc04631" compoundref="dd/ddf/FMC__errors_8h" startline="261" endline="266">FMC_printWhiteText</referencedby>
       </memberdef>
       <memberdef kind="function" id="de/dab/FMC__errors_8c_1a3431d465d8b2f51b97c972c23218e7dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -342,8 +342,8 @@
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="48" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="58" bodyend="61" declfile="src/general/utils/FMC_errors.c" declline="48" declcolumn="15"/>
         <references refid="da/dd3/FMC__consts_8h_1a266aa539aa271da1b1f711d2413b1bfa" compoundref="da/dd3/FMC__consts_8h" startline="47">FG_YELLOW</references>
-        <referencedby refid="de/dab/FMC__errors_8c_1afcca9a137159a8e0bb5e1dec5c55b68d" compoundref="dd/ddf/FMC__errors_8h" startline="333" endline="339">FMC_printYellowError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1adcc6ed3e1ddeaecead050a95a18007b6" compoundref="dd/ddf/FMC__errors_8h" startline="233" endline="238">FMC_printYellowText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a44368b2a61e244b3d4260be1acd248d3" compoundref="dd/ddf/FMC__errors_8h" startline="333" endline="339">FMC_printYellowError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a4f9e0c541589c29135862a9f35f2dc9e" compoundref="dd/ddf/FMC__errors_8h" startline="233" endline="238">FMC_printYellowText</referencedby>
       </memberdef>
       <memberdef kind="function" id="de/dab/FMC__errors_8c_1a28df034e89bed06b5ab0bc525f7bf875" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -369,10 +369,10 @@
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="33" column="7" bodyfile="src/general/utils/FMC_errors.c" bodystart="33" bodyend="43"/>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1ac4c186bffe86549c0997b764c8c27b40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a5820ba295df9ea6e2dd3df119a90396f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printBlueError</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printBlueError</name>
         <param>
           <type>FILE *</type>
@@ -380,7 +380,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -389,15 +389,14 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="79" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="341" bodyend="347" declfile="src/general/utils/FMC_errors.c" declline="79" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1a2f277c20b9b007eefd048b8491cae6cf" compoundref="dd/ddf/FMC__errors_8h" startline="63" endline="66">FMC_changeStreamTextColorToBlue</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
         <references refid="dd/ddf/FMC__errors_8h_1ad65d0a387448c0139270e9c628cf4126" compoundref="dd/ddf/FMC__errors_8h" startline="188" endline="191">FMC_setTextStyleToBold</references>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a0ca75a6adae89226439be84f4ca65399" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a11ce969a03ee03a50ddcf342e73e8b2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printBlueText</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printBlueText</name>
         <param>
           <type>FILE *</type>
@@ -405,7 +404,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -414,14 +413,13 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="64" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="240" bodyend="245" declfile="src/general/utils/FMC_errors.c" declline="64" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1a2f277c20b9b007eefd048b8491cae6cf" compoundref="dd/ddf/FMC__errors_8h" startline="63" endline="66">FMC_changeStreamTextColorToBlue</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a862092a78b791a46ebc40cfab323365c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a69d43ae7c72935565e2f6d5848c7b371" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printBrightBlueError</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printBrightBlueError</name>
         <param>
           <type>FILE *</type>
@@ -429,7 +427,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -438,15 +436,14 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="86" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="397" bodyend="403" declfile="src/general/utils/FMC_errors.c" declline="86" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1a86a623de91eaef521314035a9288905c" compoundref="dd/ddf/FMC__errors_8h" startline="98" endline="101">FMC_changeStreamTextColorToBrightBlue</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
         <references refid="dd/ddf/FMC__errors_8h_1ad65d0a387448c0139270e9c628cf4126" compoundref="dd/ddf/FMC__errors_8h" startline="188" endline="191">FMC_setTextStyleToBold</references>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a85df3b6daaf127dfc0d53142235c9363" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1afc9ee400cd0f85ae6baf1cf5b5b83f49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printBrightBlueText</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printBrightBlueText</name>
         <param>
           <type>FILE *</type>
@@ -454,7 +451,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -463,14 +460,13 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="71" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="289" bodyend="294" declfile="src/general/utils/FMC_errors.c" declline="71" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1a86a623de91eaef521314035a9288905c" compoundref="dd/ddf/FMC__errors_8h" startline="98" endline="101">FMC_changeStreamTextColorToBrightBlue</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a1f26dc19a2b1b6b2c285eef8ab6422ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1af08f34aa818a9a290a6b5efc5949cc0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printBrightCyanError</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printBrightCyanError</name>
         <param>
           <type>FILE *</type>
@@ -478,7 +474,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -487,15 +483,14 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="88" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="413" bodyend="419" declfile="src/general/utils/FMC_errors.c" declline="88" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1a56705cd41fc34ddc9e7f33d38be73169" compoundref="dd/ddf/FMC__errors_8h" startline="108" endline="111">FMC_changeStreamTextColorToBrightCyan</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
         <references refid="dd/ddf/FMC__errors_8h_1ad65d0a387448c0139270e9c628cf4126" compoundref="dd/ddf/FMC__errors_8h" startline="188" endline="191">FMC_setTextStyleToBold</references>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a445b93a7bd9e3ab7c43a32f49e7cd30c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a1064b3b56fdee59b2e1fa27494204da0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printBrightCyanText</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printBrightCyanText</name>
         <param>
           <type>FILE *</type>
@@ -503,7 +498,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -512,14 +507,13 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="73" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="303" bodyend="308" declfile="src/general/utils/FMC_errors.c" declline="73" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1a56705cd41fc34ddc9e7f33d38be73169" compoundref="dd/ddf/FMC__errors_8h" startline="108" endline="111">FMC_changeStreamTextColorToBrightCyan</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a6dfc2522d5b6a4d5236a4d02eea99ee6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a133abc0a18c0f9f52d027fa9dad3f21f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printBrightGreenError</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printBrightGreenError</name>
         <param>
           <type>FILE *</type>
@@ -527,7 +521,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -536,15 +530,14 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="84" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="381" bodyend="387" declfile="src/general/utils/FMC_errors.c" declline="84" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1aaa9ba0e7a25ccb25481bf9b9826917b0" compoundref="dd/ddf/FMC__errors_8h" startline="88" endline="91">FMC_changeStreamTextColorToBrightGreen</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
         <references refid="dd/ddf/FMC__errors_8h_1ad65d0a387448c0139270e9c628cf4126" compoundref="dd/ddf/FMC__errors_8h" startline="188" endline="191">FMC_setTextStyleToBold</references>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1ab35ae5bcf27e3ff75a38c44a682e225d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a0b9d431b21e604d61e2bad26eb6ff307" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printBrightGreenText</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printBrightGreenText</name>
         <param>
           <type>FILE *</type>
@@ -552,7 +545,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -561,14 +554,13 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="69" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="275" bodyend="280" declfile="src/general/utils/FMC_errors.c" declline="69" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1aaa9ba0e7a25ccb25481bf9b9826917b0" compoundref="dd/ddf/FMC__errors_8h" startline="88" endline="91">FMC_changeStreamTextColorToBrightGreen</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a1b30b2b2018dfbc2870f4073e0250f87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a8b30c700dfc669e1bd513a249cf10870" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printBrightMagentaError</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printBrightMagentaError</name>
         <param>
           <type>FILE *</type>
@@ -576,7 +568,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -585,15 +577,14 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="87" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="405" bodyend="411" declfile="src/general/utils/FMC_errors.c" declline="87" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1ac66dd1b13b6e381601d4c37b3a3acb9f" compoundref="dd/ddf/FMC__errors_8h" startline="103" endline="106">FMC_changeStreamTextColorToBrightMagenta</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
         <references refid="dd/ddf/FMC__errors_8h_1ad65d0a387448c0139270e9c628cf4126" compoundref="dd/ddf/FMC__errors_8h" startline="188" endline="191">FMC_setTextStyleToBold</references>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1afe16aa39ab2efc5c95ed7a8628800133" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1aab6408cca4d942122d73844d14153705" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printBrightMagentaText</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printBrightMagentaText</name>
         <param>
           <type>FILE *</type>
@@ -601,7 +592,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -610,14 +601,13 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="72" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="296" bodyend="301" declfile="src/general/utils/FMC_errors.c" declline="72" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1ac66dd1b13b6e381601d4c37b3a3acb9f" compoundref="dd/ddf/FMC__errors_8h" startline="103" endline="106">FMC_changeStreamTextColorToBrightMagenta</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1ae3486f9bf81a6979471cdbab89635aa3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1aa53062880249a772fa5af75cbb637d14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printBrightRedError</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printBrightRedError</name>
         <param>
           <type>FILE *</type>
@@ -625,7 +615,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -634,7 +624,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="83" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="373" bodyend="379" declfile="src/general/utils/FMC_errors.c" declline="83" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1abfd332c091d02782f186ebfa172b6acd" compoundref="dd/ddf/FMC__errors_8h" startline="83" endline="86">FMC_changeStreamTextColorToBrightRed</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
         <references refid="dd/ddf/FMC__errors_8h_1ad65d0a387448c0139270e9c628cf4126" compoundref="dd/ddf/FMC__errors_8h" startline="188" endline="191">FMC_setTextStyleToBold</references>
@@ -643,10 +632,10 @@
         <referencedby refid="db/dc4/FMC__encodings_8c_1ac43872885563da059b7870132977db9d" compoundref="db/dc4/FMC__encodings_8c" startline="36" endline="200">FMC_getEncoding</referencedby>
         <referencedby refid="d2/deb/FMC__file__management_8h_1ab8632eb234af95cea6075bc166278cff" compoundref="dc/d5e/FMC__paths_8c" startline="187" endline="225">FMC_getExtension</referencedby>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a4a31043dad5e76666cf2978f4fbe05b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1af60117aab20c2e6247320fd68e54f585" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printBrightRedText</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printBrightRedText</name>
         <param>
           <type>FILE *</type>
@@ -654,7 +643,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -663,14 +652,13 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="68" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="268" bodyend="273" declfile="src/general/utils/FMC_errors.c" declline="68" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1abfd332c091d02782f186ebfa172b6acd" compoundref="dd/ddf/FMC__errors_8h" startline="83" endline="86">FMC_changeStreamTextColorToBrightRed</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a58fdee7a96133ba2d9859ce13eeb6746" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1affdab952330911966f092113573bc8f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printBrightWhiteError</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printBrightWhiteError</name>
         <param>
           <type>FILE *</type>
@@ -678,7 +666,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -687,15 +675,14 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="89" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="421" bodyend="427" declfile="src/general/utils/FMC_errors.c" declline="89" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1a688870ccf4e322ce9dcf56cd9a1011dc" compoundref="dd/ddf/FMC__errors_8h" startline="113" endline="116">FMC_changeStreamTextColorToBrightWhite</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
         <references refid="dd/ddf/FMC__errors_8h_1ad65d0a387448c0139270e9c628cf4126" compoundref="dd/ddf/FMC__errors_8h" startline="188" endline="191">FMC_setTextStyleToBold</references>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a349d45fc10978efc9086363725d4a05f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1acbd079da4200c21ed0e95d1c207beda8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printBrightWhiteText</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printBrightWhiteText</name>
         <param>
           <type>FILE *</type>
@@ -703,7 +690,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -712,14 +699,13 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="74" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="310" bodyend="315" declfile="src/general/utils/FMC_errors.c" declline="74" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1a688870ccf4e322ce9dcf56cd9a1011dc" compoundref="dd/ddf/FMC__errors_8h" startline="113" endline="116">FMC_changeStreamTextColorToBrightWhite</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1ad88b59522d44764cbf3aaaac2674af14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a8a9d04ab3b4e6f06e7eead7abd20581c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printBrightYellowError</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printBrightYellowError</name>
         <param>
           <type>FILE *</type>
@@ -727,7 +713,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -736,16 +722,15 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="85" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="389" bodyend="395" declfile="src/general/utils/FMC_errors.c" declline="85" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1ae7a53e0773baed28896abfe5743a3a68" compoundref="dd/ddf/FMC__errors_8h" startline="93" endline="96">FMC_changeStreamTextColorToBrightYellow</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
         <references refid="dd/ddf/FMC__errors_8h_1ad65d0a387448c0139270e9c628cf4126" compoundref="dd/ddf/FMC__errors_8h" startline="188" endline="191">FMC_setTextStyleToBold</references>
         <referencedby refid="db/dc4/FMC__encodings_8c_1ac43872885563da059b7870132977db9d" compoundref="db/dc4/FMC__encodings_8c" startline="36" endline="200">FMC_getEncoding</referencedby>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1ae7dc5079936ba774fc7567b10bd8c35d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1ada66fd50420541f0e864c6a56fdd7bad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printBrightYellowText</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printBrightYellowText</name>
         <param>
           <type>FILE *</type>
@@ -753,7 +738,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -762,14 +747,13 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="70" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="282" bodyend="287" declfile="src/general/utils/FMC_errors.c" declline="70" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1ae7a53e0773baed28896abfe5743a3a68" compoundref="dd/ddf/FMC__errors_8h" startline="93" endline="96">FMC_changeStreamTextColorToBrightYellow</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a30942f1a63adf98b32508b45f7c3c102" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1adde48fd1fee52588fc8c415ffee6cbf4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printCyanError</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printCyanError</name>
         <param>
           <type>FILE *</type>
@@ -777,7 +761,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -786,15 +770,14 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="81" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="357" bodyend="363" declfile="src/general/utils/FMC_errors.c" declline="81" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1a783bb339d04854160955cc2af5d9b8f2" compoundref="dd/ddf/FMC__errors_8h" startline="73" endline="76">FMC_changeStreamTextColorToCyan</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
         <references refid="dd/ddf/FMC__errors_8h_1ad65d0a387448c0139270e9c628cf4126" compoundref="dd/ddf/FMC__errors_8h" startline="188" endline="191">FMC_setTextStyleToBold</references>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a9f873f776ba4ffc6f5d01d87be2628c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1aae9c62a751ad01c4a6a08b33a70e4ad9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printCyanText</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printCyanText</name>
         <param>
           <type>FILE *</type>
@@ -802,7 +785,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -811,14 +794,13 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="66" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="254" bodyend="259" declfile="src/general/utils/FMC_errors.c" declline="66" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1a783bb339d04854160955cc2af5d9b8f2" compoundref="dd/ddf/FMC__errors_8h" startline="73" endline="76">FMC_changeStreamTextColorToCyan</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a1b99d16ba51d2fb14721918b3b8d6fc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a3c06d7ced3399b1c6908f9d7fb1a3001" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printGreenError</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printGreenError</name>
         <param>
           <type>FILE *</type>
@@ -826,7 +808,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -835,15 +817,14 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="77" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="325" bodyend="331" declfile="src/general/utils/FMC_errors.c" declline="77" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1ab8572eccf1615a1c6694e200d3ce3665" compoundref="dd/ddf/FMC__errors_8h" startline="53" endline="56">FMC_changeStreamTextColorToGreen</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
         <references refid="dd/ddf/FMC__errors_8h_1ad65d0a387448c0139270e9c628cf4126" compoundref="dd/ddf/FMC__errors_8h" startline="188" endline="191">FMC_setTextStyleToBold</references>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a69656dae06138d7ab414e60df63301bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1aca146d0de6fca1c0f6293eb08cea1dfa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printGreenText</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printGreenText</name>
         <param>
           <type>FILE *</type>
@@ -851,7 +832,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -860,14 +841,13 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="62" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="226" bodyend="231" declfile="src/general/utils/FMC_errors.c" declline="62" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1ab8572eccf1615a1c6694e200d3ce3665" compoundref="dd/ddf/FMC__errors_8h" startline="53" endline="56">FMC_changeStreamTextColorToGreen</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a65517ff4ad1e4113facb636733f82058" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a5baf70d47076d8a69e144a29f96aaa83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printMagentaError</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printMagentaError</name>
         <param>
           <type>FILE *</type>
@@ -875,7 +855,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -884,15 +864,14 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="80" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="349" bodyend="355" declfile="src/general/utils/FMC_errors.c" declline="80" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1a8975895d083a6168dcf9c56de3bed1fb" compoundref="dd/ddf/FMC__errors_8h" startline="68" endline="71">FMC_changeStreamTextColorToMagenta</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
         <references refid="dd/ddf/FMC__errors_8h_1ad65d0a387448c0139270e9c628cf4126" compoundref="dd/ddf/FMC__errors_8h" startline="188" endline="191">FMC_setTextStyleToBold</references>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1aa8091231bdc72a725b68bb7e49dd543e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1ac070f77b4b4bb3dd42d9e4bbbebf247e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printMagentaText</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printMagentaText</name>
         <param>
           <type>FILE *</type>
@@ -900,7 +879,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -909,14 +888,13 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="65" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="247" bodyend="252" declfile="src/general/utils/FMC_errors.c" declline="65" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1a8975895d083a6168dcf9c56de3bed1fb" compoundref="dd/ddf/FMC__errors_8h" startline="68" endline="71">FMC_changeStreamTextColorToMagenta</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1aae89617d40bfc3c1b7d5917e814852af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a7e1dc9f65cdc87f4553b3df4e8a886d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printRedError</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printRedError</name>
         <param>
           <type>FILE *</type>
@@ -924,7 +902,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -933,15 +911,14 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="76" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="317" bodyend="323" declfile="src/general/utils/FMC_errors.c" declline="76" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1a4a9e7b1b2d781c6b3c57500f8e5f1b4b" compoundref="dd/ddf/FMC__errors_8h" startline="48" endline="51">FMC_changeStreamTextColorToRed</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
         <references refid="dd/ddf/FMC__errors_8h_1ad65d0a387448c0139270e9c628cf4126" compoundref="dd/ddf/FMC__errors_8h" startline="188" endline="191">FMC_setTextStyleToBold</references>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a11e06f8ed9dfb849013631d1ab786cd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1ae3c3c0d47d890c38b0930fe0afc0e011" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printRedText</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printRedText</name>
         <param>
           <type>FILE *</type>
@@ -949,7 +926,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -958,14 +935,13 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="61" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="219" bodyend="224" declfile="src/general/utils/FMC_errors.c" declline="61" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1a4a9e7b1b2d781c6b3c57500f8e5f1b4b" compoundref="dd/ddf/FMC__errors_8h" startline="48" endline="51">FMC_changeStreamTextColorToRed</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a9cfd067edb94dcc4184153a66cdef3e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a1e2616f3954e78e99866f2d3c12303c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printWhiteError</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printWhiteError</name>
         <param>
           <type>FILE *</type>
@@ -973,7 +949,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -982,15 +958,14 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="82" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="365" bodyend="371" declfile="src/general/utils/FMC_errors.c" declline="82" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1a8341db3979a9fb2f84cfdc1a700a901a" compoundref="dd/ddf/FMC__errors_8h" startline="78" endline="81">FMC_changeStreamTextColorToWhite</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
         <references refid="dd/ddf/FMC__errors_8h_1ad65d0a387448c0139270e9c628cf4126" compoundref="dd/ddf/FMC__errors_8h" startline="188" endline="191">FMC_setTextStyleToBold</references>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a0eff9a40de9ed2a73439191f4e3811ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1ad08b9bd97a59064bdc4350050bc04631" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printWhiteText</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printWhiteText</name>
         <param>
           <type>FILE *</type>
@@ -998,7 +973,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -1007,14 +982,13 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="67" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="261" bodyend="266" declfile="src/general/utils/FMC_errors.c" declline="67" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1a8341db3979a9fb2f84cfdc1a700a901a" compoundref="dd/ddf/FMC__errors_8h" startline="78" endline="81">FMC_changeStreamTextColorToWhite</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1afcca9a137159a8e0bb5e1dec5c55b68d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a44368b2a61e244b3d4260be1acd248d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printYellowError</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printYellowError</name>
         <param>
           <type>FILE *</type>
@@ -1022,7 +996,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -1031,15 +1005,14 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="78" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="333" bodyend="339" declfile="src/general/utils/FMC_errors.c" declline="78" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1a3431d465d8b2f51b97c972c23218e7dd" compoundref="dd/ddf/FMC__errors_8h" startline="58" endline="61">FMC_changeStreamTextColorToYellow</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
         <references refid="dd/ddf/FMC__errors_8h_1ad65d0a387448c0139270e9c628cf4126" compoundref="dd/ddf/FMC__errors_8h" startline="188" endline="191">FMC_setTextStyleToBold</references>
       </memberdef>
-      <memberdef kind="function" id="de/dab/FMC__errors_8c_1adcc6ed3e1ddeaecead050a95a18007b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/dab/FMC__errors_8c_1a4f9e0c541589c29135862a9f35f2dc9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void FMC_printYellowText</definition>
-        <argsstring>(FILE *stream, const char *error)</argsstring>
+        <argsstring>(FILE *stream, const char *text)</argsstring>
         <name>FMC_printYellowText</name>
         <param>
           <type>FILE *</type>
@@ -1047,7 +1020,7 @@
         </param>
         <param>
           <type>const char *</type>
-          <declname>error</declname>
+          <declname>text</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -1056,7 +1029,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="63" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="233" bodyend="238" declfile="src/general/utils/FMC_errors.c" declline="63" declcolumn="15"/>
-        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="dd/ddf/FMC__errors_8h_1a3431d465d8b2f51b97c972c23218e7dd" compoundref="dd/ddf/FMC__errors_8h" startline="58" endline="61">FMC_changeStreamTextColorToYellow</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
       </memberdef>
@@ -1077,34 +1049,34 @@
         </inbodydescription>
         <location file="src/general/utils/FMC_errors.c" line="45" column="15" bodyfile="src/general/utils/FMC_errors.h" bodystart="42" bodyend="45" declfile="src/general/utils/FMC_errors.c" declline="45" declcolumn="15"/>
         <references refid="da/dd3/FMC__consts_8h_1ab702106cf3b3e96750b6845ded4e0299" compoundref="da/dd3/FMC__consts_8h" startline="42">RESET</references>
-        <referencedby refid="de/dab/FMC__errors_8c_1ac4c186bffe86549c0997b764c8c27b40" compoundref="dd/ddf/FMC__errors_8h" startline="341" endline="347">FMC_printBlueError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a0ca75a6adae89226439be84f4ca65399" compoundref="dd/ddf/FMC__errors_8h" startline="240" endline="245">FMC_printBlueText</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a862092a78b791a46ebc40cfab323365c" compoundref="dd/ddf/FMC__errors_8h" startline="397" endline="403">FMC_printBrightBlueError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a85df3b6daaf127dfc0d53142235c9363" compoundref="dd/ddf/FMC__errors_8h" startline="289" endline="294">FMC_printBrightBlueText</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a1f26dc19a2b1b6b2c285eef8ab6422ca" compoundref="dd/ddf/FMC__errors_8h" startline="413" endline="419">FMC_printBrightCyanError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a445b93a7bd9e3ab7c43a32f49e7cd30c" compoundref="dd/ddf/FMC__errors_8h" startline="303" endline="308">FMC_printBrightCyanText</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a6dfc2522d5b6a4d5236a4d02eea99ee6" compoundref="dd/ddf/FMC__errors_8h" startline="381" endline="387">FMC_printBrightGreenError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1ab35ae5bcf27e3ff75a38c44a682e225d" compoundref="dd/ddf/FMC__errors_8h" startline="275" endline="280">FMC_printBrightGreenText</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a1b30b2b2018dfbc2870f4073e0250f87" compoundref="dd/ddf/FMC__errors_8h" startline="405" endline="411">FMC_printBrightMagentaError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1afe16aa39ab2efc5c95ed7a8628800133" compoundref="dd/ddf/FMC__errors_8h" startline="296" endline="301">FMC_printBrightMagentaText</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1ae3486f9bf81a6979471cdbab89635aa3" compoundref="dd/ddf/FMC__errors_8h" startline="373" endline="379">FMC_printBrightRedError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a4a31043dad5e76666cf2978f4fbe05b4" compoundref="dd/ddf/FMC__errors_8h" startline="268" endline="273">FMC_printBrightRedText</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a58fdee7a96133ba2d9859ce13eeb6746" compoundref="dd/ddf/FMC__errors_8h" startline="421" endline="427">FMC_printBrightWhiteError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a349d45fc10978efc9086363725d4a05f" compoundref="dd/ddf/FMC__errors_8h" startline="310" endline="315">FMC_printBrightWhiteText</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1ad88b59522d44764cbf3aaaac2674af14" compoundref="dd/ddf/FMC__errors_8h" startline="389" endline="395">FMC_printBrightYellowError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1ae7dc5079936ba774fc7567b10bd8c35d" compoundref="dd/ddf/FMC__errors_8h" startline="282" endline="287">FMC_printBrightYellowText</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a30942f1a63adf98b32508b45f7c3c102" compoundref="dd/ddf/FMC__errors_8h" startline="357" endline="363">FMC_printCyanError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a9f873f776ba4ffc6f5d01d87be2628c9" compoundref="dd/ddf/FMC__errors_8h" startline="254" endline="259">FMC_printCyanText</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a1b99d16ba51d2fb14721918b3b8d6fc3" compoundref="dd/ddf/FMC__errors_8h" startline="325" endline="331">FMC_printGreenError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a69656dae06138d7ab414e60df63301bc" compoundref="dd/ddf/FMC__errors_8h" startline="226" endline="231">FMC_printGreenText</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a65517ff4ad1e4113facb636733f82058" compoundref="dd/ddf/FMC__errors_8h" startline="349" endline="355">FMC_printMagentaError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1aa8091231bdc72a725b68bb7e49dd543e" compoundref="dd/ddf/FMC__errors_8h" startline="247" endline="252">FMC_printMagentaText</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1aae89617d40bfc3c1b7d5917e814852af" compoundref="dd/ddf/FMC__errors_8h" startline="317" endline="323">FMC_printRedError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a11e06f8ed9dfb849013631d1ab786cd8" compoundref="dd/ddf/FMC__errors_8h" startline="219" endline="224">FMC_printRedText</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a9cfd067edb94dcc4184153a66cdef3e9" compoundref="dd/ddf/FMC__errors_8h" startline="365" endline="371">FMC_printWhiteError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1a0eff9a40de9ed2a73439191f4e3811ef" compoundref="dd/ddf/FMC__errors_8h" startline="261" endline="266">FMC_printWhiteText</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1afcca9a137159a8e0bb5e1dec5c55b68d" compoundref="dd/ddf/FMC__errors_8h" startline="333" endline="339">FMC_printYellowError</referencedby>
-        <referencedby refid="de/dab/FMC__errors_8c_1adcc6ed3e1ddeaecead050a95a18007b6" compoundref="dd/ddf/FMC__errors_8h" startline="233" endline="238">FMC_printYellowText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a5820ba295df9ea6e2dd3df119a90396f" compoundref="dd/ddf/FMC__errors_8h" startline="341" endline="347">FMC_printBlueError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a11ce969a03ee03a50ddcf342e73e8b2b" compoundref="dd/ddf/FMC__errors_8h" startline="240" endline="245">FMC_printBlueText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a69d43ae7c72935565e2f6d5848c7b371" compoundref="dd/ddf/FMC__errors_8h" startline="397" endline="403">FMC_printBrightBlueError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1afc9ee400cd0f85ae6baf1cf5b5b83f49" compoundref="dd/ddf/FMC__errors_8h" startline="289" endline="294">FMC_printBrightBlueText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1af08f34aa818a9a290a6b5efc5949cc0a" compoundref="dd/ddf/FMC__errors_8h" startline="413" endline="419">FMC_printBrightCyanError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a1064b3b56fdee59b2e1fa27494204da0" compoundref="dd/ddf/FMC__errors_8h" startline="303" endline="308">FMC_printBrightCyanText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a133abc0a18c0f9f52d027fa9dad3f21f" compoundref="dd/ddf/FMC__errors_8h" startline="381" endline="387">FMC_printBrightGreenError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a0b9d431b21e604d61e2bad26eb6ff307" compoundref="dd/ddf/FMC__errors_8h" startline="275" endline="280">FMC_printBrightGreenText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a8b30c700dfc669e1bd513a249cf10870" compoundref="dd/ddf/FMC__errors_8h" startline="405" endline="411">FMC_printBrightMagentaError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1aab6408cca4d942122d73844d14153705" compoundref="dd/ddf/FMC__errors_8h" startline="296" endline="301">FMC_printBrightMagentaText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1aa53062880249a772fa5af75cbb637d14" compoundref="dd/ddf/FMC__errors_8h" startline="373" endline="379">FMC_printBrightRedError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1af60117aab20c2e6247320fd68e54f585" compoundref="dd/ddf/FMC__errors_8h" startline="268" endline="273">FMC_printBrightRedText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1affdab952330911966f092113573bc8f7" compoundref="dd/ddf/FMC__errors_8h" startline="421" endline="427">FMC_printBrightWhiteError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1acbd079da4200c21ed0e95d1c207beda8" compoundref="dd/ddf/FMC__errors_8h" startline="310" endline="315">FMC_printBrightWhiteText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a8a9d04ab3b4e6f06e7eead7abd20581c" compoundref="dd/ddf/FMC__errors_8h" startline="389" endline="395">FMC_printBrightYellowError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1ada66fd50420541f0e864c6a56fdd7bad" compoundref="dd/ddf/FMC__errors_8h" startline="282" endline="287">FMC_printBrightYellowText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1adde48fd1fee52588fc8c415ffee6cbf4" compoundref="dd/ddf/FMC__errors_8h" startline="357" endline="363">FMC_printCyanError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1aae9c62a751ad01c4a6a08b33a70e4ad9" compoundref="dd/ddf/FMC__errors_8h" startline="254" endline="259">FMC_printCyanText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a3c06d7ced3399b1c6908f9d7fb1a3001" compoundref="dd/ddf/FMC__errors_8h" startline="325" endline="331">FMC_printGreenError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1aca146d0de6fca1c0f6293eb08cea1dfa" compoundref="dd/ddf/FMC__errors_8h" startline="226" endline="231">FMC_printGreenText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a5baf70d47076d8a69e144a29f96aaa83" compoundref="dd/ddf/FMC__errors_8h" startline="349" endline="355">FMC_printMagentaError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1ac070f77b4b4bb3dd42d9e4bbbebf247e" compoundref="dd/ddf/FMC__errors_8h" startline="247" endline="252">FMC_printMagentaText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a7e1dc9f65cdc87f4553b3df4e8a886d6" compoundref="dd/ddf/FMC__errors_8h" startline="317" endline="323">FMC_printRedError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1ae3c3c0d47d890c38b0930fe0afc0e011" compoundref="dd/ddf/FMC__errors_8h" startline="219" endline="224">FMC_printRedText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a1e2616f3954e78e99866f2d3c12303c6" compoundref="dd/ddf/FMC__errors_8h" startline="365" endline="371">FMC_printWhiteError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1ad08b9bd97a59064bdc4350050bc04631" compoundref="dd/ddf/FMC__errors_8h" startline="261" endline="266">FMC_printWhiteText</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a44368b2a61e244b3d4260be1acd248d3" compoundref="dd/ddf/FMC__errors_8h" startline="333" endline="339">FMC_printYellowError</referencedby>
+        <referencedby refid="de/dab/FMC__errors_8c_1a4f9e0c541589c29135862a9f35f2dc9e" compoundref="dd/ddf/FMC__errors_8h" startline="233" endline="238">FMC_printYellowText</referencedby>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -1172,35 +1144,35 @@
 <codeline lineno="58"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a56705cd41fc34ddc9e7f33d38be73169" kindref="member">FMC_changeStreamTextColorToBrightCyan</ref>(FILE<sp/>*stream);</highlight></codeline>
 <codeline lineno="59"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a688870ccf4e322ce9dcf56cd9a1011dc" kindref="member">FMC_changeStreamTextColorToBrightWhite</ref>(FILE<sp/>*stream);</highlight></codeline>
 <codeline lineno="60"><highlight class="normal"></highlight></codeline>
-<codeline lineno="61"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a11e06f8ed9dfb849013631d1ab786cd8" kindref="member">FMC_printRedText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a69656dae06138d7ab414e60df63301bc" kindref="member">FMC_printGreenText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1adcc6ed3e1ddeaecead050a95a18007b6" kindref="member">FMC_printYellowText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a0ca75a6adae89226439be84f4ca65399" kindref="member">FMC_printBlueText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1aa8091231bdc72a725b68bb7e49dd543e" kindref="member">FMC_printMagentaText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a9f873f776ba4ffc6f5d01d87be2628c9" kindref="member">FMC_printCyanText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a0eff9a40de9ed2a73439191f4e3811ef" kindref="member">FMC_printWhiteText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a4a31043dad5e76666cf2978f4fbe05b4" kindref="member">FMC_printBrightRedText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1ab35ae5bcf27e3ff75a38c44a682e225d" kindref="member">FMC_printBrightGreenText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1ae7dc5079936ba774fc7567b10bd8c35d" kindref="member">FMC_printBrightYellowText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a85df3b6daaf127dfc0d53142235c9363" kindref="member">FMC_printBrightBlueText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1afe16aa39ab2efc5c95ed7a8628800133" kindref="member">FMC_printBrightMagentaText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a445b93a7bd9e3ab7c43a32f49e7cd30c" kindref="member">FMC_printBrightCyanText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a349d45fc10978efc9086363725d4a05f" kindref="member">FMC_printBrightWhiteText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1ae3c3c0d47d890c38b0930fe0afc0e011" kindref="member">FMC_printRedText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1aca146d0de6fca1c0f6293eb08cea1dfa" kindref="member">FMC_printGreenText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a4f9e0c541589c29135862a9f35f2dc9e" kindref="member">FMC_printYellowText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a11ce969a03ee03a50ddcf342e73e8b2b" kindref="member">FMC_printBlueText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1ac070f77b4b4bb3dd42d9e4bbbebf247e" kindref="member">FMC_printMagentaText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1aae9c62a751ad01c4a6a08b33a70e4ad9" kindref="member">FMC_printCyanText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1ad08b9bd97a59064bdc4350050bc04631" kindref="member">FMC_printWhiteText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1af60117aab20c2e6247320fd68e54f585" kindref="member">FMC_printBrightRedText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a0b9d431b21e604d61e2bad26eb6ff307" kindref="member">FMC_printBrightGreenText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1ada66fd50420541f0e864c6a56fdd7bad" kindref="member">FMC_printBrightYellowText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1afc9ee400cd0f85ae6baf1cf5b5b83f49" kindref="member">FMC_printBrightBlueText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1aab6408cca4d942122d73844d14153705" kindref="member">FMC_printBrightMagentaText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a1064b3b56fdee59b2e1fa27494204da0" kindref="member">FMC_printBrightCyanText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1acbd079da4200c21ed0e95d1c207beda8" kindref="member">FMC_printBrightWhiteText</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
 <codeline lineno="75"><highlight class="normal"></highlight></codeline>
-<codeline lineno="76"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1aae89617d40bfc3c1b7d5917e814852af" kindref="member">FMC_printRedError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a1b99d16ba51d2fb14721918b3b8d6fc3" kindref="member">FMC_printGreenError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1afcca9a137159a8e0bb5e1dec5c55b68d" kindref="member">FMC_printYellowError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1ac4c186bffe86549c0997b764c8c27b40" kindref="member">FMC_printBlueError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a65517ff4ad1e4113facb636733f82058" kindref="member">FMC_printMagentaError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a30942f1a63adf98b32508b45f7c3c102" kindref="member">FMC_printCyanError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a9cfd067edb94dcc4184153a66cdef3e9" kindref="member">FMC_printWhiteError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1ae3486f9bf81a6979471cdbab89635aa3" kindref="member">FMC_printBrightRedError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a6dfc2522d5b6a4d5236a4d02eea99ee6" kindref="member">FMC_printBrightGreenError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1ad88b59522d44764cbf3aaaac2674af14" kindref="member">FMC_printBrightYellowError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a862092a78b791a46ebc40cfab323365c" kindref="member">FMC_printBrightBlueError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a1b30b2b2018dfbc2870f4073e0250f87" kindref="member">FMC_printBrightMagentaError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a1f26dc19a2b1b6b2c285eef8ab6422ca" kindref="member">FMC_printBrightCyanError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a58fdee7a96133ba2d9859ce13eeb6746" kindref="member">FMC_printBrightWhiteError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref>);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a7e1dc9f65cdc87f4553b3df4e8a886d6" kindref="member">FMC_printRedError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a3c06d7ced3399b1c6908f9d7fb1a3001" kindref="member">FMC_printGreenError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a44368b2a61e244b3d4260be1acd248d3" kindref="member">FMC_printYellowError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a5820ba295df9ea6e2dd3df119a90396f" kindref="member">FMC_printBlueError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a5baf70d47076d8a69e144a29f96aaa83" kindref="member">FMC_printMagentaError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1adde48fd1fee52588fc8c415ffee6cbf4" kindref="member">FMC_printCyanError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a1e2616f3954e78e99866f2d3c12303c6" kindref="member">FMC_printWhiteError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1aa53062880249a772fa5af75cbb637d14" kindref="member">FMC_printBrightRedError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a133abc0a18c0f9f52d027fa9dad3f21f" kindref="member">FMC_printBrightGreenError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a8a9d04ab3b4e6f06e7eead7abd20581c" kindref="member">FMC_printBrightYellowError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a69d43ae7c72935565e2f6d5848c7b371" kindref="member">FMC_printBrightBlueError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1a8b30c700dfc669e1bd513a249cf10870" kindref="member">FMC_printBrightMagentaError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1af08f34aa818a9a290a6b5efc5949cc0a" kindref="member">FMC_printBrightCyanError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>FMC_FUNC_FLATTEN<sp/>FMC_FUNC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dab/FMC__errors_8c_1affdab952330911966f092113573bc8f7" kindref="member">FMC_printBrightWhiteError</ref>(FILE<sp/>*stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text);</highlight></codeline>
     </programlisting>
     <location file="src/general/utils/FMC_errors.c"/>
   </compounddef>

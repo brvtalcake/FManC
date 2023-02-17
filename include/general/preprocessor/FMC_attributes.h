@@ -27,7 +27,6 @@ SOFTWARE.
 #ifndef FMC_ATTRIBUTES_H
 #define FMC_ATTRIBUTES_H
 
-#include "FMC_platform.h"
 #include "FMC_macros.h"
 
 

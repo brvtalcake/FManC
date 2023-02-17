@@ -34,6 +34,8 @@
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
       </node>
       <node id="5">
         <label>FMC_attributes.h</label>
@@ -87,6 +89,14 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
+      <node id="14">
+        <label>utils/FMC_deprecated.h</label>
+        <link refid="d4/d06/FMC__deprecated_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
       <node id="12">
         <label>utils/FMC_errors.h</label>
         <link refid="dd/ddf/FMC__errors_8h"/>
@@ -102,6 +112,9 @@
         <link refid="de/d86/FMC__globals_8h"/>
         <childnode refid="10" relation="include">
         </childnode>
+      </node>
+      <node id="15">
+        <label>stddef.h</label>
       </node>
       <node id="8">
         <label>stdio.h</label>
@@ -170,7 +183,7 @@
         <location file="src/files/FMC_file_management.h" line="49" column="11" bodyfile="src/files/FMC_paths.c" bodystart="109" bodyend="185" declfile="src/files/FMC_file_management.h" declline="49" declcolumn="11"/>
         <references refid="de/d86/FMC__globals_8h_1a960129b2b6979dc20bdf03180b173766">FMC_ENABLE_DEBUG</references>
         <references refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" compoundref="dd/ddf/FMC__errors_8h" startline="38">FMC_makeMsg</references>
-        <references refid="de/dab/FMC__errors_8c_1ae3486f9bf81a6979471cdbab89635aa3" compoundref="dd/ddf/FMC__errors_8h" startline="373" endline="379">FMC_printBrightRedError</references>
+        <references refid="de/dab/FMC__errors_8c_1aa53062880249a772fa5af75cbb637d14" compoundref="dd/ddf/FMC__errors_8h" startline="373" endline="379">FMC_printBrightRedError</references>
         <references refid="da/dd3/FMC__consts_8h_1aef2c26bbba7239793dfd266d0e8b46b4" compoundref="da/dd3/FMC__consts_8h" startline="34">MAX_FEXT_SIZE</references>
         <references refid="da/dd3/FMC__consts_8h_1ab0e76045bf91a8a1b4fc381488399f70" compoundref="da/dd3/FMC__consts_8h" startline="35">MAX_FNAME_SIZE</references>
         <references refid="da/dd3/FMC__consts_8h_1ae5c03ff129a1255adb84d15ae75425b8" compoundref="da/dd3/FMC__consts_8h" startline="36">MAX_FPATH_SIZE</references>
@@ -247,7 +260,7 @@ Basically, this function only detects the last &apos;/&apos; or &apos;\&apos; ch
         <location file="src/files/FMC_file_management.h" line="48" column="11" bodyfile="src/files/FMC_paths.c" bodystart="32" bodyend="107" declfile="src/files/FMC_file_management.h" declline="48" declcolumn="11"/>
         <references refid="de/d86/FMC__globals_8h_1a960129b2b6979dc20bdf03180b173766">FMC_ENABLE_DEBUG</references>
         <references refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" compoundref="dd/ddf/FMC__errors_8h" startline="38">FMC_makeMsg</references>
-        <references refid="de/dab/FMC__errors_8c_1ae3486f9bf81a6979471cdbab89635aa3" compoundref="dd/ddf/FMC__errors_8h" startline="373" endline="379">FMC_printBrightRedError</references>
+        <references refid="de/dab/FMC__errors_8c_1aa53062880249a772fa5af75cbb637d14" compoundref="dd/ddf/FMC__errors_8h" startline="373" endline="379">FMC_printBrightRedError</references>
         <references refid="da/dd3/FMC__consts_8h_1aef2c26bbba7239793dfd266d0e8b46b4" compoundref="da/dd3/FMC__consts_8h" startline="34">MAX_FEXT_SIZE</references>
         <references refid="da/dd3/FMC__consts_8h_1ab0e76045bf91a8a1b4fc381488399f70" compoundref="da/dd3/FMC__consts_8h" startline="35">MAX_FNAME_SIZE</references>
         <references refid="da/dd3/FMC__consts_8h_1ae5c03ff129a1255adb84d15ae75425b8" compoundref="da/dd3/FMC__consts_8h" startline="36">MAX_FPATH_SIZE</references>
@@ -280,7 +293,7 @@ Basically, this function only detects the last &apos;/&apos; or &apos;\&apos; ch
         <references refid="de/d86/FMC__globals_8h_1a960129b2b6979dc20bdf03180b173766">FMC_ENABLE_DEBUG</references>
         <references refid="dc/d5e/FMC__paths_8c_1a1fa62fd52b6e1fa12794f480d51ba683" compoundref="dc/d5e/FMC__paths_8c" startline="32" endline="107">FMC_extractFilename</references>
         <references refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" compoundref="dd/ddf/FMC__errors_8h" startline="38">FMC_makeMsg</references>
-        <references refid="de/dab/FMC__errors_8c_1ae3486f9bf81a6979471cdbab89635aa3" compoundref="dd/ddf/FMC__errors_8h" startline="373" endline="379">FMC_printBrightRedError</references>
+        <references refid="de/dab/FMC__errors_8c_1aa53062880249a772fa5af75cbb637d14" compoundref="dd/ddf/FMC__errors_8h" startline="373" endline="379">FMC_printBrightRedError</references>
         <references refid="da/dd3/FMC__consts_8h_1aef2c26bbba7239793dfd266d0e8b46b4" compoundref="da/dd3/FMC__consts_8h" startline="34">MAX_FEXT_SIZE</references>
         <references refid="da/dd3/FMC__consts_8h_1ab0e76045bf91a8a1b4fc381488399f70" compoundref="da/dd3/FMC__consts_8h" startline="35">MAX_FNAME_SIZE</references>
       </memberdef>

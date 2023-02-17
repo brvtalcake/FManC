@@ -142,10 +142,13 @@ int FMC_isEmpty_(const char *path)
 char *FMC_getCurrentPath_(char *path, const size_t size)
 {
     std::string s = fs::current_path().string();
-    if (size >= s.length()) 
+    if (size >= s.length()+1) 
     {
         memset(path, 0, size);
         strcpy(path, fs::current_path().c_str());
+        if (strrchr(path, '/') != NULL) strcat(path, "/");
+        else if (strrchr(path, '\\') != NULL) strcat(path, "\\");
+        else return NULL;
         return path;
     }
     else return NULL;
@@ -158,6 +161,9 @@ char *FMC_getAbsolutePath_(char *path, char *buffer, const size_t size)
     {
         memset(buffer, 0, size);
         strncpy(buffer, fs::absolute(path).c_str(), fs::absolute(path).string().length());
+        if (strrchr(path, '/') != NULL) strcat(buffer, "/");
+        else if (strrchr(path, '\\') != NULL) strcat(buffer, "\\");
+        else return NULL;
         return buffer;
     }
     else return NULL;

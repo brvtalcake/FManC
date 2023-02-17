@@ -31,7 +31,7 @@
  */
 
 #ifndef FCMX_H
-#define FCMX_H 
+#define FCMX_H
 
 /**
  * @def SHARED
@@ -78,6 +78,6 @@ SHARED int copyFileWithoutStrings(const unsigned int argc, char *filePath, ...);
  
 
 
-#endif
+#endif // FCMX_H
 
 

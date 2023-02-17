@@ -240,6 +240,18 @@
     <member refid="df/df8/FMC__typedefs_8h_1a1195984563b398760e73f5d400c2ab8d" kind="typedef"><name>found_bs_r_bs_n</name></member>
     <member refid="df/df8/FMC__typedefs_8h_1af78b4c6cfb96d55469381a49fe54fefc" kind="typedef"><name>found_bs_t</name></member>
   </compound>
+  <compound refid="d4/d06/FMC__deprecated_8h" kind="file"><name>FMC_deprecated.h</name>
+    <member refid="d4/d06/FMC__deprecated_8h_1a84bf1fb20854625843d173ca370a6f91" kind="variable"><name>extension</name></member>
+    <member refid="d4/d06/FMC__deprecated_8h_1a25c8761bc1f523fe6a53db546ae83add" kind="variable"><name>fileName</name></member>
+    <member refid="d4/d06/FMC__deprecated_8h_1acf0c9c2355168ca538c222f03d050896" kind="variable"><name>filePath</name></member>
+    <member refid="d4/d06/FMC__deprecated_8h_1a44f7c35d406a960114baa98225e44c25" kind="variable"><name>pathToCopy</name></member>
+    <member refid="d4/d06/FMC__deprecated_8h_1a3467f880883d9fb3538054eb5cc5b11b" kind="variable"><name>toSearch</name></member>
+    <member refid="d4/d06/FMC__deprecated_8h_1acaa0da831cf77d6becb5e487fe058153" kind="function"><name>FMC_FUNC_UNAVAILABLE</name></member>
+    <member refid="d4/d06/FMC__deprecated_8h_1a03dbb015c63009e5d8687c4f5ffdd292" kind="function"><name>FMC_FUNC_UNAVAILABLE</name></member>
+    <member refid="d4/d06/FMC__deprecated_8h_1a508143a0d2376116a1c0613a941ead94" kind="function"><name>FMC_FUNC_UNAVAILABLE</name></member>
+    <member refid="d4/d06/FMC__deprecated_8h_1ae2f31950eece72dc33f9f1f1aecf411b" kind="function"><name>FMC_FUNC_UNAVAILABLE</name></member>
+    <member refid="d4/d06/FMC__deprecated_8h_1a5925b63b4a8f576441db1fd0751c2245" kind="function"><name>FMC_TYPE_UNAVAILABLE</name></member>
+  </compound>
   <compound refid="de/dab/FMC__errors_8c" kind="file"><name>FMC_errors.c</name>
     <member refid="de/dab/FMC__errors_8c_1a2f277c20b9b007eefd048b8491cae6cf" kind="function"><name>FMC_changeStreamTextColorToBlue</name></member>
     <member refid="de/dab/FMC__errors_8c_1a86a623de91eaef521314035a9288905c" kind="function"><name>FMC_changeStreamTextColorToBrightBlue</name></member>
@@ -256,34 +268,34 @@
     <member refid="de/dab/FMC__errors_8c_1a8341db3979a9fb2f84cfdc1a700a901a" kind="function"><name>FMC_changeStreamTextColorToWhite</name></member>
     <member refid="de/dab/FMC__errors_8c_1a3431d465d8b2f51b97c972c23218e7dd" kind="function"><name>FMC_changeStreamTextColorToYellow</name></member>
     <member refid="de/dab/FMC__errors_8c_1a28df034e89bed06b5ab0bc525f7bf875" kind="function"><name>FMC_makeMsg_f</name></member>
-    <member refid="de/dab/FMC__errors_8c_1ac4c186bffe86549c0997b764c8c27b40" kind="function"><name>FMC_printBlueError</name></member>
-    <member refid="de/dab/FMC__errors_8c_1a0ca75a6adae89226439be84f4ca65399" kind="function"><name>FMC_printBlueText</name></member>
-    <member refid="de/dab/FMC__errors_8c_1a862092a78b791a46ebc40cfab323365c" kind="function"><name>FMC_printBrightBlueError</name></member>
-    <member refid="de/dab/FMC__errors_8c_1a85df3b6daaf127dfc0d53142235c9363" kind="function"><name>FMC_printBrightBlueText</name></member>
-    <member refid="de/dab/FMC__errors_8c_1a1f26dc19a2b1b6b2c285eef8ab6422ca" kind="function"><name>FMC_printBrightCyanError</name></member>
-    <member refid="de/dab/FMC__errors_8c_1a445b93a7bd9e3ab7c43a32f49e7cd30c" kind="function"><name>FMC_printBrightCyanText</name></member>
-    <member refid="de/dab/FMC__errors_8c_1a6dfc2522d5b6a4d5236a4d02eea99ee6" kind="function"><name>FMC_printBrightGreenError</name></member>
-    <member refid="de/dab/FMC__errors_8c_1ab35ae5bcf27e3ff75a38c44a682e225d" kind="function"><name>FMC_printBrightGreenText</name></member>
-    <member refid="de/dab/FMC__errors_8c_1a1b30b2b2018dfbc2870f4073e0250f87" kind="function"><name>FMC_printBrightMagentaError</name></member>
-    <member refid="de/dab/FMC__errors_8c_1afe16aa39ab2efc5c95ed7a8628800133" kind="function"><name>FMC_printBrightMagentaText</name></member>
-    <member refid="de/dab/FMC__errors_8c_1ae3486f9bf81a6979471cdbab89635aa3" kind="function"><name>FMC_printBrightRedError</name></member>
-    <member refid="de/dab/FMC__errors_8c_1a4a31043dad5e76666cf2978f4fbe05b4" kind="function"><name>FMC_printBrightRedText</name></member>
-    <member refid="de/dab/FMC__errors_8c_1a58fdee7a96133ba2d9859ce13eeb6746" kind="function"><name>FMC_printBrightWhiteError</name></member>
-    <member refid="de/dab/FMC__errors_8c_1a349d45fc10978efc9086363725d4a05f" kind="function"><name>FMC_printBrightWhiteText</name></member>
-    <member refid="de/dab/FMC__errors_8c_1ad88b59522d44764cbf3aaaac2674af14" kind="function"><name>FMC_printBrightYellowError</name></member>
-    <member refid="de/dab/FMC__errors_8c_1ae7dc5079936ba774fc7567b10bd8c35d" kind="function"><name>FMC_printBrightYellowText</name></member>
-    <member refid="de/dab/FMC__errors_8c_1a30942f1a63adf98b32508b45f7c3c102" kind="function"><name>FMC_printCyanError</name></member>
-    <member refid="de/dab/FMC__errors_8c_1a9f873f776ba4ffc6f5d01d87be2628c9" kind="function"><name>FMC_printCyanText</name></member>
-    <member refid="de/dab/FMC__errors_8c_1a1b99d16ba51d2fb14721918b3b8d6fc3" kind="function"><name>FMC_printGreenError</name></member>
-    <member refid="de/dab/FMC__errors_8c_1a69656dae06138d7ab414e60df63301bc" kind="function"><name>FMC_printGreenText</name></member>
-    <member refid="de/dab/FMC__errors_8c_1a65517ff4ad1e4113facb636733f82058" kind="function"><name>FMC_printMagentaError</name></member>
-    <member refid="de/dab/FMC__errors_8c_1aa8091231bdc72a725b68bb7e49dd543e" kind="function"><name>FMC_printMagentaText</name></member>
-    <member refid="de/dab/FMC__errors_8c_1aae89617d40bfc3c1b7d5917e814852af" kind="function"><name>FMC_printRedError</name></member>
-    <member refid="de/dab/FMC__errors_8c_1a11e06f8ed9dfb849013631d1ab786cd8" kind="function"><name>FMC_printRedText</name></member>
-    <member refid="de/dab/FMC__errors_8c_1a9cfd067edb94dcc4184153a66cdef3e9" kind="function"><name>FMC_printWhiteError</name></member>
-    <member refid="de/dab/FMC__errors_8c_1a0eff9a40de9ed2a73439191f4e3811ef" kind="function"><name>FMC_printWhiteText</name></member>
-    <member refid="de/dab/FMC__errors_8c_1afcca9a137159a8e0bb5e1dec5c55b68d" kind="function"><name>FMC_printYellowError</name></member>
-    <member refid="de/dab/FMC__errors_8c_1adcc6ed3e1ddeaecead050a95a18007b6" kind="function"><name>FMC_printYellowText</name></member>
+    <member refid="de/dab/FMC__errors_8c_1a5820ba295df9ea6e2dd3df119a90396f" kind="function"><name>FMC_printBlueError</name></member>
+    <member refid="de/dab/FMC__errors_8c_1a11ce969a03ee03a50ddcf342e73e8b2b" kind="function"><name>FMC_printBlueText</name></member>
+    <member refid="de/dab/FMC__errors_8c_1a69d43ae7c72935565e2f6d5848c7b371" kind="function"><name>FMC_printBrightBlueError</name></member>
+    <member refid="de/dab/FMC__errors_8c_1afc9ee400cd0f85ae6baf1cf5b5b83f49" kind="function"><name>FMC_printBrightBlueText</name></member>
+    <member refid="de/dab/FMC__errors_8c_1af08f34aa818a9a290a6b5efc5949cc0a" kind="function"><name>FMC_printBrightCyanError</name></member>
+    <member refid="de/dab/FMC__errors_8c_1a1064b3b56fdee59b2e1fa27494204da0" kind="function"><name>FMC_printBrightCyanText</name></member>
+    <member refid="de/dab/FMC__errors_8c_1a133abc0a18c0f9f52d027fa9dad3f21f" kind="function"><name>FMC_printBrightGreenError</name></member>
+    <member refid="de/dab/FMC__errors_8c_1a0b9d431b21e604d61e2bad26eb6ff307" kind="function"><name>FMC_printBrightGreenText</name></member>
+    <member refid="de/dab/FMC__errors_8c_1a8b30c700dfc669e1bd513a249cf10870" kind="function"><name>FMC_printBrightMagentaError</name></member>
+    <member refid="de/dab/FMC__errors_8c_1aab6408cca4d942122d73844d14153705" kind="function"><name>FMC_printBrightMagentaText</name></member>
+    <member refid="de/dab/FMC__errors_8c_1aa53062880249a772fa5af75cbb637d14" kind="function"><name>FMC_printBrightRedError</name></member>
+    <member refid="de/dab/FMC__errors_8c_1af60117aab20c2e6247320fd68e54f585" kind="function"><name>FMC_printBrightRedText</name></member>
+    <member refid="de/dab/FMC__errors_8c_1affdab952330911966f092113573bc8f7" kind="function"><name>FMC_printBrightWhiteError</name></member>
+    <member refid="de/dab/FMC__errors_8c_1acbd079da4200c21ed0e95d1c207beda8" kind="function"><name>FMC_printBrightWhiteText</name></member>
+    <member refid="de/dab/FMC__errors_8c_1a8a9d04ab3b4e6f06e7eead7abd20581c" kind="function"><name>FMC_printBrightYellowError</name></member>
+    <member refid="de/dab/FMC__errors_8c_1ada66fd50420541f0e864c6a56fdd7bad" kind="function"><name>FMC_printBrightYellowText</name></member>
+    <member refid="de/dab/FMC__errors_8c_1adde48fd1fee52588fc8c415ffee6cbf4" kind="function"><name>FMC_printCyanError</name></member>
+    <member refid="de/dab/FMC__errors_8c_1aae9c62a751ad01c4a6a08b33a70e4ad9" kind="function"><name>FMC_printCyanText</name></member>
+    <member refid="de/dab/FMC__errors_8c_1a3c06d7ced3399b1c6908f9d7fb1a3001" kind="function"><name>FMC_printGreenError</name></member>
+    <member refid="de/dab/FMC__errors_8c_1aca146d0de6fca1c0f6293eb08cea1dfa" kind="function"><name>FMC_printGreenText</name></member>
+    <member refid="de/dab/FMC__errors_8c_1a5baf70d47076d8a69e144a29f96aaa83" kind="function"><name>FMC_printMagentaError</name></member>
+    <member refid="de/dab/FMC__errors_8c_1ac070f77b4b4bb3dd42d9e4bbbebf247e" kind="function"><name>FMC_printMagentaText</name></member>
+    <member refid="de/dab/FMC__errors_8c_1a7e1dc9f65cdc87f4553b3df4e8a886d6" kind="function"><name>FMC_printRedError</name></member>
+    <member refid="de/dab/FMC__errors_8c_1ae3c3c0d47d890c38b0930fe0afc0e011" kind="function"><name>FMC_printRedText</name></member>
+    <member refid="de/dab/FMC__errors_8c_1a1e2616f3954e78e99866f2d3c12303c6" kind="function"><name>FMC_printWhiteError</name></member>
+    <member refid="de/dab/FMC__errors_8c_1ad08b9bd97a59064bdc4350050bc04631" kind="function"><name>FMC_printWhiteText</name></member>
+    <member refid="de/dab/FMC__errors_8c_1a44368b2a61e244b3d4260be1acd248d3" kind="function"><name>FMC_printYellowError</name></member>
+    <member refid="de/dab/FMC__errors_8c_1a4f9e0c541589c29135862a9f35f2dc9e" kind="function"><name>FMC_printYellowText</name></member>
     <member refid="de/dab/FMC__errors_8c_1a5dac1ddff314ba7b3bed3d87eb3f19f5" kind="function"><name>FMC_resetStreamOutputStyle</name></member>
   </compound>
   <compound refid="dd/ddf/FMC__errors_8h" kind="file"><name>FMC_errors.h</name>
@@ -304,34 +316,34 @@
     <member refid="dd/ddf/FMC__errors_8h_1a8341db3979a9fb2f84cfdc1a700a901a" kind="function"><name>FMC_changeStreamTextColorToWhite</name></member>
     <member refid="dd/ddf/FMC__errors_8h_1a3431d465d8b2f51b97c972c23218e7dd" kind="function"><name>FMC_changeStreamTextColorToYellow</name></member>
     <member refid="dd/ddf/FMC__errors_8h_1a28df034e89bed06b5ab0bc525f7bf875" kind="function"><name>FMC_makeMsg_f</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1ac4c186bffe86549c0997b764c8c27b40" kind="function"><name>FMC_printBlueError</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1a0ca75a6adae89226439be84f4ca65399" kind="function"><name>FMC_printBlueText</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1a862092a78b791a46ebc40cfab323365c" kind="function"><name>FMC_printBrightBlueError</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1a85df3b6daaf127dfc0d53142235c9363" kind="function"><name>FMC_printBrightBlueText</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1a1f26dc19a2b1b6b2c285eef8ab6422ca" kind="function"><name>FMC_printBrightCyanError</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1a445b93a7bd9e3ab7c43a32f49e7cd30c" kind="function"><name>FMC_printBrightCyanText</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1a6dfc2522d5b6a4d5236a4d02eea99ee6" kind="function"><name>FMC_printBrightGreenError</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1ab35ae5bcf27e3ff75a38c44a682e225d" kind="function"><name>FMC_printBrightGreenText</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1a1b30b2b2018dfbc2870f4073e0250f87" kind="function"><name>FMC_printBrightMagentaError</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1afe16aa39ab2efc5c95ed7a8628800133" kind="function"><name>FMC_printBrightMagentaText</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1ae3486f9bf81a6979471cdbab89635aa3" kind="function"><name>FMC_printBrightRedError</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1a4a31043dad5e76666cf2978f4fbe05b4" kind="function"><name>FMC_printBrightRedText</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1a58fdee7a96133ba2d9859ce13eeb6746" kind="function"><name>FMC_printBrightWhiteError</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1a349d45fc10978efc9086363725d4a05f" kind="function"><name>FMC_printBrightWhiteText</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1ad88b59522d44764cbf3aaaac2674af14" kind="function"><name>FMC_printBrightYellowError</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1ae7dc5079936ba774fc7567b10bd8c35d" kind="function"><name>FMC_printBrightYellowText</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1a30942f1a63adf98b32508b45f7c3c102" kind="function"><name>FMC_printCyanError</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1a9f873f776ba4ffc6f5d01d87be2628c9" kind="function"><name>FMC_printCyanText</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1a1b99d16ba51d2fb14721918b3b8d6fc3" kind="function"><name>FMC_printGreenError</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1a69656dae06138d7ab414e60df63301bc" kind="function"><name>FMC_printGreenText</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1a65517ff4ad1e4113facb636733f82058" kind="function"><name>FMC_printMagentaError</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1aa8091231bdc72a725b68bb7e49dd543e" kind="function"><name>FMC_printMagentaText</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1aae89617d40bfc3c1b7d5917e814852af" kind="function"><name>FMC_printRedError</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1a11e06f8ed9dfb849013631d1ab786cd8" kind="function"><name>FMC_printRedText</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1a9cfd067edb94dcc4184153a66cdef3e9" kind="function"><name>FMC_printWhiteError</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1a0eff9a40de9ed2a73439191f4e3811ef" kind="function"><name>FMC_printWhiteText</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1afcca9a137159a8e0bb5e1dec5c55b68d" kind="function"><name>FMC_printYellowError</name></member>
-    <member refid="dd/ddf/FMC__errors_8h_1adcc6ed3e1ddeaecead050a95a18007b6" kind="function"><name>FMC_printYellowText</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1a5820ba295df9ea6e2dd3df119a90396f" kind="function"><name>FMC_printBlueError</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1a11ce969a03ee03a50ddcf342e73e8b2b" kind="function"><name>FMC_printBlueText</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1a69d43ae7c72935565e2f6d5848c7b371" kind="function"><name>FMC_printBrightBlueError</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1afc9ee400cd0f85ae6baf1cf5b5b83f49" kind="function"><name>FMC_printBrightBlueText</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1af08f34aa818a9a290a6b5efc5949cc0a" kind="function"><name>FMC_printBrightCyanError</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1a1064b3b56fdee59b2e1fa27494204da0" kind="function"><name>FMC_printBrightCyanText</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1a133abc0a18c0f9f52d027fa9dad3f21f" kind="function"><name>FMC_printBrightGreenError</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1a0b9d431b21e604d61e2bad26eb6ff307" kind="function"><name>FMC_printBrightGreenText</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1a8b30c700dfc669e1bd513a249cf10870" kind="function"><name>FMC_printBrightMagentaError</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1aab6408cca4d942122d73844d14153705" kind="function"><name>FMC_printBrightMagentaText</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1aa53062880249a772fa5af75cbb637d14" kind="function"><name>FMC_printBrightRedError</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1af60117aab20c2e6247320fd68e54f585" kind="function"><name>FMC_printBrightRedText</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1affdab952330911966f092113573bc8f7" kind="function"><name>FMC_printBrightWhiteError</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1acbd079da4200c21ed0e95d1c207beda8" kind="function"><name>FMC_printBrightWhiteText</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1a8a9d04ab3b4e6f06e7eead7abd20581c" kind="function"><name>FMC_printBrightYellowError</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1ada66fd50420541f0e864c6a56fdd7bad" kind="function"><name>FMC_printBrightYellowText</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1adde48fd1fee52588fc8c415ffee6cbf4" kind="function"><name>FMC_printCyanError</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1aae9c62a751ad01c4a6a08b33a70e4ad9" kind="function"><name>FMC_printCyanText</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1a3c06d7ced3399b1c6908f9d7fb1a3001" kind="function"><name>FMC_printGreenError</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1aca146d0de6fca1c0f6293eb08cea1dfa" kind="function"><name>FMC_printGreenText</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1a5baf70d47076d8a69e144a29f96aaa83" kind="function"><name>FMC_printMagentaError</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1ac070f77b4b4bb3dd42d9e4bbbebf247e" kind="function"><name>FMC_printMagentaText</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1a7e1dc9f65cdc87f4553b3df4e8a886d6" kind="function"><name>FMC_printRedError</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1ae3c3c0d47d890c38b0930fe0afc0e011" kind="function"><name>FMC_printRedText</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1a1e2616f3954e78e99866f2d3c12303c6" kind="function"><name>FMC_printWhiteError</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1ad08b9bd97a59064bdc4350050bc04631" kind="function"><name>FMC_printWhiteText</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1a44368b2a61e244b3d4260be1acd248d3" kind="function"><name>FMC_printYellowError</name></member>
+    <member refid="dd/ddf/FMC__errors_8h_1a4f9e0c541589c29135862a9f35f2dc9e" kind="function"><name>FMC_printYellowText</name></member>
     <member refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" kind="function"><name>FMC_resetStreamOutputStyle</name></member>
     <member refid="dd/ddf/FMC__errors_8h_1a068c2ee455d410b0299fec838e804ffc" kind="function"><name>FMC_setBGStreamColorToBlue</name></member>
     <member refid="dd/ddf/FMC__errors_8h_1a138074f586719df400c85443999df527" kind="function"><name>FMC_setBGStreamColorToBrightBlue</name></member>

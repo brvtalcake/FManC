@@ -31,7 +31,8 @@
 <codeline lineno="22"><highlight class="comment">OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN<sp/>THE</highlight></codeline>
 <codeline lineno="23"><highlight class="comment">SOFTWARE.</highlight></codeline>
 <codeline lineno="24"><highlight class="comment"></highlight></codeline>
-<codeline lineno="25"><highlight class="comment">*/</highlight></codeline>
+<codeline lineno="25"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="src/files/FMC_fileMan.c"/>
   </compounddef>
