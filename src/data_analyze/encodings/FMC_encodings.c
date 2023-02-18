@@ -95,6 +95,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_get
         else return error;
 
         check_error_type_1 : 
+        FMC_LABEL_COLD;
         if (feof(file))
         {
             FMC_makeMsg(err_feof, 4, "FMC INTERNAL ERROR : ", "In function : ", __func__, ". EOF indicator set.");
@@ -140,6 +141,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_get
     }
 
     end_check_1 :
+    FMC_LABEL_HOT;
     if (sizeOfFile >= 3 && (unsigned char) buff[0] == 0xEF && (unsigned char) buff[1] == 0xBB && (unsigned char) buff[2] == 0xBF)
     {
         rewind(file);
@@ -228,7 +230,7 @@ FMC_SHARED FMC_FUNC_CONST FMC_Encodings FMC_checkEncodingFlag(int encoding)
             return unknown;
             break;
     }
-    return unknown;
+    return error;
 }
 
 /*FMC_SHARED FMC_Char FMC_getc(FMC_File file)

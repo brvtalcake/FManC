@@ -29,6 +29,6 @@ SOFTWARE.
 
 #include "../types/FMC_typedefs.h"
 
-extern FMC_Bool FMC_ENABLE_DEBUG;
+extern FMC_Bool FMC_ENABLE_DEBUG FMC_VAR_COMMON;
 
 #endif // FMC_GLOBALS_H

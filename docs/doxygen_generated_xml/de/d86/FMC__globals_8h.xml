@@ -117,22 +117,18 @@
       </node>
     </invincdepgraph>
       <sectiondef kind="var">
-      <memberdef kind="variable" id="de/d86/FMC__globals_8h_1a960129b2b6979dc20bdf03180b173766" prot="public" static="no" mutable="no">
-        <type><ref refid="df/df8/FMC__typedefs_8h_1ab72878698a48dca98a483d79d11bbc60" kindref="member">FMC_Bool</ref></type>
-        <definition>FMC_Bool FMC_ENABLE_DEBUG</definition>
+      <memberdef kind="variable" id="de/d86/FMC__globals_8h_1a5c72b90260bb69ce18086fc67f1bf5f9" prot="public" static="no" mutable="no">
+        <type><ref refid="df/df8/FMC__typedefs_8h_1ab72878698a48dca98a483d79d11bbc60" kindref="member">FMC_Bool</ref> FMC_ENABLE_DEBUG</type>
+        <definition>FMC_Bool FMC_ENABLE_DEBUG FMC_VAR_COMMON</definition>
         <argsstring></argsstring>
-        <name>FMC_ENABLE_DEBUG</name>
+        <name>FMC_VAR_COMMON</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/utils/FMC_globals.h" line="32" column="17" declfile="src/general/utils/FMC_globals.h" declline="32" declcolumn="17"/>
-        <referencedby refid="d2/deb/FMC__file__management_8h_1a93ee980e87b59d6a3af6e5d4f1ec7ac0" compoundref="dc/d5e/FMC__paths_8c" startline="109" endline="185">FMC_cutFilename</referencedby>
-        <referencedby refid="d2/deb/FMC__file__management_8h_1a1fa62fd52b6e1fa12794f480d51ba683" compoundref="dc/d5e/FMC__paths_8c" startline="32" endline="107">FMC_extractFilename</referencedby>
-        <referencedby refid="db/dc4/FMC__encodings_8c_1ac43872885563da059b7870132977db9d" compoundref="db/dc4/FMC__encodings_8c" startline="36" endline="200">FMC_getEncoding</referencedby>
-        <referencedby refid="d2/deb/FMC__file__management_8h_1ab8632eb234af95cea6075bc166278cff" compoundref="dc/d5e/FMC__paths_8c" startline="187" endline="225">FMC_getExtension</referencedby>
+        <location file="src/general/utils/FMC_globals.h" line="32" column="34" declfile="src/general/utils/FMC_globals.h" declline="32" declcolumn="34"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -171,7 +167,7 @@
 <codeline lineno="29"><highlight class="normal"></highlight></codeline>
 <codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../types/FMC_typedefs.h&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="31"><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="df/df8/FMC__typedefs_8h_1ab72878698a48dca98a483d79d11bbc60" kindref="member">FMC_Bool</ref><sp/><ref refid="de/d86/FMC__globals_8h_1a960129b2b6979dc20bdf03180b173766" kindref="member">FMC_ENABLE_DEBUG</ref>;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="df/df8/FMC__typedefs_8h_1ab72878698a48dca98a483d79d11bbc60" kindref="member">FMC_Bool</ref><sp/>FMC_ENABLE_DEBUG<sp/><ref refid="de/d86/FMC__globals_8h_1a5c72b90260bb69ce18086fc67f1bf5f9" kindref="member">FMC_VAR_COMMON</ref>;</highlight></codeline>
 <codeline lineno="33"><highlight class="normal"></highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_GLOBALS_H</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>

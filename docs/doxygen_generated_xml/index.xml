@@ -367,7 +367,7 @@
     <member refid="dd/ddf/FMC__errors_8h_1a3c9504b4d76773b9dbf697ef4d12c85a" kind="function"><name>FMC_setTextStyleToUnderlined</name></member>
   </compound>
   <compound refid="de/d86/FMC__globals_8h" kind="file"><name>FMC_globals.h</name>
-    <member refid="de/d86/FMC__globals_8h_1a960129b2b6979dc20bdf03180b173766" kind="variable"><name>FMC_ENABLE_DEBUG</name></member>
+    <member refid="de/d86/FMC__globals_8h_1a5c72b90260bb69ce18086fc67f1bf5f9" kind="variable"><name>FMC_VAR_COMMON</name></member>
   </compound>
   <compound refid="dir_1a4c3eba48dd221f0ca8224765442bb6" kind="dir"><name>src/code_utils</name>
   </compound>

@@ -171,9 +171,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_analyze/encodings/FMC_encodings.h" line="35" column="31" bodyfile="src/data_analyze/encodings/FMC_encodings.c" bodystart="202" bodyend="232" declfile="src/data_analyze/encodings/FMC_encodings.h" declline="35" declcolumn="31"/>
+        <location file="src/data_analyze/encodings/FMC_encodings.h" line="35" column="31" bodyfile="src/data_analyze/encodings/FMC_encodings.c" bodystart="204" bodyend="234" declfile="src/data_analyze/encodings/FMC_encodings.h" declline="35" declcolumn="31"/>
         <references refid="d2/d5e/FMC__flags_8h_1a60710bac11b4f1135f61ded06542d661" compoundref="d2/d5e/FMC__flags_8h" startline="40">ASCII</references>
         <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0a1fc467976b8e2979150a99beb709443e" compoundref="d6/d25/FMC__enums_8h" startline="42">ascii</references>
+        <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0a5b9f6d065e6e98483b3d3ed01f4f6cbe" compoundref="d6/d25/FMC__enums_8h" startline="43">unknown</references>
         <references refid="d2/d5e/FMC__flags_8h_1a13b25c906844f6f907310706bc7a04e1" compoundref="d2/d5e/FMC__flags_8h" startline="37">UTF16_BE</references>
         <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0a7ebb3198aac4f58096d5ff584b5720e9" compoundref="d6/d25/FMC__enums_8h" startline="39">utf16_be</references>
@@ -203,10 +204,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_analyze/encodings/FMC_encodings.h" line="34" column="18" bodyfile="src/data_analyze/encodings/FMC_encodings.c" bodystart="36" bodyend="200" declfile="src/data_analyze/encodings/FMC_encodings.h" declline="34" declcolumn="18"/>
+        <location file="src/data_analyze/encodings/FMC_encodings.h" line="34" column="18" bodyfile="src/data_analyze/encodings/FMC_encodings.c" bodystart="36" bodyend="202" declfile="src/data_analyze/encodings/FMC_encodings.h" declline="34" declcolumn="18"/>
         <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0a1fc467976b8e2979150a99beb709443e" compoundref="d6/d25/FMC__enums_8h" startline="42">ascii</references>
         <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
-        <references refid="de/d86/FMC__globals_8h_1a960129b2b6979dc20bdf03180b173766">FMC_ENABLE_DEBUG</references>
         <references refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" compoundref="dd/ddf/FMC__errors_8h" startline="38">FMC_makeMsg</references>
         <references refid="de/dab/FMC__errors_8c_1aa53062880249a772fa5af75cbb637d14" compoundref="dd/ddf/FMC__errors_8h" startline="373" endline="379">FMC_printBrightRedError</references>
         <references refid="de/dab/FMC__errors_8c_1a8a9d04ab3b4e6f06e7eead7abd20581c" compoundref="dd/ddf/FMC__errors_8h" startline="389" endline="395">FMC_printBrightYellowError</references>

@@ -181,7 +181,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/files/FMC_file_management.h" line="49" column="11" bodyfile="src/files/FMC_paths.c" bodystart="109" bodyend="185" declfile="src/files/FMC_file_management.h" declline="49" declcolumn="11"/>
-        <references refid="de/d86/FMC__globals_8h_1a960129b2b6979dc20bdf03180b173766">FMC_ENABLE_DEBUG</references>
         <references refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" compoundref="dd/ddf/FMC__errors_8h" startline="38">FMC_makeMsg</references>
         <references refid="de/dab/FMC__errors_8c_1aa53062880249a772fa5af75cbb637d14" compoundref="dd/ddf/FMC__errors_8h" startline="373" endline="379">FMC_printBrightRedError</references>
         <references refid="da/dd3/FMC__consts_8h_1aef2c26bbba7239793dfd266d0e8b46b4" compoundref="da/dd3/FMC__consts_8h" startline="34">MAX_FEXT_SIZE</references>
@@ -245,20 +244,19 @@ Basically, this function only detects the last &apos;/&apos; or &apos;\&apos; ch
 <parametername>NULL</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>If the path is NULL, if the filename buffer is NULL or if an error occured. The error can be viewed by setting <ref refid="de/d86/FMC__globals_8h_1a960129b2b6979dc20bdf03180b173766" kindref="member">FMC_ENABLE_DEBUG </ref> to <ref refid="da/dd3/FMC__consts_8h_1add3ca9eefe3b5b754426f51d3043e579" kindref="member">True </ref>. </para>
+<para>If the path is NULL, if the filename buffer is NULL or if an error occured. The error can be viewed by setting <ref refid="" kindref="compound">FMC_ENABLE_DEBUG </ref> to <ref refid="da/dd3/FMC__consts_8h_1add3ca9eefe3b5b754426f51d3043e579" kindref="member">True </ref>. </para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
 <simplesect kind="warning"><para>The filename buffer must be at least as big as the path. </para>
 </simplesect>
-<simplesect kind="note"><para>The maximum filename size is <ref refid="da/dd3/FMC__consts_8h_1ab0e76045bf91a8a1b4fc381488399f70" kindref="member">MAX_FNAME_SIZE </ref>. You can disable some warnings or error messages by defining <ref refid="de/d86/FMC__globals_8h_1a960129b2b6979dc20bdf03180b173766" kindref="member">FMC_ENABLE_DEBUG </ref> to <ref refid="da/dd3/FMC__consts_8h_1a306ebd41c0cd1303b1372c6153f0caf8" kindref="member">False </ref>. </para>
+<simplesect kind="note"><para>The maximum filename size is <ref refid="da/dd3/FMC__consts_8h_1ab0e76045bf91a8a1b4fc381488399f70" kindref="member">MAX_FNAME_SIZE </ref>. You can disable some warnings or error messages by defining <ref refid="" kindref="compound">FMC_ENABLE_DEBUG </ref> to <ref refid="da/dd3/FMC__consts_8h_1a306ebd41c0cd1303b1372c6153f0caf8" kindref="member">False </ref>. </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="src/files/FMC_file_management.h" line="48" column="11" bodyfile="src/files/FMC_paths.c" bodystart="32" bodyend="107" declfile="src/files/FMC_file_management.h" declline="48" declcolumn="11"/>
-        <references refid="de/d86/FMC__globals_8h_1a960129b2b6979dc20bdf03180b173766">FMC_ENABLE_DEBUG</references>
         <references refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" compoundref="dd/ddf/FMC__errors_8h" startline="38">FMC_makeMsg</references>
         <references refid="de/dab/FMC__errors_8c_1aa53062880249a772fa5af75cbb637d14" compoundref="dd/ddf/FMC__errors_8h" startline="373" endline="379">FMC_printBrightRedError</references>
         <references refid="da/dd3/FMC__consts_8h_1aef2c26bbba7239793dfd266d0e8b46b4" compoundref="da/dd3/FMC__consts_8h" startline="34">MAX_FEXT_SIZE</references>
@@ -290,7 +288,6 @@ Basically, this function only detects the last &apos;/&apos; or &apos;\&apos; ch
         <inbodydescription>
         </inbodydescription>
         <location file="src/files/FMC_file_management.h" line="50" column="11" bodyfile="src/files/FMC_paths.c" bodystart="187" bodyend="225" declfile="src/files/FMC_file_management.h" declline="50" declcolumn="11"/>
-        <references refid="de/d86/FMC__globals_8h_1a960129b2b6979dc20bdf03180b173766">FMC_ENABLE_DEBUG</references>
         <references refid="dc/d5e/FMC__paths_8c_1a1fa62fd52b6e1fa12794f480d51ba683" compoundref="dc/d5e/FMC__paths_8c" startline="32" endline="107">FMC_extractFilename</references>
         <references refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" compoundref="dd/ddf/FMC__errors_8h" startline="38">FMC_makeMsg</references>
         <references refid="de/dab/FMC__errors_8c_1aa53062880249a772fa5af75cbb637d14" compoundref="dd/ddf/FMC__errors_8h" startline="373" endline="379">FMC_printBrightRedError</references>
