@@ -28,6 +28,7 @@ SOFTWARE.
 #define FMC_GLOBALS_H
 
 #include "../types/FMC_typedefs.h"
+#include "../preprocessor/FMC_macros.h"
 
 extern FMC_Bool FMC_ENABLE_DEBUG FMC_VAR_COMMON;
 

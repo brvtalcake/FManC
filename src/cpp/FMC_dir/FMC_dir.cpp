@@ -145,7 +145,7 @@ char *FMC_getCurrentPath_(char *path, const size_t size)
     if (size >= s.length()+1) 
     {
         memset(path, 0, size);
-        strcpy(path, fs::current_path().c_str());
+        strncpy(path, fs::current_path().string().c_str(), fs::current_path().string().length());
         if (strrchr(path, '/') != NULL) strcat(path, "/");
         else if (strrchr(path, '\\') != NULL) strcat(path, "\\");
         else return NULL;
@@ -160,7 +160,7 @@ char *FMC_getAbsolutePath_(char *path, char *buffer, const size_t size)
     if(fs::exists(path) && size > fs::absolute(path).string().length())
     {
         memset(buffer, 0, size);
-        strncpy(buffer, fs::absolute(path).c_str(), fs::absolute(path).string().length());
+        strncpy(buffer, fs::absolute(path).string().c_str(), fs::absolute(path).string().length());
         if (strrchr(path, '/') != NULL) strcat(buffer, "/");
         else if (strrchr(path, '\\') != NULL) strcat(buffer, "\\");
         else return NULL;

@@ -46,7 +46,7 @@ FMC_SHARED struct FManC_File
     FMC_Encodings encoding;
 };
 
-FMC_SHARED typedef struct FManC_File FMC_File;
+typedef struct FManC_File FMC_File;
 
 FMC_SHARED struct FManC_StrOcc
 {
@@ -54,7 +54,7 @@ FMC_SHARED struct FManC_StrOcc
 	long long int *pos;
 };
 
-FMC_SHARED typedef struct FManC_StrOcc FMC_StrOcc;
+typedef struct FManC_StrOcc FMC_StrOcc;
 
 FMC_SHARED struct FManC_CharComp
 {
@@ -64,7 +64,7 @@ FMC_SHARED struct FManC_CharComp
     unsigned int mostRight : 8;
 };
 
-FMC_SHARED typedef struct FManC_CharComp FMC_CharComp;
+typedef struct FManC_CharComp FMC_CharComp;
 
 FMC_SHARED struct FManC_Char
 {
@@ -73,7 +73,7 @@ FMC_SHARED struct FManC_Char
     FMC_CharControl isNull;
 };
 
-FMC_SHARED typedef struct FManC_Char FMC_Char;
+typedef struct FManC_Char FMC_Char;
 
 
 FMC_SHARED struct FManC_String
@@ -82,7 +82,7 @@ FMC_SHARED struct FManC_String
     size_t size;
 };
 
-FMC_SHARED typedef struct FManC_String FMC_String;
+typedef struct FManC_String FMC_String;
 
 FMC_SHARED struct FManC_CStrView
 {
@@ -90,7 +90,7 @@ FMC_SHARED struct FManC_CStrView
     char *str;
 };
 
-FMC_SHARED typedef struct FManC_CStrView FMC_CStrView;
+typedef struct FManC_CStrView FMC_CStrView;
 
 /*#include <threads.h>
 

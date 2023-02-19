@@ -29,6 +29,14 @@ SOFTWARE.
 
 #include "FMC_file_management.h"
 
+FMC_Bool FMC_ENABLE_DEBUG FMC_VAR_COMMON; 
+/* 
+ * For some reasons it doesn't compile on Windows without redeclaring the above variable. The funny fact is that all the other files where
+ * "FMC_ENABLE_DEBUG" appear compile well.
+ * Moreover __attribute__((nonnull(...))) seems to interfere badly, optimizing away the first if of the functions below, so it must be defined to 
+ * nothing.
+ */
+
 FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char *FMC_extractFilename(const char * restrict const path, char * restrict filename, const size_t filename_size)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare" // get an error at compile time without this (because of attribute nonnull)
@@ -108,7 +116,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
 
 FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char *FMC_cutFilename(const char * restrict const path, char * restrict dirs, const size_t dirs_size)
 {
-    #pragma GCC diagnostic ignored "-Wnonnull-compare" // get an error at compile time without this (because of attribute nonnull)
+    #pragma GCC diagnostic ignored "-Wnonnull-compare" // get an error at compile time without this (because of attribute nonnull defined on linux)
     if (!path || !dirs)
     {
         if (FMC_ENABLE_DEBUG)
@@ -206,7 +214,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
         return NULL;
     }
 
-    if (!strchr(name, (int)'.')) {strncpy(ext, "", 2); return ext;}
+    if (!strchr(name, (int)'.')) {strncpy(ext, "", 2); return ext;} // Could be modified (?)
     else
     {
         char *last_dot = NULL;

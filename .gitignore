@@ -26,3 +26,5 @@ Makefile_
 test_ 
 !lib/libFManC_linux_x86_64.a
 export_cov.sh
+export_cov.bat
+*prog*

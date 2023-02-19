@@ -44,6 +44,6 @@ FMC_SHARED enum FManC_Encodings
     error = 256
 };
 
-FMC_SHARED typedef enum FManC_Encodings FMC_Encodings; 
+typedef enum FManC_Encodings FMC_Encodings; 
 
 #endif // FMC_ENUMS_H

@@ -130,6 +130,17 @@ SOFTWARE.
 #define FMC_VERSION_STRING FMC_STRINGIZE_5(FMC_MAJOR_VERSION, FMC_PP_POINT(), FMC_MINOR_VERSION, FMC_PP_POINT(), FMC_PATCH_VERSION)
 #define FMC_VERSION_NUMBER FMC_CONCAT_2(FMC_MAJOR_VERSION*10000 + FMC_MINOR_VERSION*100 + FMC_PATCH_VERSION, L)
 
+#ifndef FMC_alloca
+    #define FMC_alloca(size) __builtin_alloca(size)
+#endif
+
+#ifndef FMC_PROB
+    #define FMC_PROB(true_expr, prob) __builtin_expect_with_probability(true_expr, 1, prob)
+#endif
+
+#ifndef FMC_UNREACHABLE
+    #define FMC_UNREACHABLE __builtin_unreachable()
+#endif
 
 /* Maybe I'll have to modify this, even though it sounds fine to me now. */
 #ifndef FMC_SHARED

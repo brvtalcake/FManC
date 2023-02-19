@@ -1,7 +1,0 @@
-<map id="File management utilities" name="File management utilities">
-<area shape="rect" id="node1" title="This module provides utilities to manage informations about files." alt="" coords="5,80,195,105"/>
-<area shape="rect" id="node2" href="$d4/d42/group__fmanc__FM__UTILS__const__macros.html" title="This submodule contains constant macros used by the lib." alt="" coords="243,5,375,31"/>
-<area shape="rect" id="node3" href="$d4/dd8/group__fmanc__FM__UTILS__files.html" title="This submodule contains files related to file management utilities." alt="" coords="260,55,357,80"/>
-<area shape="rect" id="node4" href="$db/de3/group__fmanc__FM__UTILS__func.html" title="This submodule contains the functions related to file management utilities." alt="" coords="267,104,351,129"/>
-<area shape="rect" id="node5" href="$dd/d72/group__fmanc__FM__UTILS__macros.html" title="This submodule contains macros related to files management facilities." alt="" coords="274,153,343,179"/>
-</map>

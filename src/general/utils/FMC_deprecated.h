@@ -34,7 +34,7 @@ FMC_FUNC_UNAVAILABLE(This function is not anymore available in the library since
 stringOccurrences *init_StringOccurences(size_t sizeOfString);
 
 FMC_FUNC_UNAVAILABLE(This function is not anymore available in the library since the version 1.0.0.)
-void free_stringOccurrences(stringOccurrences *toBeDeleted);
+void free_stringOccurrences();
 
 FMC_FUNC_UNAVAILABLE(This function is not anymore available in the library since the version 1.0.0.)
 stringOccurrences *searchStringInFile(char *filePath, char *toSearch);

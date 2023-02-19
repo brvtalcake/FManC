@@ -102,7 +102,11 @@ SOFTWARE.
     #endif // FMC_FUNC_MALLOC
 
     #ifndef FMC_FUNC_NONNULL
-        #define FMC_FUNC_NONNULL(...) __attribute__((nonnull(__VA_ARGS__)))
+        #if !(defined(FMC_COMPILING_ON_WINDOWS) || defined(FMC_COMPILING_ON_MINGW))
+            #define FMC_FUNC_NONNULL(...) __attribute__((nonnull(__VA_ARGS__)))
+        #else
+            #define FMC_FUNC_NONNULL(...)
+        #endif
     #endif // FMC_FUNC_NONNULL
 
     #ifndef FMC_FUNC_NORETURN

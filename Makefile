@@ -79,7 +79,7 @@ CXX_FLAGS=-O3 -Wall -Wextra -Werror -std=gnu++17
 C_DEBUG_FLAGS=-g3 -std=gnu17 -fprofile-arcs -ftest-coverage
 CXX_DEBUG_FLAGS=-g3 -std=gnu++17 -fprofile-arcs -ftest-coverage
 
-LD_FLAGS_DLL=-lstdc++ "-Wl,--out-implib,libFManC.dll.a,--export-all-symbols"
+LD_FLAGS_DLL=-lstdc++ "-Wl,--out-implib=libFManC.dll.a,--export-all-symbols,--enable-auto-import"
 LD_FLAGS_SO=-lstdc++ -Wl,-soname,
 
 
@@ -121,6 +121,8 @@ exp_cov_lin :
 	rm -f --verbose *.gcov
 
 exp_cov_win :
+	@export_cov $(COV_FILES)
+	rm -f --verbose *.gcov
 
 all : $(ALL_TARGET)
 
@@ -128,7 +130,7 @@ all_lin : static shared copy_headers doc test
 	@printf "\e[92mBuilt everything for $(PRINTED_OS)\n\e[0m"
 
 all_win : static shared copy_headers doc test
-	@echo Built everything for $(PRINTED_OS)
+	@printgreen Built everything for $(PRINTED_OS)
 
 static : $(STAT_TARGET)
 
@@ -136,7 +138,7 @@ static_lin : $(LIB_LIN_STATIC_FILES) copy_headers
 	@printf "\e[92mBuilt static library for $(PRINTED_OS)\n\e[0m"
 
 static_win : $(LIB_WIN_STATIC_FILES) copy_headers 
-	@echo Built static library for $(PRINTED_OS)
+	@printgreen Built static library for $(PRINTED_OS)
 
 shared : $(SHARED_TARGET)
 
@@ -144,7 +146,7 @@ shared_lin : $(LIB_LIN_SHARED_FILES) copy_headers
 	@printf "\e[92mBuilt shared library for $(PRINTED_OS)\n\e[0m"
 
 shared_win : $(LIB_WIN_SHARED_FILES) copy_headers
-	@echo Built shared library for $(PRINTED_OS)
+	@printgreen Built shared library for $(PRINTED_OS)
 
 test : copy_headers $(TEST_TARGET) exp_cov
 
@@ -156,7 +158,7 @@ test_lin : $(LIB_LIN_TEST)
 
 test_win : $(LIB_WIN_TEST)
 	$(CC) -D FMC_STATIC $(TEST_SUITE_FILES) -fprofile-arcs -ftest-coverage -std=gnu17 -o test/test_builds/$(TEST_RES_FOLD)/$@.exe -Ltest/lib -lFManC_linux_x86_64 -lstdc++
-	@echo Running tests for $(PRINTED_OS)
+	@printgreen Running tests for $(PRINTED_OS)
 	@cd .\test\test_builds\$(TEST_RES_FOLD) && $@.exe
 	gcov $(GCNO_LIN_FILES)
 
@@ -185,8 +187,8 @@ clean_lin :
 	@printf "\e[92mCleaned everything for $(PRINTED_OS)\n\e[0m"
 
 clean_win : 
-	@erase -f --verbose $(subst /,\,$(O_WIN_STATIC_FILES) $(O_WIN_SHARED_FILES) $(LIB_WIN_STATIC_FILES) $(LIB_WIN_SHARED_FILES) $(O_WIN_TEST) $(LIB_WIN_TEST)) test/obj/win/*.gcda test/obj/win/*.gcno *.gcov
-	@echo Cleaned everything for $(PRINTED_OS)
+	@rm -f --verbose $(subst /,\,$(O_WIN_STATIC_FILES) $(O_WIN_SHARED_FILES) $(LIB_WIN_STATIC_FILES) $(LIB_WIN_SHARED_FILES) $(O_WIN_TEST) $(LIB_WIN_TEST)) test/obj/win/*.gcda test/obj/win/*.gcno *.gcov
+	@printgreen Cleaned everything for $(PRINTED_OS)
 ## TO DO : check if rm exists on windows
 
 copy_headers : $(COPY_HEADERS_TARGET)
@@ -195,7 +197,7 @@ copy_headers_lin : $(subst src/,include/,$(H_SRC_FILES) $(HPP_SRC_FILES))
 	@printf "\e[92mCopied headers for $(PRINTED_OS)\n\e[0m"
 
 copy_headers_win : $(subst src/,include/,$(H_SRC_FILES) $(HPP_SRC_FILES))
-	@echo Copied headers for $(PRINTED_OS)
+	@printgreen Copied headers for $(PRINTED_OS)
 
 doc : $(DOC_TARGET)
 
@@ -217,7 +219,7 @@ lib/libFManC_linux_x86_64.a : $(O_LIN_STATIC_FILES)
 
 lib/libFManC_win_x86_64.a : $(O_WIN_STATIC_FILES)
 	$(AR) $(AR_FLAGS) $@ $^
-	@echo Built $@ sucessfully
+	@printgreen Built $@ sucessfully
 
 obj/lin/static/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
 	$(CC) -D BUILDING_FMANC $< $(CFLAGS) -c -o $@ -lstdc++
@@ -229,11 +231,11 @@ obj/lin/static/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
 
 obj/win/static/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
 	$(CC) -D BUILDING_FMANC -D FMC_STATIC $< $(CFLAGS) -c -o $@ -lstdc++
-	@echo Built $@ sucessfully
+	@printgreen Built $@ sucessfully
 
 obj/win/static/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
 	$(CCXX) -D BUILDING_FMANC -D FMC_STATIC $< $(CXX_FLAGS) -c -o $@ -lstdc++
-	@echo Built $@ sucessfully
+	@printgreen Built $@ sucessfully
 
 bin/libFManC_x86_64.so : $(O_LIN_SHARED_FILES)
 	rm -f $@ && rm -f $@.$(MAJOR_VERSION) && rm -f $@.$(VERSION)
@@ -242,12 +244,12 @@ bin/libFManC_x86_64.so : $(O_LIN_SHARED_FILES)
 	@printf "\e[92mBuilt $@ sucessfully\n\n\e[0m"
 
 bin/libFManC_x86_64.dll : lib/libFManC_x86_64.dll.a
-	@echo Built DLL for $(PRINTED_OS)
+	@printgreen Built DLL for $(PRINTED_OS)
 
 lib/libFManC_x86_64.dll.a : $(O_WIN_SHARED_FILES)
 	$(CC) -D BUILDING_FMANC $(O_WIN_SHARED_FILES) $(CFLAGS) -shared -o bin/libFManC_x86_64.dll -lstdc++ $(LD_FLAGS_DLL)
 	@move /Y .\\libFManC.dll.a .\\lib\\
-	@echo Built $@ sucessfully
+	@printgreen Built $@ sucessfully
 
 obj/lin/shared/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
 	$(CC) -D BUILDING_FMANC $< $(CFLAGS) -c -fPIC -o $@ -lstdc++
@@ -259,6 +261,8 @@ obj/lin/shared/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
 
 obj/win/shared/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
 	$(CC) -D BUILDING_FMANC -D FMC_BUILD_DLL $< $(CFLAGS) -c -o $@ -lstdc++
+	@printgreen Built $@ sucessfully
 
 obj/win/shared/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
 	$(CCXX) -D BUILDING_FMANC -D FMC_BUILD_DLL $< $(CXX_FLAGS) -c -o $@ -lstdc++
+	@printgreen Built $@ sucessfully
