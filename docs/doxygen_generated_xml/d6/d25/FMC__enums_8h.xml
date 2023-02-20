@@ -1,0 +1,291 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="d6/d25/FMC__enums_8h" kind="file" language="C++">
+    <compoundname>FMC_enums.h</compoundname>
+    <includes refid="d0/d28/FMC__macros_8h" local="yes">../preprocessor/FMC_macros.h</includes>
+    <includedby refid="d9/de1/FMC__general_8h" local="yes">src/general/FMC_general.h</includedby>
+    <includedby refid="d5/de5/FMC__structs_8h" local="yes">src/general/types/FMC_structs.h</includedby>
+    <incdepgraph>
+      <node id="4">
+        <label>FMC_attributes.h</label>
+        <link refid="d1/d2e/FMC__attributes_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>../preprocessor/FMC_macros.h</label>
+        <link refid="d0/d28/FMC__macros_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>FMC_platform.h</label>
+        <link refid="d7/dff/FMC__platform_8h"/>
+      </node>
+      <node id="1">
+        <label>src/general/types/FMC_enums.h</label>
+        <link refid="d6/d25/FMC__enums_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>src/FMC.h</label>
+        <link refid="de/d47/FMC_8h"/>
+      </node>
+      <node id="4">
+        <label>src/code_utils/FMC_code_utils.h</label>
+        <link refid="db/d26/FMC__code__utils_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>src/data_analyze/FMC_data_analyze.h</label>
+        <link refid="da/db0/FMC__data__analyze_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>src/data_analyze/encodings/FMC_encodings.c</label>
+        <link refid="db/dc4/FMC__encodings_8c"/>
+      </node>
+      <node id="5">
+        <label>src/data_analyze/encodings/FMC_encodings.h</label>
+        <link refid="db/d30/FMC__encodings_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>src/data_analyze/strings/FMC_chars.c</label>
+        <link refid="d1/d8c/FMC__chars_8c"/>
+      </node>
+      <node id="8">
+        <label>src/data_analyze/strings/FMC_strings.h</label>
+        <link refid="d9/db5/FMC__strings_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>src/files/FMC_file_management.h</label>
+        <link refid="d2/deb/FMC__file__management_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>src/files/FMC_files.c</label>
+        <link refid="d0/dc0/FMC__files_8c"/>
+      </node>
+      <node id="12">
+        <label>src/files/FMC_paths.c</label>
+        <link refid="dc/d5e/FMC__paths_8c"/>
+      </node>
+      <node id="2">
+        <label>src/general/FMC_general.h</label>
+        <link refid="d9/de1/FMC__general_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/general/types/FMC_enums.h</label>
+        <link refid="d6/d25/FMC__enums_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>src/general/types/FMC_structs.h</label>
+        <link refid="d5/de5/FMC__structs_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="d6/d25/FMC__enums_8h_1af0532023ebd7ed3e96c7a72c70c17d76" prot="public" static="no">
+        <name>FMC_ENUMS_H</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/types/FMC_enums.h" line="30" column="9" bodyfile="src/general/types/FMC_enums.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0" prot="public" static="no" strong="no">
+        <type></type>
+        <name>FManC_Encodings</name>
+        <enumvalue id="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0a3946b00fe1f38206339d69285cda6b03" prot="public">
+          <name>utf8</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ac8c59e0b11326bbeae894342cdd9db1a" prot="public">
+          <name>utf8_bom</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0adddce8ff4157e655bf02d44611ae702e" prot="public">
+          <name>utf16_le</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0a7ebb3198aac4f58096d5ff584b5720e9" prot="public">
+          <name>utf16_be</name>
+          <initializer>= 8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ab29e0e5e02eb6842596b419d50ec491e" prot="public">
+          <name>utf32_le</name>
+          <initializer>= 16</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0a71a82d4a88d07d8a332d83ef41c3fa6d" prot="public">
+          <name>utf32_be</name>
+          <initializer>= 32</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0a1fc467976b8e2979150a99beb709443e" prot="public">
+          <name>ascii</name>
+          <initializer>= 64</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0a5b9f6d065e6e98483b3d3ed01f4f6cbe" prot="public">
+          <name>unknown</name>
+          <initializer>= 128</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" prot="public">
+          <name>error</name>
+          <initializer>= 256</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/types/FMC_enums.h" line="34" column="2" bodyfile="src/general/types/FMC_enums.h" bodystart="35" bodyend="45"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="d6/d25/FMC__enums_8h_1a546a84b4fb65bfbc272304d6bcee764e" prot="public" static="no">
+        <type>enum <ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0" kindref="member">FManC_Encodings</ref></type>
+        <definition>typedef enum FManC_Encodings FMC_Encodings</definition>
+        <argsstring></argsstring>
+        <name>FMC_Encodings</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/types/FMC_enums.h" line="47" column="30" bodyfile="src/general/types/FMC_enums.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"></highlight></codeline>
+<codeline lineno="3"><highlight class="comment">MIT<sp/>License</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"></highlight></codeline>
+<codeline lineno="5"><highlight class="comment">Copyright<sp/>(c)<sp/>2022-2023<sp/>Axel<sp/>PASCON</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"></highlight></codeline>
+<codeline lineno="7"><highlight class="comment">Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline lineno="8"><highlight class="comment">of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"></highlight></codeline>
+<codeline lineno="14"><highlight class="comment">The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in<sp/>all</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"></highlight></codeline>
+<codeline lineno="17"><highlight class="comment">THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline lineno="20"><highlight class="comment">AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline lineno="22"><highlight class="comment">OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment">SOFTWARE.</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"></highlight></codeline>
+<codeline lineno="25"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FMC_ENUMS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="d6/d25/FMC__enums_8h_1af0532023ebd7ed3e96c7a72c70c17d76" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_ENUMS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../preprocessor/FMC_macros.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0" refkind="member"><highlight class="normal">FMC_SHARED<sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0" kindref="member">FManC_Encodings</ref></highlight></codeline>
+<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="36" refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0a3946b00fe1f38206339d69285cda6b03" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0a3946b00fe1f38206339d69285cda6b03" kindref="member">utf8</ref><sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="37" refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ac8c59e0b11326bbeae894342cdd9db1a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ac8c59e0b11326bbeae894342cdd9db1a" kindref="member">utf8_bom</ref><sp/>=<sp/>2,</highlight></codeline>
+<codeline lineno="38" refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0adddce8ff4157e655bf02d44611ae702e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0adddce8ff4157e655bf02d44611ae702e" kindref="member">utf16_le</ref><sp/>=<sp/>4,</highlight></codeline>
+<codeline lineno="39" refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0a7ebb3198aac4f58096d5ff584b5720e9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0a7ebb3198aac4f58096d5ff584b5720e9" kindref="member">utf16_be</ref><sp/>=<sp/>8,</highlight></codeline>
+<codeline lineno="40" refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ab29e0e5e02eb6842596b419d50ec491e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ab29e0e5e02eb6842596b419d50ec491e" kindref="member">utf32_le</ref><sp/>=<sp/>16,</highlight></codeline>
+<codeline lineno="41" refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0a71a82d4a88d07d8a332d83ef41c3fa6d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0a71a82d4a88d07d8a332d83ef41c3fa6d" kindref="member">utf32_be</ref><sp/>=<sp/>32,</highlight></codeline>
+<codeline lineno="42" refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0a1fc467976b8e2979150a99beb709443e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0a1fc467976b8e2979150a99beb709443e" kindref="member">ascii</ref><sp/>=<sp/>64,</highlight></codeline>
+<codeline lineno="43" refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0a5b9f6d065e6e98483b3d3ed01f4f6cbe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0a5b9f6d065e6e98483b3d3ed01f4f6cbe" kindref="member">unknown</ref><sp/>=<sp/>128,</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref><sp/>=<sp/>256</highlight></codeline>
+<codeline lineno="45" refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" refkind="member"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="d6/d25/FMC__enums_8h_1a546a84b4fb65bfbc272304d6bcee764e" refkind="member"><highlight class="normal">FMC_SHARED<sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0" kindref="member">FManC_Encodings</ref><sp/><ref refid="d6/d25/FMC__enums_8h_1a546a84b4fb65bfbc272304d6bcee764e" kindref="member">FMC_Encodings</ref>;<sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_ENUMS_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/general/types/FMC_enums.h"/>
+  </compounddef>
+</doxygen>

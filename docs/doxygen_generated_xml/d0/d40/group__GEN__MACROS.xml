@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="d0/d40/group__GEN__MACROS" kind="group">
+    <compoundname>GEN_MACROS</compoundname>
+    <title>General macros</title>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="d0/d40/group__GEN__MACROS_1ga884c794595c4aa480df9022648c29564" prot="public" static="no">
+        <name>SHARED</name>
+        <briefdescription>
+<para>Useful to choose how to use the lib on Windows systems. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Axel PASCON (a.k.a. brvtalcake) </para>
+</simplesect>
+<simplesect kind="date"><para>2022</para>
+</simplesect>
+<anchor id="d0/d40/group__GEN__MACROS_1SHARED_def"/></para>
+<para>If you want to use the lib with the dll, you don&apos;t need to add anything in the command line. If you want to use the static version of the lib, then put &quot;-D STATIC&quot; in your command line when compiling, so you let the compiler know that the keyword &quot;SHARED&quot; is set to nothing and the function declarations are not provided with the __declspec() attribute. You can also look at the full macro block below (wich is also in the source code of all of the headers) to see what I mean <programlisting filename=".c"><codeline><highlight class="preprocessor">#<sp/>if<sp/>(defined(_WIN32)<sp/>||<sp/>defined(WIN32))</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>if<sp/>defined(STATIC)</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/>define<sp/>SHARED</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>else</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/>if<sp/>defined(BUILD_DLL)</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/><sp/><sp/>define<sp/>SHARED<sp/>__declspec(dllexport)</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/>else</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/><sp/><sp/>define<sp/>SHARED<sp/>__declspec(dllimport)</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/>endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>else</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>define<sp/>SHARED</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>endif<sp/></highlight><highlight class="comment">//<sp/>Definition<sp/>of<sp/>SHARED<sp/>macro</highlight></codeline>
+</programlisting></para>
+<para><xrefsect id="dd/da0/todo_1_todo000001"><xreftitle>Todo</xreftitle><xrefdescription><para>I should change the name of &quot;STATIC&quot; to something like &quot;FMANC_STATIC&quot; to avoid any problems in case someone wants to use two libs with the same define system</para>
+</xrefdescription></xrefsect></para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/fmanc.h" line="78" column="14" bodyfile="src/fmanc.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>These macros are intended to be defined if you need to modify the headers to be included, or to modify the expansion of the <ref refid="d0/d40/group__GEN__MACROS_1SHARED_def" kindref="member">SHARED macro</ref> for Windows users. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Axel PASCON (a.k.a. brvtalcake) </para>
+</simplesect>
+<simplesect kind="date"><para>2022 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

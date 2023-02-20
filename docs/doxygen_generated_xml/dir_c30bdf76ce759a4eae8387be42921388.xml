@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dir_c30bdf76ce759a4eae8387be42921388" kind="dir">
+    <compoundname>src/third_party</compoundname>
+    <innerfile refid="d3/d5f/lex__yy_8h">lex_yy.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/third_party/"/>
+  </compounddef>
+</doxygen>

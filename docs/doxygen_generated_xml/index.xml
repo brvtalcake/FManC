@@ -31,6 +31,8 @@
     <member refid="d5/d85/struct_f_man_c___str_occ_1a2c2bf2c7bc3d0a8938f383c8296e0886" kind="variable"><name>charCount</name></member>
     <member refid="d5/d85/struct_f_man_c___str_occ_1aa771d096daea4bd1c01973da82d931c8" kind="variable"><name>pos</name></member>
   </compound>
+  <compound refid="d0/d04/main__page_8dox" kind="file"><name>main_page.dox</name>
+  </compound>
   <compound refid="d7/de5/_f_m_c__code__utils_8h" kind="file"><name>FMC_code_utils.h</name>
     <member refid="d7/de5/_f_m_c__code__utils_8h_1a143299265ead0a587bc95b2ac925d9c9" kind="define"><name>FMC_CODE_UTILS_H</name></member>
   </compound>
@@ -379,6 +381,10 @@
   </compound>
   <compound refid="dir_c1a212d0c0bddfcb10e4961fdd534e6f" kind="dir"><name>src/data_analyze</name>
   </compound>
+  <compound refid="dir_49e56c817e5e54854c35e136979f97ca" kind="dir"><name>docs</name>
+  </compound>
+  <compound refid="dir_a1563de886a54484aea73cc9ab61be35" kind="dir"><name>docs/documentation_pages</name>
+  </compound>
   <compound refid="dir_ca56c180fed0fc7bbd2d0f8f23b95c0a" kind="dir"><name>src/data_analyze/encodings</name>
   </compound>
   <compound refid="dir_251697ed71d3107a084c4be76de6bea7" kind="dir"><name>src/files</name>
@@ -396,5 +402,7 @@
   <compound refid="dir_b54a0349da47a31968b20ffcc6408a68" kind="dir"><name>src/general/types</name>
   </compound>
   <compound refid="dir_70a81ec388f1d1f75a6a48d933a79dd6" kind="dir"><name>src/general/utils</name>
+  </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
   </compound>
 </doxygenindex>

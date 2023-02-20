@@ -1,0 +1,261 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="d8/d07/analyze_8h" kind="file" language="C++">
+    <compoundname>analyze.h</compoundname>
+    <includes local="no">stddef.h</includes>
+    <includedby refid="d7/d93/analyze_8c" local="yes">src/analyze.c</includedby>
+    <includedby refid="d5/dc4/fmanc_8h" local="yes">src/fmanc.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/analyze.h</label>
+        <link refid="d8/d07/analyze_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stddef.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/analyze.c</label>
+        <link refid="d7/d93/analyze_8c"/>
+      </node>
+      <node id="1">
+        <label>src/analyze.h</label>
+        <link refid="d8/d07/analyze_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>src/fmanc.h</label>
+        <link refid="d5/dc4/fmanc_8h"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="d4/df4/structFManC__StrOcc" prot="public">FManC_StrOcc</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="d8/d07/analyze_8h_1a884c794595c4aa480df9022648c29564" prot="public" static="no">
+        <name>SHARED</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/analyze.h" line="18" column="14" bodyfile="src/analyze.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="d8/d07/analyze_8h_1a1f4774212d0e3aee6ea5146799cb740c" prot="public" static="no">
+        <type>struct <ref refid="d4/df4/structFManC__StrOcc" kindref="compound">FManC_StrOcc</ref></type>
+        <definition>typedef struct FManC_StrOcc stringOccurrences</definition>
+        <argsstring></argsstring>
+        <name>stringOccurrences</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/analyze.h" line="31" column="28" bodyfile="src/analyze.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="d8/d07/analyze_8h_1ac00d5607ef908576f411582a8eb8a128" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int copyFileWithoutStrings</definition>
+        <argsstring>(const unsigned int argc, char *filePath,...)</argsstring>
+        <name>copyFileWithoutStrings</name>
+        <param>
+          <type>const unsigned int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>filePath</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/analyze.h" line="38" column="6" declfile="src/analyze.h" declline="38" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d07/analyze_8h_1a2fae470a9f2ba64ed544ecb0efdf3113" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t countCharInFile</definition>
+        <argsstring>(char *filePath)</argsstring>
+        <name>countCharInFile</name>
+        <param>
+          <type>char *</type>
+          <declname>filePath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/analyze.h" line="33" column="9" bodyfile="src/analyze.c" bodystart="14" bodyend="33" declfile="src/analyze.h" declline="33" declcolumn="9"/>
+        <referencedby refid="d7/d93/analyze_8c_1ab029b1afb2f8a964dd116b825baf8741" compoundref="d7/d93/analyze_8c" startline="54" endline="152">searchStringInFile</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d07/analyze_8h_1a04ae2138b1c3b361f9556bd30db30c23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void free_stringOccurrences</definition>
+        <argsstring>(stringOccurrences *toBeDeleted)</argsstring>
+        <name>free_stringOccurrences</name>
+        <param>
+          <type><ref refid="d8/d07/analyze_8h_1a1f4774212d0e3aee6ea5146799cb740c" kindref="member">stringOccurrences</ref> *</type>
+          <declname>toBeDeleted</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/analyze.h" line="35" column="7" bodyfile="src/analyze.c" bodystart="47" bodyend="51" declfile="src/analyze.h" declline="35" declcolumn="7"/>
+        <references refid="d4/df4/structFManC__StrOcc_1aa771d096daea4bd1c01973da82d931c8" compoundref="d8/d07/analyze_8h" startline="28">FManC_StrOcc::pos</references>
+        <referencedby refid="d7/d93/analyze_8c_1ae5a02aaad7ac0820d0b9c6c96c77abb9" compoundref="d7/d93/analyze_8c" startline="155" endline="311">replaceStringInFile</referencedby>
+        <referencedby refid="d7/d93/analyze_8c_1ab029b1afb2f8a964dd116b825baf8741" compoundref="d7/d93/analyze_8c" startline="54" endline="152">searchStringInFile</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d07/analyze_8h_1a00a81359d75f930d3e47239dbd6dd324" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d8/d07/analyze_8h_1a1f4774212d0e3aee6ea5146799cb740c" kindref="member">stringOccurrences</ref> *</type>
+        <definition>stringOccurrences * init_stringOccurences</definition>
+        <argsstring>(size_t sizeOfString)</argsstring>
+        <name>init_stringOccurences</name>
+        <param>
+          <type>size_t</type>
+          <declname>sizeOfString</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/analyze.h" line="34" column="20" bodyfile="src/analyze.c" bodystart="35" bodyend="45" declfile="src/analyze.h" declline="34" declcolumn="20"/>
+        <references refid="d4/df4/structFManC__StrOcc_1a2c2bf2c7bc3d0a8938f383c8296e0886" compoundref="d8/d07/analyze_8h" startline="27">FManC_StrOcc::charCount</references>
+        <references refid="d4/df4/structFManC__StrOcc_1aa771d096daea4bd1c01973da82d931c8" compoundref="d8/d07/analyze_8h" startline="28">FManC_StrOcc::pos</references>
+        <referencedby refid="d7/d93/analyze_8c_1ab029b1afb2f8a964dd116b825baf8741" compoundref="d7/d93/analyze_8c" startline="54" endline="152">searchStringInFile</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d07/analyze_8h_1ae5a02aaad7ac0820d0b9c6c96c77abb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int replaceStringInFile</definition>
+        <argsstring>(char *filePath, char *toReplaceString, char *toAddString)</argsstring>
+        <name>replaceStringInFile</name>
+        <param>
+          <type>char *</type>
+          <declname>filePath</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>toReplaceString</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>toAddString</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/analyze.h" line="37" column="6" bodyfile="src/analyze.c" bodystart="155" bodyend="311" declfile="src/analyze.h" declline="37" declcolumn="6"/>
+        <references refid="d4/df4/structFManC__StrOcc_1a2c2bf2c7bc3d0a8938f383c8296e0886" compoundref="d8/d07/analyze_8h" startline="27">FManC_StrOcc::charCount</references>
+        <references refid="d7/d93/analyze_8c_1a04ae2138b1c3b361f9556bd30db30c23" compoundref="d7/d93/analyze_8c" startline="47" endline="51">free_stringOccurrences</references>
+        <references refid="dd/d72/group__fmanc__FM__UTILS__macros_1ga68b8bb9ca6877866b30b5d71f33f1b08" compoundref="d7/d5b/fileMan_8h" startline="137">getFileExtension</references>
+        <references refid="dd/d72/group__fmanc__FM__UTILS__macros_1ga3e855422945c4cdbaf71723d8e25d9f5" compoundref="d7/d5b/fileMan_8h" startline="153">getFileName</references>
+        <references refid="dd/d72/group__fmanc__FM__UTILS__macros_1gac79aba55b8bda0cfc4ce3a88534adbc0" compoundref="d7/d5b/fileMan_8h" startline="169">getFilePath</references>
+        <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gaef2c26bbba7239793dfd266d0e8b46b4" compoundref="d7/d5b/fileMan_8h" startline="91">MAX_FEXT_SIZE</references>
+        <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gab0e76045bf91a8a1b4fc381488399f70" compoundref="d7/d5b/fileMan_8h" startline="102">MAX_FNAME_SIZE</references>
+        <references refid="d4/d42/group__fmanc__FM__UTILS__const__macros_1gae5c03ff129a1255adb84d15ae75425b8" compoundref="d7/d5b/fileMan_8h" startline="113">MAX_FPATH_SIZE</references>
+        <references refid="d4/df4/structFManC__StrOcc_1aa771d096daea4bd1c01973da82d931c8" compoundref="d8/d07/analyze_8h" startline="28">FManC_StrOcc::pos</references>
+        <references refid="d7/d93/analyze_8c_1ab029b1afb2f8a964dd116b825baf8741" compoundref="d7/d93/analyze_8c" startline="54" endline="152">searchStringInFile</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/d07/analyze_8h_1ab029b1afb2f8a964dd116b825baf8741" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d8/d07/analyze_8h_1a1f4774212d0e3aee6ea5146799cb740c" kindref="member">stringOccurrences</ref> *</type>
+        <definition>stringOccurrences * searchStringInFile</definition>
+        <argsstring>(char *filePath, char *toSearch)</argsstring>
+        <name>searchStringInFile</name>
+        <param>
+          <type>char *</type>
+          <declname>filePath</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>toSearch</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/analyze.h" line="36" column="20" bodyfile="src/analyze.c" bodystart="54" bodyend="152" declfile="src/analyze.h" declline="36" declcolumn="20"/>
+        <references refid="d7/d93/analyze_8c_1a2fae470a9f2ba64ed544ecb0efdf3113" compoundref="d7/d93/analyze_8c" startline="14" endline="33">countCharInFile</references>
+        <references refid="d7/d93/analyze_8c_1a04ae2138b1c3b361f9556bd30db30c23" compoundref="d7/d93/analyze_8c" startline="47" endline="51">free_stringOccurrences</references>
+        <references refid="dd/d72/group__fmanc__FM__UTILS__macros_1ga3e855422945c4cdbaf71723d8e25d9f5" compoundref="d7/d5b/fileMan_8h" startline="153">getFileName</references>
+        <references refid="d7/d93/analyze_8c_1a00a81359d75f930d3e47239dbd6dd324" compoundref="d7/d93/analyze_8c" startline="35" endline="45">init_stringOccurences</references>
+        <references refid="d4/df4/structFManC__StrOcc_1aa771d096daea4bd1c01973da82d931c8" compoundref="d8/d07/analyze_8h" startline="28">FManC_StrOcc::pos</references>
+        <referencedby refid="d7/d93/analyze_8c_1ae5a02aaad7ac0820d0b9c6c96c77abb9" compoundref="d7/d93/analyze_8c" startline="155" endline="311">replaceStringInFile</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>ANALYZE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ANALYZE_H<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>if<sp/>(defined(_WIN32)<sp/>||<sp/>defined(WIN32))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">/*****************<sp/>&quot;-D<sp/>STATIC&quot;<sp/>******************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>if<sp/>defined(STATIC)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/>define<sp/>SHARED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">/****************<sp/>&quot;-D<sp/>BUILD_DLL&quot;<sp/>****************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/>if<sp/>defined(BUILD_DLL)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/><sp/><sp/>define<sp/>SHARED<sp/>__declspec(dllexport)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/>else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/><sp/><sp/>define<sp/>SHARED<sp/>__declspec(dllimport)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/>endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">/******************<sp/>DEFAULT<sp/>*******************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="d8/d07/analyze_8h_1a884c794595c4aa480df9022648c29564" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>define<sp/>SHARED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stddef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="d4/df4/structFManC__StrOcc" refkind="compound"><highlight class="normal"><ref refid="d8/d07/analyze_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="d4/df4/structFManC__StrOcc" kindref="compound">FManC_StrOcc</ref></highlight></codeline>
+<codeline lineno="26"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="27" refid="d4/df4/structFManC__StrOcc_1a2c2bf2c7bc3d0a8938f383c8296e0886" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="d4/df4/structFManC__StrOcc_1a2c2bf2c7bc3d0a8938f383c8296e0886" kindref="member">charCount</ref>;</highlight></codeline>
+<codeline lineno="28" refid="d4/df4/structFManC__StrOcc_1aa771d096daea4bd1c01973da82d931c8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<ref refid="d4/df4/structFManC__StrOcc_1aa771d096daea4bd1c01973da82d931c8" kindref="member">pos</ref>;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="d8/d07/analyze_8h_1a1f4774212d0e3aee6ea5146799cb740c" refkind="member"><highlight class="normal"><ref refid="d8/d07/analyze_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="d4/df4/structFManC__StrOcc" kindref="compound">FManC_StrOcc</ref><sp/><ref refid="d4/df4/structFManC__StrOcc" kindref="compound">stringOccurrences</ref>;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><ref refid="d8/d07/analyze_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="d8/d07/analyze_8h_1a2fae470a9f2ba64ed544ecb0efdf3113" kindref="member">countCharInFile</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*filePath);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><ref refid="d8/d07/analyze_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/><ref refid="d4/df4/structFManC__StrOcc" kindref="compound">stringOccurrences</ref><sp/>*<ref refid="d8/d07/analyze_8h_1a00a81359d75f930d3e47239dbd6dd324" kindref="member">init_stringOccurences</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>sizeOfString);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><ref refid="d8/d07/analyze_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/d07/analyze_8h_1a04ae2138b1c3b361f9556bd30db30c23" kindref="member">free_stringOccurrences</ref>(<ref refid="d4/df4/structFManC__StrOcc" kindref="compound">stringOccurrences</ref><sp/>*toBeDeleted);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><ref refid="d8/d07/analyze_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/><ref refid="d4/df4/structFManC__StrOcc" kindref="compound">stringOccurrences</ref><sp/>*<ref refid="d8/d07/analyze_8h_1ab029b1afb2f8a964dd116b825baf8741" kindref="member">searchStringInFile</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*filePath,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*toSearch);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><ref refid="d8/d07/analyze_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d8/d07/analyze_8h_1ae5a02aaad7ac0820d0b9c6c96c77abb9" kindref="member">replaceStringInFile</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*filePath,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*toReplaceString,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*toAddString);</highlight></codeline>
+<codeline lineno="38" refid="d8/d07/analyze_8h_1ac00d5607ef908576f411582a8eb8a128" refkind="member"><highlight class="normal"><ref refid="d8/d07/analyze_8h_1a884c794595c4aa480df9022648c29564" kindref="member">SHARED</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d8/d07/analyze_8h_1ac00d5607ef908576f411582a8eb8a128" kindref="member">copyFileWithoutStrings</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*filePath,<sp/>...);<sp/></highlight><highlight class="comment">//<sp/>to<sp/>do</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/analyze.h"/>
+  </compounddef>
+</doxygen>
