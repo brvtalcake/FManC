@@ -5,6 +5,7 @@ copyright: Copyright &copy; 2022 - 2023 Axel PASCON
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/c.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/es/core.min.js
   - js/syntax.js
 extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/base16/eighties.min.css
@@ -29,24 +30,7 @@ plugins:
   - search:
       separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
       lang: 
-        - ar
-        - da 
-        - ja
         - en
-        - fr
-        - de
-        - pt
-        - du
-        - ro
-        - fi
-        - sv
-        - th
-        - tr
-        - hu
-        - vi
-        - it
-        - ru
-        - es
 extra:
   consent:
     title: Cookie consent
@@ -64,7 +48,10 @@ extra:
       - manage
       - reject
 theme:
-  
+  highlightjs: True
+  hljs_languages:
+    - c
+    - c++
   name: material
   locale: en
   logo: ./_images_/FManC.png
@@ -76,7 +63,6 @@ theme:
     text: Open Sans
   features:
     - search.suggest
-    - search.highlight
     - search.share
     - content.code.copy
     - content.code.annotate
