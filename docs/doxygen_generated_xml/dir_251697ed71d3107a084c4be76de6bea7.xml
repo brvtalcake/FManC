@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="dir_251697ed71d3107a084c4be76de6bea7" kind="dir">
+    <compoundname>src/files</compoundname>
+    <innerfile refid="d8/d29/_f_m_c__file__management_8h">FMC_file_management.h</innerfile>
+    <innerfile refid="d6/de1/_f_m_c__file_man_8c">FMC_fileMan.c</innerfile>
+    <innerfile refid="d6/dc6/_f_m_c__files_8c">FMC_files.c</innerfile>
+    <innerfile refid="da/d92/_f_m_c__paths_8c">FMC_paths.c</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/files/"/>
+  </compounddef>
+</doxygen>

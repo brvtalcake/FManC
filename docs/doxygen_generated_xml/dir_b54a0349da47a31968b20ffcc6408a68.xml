@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="dir_b54a0349da47a31968b20ffcc6408a68" kind="dir">
+    <compoundname>src/general/types</compoundname>
+    <innerfile refid="d9/dab/_f_m_c__enums_8h">FMC_enums.h</innerfile>
+    <innerfile refid="d5/d7a/_f_m_c__structs_8h">FMC_structs.h</innerfile>
+    <innerfile refid="df/dc3/_f_m_c__typedefs_8h">FMC_typedefs.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/general/types/"/>
+  </compounddef>
+</doxygen>

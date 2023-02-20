@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="dir_ca56c180fed0fc7bbd2d0f8f23b95c0a" kind="dir">
+    <compoundname>src/data_analyze/encodings</compoundname>
+    <innerfile refid="da/da9/_f_m_c__encodings_8c">FMC_encodings.c</innerfile>
+    <innerfile refid="d9/d1f/_f_m_c__encodings_8h">FMC_encodings.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/data_analyze/encodings/"/>
+  </compounddef>
+</doxygen>
