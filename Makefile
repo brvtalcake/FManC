@@ -203,9 +203,11 @@ doc : $(DOC_TARGET)
 
 doc_lin : $(SRC_FILES)
 	doxygen doxylin
+	@cd man && make
 
 doc_win : $(SRC_FILES)
 	doxygen doxywin
+	@cd man && make
 
 include/%.h : src/%.h
 	@cp -f -u -T $^ $@ 

@@ -21,6 +21,9 @@
 		// do something with it
 	}
 	else
+	{
+		
+	}
 		// ...
 	```
 === "Example 2"
@@ -44,7 +47,7 @@ The function returns 1 if the path effectively exists, 0 otherwise.
 
 **Description**
 
-This function is a small wrapper around the _[std::filesystem C++ library](https://en.cppreference.com/w/cpp/filesystem)_.
+This function is a small wrapper around the _[std::filesystem C++ library](https://en.cppreference.com/w/cpp/filesystem)_. This function may be rewritten in pure C in the future.
 
 ---
 
@@ -57,11 +60,23 @@ This function is a small wrapper around the _[std::filesystem C++ library](https
 	```
 === "Example 1"
 	```c
-	if(FMC_isDir("/home/you/meme_folder/") == 0)
+	if(FMC_isDir("/home/you/random_folder/") == 0) // (1)
 	{
-		system("mkdir /home/you/meme_folder");
+		DIR *your_dir;
+		struct dirent *entries;
+		your_dir = opendir("/home/you/random_folder/");
+		while((entries = readdir(your_dir)) != NULL)
+		{
+			printf("%s\n", entries->d_name);
+		}
+		closedir(your_dir);
+		// ... (2)
 	}
 	```
+
+	1.	Do not write something like `#!C if(!FMC_isDir("./your/dir"))`, because it can return -1 when the path doesn't exist, for example.
+	2.	This example is not that usefull by itself since you could have checked `#!C your_dir != NULL` after it has been opened, but the whole interest is the fact that it's a portable and simple way to check for a dir.
+
 
 **Parameters**
 
@@ -73,4 +88,4 @@ The function returns 1 if the path effectively exists, 0 if not, and -1 if the d
 
 **Description**
 
-This function is a small wrapper around the _[std::filesystem C++ library](https://en.cppreference.com/w/cpp/filesystem)_.
+This function is a small wrapper around the _[std::filesystem C++ library](https://en.cppreference.com/w/cpp/filesystem)_. This function may be rewritten in pure C in the future.

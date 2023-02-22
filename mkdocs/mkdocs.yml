@@ -2,13 +2,12 @@ site_name: FManC
 repo_url: https://github.com/brvtalcake/FManC
 repo_name: FManC
 copyright: Copyright &copy; 2022 - 2023 Axel PASCON
-extra_javascript:
-  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/c.min.js
-  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js
-  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/es/core.min.js
-  - js/syntax.js
-extra_css:
-  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/base16/eighties.min.css
+#extra_javascript:
+#  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/c.min.js
+#  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js
+#  - js/syntax.js
+#extra_css:
+#  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/base16/eighties.min.css
 markdown_extensions:
   - toc:
       permalink: True
@@ -16,6 +15,7 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.highlight:
+      use_pygments: true
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
@@ -26,6 +26,9 @@ nav:
   - Getting started: 'index.md'
   - API Reference:
     - Filesystem API: 'api_doc/filesystem_api.md'
+    - Encoding facilities : 'api_doc/encoding_facilities.md'
+  - Function index: 'function_index/index.md'
+  - Data structure index: 'data_structure_index/index.md'
 plugins:
   - search:
       separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
