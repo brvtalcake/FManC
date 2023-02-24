@@ -627,10 +627,10 @@
         <references refid="dd/ddf/FMC__errors_8h_1abfd332c091d02782f186ebfa172b6acd" compoundref="dd/ddf/FMC__errors_8h" startline="83" endline="86">FMC_changeStreamTextColorToBrightRed</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
         <references refid="dd/ddf/FMC__errors_8h_1ad65d0a387448c0139270e9c628cf4126" compoundref="dd/ddf/FMC__errors_8h" startline="188" endline="191">FMC_setTextStyleToBold</references>
-        <referencedby refid="d2/deb/FMC__file__management_8h_1a93ee980e87b59d6a3af6e5d4f1ec7ac0" compoundref="dc/d5e/FMC__paths_8c" startline="109" endline="185">FMC_cutFilename</referencedby>
-        <referencedby refid="d2/deb/FMC__file__management_8h_1a1fa62fd52b6e1fa12794f480d51ba683" compoundref="dc/d5e/FMC__paths_8c" startline="32" endline="107">FMC_extractFilename</referencedby>
+        <referencedby refid="d2/deb/FMC__file__management_8h_1a93ee980e87b59d6a3af6e5d4f1ec7ac0" compoundref="dc/d5e/FMC__paths_8c" startline="119" endline="195">FMC_cutFilename</referencedby>
+        <referencedby refid="d2/deb/FMC__file__management_8h_1a1fa62fd52b6e1fa12794f480d51ba683" compoundref="dc/d5e/FMC__paths_8c" startline="42" endline="117">FMC_extractFilename</referencedby>
         <referencedby refid="db/dc4/FMC__encodings_8c_1ac43872885563da059b7870132977db9d" compoundref="db/dc4/FMC__encodings_8c" startline="36" endline="202">FMC_getEncoding</referencedby>
-        <referencedby refid="d2/deb/FMC__file__management_8h_1ab8632eb234af95cea6075bc166278cff" compoundref="dc/d5e/FMC__paths_8c" startline="187" endline="225">FMC_getExtension</referencedby>
+        <referencedby refid="d2/deb/FMC__file__management_8h_1ab8632eb234af95cea6075bc166278cff" compoundref="dc/d5e/FMC__paths_8c" startline="197" endline="235">FMC_getExtension</referencedby>
       </memberdef>
       <memberdef kind="function" id="de/dab/FMC__errors_8c_1af60117aab20c2e6247320fd68e54f585" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>

@@ -143,8 +143,9 @@
     </invincdepgraph>
     <innerclass refid="d8/dc1/structFManC__Char" prot="public">FManC_Char</innerclass>
     <innerclass refid="dc/d1a/structFManC__CharComp" prot="public">FManC_CharComp</innerclass>
+    <innerclass refid="d7/de0/structFManC__CStrView" prot="public">FManC_CStrView</innerclass>
     <innerclass refid="da/d8c/structFManC__File" prot="public">FManC_File</innerclass>
-    <innerclass refid="d3/d87/structFManC__string" prot="public">FManC_string</innerclass>
+    <innerclass refid="d1/db3/structFManC__String" prot="public">FManC_String</innerclass>
     <innerclass refid="d4/df4/structFManC__StrOcc" prot="public">FManC_StrOcc</innerclass>
       <sectiondef kind="define">
       <memberdef kind="define" id="d5/de5/FMC__structs_8h_1a245d688a54966abe21576d83b1f122c5" prot="public" static="no">
@@ -170,7 +171,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/types/FMC_structs.h" line="76" column="26" bodyfile="src/general/types/FMC_structs.h" bodystart="76" bodyend="-1"/>
+        <location file="src/general/types/FMC_structs.h" line="76" column="25" bodyfile="src/general/types/FMC_structs.h" bodystart="76" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="d5/de5/FMC__structs_8h_1a2e2aed3ee5d09638f6e66ead4387d822" prot="public" static="no">
         <type>struct <ref refid="dc/d1a/structFManC__CharComp" kindref="compound">FManC_CharComp</ref></type>
@@ -183,7 +184,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/types/FMC_structs.h" line="67" column="30" bodyfile="src/general/types/FMC_structs.h" bodystart="67" bodyend="-1"/>
+        <location file="src/general/types/FMC_structs.h" line="67" column="29" bodyfile="src/general/types/FMC_structs.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="d5/de5/FMC__structs_8h_1a39f240d84ea7c4bfd7e13fcf3d2a7b7f" prot="public" static="no">
+        <type>struct <ref refid="d7/de0/structFManC__CStrView" kindref="compound">FManC_CStrView</ref></type>
+        <definition>typedef struct FManC_CStrView FMC_CStrView</definition>
+        <argsstring></argsstring>
+        <name>FMC_CStrView</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/types/FMC_structs.h" line="93" column="29" bodyfile="src/general/types/FMC_structs.h" bodystart="93" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="d5/de5/FMC__structs_8h_1a59da07d27309fca6638bc7d298ac8309" prot="public" static="no">
         <type>struct <ref refid="da/d8c/structFManC__File" kindref="compound">FManC_File</ref></type>
@@ -196,20 +210,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/types/FMC_structs.h" line="49" column="26" bodyfile="src/general/types/FMC_structs.h" bodystart="49" bodyend="-1"/>
+        <location file="src/general/types/FMC_structs.h" line="49" column="25" bodyfile="src/general/types/FMC_structs.h" bodystart="49" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="d5/de5/FMC__structs_8h_1a089b9f64dd552a20fee2dfe0b7f8e71a" prot="public" static="no">
-        <type>struct <ref refid="d3/d87/structFManC__string" kindref="compound">FManC_string</ref></type>
-        <definition>typedef struct FManC_string FMC_string</definition>
+      <memberdef kind="typedef" id="d5/de5/FMC__structs_8h_1ab7442dcb868c3a2416342965dd796335" prot="public" static="no">
+        <type>struct <ref refid="d1/db3/structFManC__String" kindref="compound">FManC_String</ref></type>
+        <definition>typedef struct FManC_String FMC_String</definition>
         <argsstring></argsstring>
-        <name>FMC_string</name>
+        <name>FMC_String</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/types/FMC_structs.h" line="85" column="28" bodyfile="src/general/types/FMC_structs.h" bodystart="85" bodyend="-1"/>
+        <location file="src/general/types/FMC_structs.h" line="85" column="27" bodyfile="src/general/types/FMC_structs.h" bodystart="85" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="d5/de5/FMC__structs_8h_1a70315c5d09a88513430cfd3ff6fa0b72" prot="public" static="no">
         <type>struct <ref refid="d4/df4/structFManC__StrOcc" kindref="compound">FManC_StrOcc</ref></type>
@@ -222,7 +236,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/types/FMC_structs.h" line="57" column="28" bodyfile="src/general/types/FMC_structs.h" bodystart="57" bodyend="-1"/>
+        <location file="src/general/types/FMC_structs.h" line="57" column="27" bodyfile="src/general/types/FMC_structs.h" bodystart="57" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -278,7 +292,7 @@
 <codeline lineno="46" refid="da/d8c/structFManC__File_1a2127709b2080c6aec708836109cdac13" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/d25/FMC__enums_8h_1a546a84b4fb65bfbc272304d6bcee764e" kindref="member">FMC_Encodings</ref><sp/><ref refid="da/d8c/structFManC__File_1a2127709b2080c6aec708836109cdac13" kindref="member">encoding</ref>;</highlight></codeline>
 <codeline lineno="47"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="48"><highlight class="normal"></highlight></codeline>
-<codeline lineno="49" refid="d5/de5/FMC__structs_8h_1a59da07d27309fca6638bc7d298ac8309" refkind="member"><highlight class="normal">FMC_SHARED<sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="da/d8c/structFManC__File" kindref="compound">FManC_File</ref><sp/><ref refid="da/d8c/structFManC__File" kindref="compound">FMC_File</ref>;</highlight></codeline>
+<codeline lineno="49" refid="d5/de5/FMC__structs_8h_1a59da07d27309fca6638bc7d298ac8309" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="da/d8c/structFManC__File" kindref="compound">FManC_File</ref><sp/><ref refid="da/d8c/structFManC__File" kindref="compound">FMC_File</ref>;</highlight></codeline>
 <codeline lineno="50"><highlight class="normal"></highlight></codeline>
 <codeline lineno="51" refid="d4/df4/structFManC__StrOcc" refkind="compound"><highlight class="normal">FMC_SHARED<sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="d4/df4/structFManC__StrOcc" kindref="compound">FManC_StrOcc</ref></highlight></codeline>
 <codeline lineno="52"><highlight class="normal">{</highlight></codeline>
@@ -286,7 +300,7 @@
 <codeline lineno="54" refid="d4/df4/structFManC__StrOcc_1aa771d096daea4bd1c01973da82d931c8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<ref refid="d4/df4/structFManC__StrOcc_1aa771d096daea4bd1c01973da82d931c8" kindref="member">pos</ref>;</highlight></codeline>
 <codeline lineno="55"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="56"><highlight class="normal"></highlight></codeline>
-<codeline lineno="57" refid="d5/de5/FMC__structs_8h_1a70315c5d09a88513430cfd3ff6fa0b72" refkind="member"><highlight class="normal">FMC_SHARED<sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="d4/df4/structFManC__StrOcc" kindref="compound">FManC_StrOcc</ref><sp/><ref refid="d4/df4/structFManC__StrOcc" kindref="compound">FMC_StrOcc</ref>;</highlight></codeline>
+<codeline lineno="57" refid="d5/de5/FMC__structs_8h_1a70315c5d09a88513430cfd3ff6fa0b72" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="d4/df4/structFManC__StrOcc" kindref="compound">FManC_StrOcc</ref><sp/><ref refid="d4/df4/structFManC__StrOcc" kindref="compound">FMC_StrOcc</ref>;</highlight></codeline>
 <codeline lineno="58"><highlight class="normal"></highlight></codeline>
 <codeline lineno="59" refid="dc/d1a/structFManC__CharComp" refkind="compound"><highlight class="normal">FMC_SHARED<sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="dc/d1a/structFManC__CharComp" kindref="compound">FManC_CharComp</ref></highlight></codeline>
 <codeline lineno="60"><highlight class="normal">{</highlight></codeline>
@@ -296,7 +310,7 @@
 <codeline lineno="64" refid="dc/d1a/structFManC__CharComp_1ae80fb7059c701006b85e053ed34c7388" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dc/d1a/structFManC__CharComp_1ae80fb7059c701006b85e053ed34c7388" kindref="member">mostRight</ref><sp/>:<sp/>8;</highlight></codeline>
 <codeline lineno="65"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="66"><highlight class="normal"></highlight></codeline>
-<codeline lineno="67" refid="d5/de5/FMC__structs_8h_1a2e2aed3ee5d09638f6e66ead4387d822" refkind="member"><highlight class="normal">FMC_SHARED<sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="dc/d1a/structFManC__CharComp" kindref="compound">FManC_CharComp</ref><sp/><ref refid="dc/d1a/structFManC__CharComp" kindref="compound">FMC_CharComp</ref>;</highlight></codeline>
+<codeline lineno="67" refid="d5/de5/FMC__structs_8h_1a2e2aed3ee5d09638f6e66ead4387d822" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="dc/d1a/structFManC__CharComp" kindref="compound">FManC_CharComp</ref><sp/><ref refid="dc/d1a/structFManC__CharComp" kindref="compound">FMC_CharComp</ref>;</highlight></codeline>
 <codeline lineno="68"><highlight class="normal"></highlight></codeline>
 <codeline lineno="69" refid="d8/dc1/structFManC__Char" refkind="compound"><highlight class="normal">FMC_SHARED<sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="d8/dc1/structFManC__Char" kindref="compound">FManC_Char</ref></highlight></codeline>
 <codeline lineno="70"><highlight class="normal">{</highlight></codeline>
@@ -305,18 +319,42 @@
 <codeline lineno="73" refid="d8/dc1/structFManC__Char_1ab57509827012961d9b4a570a744cefe9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="df/df8/FMC__typedefs_8h_1a54455f07caf637d86fec0758797c1775" kindref="member">FMC_CharControl</ref><sp/><ref refid="d8/dc1/structFManC__Char_1ab57509827012961d9b4a570a744cefe9" kindref="member">isNull</ref>;</highlight></codeline>
 <codeline lineno="74"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="75"><highlight class="normal"></highlight></codeline>
-<codeline lineno="76" refid="d5/de5/FMC__structs_8h_1a2d29b4e54e0020a9ed2ca313bcb4cab2" refkind="member"><highlight class="normal">FMC_SHARED<sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="d8/dc1/structFManC__Char" kindref="compound">FManC_Char</ref><sp/><ref refid="d8/dc1/structFManC__Char" kindref="compound">FMC_Char</ref>;</highlight></codeline>
+<codeline lineno="76" refid="d5/de5/FMC__structs_8h_1a2d29b4e54e0020a9ed2ca313bcb4cab2" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="d8/dc1/structFManC__Char" kindref="compound">FManC_Char</ref><sp/><ref refid="d8/dc1/structFManC__Char" kindref="compound">FMC_Char</ref>;</highlight></codeline>
 <codeline lineno="77"><highlight class="normal"></highlight></codeline>
 <codeline lineno="78"><highlight class="normal"></highlight></codeline>
-<codeline lineno="79" refid="d3/d87/structFManC__string" refkind="compound"><highlight class="normal">FMC_SHARED<sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="d3/d87/structFManC__string" kindref="compound">FManC_string</ref></highlight></codeline>
+<codeline lineno="79" refid="d1/db3/structFManC__String" refkind="compound"><highlight class="normal">FMC_SHARED<sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="d1/db3/structFManC__String" kindref="compound">FManC_String</ref></highlight></codeline>
 <codeline lineno="80"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="81" refid="d3/d87/structFManC__string_1a76b2cfeeace3a519c1e6aff60f955912" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d8/dc1/structFManC__Char" kindref="compound">FMC_Char</ref><sp/>*<ref refid="d3/d87/structFManC__string_1a76b2cfeeace3a519c1e6aff60f955912" kindref="member">chars</ref>;</highlight></codeline>
-<codeline lineno="82" refid="d3/d87/structFManC__string_1aef362721bc1734d70aa0245097d3552a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="d3/d87/structFManC__string_1aef362721bc1734d70aa0245097d3552a" kindref="member">size</ref>;</highlight></codeline>
+<codeline lineno="81" refid="d1/db3/structFManC__String_1a5d042371fbba9e9adbf518fca1f266f4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d8/dc1/structFManC__Char" kindref="compound">FMC_Char</ref><sp/>*<ref refid="d1/db3/structFManC__String_1a5d042371fbba9e9adbf518fca1f266f4" kindref="member">chars</ref>;</highlight></codeline>
+<codeline lineno="82" refid="d1/db3/structFManC__String_1a94aa1651a2814f8ae6900afe83d10b18" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="d1/db3/structFManC__String_1a94aa1651a2814f8ae6900afe83d10b18" kindref="member">size</ref>;</highlight></codeline>
 <codeline lineno="83"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="84"><highlight class="normal"></highlight></codeline>
-<codeline lineno="85" refid="d5/de5/FMC__structs_8h_1a089b9f64dd552a20fee2dfe0b7f8e71a" refkind="member"><highlight class="normal">FMC_SHARED<sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="d3/d87/structFManC__string" kindref="compound">FManC_string</ref><sp/><ref refid="d3/d87/structFManC__string" kindref="compound">FMC_string</ref>;</highlight></codeline>
+<codeline lineno="85" refid="d5/de5/FMC__structs_8h_1ab7442dcb868c3a2416342965dd796335" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="d1/db3/structFManC__String" kindref="compound">FManC_String</ref><sp/><ref refid="d1/db3/structFManC__String" kindref="compound">FMC_String</ref>;</highlight></codeline>
 <codeline lineno="86"><highlight class="normal"></highlight></codeline>
-<codeline lineno="87"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_STRUCTS_H</highlight></codeline>
+<codeline lineno="87" refid="d7/de0/structFManC__CStrView" refkind="compound"><highlight class="normal">FMC_SHARED<sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="d7/de0/structFManC__CStrView" kindref="compound">FManC_CStrView</ref></highlight></codeline>
+<codeline lineno="88"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="89" refid="d7/de0/structFManC__CStrView_1ab22282c73fa718ec5d7d34fe6bf3b7a5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="d7/de0/structFManC__CStrView_1ab22282c73fa718ec5d7d34fe6bf3b7a5" kindref="member">size</ref>;</highlight></codeline>
+<codeline lineno="90" refid="d7/de0/structFManC__CStrView_1a5878232df24d9b2dd46b6d3a1fe3a569" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="d7/de0/structFManC__CStrView_1a5878232df24d9b2dd46b6d3a1fe3a569" kindref="member">str</ref>;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93" refid="d5/de5/FMC__structs_8h_1a39f240d84ea7c4bfd7e13fcf3d2a7b7f" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="d7/de0/structFManC__CStrView" kindref="compound">FManC_CStrView</ref><sp/><ref refid="d7/de0/structFManC__CStrView" kindref="compound">FMC_CStrView</ref>;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="comment">/*#include<sp/>&lt;threads.h&gt;</highlight></codeline>
+<codeline lineno="96"><highlight class="comment"></highlight></codeline>
+<codeline lineno="97"><highlight class="comment"></highlight></codeline>
+<codeline lineno="98"><highlight class="comment">FMC_SHARED<sp/>struct<sp/>FManC_ArenaElement</highlight></codeline>
+<codeline lineno="99"><highlight class="comment">{</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/><sp/><sp/><sp/>void*<sp/>current;</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/><sp/><sp/><sp/>size_t<sp/>alignement;</highlight></codeline>
+<codeline lineno="102"><highlight class="comment">};</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"></highlight></codeline>
+<codeline lineno="104"><highlight class="comment">FMC_SHARED<sp/>struct<sp/>FManC_Arena</highlight></codeline>
+<codeline lineno="105"><highlight class="comment">{</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/><sp/><sp/><sp/>void*<sp/>start;</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/><sp/><sp/><sp/>void*<sp/>end;</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"></highlight></codeline>
+<codeline lineno="109"><highlight class="comment">};*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_STRUCTS_H</highlight></codeline>
     </programlisting>
     <location file="src/general/types/FMC_structs.h"/>
   </compounddef>

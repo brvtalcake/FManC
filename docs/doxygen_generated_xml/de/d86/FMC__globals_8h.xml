@@ -3,6 +3,7 @@
   <compounddef id="de/d86/FMC__globals_8h" kind="file" language="C++">
     <compoundname>FMC_globals.h</compoundname>
     <includes refid="df/df8/FMC__typedefs_8h" local="yes">../types/FMC_typedefs.h</includes>
+    <includes refid="d0/d28/FMC__macros_8h" local="yes">../preprocessor/FMC_macros.h</includes>
     <includedby refid="d9/de1/FMC__general_8h" local="yes">src/general/FMC_general.h</includedby>
     <incdepgraph>
       <node id="5">
@@ -33,6 +34,8 @@
         <label>src/general/utils/FMC_globals.h</label>
         <link refid="de/d86/FMC__globals_8h"/>
         <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
         </childnode>
       </node>
     </incdepgraph>
@@ -128,7 +131,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/utils/FMC_globals.h" line="32" column="34" declfile="src/general/utils/FMC_globals.h" declline="32" declcolumn="34"/>
+        <location file="src/general/utils/FMC_globals.h" line="33" column="34" declfile="src/general/utils/FMC_globals.h" declline="33" declcolumn="34"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -166,10 +169,11 @@
 <codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_GLOBALS_H</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="29"><highlight class="normal"></highlight></codeline>
 <codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../types/FMC_typedefs.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="df/df8/FMC__typedefs_8h_1ab72878698a48dca98a483d79d11bbc60" kindref="member">FMC_Bool</ref><sp/>FMC_ENABLE_DEBUG<sp/><ref refid="de/d86/FMC__globals_8h_1a5c72b90260bb69ce18086fc67f1bf5f9" kindref="member">FMC_VAR_COMMON</ref>;</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_GLOBALS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../preprocessor/FMC_macros.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="df/df8/FMC__typedefs_8h_1ab72878698a48dca98a483d79d11bbc60" kindref="member">FMC_Bool</ref><sp/>FMC_ENABLE_DEBUG<sp/><ref refid="de/d86/FMC__globals_8h_1a5c72b90260bb69ce18086fc67f1bf5f9" kindref="member">FMC_VAR_COMMON</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_GLOBALS_H</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="src/general/utils/FMC_globals.h"/>
   </compounddef>

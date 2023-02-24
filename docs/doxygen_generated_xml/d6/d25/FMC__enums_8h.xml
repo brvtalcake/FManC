@@ -228,7 +228,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/types/FMC_enums.h" line="47" column="30" bodyfile="src/general/types/FMC_enums.h" bodystart="47" bodyend="-1"/>
+        <location file="src/general/types/FMC_enums.h" line="47" column="29" bodyfile="src/general/types/FMC_enums.h" bodystart="47" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -282,7 +282,7 @@
 <codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" kindref="member">error</ref><sp/>=<sp/>256</highlight></codeline>
 <codeline lineno="45" refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" refkind="member"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"></highlight></codeline>
-<codeline lineno="47" refid="d6/d25/FMC__enums_8h_1a546a84b4fb65bfbc272304d6bcee764e" refkind="member"><highlight class="normal">FMC_SHARED<sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0" kindref="member">FManC_Encodings</ref><sp/><ref refid="d6/d25/FMC__enums_8h_1a546a84b4fb65bfbc272304d6bcee764e" kindref="member">FMC_Encodings</ref>;<sp/></highlight></codeline>
+<codeline lineno="47" refid="d6/d25/FMC__enums_8h_1a546a84b4fb65bfbc272304d6bcee764e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0" kindref="member">FManC_Encodings</ref><sp/><ref refid="d6/d25/FMC__enums_8h_1a546a84b4fb65bfbc272304d6bcee764e" kindref="member">FMC_Encodings</ref>;<sp/></highlight></codeline>
 <codeline lineno="48"><highlight class="normal"></highlight></codeline>
 <codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_ENUMS_H</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>

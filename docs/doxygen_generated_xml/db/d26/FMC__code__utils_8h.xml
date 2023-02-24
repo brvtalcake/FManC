@@ -110,6 +110,8 @@
         <link refid="de/d86/FMC__globals_8h"/>
         <childnode refid="10" relation="include">
         </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
       </node>
       <node id="15">
         <label>stddef.h</label>

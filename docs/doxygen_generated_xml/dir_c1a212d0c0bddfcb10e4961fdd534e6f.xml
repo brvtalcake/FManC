@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
   <compounddef id="dir_c1a212d0c0bddfcb10e4961fdd534e6f" kind="dir">
     <compoundname>src/data_analyze</compoundname>
     <innerdir refid="dir_ca56c180fed0fc7bbd2d0f8f23b95c0a">src/data_analyze/encodings</innerdir>
     <innerdir refid="dir_cf8f0c2fafaf5855337ba759d356abe1">src/data_analyze/strings</innerdir>
-    <innerfile refid="d7/d3a/_f_m_c__data__analyze_8h">FMC_data_analyze.h</innerfile>
+    <innerfile refid="da/db0/FMC__data__analyze_8h">FMC_data_analyze.h</innerfile>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

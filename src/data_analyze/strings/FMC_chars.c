@@ -26,7 +26,18 @@ SOFTWARE.
 
 #include "FMC_strings.h"
 
-/*FMC_SHARED FMC_Char FMC_getChar(FMC_File *file)
+/* FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char FMC_getChar(FMC_File *file)
 {
-    
-}*/
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (file == NULL)
+    {
+        FMC_makeMsg(err_nullarg, 3, "ERROR : In function : ", __func__, " : the provided file pointer is NULL");
+        FMC_printRedError(stderr, err_nullarg);
+    }
+    #pragma GCC diagnostic pop
+    if (!file->isOpened || file->name)
+    {
+
+    }
+
+} */

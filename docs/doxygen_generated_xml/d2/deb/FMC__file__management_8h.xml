@@ -112,6 +112,8 @@
         <link refid="de/d86/FMC__globals_8h"/>
         <childnode refid="10" relation="include">
         </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
       </node>
       <node id="15">
         <label>stddef.h</label>
@@ -180,7 +182,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/files/FMC_file_management.h" line="49" column="11" bodyfile="src/files/FMC_paths.c" bodystart="109" bodyend="185" declfile="src/files/FMC_file_management.h" declline="49" declcolumn="11"/>
+        <location file="src/files/FMC_file_management.h" line="49" column="11" bodyfile="src/files/FMC_paths.c" bodystart="119" bodyend="195" declfile="src/files/FMC_file_management.h" declline="49" declcolumn="11"/>
         <references refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" compoundref="dd/ddf/FMC__errors_8h" startline="38">FMC_makeMsg</references>
         <references refid="de/dab/FMC__errors_8c_1aa53062880249a772fa5af75cbb637d14" compoundref="dd/ddf/FMC__errors_8h" startline="373" endline="379">FMC_printBrightRedError</references>
         <references refid="da/dd3/FMC__consts_8h_1aef2c26bbba7239793dfd266d0e8b46b4" compoundref="da/dd3/FMC__consts_8h" startline="34">MAX_FEXT_SIZE</references>
@@ -256,13 +258,13 @@ Basically, this function only detects the last &apos;/&apos; or &apos;\&apos; ch
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/files/FMC_file_management.h" line="48" column="11" bodyfile="src/files/FMC_paths.c" bodystart="32" bodyend="107" declfile="src/files/FMC_file_management.h" declline="48" declcolumn="11"/>
+        <location file="src/files/FMC_file_management.h" line="48" column="11" bodyfile="src/files/FMC_paths.c" bodystart="42" bodyend="117" declfile="src/files/FMC_file_management.h" declline="48" declcolumn="11"/>
         <references refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" compoundref="dd/ddf/FMC__errors_8h" startline="38">FMC_makeMsg</references>
         <references refid="de/dab/FMC__errors_8c_1aa53062880249a772fa5af75cbb637d14" compoundref="dd/ddf/FMC__errors_8h" startline="373" endline="379">FMC_printBrightRedError</references>
         <references refid="da/dd3/FMC__consts_8h_1aef2c26bbba7239793dfd266d0e8b46b4" compoundref="da/dd3/FMC__consts_8h" startline="34">MAX_FEXT_SIZE</references>
         <references refid="da/dd3/FMC__consts_8h_1ab0e76045bf91a8a1b4fc381488399f70" compoundref="da/dd3/FMC__consts_8h" startline="35">MAX_FNAME_SIZE</references>
         <references refid="da/dd3/FMC__consts_8h_1ae5c03ff129a1255adb84d15ae75425b8" compoundref="da/dd3/FMC__consts_8h" startline="36">MAX_FPATH_SIZE</references>
-        <referencedby refid="d2/deb/FMC__file__management_8h_1ab8632eb234af95cea6075bc166278cff" compoundref="dc/d5e/FMC__paths_8c" startline="187" endline="225">FMC_getExtension</referencedby>
+        <referencedby refid="d2/deb/FMC__file__management_8h_1ab8632eb234af95cea6075bc166278cff" compoundref="dc/d5e/FMC__paths_8c" startline="197" endline="235">FMC_getExtension</referencedby>
       </memberdef>
       <memberdef kind="function" id="d2/deb/FMC__file__management_8h_1ab8632eb234af95cea6075bc166278cff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>char *</type>
@@ -287,8 +289,8 @@ Basically, this function only detects the last &apos;/&apos; or &apos;\&apos; ch
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/files/FMC_file_management.h" line="50" column="11" bodyfile="src/files/FMC_paths.c" bodystart="187" bodyend="225" declfile="src/files/FMC_file_management.h" declline="50" declcolumn="11"/>
-        <references refid="dc/d5e/FMC__paths_8c_1a1fa62fd52b6e1fa12794f480d51ba683" compoundref="dc/d5e/FMC__paths_8c" startline="32" endline="107">FMC_extractFilename</references>
+        <location file="src/files/FMC_file_management.h" line="50" column="11" bodyfile="src/files/FMC_paths.c" bodystart="197" bodyend="235" declfile="src/files/FMC_file_management.h" declline="50" declcolumn="11"/>
+        <references refid="dc/d5e/FMC__paths_8c_1a1fa62fd52b6e1fa12794f480d51ba683" compoundref="dc/d5e/FMC__paths_8c" startline="42" endline="117">FMC_extractFilename</references>
         <references refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" compoundref="dd/ddf/FMC__errors_8h" startline="38">FMC_makeMsg</references>
         <references refid="de/dab/FMC__errors_8c_1aa53062880249a772fa5af75cbb637d14" compoundref="dd/ddf/FMC__errors_8h" startline="373" endline="379">FMC_printBrightRedError</references>
         <references refid="da/dd3/FMC__consts_8h_1aef2c26bbba7239793dfd266d0e8b46b4" compoundref="da/dd3/FMC__consts_8h" startline="34">MAX_FEXT_SIZE</references>
