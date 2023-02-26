@@ -93,10 +93,15 @@ SOFTWARE.
     #define FMC_STRINGIZE_9(x, y, z, w, v, u, t, s, r) FMC_STRINGIZE(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(x, y), z), w), v), u), t), s), r))
 #endif
 
-#ifdef FMC_DEFER
-    #undef FMC_DEFER
+#ifdef defer
+    #undef defer
 #endif
-#define FMC_DEFER(stmt, body) do body while (0); stmt
+#define defer(stmt, body) do body while (0); stmt
+
+#ifdef foreach
+    #undef foreach
+#endif
+#define foreach(elem, array, start) size_t FMC_CONCAT_2(base_index,__LINE__) = start; for(typeof(array[FMC_CONCAT_2(base_index,__LINE__)]) elem = array[FMC_CONCAT_2(base_index,__LINE__)]; FMC_CONCAT_2(base_index,__LINE__) < sizeof(array)/sizeof(array[0]); FMC_CONCAT_2(base_index,__LINE__)++, elem = array[FMC_CONCAT_2(base_index,__LINE__)])
 
 
 #ifndef FMC_METHODS
