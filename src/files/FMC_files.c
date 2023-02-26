@@ -27,56 +27,23 @@ SOFTWARE.
 #include <stdarg.h>
 #include "FMC_file_management.h"
 
-static FMC_File* FMC_createFileFromStrView()
-{
-    return NULL;
-}
-
-static FMC_File* FMC_createFileFromStr()
-{
-    return NULL;
-}
-
-static FMC_File* FMC_createFileFromStrViewPtr()
-{
-    return NULL;
-}
-
-static FMC_File* FMC_createFileFromStrPtr()
-{
-    return NULL;
-}
 
 FMC_SHARED FMC_File *FMC_createFile_(unsigned int flags, ...)
 {
-    /* switch ((unsigned int)flags)
+    va_list args;
+    check_in flags for_only_flags(FMC_C_STR_VIEW, TO_OPEN)
     {
-        case 1U & 16U:
-        {
-            return FMC_createFileFromStrView();
-        }
-        case 1U & 32U:
-        {
-            return FMC_createFileFromStr();
-        }
-        case 2U:
-        {
-            return FMC_createFileFromStr();
-        }
-        case 4U:
-        {
-            return FMC_createFileFromStrViewPtr();
-        }
-        case 8U:
-        {
-            return FMC_createFileFromStrPtr();
-        }
-        default :
-        { 
-            return NULL;
-        }
-    } */
-    
+
+    }
+    else check_in flags for_only_flags(FMC_C_STR_VIEW, GET_ENCODING)
+    {
+
+    }
+    else check_in flags for_only_flags(FMC_C_STR_VIEW, GET_SIZE)
+    {
+
+    }
+
     FMC_UNREACHABLE;
 }
 

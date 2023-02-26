@@ -1,1 +1,4 @@
 
+[submodule "third_party_libs/metalang99"]
+	path = third_party_libs/metalang99
+	url = https://github.com/Hirrolot/metalang99.git

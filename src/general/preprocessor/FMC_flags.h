@@ -26,15 +26,18 @@ SOFTWARE.
 
 #pragma once
 
-#ifndef FMC_FLAGS
-#define FMC_FLAGS
+#ifndef FMC_FLAGS_H
+#define FMC_FLAGS_H
 
-#if defined(check_in) || defined(for_flags)
+#include <metalang99.h>
+
+#if defined(check_in) || defined(for_only_flags) || defined(for_at_least_flags)
     #undef check_in
-    #undef for_flags
-#endif // check_in || for_flags
-#define check_in if(( 
-#define for_flags(...) ) &
+    #undef for_only_flags
+#endif // check_in || for_only_flags
+#define check_in if(((
+#define for_only_flags(...) ) | (ML99_LIST_EVAL(ML99_call(ML99_listIntersperse, v(|), ML99_list(v(__VA_ARGS__)))))) == (ML99_LIST_EVAL(ML99_call(ML99_listIntersperse, v(|), ML99_list(v(__VA_ARGS__))))))
+#define for_at_least_flags(...) ) & (ML99_LIST_EVAL(ML99_call(ML99_listIntersperse, v(|), ML99_list(v(__VA_ARGS__)))))) == (ML99_LIST_EVAL(ML99_call(ML99_listIntersperse, v(|), ML99_list(v(__VA_ARGS__))))))
 
 
 #if defined(FMC_ENCODING_FLAGS) || defined(UTF8) || defined(UTF8_BOM) || defined(UTF16_LE) || defined(UTF16_BE) || defined(UTF32_LE) || defined(UTF32_BE) || defined(ASCII) || defined(UNKNOWN)
@@ -73,4 +76,4 @@ SOFTWARE.
 #define TO_OPEN 16U
 #define GET_ENCODING 32U
 
-#endif // FMC_FLAGS
+#endif // FMC_FLAGS_H
