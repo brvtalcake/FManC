@@ -49,6 +49,8 @@ If you want to download a PDF documentation, it's [here](https://github.com/brvt
 - [ ] Update these files due to the above TODO : FMC_macros.h, FMC_platform.h, Makefile, (... ?)
 - [ ] Make more issue / pull request templates
 - [ ] Documenting, as I'm starting to do with Doxygen
+- [ ] Wrap decls with FMC_BEGING_DECLS / FMC_END_DECLS
+- [ ] Print error message when trying to use the C++ wrapped functions in C++, since it's better to simply use the standard functions
 - [x] Make a real test folder with unit tests
 - [x] Let the possibility to disable error messages
 

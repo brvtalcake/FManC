@@ -1,6 +1,8 @@
 var FMC__flags_8h =
 [
     [ "ASCII", "d2/d5e/FMC__flags_8h.html#a60710bac11b4f1135f61ded06542d661", null ],
+    [ "C_STR", "d2/d5e/FMC__flags_8h.html#a2f56f9c7894c58a0a8861d913a4f6b8e", null ],
+    [ "FMC_C_STR_VIEW", "d2/d5e/FMC__flags_8h.html#aad064918afb4a22a8a946e44612d2c4f", null ],
     [ "FMC_ENCODING_FLAGS", "d2/d5e/FMC__flags_8h.html#aac0e0b92a0acf1d2a0daa1a12817bc56", null ],
     [ "FMC_FLAGS", "d2/d5e/FMC__flags_8h.html#a1023a75f01f8d52e45b82c7ac47d346e", null ],
     [ "UNKNOWN", "d2/d5e/FMC__flags_8h.html#ac1ae4add974b9cfc6b5aaf8a578f01ab", null ],

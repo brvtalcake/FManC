@@ -26,12 +26,12 @@ SOFTWARE.
 
 #pragma once
 
-#ifndef FMC_ENCODINGS
-#define FMC_ENCODINGS
+#ifndef FMC_ENCODINGS_H
+#define FMC_ENCODINGS_H
 
 #include "../../general/FMC_general.h"
 
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_getEncoding(FILE *file);
-FMC_SHARED FMC_FUNC_CONST FMC_Encodings FMC_checkEncodingFlag(int encoding);
+FMC_SHARED FMC_FUNC_CONST FMC_FUNC_ALWAYS_INLINE inline FMC_Encodings FMC_checkEncodingFlag(unsigned int encoding);
 
-#endif // FMC_ENCODINGS
+#endif // FMC_ENCODINGS_H

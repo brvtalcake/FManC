@@ -13,22 +13,22 @@
         <link refid="de/d47/FMC_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
         <childnode refid="17" relation="include">
         </childnode>
         <childnode refid="18" relation="include">
         </childnode>
-        <childnode refid="21" relation="include">
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
         </childnode>
       </node>
-      <node id="16">
+      <node id="17">
         <label>code_utils/FMC_code_utils.h</label>
         <link refid="db/d26/FMC__code__utils_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="21">
+      <node id="22">
         <label>cpp/FMC_wrapper.h</label>
         <link refid="d4/db9/FMC__wrapper_8h"/>
         <childnode refid="3" relation="include">
@@ -36,27 +36,27 @@
         <childnode refid="15" relation="include">
         </childnode>
       </node>
-      <node id="18">
+      <node id="19">
         <label>data_analyze/FMC_data_analyze.h</label>
         <link refid="da/db0/FMC__data__analyze_8h"/>
-        <childnode refid="19" relation="include">
-        </childnode>
         <childnode refid="20" relation="include">
         </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
       </node>
-      <node id="19">
+      <node id="20">
         <label>encodings/FMC_encodings.h</label>
         <link refid="db/d30/FMC__encodings_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="20">
+      <node id="21">
         <label>strings/FMC_strings.h</label>
         <link refid="d9/db5/FMC__strings_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="17">
+      <node id="18">
         <label>files/FMC_file_management.h</label>
         <link refid="d2/deb/FMC__file__management_8h"/>
         <childnode refid="2" relation="include">
@@ -84,6 +84,8 @@
         <childnode refid="13" relation="include">
         </childnode>
         <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
         </childnode>
       </node>
       <node id="5">
@@ -162,6 +164,14 @@
         <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>utils/FMC_str_view.h</label>
+        <link refid="da/d45/FMC__str__view_8h"/>
+        <childnode refid="2" relation="include">
         </childnode>
       </node>
       <node id="15">

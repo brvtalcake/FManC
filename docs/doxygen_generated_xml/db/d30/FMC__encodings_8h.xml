@@ -35,6 +35,8 @@
         </childnode>
         <childnode refid="14" relation="include">
         </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
       </node>
       <node id="5">
         <label>FMC_attributes.h</label>
@@ -113,6 +115,14 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>utils/FMC_str_view.h</label>
+        <link refid="da/d45/FMC__str__view_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
       </node>
       <node id="15">
         <label>stddef.h</label>
@@ -173,22 +183,22 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_analyze/encodings/FMC_encodings.h" line="35" column="31" bodyfile="src/data_analyze/encodings/FMC_encodings.c" bodystart="204" bodyend="234" declfile="src/data_analyze/encodings/FMC_encodings.h" declline="35" declcolumn="31"/>
-        <references refid="d2/d5e/FMC__flags_8h_1a60710bac11b4f1135f61ded06542d661" compoundref="d2/d5e/FMC__flags_8h" startline="40">ASCII</references>
+        <location file="src/data_analyze/encodings/FMC_encodings.h" line="35" column="31" bodyfile="src/data_analyze/encodings/FMC_encodings.c" bodystart="210" bodyend="240" declfile="src/data_analyze/encodings/FMC_encodings.h" declline="35" declcolumn="31"/>
+        <references refid="d2/d5e/FMC__flags_8h_1a60710bac11b4f1135f61ded06542d661" compoundref="d2/d5e/FMC__flags_8h" startline="50">ASCII</references>
         <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0a1fc467976b8e2979150a99beb709443e" compoundref="d6/d25/FMC__enums_8h" startline="42">ascii</references>
         <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
         <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0a5b9f6d065e6e98483b3d3ed01f4f6cbe" compoundref="d6/d25/FMC__enums_8h" startline="43">unknown</references>
-        <references refid="d2/d5e/FMC__flags_8h_1a13b25c906844f6f907310706bc7a04e1" compoundref="d2/d5e/FMC__flags_8h" startline="37">UTF16_BE</references>
+        <references refid="d2/d5e/FMC__flags_8h_1a13b25c906844f6f907310706bc7a04e1" compoundref="d2/d5e/FMC__flags_8h" startline="47">UTF16_BE</references>
         <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0a7ebb3198aac4f58096d5ff584b5720e9" compoundref="d6/d25/FMC__enums_8h" startline="39">utf16_be</references>
-        <references refid="d2/d5e/FMC__flags_8h_1a237424ce7bfe9bfe9546b9200541bb28" compoundref="d2/d5e/FMC__flags_8h" startline="36">UTF16_LE</references>
+        <references refid="d2/d5e/FMC__flags_8h_1a237424ce7bfe9bfe9546b9200541bb28" compoundref="d2/d5e/FMC__flags_8h" startline="46">UTF16_LE</references>
         <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0adddce8ff4157e655bf02d44611ae702e" compoundref="d6/d25/FMC__enums_8h" startline="38">utf16_le</references>
-        <references refid="d2/d5e/FMC__flags_8h_1aaaf01663fad3a16f08c415c3f910e904" compoundref="d2/d5e/FMC__flags_8h" startline="39">UTF32_BE</references>
+        <references refid="d2/d5e/FMC__flags_8h_1aaaf01663fad3a16f08c415c3f910e904" compoundref="d2/d5e/FMC__flags_8h" startline="49">UTF32_BE</references>
         <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0a71a82d4a88d07d8a332d83ef41c3fa6d" compoundref="d6/d25/FMC__enums_8h" startline="41">utf32_be</references>
-        <references refid="d2/d5e/FMC__flags_8h_1aa2a51b2e4a5f9cf14d4b6ac5253668f0" compoundref="d2/d5e/FMC__flags_8h" startline="38">UTF32_LE</references>
+        <references refid="d2/d5e/FMC__flags_8h_1aa2a51b2e4a5f9cf14d4b6ac5253668f0" compoundref="d2/d5e/FMC__flags_8h" startline="48">UTF32_LE</references>
         <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ab29e0e5e02eb6842596b419d50ec491e" compoundref="d6/d25/FMC__enums_8h" startline="40">utf32_le</references>
-        <references refid="d2/d5e/FMC__flags_8h_1af9a8bd70343e082dbc63ac806b8ced24" compoundref="d2/d5e/FMC__flags_8h" startline="34">UTF8</references>
+        <references refid="d2/d5e/FMC__flags_8h_1af9a8bd70343e082dbc63ac806b8ced24" compoundref="d2/d5e/FMC__flags_8h" startline="44">UTF8</references>
         <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0a3946b00fe1f38206339d69285cda6b03" compoundref="d6/d25/FMC__enums_8h" startline="36">utf8</references>
-        <references refid="d2/d5e/FMC__flags_8h_1a1298449aa3d5122f10caea0eb0cefae6" compoundref="d2/d5e/FMC__flags_8h" startline="35">UTF8_BOM</references>
+        <references refid="d2/d5e/FMC__flags_8h_1a1298449aa3d5122f10caea0eb0cefae6" compoundref="d2/d5e/FMC__flags_8h" startline="45">UTF8_BOM</references>
         <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ac8c59e0b11326bbeae894342cdd9db1a" compoundref="d6/d25/FMC__enums_8h" startline="37">utf8_bom</references>
       </memberdef>
       <memberdef kind="function" id="db/d30/FMC__encodings_8h_1ac43872885563da059b7870132977db9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -206,9 +216,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_analyze/encodings/FMC_encodings.h" line="34" column="18" bodyfile="src/data_analyze/encodings/FMC_encodings.c" bodystart="36" bodyend="202" declfile="src/data_analyze/encodings/FMC_encodings.h" declline="34" declcolumn="18"/>
+        <location file="src/data_analyze/encodings/FMC_encodings.h" line="34" column="18" bodyfile="src/data_analyze/encodings/FMC_encodings.c" bodystart="36" bodyend="208" declfile="src/data_analyze/encodings/FMC_encodings.h" declline="34" declcolumn="18"/>
         <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0a1fc467976b8e2979150a99beb709443e" compoundref="d6/d25/FMC__enums_8h" startline="42">ascii</references>
         <references refid="d6/d25/FMC__enums_8h_1a5e2307d2045933b22773217fcce67ea0ad606e435413ea0944dd00d49e901e4ed" compoundref="d6/d25/FMC__enums_8h" startline="44">error</references>
+        <references refid="d0/ddd/FMC__globals_8c_1ab5e5e97b744f2fbf4620b11069b863c7" compoundref="d0/ddd/FMC__globals_8c" startline="20" endline="27">FMC_getDebugState</references>
         <references refid="dd/ddf/FMC__errors_8h_1a77ea91ecf23ac3a5e8ff83b5d5a52db8" compoundref="dd/ddf/FMC__errors_8h" startline="38">FMC_makeMsg</references>
         <references refid="de/dab/FMC__errors_8c_1aa53062880249a772fa5af75cbb637d14" compoundref="dd/ddf/FMC__errors_8h" startline="373" endline="379">FMC_printBrightRedError</references>
         <references refid="de/dab/FMC__errors_8c_1a8a9d04ab3b4e6f06e7eead7abd20581c" compoundref="dd/ddf/FMC__errors_8h" startline="389" endline="395">FMC_printBrightYellowError</references>

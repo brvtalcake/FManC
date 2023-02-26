@@ -17,6 +17,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/types/FMC_structs.h" line="89" column="12" bodyfile="src/general/types/FMC_structs.h" bodystart="89" bodyend="-1"/>
+        <referencedby refid="d2/daf/FMC__str__view_8c_1ae966ca89a347646e080412b8c2b67981" compoundref="d2/daf/FMC__str__view_8c" startline="31" endline="47">FMC_FUNC_MALLOC</referencedby>
       </memberdef>
       <memberdef kind="variable" id="d7/de0/structFManC__CStrView_1a5878232df24d9b2dd46b6d3a1fe3a569" prot="public" static="no" mutable="no">
         <type>char *</type>
@@ -31,6 +32,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="src/general/types/FMC_structs.h" line="90" column="10" bodyfile="src/general/types/FMC_structs.h" bodystart="90" bodyend="-1"/>
+        <referencedby refid="d2/daf/FMC__str__view_8c_1a554847c9c686e52f3aa20e6f4eeaf2a2" compoundref="d2/daf/FMC__str__view_8c" startline="49" endline="53">FMC_freeStrView</referencedby>
+        <referencedby refid="d2/daf/FMC__str__view_8c_1ae966ca89a347646e080412b8c2b67981" compoundref="d2/daf/FMC__str__view_8c" startline="31" endline="47">FMC_FUNC_MALLOC</referencedby>
       </memberdef>
       </sectiondef>
     <briefdescription>

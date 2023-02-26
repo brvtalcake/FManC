@@ -29,12 +29,17 @@ SOFTWARE.
 #ifndef FMC_CONSTS_H
 #define FMC_CONSTS_H
 
-#ifndef FMC_MAX_PATH_COMPONENTS_SIZE
-    #define FMC_MAX_PATH_COMPONENTS_SIZE 
-    #define MAX_FEXT_SIZE 50
-    #define MAX_FNAME_SIZE 256
-    #define MAX_FPATH_SIZE 512
+#if defined(FMC_MAX_PATH_COMPONENTS_SIZE) || defined(MAX_FEXT_SIZE) || defined(MAX_FNAME_SIZE) || defined(MAX_FPATH_SIZE)
+    #undef FMC_MAX_PATH_COMPONENTS_SIZE
+    #undef MAX_FEXT_SIZE
+    #undef MAX_FNAME_SIZE
+    #undef MAX_FPATH_SIZE
 #endif
+#define FMC_MAX_PATH_COMPONENTS_SIZE 
+#define MAX_FEXT_SIZE 50
+#define MAX_FNAME_SIZE 256
+#define MAX_FPATH_SIZE 512
+
 
 #ifndef FMC_STYLES
     #define FMC_STYLES

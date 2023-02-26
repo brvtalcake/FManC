@@ -24,11 +24,65 @@ SOFTWARE.
 
 */
 
+#include <stdarg.h>
 #include "FMC_file_management.h"
 
-/*
-FMC_SHARED FMC_File *FMC_createFile(const char * const path)
+static FMC_File* FMC_createFileFromStrView()
 {
-    FMC_File *file = NULL;
+    return NULL;
+}
+
+static FMC_File* FMC_createFileFromStr()
+{
+    return NULL;
+}
+
+static FMC_File* FMC_createFileFromStrViewPtr()
+{
+    return NULL;
+}
+
+static FMC_File* FMC_createFileFromStrPtr()
+{
+    return NULL;
+}
+
+FMC_SHARED FMC_File *FMC_createFile_(unsigned int flags, ...)
+{
+    /* switch ((unsigned int)flags)
+    {
+        case 1U & 16U:
+        {
+            return FMC_createFileFromStrView();
+        }
+        case 1U & 32U:
+        {
+            return FMC_createFileFromStr();
+        }
+        case 2U:
+        {
+            return FMC_createFileFromStr();
+        }
+        case 4U:
+        {
+            return FMC_createFileFromStrViewPtr();
+        }
+        case 8U:
+        {
+            return FMC_createFileFromStrPtr();
+        }
+        default :
+        { 
+            return NULL;
+        }
+    } */
     
-}*/
+    FMC_UNREACHABLE;
+}
+
+/* #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (!path)
+    {
+        return NULL;
+    }
+    #pragma GCC diagnostic pop // -Wnonnull-compare */

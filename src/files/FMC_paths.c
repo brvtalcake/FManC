@@ -29,22 +29,12 @@ SOFTWARE.
 
 #include "FMC_file_management.h"
 
-#if defined(FMC_COMPILING_ON_WINDOWS) || defined(FMC_COMPILING_ON_MINGW)
-FMC_Bool FMC_ENABLE_DEBUG FMC_VAR_COMMON; 
-/* 
- * For some reasons it doesn't compile on Windows without redeclaring the above variable. The funny fact is that all the other files where
- * "FMC_ENABLE_DEBUG" appear compile well.
- * Moreover __attribute__((nonnull(...))) seems to interfere badly, optimizing away the first if of the functions below, so it must be defined to 
- * nothing.
- */
-#endif // FMC_COMPILING_ON_WINDOWS || FMC_COMPILING_ON_MINGW
-
 FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char *FMC_extractFilename(const char * restrict const path, char * restrict filename, const size_t filename_size)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare" // get an error at compile time without this (because of attribute nonnull)
     if (!path || !filename)
     {
-        if (FMC_ENABLE_DEBUG)
+        if (FMC_getDebugState())
         {
             FMC_makeMsg(err_null, 4, "ERROR : ", "In function : ", __func__, ". At least one of the provided pointers is NULL.");
             FMC_printBrightRedError(stderr, err_null);
@@ -84,7 +74,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
     }
     else if (strrchr(path_cpy, (int)'\\') && strrchr(path_cpy, (int)'/'))
     {
-        if (FMC_ENABLE_DEBUG)
+        if (FMC_getDebugState())
         {
             FMC_makeMsg(err_path5, 4, "ERROR : ", "In function : ", __func__, ". The path contains both '/' and '\\'.");
             FMC_printBrightRedError(stderr, err_path5);
@@ -121,7 +111,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
     #pragma GCC diagnostic ignored "-Wnonnull-compare" // get an error at compile time without this (because of attribute nonnull defined on linux)
     if (!path || !dirs)
     {
-        if (FMC_ENABLE_DEBUG)
+        if (FMC_getDebugState())
         {
             FMC_makeMsg(err_null, 4, "ERROR : ", "In function : ", __func__, ". At least one of the provided pointers is NULL.");
             FMC_printBrightRedError(stderr, err_null);
@@ -148,7 +138,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
     char *last_sep = NULL;
     if ((last_sep = strrchr(path_cpy, (int)'/')) && (last_sep = strrchr(path_cpy, (int)'\\')))
     {
-        if (FMC_ENABLE_DEBUG)
+        if (FMC_getDebugState())
         {
             FMC_makeMsg(err_path5, 4, "ERROR : ", "In function : ", __func__, ". The path contains both '/' and '\\'.");
             FMC_printBrightRedError(stderr, err_path5);
@@ -199,7 +189,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
     #pragma GCC diagnostic ignored "-Wnonnull-compare" // get an error at compile time without this (because of attribute nonnull)
     if (!path || !ext)
     {
-        if (FMC_ENABLE_DEBUG)
+        if (FMC_getDebugState())
         {
             FMC_makeMsg(err_null, 4, "ERROR : ", "In function : ", __func__, ". At least one of the provided pointers is NULL.");
             FMC_printBrightRedError(stderr, err_null);

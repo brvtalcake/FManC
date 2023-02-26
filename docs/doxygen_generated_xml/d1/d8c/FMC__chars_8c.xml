@@ -39,6 +39,8 @@
         </childnode>
         <childnode refid="15" relation="include">
         </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
       </node>
       <node id="6">
         <label>FMC_attributes.h</label>
@@ -117,6 +119,14 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>utils/FMC_str_view.h</label>
+        <link refid="da/d45/FMC__str__view_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
       </node>
       <node id="16">
         <label>stddef.h</label>
@@ -166,7 +176,13 @@
 <codeline lineno="34"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FMC_makeMsg(err_nullarg,<sp/>3,<sp/>&quot;ERROR<sp/>:<sp/>In<sp/>function<sp/>:<sp/>&quot;,<sp/>__func__,<sp/>&quot;<sp/>:<sp/>the<sp/>provided<sp/>file<sp/>pointer<sp/>is<sp/>NULL&quot;);</highlight></codeline>
 <codeline lineno="35"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FMC_printRedError(stderr,<sp/>err_nullarg);</highlight></codeline>
 <codeline lineno="36"><highlight class="comment"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="37"><highlight class="comment">}<sp/>*/</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/><sp/><sp/><sp/>#pragma<sp/>GCC<sp/>diagnostic<sp/>pop</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/><sp/><sp/><sp/>if<sp/>(!file-&gt;isOpened<sp/>||<sp/>file-&gt;name)</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"></highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"></highlight></codeline>
+<codeline lineno="43"><highlight class="comment">}<sp/>*/</highlight></codeline>
     </programlisting>
     <location file="src/data_analyze/strings/FMC_chars.c"/>
   </compounddef>

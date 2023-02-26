@@ -4,13 +4,19 @@
     <compoundname>FMC_globals.h</compoundname>
     <includes refid="df/df8/FMC__typedefs_8h" local="yes">../types/FMC_typedefs.h</includes>
     <includes refid="d0/d28/FMC__macros_8h" local="yes">../preprocessor/FMC_macros.h</includes>
+    <includes refid="da/dd3/FMC__consts_8h" local="yes">../preprocessor/FMC_consts.h</includes>
     <includedby refid="d9/de1/FMC__general_8h" local="yes">src/general/FMC_general.h</includedby>
+    <includedby refid="d0/ddd/FMC__globals_8c" local="yes">src/general/utils/FMC_globals.c</includedby>
     <incdepgraph>
       <node id="5">
         <label>FMC_attributes.h</label>
         <link refid="d1/d2e/FMC__attributes_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
+      </node>
+      <node id="6">
+        <label>../preprocessor/FMC_consts.h</label>
+        <link refid="da/dd3/FMC__consts_8h"/>
       </node>
       <node id="3">
         <label>../preprocessor/FMC_macros.h</label>
@@ -36,6 +42,8 @@
         <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
         </childnode>
       </node>
     </incdepgraph>
@@ -111,27 +119,71 @@
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>src/general/utils/FMC_globals.c</label>
+        <link refid="d0/ddd/FMC__globals_8c"/>
       </node>
       <node id="1">
         <label>src/general/utils/FMC_globals.h</label>
         <link refid="de/d86/FMC__globals_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>src/general/utils/FMC_str_view.c</label>
+        <link refid="d2/daf/FMC__str__view_8c"/>
+      </node>
+      <node id="13">
+        <label>src/general/utils/FMC_str_view.h</label>
+        <link refid="da/d45/FMC__str__view_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
       </node>
     </invincdepgraph>
-      <sectiondef kind="var">
-      <memberdef kind="variable" id="de/d86/FMC__globals_8h_1a5c72b90260bb69ce18086fc67f1bf5f9" prot="public" static="no" mutable="no">
-        <type><ref refid="df/df8/FMC__typedefs_8h_1ab72878698a48dca98a483d79d11bbc60" kindref="member">FMC_Bool</ref> FMC_ENABLE_DEBUG</type>
-        <definition>FMC_Bool FMC_ENABLE_DEBUG FMC_VAR_COMMON</definition>
-        <argsstring></argsstring>
-        <name>FMC_VAR_COMMON</name>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="de/d86/FMC__globals_8h_1ab5e5e97b744f2fbf4620b11069b863c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="df/df8/FMC__typedefs_8h_1ab72878698a48dca98a483d79d11bbc60" kindref="member">FMC_Bool</ref></type>
+        <definition>FMC_Bool FMC_getDebugState</definition>
+        <argsstring>(void)</argsstring>
+        <name>FMC_getDebugState</name>
+        <param>
+          <type>void</type>
+        </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/utils/FMC_globals.h" line="33" column="34" declfile="src/general/utils/FMC_globals.h" declline="33" declcolumn="34"/>
+        <location file="src/general/utils/FMC_globals.h" line="35" column="12" bodyfile="src/general/utils/FMC_globals.c" bodystart="20" bodyend="27" declfile="src/general/utils/FMC_globals.h" declline="35" declcolumn="12"/>
+        <referencedby refid="d2/deb/FMC__file__management_8h_1a93ee980e87b59d6a3af6e5d4f1ec7ac0" compoundref="dc/d5e/FMC__paths_8c" startline="109" endline="185">FMC_cutFilename</referencedby>
+        <referencedby refid="d2/deb/FMC__file__management_8h_1a1fa62fd52b6e1fa12794f480d51ba683" compoundref="dc/d5e/FMC__paths_8c" startline="32" endline="107">FMC_extractFilename</referencedby>
+        <referencedby refid="db/dc4/FMC__encodings_8c_1ac43872885563da059b7870132977db9d" compoundref="db/dc4/FMC__encodings_8c" startline="36" endline="208">FMC_getEncoding</referencedby>
+        <referencedby refid="d2/deb/FMC__file__management_8h_1ab8632eb234af95cea6075bc166278cff" compoundref="dc/d5e/FMC__paths_8c" startline="187" endline="225">FMC_getExtension</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="de/d86/FMC__globals_8h_1a7f9af5a57c2a3ca685303f8e75a55ff4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>FMC_FUNC_COLD <ref refid="df/df8/FMC__typedefs_8h_1ab72878698a48dca98a483d79d11bbc60" kindref="member">FMC_Bool</ref></type>
+        <definition>FMC_FUNC_COLD FMC_Bool FMC_setDebugState</definition>
+        <argsstring>(FMC_Bool state)</argsstring>
+        <name>FMC_setDebugState</name>
+        <param>
+          <type><ref refid="df/df8/FMC__typedefs_8h_1ab72878698a48dca98a483d79d11bbc60" kindref="member">FMC_Bool</ref></type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/utils/FMC_globals.h" line="34" column="25" declfile="src/general/utils/FMC_globals.h" declline="34" declcolumn="25"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -170,10 +222,12 @@
 <codeline lineno="29"><highlight class="normal"></highlight></codeline>
 <codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../types/FMC_typedefs.h&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../preprocessor/FMC_macros.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="df/df8/FMC__typedefs_8h_1ab72878698a48dca98a483d79d11bbc60" kindref="member">FMC_Bool</ref><sp/>FMC_ENABLE_DEBUG<sp/><ref refid="de/d86/FMC__globals_8h_1a5c72b90260bb69ce18086fc67f1bf5f9" kindref="member">FMC_VAR_COMMON</ref>;</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_GLOBALS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../preprocessor/FMC_consts.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="de/d86/FMC__globals_8h_1a7f9af5a57c2a3ca685303f8e75a55ff4" refkind="member"><highlight class="normal">FMC_SHARED<sp/>FMC_FUNC_COLD<sp/><ref refid="df/df8/FMC__typedefs_8h_1ab72878698a48dca98a483d79d11bbc60" kindref="member">FMC_Bool</ref><sp/><ref refid="de/d86/FMC__globals_8h_1a7f9af5a57c2a3ca685303f8e75a55ff4" kindref="member">FMC_setDebugState</ref>(<ref refid="df/df8/FMC__typedefs_8h_1ab72878698a48dca98a483d79d11bbc60" kindref="member">FMC_Bool</ref><sp/>state);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">FMC_SHARED<sp/>FMC_FUNC_HOT<sp/><ref refid="df/df8/FMC__typedefs_8h_1ab72878698a48dca98a483d79d11bbc60" kindref="member">FMC_Bool</ref><sp/><ref refid="de/d86/FMC__globals_8h_1ab5e5e97b744f2fbf4620b11069b863c7" kindref="member">FMC_getDebugState</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_GLOBALS_H</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="src/general/utils/FMC_globals.h"/>
   </compounddef>

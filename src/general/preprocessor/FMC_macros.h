@@ -142,6 +142,22 @@ SOFTWARE.
     #define FMC_UNREACHABLE __builtin_unreachable()
 #endif
 
+#ifndef FMC_MAKE_VOID
+    #define FMC_MAKE_VOID(expr) do { (void)(expr); } while (0)
+#endif
+
+#if defined(FMC_BEGIN_DECLS) || defined(FMC_END_DECLS)
+    #undef FMC_BEGIN_DECLS
+    #undef FMC_END_DECLS
+#endif
+#ifdef __cplusplus
+    #define FMC_BEGIN_DECLS extern "C" {
+    #define FMC_END_DECLS }
+#else
+    #define FMC_BEGIN_DECLS
+    #define FMC_END_DECLS
+#endif
+
 /* Maybe I'll have to modify this, even though it sounds fine to me now. */
 #ifndef FMC_SHARED
     #if FMC_COMPILING_ON_WINDOWS && !defined(FMC_STATIC)

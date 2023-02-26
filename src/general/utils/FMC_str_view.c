@@ -25,10 +25,29 @@ SOFTWARE.
 */
 
 #include <stdlib.h>
-#include <spawn.h>
+#include <string.h>
 #include "FMC_str_view.h"
 
-FMC_SHARED FMC_CStrView* FMC_allocStrView(const char* str, size_t len)
+FMC_SHARED FMC_FUNC_MALLOC(FMC_freeStrView, 1) FMC_CStrView* FMC_allocStrView(const char* const str, size_t len)
 {
     FMC_CStrView* view = malloc(sizeof(FMC_CStrView));
+    if (view == NULL)
+    {
+        return NULL;
+    }
+    view->size = len + 1;
+    view->str = malloc(sizeof(char) * view->size);
+    if (view->str == NULL)
+    {
+        free(view);
+        return NULL;
+    }
+    strncpy(view->str, str, view->size);
+    return view;
+}
+
+FMC_SHARED void FMC_freeStrView(FMC_CStrView* view)
+{
+    free(view->str);
+    free(view);
 }

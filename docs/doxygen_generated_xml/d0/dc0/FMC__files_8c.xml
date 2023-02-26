@@ -39,6 +39,8 @@
         </childnode>
         <childnode refid="15" relation="include">
         </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
       </node>
       <node id="6">
         <label>FMC_attributes.h</label>
@@ -117,6 +119,14 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>utils/FMC_str_view.h</label>
+        <link refid="da/d45/FMC__str__view_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
       </node>
       <node id="16">
         <label>stddef.h</label>
@@ -158,12 +168,17 @@
 <codeline lineno="26"><highlight class="normal"></highlight></codeline>
 <codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d2/deb/FMC__file__management_8h" kindref="compound">FMC_file_management.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="28"><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
-<codeline lineno="30"><highlight class="comment">FMC_SHARED<sp/>FMC_File<sp/>*FMC_createFile(const<sp/>char<sp/>*<sp/>const<sp/>path)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>FMC_SHARED<sp/>FMC_FUNC_NONNULL(1)<sp/>FMC_File<sp/>*FMC_createFile(const<sp/>char*<sp/>restrict<sp/>const<sp/>path)</highlight></codeline>
 <codeline lineno="31"><highlight class="comment">{</highlight></codeline>
-<codeline lineno="32"><highlight class="comment"><sp/><sp/><sp/><sp/>FMC_File<sp/>*file<sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="33"><highlight class="comment"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="34"><highlight class="comment">}*/</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/><sp/><sp/><sp/>#pragma<sp/>GCC<sp/>diagnostic<sp/>ignored<sp/>&quot;-Wnonnull-compare&quot;</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"></highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/><sp/><sp/><sp/>#pragma<sp/>GCC<sp/>diagnostic<sp/>pop<sp/>//<sp/>-Wnonnull-compare</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/><sp/><sp/><sp/>if<sp/>(path<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>NULL;</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="comment">}<sp/>*/</highlight></codeline>
     </programlisting>
     <location file="src/files/FMC_files.c"/>
   </compounddef>

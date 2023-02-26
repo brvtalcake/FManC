@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="d0/ddd/FMC__globals_8c" kind="file" language="C++">
+    <compoundname>FMC_globals.c</compoundname>
+    <includes local="no">stdatomic.h</includes>
+    <includes refid="de/d86/FMC__globals_8h" local="yes">FMC_globals.h</includes>
+    <incdepgraph>
+      <node id="7">
+        <label>FMC_attributes.h</label>
+        <link refid="d1/d2e/FMC__attributes_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>../preprocessor/FMC_consts.h</label>
+        <link refid="da/dd3/FMC__consts_8h"/>
+      </node>
+      <node id="5">
+        <label>../preprocessor/FMC_macros.h</label>
+        <link refid="d0/d28/FMC__macros_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>FMC_platform.h</label>
+        <link refid="d7/dff/FMC__platform_8h"/>
+      </node>
+      <node id="4">
+        <label>../types/FMC_typedefs.h</label>
+        <link refid="df/df8/FMC__typedefs_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/general/utils/FMC_globals.c</label>
+        <link refid="d0/ddd/FMC__globals_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>FMC_globals.h</label>
+        <link refid="de/d86/FMC__globals_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdatomic.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="d0/ddd/FMC__globals_8c_1a7ac7eb2fe41396f9b121ef2aa70b3e94" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>volatile</type>
+        <definition>static volatile _Atomic</definition>
+        <argsstring>(FMC_Bool)</argsstring>
+        <name>_Atomic</name>
+        <param>
+          <type><ref refid="df/df8/FMC__typedefs_8h_1ab72878698a48dca98a483d79d11bbc60" kindref="member">FMC_Bool</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/utils/FMC_globals.c" line="5" column="18" bodyfile="src/general/utils/FMC_globals.c" bodystart="5" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/ddd/FMC__globals_8c_1ab5e5e97b744f2fbf4620b11069b863c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="df/df8/FMC__typedefs_8h_1ab72878698a48dca98a483d79d11bbc60" kindref="member">FMC_Bool</ref></type>
+        <definition>FMC_Bool FMC_getDebugState</definition>
+        <argsstring>(void)</argsstring>
+        <name>FMC_getDebugState</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/utils/FMC_globals.c" line="20" column="12" bodyfile="src/general/utils/FMC_globals.c" bodystart="20" bodyend="27"/>
+        <referencedby refid="d2/deb/FMC__file__management_8h_1a93ee980e87b59d6a3af6e5d4f1ec7ac0" compoundref="dc/d5e/FMC__paths_8c" startline="109" endline="185">FMC_cutFilename</referencedby>
+        <referencedby refid="d2/deb/FMC__file__management_8h_1a1fa62fd52b6e1fa12794f480d51ba683" compoundref="dc/d5e/FMC__paths_8c" startline="32" endline="107">FMC_extractFilename</referencedby>
+        <referencedby refid="db/dc4/FMC__encodings_8c_1ac43872885563da059b7870132977db9d" compoundref="db/dc4/FMC__encodings_8c" startline="36" endline="208">FMC_getEncoding</referencedby>
+        <referencedby refid="d2/deb/FMC__file__management_8h_1ab8632eb234af95cea6075bc166278cff" compoundref="dc/d5e/FMC__paths_8c" startline="187" endline="225">FMC_getExtension</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;stdatomic.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="de/d86/FMC__globals_8h" kindref="compound">FMC_globals.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__STDC_NO_ATOMICS__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="d0/ddd/FMC__globals_8c_1a7ac7eb2fe41396f9b121ef2aa70b3e94" refkind="member"><highlight class="normal">FMC_SHARED<sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/><ref refid="d0/ddd/FMC__globals_8c_1a7ac7eb2fe41396f9b121ef2aa70b3e94" kindref="member">_Atomic</ref>(<ref refid="df/df8/FMC__typedefs_8h_1ab72878698a48dca98a483d79d11bbc60" kindref="member">FMC_Bool</ref>)<sp/>FMC_ENABLE_DEBUG<sp/>FMC_VAR_COMMON;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal">FMC_SHARED<sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/><ref refid="df/df8/FMC__typedefs_8h_1ab72878698a48dca98a483d79d11bbc60" kindref="member">FMC_Bool</ref><sp/>FMC_ENABLE_DEBUG<sp/>FMC_VAR_COMMON;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">FMC_SHARED<sp/>FMC_FUNC_COLD<sp/><ref refid="df/df8/FMC__typedefs_8h_1ab72878698a48dca98a483d79d11bbc60" kindref="member">FMC_Bool</ref><sp/><ref refid="de/d86/FMC__globals_8h_1a7f9af5a57c2a3ca685303f8e75a55ff4" kindref="member">FMC_setDebugState</ref>(<ref refid="df/df8/FMC__typedefs_8h_1ab72878698a48dca98a483d79d11bbc60" kindref="member">FMC_Bool</ref><sp/>state)</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#ifndef<sp/>__STDC_NO_ATOMICS__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>atomic_store(&amp;FMC_ENABLE_DEBUG,<sp/>state);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>FMC_ENABLE_DEBUG<sp/>=<sp/>state;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>FMC_ENABLE_DEBUG<sp/>==<sp/>state;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="d0/ddd/FMC__globals_8c_1ab5e5e97b744f2fbf4620b11069b863c7" refkind="member"><highlight class="normal">FMC_SHARED<sp/>FMC_FUNC_HOT<sp/><ref refid="df/df8/FMC__typedefs_8h_1ab72878698a48dca98a483d79d11bbc60" kindref="member">FMC_Bool</ref><sp/><ref refid="d0/ddd/FMC__globals_8c_1ab5e5e97b744f2fbf4620b11069b863c7" kindref="member">FMC_getDebugState</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#ifndef<sp/>__STDC_NO_ATOMICS__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>atomic_load(&amp;FMC_ENABLE_DEBUG);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>FMC_ENABLE_DEBUG;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/general/utils/FMC_globals.c"/>
+  </compounddef>
+</doxygen>

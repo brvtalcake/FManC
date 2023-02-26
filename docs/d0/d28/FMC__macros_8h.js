@@ -1,7 +1,9 @@
 var FMC__macros_8h =
 [
+    [ "FMC_BEGIN_DECLS", "d0/d28/FMC__macros_8h.html#adaa91f8546b0b01d11a2cd98017913e3", null ],
     [ "FMC_COMPILE_TIME_ERROR", "d0/d28/FMC__macros_8h.html#a8933cedeeee70736360b8b2e0bf7887e", null ],
     [ "FMC_DEFER", "d0/d28/FMC__macros_8h.html#af17b667adedacf123932fc419fde83ad", null ],
+    [ "FMC_END_DECLS", "d0/d28/FMC__macros_8h.html#a0fc97e62335477e13e081614f638122d", null ],
     [ "FMC_ERROR_CHECK", "d0/d28/FMC__macros_8h.html#a5ce01b85b1e5d65a1908f8cc3b882e7b", null ],
     [ "FMC_MACROS_H", "d0/d28/FMC__macros_8h.html#a35dc024d6bb352f60a0f2e52e3d784ed", null ],
     [ "FMC_MAJOR_VERSION", "d0/d28/FMC__macros_8h.html#a97a1bda70e3e8a6f6a961b8ce97bcf0a", null ],

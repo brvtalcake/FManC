@@ -75,11 +75,25 @@
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
       </node>
       <node id="1">
         <label>src/general/preprocessor/FMC_flags.h</label>
         <link refid="d2/d5e/FMC__flags_8h"/>
         <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>src/general/utils/FMC_str_view.c</label>
+        <link refid="d2/daf/FMC__str__view_8c"/>
+      </node>
+      <node id="13">
+        <label>src/general/utils/FMC_str_view.h</label>
+        <link refid="da/d45/FMC__str__view_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -93,7 +107,29 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/preprocessor/FMC_flags.h" line="40" column="13" bodyfile="src/general/preprocessor/FMC_flags.h" bodystart="40" bodyend="-1"/>
+        <location file="src/general/preprocessor/FMC_flags.h" line="50" column="9" bodyfile="src/general/preprocessor/FMC_flags.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d2/d5e/FMC__flags_8h_1a2f56f9c7894c58a0a8861d913a4f6b8e" prot="public" static="no">
+        <name>C_STR</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_flags.h" line="58" column="9" bodyfile="src/general/preprocessor/FMC_flags.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d2/d5e/FMC__flags_8h_1aad064918afb4a22a8a946e44612d2c4f" prot="public" static="no">
+        <name>FMC_C_STR_VIEW</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_flags.h" line="57" column="9" bodyfile="src/general/preprocessor/FMC_flags.h" bodystart="57" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="d2/d5e/FMC__flags_8h_1aac0e0b92a0acf1d2a0daa1a12817bc56" prot="public" static="no">
         <name>FMC_ENCODING_FLAGS</name>
@@ -103,7 +139,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/preprocessor/FMC_flags.h" line="33" column="13" bodyfile="src/general/preprocessor/FMC_flags.h" bodystart="33" bodyend="-1"/>
+        <location file="src/general/preprocessor/FMC_flags.h" line="43" column="10" bodyfile="src/general/preprocessor/FMC_flags.h" bodystart="43" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="d2/d5e/FMC__flags_8h_1a1023a75f01f8d52e45b82c7ac47d346e" prot="public" static="no">
         <name>FMC_FLAGS</name>
@@ -124,7 +160,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/preprocessor/FMC_flags.h" line="41" column="13" bodyfile="src/general/preprocessor/FMC_flags.h" bodystart="41" bodyend="-1"/>
+        <location file="src/general/preprocessor/FMC_flags.h" line="51" column="9" bodyfile="src/general/preprocessor/FMC_flags.h" bodystart="51" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="d2/d5e/FMC__flags_8h_1a13b25c906844f6f907310706bc7a04e1" prot="public" static="no">
         <name>UTF16_BE</name>
@@ -135,7 +171,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/preprocessor/FMC_flags.h" line="37" column="13" bodyfile="src/general/preprocessor/FMC_flags.h" bodystart="37" bodyend="-1"/>
+        <location file="src/general/preprocessor/FMC_flags.h" line="47" column="9" bodyfile="src/general/preprocessor/FMC_flags.h" bodystart="47" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="d2/d5e/FMC__flags_8h_1a237424ce7bfe9bfe9546b9200541bb28" prot="public" static="no">
         <name>UTF16_LE</name>
@@ -146,7 +182,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/preprocessor/FMC_flags.h" line="36" column="13" bodyfile="src/general/preprocessor/FMC_flags.h" bodystart="36" bodyend="-1"/>
+        <location file="src/general/preprocessor/FMC_flags.h" line="46" column="9" bodyfile="src/general/preprocessor/FMC_flags.h" bodystart="46" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="d2/d5e/FMC__flags_8h_1aaaf01663fad3a16f08c415c3f910e904" prot="public" static="no">
         <name>UTF32_BE</name>
@@ -157,7 +193,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/preprocessor/FMC_flags.h" line="39" column="13" bodyfile="src/general/preprocessor/FMC_flags.h" bodystart="39" bodyend="-1"/>
+        <location file="src/general/preprocessor/FMC_flags.h" line="49" column="9" bodyfile="src/general/preprocessor/FMC_flags.h" bodystart="49" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="d2/d5e/FMC__flags_8h_1aa2a51b2e4a5f9cf14d4b6ac5253668f0" prot="public" static="no">
         <name>UTF32_LE</name>
@@ -168,7 +204,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/preprocessor/FMC_flags.h" line="38" column="13" bodyfile="src/general/preprocessor/FMC_flags.h" bodystart="38" bodyend="-1"/>
+        <location file="src/general/preprocessor/FMC_flags.h" line="48" column="9" bodyfile="src/general/preprocessor/FMC_flags.h" bodystart="48" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="d2/d5e/FMC__flags_8h_1af9a8bd70343e082dbc63ac806b8ced24" prot="public" static="no">
         <name>UTF8</name>
@@ -179,7 +215,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/preprocessor/FMC_flags.h" line="34" column="13" bodyfile="src/general/preprocessor/FMC_flags.h" bodystart="34" bodyend="-1"/>
+        <location file="src/general/preprocessor/FMC_flags.h" line="44" column="9" bodyfile="src/general/preprocessor/FMC_flags.h" bodystart="44" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="d2/d5e/FMC__flags_8h_1a1298449aa3d5122f10caea0eb0cefae6" prot="public" static="no">
         <name>UTF8_BOM</name>
@@ -190,7 +226,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/preprocessor/FMC_flags.h" line="35" column="13" bodyfile="src/general/preprocessor/FMC_flags.h" bodystart="35" bodyend="-1"/>
+        <location file="src/general/preprocessor/FMC_flags.h" line="45" column="9" bodyfile="src/general/preprocessor/FMC_flags.h" bodystart="45" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -229,19 +265,35 @@
 <codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FMC_FLAGS</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="30" refid="d2/d5e/FMC__flags_8h_1a1023a75f01f8d52e45b82c7ac47d346e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_FLAGS</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="31"><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FMC_ENCODING_FLAGS</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="33" refid="d2/d5e/FMC__flags_8h_1aac0e0b92a0acf1d2a0daa1a12817bc56" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_ENCODING_FLAGS</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="34" refid="d2/d5e/FMC__flags_8h_1af9a8bd70343e082dbc63ac806b8ced24" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>UTF8<sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="35" refid="d2/d5e/FMC__flags_8h_1a1298449aa3d5122f10caea0eb0cefae6" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>UTF8_BOM<sp/>2</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="36" refid="d2/d5e/FMC__flags_8h_1a237424ce7bfe9bfe9546b9200541bb28" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>UTF16_LE<sp/>4</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="37" refid="d2/d5e/FMC__flags_8h_1a13b25c906844f6f907310706bc7a04e1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>UTF16_BE<sp/>8</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="38" refid="d2/d5e/FMC__flags_8h_1aa2a51b2e4a5f9cf14d4b6ac5253668f0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>UTF32_LE<sp/>16</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="39" refid="d2/d5e/FMC__flags_8h_1aaaf01663fad3a16f08c415c3f910e904" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>UTF32_BE<sp/>32</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="40" refid="d2/d5e/FMC__flags_8h_1a60710bac11b4f1135f61ded06542d661" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>ASCII<sp/>64</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="41" refid="d2/d5e/FMC__flags_8h_1ac1ae4add974b9cfc6b5aaf8a578f01ab" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>UNKNOWN<sp/>128</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(FMC_ENCODING_FLAGS)<sp/>||<sp/>defined(UTF8)<sp/>||<sp/>defined(UTF8_BOM)<sp/>||<sp/>defined(UTF16_LE)<sp/>||<sp/>defined(UTF16_BE)<sp/>||<sp/>defined(UTF32_LE)<sp/>||<sp/>defined(UTF32_BE)<sp/>||<sp/>defined(ASCII)<sp/>||<sp/>defined(UNKNOWN)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_ENCODING_FLAGS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>UTF8</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>UTF8_BOM</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>UTF16_LE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>UTF16_BE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>UTF32_LE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>UTF32_BE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>ASCII</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>UNKNOWN</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_FLAGS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="d2/d5e/FMC__flags_8h_1aac0e0b92a0acf1d2a0daa1a12817bc56" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_ENCODING_FLAGS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="d2/d5e/FMC__flags_8h_1af9a8bd70343e082dbc63ac806b8ced24" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>UTF8<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="d2/d5e/FMC__flags_8h_1a1298449aa3d5122f10caea0eb0cefae6" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>UTF8_BOM<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="d2/d5e/FMC__flags_8h_1a237424ce7bfe9bfe9546b9200541bb28" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>UTF16_LE<sp/>4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="d2/d5e/FMC__flags_8h_1a13b25c906844f6f907310706bc7a04e1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>UTF16_BE<sp/>8</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="d2/d5e/FMC__flags_8h_1aa2a51b2e4a5f9cf14d4b6ac5253668f0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>UTF32_LE<sp/>16</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="d2/d5e/FMC__flags_8h_1aaaf01663fad3a16f08c415c3f910e904" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>UTF32_BE<sp/>32</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="d2/d5e/FMC__flags_8h_1a60710bac11b4f1135f61ded06542d661" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ASCII<sp/>64</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="d2/d5e/FMC__flags_8h_1ac1ae4add974b9cfc6b5aaf8a578f01ab" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>UNKNOWN<sp/>128</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(FMC_C_STR_VIEW)<sp/>||<sp/>defined(C_STR)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>C_STR</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_C_STR_VIEW</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_CSTR<sp/>||<sp/>C_STR</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="d2/d5e/FMC__flags_8h_1aad064918afb4a22a8a946e44612d2c4f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_C_STR_VIEW<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="d2/d5e/FMC__flags_8h_1a2f56f9c7894c58a0a8861d913a4f6b8e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>C_STR<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_FLAGS</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="src/general/preprocessor/FMC_flags.h"/>
   </compounddef>

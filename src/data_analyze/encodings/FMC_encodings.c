@@ -38,7 +38,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_get
     #pragma GCC diagnostic ignored "-Wnonnull-compare" // get an error at compile time without this (because of attribute nonnull)
     if (file == NULL)
     {
-        if (FMC_ENABLE_DEBUG) 
+        if (FMC_getDebugState()) 
         {
             FMC_makeMsg(err_null, 4, "ERROR : ", "In function : ", __func__, ". The provided file must not be NULL.");
             FMC_printBrightRedError(stderr, err_null);
@@ -50,7 +50,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_get
     // check orientation
     if (fwide(file, -1) >= 0)
     {
-        if (FMC_ENABLE_DEBUG) 
+        if (FMC_getDebugState()) 
         {
             FMC_makeMsg(err_wide, 4, "ERROR : ", "In function : ", __func__, ". The provided file must be opened with by orientation.");
             FMC_printBrightRedError(stderr, err_wide);
@@ -79,7 +79,13 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_get
     // 1st if
     if(sizeOfFile < 0) // no error, must have overflowed
     {
-        sizeOfFile = SIZE_MAX;
+        #if defined(__INTELLISENSE__)
+        #pragma diag_suppress 109
+        #endif
+        sizeOfFile = (typeof(sizeOfFile)) SIZE_MAX;
+        #if defined(__INTELLISENSE__)
+        #pragma diag_default 109
+        #endif
         size_t ret = fread(buff, 1, 4, file);
         if(ret != 4) goto check_error_type_1;
         else if (ret == 4) goto end_check_1;
@@ -89,7 +95,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_get
     // 2nd if
     else if (sizeOfFile <= 4 && sizeOfFile >= 0) 
     {
-        size_t ret = fread(buff, 1, sizeOfFile, file);
+        size_t ret = fread(buff, 1, (size_t)sizeOfFile, file); // harmless cast here because 0 <= sizeOfFile <= 4
         if(ret != (size_t) sizeOfFile) goto check_error_type_1;
         else if (ret == (size_t) sizeOfFile) goto end_check_1;
         else return error;
@@ -173,7 +179,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_get
         if (sizeOfFile == 0)
         {
             rewind(file);
-            if (FMC_ENABLE_DEBUG) 
+            if (FMC_getDebugState()) 
             {
                 FMC_makeMsg(err_empty, 4, "WARNING : ", "In function : ", __func__, ". The provided file is empty.");
                 FMC_printBrightYellowError(stderr, err_empty);
@@ -183,7 +189,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_get
         
         char currentChar = 0;
         size_t cpt = 0;
-        while((currentChar = fgetc(file)) != EOF)
+        while((currentChar = (char)fgetc(file)) != EOF)
         {
             if (currentChar != EOF &&  (unsigned char) currentChar > 127)
             {
@@ -201,7 +207,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_get
     }
 }
 
-FMC_SHARED FMC_FUNC_CONST FMC_Encodings FMC_checkEncodingFlag(int encoding)
+FMC_SHARED FMC_FUNC_CONST FMC_FUNC_ALWAYS_INLINE inline FMC_Encodings FMC_checkEncodingFlag(unsigned int encoding)
 {
     switch (encoding)
     {

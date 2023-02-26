@@ -29,7 +29,9 @@ SOFTWARE.
 
 #include "../types/FMC_typedefs.h"
 #include "../preprocessor/FMC_macros.h"
+#include "../preprocessor/FMC_consts.h"
 
-extern FMC_Bool FMC_ENABLE_DEBUG FMC_VAR_COMMON;
+FMC_SHARED FMC_FUNC_COLD FMC_Bool FMC_setDebugState(FMC_Bool state);
+FMC_SHARED FMC_FUNC_HOT FMC_Bool FMC_getDebugState(void);
 
 #endif // FMC_GLOBALS_H

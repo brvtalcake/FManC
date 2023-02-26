@@ -41,5 +41,6 @@ SOFTWARE.
 #include "utils/FMC_errors.h"
 #include "utils/FMC_globals.h"
 #include "utils/FMC_deprecated.h"
+#include "utils/FMC_str_view.h"
 
 #endif /* FMC_DATA_H */

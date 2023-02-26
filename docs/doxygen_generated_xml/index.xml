@@ -189,6 +189,8 @@
   </compound>
   <compound refid="d2/d5e/FMC__flags_8h" kind="file"><name>FMC_flags.h</name>
     <member refid="d2/d5e/FMC__flags_8h_1a60710bac11b4f1135f61ded06542d661" kind="define"><name>ASCII</name></member>
+    <member refid="d2/d5e/FMC__flags_8h_1a2f56f9c7894c58a0a8861d913a4f6b8e" kind="define"><name>C_STR</name></member>
+    <member refid="d2/d5e/FMC__flags_8h_1aad064918afb4a22a8a946e44612d2c4f" kind="define"><name>FMC_C_STR_VIEW</name></member>
     <member refid="d2/d5e/FMC__flags_8h_1aac0e0b92a0acf1d2a0daa1a12817bc56" kind="define"><name>FMC_ENCODING_FLAGS</name></member>
     <member refid="d2/d5e/FMC__flags_8h_1a1023a75f01f8d52e45b82c7ac47d346e" kind="define"><name>FMC_FLAGS</name></member>
     <member refid="d2/d5e/FMC__flags_8h_1ac1ae4add974b9cfc6b5aaf8a578f01ab" kind="define"><name>UNKNOWN</name></member>
@@ -200,8 +202,10 @@
     <member refid="d2/d5e/FMC__flags_8h_1a1298449aa3d5122f10caea0eb0cefae6" kind="define"><name>UTF8_BOM</name></member>
   </compound>
   <compound refid="d0/d28/FMC__macros_8h" kind="file"><name>FMC_macros.h</name>
+    <member refid="d0/d28/FMC__macros_8h_1adaa91f8546b0b01d11a2cd98017913e3" kind="define"><name>FMC_BEGIN_DECLS</name></member>
     <member refid="d0/d28/FMC__macros_8h_1a8933cedeeee70736360b8b2e0bf7887e" kind="define"><name>FMC_COMPILE_TIME_ERROR</name></member>
     <member refid="d0/d28/FMC__macros_8h_1af17b667adedacf123932fc419fde83ad" kind="define"><name>FMC_DEFER</name></member>
+    <member refid="d0/d28/FMC__macros_8h_1a0fc97e62335477e13e081614f638122d" kind="define"><name>FMC_END_DECLS</name></member>
     <member refid="d0/d28/FMC__macros_8h_1a5ce01b85b1e5d65a1908f8cc3b882e7b" kind="define"><name>FMC_ERROR_CHECK</name></member>
     <member refid="d0/d28/FMC__macros_8h_1a35dc024d6bb352f60a0f2e52e3d784ed" kind="define"><name>FMC_MACROS_H</name></member>
     <member refid="d0/d28/FMC__macros_8h_1a97a1bda70e3e8a6f6a961b8ce97bcf0a" kind="define"><name>FMC_MAJOR_VERSION</name></member>
@@ -371,8 +375,23 @@
     <member refid="dd/ddf/FMC__errors_8h_1adaa0dc5b849ac26898d0ec89459ea061" kind="function"><name>FMC_setTextStyleToReverse</name></member>
     <member refid="dd/ddf/FMC__errors_8h_1a3c9504b4d76773b9dbf697ef4d12c85a" kind="function"><name>FMC_setTextStyleToUnderlined</name></member>
   </compound>
+  <compound refid="d0/ddd/FMC__globals_8c" kind="file"><name>FMC_globals.c</name>
+    <member refid="d0/ddd/FMC__globals_8c_1a7ac7eb2fe41396f9b121ef2aa70b3e94" kind="function"><name>_Atomic</name></member>
+    <member refid="d0/ddd/FMC__globals_8c_1ab5e5e97b744f2fbf4620b11069b863c7" kind="function"><name>FMC_getDebugState</name></member>
+  </compound>
   <compound refid="de/d86/FMC__globals_8h" kind="file"><name>FMC_globals.h</name>
-    <member refid="de/d86/FMC__globals_8h_1a5c72b90260bb69ce18086fc67f1bf5f9" kind="variable"><name>FMC_VAR_COMMON</name></member>
+    <member refid="de/d86/FMC__globals_8h_1ab5e5e97b744f2fbf4620b11069b863c7" kind="function"><name>FMC_getDebugState</name></member>
+    <member refid="de/d86/FMC__globals_8h_1a7f9af5a57c2a3ca685303f8e75a55ff4" kind="function"><name>FMC_setDebugState</name></member>
+  </compound>
+  <compound refid="d2/daf/FMC__str__view_8c" kind="file"><name>FMC_str_view.c</name>
+    <member refid="d2/daf/FMC__str__view_8c_1a554847c9c686e52f3aa20e6f4eeaf2a2" kind="function"><name>FMC_freeStrView</name></member>
+    <member refid="d2/daf/FMC__str__view_8c_1ae966ca89a347646e080412b8c2b67981" kind="function"><name>FMC_FUNC_MALLOC</name></member>
+  </compound>
+  <compound refid="da/d45/FMC__str__view_8h" kind="file"><name>FMC_str_view.h</name>
+    <member refid="da/d45/FMC__str__view_8h_1a63150ac88c9dde3c08f4ab11b7c799ca" kind="define"><name>FMC_STR_VIEW_H</name></member>
+    <member refid="da/d45/FMC__str__view_8h_1a7360b55975153b822efc5217b7734e6a" kind="variable"><name>len</name></member>
+    <member refid="da/d45/FMC__str__view_8h_1a554847c9c686e52f3aa20e6f4eeaf2a2" kind="function"><name>FMC_freeStrView</name></member>
+    <member refid="da/d45/FMC__str__view_8h_1ab012cc60803cad118671525446b6aa55" kind="function"><name>FMC_FUNC_MALLOC</name></member>
   </compound>
   <compound refid="dir_1a4c3eba48dd221f0ca8224765442bb6" kind="dir"><name>src/code_utils</name>
   </compound>

@@ -12,112 +12,127 @@
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title=" ">
-<polygon fill="#999999" stroke="#666666" points="104,-85.5 0,-85.5 0,-66.5 104,-66.5 104,-85.5"/>
-<text text-anchor="middle" x="52" y="-73.5" font-family="Helvetica,sans-Serif" font-size="10.00">FMC_getEncoding</text>
+<polygon fill="#999999" stroke="#666666" points="104,-104.5 0,-104.5 0,-85.5 104,-85.5 104,-104.5"/>
+<text text-anchor="middle" x="52" y="-92.5" font-family="Helvetica,sans-Serif" font-size="10.00">FMC_getEncoding</text>
 </a>
 </g>
 </g>
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="../../dd/ddf/FMC__errors_8h.html#aa53062880249a772fa5af75cbb637d14" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="283,-104.5 146,-104.5 146,-85.5 283,-85.5 283,-104.5"/>
-<text text-anchor="middle" x="214.5" y="-92.5" font-family="Helvetica,sans-Serif" font-size="10.00">FMC_printBrightRedError</text>
+<g id="a_node2"><a xlink:href="../../d0/ddd/FMC__globals_8c.html#ab5e5e97b744f2fbf4620b11069b863c7" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="272.5,-141.5 156.5,-141.5 156.5,-122.5 272.5,-122.5 272.5,-141.5"/>
+<text text-anchor="middle" x="214.5" y="-129.5" font-family="Helvetica,sans-Serif" font-size="10.00">FMC_getDebugState</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="#63b8ff" d="M104.22,-82.06C114.24,-83.25 124.94,-84.52 135.6,-85.78"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="135.43,-89.28 145.77,-86.98 136.25,-82.33 135.43,-89.28"/>
+<path fill="none" stroke="#63b8ff" d="M94.33,-104.53C115.03,-109.3 140.29,-115.12 162.22,-120.18"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="161.5,-123.6 172.03,-122.44 163.07,-116.78 161.5,-123.6"/>
 </g>
-<!-- Node6 -->
-<g id="node6" class="node">
-<title>Node6</title>
-<g id="a_node6"><a xlink:href="../../dd/ddf/FMC__errors_8h.html#a8a9d04ab3b4e6f06e7eead7abd20581c" target="_top" xlink:title=" ">
+<!-- Node3 -->
+<g id="node3" class="node">
+<title>Node3</title>
+<g id="a_node3"><a xlink:href="../../dd/ddf/FMC__errors_8h.html#aa53062880249a772fa5af75cbb637d14" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="283,-104.5 146,-104.5 146,-85.5 283,-85.5 283,-104.5"/>
+<text text-anchor="middle" x="214.5" y="-92.5" font-family="Helvetica,sans-Serif" font-size="10.00">FMC_printBrightRedError</text>
+</a>
+</g>
+</g>
+<!-- Node1&#45;&gt;Node3 -->
+<g id="edge2" class="edge">
+<title>Node1&#45;&gt;Node3</title>
+<path fill="none" stroke="#63b8ff" d="M104.22,-95C114.24,-95 124.94,-95 135.6,-95"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="135.77,-98.5 145.77,-95 135.77,-91.5 135.77,-98.5"/>
+</g>
+<!-- Node7 -->
+<g id="node7" class="node">
+<title>Node7</title>
+<g id="a_node7"><a xlink:href="../../dd/ddf/FMC__errors_8h.html#a8a9d04ab3b4e6f06e7eead7abd20581c" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="289,-67.5 140,-67.5 140,-48.5 289,-48.5 289,-67.5"/>
 <text text-anchor="middle" x="214.5" y="-55.5" font-family="Helvetica,sans-Serif" font-size="10.00">FMC_printBrightYellowError</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node6 -->
-<g id="edge5" class="edge">
-<title>Node1&#45;&gt;Node6</title>
-<path fill="none" stroke="#63b8ff" d="M104.22,-70.26C112.4,-69.34 121.04,-68.37 129.74,-67.39"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="130.4,-70.84 139.95,-66.25 129.62,-63.89 130.4,-70.84"/>
+<!-- Node1&#45;&gt;Node7 -->
+<g id="edge6" class="edge">
+<title>Node1&#45;&gt;Node7</title>
+<path fill="none" stroke="#63b8ff" d="M94.33,-85.47C115.03,-80.7 140.29,-74.88 162.22,-69.82"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="163.07,-73.22 172.03,-67.56 161.5,-66.4 163.07,-73.22"/>
 </g>
-<!-- Node3 -->
-<g id="node3" class="node">
-<title>Node3</title>
-<g id="a_node3"><a xlink:href="../../dd/ddf/FMC__errors_8h.html#abfd332c091d02782f186ebfa172b6acd" target="_top" xlink:title=" ">
+<!-- Node4 -->
+<g id="node4" class="node">
+<title>Node4</title>
+<g id="a_node4"><a xlink:href="../../dd/ddf/FMC__errors_8h.html#abfd332c091d02782f186ebfa172b6acd" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="485.5,-153 325.5,-153 325.5,-123 485.5,-123 485.5,-153"/>
 <text text-anchor="start" x="333.5" y="-141" font-family="Helvetica,sans-Serif" font-size="10.00">FMC_changeStreamTextColor</text>
 <text text-anchor="middle" x="405.5" y="-130" font-family="Helvetica,sans-Serif" font-size="10.00">ToBrightRed</text>
 </a>
 </g>
 </g>
-<!-- Node2&#45;&gt;Node3 -->
-<g id="edge2" class="edge">
-<title>Node2&#45;&gt;Node3</title>
+<!-- Node3&#45;&gt;Node4 -->
+<g id="edge3" class="edge">
+<title>Node3&#45;&gt;Node4</title>
 <path fill="none" stroke="#63b8ff" d="M257.45,-104.54C278.38,-109.31 304.35,-115.22 328.63,-120.74"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="328.01,-124.19 338.54,-122.99 329.57,-117.36 328.01,-124.19"/>
 </g>
-<!-- Node4 -->
-<g id="node4" class="node">
-<title>Node4</title>
-<g id="a_node4"><a xlink:href="../../dd/ddf/FMC__errors_8h.html#a5dac1ddff314ba7b3bed3d87eb3f19f5" target="_top" xlink:title=" ">
+<!-- Node5 -->
+<g id="node5" class="node">
+<title>Node5</title>
+<g id="a_node5"><a xlink:href="../../dd/ddf/FMC__errors_8h.html#a5dac1ddff314ba7b3bed3d87eb3f19f5" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="486,-104.5 325,-104.5 325,-85.5 486,-85.5 486,-104.5"/>
 <text text-anchor="middle" x="405.5" y="-92.5" font-family="Helvetica,sans-Serif" font-size="10.00">FMC_resetStreamOutputStyle</text>
 </a>
 </g>
 </g>
-<!-- Node2&#45;&gt;Node4 -->
-<g id="edge3" class="edge">
-<title>Node2&#45;&gt;Node4</title>
+<!-- Node3&#45;&gt;Node5 -->
+<g id="edge4" class="edge">
+<title>Node3&#45;&gt;Node5</title>
 <path fill="none" stroke="#63b8ff" d="M283.2,-95C293.39,-95 304.04,-95 314.61,-95"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="314.71,-98.5 324.71,-95 314.71,-91.5 314.71,-98.5"/>
 </g>
-<!-- Node5 -->
-<g id="node5" class="node">
-<title>Node5</title>
-<g id="a_node5"><a xlink:href="../../dd/ddf/FMC__errors_8h.html#ad65d0a387448c0139270e9c628cf4126" target="_top" xlink:title=" ">
+<!-- Node6 -->
+<g id="node6" class="node">
+<title>Node6</title>
+<g id="a_node6"><a xlink:href="../../dd/ddf/FMC__errors_8h.html#ad65d0a387448c0139270e9c628cf4126" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="473.5,-67.5 337.5,-67.5 337.5,-48.5 473.5,-48.5 473.5,-67.5"/>
 <text text-anchor="middle" x="405.5" y="-55.5" font-family="Helvetica,sans-Serif" font-size="10.00">FMC_setTextStyleToBold</text>
 </a>
 </g>
 </g>
-<!-- Node2&#45;&gt;Node5 -->
-<g id="edge4" class="edge">
-<title>Node2&#45;&gt;Node5</title>
+<!-- Node3&#45;&gt;Node6 -->
+<g id="edge5" class="edge">
+<title>Node3&#45;&gt;Node6</title>
 <path fill="none" stroke="#63b8ff" d="M264.17,-85.47C289.1,-80.59 319.63,-74.61 345.85,-69.48"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="346.52,-72.92 355.66,-67.56 345.18,-66.05 346.52,-72.92"/>
 </g>
-<!-- Node6&#45;&gt;Node4 -->
-<g id="edge7" class="edge">
-<title>Node6&#45;&gt;Node4</title>
+<!-- Node7&#45;&gt;Node5 -->
+<g id="edge8" class="edge">
+<title>Node7&#45;&gt;Node5</title>
 <path fill="none" stroke="#63b8ff" d="M264.17,-67.53C289.1,-72.41 319.63,-78.39 345.85,-83.52"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="345.18,-86.95 355.66,-85.44 346.52,-80.08 345.18,-86.95"/>
 </g>
-<!-- Node6&#45;&gt;Node5 -->
-<g id="edge8" class="edge">
-<title>Node6&#45;&gt;Node5</title>
+<!-- Node7&#45;&gt;Node6 -->
+<g id="edge9" class="edge">
+<title>Node7&#45;&gt;Node6</title>
 <path fill="none" stroke="#63b8ff" d="M289.11,-58C301.5,-58 314.4,-58 326.88,-58"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="327.26,-61.5 337.26,-58 327.26,-54.5 327.26,-61.5"/>
 </g>
-<!-- Node7 -->
-<g id="node7" class="node">
-<title>Node7</title>
-<g id="a_node7"><a xlink:href="../../dd/ddf/FMC__errors_8h.html#ae7a53e0773baed28896abfe5743a3a68" target="_top" xlink:title=" ">
+<!-- Node8 -->
+<g id="node8" class="node">
+<title>Node8</title>
+<g id="a_node8"><a xlink:href="../../dd/ddf/FMC__errors_8h.html#ae7a53e0773baed28896abfe5743a3a68" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="485.5,-30 325.5,-30 325.5,0 485.5,0 485.5,-30"/>
 <text text-anchor="start" x="333.5" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">FMC_changeStreamTextColor</text>
 <text text-anchor="middle" x="405.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">ToBrightYellow</text>
 </a>
 </g>
 </g>
-<!-- Node6&#45;&gt;Node7 -->
-<g id="edge6" class="edge">
-<title>Node6&#45;&gt;Node7</title>
+<!-- Node7&#45;&gt;Node8 -->
+<g id="edge7" class="edge">
+<title>Node7&#45;&gt;Node8</title>
 <path fill="none" stroke="#63b8ff" d="M257.45,-48.46C278.38,-43.69 304.35,-37.78 328.63,-32.26"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="329.57,-35.64 338.54,-30.01 328.01,-28.81 329.57,-35.64"/>
 </g>
