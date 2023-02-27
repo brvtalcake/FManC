@@ -31,7 +31,7 @@ SOFTWARE.
 #define FMC_MACROS_H
 
 #include "FMC_platform.h"
-
+#include <metalang99.h>
 #include "FMC_attributes.h"
 
 
@@ -93,16 +93,54 @@ SOFTWARE.
     #define FMC_STRINGIZE_9(x, y, z, w, v, u, t, s, r) FMC_STRINGIZE(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(x, y), z), w), v), u), t), s), r))
 #endif
 
+#if defined(FMC_ID) || defined(FMC_ID2) || defined(FMC_ID3) || defined(FMC_ID4) || defined(FMC_ID5) || defined(FMC_ID6) || defined(FMC_ID7) || defined(FMC_ID8) || defined(FMC_ID9)
+    #undef FMC_ID
+    #undef FMC_ID2
+    #undef FMC_ID3
+    #undef FMC_ID4
+    #undef FMC_ID5
+    #undef FMC_ID6
+    #undef FMC_ID7
+    #undef FMC_ID8
+    #undef FMC_ID9
+#endif
+#define FMC_ID9(x) x
+#define FMC_ID8(x) FMC_ID9(x)
+#define FMC_ID7(x) FMC_ID8(x)
+#define FMC_ID6(x) FMC_ID7(x)
+#define FMC_ID5(x) FMC_ID6(x)
+#define FMC_ID4(x) FMC_ID5(x)
+#define FMC_ID3(x) FMC_ID4(x)
+#define FMC_ID2(x) FMC_ID3(x)
+#define FMC_ID(x) FMC_ID2(x)
+
+#if defined(FMC_DECR_BY)
+    #undef FMC_DECR_BY
+#endif
+#define FMC_DECR_BY(x, y) ML99_EVAL(ML99_call(ML99_sub, v(x), v(y)))
+
 #ifdef defer
     #undef defer
 #endif
 #define defer(stmt, body) do body while (0); stmt
 
-#ifdef foreach
+#if defined(foreach) || defined(foreach_counter) || defined(LOOP_TO_THE_END) || defined(LOOP_UNTIL)
     #undef foreach
+    #undef foreach_counter
+    #undef LOOP_TO_THE_END
+    #undef LOOP_UNTIL
 #endif
-#define foreach(elem, array, start) size_t FMC_CONCAT_2(base_index,__LINE__) = start; for(typeof(array[FMC_CONCAT_2(base_index,__LINE__)]) elem = array[FMC_CONCAT_2(base_index,__LINE__)]; FMC_CONCAT_2(base_index,__LINE__) < sizeof(array)/sizeof(array[0]); FMC_CONCAT_2(base_index,__LINE__)++, elem = array[FMC_CONCAT_2(base_index,__LINE__)])
+#define LOOP_TO_THE_END ML99_nothing()
+#define LOOP_UNTIL(x) ML99_just(v(x))
+#define foreach(elem, array, start, stop_cond) size_t FMC_CONCAT_2(base_index,__LINE__) = start; for(typeof(array[FMC_CONCAT_2(base_index,__LINE__)]) elem = array[FMC_CONCAT_2(base_index,__LINE__)]; FMC_CONCAT_2(base_index,__LINE__) < sizeof(array)/sizeof(array[0]); FMC_CONCAT_2(base_index,__LINE__)++, elem = array[FMC_CONCAT_2(base_index,__LINE__)])
+#define foreach_counter(lines_after_foreach) FMC_CONCAT_2(base_index, FMC_DECR_BY(__LINE__, lines_after_foreach))
 
+#define test_macro(...) ML99_EVAL(ML99_call(ML99_if, ML99_natEq(ML99_variadicsCount(v(__VA_ARGS__)), v(1)), v(1), v(0)))
+#define test_macro2(...) ML99_EVAL(ML99_call(ML99_if, ML99_isNil(ML99_listInit(ML99_list(v(__VA_ARGS__)))), v(1), v(0)))
+#define test_macro3(...) ML99_EVAL(ML99_call(ML99_if, ML99_isNothing(__VA_ARGS__), v(1), v(0)))
+test_macro()
+test_macro2(LOOP_TO_THE_END)
+test_macro3(ML99_just(v(2)))
 
 #ifndef FMC_METHODS
     #define FMC_METHODS
