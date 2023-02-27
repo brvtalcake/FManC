@@ -124,23 +124,20 @@ SOFTWARE.
 #endif
 #define defer(stmt, body) do body while (0); stmt
 
-#if defined(foreach) || defined(foreach_counter) || defined(LOOP_TO_THE_END) || defined(LOOP_UNTIL)
+#if defined(foreach) || defined(foreach_counter) || defined(foreach_stop_cond) || defined(LOOP_TO_THE_END) || defined(LOOP_WHILE)
     #undef foreach
     #undef foreach_counter
+    #undef foreach_stop_cond
     #undef LOOP_TO_THE_END
-    #undef LOOP_UNTIL
+    #undef LOOP_WHILE
 #endif
 #define LOOP_TO_THE_END ML99_nothing()
-#define LOOP_UNTIL(x) ML99_just(v(x))
-#define foreach(elem, array, start, stop_cond) size_t FMC_CONCAT_2(base_index,__LINE__) = start; for(typeof(array[FMC_CONCAT_2(base_index,__LINE__)]) elem = array[FMC_CONCAT_2(base_index,__LINE__)]; FMC_CONCAT_2(base_index,__LINE__) < sizeof(array)/sizeof(array[0]); FMC_CONCAT_2(base_index,__LINE__)++, elem = array[FMC_CONCAT_2(base_index,__LINE__)])
+#define LOOP_WHILE(x) ML99_just(v(x))
 #define foreach_counter(lines_after_foreach) FMC_CONCAT_2(base_index, FMC_DECR_BY(__LINE__, lines_after_foreach))
+#define foreach_stop_cond(x) ML99_EVAL(ML99_EVAL(ML99_call(ML99_if, ML99_isNothing(x), v(ML99_id(ML99_id(v(foreach_counter(0) < sizeof(array)/sizeof(array[0]))))), v(ML99_maybeUnwrap(x)))))
+#define foreach(elem, array, start, stop_index_cond) size_t foreach_counter(0) = start; for(typeof(array[foreach_counter(0)]) elem = array[foreach_counter(0)]; foreach_stop_cond(stop_index_cond) ; foreach_counter(0)++, elem = array[foreach_counter(0)])
 
-#define test_macro(...) ML99_EVAL(ML99_call(ML99_if, ML99_natEq(ML99_variadicsCount(v(__VA_ARGS__)), v(1)), v(1), v(0)))
-#define test_macro2(...) ML99_EVAL(ML99_call(ML99_if, ML99_isNil(ML99_listInit(ML99_list(v(__VA_ARGS__)))), v(1), v(0)))
-#define test_macro3(...) ML99_EVAL(ML99_call(ML99_if, ML99_isNothing(__VA_ARGS__), v(1), v(0)))
-test_macro()
-test_macro2(LOOP_TO_THE_END)
-test_macro3(ML99_just(v(2)))
+foreach_counter(2)
 
 #ifndef FMC_METHODS
     #define FMC_METHODS
