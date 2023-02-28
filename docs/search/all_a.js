@@ -1,6 +1,11 @@
 var searchData=
 [
-  ['path_0',['path',['../d5/de5/FMC__structs_8h.html#a1e8a9001da85d6e7b3a0c0da6b07d4b6',1,'FManC_File']]],
-  ['pathtocopy_1',['pathToCopy',['../d4/d06/FMC__deprecated_8h.html#a44f7c35d406a960114baa98225e44c25',1,'FMC_deprecated.h']]],
-  ['pos_2',['pos',['../d5/de5/FMC__structs_8h.html#aa771d096daea4bd1c01973da82d931c8',1,'FManC_StrOcc']]]
+  ['main_5fpage_2edox_0',['main_page.dox',['../d0/d04/main__page_8dox.html',1,'']]],
+  ['max_5ffext_5fsize_1',['MAX_FEXT_SIZE',['../da/dd3/FMC__consts_8h.html#aef2c26bbba7239793dfd266d0e8b46b4',1,'FMC_consts.h']]],
+  ['max_5ffname_5fsize_2',['MAX_FNAME_SIZE',['../da/dd3/FMC__consts_8h.html#ab0e76045bf91a8a1b4fc381488399f70',1,'FMC_consts.h']]],
+  ['max_5ffpath_5fsize_3',['MAX_FPATH_SIZE',['../da/dd3/FMC__consts_8h.html#ae5c03ff129a1255adb84d15ae75425b8',1,'FMC_consts.h']]],
+  ['middleleft_4',['middleLeft',['../d5/de5/FMC__structs_8h.html#a0e93d5246e1cbf1610c30955f0e6c0cd',1,'FManC_CharComp']]],
+  ['middleright_5',['middleRight',['../d5/de5/FMC__structs_8h.html#a76161b0372f154ca9139c5ef31c2fce7',1,'FManC_CharComp']]],
+  ['mostleft_6',['mostLeft',['../d5/de5/FMC__structs_8h.html#ab5bef0acf34cd37487ae4e4c819fdcac',1,'FManC_CharComp']]],
+  ['mostright_7',['mostRight',['../d5/de5/FMC__structs_8h.html#ae80fb7059c701006b85e053ed34c7388',1,'FManC_CharComp']]]
 ];

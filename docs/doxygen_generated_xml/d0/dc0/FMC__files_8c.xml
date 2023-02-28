@@ -2,12 +2,13 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
   <compounddef id="d0/dc0/FMC__files_8c" kind="file" language="C++">
     <compoundname>FMC_files.c</compoundname>
+    <includes local="no">stdarg.h</includes>
     <includes refid="d2/deb/FMC__file__management_8h" local="yes">FMC_file_management.h</includes>
     <incdepgraph>
-      <node id="2">
+      <node id="3">
         <label>FMC_file_management.h</label>
         <link refid="d2/deb/FMC__file__management_8h"/>
-        <childnode refid="3" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -15,123 +16,135 @@
         <link refid="d0/dc0/FMC__files_8c"/>
         <childnode refid="2" relation="include">
         </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
       </node>
-      <node id="3">
+      <node id="4">
         <label>../general/FMC_general.h</label>
         <link refid="d9/de1/FMC__general_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
         <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>FMC_attributes.h</label>
+        <link refid="d1/d2e/FMC__attributes_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>preprocessor/FMC_consts.h</label>
+        <link refid="da/dd3/FMC__consts_8h"/>
+      </node>
+      <node id="14">
+        <label>preprocessor/FMC_flags.h</label>
+        <link refid="d2/d5e/FMC__flags_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>preprocessor/FMC_macros.h</label>
+        <link refid="d0/d28/FMC__macros_8h"/>
+        <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
+      </node>
+      <node id="6">
+        <label>FMC_platform.h</label>
+        <link refid="d7/dff/FMC__platform_8h"/>
+      </node>
+      <node id="12">
+        <label>FMC_enums.h</label>
+        <link refid="d6/d25/FMC__enums_8h"/>
+        <childnode refid="5" relation="include">
         </childnode>
+      </node>
+      <node id="10">
+        <label>types/FMC_structs.h</label>
+        <link refid="d5/de5/FMC__structs_8h"/>
         <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
+      </node>
+      <node id="13">
+        <label>FMC_typedefs.h</label>
+        <link refid="df/df8/FMC__typedefs_8h"/>
+        <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="6">
-        <label>FMC_attributes.h</label>
-        <link refid="d1/d2e/FMC__attributes_8h"/>
+      <node id="17">
+        <label>utils/FMC_deprecated.h</label>
+        <link refid="d4/d06/FMC__deprecated_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>utils/FMC_errors.h</label>
+        <link refid="dd/ddf/FMC__errors_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>utils/FMC_globals.h</label>
+        <link refid="de/d86/FMC__globals_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>utils/FMC_str_view.h</label>
+        <link refid="da/d45/FMC__str__view_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
       </node>
       <node id="7">
-        <label>preprocessor/FMC_consts.h</label>
-        <link refid="da/dd3/FMC__consts_8h"/>
+        <label>metalang99.h</label>
       </node>
-      <node id="12">
-        <label>preprocessor/FMC_flags.h</label>
-        <link refid="d2/d5e/FMC__flags_8h"/>
+      <node id="2">
+        <label>stdarg.h</label>
       </node>
-      <node id="4">
-        <label>preprocessor/FMC_macros.h</label>
-        <link refid="d0/d28/FMC__macros_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-      </node>
-      <node id="5">
-        <label>FMC_platform.h</label>
-        <link refid="d7/dff/FMC__platform_8h"/>
-      </node>
-      <node id="10">
-        <label>FMC_enums.h</label>
-        <link refid="d6/d25/FMC__enums_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="8">
-        <label>types/FMC_structs.h</label>
-        <link refid="d5/de5/FMC__structs_8h"/>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-      </node>
-      <node id="11">
-        <label>FMC_typedefs.h</label>
-        <link refid="df/df8/FMC__typedefs_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="15">
-        <label>utils/FMC_deprecated.h</label>
-        <link refid="d4/d06/FMC__deprecated_8h"/>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-      </node>
-      <node id="13">
-        <label>utils/FMC_errors.h</label>
-        <link refid="dd/ddf/FMC__errors_8h"/>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="14">
-        <label>utils/FMC_globals.h</label>
-        <link refid="de/d86/FMC__globals_8h"/>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-      </node>
-      <node id="17">
-        <label>utils/FMC_str_view.h</label>
-        <link refid="da/d45/FMC__str__view_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="16">
+      <node id="18">
         <label>stddef.h</label>
       </node>
-      <node id="9">
+      <node id="11">
         <label>stdio.h</label>
       </node>
     </incdepgraph>
@@ -166,19 +179,35 @@
 <codeline lineno="24"><highlight class="comment"></highlight></codeline>
 <codeline lineno="25"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="26"><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d2/deb/FMC__file__management_8h" kindref="compound">FMC_file_management.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdarg.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d2/deb/FMC__file__management_8h" kindref="compound">FMC_file_management.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>FMC_SHARED<sp/>FMC_FUNC_NONNULL(1)<sp/>FMC_File<sp/>*FMC_createFile(const<sp/>char*<sp/>restrict<sp/>const<sp/>path)</highlight></codeline>
-<codeline lineno="31"><highlight class="comment">{</highlight></codeline>
-<codeline lineno="32"><highlight class="comment"><sp/><sp/><sp/><sp/>#pragma<sp/>GCC<sp/>diagnostic<sp/>ignored<sp/>&quot;-Wnonnull-compare&quot;</highlight></codeline>
-<codeline lineno="33"><highlight class="comment"></highlight></codeline>
-<codeline lineno="34"><highlight class="comment"><sp/><sp/><sp/><sp/>#pragma<sp/>GCC<sp/>diagnostic<sp/>pop<sp/>//<sp/>-Wnonnull-compare</highlight></codeline>
-<codeline lineno="35"><highlight class="comment"><sp/><sp/><sp/><sp/>if<sp/>(path<sp/>==<sp/>NULL)</highlight></codeline>
-<codeline lineno="36"><highlight class="comment"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="37"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>NULL;</highlight></codeline>
-<codeline lineno="38"><highlight class="comment"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="39"><highlight class="comment">}<sp/>*/</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>FMC_SHARED<sp/>FMC_File<sp/>*FMC_createFile_(unsigned<sp/>int<sp/>flags,<sp/>...)</highlight></codeline>
+<codeline lineno="32"><highlight class="comment">{</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/><sp/><sp/><sp/>va_list<sp/>args;</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/><sp/><sp/><sp/>check_in<sp/>flags<sp/>for_only_flags(FMC_C_STR_VIEW,<sp/>TO_OPEN)</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"></highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/><sp/><sp/><sp/>else<sp/>check_in<sp/>flags<sp/>for_only_flags(FMC_C_STR_VIEW,<sp/>GET_ENCODING)</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"></highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/><sp/><sp/><sp/>else<sp/>check_in<sp/>flags<sp/>for_only_flags(FMC_C_STR_VIEW,<sp/>GET_SIZE)</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"></highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"></highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/><sp/><sp/><sp/>FMC_UNREACHABLE;</highlight></codeline>
+<codeline lineno="48"><highlight class="comment">}</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>#pragma<sp/>GCC<sp/>diagnostic<sp/>ignored<sp/>&quot;-Wnonnull-compare&quot;</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/><sp/><sp/><sp/>if<sp/>(!path)</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>NULL;</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/><sp/><sp/><sp/>#pragma<sp/>GCC<sp/>diagnostic<sp/>pop<sp/>//<sp/>-Wnonnull-compare<sp/>*/</highlight></codeline>
     </programlisting>
     <location file="src/files/FMC_files.c"/>
   </compounddef>

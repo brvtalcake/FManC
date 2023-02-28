@@ -31,7 +31,7 @@ SOFTWARE.
 #define FMC_MACROS_H
 
 #include "FMC_platform.h"
-
+#include <metalang99.h>
 #include "FMC_attributes.h"
 
 
@@ -93,10 +93,49 @@ SOFTWARE.
     #define FMC_STRINGIZE_9(x, y, z, w, v, u, t, s, r) FMC_STRINGIZE(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(x, y), z), w), v), u), t), s), r))
 #endif
 
-#ifdef FMC_DEFER
-    #undef FMC_DEFER
+#if defined(FMC_ID) || defined(FMC_ID2) || defined(FMC_ID3) || defined(FMC_ID4) || defined(FMC_ID5) || defined(FMC_ID6) || defined(FMC_ID7) || defined(FMC_ID8) || defined(FMC_ID9)
+    #undef FMC_ID
+    #undef FMC_ID2
+    #undef FMC_ID3
+    #undef FMC_ID4
+    #undef FMC_ID5
+    #undef FMC_ID6
+    #undef FMC_ID7
+    #undef FMC_ID8
+    #undef FMC_ID9
 #endif
-#define FMC_DEFER(stmt, body) do body while (0); stmt
+#define FMC_ID9(x) x
+#define FMC_ID8(x) FMC_ID9(x)
+#define FMC_ID7(x) FMC_ID8(x)
+#define FMC_ID6(x) FMC_ID7(x)
+#define FMC_ID5(x) FMC_ID6(x)
+#define FMC_ID4(x) FMC_ID5(x)
+#define FMC_ID3(x) FMC_ID4(x)
+#define FMC_ID2(x) FMC_ID3(x)
+#define FMC_ID(x) FMC_ID2(x)
+
+#if defined(FMC_DECR_BY)
+    #undef FMC_DECR_BY
+#endif
+#define FMC_DECR_BY(x, y) ML99_EVAL(ML99_call(ML99_sub, v(x), v(y)))
+
+#ifdef defer
+    #undef defer
+#endif
+#define defer(stmt, body) do body while (0); stmt
+
+#if defined(foreach) || defined(foreach_counter) || defined(foreach_stop_cond) || defined(LOOP_TO_THE_END) || defined(LOOP_WHILE)
+    #undef foreach
+    #undef foreach_counter
+    #undef foreach_stop_cond
+    #undef LOOP_TO_THE_END
+    #undef LOOP_WHILE
+#endif
+#define LOOP_TO_THE_END ML99_nothing()
+#define LOOP_WHILE(x) ML99_just(v(x))
+#define foreach_counter(lines_after_foreach) FMC_CONCAT_2(base_index, FMC_DECR_BY(__LINE__, lines_after_foreach))
+#define foreach_stop_cond(x) ML99_EVAL(ML99_EVAL(ML99_call(ML99_if, ML99_isNothing(x), v(ML99_id(ML99_id(v(foreach_counter(0) < sizeof(array)/sizeof(array[0]))))), v(ML99_maybeUnwrap(x)))))
+#define foreach(elem, array, start, stop_index_cond) size_t foreach_counter(0) = start; for(typeof(array[foreach_counter(0)]) elem = array[foreach_counter(0)]; foreach_stop_cond(stop_index_cond) ; foreach_counter(0)++, elem = array[foreach_counter(0)])
 
 
 #ifndef FMC_METHODS

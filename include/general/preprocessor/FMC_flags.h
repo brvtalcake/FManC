@@ -26,8 +26,19 @@ SOFTWARE.
 
 #pragma once
 
-#ifndef FMC_FLAGS
-#define FMC_FLAGS
+#ifndef FMC_FLAGS_H
+#define FMC_FLAGS_H
+
+#include <metalang99.h>
+
+#if defined(check_in) || defined(for_only_flags) || defined(for_at_least_flags)
+    #undef check_in
+    #undef for_only_flags
+#endif // check_in || for_only_flags
+#define check_in if(((
+#define for_only_flags(...) ) | (ML99_LIST_EVAL(ML99_call(ML99_listIntersperse, v(|), ML99_list(v(__VA_ARGS__)))))) == (ML99_LIST_EVAL(ML99_call(ML99_listIntersperse, v(|), ML99_list(v(__VA_ARGS__))))))
+#define for_at_least_flags(...) ) & (ML99_LIST_EVAL(ML99_call(ML99_listIntersperse, v(|), ML99_list(v(__VA_ARGS__)))))) == (ML99_LIST_EVAL(ML99_call(ML99_listIntersperse, v(|), ML99_list(v(__VA_ARGS__))))))
+
 
 #if defined(FMC_ENCODING_FLAGS) || defined(UTF8) || defined(UTF8_BOM) || defined(UTF16_LE) || defined(UTF16_BE) || defined(UTF32_LE) || defined(UTF32_BE) || defined(ASCII) || defined(UNKNOWN)
     #undef FMC_ENCODING_FLAGS
@@ -41,20 +52,28 @@ SOFTWARE.
     #undef UNKNOWN
 #endif
 #define FMC_ENCODING_FLAGS
-#define UTF8 1
-#define UTF8_BOM 2
-#define UTF16_LE 4
-#define UTF16_BE 8
-#define UTF32_LE 16
-#define UTF32_BE 32
-#define ASCII 64
-#define UNKNOWN 128
+#define UTF8 1U
+#define UTF8_BOM 2U
+#define UTF16_LE 4U
+#define UTF16_BE 8U
+#define UTF32_LE 16U
+#define UTF32_BE 32U
+#define ASCII 64U
+#define UNKNOWN 128U
 
-#if defined(FMC_C_STR_VIEW) || defined(C_STR)
+#if defined(FMC_C_STR_VIEW) || defined(C_STR) || defined(FMC_C_STR_VIEW_PTR) || defined(C_STR_PTR) || defined(TO_OPEN) || defined(GET_ENCODING)
+    #undef FMC_C_STR_VIEW_PTR
+    #undef C_STR_PTR
+    #undef TO_OPEN
+    #undef GET_ENCODING
     #undef C_STR
     #undef FMC_C_STR_VIEW
-#endif // FMC_CSTR || C_STR
-#define FMC_C_STR_VIEW 1
-#define C_STR 2
+#endif // FMC_CSTR || C_STR || FMC_C_STR_VIEW_PTR || C_STR_PTR || TO_OPEN || GET_ENCODING
+#define FMC_C_STR_VIEW 1U
+#define C_STR 2U
+#define FMC_C_STR_VIEW_PTR 4U
+#define C_STR_PTR 8U
+#define TO_OPEN 16U
+#define GET_ENCODING 32U
 
-#endif // FMC_FLAGS
+#endif // FMC_FLAGS_H

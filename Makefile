@@ -73,11 +73,11 @@ AR=ar
 
 # Compiler and archiver flags
 AR_FLAGS=-rsc
-CFLAGS=-O3 -Wall -Wextra -Werror -Wunsuffixed-float-constants -Wconversion -Wdouble-promotion -Wsuggest-attribute=cold -Wsuggest-attribute=const -Wsuggest-attribute=format -Wsuggest-attribute=malloc -Wsuggest-attribute=noreturn -Wsuggest-attribute=pure -Wstack-protector -Wredundant-decls -Wnull-dereference -Wfloat-equal -Wfloat-conversion -std=gnu17
-CXX_FLAGS=-O3 -Wall -Wextra -Werror -Wconversion -Wdouble-promotion -Wsuggest-attribute=cold -Wsuggest-attribute=const -Wsuggest-attribute=format -Wsuggest-attribute=malloc -Wsuggest-attribute=noreturn -Wsuggest-attribute=pure -Wstack-protector -Wredundant-decls -Wnull-dereference -Wfloat-equal -Wfloat-conversion -std=gnu++17
+CFLAGS=-O3 -ftrack-macro-expansion=1 -Wall -Wextra -Werror -Wunsuffixed-float-constants -Wconversion -Wdouble-promotion -Wsuggest-attribute=cold -Wsuggest-attribute=const -Wsuggest-attribute=format -Wsuggest-attribute=malloc -Wsuggest-attribute=noreturn -Wsuggest-attribute=pure -Wstack-protector -Wredundant-decls -Wnull-dereference -Wfloat-equal -Wfloat-conversion -std=gnu17
+CXX_FLAGS=-O3 -ftrack-macro-expansion=1 -Wall -Wextra -Werror -Wconversion -Wdouble-promotion -Wsuggest-attribute=cold -Wsuggest-attribute=const -Wsuggest-attribute=format -Wsuggest-attribute=malloc -Wsuggest-attribute=noreturn -Wsuggest-attribute=pure -Wstack-protector -Wredundant-decls -Wnull-dereference -Wfloat-equal -Wfloat-conversion -std=gnu++17
 
-C_DEBUG_FLAGS=-g3 -std=gnu17 -fprofile-arcs -ftest-coverage
-CXX_DEBUG_FLAGS=-g3 -std=gnu++17 -fprofile-arcs -ftest-coverage
+C_DEBUG_FLAGS=-g3 -std=gnu17 -ftrack-macro-expansion=1 -fprofile-arcs -ftest-coverage
+CXX_DEBUG_FLAGS=-g3 -std=gnu++17 -ftrack-macro-expansion=1 -fprofile-arcs -ftest-coverage
 
 LD_FLAGS_DLL=-lstdc++ "-Wl,--out-implib=libFManC.dll.a,--export-all-symbols,--enable-auto-import"
 LD_FLAGS_SO=-lstdc++ -Wl,-soname,

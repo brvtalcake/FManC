@@ -1,8 +1,9 @@
 <map id="src/general/utils/FMC_globals.h" name="src/general/utils/FMC_globals.h">
-<area shape="rect" id="node1" title=" " alt="" coords="208,5,367,45"/>
-<area shape="rect" id="node2" href="$df/df8/FMC__typedefs_8h.html" title=" " alt="" coords="71,101,250,126"/>
-<area shape="rect" id="node3" href="$d0/d28/FMC__macros_8h.html" title=" " alt="" coords="148,181,299,221"/>
-<area shape="rect" id="node6" href="$da/dd3/FMC__consts_8h.html" title=" " alt="" coords="325,93,476,133"/>
+<area shape="rect" id="node1" title=" " alt="" coords="271,5,429,45"/>
+<area shape="rect" id="node2" href="$df/df8/FMC__typedefs_8h.html" title=" " alt="" coords="134,101,313,126"/>
+<area shape="rect" id="node3" href="$d0/d28/FMC__macros_8h.html" title=" " alt="" coords="211,181,361,221"/>
+<area shape="rect" id="node7" href="$da/dd3/FMC__consts_8h.html" title=" " alt="" coords="388,93,539,133"/>
 <area shape="rect" id="node4" href="$d7/dff/FMC__platform_8h.html" title=" " alt="" coords="5,269,132,295"/>
-<area shape="rect" id="node5" href="$d1/d2e/FMC__attributes_8h.html" title=" " alt="" coords="157,269,290,295"/>
+<area shape="rect" id="node5" title=" " alt="" coords="157,269,269,295"/>
+<area shape="rect" id="node6" href="$d1/d2e/FMC__attributes_8h.html" title=" " alt="" coords="293,269,426,295"/>
 </map>

@@ -26,8 +26,8 @@ SOFTWARE.
 
 #pragma once
 
-#ifndef FMC_DATA_H
-#define FMC_DATA_H
+#ifndef FMC_GENERAL_H
+#define FMC_GENERAL_H
 
 
 
@@ -42,5 +42,6 @@ SOFTWARE.
 #include "utils/FMC_globals.h"
 #include "utils/FMC_deprecated.h"
 #include "utils/FMC_str_view.h"
+#include "types/FMC_int128.h"
 
-#endif /* FMC_DATA_H */
+#endif // FMC_GENERAL_H

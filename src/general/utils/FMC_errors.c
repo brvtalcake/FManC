@@ -36,15 +36,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) void FMC_makeMsg_f(char *buff, unsigned int argc,
     va_start(args, argc);
     for (unsigned int i = 0; i < argc; i++)
     {
-        #if defined(__INTELLISENSE__)
-        #pragma diag_suppress 29
-        #pragma diag_suppress 144
-        #endif
         char *arg = va_arg(args, char *);
-        #if defined(__INTELLISENSE__)
-        #pragma diag_default 29
-        #pragma diag_default 144
-        #endif
         buff = strcat(buff, arg);
     }
     va_end(args);

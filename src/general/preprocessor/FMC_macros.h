@@ -137,7 +137,6 @@ SOFTWARE.
 #define foreach_stop_cond(x) ML99_EVAL(ML99_EVAL(ML99_call(ML99_if, ML99_isNothing(x), v(ML99_id(ML99_id(v(foreach_counter(0) < sizeof(array)/sizeof(array[0]))))), v(ML99_maybeUnwrap(x)))))
 #define foreach(elem, array, start, stop_index_cond) size_t foreach_counter(0) = start; for(typeof(array[foreach_counter(0)]) elem = array[foreach_counter(0)]; foreach_stop_cond(stop_index_cond) ; foreach_counter(0)++, elem = array[foreach_counter(0)])
 
-foreach_counter(2)
 
 #ifndef FMC_METHODS
     #define FMC_METHODS

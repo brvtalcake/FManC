@@ -96,12 +96,12 @@
   </compound>
   <compound refid="db/dc4/FMC__encodings_8c" kind="file"><name>FMC_encodings.c</name>
     <member refid="db/dc4/FMC__encodings_8c_1a7a104b2e349617222c6419b36bfd3260" kind="define"><name>__STDC_WANT_LIB_EXT1__</name></member>
-    <member refid="db/dc4/FMC__encodings_8c_1acab4d6d770e7937e0ad7ea1544baf12c" kind="function"><name>FMC_checkEncodingFlag</name></member>
+    <member refid="db/dc4/FMC__encodings_8c_1aabbf9e11448be84a6a2e1b0c44de37f7" kind="function"><name>FMC_checkEncodingFlag</name></member>
     <member refid="db/dc4/FMC__encodings_8c_1ac43872885563da059b7870132977db9d" kind="function"><name>FMC_getEncoding</name></member>
   </compound>
   <compound refid="db/d30/FMC__encodings_8h" kind="file"><name>FMC_encodings.h</name>
-    <member refid="db/d30/FMC__encodings_8h_1a336325df72eaa33182239adaa379e12e" kind="define"><name>FMC_ENCODINGS</name></member>
-    <member refid="db/d30/FMC__encodings_8h_1acab4d6d770e7937e0ad7ea1544baf12c" kind="function"><name>FMC_checkEncodingFlag</name></member>
+    <member refid="db/d30/FMC__encodings_8h_1a10729dc76de4d61e61eb78cde99277bb" kind="define"><name>FMC_ENCODINGS_H</name></member>
+    <member refid="db/d30/FMC__encodings_8h_1aabbf9e11448be84a6a2e1b0c44de37f7" kind="function"><name>FMC_checkEncodingFlag</name></member>
     <member refid="db/d30/FMC__encodings_8h_1ac43872885563da059b7870132977db9d" kind="function"><name>FMC_getEncoding</name></member>
   </compound>
   <compound refid="da/db0/FMC__data__analyze_8h" kind="file"><name>FMC_data_analyze.h</name>
@@ -190,9 +190,16 @@
   <compound refid="d2/d5e/FMC__flags_8h" kind="file"><name>FMC_flags.h</name>
     <member refid="d2/d5e/FMC__flags_8h_1a60710bac11b4f1135f61ded06542d661" kind="define"><name>ASCII</name></member>
     <member refid="d2/d5e/FMC__flags_8h_1a2f56f9c7894c58a0a8861d913a4f6b8e" kind="define"><name>C_STR</name></member>
+    <member refid="d2/d5e/FMC__flags_8h_1a519e08de345631e1b1c2c4e65a86bc99" kind="define"><name>C_STR_PTR</name></member>
+    <member refid="d2/d5e/FMC__flags_8h_1af08a23c54dd0a1f84f2d4a28a6e81acd" kind="define"><name>check_in</name></member>
     <member refid="d2/d5e/FMC__flags_8h_1aad064918afb4a22a8a946e44612d2c4f" kind="define"><name>FMC_C_STR_VIEW</name></member>
+    <member refid="d2/d5e/FMC__flags_8h_1a05cbff5b6f48bbdfee52531169b66e4e" kind="define"><name>FMC_C_STR_VIEW_PTR</name></member>
     <member refid="d2/d5e/FMC__flags_8h_1aac0e0b92a0acf1d2a0daa1a12817bc56" kind="define"><name>FMC_ENCODING_FLAGS</name></member>
-    <member refid="d2/d5e/FMC__flags_8h_1a1023a75f01f8d52e45b82c7ac47d346e" kind="define"><name>FMC_FLAGS</name></member>
+    <member refid="d2/d5e/FMC__flags_8h_1a29d592222396eb5e89d932da1a4eb242" kind="define"><name>FMC_FLAGS_H</name></member>
+    <member refid="d2/d5e/FMC__flags_8h_1a4a933d04c7469af70deea3809c526bc0" kind="define"><name>for_at_least_flags</name></member>
+    <member refid="d2/d5e/FMC__flags_8h_1a729f35593d149672a3b37242f65a97a5" kind="define"><name>for_only_flags</name></member>
+    <member refid="d2/d5e/FMC__flags_8h_1ab109da307317828a134ec60624fdb875" kind="define"><name>GET_ENCODING</name></member>
+    <member refid="d2/d5e/FMC__flags_8h_1aa692d217bf3e6fd7c687308c9480e1bf" kind="define"><name>TO_OPEN</name></member>
     <member refid="d2/d5e/FMC__flags_8h_1ac1ae4add974b9cfc6b5aaf8a578f01ab" kind="define"><name>UNKNOWN</name></member>
     <member refid="d2/d5e/FMC__flags_8h_1a13b25c906844f6f907310706bc7a04e1" kind="define"><name>UTF16_BE</name></member>
     <member refid="d2/d5e/FMC__flags_8h_1a237424ce7bfe9bfe9546b9200541bb28" kind="define"><name>UTF16_LE</name></member>
@@ -202,11 +209,21 @@
     <member refid="d2/d5e/FMC__flags_8h_1a1298449aa3d5122f10caea0eb0cefae6" kind="define"><name>UTF8_BOM</name></member>
   </compound>
   <compound refid="d0/d28/FMC__macros_8h" kind="file"><name>FMC_macros.h</name>
+    <member refid="d0/d28/FMC__macros_8h_1acadc8b8ceab85eeb7cdf06f5e7fb1ea1" kind="define"><name>defer</name></member>
     <member refid="d0/d28/FMC__macros_8h_1adaa91f8546b0b01d11a2cd98017913e3" kind="define"><name>FMC_BEGIN_DECLS</name></member>
     <member refid="d0/d28/FMC__macros_8h_1a8933cedeeee70736360b8b2e0bf7887e" kind="define"><name>FMC_COMPILE_TIME_ERROR</name></member>
-    <member refid="d0/d28/FMC__macros_8h_1af17b667adedacf123932fc419fde83ad" kind="define"><name>FMC_DEFER</name></member>
+    <member refid="d0/d28/FMC__macros_8h_1a26096412e6ad6d49a66c24e48ca42075" kind="define"><name>FMC_DECR_BY</name></member>
     <member refid="d0/d28/FMC__macros_8h_1a0fc97e62335477e13e081614f638122d" kind="define"><name>FMC_END_DECLS</name></member>
     <member refid="d0/d28/FMC__macros_8h_1a5ce01b85b1e5d65a1908f8cc3b882e7b" kind="define"><name>FMC_ERROR_CHECK</name></member>
+    <member refid="d0/d28/FMC__macros_8h_1a5359ce4cd1f5e48faa7d1158e6613b02" kind="define"><name>FMC_ID</name></member>
+    <member refid="d0/d28/FMC__macros_8h_1abd1eba2d41936c9418b53a0ba691c1c7" kind="define"><name>FMC_ID2</name></member>
+    <member refid="d0/d28/FMC__macros_8h_1a2a3d67b8112f8ce59afe48f630e6038a" kind="define"><name>FMC_ID3</name></member>
+    <member refid="d0/d28/FMC__macros_8h_1a8676afe263f86fccbca41d2bafac2cba" kind="define"><name>FMC_ID4</name></member>
+    <member refid="d0/d28/FMC__macros_8h_1a4cb1091ab4cd56ac5a1821dc2eccca02" kind="define"><name>FMC_ID5</name></member>
+    <member refid="d0/d28/FMC__macros_8h_1a100aabe5769ac827a07fff6f0bb0966f" kind="define"><name>FMC_ID6</name></member>
+    <member refid="d0/d28/FMC__macros_8h_1a4e75e21cb78bc1e7bb2b7e5c3d0067b9" kind="define"><name>FMC_ID7</name></member>
+    <member refid="d0/d28/FMC__macros_8h_1a0276d8f84c9a193f990ee4ba772df845" kind="define"><name>FMC_ID8</name></member>
+    <member refid="d0/d28/FMC__macros_8h_1a40c8dd58ac1498097f48bc0f9183f424" kind="define"><name>FMC_ID9</name></member>
     <member refid="d0/d28/FMC__macros_8h_1a35dc024d6bb352f60a0f2e52e3d784ed" kind="define"><name>FMC_MACROS_H</name></member>
     <member refid="d0/d28/FMC__macros_8h_1a97a1bda70e3e8a6f6a961b8ce97bcf0a" kind="define"><name>FMC_MAJOR_VERSION</name></member>
     <member refid="d0/d28/FMC__macros_8h_1aed9fdca39ca8fd6ee84e35da759701b3" kind="define"><name>FMC_MINOR_VERSION</name></member>
@@ -214,6 +231,11 @@
     <member refid="d0/d28/FMC__macros_8h_1aca1b0dcf6a53b2ba371dff30bfa122fd" kind="define"><name>FMC_VERSION</name></member>
     <member refid="d0/d28/FMC__macros_8h_1ae0b0c019ae2d1ed7ee336d5604573386" kind="define"><name>FMC_VERSION_NUMBER</name></member>
     <member refid="d0/d28/FMC__macros_8h_1a107db5c1eda77fae902cbf8040df85ba" kind="define"><name>FMC_VERSION_STRING</name></member>
+    <member refid="d0/d28/FMC__macros_8h_1a6131b95d83ce91c1475892e07e3e7cec" kind="define"><name>foreach</name></member>
+    <member refid="d0/d28/FMC__macros_8h_1ac20fc34bd093e52ec51cb6eec15ed062" kind="define"><name>foreach_counter</name></member>
+    <member refid="d0/d28/FMC__macros_8h_1aed4d2a05e4b6e5301a956bfa114457f9" kind="define"><name>foreach_stop_cond</name></member>
+    <member refid="d0/d28/FMC__macros_8h_1a21272e18f92fa4ccc876f3ce47a202ed" kind="define"><name>LOOP_TO_THE_END</name></member>
+    <member refid="d0/d28/FMC__macros_8h_1ab0e6199c0f779a90250bfd10b97bccef" kind="define"><name>LOOP_WHILE</name></member>
   </compound>
   <compound refid="d7/dff/FMC__platform_8h" kind="file"><name>FMC_platform.h</name>
   </compound>

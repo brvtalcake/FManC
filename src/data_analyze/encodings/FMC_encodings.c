@@ -79,13 +79,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_get
     // 1st if
     if(sizeOfFile < 0) // no error, must have overflowed
     {
-        #if defined(__INTELLISENSE__)
-        #pragma diag_suppress 109
-        #endif
         sizeOfFile = (typeof(sizeOfFile)) SIZE_MAX;
-        #if defined(__INTELLISENSE__)
-        #pragma diag_default 109
-        #endif
         size_t ret = fread(buff, 1, 4, file);
         if(ret != 4) goto check_error_type_1;
         else if (ret == 4) goto end_check_1;

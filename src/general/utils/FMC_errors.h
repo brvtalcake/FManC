@@ -26,8 +26,8 @@ SOFTWARE.
 
 #pragma once
 
-#ifndef FMC_ERRORS
-#define FMC_ERRORS
+#ifndef FMC_ERRORS_H
+#define FMC_ERRORS_H
 
 #include <stdio.h>
 #include "../preprocessor/FMC_consts.h"
@@ -426,4 +426,4 @@ FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightWhiteError(FILE *stream, co
     FMC_resetStreamOutputStyle(stream);
 }
 
-#endif // FMC_ERRORS
+#endif // FMC_ERRORS_H

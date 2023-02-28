@@ -3,6 +3,7 @@
   <compounddef id="d0/d28/FMC__macros_8h" kind="file" language="C++">
     <compoundname>FMC_macros.h</compoundname>
     <includes refid="d7/dff/FMC__platform_8h" local="yes">FMC_platform.h</includes>
+    <includes local="no">metalang99.h</includes>
     <includes refid="d1/d2e/FMC__attributes_8h" local="yes">FMC_attributes.h</includes>
     <includedby refid="d4/db9/FMC__wrapper_8h" local="yes">src/cpp/FMC_wrapper.h</includedby>
     <includedby refid="d9/de1/FMC__general_8h" local="yes">src/general/FMC_general.h</includedby>
@@ -14,7 +15,7 @@
     <includedby refid="dd/ddf/FMC__errors_8h" local="yes">src/general/utils/FMC_errors.h</includedby>
     <includedby refid="de/d86/FMC__globals_8h" local="yes">src/general/utils/FMC_globals.h</includedby>
     <incdepgraph>
-      <node id="3">
+      <node id="4">
         <label>FMC_attributes.h</label>
         <link refid="d1/d2e/FMC__attributes_8h"/>
         <childnode refid="1" relation="include">
@@ -27,10 +28,15 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
       </node>
       <node id="2">
         <label>FMC_platform.h</label>
         <link refid="d7/dff/FMC__platform_8h"/>
+      </node>
+      <node id="3">
+        <label>metalang99.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
@@ -218,6 +224,19 @@
       </node>
     </invincdepgraph>
       <sectiondef kind="define">
+      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1acadc8b8ceab85eeb7cdf06f5e7fb1ea1" prot="public" static="no">
+        <name>defer</name>
+        <param><defname>stmt</defname></param>
+        <param><defname>body</defname></param>
+        <initializer>do body while (0); stmt</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_macros.h" line="125" column="15" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="define" id="d0/d28/FMC__macros_8h_1adaa91f8546b0b01d11a2cd98017913e3" prot="public" static="no">
         <name>FMC_BEGIN_DECLS</name>
         <briefdescription>
@@ -226,7 +245,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/preprocessor/FMC_macros.h" line="157" column="25" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="157" bodyend="-1"/>
+        <location file="src/general/preprocessor/FMC_macros.h" line="196" column="25" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="196" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="d0/d28/FMC__macros_8h_1a8933cedeeee70736360b8b2e0bf7887e" prot="public" static="no">
         <name>FMC_COMPILE_TIME_ERROR</name>
@@ -238,20 +257,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/preprocessor/FMC_macros.h" line="186" column="16" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="186" bodyend="-1"/>
+        <location file="src/general/preprocessor/FMC_macros.h" line="225" column="16" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="225" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1af17b667adedacf123932fc419fde83ad" prot="public" static="no">
-        <name>FMC_DEFER</name>
-        <param><defname>stmt</defname></param>
-        <param><defname>body</defname></param>
-        <initializer>do body while (0); stmt</initializer>
+      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1a26096412e6ad6d49a66c24e48ca42075" prot="public" static="no">
+        <name>FMC_DECR_BY</name>
+        <param><defname>x</defname></param>
+        <param><defname>y</defname></param>
+        <initializer>ML99_EVAL(ML99_call(ML99_sub, v(x), v(y)))</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/preprocessor/FMC_macros.h" line="99" column="15" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="99" bodyend="-1"/>
+        <location file="src/general/preprocessor/FMC_macros.h" line="120" column="15" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="120" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="d0/d28/FMC__macros_8h_1a0fc97e62335477e13e081614f638122d" prot="public" static="no">
         <name>FMC_END_DECLS</name>
@@ -261,7 +280,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/preprocessor/FMC_macros.h" line="158" column="13" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="158" bodyend="-1"/>
+        <location file="src/general/preprocessor/FMC_macros.h" line="197" column="13" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="197" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="d0/d28/FMC__macros_8h_1a5ce01b85b1e5d65a1908f8cc3b882e7b" prot="public" static="no">
         <name>FMC_ERROR_CHECK</name>
@@ -279,7 +298,115 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/preprocessor/FMC_macros.h" line="193" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="193" bodyend="-1"/>
+        <location file="src/general/preprocessor/FMC_macros.h" line="232" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1a5359ce4cd1f5e48faa7d1158e6613b02" prot="public" static="no">
+        <name>FMC_ID</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="d0/d28/FMC__macros_8h_1abd1eba2d41936c9418b53a0ba691c1c7" kindref="member">FMC_ID2</ref>(x)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_macros.h" line="115" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1abd1eba2d41936c9418b53a0ba691c1c7" prot="public" static="no">
+        <name>FMC_ID2</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="d0/d28/FMC__macros_8h_1a2a3d67b8112f8ce59afe48f630e6038a" kindref="member">FMC_ID3</ref>(x)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_macros.h" line="114" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1a2a3d67b8112f8ce59afe48f630e6038a" prot="public" static="no">
+        <name>FMC_ID3</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="d0/d28/FMC__macros_8h_1a8676afe263f86fccbca41d2bafac2cba" kindref="member">FMC_ID4</ref>(x)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_macros.h" line="113" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1a8676afe263f86fccbca41d2bafac2cba" prot="public" static="no">
+        <name>FMC_ID4</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="d0/d28/FMC__macros_8h_1a4cb1091ab4cd56ac5a1821dc2eccca02" kindref="member">FMC_ID5</ref>(x)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_macros.h" line="112" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1a4cb1091ab4cd56ac5a1821dc2eccca02" prot="public" static="no">
+        <name>FMC_ID5</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="d0/d28/FMC__macros_8h_1a100aabe5769ac827a07fff6f0bb0966f" kindref="member">FMC_ID6</ref>(x)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_macros.h" line="111" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1a100aabe5769ac827a07fff6f0bb0966f" prot="public" static="no">
+        <name>FMC_ID6</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="d0/d28/FMC__macros_8h_1a4e75e21cb78bc1e7bb2b7e5c3d0067b9" kindref="member">FMC_ID7</ref>(x)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_macros.h" line="110" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1a4e75e21cb78bc1e7bb2b7e5c3d0067b9" prot="public" static="no">
+        <name>FMC_ID7</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="d0/d28/FMC__macros_8h_1a0276d8f84c9a193f990ee4ba772df845" kindref="member">FMC_ID8</ref>(x)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_macros.h" line="109" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1a0276d8f84c9a193f990ee4ba772df845" prot="public" static="no">
+        <name>FMC_ID8</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="d0/d28/FMC__macros_8h_1a40c8dd58ac1498097f48bc0f9183f424" kindref="member">FMC_ID9</ref>(x)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_macros.h" line="108" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1a40c8dd58ac1498097f48bc0f9183f424" prot="public" static="no">
+        <name>FMC_ID9</name>
+        <param><defname>x</defname></param>
+        <initializer>x</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_macros.h" line="107" column="55" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="107" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="d0/d28/FMC__macros_8h_1a35dc024d6bb352f60a0f2e52e3d784ed" prot="public" static="no">
         <name>FMC_MACROS_H</name>
@@ -300,7 +427,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/preprocessor/FMC_macros.h" line="126" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="126" bodyend="-1"/>
+        <location file="src/general/preprocessor/FMC_macros.h" line="165" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="165" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="d0/d28/FMC__macros_8h_1aed9fdca39ca8fd6ee84e35da759701b3" prot="public" static="no">
         <name>FMC_MINOR_VERSION</name>
@@ -311,7 +438,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/preprocessor/FMC_macros.h" line="127" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="127" bodyend="-1"/>
+        <location file="src/general/preprocessor/FMC_macros.h" line="166" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="166" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="d0/d28/FMC__macros_8h_1a4af38455403279d21f2cadc395ea695e" prot="public" static="no">
         <name>FMC_PATCH_VERSION</name>
@@ -322,7 +449,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/preprocessor/FMC_macros.h" line="128" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="128" bodyend="-1"/>
+        <location file="src/general/preprocessor/FMC_macros.h" line="167" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="167" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="d0/d28/FMC__macros_8h_1aca1b0dcf6a53b2ba371dff30bfa122fd" prot="public" static="no">
         <name>FMC_VERSION</name>
@@ -333,7 +460,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/preprocessor/FMC_macros.h" line="129" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="129" bodyend="-1"/>
+        <location file="src/general/preprocessor/FMC_macros.h" line="168" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="168" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="d0/d28/FMC__macros_8h_1ae0b0c019ae2d1ed7ee336d5604573386" prot="public" static="no">
         <name>FMC_VERSION_NUMBER</name>
@@ -344,7 +471,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/preprocessor/FMC_macros.h" line="131" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="131" bodyend="-1"/>
+        <location file="src/general/preprocessor/FMC_macros.h" line="170" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="170" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="d0/d28/FMC__macros_8h_1a107db5c1eda77fae902cbf8040df85ba" prot="public" static="no">
         <name>FMC_VERSION_STRING</name>
@@ -355,7 +482,69 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/general/preprocessor/FMC_macros.h" line="130" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="130" bodyend="-1"/>
+        <location file="src/general/preprocessor/FMC_macros.h" line="169" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1a6131b95d83ce91c1475892e07e3e7cec" prot="public" static="no">
+        <name>foreach</name>
+        <param><defname>elem</defname></param>
+        <param><defname>array</defname></param>
+        <param><defname>start</defname></param>
+        <param><defname>stop_index_cond</defname></param>
+        <initializer>size_t <ref refid="d0/d28/FMC__macros_8h_1ac20fc34bd093e52ec51cb6eec15ed062" kindref="member">foreach_counter</ref>(0) = start; for(typeof(array[<ref refid="d0/d28/FMC__macros_8h_1ac20fc34bd093e52ec51cb6eec15ed062" kindref="member">foreach_counter</ref>(0)]) elem = array[<ref refid="d0/d28/FMC__macros_8h_1ac20fc34bd093e52ec51cb6eec15ed062" kindref="member">foreach_counter</ref>(0)]; <ref refid="d0/d28/FMC__macros_8h_1aed4d2a05e4b6e5301a956bfa114457f9" kindref="member">foreach_stop_cond</ref>(stop_index_cond) ; <ref refid="d0/d28/FMC__macros_8h_1ac20fc34bd093e52ec51cb6eec15ed062" kindref="member">foreach_counter</ref>(0)++, elem = array[<ref refid="d0/d28/FMC__macros_8h_1ac20fc34bd093e52ec51cb6eec15ed062" kindref="member">foreach_counter</ref>(0)])</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_macros.h" line="138" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1ac20fc34bd093e52ec51cb6eec15ed062" prot="public" static="no">
+        <name>foreach_counter</name>
+        <param><defname>lines_after_foreach</defname></param>
+        <initializer>FMC_CONCAT_2(base_index, <ref refid="d0/d28/FMC__macros_8h_1a26096412e6ad6d49a66c24e48ca42075" kindref="member">FMC_DECR_BY</ref>(__LINE__, lines_after_foreach))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_macros.h" line="136" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1aed4d2a05e4b6e5301a956bfa114457f9" prot="public" static="no">
+        <name>foreach_stop_cond</name>
+        <param><defname>x</defname></param>
+        <initializer>ML99_EVAL(ML99_EVAL(ML99_call(ML99_if, ML99_isNothing(x), v(ML99_id(ML99_id(v(<ref refid="d0/d28/FMC__macros_8h_1ac20fc34bd093e52ec51cb6eec15ed062" kindref="member">foreach_counter</ref>(0) &lt; sizeof(array)/sizeof(array[0]))))), v(ML99_maybeUnwrap(x)))))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_macros.h" line="137" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1a21272e18f92fa4ccc876f3ce47a202ed" prot="public" static="no">
+        <name>LOOP_TO_THE_END</name>
+        <initializer>ML99_nothing()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_macros.h" line="134" column="35" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d0/d28/FMC__macros_8h_1ab0e6199c0f779a90250bfd10b97bccef" prot="public" static="no">
+        <name>LOOP_WHILE</name>
+        <param><defname>x</defname></param>
+        <initializer>ML99_just(v(x))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/general/preprocessor/FMC_macros.h" line="135" column="9" bodyfile="src/general/preprocessor/FMC_macros.h" bodystart="135" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -396,7 +585,7 @@
 <codeline lineno="31" refid="d0/d28/FMC__macros_8h_1a35dc024d6bb352f60a0f2e52e3d784ed" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_MACROS_H</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="32"><highlight class="normal"></highlight></codeline>
 <codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d7/dff/FMC__platform_8h" kindref="compound">FMC_platform.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;metalang99.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d1/d2e/FMC__attributes_8h" kindref="compound">FMC_attributes.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="36"><highlight class="normal"></highlight></codeline>
 <codeline lineno="37"><highlight class="normal"></highlight></codeline>
@@ -458,110 +647,149 @@
 <codeline lineno="93"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_STRINGIZE_9(x,<sp/>y,<sp/>z,<sp/>w,<sp/>v,<sp/>u,<sp/>t,<sp/>s,<sp/>r)<sp/>FMC_STRINGIZE(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(x,<sp/>y),<sp/>z),<sp/>w),<sp/>v),<sp/>u),<sp/>t),<sp/>s),<sp/>r))</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="94"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="95"><highlight class="normal"></highlight></codeline>
-<codeline lineno="96"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>FMC_DEFER</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="97"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_DEFER</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="98"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="99" refid="d0/d28/FMC__macros_8h_1af17b667adedacf123932fc419fde83ad" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_DEFER(stmt,<sp/>body)<sp/>do<sp/>body<sp/>while<sp/>(0);<sp/>stmt</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="100"><highlight class="normal"></highlight></codeline>
-<codeline lineno="101"><highlight class="normal"></highlight></codeline>
-<codeline lineno="102"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FMC_METHODS</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="103"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_METHODS</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="104"><highlight class="normal"></highlight></codeline>
-<codeline lineno="105"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>DECL_METHOD(name,<sp/>ret,<sp/>...)<sp/>\</highlight></codeline>
-<codeline lineno="106"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ret<sp/>(*name)(__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="107"><highlight class="normal"></highlight></codeline>
-<codeline lineno="108"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>INIT_STRUCT_METHOD(method,<sp/>associated_function)<sp/>\</highlight></codeline>
-<codeline lineno="109"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.method<sp/>=<sp/>associated_function</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="110"><highlight class="normal"></highlight></codeline>
-<codeline lineno="111"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_METHODS</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="112"><highlight class="normal"></highlight></codeline>
-<codeline lineno="113"><highlight class="normal"></highlight><highlight class="comment">/*#ifndef<sp/>FMC_OVERLOAD</highlight></codeline>
-<codeline lineno="114"><highlight class="comment"><sp/><sp/><sp/><sp/>#define<sp/>FMC_OVERLOAD(func)</highlight></codeline>
-<codeline lineno="115"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(FMC_ID)<sp/>||<sp/>defined(FMC_ID2)<sp/>||<sp/>defined(FMC_ID3)<sp/>||<sp/>defined(FMC_ID4)<sp/>||<sp/>defined(FMC_ID5)<sp/>||<sp/>defined(FMC_ID6)<sp/>||<sp/>defined(FMC_ID7)<sp/>||<sp/>defined(FMC_ID8)<sp/>||<sp/>defined(FMC_ID9)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_ID</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_ID2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_ID3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_ID4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_ID5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_ID6</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_ID7</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_ID8</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_ID9</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107" refid="d0/d28/FMC__macros_8h_1a40c8dd58ac1498097f48bc0f9183f424" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_ID9(x)<sp/>x</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108" refid="d0/d28/FMC__macros_8h_1a0276d8f84c9a193f990ee4ba772df845" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_ID8(x)<sp/>FMC_ID9(x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109" refid="d0/d28/FMC__macros_8h_1a4e75e21cb78bc1e7bb2b7e5c3d0067b9" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_ID7(x)<sp/>FMC_ID8(x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110" refid="d0/d28/FMC__macros_8h_1a100aabe5769ac827a07fff6f0bb0966f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_ID6(x)<sp/>FMC_ID7(x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111" refid="d0/d28/FMC__macros_8h_1a4cb1091ab4cd56ac5a1821dc2eccca02" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_ID5(x)<sp/>FMC_ID6(x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112" refid="d0/d28/FMC__macros_8h_1a8676afe263f86fccbca41d2bafac2cba" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_ID4(x)<sp/>FMC_ID5(x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113" refid="d0/d28/FMC__macros_8h_1a2a3d67b8112f8ce59afe48f630e6038a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_ID3(x)<sp/>FMC_ID4(x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="d0/d28/FMC__macros_8h_1abd1eba2d41936c9418b53a0ba691c1c7" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_ID2(x)<sp/>FMC_ID3(x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115" refid="d0/d28/FMC__macros_8h_1a5359ce4cd1f5e48faa7d1158e6613b02" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_ID(x)<sp/>FMC_ID2(x)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="116"><highlight class="normal"></highlight></codeline>
-<codeline lineno="117"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>FMC_VERSION</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="118"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_VERSION</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="119"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_VERSION_STRING</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="120"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_VERSION_NUMBER</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="121"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_MAJOR_VERSION</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="122"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_MINOR_VERSION</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="123"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_PATCH_VERSION</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="124"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_VERSION</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal"></highlight></codeline>
-<codeline lineno="126" refid="d0/d28/FMC__macros_8h_1a97a1bda70e3e8a6f6a961b8ce97bcf0a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_MAJOR_VERSION<sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="127" refid="d0/d28/FMC__macros_8h_1aed9fdca39ca8fd6ee84e35da759701b3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_MINOR_VERSION<sp/>0</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="128" refid="d0/d28/FMC__macros_8h_1a4af38455403279d21f2cadc395ea695e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_PATCH_VERSION<sp/>0</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="129" refid="d0/d28/FMC__macros_8h_1aca1b0dcf6a53b2ba371dff30bfa122fd" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_VERSION<sp/>FMC_CONCAT_5(FMC_MAJOR_VERSION,<sp/>FMC_PP_POINT(),<sp/>FMC_MINOR_VERSION,<sp/>FMC_PP_POINT(),<sp/>FMC_PATCH_VERSION)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="130" refid="d0/d28/FMC__macros_8h_1a107db5c1eda77fae902cbf8040df85ba" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_VERSION_STRING<sp/>FMC_STRINGIZE_5(FMC_MAJOR_VERSION,<sp/>FMC_PP_POINT(),<sp/>FMC_MINOR_VERSION,<sp/>FMC_PP_POINT(),<sp/>FMC_PATCH_VERSION)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="131" refid="d0/d28/FMC__macros_8h_1ae0b0c019ae2d1ed7ee336d5604573386" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_VERSION_NUMBER<sp/>FMC_CONCAT_2(FMC_MAJOR_VERSION*10000<sp/>+<sp/>FMC_MINOR_VERSION*100<sp/>+<sp/>FMC_PATCH_VERSION,<sp/>L)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="132"><highlight class="normal"></highlight></codeline>
-<codeline lineno="133"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FMC_alloca</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="134"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_alloca(size)<sp/>__builtin_alloca(size)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="135"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="136"><highlight class="normal"></highlight></codeline>
-<codeline lineno="137"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FMC_PROB</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="138"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_PROB(true_expr,<sp/>prob)<sp/>__builtin_expect_with_probability(true_expr,<sp/>1,<sp/>prob)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="139"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(FMC_DECR_BY)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_DECR_BY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120" refid="d0/d28/FMC__macros_8h_1a26096412e6ad6d49a66c24e48ca42075" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_DECR_BY(x,<sp/>y)<sp/>ML99_EVAL(ML99_call(ML99_sub,<sp/>v(x),<sp/>v(y)))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>defer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>defer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125" refid="d0/d28/FMC__macros_8h_1acadc8b8ceab85eeb7cdf06f5e7fb1ea1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>defer(stmt,<sp/>body)<sp/>do<sp/>body<sp/>while<sp/>(0);<sp/>stmt</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(foreach)<sp/>||<sp/>defined(foreach_counter)<sp/>||<sp/>defined(foreach_stop_cond)<sp/>||<sp/>defined(LOOP_TO_THE_END)<sp/>||<sp/>defined(LOOP_WHILE)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>foreach</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>foreach_counter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>foreach_stop_cond</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>LOOP_TO_THE_END</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>LOOP_WHILE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134" refid="d0/d28/FMC__macros_8h_1a21272e18f92fa4ccc876f3ce47a202ed" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LOOP_TO_THE_END<sp/>ML99_nothing()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135" refid="d0/d28/FMC__macros_8h_1ab0e6199c0f779a90250bfd10b97bccef" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LOOP_WHILE(x)<sp/>ML99_just(v(x))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136" refid="d0/d28/FMC__macros_8h_1ac20fc34bd093e52ec51cb6eec15ed062" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>foreach_counter(lines_after_foreach)<sp/>FMC_CONCAT_2(base_index,<sp/>FMC_DECR_BY(__LINE__,<sp/>lines_after_foreach))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137" refid="d0/d28/FMC__macros_8h_1aed4d2a05e4b6e5301a956bfa114457f9" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>foreach_stop_cond(x)<sp/>ML99_EVAL(ML99_EVAL(ML99_call(ML99_if,<sp/>ML99_isNothing(x),<sp/>v(ML99_id(ML99_id(v(foreach_counter(0)<sp/>&lt;<sp/>sizeof(array)/sizeof(array[0]))))),<sp/>v(ML99_maybeUnwrap(x)))))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138" refid="d0/d28/FMC__macros_8h_1a6131b95d83ce91c1475892e07e3e7cec" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>foreach(elem,<sp/>array,<sp/>start,<sp/>stop_index_cond)<sp/>size_t<sp/>foreach_counter(0)<sp/>=<sp/>start;<sp/>for(typeof(array[foreach_counter(0)])<sp/>elem<sp/>=<sp/>array[foreach_counter(0)];<sp/>foreach_stop_cond(stop_index_cond)<sp/>;<sp/>foreach_counter(0)++,<sp/>elem<sp/>=<sp/>array[foreach_counter(0)])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
 <codeline lineno="140"><highlight class="normal"></highlight></codeline>
-<codeline lineno="141"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FMC_UNREACHABLE</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="142"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_UNREACHABLE<sp/>__builtin_unreachable()</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="143"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="144"><highlight class="normal"></highlight></codeline>
-<codeline lineno="145"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FMC_MAKE_VOID</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="146"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_MAKE_VOID(expr)<sp/>do<sp/>{<sp/>(void)(expr);<sp/>}<sp/>while<sp/>(0)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="147"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="148"><highlight class="normal"></highlight></codeline>
-<codeline lineno="149"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(FMC_BEGIN_DECLS)<sp/>||<sp/>defined(FMC_END_DECLS)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="150"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_BEGIN_DECLS</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="151"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_END_DECLS</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="152"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="153"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="154"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_BEGIN_DECLS<sp/>extern<sp/>&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="155"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_END_DECLS<sp/>}</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="156"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="157" refid="d0/d28/FMC__macros_8h_1adaa91f8546b0b01d11a2cd98017913e3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_BEGIN_DECLS</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="158" refid="d0/d28/FMC__macros_8h_1a0fc97e62335477e13e081614f638122d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_END_DECLS</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="159"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="160"><highlight class="normal"></highlight></codeline>
-<codeline lineno="161"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Maybe<sp/>I&apos;ll<sp/>have<sp/>to<sp/>modify<sp/>this,<sp/>even<sp/>though<sp/>it<sp/>sounds<sp/>fine<sp/>to<sp/>me<sp/>now.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="162"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FMC_SHARED</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="163"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#if<sp/>FMC_COMPILING_ON_WINDOWS<sp/>&amp;&amp;<sp/>!defined(FMC_STATIC)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="164"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#if<sp/>defined(FMC_BUILD_DLL)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="165"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>FMC_SHARED<sp/>__declspec(dllexport)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="166"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#elif<sp/>defined(USE_FMC_DLL)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="167"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>FMC_SHARED<sp/>__declspec(dllimport)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="168"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="169"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#error<sp/>&quot;You<sp/>must<sp/>define<sp/>FMC_BUILD_DLL<sp/>to<sp/>build<sp/>the<sp/>DLL<sp/>or<sp/>USE_FMC_DLL<sp/>to<sp/>use<sp/>the<sp/>built<sp/>DLL.<sp/>To<sp/>use<sp/>or<sp/>build<sp/>the<sp/>static<sp/>library,<sp/>please<sp/>define<sp/>FMC_STATIC.&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="170"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="171"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#elif<sp/>FMC_COMPILING_ON_WINDOWS<sp/>&amp;&amp;<sp/>defined(FMC_STATIC)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="172"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>FMC_SHARED</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="173"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#elif<sp/>FMC_COMPILING_ON_LINUX<sp/>||<sp/>FMC_COMPILING_ON_MACOS</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="174"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#if<sp/>defined(FMC_STATIC)<sp/>||<sp/>defined(USE_FMC_DLL)<sp/>||<sp/>defined(FMC_BUILD_DLL)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="175"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#warning<sp/>&quot;You<sp/>don&apos;t<sp/>have<sp/>to<sp/>specify<sp/>FMC_STATIC,<sp/>USE_FMC_DLL<sp/>or<sp/>FMC_BUILD_DLL<sp/>on<sp/>Linux,<sp/>Unix<sp/>or<sp/>Mac<sp/>OS<sp/>X.<sp/>These<sp/>are<sp/>ignored<sp/>on<sp/>your<sp/>system.&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="176"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="177"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>FMC_SHARED</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="178"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="179"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#error<sp/>&quot;Unsupported<sp/>OS&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="180"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#endif<sp/></highlight><highlight class="comment">//<sp/>PLATFORMS</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="181"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_SHARED</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="182"><highlight class="normal"></highlight></codeline>
-<codeline lineno="183"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>FMC_COMPILE_TIME_ERROR</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="184"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_COMPILE_TIME_ERROR</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="185"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_COMPILE_TIME_ERROR</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="186" refid="d0/d28/FMC__macros_8h_1a8933cedeeee70736360b8b2e0bf7887e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_COMPILE_TIME_ERROR(msg)<sp/>_Pragma(STRINGIZE(GCC<sp/>error<sp/>STRINGIZE(msg)))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FMC_METHODS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_METHODS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>DECL_METHOD(name,<sp/>ret,<sp/>...)<sp/>\</highlight></codeline>
+<codeline lineno="145"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ret<sp/>(*name)(__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>INIT_STRUCT_METHOD(method,<sp/>associated_function)<sp/>\</highlight></codeline>
+<codeline lineno="148"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.method<sp/>=<sp/>associated_function</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_METHODS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="comment">/*#ifndef<sp/>FMC_OVERLOAD</highlight></codeline>
+<codeline lineno="153"><highlight class="comment"><sp/><sp/><sp/><sp/>#define<sp/>FMC_OVERLOAD(func)</highlight></codeline>
+<codeline lineno="154"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>FMC_VERSION</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_VERSION</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_VERSION_STRING</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_VERSION_NUMBER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_MAJOR_VERSION</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_MINOR_VERSION</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_PATCH_VERSION</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_VERSION</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165" refid="d0/d28/FMC__macros_8h_1a97a1bda70e3e8a6f6a961b8ce97bcf0a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_MAJOR_VERSION<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166" refid="d0/d28/FMC__macros_8h_1aed9fdca39ca8fd6ee84e35da759701b3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_MINOR_VERSION<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167" refid="d0/d28/FMC__macros_8h_1a4af38455403279d21f2cadc395ea695e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_PATCH_VERSION<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168" refid="d0/d28/FMC__macros_8h_1aca1b0dcf6a53b2ba371dff30bfa122fd" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_VERSION<sp/>FMC_CONCAT_5(FMC_MAJOR_VERSION,<sp/>FMC_PP_POINT(),<sp/>FMC_MINOR_VERSION,<sp/>FMC_PP_POINT(),<sp/>FMC_PATCH_VERSION)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169" refid="d0/d28/FMC__macros_8h_1a107db5c1eda77fae902cbf8040df85ba" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_VERSION_STRING<sp/>FMC_STRINGIZE_5(FMC_MAJOR_VERSION,<sp/>FMC_PP_POINT(),<sp/>FMC_MINOR_VERSION,<sp/>FMC_PP_POINT(),<sp/>FMC_PATCH_VERSION)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170" refid="d0/d28/FMC__macros_8h_1ae0b0c019ae2d1ed7ee336d5604573386" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_VERSION_NUMBER<sp/>FMC_CONCAT_2(FMC_MAJOR_VERSION*10000<sp/>+<sp/>FMC_MINOR_VERSION*100<sp/>+<sp/>FMC_PATCH_VERSION,<sp/>L)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FMC_alloca</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_alloca(size)<sp/>__builtin_alloca(size)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FMC_PROB</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_PROB(true_expr,<sp/>prob)<sp/>__builtin_expect_with_probability(true_expr,<sp/>1,<sp/>prob)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FMC_UNREACHABLE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_UNREACHABLE<sp/>__builtin_unreachable()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FMC_MAKE_VOID</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_MAKE_VOID(expr)<sp/>do<sp/>{<sp/>(void)(expr);<sp/>}<sp/>while<sp/>(0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="187"><highlight class="normal"></highlight></codeline>
-<codeline lineno="188"><highlight class="normal"></highlight></codeline>
-<codeline lineno="189"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>FMC_ERROR_CHECK</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="190"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_ERROR_CHECK</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="191"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_ERROR_CHECK</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="192"><highlight class="normal"></highlight><highlight class="comment">//<sp/>thought<sp/>about<sp/>this<sp/>for<sp/>lisibility,<sp/>not<sp/>sure<sp/>if<sp/>I&apos;ll<sp/>use<sp/>it<sp/>though</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="193" refid="d0/d28/FMC__macros_8h_1a5ce01b85b1e5d65a1908f8cc3b882e7b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_ERROR_CHECK(cond,<sp/>todo_stmt,<sp/>enable_debug,<sp/>todo_before)<sp/>\</highlight></codeline>
-<codeline lineno="194"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(cond)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
-<codeline lineno="195"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/>if(enable_debug)<sp/>todo_before<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
-<codeline lineno="196"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>todo_stmt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
-<codeline lineno="197"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="198"><highlight class="normal"></highlight></codeline>
-<codeline lineno="199"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_MACROS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(FMC_BEGIN_DECLS)<sp/>||<sp/>defined(FMC_END_DECLS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_BEGIN_DECLS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_END_DECLS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_BEGIN_DECLS<sp/>extern<sp/>&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_END_DECLS<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196" refid="d0/d28/FMC__macros_8h_1adaa91f8546b0b01d11a2cd98017913e3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_BEGIN_DECLS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197" refid="d0/d28/FMC__macros_8h_1a0fc97e62335477e13e081614f638122d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>FMC_END_DECLS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Maybe<sp/>I&apos;ll<sp/>have<sp/>to<sp/>modify<sp/>this,<sp/>even<sp/>though<sp/>it<sp/>sounds<sp/>fine<sp/>to<sp/>me<sp/>now.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FMC_SHARED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#if<sp/>FMC_COMPILING_ON_WINDOWS<sp/>&amp;&amp;<sp/>!defined(FMC_STATIC)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#if<sp/>defined(FMC_BUILD_DLL)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>FMC_SHARED<sp/>__declspec(dllexport)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#elif<sp/>defined(USE_FMC_DLL)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>FMC_SHARED<sp/>__declspec(dllimport)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#error<sp/>&quot;You<sp/>must<sp/>define<sp/>FMC_BUILD_DLL<sp/>to<sp/>build<sp/>the<sp/>DLL<sp/>or<sp/>USE_FMC_DLL<sp/>to<sp/>use<sp/>the<sp/>built<sp/>DLL.<sp/>To<sp/>use<sp/>or<sp/>build<sp/>the<sp/>static<sp/>library,<sp/>please<sp/>define<sp/>FMC_STATIC.&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#elif<sp/>FMC_COMPILING_ON_WINDOWS<sp/>&amp;&amp;<sp/>defined(FMC_STATIC)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>FMC_SHARED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#elif<sp/>FMC_COMPILING_ON_LINUX<sp/>||<sp/>FMC_COMPILING_ON_MACOS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#if<sp/>defined(FMC_STATIC)<sp/>||<sp/>defined(USE_FMC_DLL)<sp/>||<sp/>defined(FMC_BUILD_DLL)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#warning<sp/>&quot;You<sp/>don&apos;t<sp/>have<sp/>to<sp/>specify<sp/>FMC_STATIC,<sp/>USE_FMC_DLL<sp/>or<sp/>FMC_BUILD_DLL<sp/>on<sp/>Linux,<sp/>Unix<sp/>or<sp/>Mac<sp/>OS<sp/>X.<sp/>These<sp/>are<sp/>ignored<sp/>on<sp/>your<sp/>system.&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>FMC_SHARED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#error<sp/>&quot;Unsupported<sp/>OS&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#endif<sp/></highlight><highlight class="comment">//<sp/>PLATFORMS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_SHARED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>FMC_COMPILE_TIME_ERROR</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_COMPILE_TIME_ERROR</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_COMPILE_TIME_ERROR</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="225" refid="d0/d28/FMC__macros_8h_1a8933cedeeee70736360b8b2e0bf7887e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_COMPILE_TIME_ERROR(msg)<sp/>_Pragma(STRINGIZE(GCC<sp/>error<sp/>STRINGIZE(msg)))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>FMC_ERROR_CHECK</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#undef<sp/>FMC_ERROR_CHECK</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_ERROR_CHECK</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight><highlight class="comment">//<sp/>thought<sp/>about<sp/>this<sp/>for<sp/>lisibility,<sp/>not<sp/>sure<sp/>if<sp/>I&apos;ll<sp/>use<sp/>it<sp/>though</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="232" refid="d0/d28/FMC__macros_8h_1a5ce01b85b1e5d65a1908f8cc3b882e7b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMC_ERROR_CHECK(cond,<sp/>todo_stmt,<sp/>enable_debug,<sp/>todo_before)<sp/>\</highlight></codeline>
+<codeline lineno="233"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(cond)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="234"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/>if(enable_debug)<sp/>todo_before<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="235"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>todo_stmt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="236"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>FMC_MACROS_H</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="src/general/preprocessor/FMC_macros.h"/>
   </compounddef>

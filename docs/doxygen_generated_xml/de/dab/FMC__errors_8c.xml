@@ -8,7 +8,7 @@
     <includes local="no">stdarg.h</includes>
     <includes local="no">string.h</includes>
     <incdepgraph>
-      <node id="7">
+      <node id="8">
         <label>FMC_attributes.h</label>
         <link refid="d1/d2e/FMC__attributes_8h"/>
         <childnode refid="5" relation="include">
@@ -25,6 +25,8 @@
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
       </node>
       <node id="6">
         <label>FMC_platform.h</label>
@@ -39,9 +41,9 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
         <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
         </childnode>
       </node>
       <node id="2">
@@ -54,13 +56,16 @@
         <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="8">
+      <node id="7">
+        <label>metalang99.h</label>
+      </node>
+      <node id="9">
         <label>stdarg.h</label>
       </node>
       <node id="3">
         <label>stdio.h</label>
       </node>
-      <node id="9">
+      <node id="10">
         <label>string.h</label>
       </node>
     </incdepgraph>
@@ -629,7 +634,7 @@
         <references refid="dd/ddf/FMC__errors_8h_1ad65d0a387448c0139270e9c628cf4126" compoundref="dd/ddf/FMC__errors_8h" startline="188" endline="191">FMC_setTextStyleToBold</references>
         <referencedby refid="d2/deb/FMC__file__management_8h_1a93ee980e87b59d6a3af6e5d4f1ec7ac0" compoundref="dc/d5e/FMC__paths_8c" startline="109" endline="185">FMC_cutFilename</referencedby>
         <referencedby refid="d2/deb/FMC__file__management_8h_1a1fa62fd52b6e1fa12794f480d51ba683" compoundref="dc/d5e/FMC__paths_8c" startline="32" endline="107">FMC_extractFilename</referencedby>
-        <referencedby refid="db/dc4/FMC__encodings_8c_1ac43872885563da059b7870132977db9d" compoundref="db/dc4/FMC__encodings_8c" startline="36" endline="208">FMC_getEncoding</referencedby>
+        <referencedby refid="db/dc4/FMC__encodings_8c_1ac43872885563da059b7870132977db9d" compoundref="db/dc4/FMC__encodings_8c" startline="36" endline="202">FMC_getEncoding</referencedby>
         <referencedby refid="d2/deb/FMC__file__management_8h_1ab8632eb234af95cea6075bc166278cff" compoundref="dc/d5e/FMC__paths_8c" startline="187" endline="225">FMC_getExtension</referencedby>
       </memberdef>
       <memberdef kind="function" id="de/dab/FMC__errors_8c_1af60117aab20c2e6247320fd68e54f585" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -725,7 +730,7 @@
         <references refid="dd/ddf/FMC__errors_8h_1ae7a53e0773baed28896abfe5743a3a68" compoundref="dd/ddf/FMC__errors_8h" startline="93" endline="96">FMC_changeStreamTextColorToBrightYellow</references>
         <references refid="dd/ddf/FMC__errors_8h_1a5dac1ddff314ba7b3bed3d87eb3f19f5" compoundref="dd/ddf/FMC__errors_8h" startline="42" endline="45">FMC_resetStreamOutputStyle</references>
         <references refid="dd/ddf/FMC__errors_8h_1ad65d0a387448c0139270e9c628cf4126" compoundref="dd/ddf/FMC__errors_8h" startline="188" endline="191">FMC_setTextStyleToBold</references>
-        <referencedby refid="db/dc4/FMC__encodings_8c_1ac43872885563da059b7870132977db9d" compoundref="db/dc4/FMC__encodings_8c" startline="36" endline="208">FMC_getEncoding</referencedby>
+        <referencedby refid="db/dc4/FMC__encodings_8c_1ac43872885563da059b7870132977db9d" compoundref="db/dc4/FMC__encodings_8c" startline="36" endline="202">FMC_getEncoding</referencedby>
       </memberdef>
       <memberdef kind="function" id="de/dab/FMC__errors_8c_1ada66fd50420541f0e864c6a56fdd7bad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>

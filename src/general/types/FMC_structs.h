@@ -31,6 +31,7 @@ SOFTWARE.
 
 
 #include <stdio.h>
+#include <stdint.h>
 #include "../preprocessor/FMC_consts.h"
 #include "../preprocessor/FMC_macros.h"
 #include "FMC_enums.h"
@@ -39,11 +40,18 @@ SOFTWARE.
 FMC_SHARED struct FManC_File
 {
     FILE *file;
+    unsigned long long int fileSize;
+    FMC_Encodings encoding;
+    enum
+    {
+        wide,
+        byte
+    } orientation;
     FMC_FileState isOpened;
     char path[MAX_FPATH_SIZE];
     char name[MAX_FNAME_SIZE];
     char extension[MAX_FEXT_SIZE];
-    FMC_Encodings encoding;
+    char mode[10];
 };
 
 typedef struct FManC_File FMC_File;

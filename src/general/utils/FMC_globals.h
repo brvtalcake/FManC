@@ -34,4 +34,6 @@ SOFTWARE.
 FMC_SHARED FMC_FUNC_COLD FMC_Bool FMC_setDebugState(FMC_Bool state);
 FMC_SHARED FMC_FUNC_HOT FMC_Bool FMC_getDebugState(void);
 
+// TODO : Implement a global error manager (as errno in C)
+
 #endif // FMC_GLOBALS_H

@@ -26,9 +26,37 @@ SOFTWARE.
 
 #include <stdarg.h>
 #include "FMC_file_management.h"
+#include "../data_analyze/encodings/FMC_encodings.h"
 
+/* #define TO_OPEN 16U
+#define GET_ENCODING 32U
+#define GET_SIZE 64U
+#define BYTE_ORIENTED 128U
+#define WIDE_ORIENTED 256U
 
-FMC_SHARED FMC_File *FMC_createFile_(unsigned int flags, ...)
+#define FMC_C_STR_VIEW 1U
+#define C_STR 2U
+#define FMC_C_STR_VIEW_PTR 4U
+#define C_STR_PTR 8U
+
+FMC_SHARED struct FManC_File
+{
+    FILE *file;
+    unsigned long long int fileSize;
+    FMC_Encodings encoding;
+    enum
+    {
+        wide,
+        byte
+    } orientation;
+    FMC_FileState isOpened;
+    char path[MAX_FPATH_SIZE];
+    char name[MAX_FNAME_SIZE];
+    char extension[MAX_FEXT_SIZE];
+    char mode[10];
+}; */
+
+FMC_SHARED FMC_File *FMC_createFile(unsigned int flags, ...)
 {
     va_list args;
     check_in flags for_only_flags(FMC_C_STR_VIEW, TO_OPEN)
@@ -53,3 +81,12 @@ FMC_SHARED FMC_File *FMC_createFile_(unsigned int flags, ...)
         return NULL;
     }
     #pragma GCC diagnostic pop // -Wnonnull-compare */
+
+FMC_SHARED FMC_File *FMC_openFile();
+
+FMC_SHARED static FMC_File *FMC_open_getEncoding();
+
+FMC_SHARED static FMC_File *FMC_open_getSize();
+
+FMC_SHARED static FMC_File *FMC_open_getEncoding_getSize();
+

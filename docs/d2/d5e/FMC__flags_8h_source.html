@@ -123,45 +123,64 @@ $(document).ready(function(){initNavTree('d2/d5e/FMC__flags_8h_source.html','../
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#ifndef FMC_FLAGS</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#a1023a75f01f8d52e45b82c7ac47d346e">   30</a></span><span class="preprocessor">#define FMC_FLAGS</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#ifndef FMC_FLAGS_H</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#a29d592222396eb5e89d932da1a4eb242">   30</a></span><span class="preprocessor">#define FMC_FLAGS_H</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#if defined(FMC_ENCODING_FLAGS) || defined(UTF8) || defined(UTF8_BOM) || defined(UTF16_LE) || defined(UTF16_BE) || defined(UTF32_LE) || defined(UTF32_BE) || defined(ASCII) || defined(UNKNOWN)</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">    #undef FMC_ENCODING_FLAGS</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">    #undef UTF8</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">    #undef UTF8_BOM</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">    #undef UTF16_LE</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">    #undef UTF16_BE</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">    #undef UTF32_LE</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">    #undef UTF32_BE</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">    #undef ASCII</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">    #undef UNKNOWN</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#aac0e0b92a0acf1d2a0daa1a12817bc56">   43</a></span><span class="preprocessor">#define FMC_ENCODING_FLAGS</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#af9a8bd70343e082dbc63ac806b8ced24">   44</a></span><span class="preprocessor">#define UTF8 1</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#a1298449aa3d5122f10caea0eb0cefae6">   45</a></span><span class="preprocessor">#define UTF8_BOM 2</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#a237424ce7bfe9bfe9546b9200541bb28">   46</a></span><span class="preprocessor">#define UTF16_LE 4</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#a13b25c906844f6f907310706bc7a04e1">   47</a></span><span class="preprocessor">#define UTF16_BE 8</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#aa2a51b2e4a5f9cf14d4b6ac5253668f0">   48</a></span><span class="preprocessor">#define UTF32_LE 16</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#aaaf01663fad3a16f08c415c3f910e904">   49</a></span><span class="preprocessor">#define UTF32_BE 32</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#a60710bac11b4f1135f61ded06542d661">   50</a></span><span class="preprocessor">#define ASCII 64</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#ac1ae4add974b9cfc6b5aaf8a578f01ab">   51</a></span><span class="preprocessor">#define UNKNOWN 128</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#if defined(FMC_C_STR_VIEW) || defined(C_STR)</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">    #undef C_STR</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">    #undef FMC_C_STR_VIEW</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#endif </span><span class="comment">// FMC_CSTR || C_STR</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#aad064918afb4a22a8a946e44612d2c4f">   57</a></span><span class="preprocessor">#define FMC_C_STR_VIEW 1</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#a2f56f9c7894c58a0a8861d913a4f6b8e">   58</a></span><span class="preprocessor">#define C_STR 2</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#endif </span><span class="comment">// FMC_FLAGS</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &lt;metalang99.h&gt;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#if defined(check_in) || defined(for_only_flags) || defined(for_at_least_flags)</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">    #undef check_in</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">    #undef for_only_flags</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#endif </span><span class="comment">// check_in || for_only_flags</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#af08a23c54dd0a1f84f2d4a28a6e81acd">   38</a></span><span class="preprocessor">#define check_in if(((</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#a729f35593d149672a3b37242f65a97a5">   39</a></span><span class="preprocessor">#define for_only_flags(...) ) | (ML99_LIST_EVAL(ML99_call(ML99_listIntersperse, v(|), ML99_list(v(__VA_ARGS__)))))) == (ML99_LIST_EVAL(ML99_call(ML99_listIntersperse, v(|), ML99_list(v(__VA_ARGS__))))))</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#a4a933d04c7469af70deea3809c526bc0">   40</a></span><span class="preprocessor">#define for_at_least_flags(...) ) &amp; (ML99_LIST_EVAL(ML99_call(ML99_listIntersperse, v(|), ML99_list(v(__VA_ARGS__)))))) == (ML99_LIST_EVAL(ML99_call(ML99_listIntersperse, v(|), ML99_list(v(__VA_ARGS__))))))</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#if defined(FMC_ENCODING_FLAGS) || defined(UTF8) || defined(UTF8_BOM) || defined(UTF16_LE) || defined(UTF16_BE) || defined(UTF32_LE) || defined(UTF32_BE) || defined(ASCII) || defined(UNKNOWN)</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">    #undef FMC_ENCODING_FLAGS</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">    #undef UTF8</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">    #undef UTF8_BOM</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">    #undef UTF16_LE</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">    #undef UTF16_BE</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">    #undef UTF32_LE</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">    #undef UTF32_BE</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">    #undef ASCII</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">    #undef UNKNOWN</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#aac0e0b92a0acf1d2a0daa1a12817bc56">   54</a></span><span class="preprocessor">#define FMC_ENCODING_FLAGS</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#af9a8bd70343e082dbc63ac806b8ced24">   55</a></span><span class="preprocessor">#define UTF8 1U</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#a1298449aa3d5122f10caea0eb0cefae6">   56</a></span><span class="preprocessor">#define UTF8_BOM 2U</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#a237424ce7bfe9bfe9546b9200541bb28">   57</a></span><span class="preprocessor">#define UTF16_LE 4U</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#a13b25c906844f6f907310706bc7a04e1">   58</a></span><span class="preprocessor">#define UTF16_BE 8U</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#aa2a51b2e4a5f9cf14d4b6ac5253668f0">   59</a></span><span class="preprocessor">#define UTF32_LE 16U</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#aaaf01663fad3a16f08c415c3f910e904">   60</a></span><span class="preprocessor">#define UTF32_BE 32U</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#a60710bac11b4f1135f61ded06542d661">   61</a></span><span class="preprocessor">#define ASCII 64U</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#ac1ae4add974b9cfc6b5aaf8a578f01ab">   62</a></span><span class="preprocessor">#define UNKNOWN 128U</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#if defined(FMC_C_STR_VIEW) || defined(C_STR) || defined(FMC_C_STR_VIEW_PTR) || defined(C_STR_PTR) || defined(TO_OPEN) || defined(GET_ENCODING)</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">    #undef FMC_C_STR_VIEW_PTR</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">    #undef C_STR_PTR</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">    #undef TO_OPEN</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">    #undef GET_ENCODING</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">    #undef C_STR</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">    #undef FMC_C_STR_VIEW</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">#endif </span><span class="comment">// FMC_CSTR || C_STR || FMC_C_STR_VIEW_PTR || C_STR_PTR || TO_OPEN || GET_ENCODING</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#aad064918afb4a22a8a946e44612d2c4f">   72</a></span><span class="preprocessor">#define FMC_C_STR_VIEW 1U</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#a2f56f9c7894c58a0a8861d913a4f6b8e">   73</a></span><span class="preprocessor">#define C_STR 2U</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#a05cbff5b6f48bbdfee52531169b66e4e">   74</a></span><span class="preprocessor">#define FMC_C_STR_VIEW_PTR 4U</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#a519e08de345631e1b1c2c4e65a86bc99">   75</a></span><span class="preprocessor">#define C_STR_PTR 8U</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#aa692d217bf3e6fd7c687308c9480e1bf">   76</a></span><span class="preprocessor">#define TO_OPEN 16U</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="../../d2/d5e/FMC__flags_8h.html#ab109da307317828a134ec60624fdb875">   77</a></span><span class="preprocessor">#define GET_ENCODING 32U</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="preprocessor">#endif </span><span class="comment">// FMC_FLAGS_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../dir_0ef45b72fea5c9869a86802e135ecac6.html">general</a></li><li class="navelem"><a class="el" href="../../dir_2f601d846e8e89e376af36b1a1fc90a5.html">preprocessor</a></li><li class="navelem"><a class="el" href="../../d2/d5e/FMC__flags_8h.html">FMC_flags.h</a></li>
-    <li class="footer">Generated on Sat Feb 25 2023 22:00:12 for FManC by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+    <li class="footer">Generated on Tue Feb 28 2023 00:07:23 for FManC by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
   </ul>
 </div>
 </body>

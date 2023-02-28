@@ -217,7 +217,7 @@ SOFTWARE.
     #endif // FMC_VAR_UNAVAILABLE
 
     #ifndef FMC_VAR_MACH_MODE
-        #define FMC_VAR_MACH_MODE(mode) __attribute__((mode(mode)))
+        #define FMC_VAR_MACH_MODE(_mode) __attribute__((mode(_mode)))
     #endif // FMC_VAR_MACH_MODE
 
     #ifndef FMC_VAR_NON_STRING
@@ -262,7 +262,7 @@ SOFTWARE.
     #endif // FMC_TYPE_UNAVAILABLE
 
     #ifndef FMC_TYPE_MACH_MODE
-        #define FMC_TYPE_MACH_MODE(mode) __attribute__((mode(mode)))
+        #define FMC_TYPE_MACH_MODE(_mode) __attribute__((mode(_mode)))
     #endif // FMC_TYPE_MACH_MODE
 
     #ifndef FMC_TYPE_UNUSED
