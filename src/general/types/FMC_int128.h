@@ -28,6 +28,7 @@ SOFTWARE.
 #define FMC_INT128_H
 
 #include "FMC_typedefs.h"
+#include "FMC_structs.h"
 #include "../preprocessor/FMC_macros.h"
 #include "../preprocessor/FMC_attributes.h"
 

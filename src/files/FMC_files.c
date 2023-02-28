@@ -27,17 +27,13 @@ SOFTWARE.
 #include <stdarg.h>
 #include "FMC_file_management.h"
 #include "../data_analyze/encodings/FMC_encodings.h"
+#include "../cpp/FMC_wrapper.h"
 
 /* #define TO_OPEN 16U
 #define GET_ENCODING 32U
 #define GET_SIZE 64U
 #define BYTE_ORIENTED 128U
 #define WIDE_ORIENTED 256U
-
-#define FMC_C_STR_VIEW 1U
-#define C_STR 2U
-#define FMC_C_STR_VIEW_PTR 4U
-#define C_STR_PTR 8U
 
 FMC_SHARED struct FManC_File
 {
@@ -56,23 +52,59 @@ FMC_SHARED struct FManC_File
     char mode[10];
 }; */
 
-FMC_SHARED FMC_File *FMC_createFile(unsigned int flags, ...)
+// TODO : FMC_getFileSize
+// TODO : FMC_setFileOrientation
+
+
+
+FMC_SHARED FMC_File *FMC_createFile(const unsigned int user_flags, const char* restrict const path, const char* restrict const mode)
 {
-    va_list args;
-    check_in flags for_only_flags(FMC_C_STR_VIEW, TO_OPEN)
+    if (!path || !mode || user_flags == 0U || FMC_isRegFile(path) != 1)
     {
-
-    }
-    else check_in flags for_only_flags(FMC_C_STR_VIEW, GET_ENCODING)
-    {
-
-    }
-    else check_in flags for_only_flags(FMC_C_STR_VIEW, GET_SIZE)
-    {
-
+        return NULL;
     }
 
-    FMC_UNREACHABLE;
+    check_in user_flags if_not_set(TO_OPEN) // create the file struct but do not open the FILE
+    {
+        FMC_File *returned_file = malloc(sizeof(FMC_File));
+        if (!returned_file)
+        {
+            return NULL;
+        }
+        returned_file->file = NULL;
+        if(!FMC_cutFilename(path, returned_file->path, MAX_FPATH_SIZE))
+        {
+            free(returned_file);
+            return NULL;
+        }
+        if(!FMC_extractFilename(path, returned_file->name, MAX_FNAME_SIZE))
+        {
+            free(returned_file);
+            return NULL;
+        }
+        if(!FMC_getExtension(path, returned_file->extension, MAX_FEXT_SIZE))
+        {
+            free(returned_file);
+            return NULL;
+        }
+        returned_file->isOpened = False;
+        FILE *feeded_file = fopen(path, "rb");
+        if (!feeded_file)
+        {
+            free(returned_file);
+            return NULL;
+        }
+        check_in user_flags for_at_least_flags(GET_ENCODING)
+        {
+            returned_file->encoding = FMC_getEncoding(feeded_file);
+        }
+        check_in user_flags for_at_least_flags(GET_SIZE)
+        {
+            /* returned_file->fileSize = FMC_getFileSize(feeded_file); */
+        }
+    }
+
+    
 }
 
 /* #pragma GCC diagnostic ignored "-Wnonnull-compare"
@@ -82,11 +114,11 @@ FMC_SHARED FMC_File *FMC_createFile(unsigned int flags, ...)
     }
     #pragma GCC diagnostic pop // -Wnonnull-compare */
 
-FMC_SHARED FMC_File *FMC_openFile();
+/* FMC_SHARED FMC_File *FMC_openFile();
 
 FMC_SHARED static FMC_File *FMC_open_getEncoding();
 
 FMC_SHARED static FMC_File *FMC_open_getSize();
 
-FMC_SHARED static FMC_File *FMC_open_getEncoding_getSize();
+FMC_SHARED static FMC_File *FMC_open_getEncoding_getSize(); */
 

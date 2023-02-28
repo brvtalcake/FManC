@@ -106,10 +106,10 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
     }
 }
 
-FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char *FMC_cutFilename(const char * restrict const path, char * restrict dirs, const size_t dirs_size)
+FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char *FMC_cutFilename(const char * restrict const path, char * restrict dir, const size_t dir_size)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare" // get an error at compile time without this (because of attribute nonnull defined on linux)
-    if (!path || !dirs)
+    if (!path || !dir)
     {
         if (FMC_getDebugState())
         {
@@ -119,7 +119,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
         return NULL;
     }
     #pragma GCC diagnostic pop
-    memset(dirs, 0, dirs_size);
+    memset(dir, 0, dir_size);
     size_t path_len = 0;
     if ((path_len = strnlen(path, MAX_FEXT_SIZE + MAX_FNAME_SIZE + MAX_FPATH_SIZE)) >= MAX_FEXT_SIZE + MAX_FNAME_SIZE + MAX_FPATH_SIZE)
     {
@@ -148,38 +148,38 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
 
     else if ((last_sep = strrchr(path_cpy, (int)'/')))
     {
-        strncpy(dirs, path_cpy, strnlen(path_cpy, path_len) - strnlen(last_sep, path_len) + 1);
-        dirs[strnlen(path_cpy, path_len) - strnlen(last_sep, path_len) + 1] = '\0';
-        return dirs;
+        strncpy(dir, path_cpy, strnlen(path_cpy, path_len) - strnlen(last_sep, path_len) + 1);
+        dir[strnlen(path_cpy, path_len) - strnlen(last_sep, path_len) + 1] = '\0';
+        return dir;
     }
 
     else if ((last_sep = strrchr(path_cpy, (int)'\\')))
     {
-        strncpy(dirs, path_cpy, strnlen(path_cpy, path_len) - strnlen(last_sep, path_len) + 1);
-        dirs[strnlen(path_cpy, path_len) - strnlen(last_sep, path_len) + 1] = '\0';
-        return dirs;
+        strncpy(dir, path_cpy, strnlen(path_cpy, path_len) - strnlen(last_sep, path_len) + 1);
+        dir[strnlen(path_cpy, path_len) - strnlen(last_sep, path_len) + 1] = '\0';
+        return dir;
     }
     else if ((last_sep = strrchr(path_cpy, (int)'~')))
     {
-        strncpy(dirs, "~/", 4);
-        if (strcmp(dirs, "~/") != 0)
+        strncpy(dir, "~/", 4);
+        if (strcmp(dir, "~/") != 0)
         {
             FMC_makeMsg(err_path4, 4, "FMC INTERNAL ERROR : ", "In function : ", __func__, ". strncpy failure.");
             FMC_printBrightRedError(stderr, err_path4);
             return NULL;
         }
-        return dirs;
+        return dir;
     }
     else
     {
-        dirs = strncpy(dirs, "./", 4);
-        if (strcmp(dirs, "./") != 0)
+        dir = strncpy(dir, "./", 4);
+        if (strcmp(dir, "./") != 0)
         {
             FMC_makeMsg(err_path3, 4, "FMC INTERNAL ERROR : ", "In function : ", __func__, ". strncpy failure.");
             FMC_printBrightRedError(stderr, err_path3);
             return NULL;
         }
-        return dirs;
+        return dir;
     }
     
 }

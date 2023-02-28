@@ -28,6 +28,7 @@ SOFTWARE.
 #define FMC_GLOBALS_H
 
 #include "../types/FMC_typedefs.h"
+#include "../types/FMC_enums.h"
 #include "../preprocessor/FMC_macros.h"
 #include "../preprocessor/FMC_consts.h"
 

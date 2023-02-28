@@ -29,11 +29,10 @@ SOFTWARE.
 #ifndef FMC_TYPEDEFS_H
 #define FMC_TYPEDEFS_H
 
+#include <stdint.h>
 #include "../preprocessor/FMC_macros.h"
 
-typedef int found_bs_n;
-typedef int found_bs_t;
-typedef int found_bs_r_bs_n;
+typedef uint8_t FMC_Byte;
 typedef _Bool FMC_CharControl;
 typedef _Bool FMC_FileState;
 typedef _Bool FMC_Bool;

@@ -43,14 +43,16 @@ If you want to download a PDF documentation, it's [here](https://github.com/brvt
 
 **TODO**.
 
-## ToDoList
+## ToDoList for things other than just continuing the lib development
 
-- [ ] Implement the dir API in C++, and write a C wrapper to make it available in C
-- [ ] Update these files due to the above TODO : FMC_macros.h, FMC_platform.h, Makefile, (... ?)
+- [x] Implement the dir API in C++, and write a C wrapper to make it available in C
+- [x] Update these files due to the above TODO : FMC_macros.h, FMC_platform.h, Makefile, (... ?)
 - [ ] Make more issue / pull request templates
 - [ ] Documenting, as I'm starting to do with Doxygen
 - [ ] Wrap decls with FMC_BEGING_DECLS / FMC_END_DECLS
-- [ ] Print error message when trying to use the C++ wrapped functions in C++, since it's better to simply use the standard functions
+- [ ] Print error message when trying to use the C++ wrapped functions in C++, since it's better to simply use the standard functions (or maybe use GCC's visibility attribute)
+- [ ] Make use of GCC's symver attribute
+- [ ] Build a better error system to make functions more simple (maybe think about asserting obvious "in" conditions that must be satisfied)
 - [x] Make a real test folder with unit tests
 - [x] Let the possibility to disable error messages
 

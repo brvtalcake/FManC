@@ -31,13 +31,16 @@ SOFTWARE.
 
 #include <metalang99.h>
 
-#if defined(check_in) || defined(for_only_flags) || defined(for_at_least_flags)
+#if defined(check_in) || defined(for_only_flags) || defined(for_at_least_flags) || defined(if_not_set)
     #undef check_in
     #undef for_only_flags
-#endif // check_in || for_only_flags
+    #undef for_at_least_flags
+    #undef if_not_set
+#endif // check_in || for_only_flags || for_at_least_flags || if_not_set
 #define check_in if(((
 #define for_only_flags(...) ) | (ML99_LIST_EVAL(ML99_call(ML99_listIntersperse, v(|), ML99_list(v(__VA_ARGS__)))))) == (ML99_LIST_EVAL(ML99_call(ML99_listIntersperse, v(|), ML99_list(v(__VA_ARGS__))))))
 #define for_at_least_flags(...) ) & (ML99_LIST_EVAL(ML99_call(ML99_listIntersperse, v(|), ML99_list(v(__VA_ARGS__)))))) == (ML99_LIST_EVAL(ML99_call(ML99_listIntersperse, v(|), ML99_list(v(__VA_ARGS__))))))
+#define if_not_set(flags) ) & (flags)) == 0U)
 
 
 #if defined(FMC_ENCODING_FLAGS) || defined(UTF8) || defined(UTF8_BOM) || defined(UTF16_LE) || defined(UTF16_BE) || defined(UTF32_LE) || defined(UTF32_BE) || defined(ASCII) || defined(UNKNOWN)

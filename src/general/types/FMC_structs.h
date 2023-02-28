@@ -53,7 +53,6 @@ FMC_SHARED struct FManC_File
     char extension[MAX_FEXT_SIZE];
     char mode[10];
 };
-
 typedef struct FManC_File FMC_File;
 
 FMC_SHARED struct FManC_StrOcc
@@ -61,17 +60,15 @@ FMC_SHARED struct FManC_StrOcc
 	size_t charCount;
 	long long int *pos;
 };
-
 typedef struct FManC_StrOcc FMC_StrOcc;
 
 FMC_SHARED struct FManC_CharComp
 {
-    unsigned int mostLeft : 8;
-    unsigned int middleLeft : 8;
-    unsigned int middleRight : 8;
-    unsigned int mostRight : 8;
+    FMC_Byte mostLeft : 8;
+    FMC_Byte middleLeft : 8;
+    FMC_Byte middleRight : 8;
+    FMC_Byte mostRight : 8;
 };
-
 typedef struct FManC_CharComp FMC_CharComp;
 
 FMC_SHARED struct FManC_Char
@@ -80,7 +77,6 @@ FMC_SHARED struct FManC_Char
     FMC_CharComp comp;
     FMC_CharControl isNull;
 };
-
 typedef struct FManC_Char FMC_Char;
 
 
@@ -89,7 +85,6 @@ FMC_SHARED struct FManC_String
     FMC_Char *chars;
     size_t size;
 };
-
 typedef struct FManC_String FMC_String;
 
 FMC_SHARED struct FManC_CStrView
@@ -97,8 +92,14 @@ FMC_SHARED struct FManC_CStrView
     size_t size;
     char *str;
 };
-
 typedef struct FManC_CStrView FMC_CStrView;
+
+FMC_SHARED struct FManC_Uint128
+{
+    uint64_t high;
+    uint64_t low;
+};
+typedef struct FManC_Uint128 FMC_Uint128;
 
 /*#include <threads.h>
 
