@@ -2,7 +2,7 @@
 
 MIT License
 
-Copyright (c) 2022-2023 Axel PASCON
+Copyright (c) 2022 Axel PASCON
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -24,24 +24,10 @@ SOFTWARE.
 
 */
 
-#ifndef FMC_DIR_HPP
-#define FMC_DIR_HPP
+#include "FMC_file_management.h"
+#include "../cpp/FMC_wrapper.h"
 
-#include <cstddef>
+/* FMC_SHARED FMC_Directory* FMC_createDir(const char* restrict const path)
+{
 
-int FMC_dirExists_(const char *path);
-int FMC_isDir_(const char *path);
-int FMC_isRegFile_(const char *path);
-int FMC_isSymLink_(const char *path);
-int FMC_isBlock_(const char* path);
-int FMC_isCharFile_(const char* path);
-int FMC_isSocket_(const char* path);
-int FMC_isFIFO_(const char* path);
-int FMC_isOther_(const char* path);
-//char *FMC_readSymlink_(char *path_sym, const char * path);
-int FMC_isEmpty_(const char *path);
-//int FMC_createDir_(const char *path);
-char *FMC_getCurrentPath_(char *path, const size_t size);
-char *FMC_getAbsolutePath_(char *path, char *buffer, const size_t size);
-
-#endif // FMC_DIR_HPP
+} */

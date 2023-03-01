@@ -41,6 +41,11 @@ SOFTWARE.
         #define FMC_FUNC_ALIAS(aliased) __attribute__((alias(FMC_STRINGIZE(aliased)))) 
     #endif // FMC_FUNC_ALIAS
 
+    #ifdef FMC_FUNC_ALLOC_SIZE
+        #undef FMC_FUNC_ALLOC_SIZE
+    #endif // FMC_FUNC_ALLOC_SIZE
+    #define FMC_FUNC_ALLOC_SIZE(_p1, ...) __attribute__((alloc_size(_p1, __VA_ARGS__)))
+
     #ifndef FMC_FUNC_ALWAYS_INLINE
         #define FMC_FUNC_ALWAYS_INLINE __attribute__((always_inline))
     #endif // FMC_FUNC_ALWAYS_INLINE

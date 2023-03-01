@@ -33,6 +33,8 @@ SOFTWARE.
 #include "../preprocessor/FMC_consts.h"
 #include "../preprocessor/FMC_macros.h"
 
+FMC_BEGIN_DECLS
+
 FMC_SHARED FMC_FUNC_NONNULL(1) void FMC_makeMsg_f(char *buff, unsigned int argc, ...);
 
 #define FMC_makeMsg(err_var_name, argc, ...)         \
@@ -425,5 +427,7 @@ FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightWhiteError(FILE *stream, co
     fprintf(stream, "%s\n", text);
     FMC_resetStreamOutputStyle(stream);
 }
+
+FMC_END_DECLS
 
 #endif // FMC_ERRORS_H

@@ -2,7 +2,7 @@
 
 MIT License
 
-Copyright (c) 2023 Axel PASCON
+Copyright (c) 2022-2023 Axel PASCON
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -24,18 +24,24 @@ SOFTWARE.
 
 */
 
-#pragma once
+#ifndef CPP_FMC_FILESYSTEM_H
+#define CPP_FMC_FILESYSTEM_H
 
-#ifndef FMC_ENCODINGS_H
-#define FMC_ENCODINGS_H
+#include <cstddef>
 
-#include "../../general/FMC_general.h"
+// int FMC_dirExists_(const char *path);
+// int FMC_isDir_(const char *path);
+// int FMC_isRegFile_(const char *path);
+int FMC_isSymLink_(const char *path);
+int FMC_isBlock_(const char* path);
+// int FMC_isCharFile_(const char* path);
+// int FMC_isSocket_(const char* path);
+int FMC_isFIFO_(const char* path);
+int FMC_isOther_(const char* path);
+//char *FMC_readSymlink_(char *path_sym, const char * path);
+int FMC_isEmpty_(const char *path);
+//int FMC_createDir_(const char *path);
+char *FMC_getCurrentPath_(char *path, const size_t size);
+char *FMC_getAbsolutePath_(char *path, char *buffer, const size_t size);
 
-FMC_BEGIN_DECLS
-
-FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_getEncoding(FILE *file);
-FMC_SHARED FMC_FUNC_CONST FMC_FUNC_ALWAYS_INLINE inline FMC_Encodings FMC_checkEncodingFlag(unsigned int encoding);
-
-FMC_END_DECLS
-
-#endif // FMC_ENCODINGS_H
+#endif // CPP_FMC_FILESYSTEM_H

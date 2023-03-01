@@ -1,7 +1,7 @@
 #include <stdatomic.h>
 #include "FMC_globals.h"
-
-#define FMC_ERR_STR_LEN 256
+#include "../preprocessor/FMC_consts.h"
+#include "../types/FMC_structs.h"
 
 
 #ifndef __STDC_NO_ATOMICS__
@@ -16,7 +16,13 @@ FMC_SHARED static volatile _Atomic(FMC_Error) FMC_ERROR = FMC_OK;
 FMC_SHARED static volatile FMC_Error FMC_ERROR = FMC_OK;
 #endif
 
-FMC_SHARED static char FMC_ERROR_STR[FMC_ERR_STR_COUNT][FMC_ERR_STR_LEN] = 
+#ifndef __STDC_NO_ATOMICS__
+FMC_SHARED static FMC_ErrStack;
+#else
+FMC_SHARED static FMC_ErrStack FMC_VAR_COMMON;
+#endif
+
+FMC_SHARED static const char const FMC_ERROR_STR[FMC_ERR_STR_COUNT][FMC_ERR_STR_LEN] = 
 {
     "No error occured", // FMC_OK
 };

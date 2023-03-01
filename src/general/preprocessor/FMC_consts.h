@@ -29,6 +29,7 @@ SOFTWARE.
 #ifndef FMC_CONSTS_H
 #define FMC_CONSTS_H
 
+// TODO: Change the names of these constants to be namespaced
 #if defined(FMC_MAX_PATH_COMPONENTS_SIZE) || defined(MAX_FEXT_SIZE) || defined(MAX_FNAME_SIZE) || defined(MAX_FPATH_SIZE)
     #undef FMC_MAX_PATH_COMPONENTS_SIZE
     #undef MAX_FEXT_SIZE
@@ -40,6 +41,14 @@ SOFTWARE.
 #define MAX_FNAME_SIZE 256
 #define MAX_FPATH_SIZE 512
 
+#if defined(FMC_MAX_ERR_MSG_STCK_SIZE) || defined(FMC_ERR_STR_LEN) || defined(FMC_ERR_STR_COUNT)
+    #undef FMC_MAX_ERR_MSG_STCK_SIZE
+    #undef FMC_ERR_STR_LEN
+    #undef FMC_ERR_STR_COUNT
+#endif
+#define FMC_MAX_ERR_MSG_STCK_SIZE 10
+#define FMC_ERR_STR_LEN 256
+#define FMC_ERR_STR_COUNT 1
 
 #ifndef FMC_STYLES
     #define FMC_STYLES

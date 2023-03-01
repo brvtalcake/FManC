@@ -115,6 +115,34 @@ SOFTWARE.
 #define FMC_ID2(x) FMC_ID3(x)
 #define FMC_ID(x) FMC_ID2(x)
 
+#if defined(FMC_INT_PRINT_FMT) || defined(FMC_INT_SCANF_FMT)
+    #undef FMC_INT_PRINT_FMT
+    #undef FMC_INT_SCANF_FMT
+#endif
+#define FMC_INT_PRINT_FMT(first_str, integer, second_str) _Generic((integer), \
+    signed char: first_str "%d" second_str,                                   \
+    unsigned char: first_str "%u" second_str,                                 \
+    signed short: first_str "%hd" second_str,                                 \
+    unsigned short: first_str "%hu" second_str,                               \
+    signed int: first_str "%d" second_str,                                    \
+    unsigned int: first_str "%u" second_str,                                  \
+    signed long: first_str "%ld" second_str,                                  \
+    unsigned long: first_str "%lu" second_str,                                \
+    signed long long: first_str "%lld" second_str,                            \
+    unsigned long long: first_str "%llu" second_str)
+
+#define FMC_INT_SCANF_FMT(first_str, integer, second_str) _Generic((integer), \
+    signed char: first_str "%d" second_str,                                    \
+    unsigned char: first_str "%u" second_str,                                  \
+    signed short: first_str "%hd" second_str,                                  \
+    unsigned short: first_str "%hu" second_str,                                \
+    signed int: first_str "%d" second_str,                                     \
+    unsigned int: first_str "%u" second_str,                                   \
+    signed long: first_str "%ld" second_str,                                   \
+    unsigned long: first_str "%lu" second_str,                                 \
+    signed long long: first_str "%lld" second_str,                             \
+    unsigned long long: first_str "%llu" second_str)
+
 #if defined(FMC_DECR_BY)
     #undef FMC_DECR_BY
 #endif
@@ -191,6 +219,15 @@ SOFTWARE.
 #ifndef FMC_alloca
     #define FMC_alloca(size) __builtin_alloca(size)
 #endif
+
+#if defined(FMC_objSize) || defined(FMC_dynObjSize) || defined(FMc_prefetch)
+    #undef FMC_objSize
+    #undef FMC_dynObjSize
+    #undef FMC_prefetch
+#endif
+#define FMC_objSize(ptr, type) __builtin_object_size(ptr, type)
+#define FMC_dynObjSize(ptr, type) __builtin_dynamic_object_size(ptr, type)
+#define FMC_prefetch(ptr, rw, locality) __builtin_prefetch(ptr, rw, locality)
 
 #ifndef FMC_PROB
     #define FMC_PROB(true_expr, prob) __builtin_expect_with_probability(true_expr, 1, prob)

@@ -37,6 +37,31 @@ SOFTWARE.
 #include "FMC_enums.h"
 #include "FMC_typedefs.h"
 
+FMC_BEGIN_DECLS
+
+FMC_SHARED struct FManC_ErrStackElement
+{
+    FMC_Error errorNum;
+    struct FManC_ErrStackElement *next;
+};
+typedef struct FManC_ErrStackElement FMC_ErrStackElement;
+
+FMC_SHARED struct FManC_ErrStack
+{
+    FMC_ErrStackElement *lastError;
+    uint8_t stackSize;
+};
+typedef struct FManC_ErrStack FMC_ErrStack;
+
+FMC_SHARED struct FManC_Directory
+{
+    size_t fileCount;
+    size_t dirCount;
+    size_t totalCount;
+    char pathList[][]; // this is the array containing all the paths. Each path length is at most MAX_FPATH_SIZE + MAX_FNAME_SIZE + MAX_FEXT_SIZE
+};
+typedef struct FManC_Directory FMC_Directory;
+
 FMC_SHARED struct FManC_File
 {
     FILE *file;
@@ -116,5 +141,7 @@ FMC_SHARED struct FManC_Arena
     void* end;
 
 };*/
+
+FMC_END_DECLS
 
 #endif // FMC_STRUCTS_H

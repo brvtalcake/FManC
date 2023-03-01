@@ -26,7 +26,7 @@ else ifneq (,$(findstring windows,$(OS)))
 endif
 
 # Project subdirectories
-CPP_SRC_SUBDIRS=src/cpp/ src/cpp/FMC_dir/
+CPP_SRC_SUBDIRS=src/cpp/ src/cpp/FMC_dir/ src/cpp/FMC_filesystem/
 C_SRC_SUBDIRS=src/ src/general/ src/general/preprocessor/ src/general/types/ src/general/utils/ src/files/ src/data_analyze/ src/data_analyze/encodings/ src/data_analyze/strings/ src/code_utils/
 SRC_SUBDIRS=$(C_SRC_SUBDIRS) $(CPP_SRC_SUBDIRS)
 
@@ -73,11 +73,11 @@ AR=ar
 
 # Compiler and archiver flags
 AR_FLAGS=-rsc
-CFLAGS=-O3 -ftrack-macro-expansion=1 -Wall -Wextra -Werror -Wunsuffixed-float-constants -Wconversion -Wdouble-promotion -Wsuggest-attribute=cold -Wsuggest-attribute=const -Wsuggest-attribute=format -Wsuggest-attribute=malloc -Wsuggest-attribute=noreturn -Wsuggest-attribute=pure -Wstack-protector -Wredundant-decls -Wnull-dereference -Wfloat-equal -Wfloat-conversion -std=gnu17
-CXX_FLAGS=-O3 -ftrack-macro-expansion=1 -Wall -Wextra -Werror -Wconversion -Wdouble-promotion -Wsuggest-attribute=cold -Wsuggest-attribute=const -Wsuggest-attribute=format -Wsuggest-attribute=malloc -Wsuggest-attribute=noreturn -Wsuggest-attribute=pure -Wstack-protector -Wredundant-decls -Wnull-dereference -Wfloat-equal -Wfloat-conversion -std=gnu++17
+CFLAGS=-D _DEFAULT_SOURCE -D _FORTIFY_SOURCE=1 -O3 -ftrack-macro-expansion=1 -Wall -Wextra -Werror -Wunsuffixed-float-constants -Wconversion -Wdouble-promotion -Wsuggest-attribute=cold -Wsuggest-attribute=const -Wsuggest-attribute=format -Wsuggest-attribute=malloc -Wsuggest-attribute=noreturn -Wsuggest-attribute=pure -Wstack-protector -Wredundant-decls -Wnull-dereference -Wfloat-equal -Wfloat-conversion -std=gnu17
+CXX_FLAGS=-D _DEFAULT_SOURCE -D _FORTIFY_SOURCE=1 -O3 -ftrack-macro-expansion=1 -Wall -Wextra -Werror -Wconversion -Wdouble-promotion -Wsuggest-attribute=cold -Wsuggest-attribute=const -Wsuggest-attribute=format -Wsuggest-attribute=malloc -Wsuggest-attribute=noreturn -Wsuggest-attribute=pure -Wstack-protector -Wredundant-decls -Wnull-dereference -Wfloat-equal -Wfloat-conversion -std=gnu++17
 
-C_DEBUG_FLAGS=-g3 -std=gnu17 -ftrack-macro-expansion=1 -fprofile-arcs -ftest-coverage
-CXX_DEBUG_FLAGS=-g3 -std=gnu++17 -ftrack-macro-expansion=1 -fprofile-arcs -ftest-coverage
+C_DEBUG_FLAGS=-D _DEFAULT_SOURCE -D _FORTIFY_SOURCE=1 -g3 -std=gnu17 -ftrack-macro-expansion=1 -fprofile-arcs -ftest-coverage
+CXX_DEBUG_FLAGS=-D _DEFAULT_SOURCE -D _FORTIFY_SOURCE=1 -g3 -std=gnu++17 -ftrack-macro-expansion=1 -fprofile-arcs -ftest-coverage
 
 LD_FLAGS_DLL=-lstdc++ "-Wl,--out-implib=libFManC.dll.a,--export-all-symbols,--enable-auto-import"
 LD_FLAGS_SO=-lstdc++ -Wl,-soname,

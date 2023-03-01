@@ -50,6 +50,6 @@ FMC_SHARED enum FManC_Error
     FMC_OK = 0,
 };
 typedef enum FManC_Error FMC_Error;
-#define FMC_ERR_STR_COUNT 1
+
 
 #endif // FMC_ENUMS_H

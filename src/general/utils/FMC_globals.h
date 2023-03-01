@@ -32,9 +32,13 @@ SOFTWARE.
 #include "../preprocessor/FMC_macros.h"
 #include "../preprocessor/FMC_consts.h"
 
+FMC_BEGIN_DECLS
+
 FMC_SHARED FMC_FUNC_COLD FMC_Bool FMC_setDebugState(FMC_Bool state);
 FMC_SHARED FMC_FUNC_HOT FMC_Bool FMC_getDebugState(void);
 
 // TODO : Implement a global error manager (as errno in C)
+
+FMC_END_DECLS
 
 #endif // FMC_GLOBALS_H

@@ -28,14 +28,14 @@ SOFTWARE.
     #error "The contents of <filesystem> are available only with C++17 or later."
 #endif
 
-#include "FMC_dir.hpp"
+#include "cpp_FMC_filesystem.hpp"
 #include <filesystem>
 #include <string.h>
 #include <string>
 
 namespace fs = std::filesystem;
 
-int FMC_dirExists_(const char *path) 
+/* int FMC_dirExists_(const char *path) 
 {
     return fs::exists(path);
 }
@@ -47,9 +47,9 @@ int FMC_isDir_(const char *path)
         return fs::is_directory(path);
     }
     else return -1;
-}
+} */
 
-int FMC_isRegFile_(const char *path) 
+/* int FMC_isRegFile_(const char *path) 
 {
     if(fs::exists(path))
     {
@@ -57,7 +57,7 @@ int FMC_isRegFile_(const char *path)
     }
     else return -1;
 }
-
+ */
 int FMC_isSymLink_(const char *path) 
 {
     if (fs::exists(path)) 
@@ -76,7 +76,7 @@ int FMC_isBlock_(const char* path)
     else return -1;
 }
 
-int FMC_isCharFile_(const char* path)
+/* int FMC_isCharFile_(const char* path)
 {
     if (fs::exists(path))
     {
@@ -93,7 +93,7 @@ int FMC_isSocket_(const char* path)
     }
     else return -1;
 }
-
+ */
 int FMC_isFIFO_(const char* path)
 {
     if (fs::exists(path))

@@ -25,14 +25,14 @@ SOFTWARE.
 */
 
 #include "../FMC_wrapper.h"
-#include "FMC_dir.hpp"
+#include "cpp_FMC_filesystem.hpp"
 #include <stddef.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-FMC_SHARED int FMC_dirExists(const char *path)
+/* FMC_SHARED int FMC_dirExists(const char *path)
 {
     return FMC_dirExists_(path);
 }
@@ -45,7 +45,7 @@ FMC_SHARED int FMC_isDir(const char *path)
 FMC_SHARED int FMC_isRegFile(const char *path)
 {
     return FMC_isRegFile_(path);
-}
+} */
 
 FMC_SHARED int FMC_isSymLink(const char *path)
 {
@@ -57,7 +57,7 @@ FMC_SHARED int FMC_isBlock(const char* path)
     return FMC_isBlock_(path);
 }
 
-FMC_SHARED int FMC_isCharFile(const char* path)
+/* FMC_SHARED int FMC_isCharFile(const char* path)
 {
     return FMC_isCharFile_(path);
 }
@@ -65,7 +65,7 @@ FMC_SHARED int FMC_isCharFile(const char* path)
 FMC_SHARED int FMC_isSocket(const char* path)
 {
     return FMC_isSocket_(path);
-}
+} */
 
 FMC_SHARED int FMC_isFIFO(const char* path)
 {
