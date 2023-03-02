@@ -43,6 +43,7 @@ FMC_SHARED struct FManC_ErrStackElement
 {
     FMC_Error errorNum;
     struct FManC_ErrStackElement *next;
+    char additionalInfo[FMC_ERR_STR_LEN / 2];
 };
 typedef struct FManC_ErrStackElement FMC_ErrStackElement;
 

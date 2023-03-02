@@ -48,6 +48,7 @@ typedef enum FManC_Encodings FMC_Encodings;
 FMC_SHARED enum FManC_Error
 {
     FMC_OK = 0,
+    FMC_ERR_PUSH = 1,
 };
 typedef enum FManC_Error FMC_Error;
 
