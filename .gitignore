@@ -28,3 +28,4 @@ test_
 export_cov.sh
 export_cov.bat
 *prog*
+src/general/utils/FMC_mtx*
