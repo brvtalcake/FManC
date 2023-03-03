@@ -49,6 +49,7 @@ FMC_SHARED enum FManC_Error
 {
     FMC_OK = 0,
     FMC_ERR_PUSH = 1,
+    FMC_ERR_NULL_PTR = 2,
 };
 typedef enum FManC_Error FMC_Error;
 

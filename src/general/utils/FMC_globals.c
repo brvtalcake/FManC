@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "FMC_globals.h"
+#include "FMC_errors.h"
 #include "../preprocessor/FMC_consts.h"
 #include "../preprocessor/FMC_macros.h"
 #include "../preprocessor/FMC_platform.h"
@@ -29,6 +30,7 @@ FMC_SHARED static const char const FMC_ERROR_STR[FMC_ERR_STR_COUNT][FMC_ERR_STR_
 {
     "No error occured", // FMC_OK
     "A problem occured while trying to push an error onto the error stack", // FMC_ERR_PUSH
+    "Provided pointer is NULL", // FMC_ERR_NULL_PTR
 };
 
 #ifndef __STDC_NO_ATOMICS__
@@ -86,22 +88,44 @@ FMC_SHARED static FMC_Error FMC_pushError(FMC_Error err, const char* const addit
     return FMC_OK;
 }
 
-FMC_SHARED FMC_FUNC_HOT FMC_Error FMC_setError(FMC_Error err, const char* const additionnal_message)
+FMC_SHARED FMC_Error FMC_setError(FMC_Error err, const char* const additionnal_message)
 {
     return FMC_pushError(err, additionnal_message);
 }
 
 FMC_SHARED static FMC_Error FMC_popError(void)
 {
-    
+    if (!FMC_ERR_STACK_MUTEX_CREATED)
+    {
+        create_err_mtx();
+        atexit(FMC_destroyErrorStack);
+    }
+    lock_err_mtx();
+    FMC_ErrStackElement *tmp = FMC_ERR_STACK.lastError;
+    if (!tmp)
+    {
+        unlock_err_mtx();
+        return FMC_OK;
+    }
+    FMC_Error ret = tmp->errorNum;
+    FMC_ERR_STACK.lastError = tmp->next;
+    free(tmp);
+    FMC_ERR_STACK.stackSize--;
+    unlock_err_mtx();
+    return ret;
 }
 
-FMC_SHARED FMC_FUNC_HOT FMC_Error FMC_getError(void)
+FMC_SHARED FMC_FUNC_HOT FMC_Error FMC_getLastErrorNum(void)
 {
     return FMC_popError();
 }
 
-FMC_SHARED FMC_FUNC_HOT FMC_Error FMC_getError_noDepop(void)
+FMC_SHARED FMC_FUNC_HOT char* FMC_getLastErrorStr(char *str)
+{
+    
+}
+
+FMC_SHARED FMC_FUNC_HOT FMC_Error FMC_getLastErrorNum_noDepop(void)
 {
     return FMC_ERR_STACK.lastError->errorNum;
 }
@@ -135,4 +159,5 @@ FMC_SHARED void FMC_destroyErrorStack(void)
 {
     FMC_clearErrorStack();
     destroy_err_mtx();
+    FMC_ERR_STACK_MUTEX_CREATED = False;
 }
