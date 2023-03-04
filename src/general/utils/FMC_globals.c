@@ -1,6 +1,7 @@
 #include <stdatomic.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 #include "FMC_globals.h"
 #include "FMC_errors.h"
 #include "../preprocessor/FMC_consts.h"
@@ -120,9 +121,55 @@ FMC_SHARED FMC_FUNC_HOT FMC_Error FMC_getLastErrorNum(void)
     return FMC_popError();
 }
 
-FMC_SHARED FMC_FUNC_HOT char* FMC_getLastErrorStr(char *str)
+FMC_SHARED static char* FMC_getLastAdditionalInfo(char *str, size_t len)
 {
+    if (!str) return NULL;
+    memset(str, '\0', len);
+    if (!FMC_ERR_STACK_MUTEX_CREATED)
+    {
+        create_err_mtx();
+        atexit(FMC_destroyErrorStack);
+    }
+    lock_err_mtx();
+    FMC_ErrStackElement *tmp = FMC_ERR_STACK.lastError;
+    if (!tmp)
+    {
+        unlock_err_mtx();
+        return NULL;
+    }
+    if (len < FMC_ERR_STR_LEN / 2) return NULL;
+    strncpy(str, tmp->additionalInfo, FMC_ERR_STR_LEN / 2);
+    unlock_err_mtx();
+    return str;
+}
+
+FMC_SHARED FMC_FUNC_HOT char* FMC_getLastErrorStr(char *str, size_t len)
+{
+    if (!str) return NULL;
+    memset(str, '\0', len);
+    if (len < FMC_ERR_STR_LEN) 
+    {
+        if (FMC_getDebugState()) 
+        {
+            char err_str_size[5] = "";
+            snprintf(err_str_size, 5, "%d", FMC_ERR_STR_LEN);
+            FMC_makeMsg(err_str, 7, "ERROR: ", "In func :", __func__, ":", "Provided buffer is too small to hold the error string (it needs to be at least ", err_str_size, ")");
+            FMC_printRedError(stderr, err_str);
+        }
+        return NULL;
+    }
     
+    char tmp[FMC_ERR_STR_LEN / 2] = "";
+    FMC_getLastAdditionalInfo(tmp, FMC_ERR_STR_LEN / 2);
+    FMC_Error err = FMC_popError();
+    strncpy(str, FMC_ERROR_STR[err], len);
+    if (strlen(tmp) > 0)
+    {
+        strncat(str, "Addtional info: (", len);
+        strncat(str, tmp, len);
+        strncat(str, ")", len);
+    }
+    return str;
 }
 
 FMC_SHARED FMC_FUNC_HOT FMC_Error FMC_getLastErrorNum_noDepop(void)

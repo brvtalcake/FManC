@@ -30,14 +30,21 @@ SOFTWARE.
 #include "../types/FMC_typedefs.h"
 #include "../types/FMC_enums.h"
 #include "../preprocessor/FMC_macros.h"
-#include "../preprocessor/FMC_consts.h"
 
 FMC_BEGIN_DECLS
 
 FMC_SHARED FMC_FUNC_COLD FMC_Bool FMC_setDebugState(FMC_Bool state);
 FMC_SHARED FMC_FUNC_HOT FMC_Bool FMC_getDebugState(void);
 
-// TODO : Implement a global error manager (as errno in C)
+FMC_SHARED FMC_Error FMC_setError(FMC_Error err, const char* const additionnal_message);
+
+FMC_SHARED FMC_FUNC_HOT FMC_Error FMC_getLastErrorNum(void);
+FMC_SHARED FMC_FUNC_HOT char* FMC_getLastErrorStr(char *str, size_t len);
+FMC_SHARED FMC_FUNC_HOT FMC_Error FMC_getLastErrorNum_noDepop(void);
+
+FMC_SHARED void FMC_clearErrorStack(void);
+FMC_SHARED void FMC_destroyErrorStack(void);
+
 
 FMC_END_DECLS
 
