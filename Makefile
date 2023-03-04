@@ -126,10 +126,10 @@ exp_cov_win :
 
 all : $(ALL_TARGET)
 
-all_lin : static shared copy_headers doc test 
+all_lin : static shared copy_headers test 
 	@printf "\e[92mBuilt everything for $(PRINTED_OS)\n\e[0m"
 
-all_win : static shared copy_headers doc test
+all_win : static shared copy_headers test
 	@printgreen Built everything for $(PRINTED_OS)
 
 static : $(STAT_TARGET)
