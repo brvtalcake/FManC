@@ -42,7 +42,6 @@ SOFTWARE.
 #include "utils/FMC_globals.h"
 #include "utils/FMC_deprecated.h"
 #include "utils/FMC_str_view.h"
-#include "utils/FMC_mtx.h"
 #include "types/FMC_int128.h"
 
 #endif // FMC_GENERAL_H

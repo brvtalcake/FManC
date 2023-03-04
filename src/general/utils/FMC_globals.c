@@ -23,11 +23,11 @@ FMC_SHARED static volatile _Atomic(FMC_Bool) FMC_ENABLE_DEBUG FMC_VAR_COMMON = T
 FMC_SHARED static volatile FMC_Bool FMC_ENABLE_DEBUG FMC_VAR_COMMON = True;
 #endif
 
-FMC_SHARED static FMC_ErrStack FMC_ERR_STACK FMC_VAR_COMMON = {0};
+FMC_SHARED static volatile FMC_ErrStack FMC_ERR_STACK FMC_VAR_COMMON = {0};
 
 FMC_SHARED static FMC_Mutex FMC_ERR_STACK_MUTEX FMC_VAR_COMMON = FMC_ERR_MTX_INITIALIZER;
 
-FMC_SHARED static const char const FMC_ERROR_STR[FMC_ERR_STR_COUNT][FMC_ERR_STR_LEN / 2] = 
+FMC_SHARED static const char FMC_ERROR_STR[FMC_ERR_STR_COUNT][FMC_ERR_STR_LEN / 2] = 
 {
     "No error occured", // FMC_OK
     "A problem occured while trying to push an error onto the error stack", // FMC_ERR_PUSH
@@ -59,6 +59,18 @@ FMC_SHARED FMC_FUNC_HOT FMC_Bool FMC_getDebugState(void)
     #endif
 }
 
+FMC_SHARED static void FMC_consumeOldestError(void)
+{
+    if (FMC_ERR_STACK.stackSize < FMC_MAX_ERR_STCK_SIZE) return;
+    FMC_ErrStackElement *tmp = FMC_ERR_STACK.lastError;
+    while (tmp->next)
+    {
+        tmp = tmp->next;
+    }
+    free(tmp);
+    FMC_ERR_STACK.stackSize--;
+}
+
 FMC_SHARED static FMC_Error FMC_pushError(FMC_Error err, const char* const additionnal_message)
 {
     if (!FMC_ERR_STACK_MUTEX_CREATED)
@@ -72,11 +84,13 @@ FMC_SHARED static FMC_Error FMC_pushError(FMC_Error err, const char* const addit
     if (FMC_ERR_STACK.stackSize == FMC_MAX_ERR_STCK_SIZE) FMC_consumeOldestError();
 
     FMC_ErrStackElement *new = malloc(sizeof(FMC_ErrStackElement));
-    if (FMC_PROB(!new, 0.1))
+    #pragma GCC diagnostic ignored "-Wunsuffixed-float-constants"
+    if (FMC_PROB(new == NULL, 0.1))
     {
         unlock_err_mtx();
         return FMC_ERR_PUSH;
     }
+    #pragma GCC diagnostic pop
     FMC_prefetch(tmp, FMC_OPT(0, 1));
 
     new->errorNum = err;
@@ -175,18 +189,6 @@ FMC_SHARED FMC_FUNC_HOT char* FMC_getLastErrorStr(char *str, size_t len)
 FMC_SHARED FMC_FUNC_HOT FMC_Error FMC_getLastErrorNum_noDepop(void)
 {
     return FMC_ERR_STACK.lastError->errorNum;
-}
-
-FMC_SHARED static void FMC_consumeOldestError(void)
-{
-    if (FMC_ERR_STACK.stackSize < FMC_MAX_ERR_STCK_SIZE) return;
-    FMC_ErrStackElement *tmp = FMC_ERR_STACK.lastError;
-    while (tmp->next)
-    {
-        tmp = tmp->next;
-    }
-    free(tmp);
-    FMC_ERR_STACK.stackSize--;
 }
 
 FMC_SHARED void FMC_clearErrorStack(void)

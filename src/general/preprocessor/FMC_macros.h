@@ -35,6 +35,12 @@ SOFTWARE.
 #include <stdint.h>
 #include "FMC_attributes.h"
 
+#if defined(_FORTIFY_SOURCE) && _FORTIFY_SOURCE < 1
+    #undef _FORTIFY_SOURCE
+    #define _FORTIFY_SOURCE 1   
+#elif !defined(_FORTIFY_SOURCE)
+    #define _FORTIFY_SOURCE 1   // Enable _FORTIFY_SOURCE to this minimum value if not already enabled
+#endif
 
 /* Used to avoid false warnings (for example "attribute destructor/constructor does not take argument", when it actually can) */
 #if defined(__INTELLISENSE__ )
@@ -237,7 +243,7 @@ SOFTWARE.
 #define FMC_arrSize(arr) (sizeof(arr)/sizeof(arr[0]))
 
 #ifndef FMC_PROB
-    #define FMC_PROB(true_expr, prob) __builtin_expect_with_probability((true_expr), 1, prob)
+    #define FMC_PROB(true_expr, prob) __builtin_expect_with_probability((true_expr), 1L, prob)
 #endif
 
 #ifndef FMC_UNREACHABLE

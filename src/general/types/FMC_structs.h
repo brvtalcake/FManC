@@ -32,6 +32,7 @@ SOFTWARE.
 
 #include <stdio.h>
 #include <stdint.h>
+#include <assert.h>
 #include "../preprocessor/FMC_consts.h"
 #include "../preprocessor/FMC_macros.h"
 #include "FMC_enums.h"
@@ -59,7 +60,7 @@ FMC_SHARED struct FManC_Directory
     size_t fileCount;
     size_t dirCount;
     size_t totalCount;
-    char pathList[][]; // this is the array containing all the paths. Each path length is at most MAX_FPATH_SIZE + MAX_FNAME_SIZE + MAX_FEXT_SIZE
+    char pathList[][MAX_FPATH_SIZE + MAX_FNAME_SIZE + MAX_FEXT_SIZE];
 };
 typedef struct FManC_Directory FMC_Directory;
 
@@ -77,9 +78,13 @@ FMC_SHARED struct FManC_File
     char path[MAX_FPATH_SIZE];
     char name[MAX_FNAME_SIZE];
     char extension[MAX_FEXT_SIZE];
-    char mode[10];
+    char mode[13];
 };
 typedef struct FManC_File FMC_File;
+
+#ifdef DEBUG_STRUCTS
+static_assert(sizeof(FMC_File) == sizeof(FILE*) + sizeof(unsigned long long int) + sizeof(FMC_Encodings) + sizeof(enum { a,b }) + sizeof(FMC_FileState) + sizeof(char[MAX_FPATH_SIZE]) + sizeof(char[MAX_FNAME_SIZE]) + sizeof(char[MAX_FEXT_SIZE]) + sizeof(char[13]) , "FMC_File has some padding bytes");
+#endif
 
 FMC_SHARED struct FManC_StrOcc
 {

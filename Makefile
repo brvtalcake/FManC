@@ -73,11 +73,16 @@ AR=ar
 
 # Compiler and archiver flags
 AR_FLAGS=-rsc
-CFLAGS=-D _DEFAULT_SOURCE -D _FORTIFY_SOURCE=1 -O3 -ftrack-macro-expansion=1 -Wall -Wextra -Werror -Wunsuffixed-float-constants -Wconversion -Wdouble-promotion -Wsuggest-attribute=cold -Wsuggest-attribute=const -Wsuggest-attribute=format -Wsuggest-attribute=malloc -Wsuggest-attribute=noreturn -Wsuggest-attribute=pure -Wstack-protector -Wredundant-decls -Wnull-dereference -Wfloat-equal -Wfloat-conversion -std=gnu17
-CXX_FLAGS=-D _DEFAULT_SOURCE -D _FORTIFY_SOURCE=1 -O3 -ftrack-macro-expansion=1 -Wall -Wextra -Werror -Wconversion -Wdouble-promotion -Wsuggest-attribute=cold -Wsuggest-attribute=const -Wsuggest-attribute=format -Wsuggest-attribute=malloc -Wsuggest-attribute=noreturn -Wsuggest-attribute=pure -Wstack-protector -Wredundant-decls -Wnull-dereference -Wfloat-equal -Wfloat-conversion -std=gnu++17
+CFLAGS=-D _DEFAULT_SOURCE -O3 -ftrack-macro-expansion=1 -Wall -Wextra -Werror -Winline -Wunsuffixed-float-constants -Wconversion -Wdouble-promotion -Wsuggest-attribute=cold -Wsuggest-attribute=const -Wsuggest-attribute=format -Wsuggest-attribute=malloc -Wsuggest-attribute=noreturn -Wsuggest-attribute=pure -Wstack-protector -Wredundant-decls -Wnull-dereference -Wfloat-equal -Wfloat-conversion -std=gnu17
+CXX_FLAGS=-D _DEFAULT_SOURCE -O3 -ftrack-macro-expansion=1 -Wall -Wextra -Werror -Winline -Wconversion -Wdouble-promotion -Wsuggest-attribute=cold -Wsuggest-attribute=const -Wsuggest-attribute=format -Wsuggest-attribute=malloc -Wsuggest-attribute=noreturn -Wsuggest-attribute=pure -Wstack-protector -Wredundant-decls -Wnull-dereference -Wfloat-equal -Wfloat-conversion -std=gnu++17
 
-C_DEBUG_FLAGS=-D _DEFAULT_SOURCE -D _FORTIFY_SOURCE=1 -g3 -std=gnu17 -ftrack-macro-expansion=1 -fprofile-arcs -ftest-coverage
-CXX_DEBUG_FLAGS=-D _DEFAULT_SOURCE -D _FORTIFY_SOURCE=1 -g3 -std=gnu++17 -ftrack-macro-expansion=1 -fprofile-arcs -ftest-coverage
+ifneq (,$(findstring struct,$(MAKECMDGOALS)))
+	CFLAGS+=-Wpadded
+	CXX_FLAGS+=-Wpadded
+endif
+
+C_DEBUG_FLAGS=-D _DEFAULT_SOURCE -g3 -std=gnu17 -ftrack-macro-expansion=1 -fprofile-arcs -ftest-coverage
+CXX_DEBUG_FLAGS=-D _DEFAULT_SOURCE -g3 -std=gnu++17 -ftrack-macro-expansion=1 -fprofile-arcs -ftest-coverage
 
 LD_FLAGS_DLL=-lstdc++ "-Wl,--out-implib=libFManC.dll.a,--export-all-symbols,--enable-auto-import"
 LD_FLAGS_SO=-lstdc++ -Wl,-soname,
@@ -86,6 +91,15 @@ INC_FLAGS=-I./third_party_libs/metalang99/include/
 # All target
 ALL_TARGET=$(addsuffix _$(DETECTED_OS), all)
 .PHONY : all
+
+DEBUG_STRUCT_TARGET=$(addsuffix _$(DETECTED_OS), debug_struct)
+.PHONY : debug_struct
+
+debug_struct : $(DEBUG_STRUCT_TARGET)
+
+debug_struct_lin : all 
+
+debug_struct_win : all
 
 # Static library target
 STAT_TARGET=$(addsuffix _$(DETECTED_OS), static)
