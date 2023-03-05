@@ -25,6 +25,7 @@ SOFTWARE.
 */
 
 #include <stdint.h>
+#include <stdlib.h>
 #include "FMC_file_management.h"
 #include "../cpp/FMC_wrapper.h"
 
@@ -134,4 +135,58 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT int FMC_isSocket(const char* restrict pat
         struct stat st = {0};
         return stat(path, &st) == 0 && S_ISSOCK(st.st_mode);
     #endif
+}
+
+FMC_SHARED int FMC_mkDir(const char* restrict path)
+{
+    char cmd[256] = {0};
+    snprintf(cmd, 256, "mkdir %s", path);
+    return system(cmd);
+}
+
+FMC_SHARED int FMC_rmDir(const char* restrict path, unsigned int user_flags)
+{
+    if (!path) return 0;
+    char cmd[256] = {0};
+    check_in user_flags for_only_flags(RM_DIR_RECURSIVE, NO_CONFIRMATION) // rm everything in dir and dir itself
+    {
+        #if defined(FMC_COMPILING_ON_WINDOWS)
+            snprintf(cmd, 256, "attrib -h %s /s && rmdir %s /s /q", path, path);
+        #else
+            snprintf(cmd, 256, "rm -rf %s", path);
+        #endif
+        return system(cmd);
+    }
+    else check_in user_flags for_only_flags(RM_DIR_RECURSIVE, CONFIRMATION) // same but ask for confirmation
+    {
+        #if defined(FMC_COMPILING_ON_WINDOWS)
+            snprintf(cmd, 256, "attrib -h %s /s && rmdir %s /s", path, path);
+        #else
+            snprintf(cmd, 256, "rm -r %s", path);
+        #endif
+        return system(cmd);
+    } 
+    else check_in user_flags for_only_flags(RM_DIR_ALL_CONTENTS, NO_CONFIRMATION) // rm everything in dir but not dir itself
+    {
+        #if defined(FMC_COMPILING_ON_WINDOWS)
+            snprintf(cmd, 256, "cd %s && attrib -h .\\* /s && rmdir . /s /q", path);
+        #else
+            snprintf(cmd, 256, "rm -rf %s/*", path);
+        #endif
+        return system(cmd);
+    }
+    else check_in user_flags for_only_flags(RM_DIR_ALL_CONTENTS, CONFIRMATION) //...
+    {
+        #if defined(FMC_COMPILING_ON_WINDOWS)
+            snprintf(cmd, 256, "cd %s && attrib -h .\\* /s && rmdir . /s", path);
+        #else
+            snprintf(cmd, 256, "rm -r %s/*", path);
+        #endif
+        return system(cmd);
+    }
+    else check_in user_flags for_only_flags(RM_DIR_ONLY_SUBDIRS, RM_DIR_RECURSIVE, NO_CONFIRMATION)
+    {
+        #if defined(FMC_COMPILING_ON_WINDOWS)
+            snprintf(cmd, 256, "pwsh -c \"Get-ChildItem -Path %s -Directory | Remove-Item -Recurse\"", path);
+    }
 }
