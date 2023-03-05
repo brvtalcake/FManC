@@ -162,11 +162,11 @@ FMC_SHARED int FMC_rmDir(const char* restrict path, unsigned int user_flags)
         #if defined(FMC_COMPILING_ON_WINDOWS)
             snprintf(cmd, 256, "attrib -h %s /s && rmdir %s /s", path, path);
         #else
-            snprintf(cmd, 256, "rm -r %s", path);
+            snprintf(cmd, 256, "rm -ri %s", path);
         #endif
         return system(cmd);
     } 
-    else check_in user_flags for_only_flags(RM_DIR_ALL_CONTENTS, NO_CONFIRMATION) // rm everything in dir but not dir itself
+    else check_in user_flags for_only_flags(RM_DIR_ONLY_CONTENT, NO_CONFIRMATION) // rm everything in dir but not dir itself
     {
         #if defined(FMC_COMPILING_ON_WINDOWS)
             snprintf(cmd, 256, "cd %s && attrib -h .\\* /s && rmdir . /s /q", path);
@@ -175,18 +175,74 @@ FMC_SHARED int FMC_rmDir(const char* restrict path, unsigned int user_flags)
         #endif
         return system(cmd);
     }
-    else check_in user_flags for_only_flags(RM_DIR_ALL_CONTENTS, CONFIRMATION) //...
+    else check_in user_flags for_only_flags(RM_DIR_ONLY_CONTENT, CONFIRMATION) //...
     {
         #if defined(FMC_COMPILING_ON_WINDOWS)
             snprintf(cmd, 256, "cd %s && attrib -h .\\* /s && rmdir . /s", path);
         #else
-            snprintf(cmd, 256, "rm -r %s/*", path);
+            snprintf(cmd, 256, "rm -ri %s/*", path);
         #endif
         return system(cmd);
     }
-    else check_in user_flags for_only_flags(RM_DIR_ONLY_SUBDIRS, RM_DIR_RECURSIVE, NO_CONFIRMATION)
+    else check_in user_flags for_only_flags(RM_DIR_ONLY_SUBDIRS, NO_CONFIRMATION)
     {
         #if defined(FMC_COMPILING_ON_WINDOWS)
-            snprintf(cmd, 256, "pwsh -c \"Get-ChildItem -Path %s -Directory | Remove-Item -Recurse\"", path);
+            snprintf(cmd, 256, "pwsh -c \"Get-ChildItem -Path %s -Directory -Force | Remove-Item -Recurse -Force\"", path);
+        #else
+            snprintf(cmd, 256, "cd %s && rm -rf */", path);
+        #endif
+        return system(cmd);
     }
+    else check_in user_flags for_only_flags(RM_DIR_ONLY_SUBDIRS, CONFIRMATION)
+    {
+        #if defined(FMC_COMPILING_ON_WINDOWS)
+            snprintf(cmd, 256, "pwsh -c \"Get-ChildItem -Path %s -Directory -Force | Remove-Item -Recurse -Confirm\"", path);
+        #else
+            snprintf(cmd, 256, "cd %s && rm -ri */", path);
+        #endif
+        return system(cmd);
+    }
+    else check_in user_flags for_only_flags(RM_DIR_ONLY_FILES, RM_DIR_RECURSIVE, NO_CONFIRMATION)
+    {
+        #if defined(FMC_COMPILING_ON_WINDOWS)
+            snprintf(cmd, 256, "cd %s && attrib -h .\\* /s && del /s /q .\\*", path);
+        #else
+            snprintf(cmd, 256, "find %s -type f -mindepth 1 -exec rm -f {} \\;", path);
+        #endif
+        return system(cmd);
+    }
+    else check_in user_flags for_only_flags(RM_DIR_ONLY_FILES, RM_DIR_RECURSIVE, CONFIRMATION)
+    {
+        #if defined(FMC_COMPILING_ON_WINDOWS)
+            snprintf(cmd, 256, "cd %s && attrib -h .\\* /s && del /s .\\*", path);
+        #else
+            snprintf(cmd, 256, "find %s -type f -mindepth 1 -exec rm -fi {} \\;", path);
+        #endif
+        return system(cmd);
+    }
+    else check_in user_flags for_only_flags(RM_DIR_ONLY_FILES, NO_CONFIRMATION)
+    {
+        #if defined(FMC_COMPILING_ON_WINDOWS)
+            snprintf(cmd, 256, "cd %s && attrib -h .\\* /s && del /q .\\*", path);
+        #else
+            snprintf(cmd, 256, "find %s -maxdepth 1 -type f -mindepth 1 -exec rm -f {} \\;", path);
+        #endif
+        return system(cmd);
+    }
+    else check_in user_flags for_only_flags(RM_DIR_ONLY_FILES, CONFIRMATION)
+    {
+        #if defined(FMC_COMPILING_ON_WINDOWS)
+            snprintf(cmd, 256, "cd %s && attrib -h .\\* /s && del .\\*", path);
+        #else
+            snprintf(cmd, 256, "find %s -maxdepth 1 -type f -mindepth 1 -exec rm -fi {} \\;", path);
+        #endif
+        return system(cmd);
+    }
+    else
+    {
+        FMC_setError(FMC_WRONG_FLAGS_COMBINATION, "Wrong flags combination for FMC_rmDir()");
+        return -1;
+    }
+    FMC_UNREACHABLE;
+    return 0;
 }
