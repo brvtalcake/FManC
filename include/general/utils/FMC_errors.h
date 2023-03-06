@@ -26,12 +26,14 @@ SOFTWARE.
 
 #pragma once
 
-#ifndef FMC_ERRORS
-#define FMC_ERRORS
+#ifndef FMC_ERRORS_H
+#define FMC_ERRORS_H
 
 #include <stdio.h>
 #include "../preprocessor/FMC_consts.h"
 #include "../preprocessor/FMC_macros.h"
+
+FMC_BEGIN_DECLS
 
 FMC_SHARED FMC_FUNC_NONNULL(1) void FMC_makeMsg_f(char *buff, unsigned int argc, ...);
 
@@ -426,4 +428,6 @@ FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightWhiteError(FILE *stream, co
     FMC_resetStreamOutputStyle(stream);
 }
 
-#endif // FMC_ERRORS
+FMC_END_DECLS
+
+#endif // FMC_ERRORS_H

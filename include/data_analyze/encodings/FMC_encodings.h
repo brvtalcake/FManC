@@ -31,7 +31,42 @@ SOFTWARE.
 
 #include "../../general/FMC_general.h"
 
+FMC_BEGIN_DECLS
+
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_getEncoding(FILE *file);
-FMC_SHARED FMC_FUNC_CONST FMC_FUNC_ALWAYS_INLINE inline FMC_Encodings FMC_checkEncodingFlag(unsigned int encoding);
+
+FMC_SHARED FMC_FUNC_CONST FMC_FUNC_ALWAYS_INLINE inline FMC_Encodings FMC_checkEncodingFlag(unsigned int encoding)
+{
+    switch (encoding)
+    {
+        case ASCII:
+            return ascii;
+            break;
+        case UTF8:
+            return utf8;
+            break;
+        case UTF8_BOM:
+            return utf8_bom;
+            break;
+        case UTF16_LE:
+            return utf16_le;
+            break;
+        case UTF16_BE:
+            return utf16_be;
+            break;
+        case UTF32_LE:
+            return utf32_le;
+            break;
+        case UTF32_BE:
+            return utf32_be;
+            break;
+        default: // TODO : add error in case of unknown encoding
+            return unknown;
+            break;
+    }
+    return error;
+}
+
+FMC_END_DECLS
 
 #endif // FMC_ENCODINGS_H

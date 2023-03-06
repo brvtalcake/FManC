@@ -35,7 +35,11 @@ SOFTWARE.
     #define FMC_makeStrView(_str, _len) ((FMC_CStrView){ .str = _str, .size = (size_t)_len })
 #endif
 
+FMC_BEGIN_DECLS 
+
 FMC_SHARED void FMC_freeStrView(FMC_CStrView* view);
 FMC_SHARED FMC_FUNC_MALLOC(FMC_freeStrView, 1) FMC_CStrView* FMC_allocStrView(const char* const str, size_t len);
+
+FMC_END_DECLS
 
 #endif // FMC_STR_VIEW_H

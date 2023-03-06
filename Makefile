@@ -224,10 +224,10 @@ doc_win : $(SRC_FILES)
 	@cd man && make
 
 include/%.h : src/%.h
-	@cp -f -u -T $^ $@ 
+	@cp --recursive -f -u -T $^ $@ 
 
 include/%.hpp : src/%.hpp
-	@cp -f -u -T $^ $@ 
+	@cp --recursive -f -u -T $^ $@ 
 
 lib/libFManC_linux_x86_64.a : $(O_LIN_STATIC_FILES)
 	$(AR) $(AR_FLAGS) $@ $^

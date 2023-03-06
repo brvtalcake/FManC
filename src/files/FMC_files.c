@@ -57,7 +57,7 @@ FMC_SHARED struct FManC_File
 
 
 
-FMC_SHARED FMC_File *FMC_createFile(const unsigned int user_flags, const char* restrict const path, const char* restrict const mode)
+/* FMC_SHARED FMC_File *FMC_createFile(const unsigned int user_flags, const char* restrict const path, const char* restrict const mode)
 {
     if (!path || !mode || user_flags == 0U || FMC_isRegFile(path) != 1)
     {
@@ -100,13 +100,13 @@ FMC_SHARED FMC_File *FMC_createFile(const unsigned int user_flags, const char* r
         }
         check_in user_flags for_at_least_flags(GET_SIZE)
         {
-            /* returned_file->fileSize = FMC_getFileSize(feeded_file); */
+            
         }
     }
 
     
 }
-
+ */
 /* #pragma GCC diagnostic ignored "-Wnonnull-compare"
     if (!path)
     {

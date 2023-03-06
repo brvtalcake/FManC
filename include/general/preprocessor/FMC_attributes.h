@@ -41,6 +41,11 @@ SOFTWARE.
         #define FMC_FUNC_ALIAS(aliased) __attribute__((alias(FMC_STRINGIZE(aliased)))) 
     #endif // FMC_FUNC_ALIAS
 
+    #ifdef FMC_FUNC_ALLOC_SIZE
+        #undef FMC_FUNC_ALLOC_SIZE
+    #endif // FMC_FUNC_ALLOC_SIZE
+    #define FMC_FUNC_ALLOC_SIZE(_p1, ...) __attribute__((alloc_size(_p1, __VA_ARGS__)))
+
     #ifndef FMC_FUNC_ALWAYS_INLINE
         #define FMC_FUNC_ALWAYS_INLINE __attribute__((always_inline))
     #endif // FMC_FUNC_ALWAYS_INLINE
@@ -217,7 +222,7 @@ SOFTWARE.
     #endif // FMC_VAR_UNAVAILABLE
 
     #ifndef FMC_VAR_MACH_MODE
-        #define FMC_VAR_MACH_MODE(mode) __attribute__((mode(mode)))
+        #define FMC_VAR_MACH_MODE(_mode) __attribute__((mode(_mode)))
     #endif // FMC_VAR_MACH_MODE
 
     #ifndef FMC_VAR_NON_STRING
@@ -262,7 +267,7 @@ SOFTWARE.
     #endif // FMC_TYPE_UNAVAILABLE
 
     #ifndef FMC_TYPE_MACH_MODE
-        #define FMC_TYPE_MACH_MODE(mode) __attribute__((mode(mode)))
+        #define FMC_TYPE_MACH_MODE(_mode) __attribute__((mode(_mode)))
     #endif // FMC_TYPE_MACH_MODE
 
     #ifndef FMC_TYPE_UNUSED

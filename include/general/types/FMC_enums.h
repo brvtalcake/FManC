@@ -43,7 +43,16 @@ FMC_SHARED enum FManC_Encodings
     unknown = 128,
     error = 256
 };
-
 typedef enum FManC_Encodings FMC_Encodings; 
+
+FMC_SHARED enum FManC_Error
+{
+    FMC_OK = 0,
+    FMC_ERR_PUSH = 1,
+    FMC_ERR_NULL_PTR = 2,
+    FMC_WRONG_FLAGS_COMBINATION = 3,
+};
+typedef enum FManC_Error FMC_Error;
+
 
 #endif // FMC_ENUMS_H
