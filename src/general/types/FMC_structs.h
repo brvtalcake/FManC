@@ -72,7 +72,8 @@ FMC_SHARED struct FManC_File
     enum
     {
         wide,
-        byte
+        byte,
+        undefined,
     } orientation;
     FMC_FileState isOpened;
     char path[MAX_FPATH_SIZE];

@@ -24,8 +24,6 @@ SOFTWARE.
 
 */
 
-#pragma once
-
 #ifndef FMC_ENUMS_H
 #define FMC_ENUMS_H
 
@@ -33,26 +31,26 @@ SOFTWARE.
 
 FMC_SHARED enum FManC_Encodings
 {
-    utf8 = 1,
-    utf8_bom = 2,
-    utf16_le = 4,
-    utf16_be = 8,
-    utf32_le = 16,
-    utf32_be = 32,
-    ascii = 64,
-    unknown = 128,
-    error = 256
+	utf8     = 1,
+	utf8_bom = 2,
+	utf16_le = 4,
+	utf16_be = 8,
+	utf32_le = 16,
+	utf32_be = 32,
+	ascii    = 64,
+	unknown  = 128,
+	error    = 256
 };
-typedef enum FManC_Encodings FMC_Encodings; 
+typedef enum FManC_Encodings FMC_Encodings;
 
 FMC_SHARED enum FManC_Error
 {
-    FMC_OK = 0,
-    FMC_ERR_PUSH = 1,
-    FMC_ERR_NULL_PTR = 2,
-    FMC_WRONG_FLAGS_COMBINATION = 3,
+	FMC_OK                      = 0,
+	FMC_ERR_PUSH                = 1,
+	FMC_ERR_NULL_PTR            = 2,
+	FMC_WRONG_FLAGS_COMBINATION = 3,
+	FMC_INTERNAL_ERROR          = 4,
 };
 typedef enum FManC_Error FMC_Error;
 
-
-#endif // FMC_ENUMS_H
+#endif  // FMC_ENUMS_H

@@ -31,3 +31,5 @@ export_cov.bat
 src/general/utils/FMC_mtx*
 .markdownlintignore
 mkdocs/site*
+.clang-format
+main.preprocessed.c

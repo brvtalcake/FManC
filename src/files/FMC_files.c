@@ -25,6 +25,10 @@ SOFTWARE.
 */
 
 #include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 #include "FMC_file_management.h"
 #include "../data_analyze/encodings/FMC_encodings.h"
 #include "../cpp/FMC_wrapper.h"
@@ -57,48 +61,83 @@ FMC_SHARED struct FManC_File
 
 
 
-/* FMC_SHARED FMC_File *FMC_createFile(const unsigned int user_flags, const char* restrict const path, const char* restrict const mode)
+FMC_SHARED FMC_File *FMC_createFile(const unsigned int user_flags, const char* restrict const path, const char* restrict const mode)
 {
     if (!path || !mode || user_flags == 0U || FMC_isRegFile(path) != 1)
     {
         return NULL;
     }
 
+    char tmp_path[MAX_FPATH_SIZE];
+    char tmp_name[MAX_FNAME_SIZE];
+    char tmp_ext[MAX_FEXT_SIZE];
+
+    if (!FMC_cutFilename(path, tmp_path, MAX_FPATH_SIZE))
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_cut_name, 1, "INTERNAL ERROR: FMC_createFile: FMC_cutFilename failed.");
+            FMC_printRedError(stderr, err_cut_name);
+        }
+        FMC_setError(FMC_INTERNAL_ERROR, "FMC_createFile: FMC_cutFilename failed.");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+
+    if (!FMC_extractFilename(path, tmp_path, MAX_FNAME_SIZE))
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_extr_name, 1, "INTERNAL ERROR: FMC_createFile: FMC_extractFilename failed.");
+            FMC_printRedError(stderr, err_extr_name);
+        }
+        FMC_setError(FMC_INTERNAL_ERROR, "FMC_createFile: FMC_extractFilename failed.");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+
+    if (!FMC_getExtension(path, tmp_ext, MAX_FEXT_SIZE))
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_get_ext, 1, "INTERNAL ERROR: FMC_createFile: FMC_getExtension failed.");
+            FMC_printRedError(stderr, err_get_ext);
+        }
+        FMC_setError(FMC_INTERNAL_ERROR, "FMC_createFile: FMC_getExtension failed.");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+
+    FMC_File *returned_file = malloc(sizeof(FMC_File));
+    if (!returned_file)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_malloc1, 1, "INTERNAL ERROR: FMC_createFile: malloc failed to allocate memory for the file struct.");
+            FMC_printRedError(stderr, err_malloc1);
+        }
+        FMC_setError(FMC_INTERNAL_ERROR, "FMC_createFile: malloc failed to allocate memory for the file struct.");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+
     check_in user_flags if_not_set(TO_OPEN) // create the file struct but do not open the FILE
     {
-        FMC_File *returned_file = malloc(sizeof(FMC_File));
-        if (!returned_file)
-        {
-            return NULL;
-        }
-        returned_file->file = NULL;
-        if(!FMC_cutFilename(path, returned_file->path, MAX_FPATH_SIZE))
-        {
-            free(returned_file);
-            return NULL;
-        }
-        if(!FMC_extractFilename(path, returned_file->name, MAX_FNAME_SIZE))
-        {
-            free(returned_file);
-            return NULL;
-        }
-        if(!FMC_getExtension(path, returned_file->extension, MAX_FEXT_SIZE))
-        {
-            free(returned_file);
-            return NULL;
-        }
         returned_file->isOpened = False;
-        FILE *feeded_file = fopen(path, "rb");
-        if (!feeded_file)
-        {
-            free(returned_file);
-            return NULL;
-        }
-        check_in user_flags for_at_least_flags(GET_ENCODING)
-        {
-            returned_file->encoding = FMC_getEncoding(feeded_file);
-        }
-        check_in user_flags for_at_least_flags(GET_SIZE)
+        returned_file->file = NULL;
+        returned_file->fileSize = 0ULL;
+        returned_file->encoding = unknown;
+        returned_file->orientation = undefined;
+        strncpy(returned_file->path, tmp_path, MAX_FPATH_SIZE);
+        strncpy(returned_file->name, tmp_name, MAX_FNAME_SIZE);
+        strncpy(returned_file->extension, tmp_ext, MAX_FEXT_SIZE);
+        memset(returned_file->mode, '\0', 10);
+        return returned_file;
+        FMC_UNREACHABLE;
+    }
+    else check_in user_flags for_at_least_flags(TO_OPEN)
+    {
+        check_in user_flags for_at_least_flags(BYTE_ORIENTED)
         {
             
         }
@@ -106,7 +145,7 @@ FMC_SHARED struct FManC_File
 
     
 }
- */
+
 /* #pragma GCC diagnostic ignored "-Wnonnull-compare"
     if (!path)
     {
