@@ -1,17 +1,26 @@
-# Filesystem API reference
+# **Filesystem API reference**
 
 ## **Summary**
-- [Functions](#functions)
-	- [FMC_dirExists](#fmc_direxists)
-	- [FMC_isDir](#fmc_isdir)
+- [**Filesystem API reference**](#filesystem-api-reference)
+	- [**Summary**](#summary)
+	- [**Functions**](#functions)
+		- [File type checking](#file-type-checking)
+			- [_FMC\_dirExists_](#fmc_direxists)
+			- [_FMC\_isDir_](#fmc_isdir)
+			- [_FMC\_isRegFile_](#fmc_isregfile)
+			- [_FMC\_isCharDevice_](#fmc_ischardevice)
+			- [_FMC\_isSocket_](#fmc_issocket)
+		- [Directory management](#directory-management)
 ## **Functions**
 ---
-### _FMC_dirExists_
+### File type checking
+---
+#### _FMC_dirExists_
 
 === "Function signature"
 
 	``` c
-	int FMC_dirExists(const char *path); 
+	int FMC_dirExists(const char* restrict path); 
 	```
 === "Example 1"
 	``` c
@@ -31,7 +40,8 @@
 	char directory[128] = "C:\\Users\\YourFolder\\";
 	if (FMC_dirExists(directory))
 	{
-		system(/* insert a command here to do whatever you want */);
+		printf("Entering directory %s\n", directory);
+		// ...
 	}
 	else
 		// ...
@@ -43,24 +53,24 @@
 
 **Return value** 
 
-The function returns 1 if the path effectively exists, 0 otherwise.
+The function returns non-zero value if the path effectively exists, 0 otherwise.
 
 **Description**
 
-This function is a small wrapper around the _[std::filesystem C++ library](https://en.cppreference.com/w/cpp/filesystem)_. This function may be rewritten in pure C in the future.
+You can use this function on any Unix system or Windows. The Windows version uses the Win32 filesystem API and thus does not require any particular compiler. The Unix version uses the usual stat function.
 
 ---
 
-### _FMC_isDir_
+#### _FMC_isDir_
 
 === "Function signature"
 
 	``` c 
-	int FMC_isDir(const char *path);
+	int FMC_isDir(const char* restrict path);
 	```
-=== "Example 1"
+=== "Example of use"
 	```c
-	if(FMC_isDir("/home/you/random_folder/") == 0) // (1)
+	if(FMC_isDir("/home/you/random_folder/") == 0) 
 	{
 		DIR *your_dir;
 		struct dirent *entries;
@@ -70,12 +80,11 @@ This function is a small wrapper around the _[std::filesystem C++ library](https
 			printf("%s\n", entries->d_name);
 		}
 		closedir(your_dir);
-		// ... (2)
+		// ... (1)
 	}
 	```
 
-	1.	Do not write something like `#!C if(!FMC_isDir("./your/dir"))`, because it can return -1 when the path doesn't exist, for example.
-	2.	This example is not that usefull by itself since you could have checked `#!C your_dir != NULL` after it has been opened, but the whole interest is the fact that it's a portable and simple way to check for a dir.
+	1.	This example is not that usefull by itself since you could have checked `#!C your_dir != NULL` after it has been opened, but the whole interest is the fact that it's a portable and simple way to check for a dir.
 
 
 **Parameters**
@@ -84,8 +93,30 @@ This function is a small wrapper around the _[std::filesystem C++ library](https
 
 **Return value**
 
-The function returns 1 if the path effectively exists, 0 if not, and -1 if the directory doesn't exist or if an error occured.
+The function returns non-zero value if the path effectively exists, 0 if not.
 
 **Description**
 
-This function is a small wrapper around the _[std::filesystem C++ library](https://en.cppreference.com/w/cpp/filesystem)_. This function may be rewritten in pure C in the future.
+You can use this function on any Unix system or Windows. The Windows version uses the Win32 filesystem API and thus does not require any particular compiler. The Unix version uses the usual stat function.
+
+#### _FMC_isRegFile_
+
+=== "Function signature"
+
+	``` c 
+	int FMC_isRegFile(const char* restrict path);
+	```
+=== "Example of use"
+
+	```c
+	// To be done
+	```
+
+#### _FMC_isCharDevice_
+
+To be done
+
+#### _FMC_isSocket_
+
+
+### Directory management
