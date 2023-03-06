@@ -30,3 +30,4 @@ export_cov.bat
 *prog*
 src/general/utils/FMC_mtx*
 .markdownlintignore
+mkdocs/site*
