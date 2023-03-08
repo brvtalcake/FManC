@@ -137,6 +137,39 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT int FMC_isSocket(const char* restrict pat
     #endif
 }
 
+FMC_SHARED int_fast64_t FMC_getDirEntryCount(const char* restrict const path)
+{
+    #if defined(FMC_COMPILING_ON_WINDOWS)
+        if (!path || !FMC_isDir(path)) 
+        {
+            if (FMC_getDebugState())
+            {
+                FMC_makeMsg(err_arg, 1, "FMC_getDirEntryCount: Invalid path argument.");
+                FMC_printRedError(stderr, err_arg);
+            }
+            FMC_setError(FMC_INVALID_ARGUMENT, "FMC_getDirEntryCount: Invalid path argument.");
+            return -1;
+        }
+        WIN32_FIND_DATA ffd = {0};
+        HANDLE hFind = INVALID_HANDLE_VALUE;
+        int_fast64_t count = 0;
+        char search_path[256] = {0};
+        snprintf(search_path, 256, "%s\\*", path);
+        hFind = FindFirstFile(search_path, &ffd);
+        if (hFind == INVALID_HANDLE_VALUE) return 0;
+        do
+        {
+            if (strcmp(ffd.cFileName, ".") == 0 || strcmp(ffd.cFileName, "..") == 0) continue;
+            count++;
+        } while (FindNextFile(hFind, &ffd) != 0);
+        FindClose(hFind);
+        return count;
+
+    #else
+        
+    #endif
+}
+
 FMC_SHARED int FMC_mkDir(const char* restrict path)
 {
     char cmd[256] = {0};

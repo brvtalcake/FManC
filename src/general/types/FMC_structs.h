@@ -55,6 +55,13 @@ FMC_SHARED struct FManC_ErrStack
 };
 typedef struct FManC_ErrStack FMC_ErrStack;
 
+FMC_SHARED struct FManC_Perms
+{
+    
+};
+
+
+
 FMC_SHARED struct FManC_Directory
 {
     size_t fileCount;

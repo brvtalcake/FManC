@@ -33,7 +33,8 @@ FMC_SHARED static const char FMC_ERROR_STR[FMC_ERR_STR_COUNT][FMC_ERR_STR_LEN / 
     "A problem occured while trying to push an error onto the error stack. ", // FMC_ERR_PUSH
     "Provided pointer is NULL. ",                                             // FMC_ERR_NULL_PTR
     "A wrong flags combination was provided. ",                               // FMC_WRONG_FLAGS_COMBINATION
-    "An internal error occured. "                                             // FMC_INTERNAL_ERROR
+    "An internal error occured. ",                                            // FMC_INTERNAL_ERROR
+    "Invalid argument. ",                                                     // FMC_INVALID_ARGUMENT
 };
 
 #ifndef __STDC_NO_ATOMICS__
