@@ -77,20 +77,24 @@ SOFTWARE.
 #define FMC_C_STR_VIEW_PTR 4U
 #define C_STR_PTR 8U
 
-#if defined(FMC_FILE_FLAGS) || defined(TO_OPEN) || defined(GET_ENCODING) || defined(GET_SIZE) || defined(BYTE_ORIENTED) || defined(WIDE_ORIENTED)
+#if defined(FMC_FILE_FLAGS) || defined(TO_OPEN) || defined(GET_ENCODING) || defined(GET_SIZE) || defined(BINARY_MODE) || defined(TEXT_MODE) || defined(BYTE_ORIENTED) || defined(WIDE_ORIENTED)
     #undef FMC_FILE_FLAGS
     #undef TO_OPEN
     #undef GET_ENCODING
     #undef GET_SIZE
+    #undef BINARY_MODE
+    #undef TEXT_MODE
     #undef BYTE_ORIENTED
     #undef WIDE_ORIENTED
-#endif // FMC_FILE_FLAGS || TO_OPEN || GET_ENCODING || GET_SIZE || BYTE_ORIENTED || WIDE_ORIENTED
+#endif // FMC_FILE_FLAGS || TO_OPEN || GET_ENCODING || GET_SIZE || BINARY_MODE || TEXT_MODE || BYTE_ORIENTED || WIDE_ORIENTED
 #define FMC_FILE_FLAGS
 #define TO_OPEN 16U
 #define GET_ENCODING 32U
 #define GET_SIZE 64U
-#define BYTE_ORIENTED 128U
-#define WIDE_ORIENTED 256U
+#define BINARY_MODE 128U
+#define TEXT_MODE 256U
+#define BYTE_ORIENTED 512U
+#define WIDE_ORIENTED 1024U
 
 #if defined(RM_DIR_RECURSIVE) || defined(RM_DIR_ONLY_CONTENT) || defined(RM_DIR_ONLY_SUBDIRS) || defined(RM_DIR_ONLY_FILES) || defined(CONFIRMATION) || defined(NO_CONFIRMATION)
     #undef RM_DIR_RECURSIVE

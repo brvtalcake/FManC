@@ -213,3 +213,51 @@ FMC_SHARED void FMC_destroyErrorStack(void)
     destroy_err_mtx();
     FMC_ERR_STACK_MUTEX_CREATED = False;
 }
+
+FMC_SHARED FMC_Bool FMC_searchError(FMC_Error err)
+{
+    FMC_ErrStackElement *tmp = FMC_ERR_STACK.lastError;
+    while (tmp)
+    {
+        if (tmp->errorNum == err) return 1;
+        tmp = tmp->next;
+    }
+    return 0;
+}
+
+FMC_SHARED char* FMC_getLastErrorMsg_noDepop(char* to_fill, size_t len)
+{
+    if (!to_fill) return NULL;
+    memset(to_fill, '\0', len);
+    if (len < FMC_ERR_STR_LEN) 
+    {
+        if (FMC_getDebugState()) 
+        {
+            char err_str_size[5] = "";
+            snprintf(err_str_size, 5, "%d", FMC_ERR_STR_LEN);
+            FMC_makeMsg(err_str, 7, "ERROR: ", "In func :", __func__, ":", "Provided buffer is too small to hold the error string (it needs to be at least ", err_str_size, ")");
+            FMC_printRedError(stderr, err_str);
+        }
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    
+    char tmp[FMC_ERR_STR_LEN / 2] = "";
+    FMC_getLastAdditionalInfo(tmp, FMC_ERR_STR_LEN / 2);
+    if (!FMC_ERR_STACK.lastError)
+    {
+        strncpy(to_fill, "No error", len);
+        goto func_end;
+    }
+    FMC_Error err = FMC_ERR_STACK.lastError->errorNum;
+    strncpy(to_fill, FMC_ERROR_STR[err], len);
+    if (strlen(tmp) > 0)
+    {
+        strncat(to_fill, "Addtional info: (", len);
+        strncat(to_fill, tmp, len);
+        strncat(to_fill, ")", len);
+    }
+    func_end:
+    return to_fill;
+    FMC_UNREACHABLE;
+}

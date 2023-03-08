@@ -34,16 +34,15 @@ SOFTWARE.
 #elif defined(FMC_COMPILING_ON_LINUX)
     #include <sys/stat.h>
     #include <sys/types.h>
+    #include <dirent.h>
     #include <unistd.h>
 #endif
 
 // TODO: Verify if file is regular file
 #if defined(FMC_COMPILING_ON_WINDOWS)
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT LONGLONG FMC_getFileSize(const char* restrict path)
-#elif defined(FMC_COMPILING_ON_LINUX) && defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS >= 64)
-FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT off64_t FMC_getFileSize(const char* restrict path)
 #else
-FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT off_t FMC_getFileSize(const char* restrict path)
+FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT off64_t FMC_getFileSize(const char* restrict path)
 #endif
 {
     #if defined(FMC_COMPILING_ON_WINDOWS) 
@@ -55,17 +54,14 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT off_t FMC_getFileSize(const char* restric
         size.HighPart = fad.nFileSizeHigh;
         size.LowPart = fad.nFileSizeLow;
         return size.QuadPart;
-
-    #elif defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS >= 64)
-        if (!path || !FMC_isRegFile(path)) return ((off64_t)(-1LL) > 0 ? 0 : -1);
+    #else
+        if (!path || !FMC_isRegFile(path)) 
+        {
+            FMC_setError(FMC_INVALID_ARGUMENT, "In function 'FMC_getFileSize': Invalid argument: path is NULL or not a regular file");
+            return ((off64_t)(-1LL) > 0 ? 0 : -1);
+        }
         struct stat64 st = {0};
         if (stat64(path, &st) == 0) return st.st_size;
-        return 0;
-
-    #else 
-        if (!path || !FMC_isRegFile(path)) return ((off_t)(-1LL) > 0 ? 0 : -1);
-        struct stat st = {0};
-        if (stat(path, &st) == 0) return st.st_size;
         return 0;
 
     #endif
@@ -139,35 +135,77 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT int FMC_isSocket(const char* restrict pat
 
 FMC_SHARED int_fast64_t FMC_getDirEntryCount(const char* restrict const path)
 {
+    if (!path || !FMC_isDir(path)) 
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_arg, 1, "FMC_getDirEntryCount: Invalid path argument.");
+            FMC_printRedError(stderr, err_arg);
+        }
+        FMC_setError(FMC_INVALID_ARGUMENT, "FMC_getDirEntryCount: Invalid path argument.");
+        return -1;
+        FMC_UNREACHABLE;
+    }
+    int_fast64_t count = 0;
+
     #if defined(FMC_COMPILING_ON_WINDOWS)
-        if (!path || !FMC_isDir(path)) 
+        WIN32_FIND_DATAA ffd = {0};
+        char path_with_wildcard[MAX_FEXT_SIZE + MAX_FNAME_SIZE + MAX_FPATH_SIZE] = {0};
+        int ret_val = snprintf(path_with_wildcard, MAX_FEXT_SIZE + MAX_FNAME_SIZE + MAX_FPATH_SIZE, "%s\\*", path);
+        if (ret_val < 0 || ret_val >= MAX_FEXT_SIZE + MAX_FNAME_SIZE + MAX_FPATH_SIZE)
         {
             if (FMC_getDebugState())
             {
-                FMC_makeMsg(err_arg, 1, "FMC_getDirEntryCount: Invalid path argument.");
+                FMC_makeMsg(err_arg, 1, "FMC_getDirEntryCount: Path argument too long.");
                 FMC_printRedError(stderr, err_arg);
             }
-            FMC_setError(FMC_INVALID_ARGUMENT, "FMC_getDirEntryCount: Invalid path argument.");
+            FMC_setError(FMC_INVALID_ARGUMENT, "FMC_getDirEntryCount: Path argument too long.");
             return -1;
+            FMC_UNREACHABLE;
         }
-        WIN32_FIND_DATA ffd = {0};
-        HANDLE hFind = INVALID_HANDLE_VALUE;
-        int_fast64_t count = 0;
-        char search_path[256] = {0};
-        snprintf(search_path, 256, "%s\\*", path);
-        hFind = FindFirstFile(search_path, &ffd);
-        if (hFind == INVALID_HANDLE_VALUE) return 0;
-        do
+        HANDLE hFind = FindFirstFileA(path_with_wildcard, &ffd);
+        if (hFind == INVALID_HANDLE_VALUE) 
         {
-            if (strcmp(ffd.cFileName, ".") == 0 || strcmp(ffd.cFileName, "..") == 0) continue;
-            count++;
-        } while (FindNextFile(hFind, &ffd) != 0);
+            if (GetLastError() == ERROR_FILE_NOT_FOUND)
+            {
+                return 0;
+                FMC_UNREACHABLE;
+            }
+            else
+            {
+                if (FMC_getDebugState())
+                {
+                    FMC_makeMsg(err_int, 1, "FMC_getDirEntryCount: FindFirstFileA failed.");
+                    FMC_printRedError(stderr, err_int);
+                }
+                FMC_setError(FMC_INTERNAL_ERROR, "FMC_getDirEntryCount: FindFirstFileA failed.");
+                return -1;
+                FMC_UNREACHABLE;
+            }
+        }
+        while (FindNextFileA(hFind, &ffd) != 0 && GetLastError() != ERROR_NO_MORE_FILES) ++count;
         FindClose(hFind);
         return count;
-
     #else
-        
+        struct dirent* entry = NULL;
+        DIR *dir = opendir(path);
+        if (!dir)
+        {
+            if (FMC_getDebugState())
+            {
+                FMC_makeMsg(err_int, 1, "FMC_getDirEntryCount: opendir failed.");
+                FMC_printRedError(stderr, err_int);
+            }
+            FMC_setError(FMC_INTERNAL_ERROR, "FMC_getDirEntryCount: opendir failed.");
+            return -1;
+            FMC_UNREACHABLE;
+        }
+        while ((entry = readdir(dir)) != NULL) ++count;
+        closedir(dir);
+        return count;
+        FMC_UNREACHABLE;
     #endif
+    FMC_UNREACHABLE;
 }
 
 FMC_SHARED int FMC_mkDir(const char* restrict path)

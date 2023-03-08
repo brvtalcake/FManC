@@ -41,6 +41,8 @@ FMC_SHARED FMC_Error FMC_setError(FMC_Error err, const char* const additionnal_m
 FMC_SHARED FMC_FUNC_HOT FMC_Error FMC_getLastErrorNum(void);
 FMC_SHARED FMC_FUNC_HOT char*     FMC_getLastErrorStr(char* str, size_t len);
 FMC_SHARED FMC_FUNC_HOT FMC_Error FMC_getLastErrorNum_noDepop(void);
+FMC_SHARED FMC_Bool               FMC_searchError(FMC_Error err);
+FMC_SHARED char*                  FMC_getLastErrorMsg_noDepop(char* to_fill, size_t len);
 
 FMC_SHARED void FMC_clearErrorStack(void);
 FMC_SHARED void FMC_destroyErrorStack(void);

@@ -39,10 +39,8 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
 
 #if defined(FMC_COMPILING_ON_WINDOWS)
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT LONGLONG FMC_getFileSize(const char* restrict path);
-#elif defined(FMC_COMPILING_ON_LINUX) && defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS >= 64)
-FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT off64_t FMC_getFileSize(const char* restrict path);
 #else
-FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT off_t FMC_getFileSize(const char* restrict path);
+FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT off64_t FMC_getFileSize(const char* restrict path);
 #endif
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT int FMC_dirExists(const char* restrict path);
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT int FMC_isRegFile(const char* restrict path);

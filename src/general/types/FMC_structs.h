@@ -76,17 +76,23 @@ FMC_SHARED struct FManC_File
     FILE *file;
     unsigned long long int fileSize;
     FMC_Encodings encoding;
-    enum
+    enum FMC_File_orientation
     {
+        not_set = 0,
         wide,
         byte,
-        undefined,
     } orientation;
+    enum FMC_File_dataMode
+    {
+        undefined = 0,
+        binary,
+        text,
+    } dataMode;
     FMC_FileState isOpened;
     char path[MAX_FPATH_SIZE];
     char name[MAX_FNAME_SIZE];
     char extension[MAX_FEXT_SIZE];
-    char mode[13];
+    char fullMode[13];
 };
 typedef struct FManC_File FMC_File;
 
