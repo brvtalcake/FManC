@@ -14,6 +14,7 @@
 | Implement a support for many other file types (for exemple a JSON parser, reading a JPEG and return arrays of RGBA pixels), detecting more kind of files |:x:|
 | Manipulate file metadatas    |:x: |
 | Manipulate file versionning, syncing, sharing, backup and restore, tagging and labelling |:x: |
+| Calculate Levenshtein distance between two strings | :x: |
 
 ---
 
