@@ -25,7 +25,7 @@ SOFTWARE.
 */
 
 #if __cplusplus < 201703L
-    #error "The contents of <filesystem> are available only with C++17 or later."
+    #error "The content of <filesystem> is available only with C++17 or later."
 #endif
 
 #include "cpp_FMC_filesystem.hpp"
@@ -60,20 +60,12 @@ int FMC_isDir_(const char *path)
  */
 int FMC_isSymLink_(const char *path) 
 {
-    if (fs::exists(path)) 
-    {
-        return fs::is_symlink(path);
-    }
-    else return -1;
+    return fs::exists(path) ? fs::is_symlink(path) : 0;
 }
 
 int FMC_isBlock_(const char* path)
 {
-    if (fs::exists(path))
-    {
-        return fs::is_block_file(path);
-    }
-    else return -1;
+    return fs::exists(path) ? fs::is_block_file(path) : 0;
 }
 
 /* int FMC_isCharFile_(const char* path)
@@ -96,20 +88,12 @@ int FMC_isSocket_(const char* path)
  */
 int FMC_isFIFO_(const char* path)
 {
-    if (fs::exists(path))
-    {
-        return fs::is_fifo(path);
-    }
-    else return -1;
+    return fs::exists(path) ? fs::is_fifo(path) : 0;
 }
 
 int FMC_isOther_(const char* path)
 {
-    if (fs::exists(path))
-    {
-        return fs::is_other(path);
-    }
-    else return -1;
+    return fs::exists(path) ? fs::is_other(path) : 0;
 }
 
 /*
@@ -127,11 +111,7 @@ char *FMC_readSymlink_(char *path_sym, const char * path, const int size)
 
 int FMC_isEmpty_(const char *path) 
 {
-    if(fs::exists(path))
-    {
-        return fs::is_empty(path);
-    }
-    else return -1;
+    return fs::exists(path) ? fs::is_empty(path) : 0;
 }
 
 /*int FMC_createDir_(const char *path) 

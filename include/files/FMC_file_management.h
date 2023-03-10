@@ -24,12 +24,19 @@ SOFTWARE.
 
 */
 
-#pragma once
-
 #ifndef FMC_FILE_MANAGEMENT_H
 #define FMC_FILE_MANAGEMENT_H
 
 #include "../general/FMC_general.h"
+
+#if defined(FMC_COMPILING_ON_WINDOWS)
+    #include <windows.h>
+#elif defined(FMC_COMPILING_ON_LINUX)
+    #include <sys/stat.h>
+    #include <sys/types.h>
+    #include <dirent.h>
+    #include <unistd.h>
+#endif
 
 FMC_BEGIN_DECLS
 
@@ -39,16 +46,22 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
 
 #if defined(FMC_COMPILING_ON_WINDOWS)
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT LONGLONG FMC_getFileSize(const char* restrict path);
-#elif defined(FMC_COMPILING_ON_LINUX) && defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS >= 64)
-FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT off64_t FMC_getFileSize(const char* restrict path);
 #else
-FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT off_t FMC_getFileSize(const char* restrict path);
+FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT off64_t FMC_getFileSize(const char* restrict path);
 #endif
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT int FMC_dirExists(const char* restrict path);
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT int FMC_isRegFile(const char* restrict path);
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT int FMC_isDir(const char* restrict path);
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT int FMC_isCharDevice(const char* restrict path);
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT int FMC_isSocket(const char* restrict path);
+FMC_SHARED int_fast64_t FMC_getDirEntryCount(const char* restrict const path);
+FMC_SHARED int FMC_mkDir(const char* restrict path);
+FMC_SHARED int FMC_rmDir(const char* restrict path, unsigned int user_flags);
+
+FMC_SHARED FMC_FUNC_NONNULL(1) void FMC_freeFile(FMC_File* restrict file);
+FMC_SHARED FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File *FMC_allocFile(const unsigned int user_flags, const char* restrict const path, const char* restrict const full_mode);
+FMC_SHARED FMC_FUNC_NONNULL(1, 2) unsigned int FMC_changeStreamOrientation(FILE* restrict file, const char* restrict const mode, unsigned int orientation_flag);
+FMC_SHARED unsigned long long FMC_getOptimalWriteBufferSize(const char* restrict const path);
 
 FMC_END_DECLS
 

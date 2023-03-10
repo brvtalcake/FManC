@@ -29,15 +29,6 @@ SOFTWARE.
 #include "FMC_file_management.h"
 #include "../cpp/FMC_wrapper.h"
 
-#if defined(FMC_COMPILING_ON_WINDOWS)
-    #include <windows.h>
-#elif defined(FMC_COMPILING_ON_LINUX)
-    #include <sys/stat.h>
-    #include <sys/types.h>
-    #include <dirent.h>
-    #include <unistd.h>
-#endif
-
 // TODO: Verify if file is regular file
 #if defined(FMC_COMPILING_ON_WINDOWS)
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT LONGLONG FMC_getFileSize(const char* restrict path)

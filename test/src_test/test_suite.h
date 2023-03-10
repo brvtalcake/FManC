@@ -3,6 +3,15 @@
 
 #include "../../include/FMC.h"
 
+#if defined(FMC_COMPILING_ON_WINDOWS)
+    #include <windows.h>
+#elif defined(FMC_COMPILING_ON_LINUX)
+    #include <sys/stat.h>
+    #include <sys/types.h>
+    #include <dirent.h>
+    #include <unistd.h>
+#endif
+
 /*
 void test_getFileExtension(void);
 void test_getFileName(void);

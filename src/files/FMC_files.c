@@ -70,6 +70,10 @@ FMC_SHARED FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File *FMC_allocFile(const unsign
     char tmp_name[MAX_FNAME_SIZE];
     char tmp_ext[MAX_FEXT_SIZE];
 
+    memset(tmp_path, 0, MAX_FPATH_SIZE);
+    memset(tmp_name, 0, MAX_FNAME_SIZE);
+    memset(tmp_ext, 0, MAX_FEXT_SIZE);
+
     if (!FMC_cutFilename(path, tmp_path, MAX_FPATH_SIZE))
     {
         if (FMC_getDebugState())
@@ -266,7 +270,7 @@ FMC_SHARED FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File *FMC_allocFile(const unsign
 }
 
 
-FMC_SHARED FMC_FUNC_NONNULL(1) void FMC_freeFile(FMC_File *file)
+FMC_SHARED FMC_FUNC_NONNULL(1) void FMC_freeFile(FMC_File* restrict file)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
     if (!file)
@@ -292,7 +296,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) void FMC_freeFile(FMC_File *file)
     FMC_UNREACHABLE;
 }
 
-FMC_SHARED FMC_FUNC_NONNULL(1, 2) unsigned int FMC_changeStreamOrientation(FILE* file, char* mode, unsigned int orientation_flag)
+FMC_SHARED FMC_FUNC_NONNULL(1, 2) unsigned int FMC_changeStreamOrientation(FILE* restrict file, const char* restrict const mode, unsigned int orientation_flag)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
     if (!file || !mode)
@@ -385,7 +389,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) unsigned int FMC_changeStreamOrientation(FILE*
     return 0;
 }
 
-FMC_SHARED size_t FMC_getOptimalWriteBufferSize(const char* restrict const path)
+FMC_SHARED unsigned long long FMC_getOptimalWriteBufferSize(const char* restrict const path)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
     if (!path || !FMC_isRegFile(path))
@@ -437,7 +441,7 @@ FMC_SHARED size_t FMC_getOptimalWriteBufferSize(const char* restrict const path)
             return 0;
             FMC_UNREACHABLE;
         }
-        return storage_info.PhysicalBytesPerSectorForPerformance;
+        return (unsigned long long) storage_info.PhysicalBytesPerSectorForPerformance;
         FMC_UNREACHABLE;
     #else
         struct stat file_stat;
@@ -452,7 +456,7 @@ FMC_SHARED size_t FMC_getOptimalWriteBufferSize(const char* restrict const path)
             return 0;
             FMC_UNREACHABLE;
         }
-        return file_stat.st_blksize;
+        return file_stat.st_blksize < 0 ? 0 : (unsigned long long) file_stat.st_blksize;
         FMC_UNREACHABLE;
     #endif 
 }
@@ -465,8 +469,6 @@ FMC_SHARED size_t FMC_getOptimalWriteBufferSize(const char* restrict const path)
     #pragma GCC diagnostic pop // -Wnonnull-compare */
 
 /* FMC_SHARED FMC_File *FMC_openFile();
-
-FMC_SHARED size_t FMC_getOptimalBufferSize();
 
 FMC_SHARED static FMC_File *FMC_open_getEncoding();
 

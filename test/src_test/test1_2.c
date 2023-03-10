@@ -13,25 +13,25 @@ void test_FMC_dirExists()
 
 void test_FMC_isDir()
 {
-    assert(FMC_isDir("./main.c") == -1);
+    assert(FMC_isDir("./main.c") == 0);
     assert(FMC_isDir("../../src_test/test.c") == 0);
-    assert(FMC_isDir(" ") == -1);
+    assert(FMC_isDir(" ") == 0);
     assert(FMC_isDir("./") == 1);
 }
 
 void test_FMC_isRegFile()
 {
-    assert(FMC_isRegFile("./main.c") == -1);
+    assert(FMC_isRegFile("./main.c") == 0);
     assert(FMC_isRegFile("../../src_test/test.c") == 1);
-    assert(FMC_isRegFile(" ") == -1);
+    assert(FMC_isRegFile(" ") == 0);
     assert(FMC_isRegFile("./") == 0);
 }
 
 void test_FMC_isSymLink()
 {
-    assert(FMC_isSymLink("./main.c") == -1);
+    assert(FMC_isSymLink("./main.c") == 0);
     assert(FMC_isSymLink("../../src_test/test.c") == 0);
-    assert(FMC_isSymLink(" ") == -1);
+    assert(FMC_isSymLink(" ") == 0);
     assert(FMC_isSymLink("../../../bin/libFManC_x86_64.so") == 1);
 }
 

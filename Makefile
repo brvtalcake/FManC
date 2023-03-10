@@ -81,8 +81,8 @@ ifneq (,$(findstring struct,$(MAKECMDGOALS)))
 	CXX_FLAGS+=-Wpadded
 endif
 
-C_DEBUG_FLAGS=-D _DEFAULT_SOURCE -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=64 -g3 -std=gnu17 -ftrack-macro-expansion=1 -fprofile-arcs -ftest-coverage
-CXX_DEBUG_FLAGS=-D _DEFAULT_SOURCE -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=64 -g3 -std=gnu++17 -ftrack-macro-expansion=1 -fprofile-arcs -ftest-coverage
+C_DEBUG_FLAGS=-D _DEFAULT_SOURCE -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=64 -g3 -O0 -std=gnu17 -ftrack-macro-expansion=1 -fprofile-arcs -ftest-coverage
+CXX_DEBUG_FLAGS=-D _DEFAULT_SOURCE -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=64 -g3 -O0 -std=gnu++17 -ftrack-macro-expansion=1 -fprofile-arcs -ftest-coverage
 
 LD_FLAGS_DLL=-lstdc++ "-Wl,--out-implib=libFManC.dll.a,--export-all-symbols,--enable-auto-import"
 LD_FLAGS_SO=-lstdc++ -Wl,-soname,
@@ -165,13 +165,13 @@ shared_win : $(LIB_WIN_SHARED_FILES) copy_headers
 test : copy_headers $(TEST_TARGET) exp_cov
 
 test_lin : $(LIB_LIN_TEST)
-	$(CC) $(TEST_SUITE_FILES) -fprofile-arcs -ftest-coverage -std=gnu17 -o test/test_builds/$(TEST_RES_FOLD)/$@.out $(INC_FLAGS) -Ltest/lib/ -lFManC_linux_x86_64 -lstdc++
+	$(CC) $(TEST_SUITE_FILES) $(C_DEBUG_FLAGS) -o test/test_builds/$(TEST_RES_FOLD)/$@.out $(INC_FLAGS) -Ltest/lib/ -lFManC_linux_x86_64 -lstdc++
 	@printf "\e[92mRunning tests for $(PRINTED_OS)\n\e[0m"
 	@cd ./test/test_builds/$(TEST_RES_FOLD) && ./$@.out
 	gcov $(GCNO_LIN_FILES)
 
 test_win : $(LIB_WIN_TEST)
-	$(CC) -D FMC_STATIC $(TEST_SUITE_FILES) -fprofile-arcs -ftest-coverage -std=gnu17 -o test/test_builds/$(TEST_RES_FOLD)/$@.exe $(INC_FLAGS) -Ltest/lib -lFManC_linux_x86_64 -lstdc++
+	$(CC) -D FMC_STATIC $(TEST_SUITE_FILES) $(C_DEBUG_FLAGS) -o test/test_builds/$(TEST_RES_FOLD)/$@.exe $(INC_FLAGS) -Ltest/lib -lFManC_linux_x86_64 -lstdc++
 	@printgreen Running tests for $(PRINTED_OS)
 	@cd .\test\test_builds\$(TEST_RES_FOLD) && $@.exe
 	gcov $(GCNO_LIN_FILES)
@@ -224,10 +224,10 @@ doc_win : $(SRC_FILES)
 	@cd man && make
 
 include/%.h : src/%.h
-	@cp --recursive -f -u -T $^ $@ 
+	@cp -f -T $^ $@ 
 
 include/%.hpp : src/%.hpp
-	@cp --recursive -f -u -T $^ $@ 
+	@cp -f -T $^ $@ 
 
 lib/libFManC_linux_x86_64.a : $(O_LIN_STATIC_FILES)
 	$(AR) $(AR_FLAGS) $@ $^

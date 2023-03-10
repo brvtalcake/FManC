@@ -55,6 +55,13 @@ FMC_SHARED struct FManC_ErrStack
 };
 typedef struct FManC_ErrStack FMC_ErrStack;
 
+FMC_SHARED struct FManC_Perms
+{
+    
+};
+
+
+
 FMC_SHARED struct FManC_Directory
 {
     size_t fileCount;
@@ -69,16 +76,24 @@ FMC_SHARED struct FManC_File
     FILE *file;
     unsigned long long int fileSize;
     FMC_Encodings encoding;
-    enum
+    enum FMC_File_orientation
     {
+        not_set = 0,
         wide,
-        byte
+        byte,
+        failed_to_change,
     } orientation;
+    enum FMC_File_dataMode
+    {
+        undefined = 0,
+        binary,
+        text,
+    } dataMode;
     FMC_FileState isOpened;
     char path[MAX_FPATH_SIZE];
     char name[MAX_FNAME_SIZE];
     char extension[MAX_FEXT_SIZE];
-    char mode[13];
+    char fullMode[13];
 };
 typedef struct FManC_File FMC_File;
 
