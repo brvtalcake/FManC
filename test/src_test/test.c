@@ -30,6 +30,8 @@ int main()
     fprintf(stderr, "\x1b[32m%s\n\x1b[0m", "test_FMC_getEncoding() passed");
     test_FMC_checkEncodingFlag();
     fprintf(stderr, "\x1b[32m%s\n\x1b[0m", "test_FMC_checkEncodingFlag() passed");
-    
+    test_Error_System();
+    fprintf(stderr, "\x1b[32m%s\n\x1b[0m", "test_Error_System() passed");
+
     return 0;
 }

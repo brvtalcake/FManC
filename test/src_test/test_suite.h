@@ -28,4 +28,5 @@ void test_FMC_getCurrentPath();
 void test_FMC_getAbsolutePath();
 void test_FMC_getEncoding();
 void test_FMC_checkEncodingFlag();
+void test_Error_System();
 #endif // TEST_SUITE_H
