@@ -13,7 +13,7 @@
 
 int main()
 {
-    FMC_setDebugState(1);
+    FMC_setDebugState(True);
     test_FMC_isDir();
     fprintf(stderr, "\x1b[32m%s\n\x1b[0m", "test_FMC_isDir() passed");
     test_FMC_dirExists();
@@ -32,6 +32,10 @@ int main()
     fprintf(stderr, "\x1b[32m%s\n\x1b[0m", "test_FMC_checkEncodingFlag() passed");
     test_Error_System();
     fprintf(stderr, "\x1b[32m%s\n\x1b[0m", "test_Error_System() passed");
+    test_FMC_mkDir_rmDir();
+    fprintf(stderr, "\x1b[32m%s\n\x1b[0m", "test_FMC_mkDir_rmDir() passed");
+    test_FMC_getOptimalWriteBufferSize();
+    fprintf(stderr, "\x1b[32m%s\n\x1b[0m", "test_FMC_getOptimalWriteBufferSize() passed");
 
     return 0;
 }

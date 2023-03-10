@@ -192,7 +192,7 @@ FMC_SHARED FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File *FMC_allocFile(const unsign
 
             char tmp_err_msg[FMC_ERR_STR_LEN];
             memset(tmp_err_msg, '\0', FMC_ERR_STR_LEN);
-            FMC_getLastErrorMsg_noDepop(tmp_err_msg, FMC_ERR_STR_LEN);
+            FMC_getLastErrorStr_noDepop(tmp_err_msg, FMC_ERR_STR_LEN);
             if (file_size <= 0 && FMC_getLastErrorNum_noDepop() == FMC_INVALID_ARGUMENT && strstr(tmp_err_msg, "In function 'FMC_getFileSize'"))
             {
                 if (FMC_getDebugState())

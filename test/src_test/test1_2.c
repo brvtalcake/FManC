@@ -57,3 +57,21 @@ void test_FMC_getAbsolutePath()
     assert(strncmp(buffer, "/home/axel/Documents/programmation/c/FManC/test/test_builds/lin/../../../", strlen("/home/axel/Documents/programmation/c/FManC/test/test_builds/lin/../../../") + 1) == 0);
     assert(FMC_isDir(buffer) == 1);
 }
+
+void test_FMC_mkDir_rmDir()
+{
+    FMC_mkDir("../../safe_dir_test_folder/created_dir");
+    assert(FMC_isDir("../../safe_dir_test_folder/created_dir"));
+    FMC_mkDir("../../safe_dir_test_folder/created_dir/created_dir2");
+    assert(FMC_isDir("../../safe_dir_test_folder/created_dir/created_dir2"));
+    FILE* file = fopen("../../safe_dir_test_folder/created_dir/created_dir2/file.txt", "w");
+    assert(file != NULL);
+    fclose(file);
+    FMC_printBrightBlueText(stderr, "\nPlease confirm to continue the tests\n");
+    FMC_rmDir("../../safe_dir_test_folder/created_dir/created_dir2", FMC_mergeFlags(RM_DIR_RECURSIVE, CONFIRMATION));
+    assert(!FMC_isDir("../../safe_dir_test_folder/created_dir/created_dir2"));
+    FMC_mkDir("../../safe_dir_test_folder/created_dir/created_dir2");
+    FMC_rmDir("../../safe_dir_test_folder/created_dir", FMC_mergeFlags(RM_DIR_RECURSIVE, NO_CONFIRMATION));
+    assert(!FMC_isDir("../../safe_dir_test_folder/created_dir"));
+
+}

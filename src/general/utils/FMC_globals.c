@@ -74,7 +74,7 @@ FMC_SHARED static void FMC_consumeOldestError(void)
     FMC_ERR_STACK.stackSize--;
 }
 
-FMC_SHARED static FMC_Error FMC_pushError(FMC_Error err, const char* const additionnal_message)
+FMC_SHARED static FMC_Error FMC_pushError(FMC_Error err, const char* const additional_message)
 {
     if (!FMC_ERR_STACK_MUTEX_CREATED)
     {
@@ -98,7 +98,7 @@ FMC_SHARED static FMC_Error FMC_pushError(FMC_Error err, const char* const addit
 
     new->errorNum = err;
     new->next = tmp;
-    if (additionnal_message && strlen(additionnal_message) < FMC_ERR_STR_LEN / 2) { strcpy(new->additionalInfo, additionnal_message); }
+    if (additional_message && strlen(additional_message) < FMC_ERR_STR_LEN / 2) { strcpy(new->additionalInfo, additional_message); }
     else { new->additionalInfo[0] = '\0'; }
     FMC_ERR_STACK.lastError = new;    
     FMC_ERR_STACK.stackSize++;
@@ -106,9 +106,9 @@ FMC_SHARED static FMC_Error FMC_pushError(FMC_Error err, const char* const addit
     return FMC_OK;
 }
 
-FMC_SHARED FMC_Error FMC_setError(FMC_Error err, const char* const additionnal_message)
+FMC_SHARED FMC_Error FMC_setError(FMC_Error err, const char* const additional_message)
 {
-    return FMC_pushError(err, additionnal_message);
+    return FMC_pushError(err, additional_message);
 }
 
 FMC_SHARED static FMC_Error FMC_popError(void)
@@ -182,9 +182,8 @@ FMC_SHARED FMC_FUNC_HOT char* FMC_getLastErrorStr(char *str, size_t len)
     strncpy(str, FMC_ERROR_STR[err], len);
     if (strlen(tmp) > 0)
     {
-        strncat(str, "Addtional info: (", len);
+        strncat(str, "Additional info: ", len);
         strncat(str, tmp, len);
-        strncat(str, ")", len);
     }
     return str;
 }
@@ -225,9 +224,11 @@ FMC_SHARED FMC_Bool FMC_searchError(FMC_Error err)
     return 0;
 }
 
-FMC_SHARED char* FMC_getLastErrorMsg_noDepop(char* to_fill, size_t len)
+FMC_SHARED FMC_FUNC_NONNULL(1) char* FMC_getLastErrorStr_noDepop(char* to_fill, size_t len)
 {
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
     if (!to_fill) return NULL;
+    #pragma GCC diagnostic pop
     memset(to_fill, '\0', len);
     if (len < FMC_ERR_STR_LEN) 
     {
@@ -253,11 +254,29 @@ FMC_SHARED char* FMC_getLastErrorMsg_noDepop(char* to_fill, size_t len)
     strncpy(to_fill, FMC_ERROR_STR[err], len);
     if (strlen(tmp) > 0)
     {
-        strncat(to_fill, "Addtional info: (", len);
+        strncat(to_fill, "Additional info: ", len);
         strncat(to_fill, tmp, len);
-        strncat(to_fill, ")", len);
     }
     func_end:
     return to_fill;
+    FMC_UNREACHABLE;
+}
+
+FMC_SHARED FMC_Bool FMC_FUNC_NONNULL(1) FMC_searchErrorMsg(const char* restrict const msg)
+{
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (!msg) return 0;
+    #pragma GCC diagnostic pop
+    FMC_ErrStackElement *tmp = FMC_ERR_STACK.lastError;
+    char tmp_err_msg[FMC_ERR_STR_LEN] = "";
+    while (tmp)
+    {
+        memset(tmp_err_msg, '\0', FMC_ERR_STR_LEN);
+        strcpy(tmp_err_msg, FMC_ERROR_STR[tmp->errorNum]);
+        strcat(tmp_err_msg, tmp->additionalInfo);
+        if (strstr(tmp_err_msg, msg)) return 1;
+        tmp = tmp->next;
+    }
+    return 0;
     FMC_UNREACHABLE;
 }

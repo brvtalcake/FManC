@@ -11,6 +11,7 @@
     #include <dirent.h>
     #include <unistd.h>
 #endif
+#include <string.h>
 
 /*
 void test_getFileExtension(void);
@@ -28,5 +29,7 @@ void test_FMC_getCurrentPath();
 void test_FMC_getAbsolutePath();
 void test_FMC_getEncoding();
 void test_FMC_checkEncodingFlag();
+void test_FMC_mkDir_rmDir();
 void test_Error_System();
+void test_FMC_getOptimalWriteBufferSize();
 #endif // TEST_SUITE_H
