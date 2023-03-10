@@ -168,13 +168,13 @@ test_lin : $(LIB_LIN_TEST)
 	$(CC) $(TEST_SUITE_FILES) $(C_DEBUG_FLAGS) -o test/test_builds/$(TEST_RES_FOLD)/$@.out $(INC_FLAGS) -Ltest/lib/ -lFManC_linux_x86_64 -lstdc++
 	@printf "\e[92mRunning tests for $(PRINTED_OS)\n\e[0m"
 	@cd ./test/test_builds/$(TEST_RES_FOLD) && ./$@.out
-	gcov $(GCNO_LIN_FILES)
+	gcov -b -p $(GCNO_LIN_FILES)
 
 test_win : $(LIB_WIN_TEST)
 	$(CC) -D FMC_STATIC $(TEST_SUITE_FILES) $(C_DEBUG_FLAGS) -o test/test_builds/$(TEST_RES_FOLD)/$@.exe $(INC_FLAGS) -Ltest/lib -lFManC_linux_x86_64 -lstdc++
 	@printgreen Running tests for $(PRINTED_OS)
 	@cd .\test\test_builds\$(TEST_RES_FOLD) && $@.exe
-	gcov $(GCNO_LIN_FILES)
+	gcov -b -p $(GCNO_LIN_FILES)
 
 $(LIB_LIN_TEST) : $(O_LIN_TEST)
 	$(AR) $(AR_FLAGS) $@ $^
