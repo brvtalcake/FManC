@@ -81,7 +81,7 @@ FMC_SHARED FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File *FMC_allocFile(const unsign
             FMC_makeMsg(err_cut_name, 1, "INTERNAL ERROR: FMC_createFile: FMC_cutFilename failed.");
             FMC_printRedError(stderr, err_cut_name);
         }
-        FMC_setError(FMC_INTERNAL_ERROR, "FMC_createFile: FMC_cutFilename failed.");
+        FMC_setError(FMC_ERR_INTERNAL, "FMC_createFile: FMC_cutFilename failed.");
         return NULL;
         FMC_UNREACHABLE;
     }
@@ -93,7 +93,7 @@ FMC_SHARED FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File *FMC_allocFile(const unsign
             FMC_makeMsg(err_extr_name, 1, "INTERNAL ERROR: FMC_createFile: FMC_extractFilename failed.");
             FMC_printRedError(stderr, err_extr_name);
         }
-        FMC_setError(FMC_INTERNAL_ERROR, "FMC_createFile: FMC_extractFilename failed.");
+        FMC_setError(FMC_ERR_INTERNAL, "FMC_createFile: FMC_extractFilename failed.");
         return NULL;
         FMC_UNREACHABLE;
     }
@@ -105,7 +105,7 @@ FMC_SHARED FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File *FMC_allocFile(const unsign
             FMC_makeMsg(err_get_ext, 1, "INTERNAL ERROR: FMC_createFile: FMC_getExtension failed.");
             FMC_printRedError(stderr, err_get_ext);
         }
-        FMC_setError(FMC_INTERNAL_ERROR, "FMC_createFile: FMC_getExtension failed.");
+        FMC_setError(FMC_ERR_INTERNAL, "FMC_createFile: FMC_getExtension failed.");
         return NULL;
         FMC_UNREACHABLE;
     }
@@ -121,7 +121,7 @@ FMC_SHARED FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File *FMC_allocFile(const unsign
             FMC_makeMsg(err_malloc1, 1, "INTERNAL ERROR: FMC_createFile: malloc failed to allocate memory for the file struct.");
             FMC_printRedError(stderr, err_malloc1);
         }
-        FMC_setError(FMC_INTERNAL_ERROR, "FMC_createFile: malloc failed to allocate memory for the file struct.");
+        FMC_setError(FMC_ERR_INTERNAL, "FMC_createFile: malloc failed to allocate memory for the file struct.");
         return NULL;
         FMC_UNREACHABLE;
     }
@@ -162,7 +162,7 @@ FMC_SHARED FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File *FMC_allocFile(const unsign
                 FMC_makeMsg(err_fopen, 1, "INTERNAL ERROR: FMC_createFile: fopen failed to open the file.");
                 FMC_printRedError(stderr, err_fopen);
             }
-            FMC_setError(FMC_INTERNAL_ERROR, "FMC_createFile: fopen failed to open the file.");
+            FMC_setError(FMC_ERR_INTERNAL, "FMC_createFile: fopen failed to open the file.");
             free(returned_file);
             return NULL;
             FMC_UNREACHABLE;
@@ -193,14 +193,14 @@ FMC_SHARED FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File *FMC_allocFile(const unsign
             char tmp_err_msg[FMC_ERR_STR_LEN];
             memset(tmp_err_msg, '\0', FMC_ERR_STR_LEN);
             FMC_getLastErrorStr_noDepop(tmp_err_msg, FMC_ERR_STR_LEN);
-            if (file_size <= 0 && FMC_getLastErrorNum_noDepop() == FMC_INVALID_ARGUMENT && strstr(tmp_err_msg, "In function 'FMC_getFileSize'"))
+            if (file_size <= 0 && FMC_getLastErrorNum_noDepop() == FMC_ERR_INVALID_ARGUMENT && strstr(tmp_err_msg, "In function 'FMC_getFileSize'"))
             {
                 if (FMC_getDebugState())
                 {
                     FMC_makeMsg(err_file_size, 1, "INTERNAL ERROR: FMC_createFile: FMC_getFileSize failed to get the file size. Maybe this is not a regular file?");
                     FMC_printRedError(stderr, err_file_size);
                 }
-                FMC_setError(FMC_INTERNAL_ERROR, "FMC_createFile: FMC_getFileSize failed to get the file size. Maybe this is not a regular file?");
+                FMC_setError(FMC_ERR_INTERNAL, "FMC_createFile: FMC_getFileSize failed to get the file size. Maybe this is not a regular file?");
                 free(returned_file);
                 return NULL;
                 FMC_UNREACHABLE;
@@ -214,7 +214,7 @@ FMC_SHARED FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File *FMC_allocFile(const unsign
                 FMC_makeMsg(err_fopen, 1, "INTERNAL ERROR: FMC_createFile: fopen failed to open the file.");
                 FMC_printRedError(stderr, err_fopen);
             }
-            FMC_setError(FMC_INTERNAL_ERROR, "FMC_createFile: fopen failed to open the file.");
+            FMC_setError(FMC_ERR_INTERNAL, "FMC_createFile: fopen failed to open the file.");
             free(returned_file);
             return NULL;
             FMC_UNREACHABLE;
@@ -234,7 +234,7 @@ FMC_SHARED FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File *FMC_allocFile(const unsign
                     FMC_makeMsg(err_arg_invalid, 1, "FMC_createFile: You can only provide one of both WIDE_ORIENTED and BYTE_ORIENTED flags.");
                     FMC_printRedError(stderr, err_arg_invalid);
                 }
-                FMC_setError(FMC_INVALID_ARGUMENT, "FMC_createFile: You can only provide one of both WIDE_ORIENTED and BYTE_ORIENTED flags.");
+                FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_createFile: You can only provide one of both WIDE_ORIENTED and BYTE_ORIENTED flags.");
                 free(returned_file);
                 return NULL;
                 FMC_UNREACHABLE;
@@ -254,7 +254,7 @@ FMC_SHARED FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File *FMC_allocFile(const unsign
                     FMC_makeMsg(err_arg_invalid, 1, "FMC_createFile: You can only provide one of both WIDE_ORIENTED and BYTE_ORIENTED flags.");
                     FMC_printRedError(stderr, err_arg_invalid);
                 }
-                FMC_setError(FMC_INVALID_ARGUMENT, "FMC_createFile: You can only provide one of both WIDE_ORIENTED and BYTE_ORIENTED flags.");
+                FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_createFile: You can only provide one of both WIDE_ORIENTED and BYTE_ORIENTED flags.");
                 free(returned_file);
                 return NULL;
                 FMC_UNREACHABLE;
@@ -280,7 +280,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) void FMC_freeFile(FMC_File* restrict file)
             FMC_makeMsg(err_arg_null, 1, "Provided argument to FMC_freeFile is NULL.");
             FMC_printRedError(stderr, err_arg_null);
         }
-        FMC_setError(FMC_INVALID_ARGUMENT, "Provided argument to FMC_freeFile is NULL.");
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "Provided argument to FMC_freeFile is NULL.");
         return;
         FMC_UNREACHABLE;
     }
@@ -307,7 +307,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) unsigned int FMC_changeStreamOrientation(FILE*
             FMC_makeMsg(err_arg_null, 1, "Provided argument to FMC_changeStreamOrientation is NULL.");
             FMC_printRedError(stderr, err_arg_null);
         }
-        FMC_setError(FMC_INVALID_ARGUMENT, "Provided argument to FMC_changeStreamOrientation is NULL.");
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "Provided argument to FMC_changeStreamOrientation is NULL.");
         return 0;
         FMC_UNREACHABLE;
     }
@@ -323,7 +323,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) unsigned int FMC_changeStreamOrientation(FILE*
                     FMC_makeMsg(err_freopen, 1, "INTERNAL ERROR: FMC_changeStreamOrientation: freopen failed.");
                     FMC_printRedError(stderr, err_freopen);
                 }
-                FMC_setError(FMC_INTERNAL_ERROR, "FMC_changeStreamOrientation: freopen failed.");
+                FMC_setError(FMC_ERR_INTERNAL, "FMC_changeStreamOrientation: freopen failed.");
                 return 0;
                 FMC_UNREACHABLE;
             }
@@ -334,7 +334,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) unsigned int FMC_changeStreamOrientation(FILE*
                     FMC_makeMsg(err_fwide, 1, "INTERNAL ERROR: FMC_changeStreamOrientation: fwide failed.");
                     FMC_printRedError(stderr, err_fwide);
                 }
-                FMC_setError(FMC_INTERNAL_ERROR, "FMC_changeStreamOrientation: fwide failed.");
+                FMC_setError(FMC_ERR_INTERNAL, "FMC_changeStreamOrientation: fwide failed.");
                 return 0;
                 FMC_UNREACHABLE;
             }
@@ -355,7 +355,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) unsigned int FMC_changeStreamOrientation(FILE*
                     FMC_makeMsg(err_freopen, 1, "INTERNAL ERROR: FMC_changeStreamOrientation: freopen failed.");
                     FMC_printRedError(stderr, err_freopen);
                 }
-                FMC_setError(FMC_INTERNAL_ERROR, "FMC_changeStreamOrientation: freopen failed.");
+                FMC_setError(FMC_ERR_INTERNAL, "FMC_changeStreamOrientation: freopen failed.");
                 return 0;
                 FMC_UNREACHABLE;
             }
@@ -366,7 +366,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) unsigned int FMC_changeStreamOrientation(FILE*
                     FMC_makeMsg(err_fwide, 1, "INTERNAL ERROR: FMC_changeStreamOrientation: fwide failed.");
                     FMC_printRedError(stderr, err_fwide);
                 }
-                FMC_setError(FMC_INTERNAL_ERROR, "FMC_changeStreamOrientation: fwide failed.");
+                FMC_setError(FMC_ERR_INTERNAL, "FMC_changeStreamOrientation: fwide failed.");
                 return 0;
                 FMC_UNREACHABLE;
             }
@@ -381,7 +381,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) unsigned int FMC_changeStreamOrientation(FILE*
             FMC_makeMsg(err_arg_invalid, 1, "FMC_changeStreamOrientation: You can only provide one of both WIDE_ORIENTED and BYTE_ORIENTED flags.");
             FMC_printRedError(stderr, err_arg_invalid);
         }
-        FMC_setError(FMC_INVALID_ARGUMENT, "FMC_changeStreamOrientation: You can only provide one of both WIDE_ORIENTED and BYTE_ORIENTED flags.");
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_changeStreamOrientation: You can only provide one of both WIDE_ORIENTED and BYTE_ORIENTED flags.");
         return 0;
         FMC_UNREACHABLE;
     }
@@ -399,7 +399,7 @@ FMC_SHARED unsigned long long FMC_getOptimalWriteBufferSize(const char* restrict
             FMC_makeMsg(err_arg_null, 1, "ERROR: Provided argument to FMC_getOptimalWriteBufferSize is NULL or the path is not a regular file.");
             FMC_printRedError(stderr, err_arg_null);
         }
-        FMC_setError(FMC_INVALID_ARGUMENT, "Provided argument to FMC_getOptimalWriteBufferSize is NULL or the path is not a regular file.");
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "Provided argument to FMC_getOptimalWriteBufferSize is NULL or the path is not a regular file.");
         return 0;
         FMC_UNREACHABLE;
     }
@@ -452,7 +452,7 @@ FMC_SHARED unsigned long long FMC_getOptimalWriteBufferSize(const char* restrict
                 FMC_makeMsg(err_file_stat, 1, "ERROR: FMC_getOptimalWriteBufferSize: stat failed.");
                 FMC_printRedError(stderr, err_file_stat);
             }
-            FMC_setError(FMC_INTERNAL_ERROR, "FMC_getOptimalWriteBufferSize: stat failed.");
+            FMC_setError(FMC_ERR_INTERNAL, "FMC_getOptimalWriteBufferSize: stat failed.");
             return 0;
             FMC_UNREACHABLE;
         }
@@ -461,18 +461,144 @@ FMC_SHARED unsigned long long FMC_getOptimalWriteBufferSize(const char* restrict
     #endif 
 }
 
-/* #pragma GCC diagnostic ignored "-Wnonnull-compare"
-    if (!path)
+FMC_SHARED FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_File* FMC_openFile(FMC_File* file, char* mode, unsigned int user_flags)
+{
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (!file)
     {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_arg_null, 1, "ERROR: Provided argument to FMC_openFile is NULL.");
+            FMC_printRedError(stderr, err_arg_null);
+        }
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "Provided argument to FMC_openFile is NULL.");
         return NULL;
+        FMC_UNREACHABLE;
     }
-    #pragma GCC diagnostic pop // -Wnonnull-compare */
+    #pragma GCC diagnostic pop // -Wnonnull-compare
+    if (file->isOpened)
+    {
+        if (file->file)
+        {
+            if (FMC_getDebugState())
+            {
+                FMC_makeMsg(err_file_open, 1, "WARNING: FMC_openFile: File is already opened.");
+                FMC_printYellowError(stderr, err_file_open);
+            }
+        }
+        else goto open_file_with_warning;
+        return file;
+        FMC_UNREACHABLE;
+    }
 
-/* FMC_SHARED FMC_File *FMC_openFile();
+    goto open_file;
 
-FMC_SHARED static FMC_File *FMC_open_getEncoding();
+open_file_with_warning:
 
-FMC_SHARED static FMC_File *FMC_open_getSize();
+    if (FMC_getDebugState())
+    {
+        FMC_makeMsg(err_file_open, 1, "WARNING: FMC_openFile: FILE* has been closed, but FMC_File is still marked as opened.");
+        FMC_printYellowError(stderr, err_file_open);
+    }
+    FMC_setError(FMC_ERR_FILE, "FMC_openFile: FILE* has been closed, but FMC_File is still marked as opened.");
+    goto open_file;
 
-FMC_SHARED static FMC_File *FMC_open_getEncoding_getSize(); */
+open_file:
+    char full_path[MAX_FPATH_SIZE + MAX_FNAME_SIZE + MAX_FEXT_SIZE];
+    memset(full_path, 0, sizeof(full_path) / sizeof(char));
+    if (!*file->path || !*file->name || !*file->extension)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_file_open, 1, "ERROR: FMC_openFile: File path, name or extension is not set.");
+            FMC_printRedError(stderr, err_file_open);
+        }
+        FMC_setError(FMC_ERR_FILE, "FMC_openFile: File path, name or extension is not set.");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    if (strcpy(full_path, file->path) != full_path)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_file_open, 1, "ERROR: FMC_openFile: strcpy failed.");
+            FMC_printRedError(stderr, err_file_open);
+        }
+        FMC_setError(FMC_ERR_INTERNAL, "FMC_openFile: strcpy failed.");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    if (strcat(full_path, file->name) != full_path)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_file_open, 1, "ERROR: FMC_openFile: strcat failed.");
+            FMC_printRedError(stderr, err_file_open);
+        }
+        FMC_setError(FMC_ERR_INTERNAL, "FMC_openFile: strcat failed.");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    if (strcat(full_path, file->extension) != full_path)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_file_open, 1, "ERROR: FMC_openFile: strcat failed.");
+            FMC_printRedError(stderr, err_file_open);
+        }
+        FMC_setError(FMC_ERR_INTERNAL, "FMC_openFile: strcat failed.");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    if (!FMC_isRegFile(full_path))
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_file_open, 1, "ERROR: FMC_openFile: File does not exist or is not a regular file.");
+            FMC_printRedError(stderr, err_file_open);
+        }
+        FMC_setError(FMC_ERR_FILE, "FMC_openFile: File does not exist or is not a regular file.");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    file->file = fopen(full_path, file->fullMode);
+    if (!file->file)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_file_open, 1, "ERROR: FMC_openFile: fopen failed.");
+            FMC_printRedError(stderr, err_file_open);
+        }
+        FMC_setError(FMC_ERR_INTERNAL, "FMC_openFile: fopen failed.");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    file->isOpened = True;
+    return file;
+    FMC_UNREACHABLE;
+}
 
+
+
+/*
+ * TODO: finish FMC_openFile
+ * TODO: FMC_closeFile
+ * TODO: FMC_readFile
+ * TODO: FMC_writeFile
+ * TODO: FMC_changeMode
+ * TODO: FMC_changeFileOrientation
+ * TODO: FMC_saveFileWithEncoding
+ * 
+ * TODO: FMC_getFilePosition
+ * TODO: FMC_setFilePosition
+ * TODO: FMC_getFileSize
+ * TODO: FMC_getFileMode
+ * 
+ * TODO: FMC_lockFile
+ * TODO: FMC_unlockFile
+ * TODO: FMC_lockFileRegion
+ * TODO: FMC_unlockFileRegion
+ * TODO: FMC_tryLockFile
+ * TODO: FMC_tryLockFileRegion
+ * TODO: FMC_getFileLockState
+*/

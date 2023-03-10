@@ -45,12 +45,13 @@ typedef enum FManC_Encodings FMC_Encodings;
 
 FMC_SHARED enum FManC_Error
 {
-	FMC_OK                      = 0,
-	FMC_ERR_PUSH                = 1,
-	FMC_ERR_NULL_PTR            = 2,
-	FMC_WRONG_FLAGS_COMBINATION = 3,
-	FMC_INTERNAL_ERROR          = 4,
-	FMC_INVALID_ARGUMENT        = 5,
+	FMC_OK                      	= 0,
+	FMC_ERR_PUSH                	= 1,
+	FMC_ERR_NULL_PTR            	= 2,
+	FMC_ERR_WRONG_FLAGS_COMBINATION = 3,
+	FMC_ERR_INTERNAL          		= 4,
+	FMC_ERR_INVALID_ARGUMENT        = 5,
+	FMC_ERR_FILE			  		= 6,
 };
 typedef enum FManC_Error FMC_Error;
 

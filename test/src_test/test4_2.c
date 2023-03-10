@@ -1,11 +1,9 @@
 #include "test_suite.h"
 #include <assert.h>
 #include <string.h>
-#include <ctype.h>
 
 void test_FMC_getOptimalWriteBufferSize()
 {
-    // make FMC_getOptimalWriteBufferSize("test.txt") a string
     char opt_buf_size_res[10];
     snprintf(opt_buf_size_res, 10, "%lld", FMC_getOptimalWriteBufferSize("test.txt"));
     FMC_makeMsg(msg_opt_buf_size, 2, "Optimal write buffer size: ", opt_buf_size_res);

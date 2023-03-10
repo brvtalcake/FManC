@@ -32,9 +32,10 @@ FMC_SHARED static const char FMC_ERROR_STR[FMC_ERR_STR_COUNT][FMC_ERR_STR_LEN / 
     "No error occured. ",                                                     // FMC_OK
     "A problem occured while trying to push an error onto the error stack. ", // FMC_ERR_PUSH
     "Provided pointer is NULL. ",                                             // FMC_ERR_NULL_PTR
-    "A wrong flags combination was provided. ",                               // FMC_WRONG_FLAGS_COMBINATION
-    "An internal error occured. ",                                            // FMC_INTERNAL_ERROR
-    "Invalid argument. ",                                                     // FMC_INVALID_ARGUMENT
+    "A wrong flags combination was provided. ",                               // FMC_ERR_WRONG_FLAGS_COMBINATION
+    "An internal error occured. ",                                            // FMC_ERR_INTERNAL
+    "Invalid argument. ",                                                     // FMC_ERR_INVALID_ARGUMENT
+    "The provided FMC_File pointer is inconsistent. ",                        // FMC_ERR_FILE
 };
 
 #ifndef __STDC_NO_ATOMICS__

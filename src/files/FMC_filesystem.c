@@ -37,10 +37,14 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT off64_t FMC_getFileSize(const char* restr
 #endif
 {
     #if defined(FMC_COMPILING_ON_WINDOWS) 
-        if (!path || !FMC_isRegFile(path)) return -1;
+        if (!path || !FMC_isRegFile(path)) 
+        {
+            FMC_setError(FMC_ERR_INVALID_ARGUMENT, "In function 'FMC_getFileSize': Invalid argument: path is NULL or not a regular file");
+            return -1LL;
+        }
         WIN32_FILE_ATTRIBUTE_DATA fad;
         if (!GetFileAttributesEx(path, GetFileExInfoStandard, &fad))
-            return 0;
+            return 0LL;
         LARGE_INTEGER size;
         size.HighPart = fad.nFileSizeHigh;
         size.LowPart = fad.nFileSizeLow;
@@ -48,7 +52,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT off64_t FMC_getFileSize(const char* restr
     #else
         if (!path || !FMC_isRegFile(path)) 
         {
-            FMC_setError(FMC_INVALID_ARGUMENT, "In function 'FMC_getFileSize': Invalid argument: path is NULL or not a regular file");
+            FMC_setError(FMC_ERR_INVALID_ARGUMENT, "In function 'FMC_getFileSize': Invalid argument: path is NULL or not a regular file");
             return ((off64_t)(-1LL) > 0 ? 0 : -1);
         }
         struct stat64 st = {0};
@@ -133,7 +137,7 @@ FMC_SHARED int_fast64_t FMC_getDirEntryCount(const char* restrict const path)
             FMC_makeMsg(err_arg, 1, "FMC_getDirEntryCount: Invalid path argument.");
             FMC_printRedError(stderr, err_arg);
         }
-        FMC_setError(FMC_INVALID_ARGUMENT, "FMC_getDirEntryCount: Invalid path argument.");
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_getDirEntryCount: Invalid path argument.");
         return -1;
         FMC_UNREACHABLE;
     }
@@ -150,7 +154,7 @@ FMC_SHARED int_fast64_t FMC_getDirEntryCount(const char* restrict const path)
                 FMC_makeMsg(err_arg, 1, "FMC_getDirEntryCount: Path argument too long.");
                 FMC_printRedError(stderr, err_arg);
             }
-            FMC_setError(FMC_INVALID_ARGUMENT, "FMC_getDirEntryCount: Path argument too long.");
+            FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_getDirEntryCount: Path argument too long.");
             return -1;
             FMC_UNREACHABLE;
         }
@@ -169,7 +173,7 @@ FMC_SHARED int_fast64_t FMC_getDirEntryCount(const char* restrict const path)
                     FMC_makeMsg(err_int, 1, "FMC_getDirEntryCount: FindFirstFileA failed.");
                     FMC_printRedError(stderr, err_int);
                 }
-                FMC_setError(FMC_INTERNAL_ERROR, "FMC_getDirEntryCount: FindFirstFileA failed.");
+                FMC_setError(FMC_ERR_INTERNAL, "FMC_getDirEntryCount: FindFirstFileA failed.");
                 return -1;
                 FMC_UNREACHABLE;
             }
@@ -187,7 +191,7 @@ FMC_SHARED int_fast64_t FMC_getDirEntryCount(const char* restrict const path)
                 FMC_makeMsg(err_int, 1, "FMC_getDirEntryCount: opendir failed.");
                 FMC_printRedError(stderr, err_int);
             }
-            FMC_setError(FMC_INTERNAL_ERROR, "FMC_getDirEntryCount: opendir failed.");
+            FMC_setError(FMC_ERR_INTERNAL, "FMC_getDirEntryCount: opendir failed.");
             return -1;
             FMC_UNREACHABLE;
         }
@@ -302,9 +306,22 @@ FMC_SHARED int FMC_rmDir(const char* restrict path, unsigned int user_flags)
     }
     else
     {
-        FMC_setError(FMC_WRONG_FLAGS_COMBINATION, "Wrong flags combination for FMC_rmDir()");
+        FMC_setError(FMC_ERR_WRONG_FLAGS_COMBINATION, "Wrong flags combination for FMC_rmDir()");
         return -1;
     }
     FMC_UNREACHABLE;
     return 0;
 }
+
+/*
+ * TODO: Verify the returned values for the FMC_is* functions and set more error codes when an error occurs
+ *
+ * TODO: FMC_getPathPerms
+ * TODO: FMC_setPathPerms
+ * TODO: FMC_getPathOwner
+ * TODO: FMC_setPathOwner
+ * TODO: FMC_getPathGroup
+ * TODO: FMC_setPathGroup
+ * TODO: FMC_getPathSize
+ * TODO: FMC_getPathTimestamp
+*/

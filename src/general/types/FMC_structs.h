@@ -57,7 +57,7 @@ typedef struct FManC_ErrStack FMC_ErrStack;
 
 FMC_SHARED struct FManC_Perms
 {
-    
+    // TO BE IMPLEMENTED
 };
 
 
@@ -74,6 +74,7 @@ typedef struct FManC_Directory FMC_Directory;
 FMC_SHARED struct FManC_File
 {
     FILE *file;
+    // mtx_t fileMutex;
     unsigned long long int fileSize;
     FMC_Encodings encoding;
     enum FMC_File_orientation
@@ -129,7 +130,7 @@ typedef struct FManC_Char FMC_Char;
 FMC_SHARED struct FManC_String
 {
     FMC_Char *chars;
-    size_t size;
+    uint64_t size;
 };
 typedef struct FManC_String FMC_String;
 
