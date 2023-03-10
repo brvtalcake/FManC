@@ -23,7 +23,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 */
-#define __STDC_WANT_LIB_EXT1__ 1
+/* #define __STDC_WANT_LIB_EXT1__ 1 */
 #include <stdio.h>
 #include <stdlib.h> 
 #include <errno.h>
@@ -48,7 +48,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_get
     #pragma GCC diagnostic pop
 
     // check orientation
-    if (fwide(file, -1) >= 0)
+    if (fwide(file, -1) >= 0) // TODO : use the brand new FMC_changeStreamOrientation() function
     {
         if (FMC_getDebugState()) 
         {
@@ -75,7 +75,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_get
     }
     
     rewind(file);
-    char buff[4] = {0};
+    unsigned char buff[4] = {0};
     // 1st if
     if(sizeOfFile < 0) // no error, must have overflowed
     {
@@ -142,27 +142,27 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_get
 
     end_check_1 :
     FMC_LABEL_HOT;
-    if (sizeOfFile >= 3 && (unsigned char) buff[0] == 0xEF && (unsigned char) buff[1] == 0xBB && (unsigned char) buff[2] == 0xBF)
+    if (sizeOfFile >= 3 && buff[0] == 0xEF && buff[1] == 0xBB && buff[2] == 0xBF)
     {
         rewind(file);
         return utf8_bom;
     }
-    else if (sizeOfFile >= 2 && (unsigned char) buff[0] == 0xFF && (unsigned char) buff[1] == 0xFE)
+    else if (sizeOfFile >= 2 && buff[0] == 0xFF && buff[1] == 0xFE)
     {
         rewind(file);
         return utf16_le;
     }
-    else if (sizeOfFile >= 2 && (unsigned char) buff[0] == 0xFE && (unsigned char) buff[1] == 0xFF)
+    else if (sizeOfFile >= 2 && buff[0] == 0xFE && buff[1] == 0xFF)
     {
         rewind(file);
         return utf16_be;
     }
-    else if (sizeOfFile >= 4 && (unsigned char) buff[0] == 0x00 && (unsigned char) buff[1] == 0x00 && (unsigned char) buff[2] == 0xFE && (unsigned char) buff[3] == 0xFF)
+    else if (sizeOfFile >= 4 && buff[0] == 0x00 && buff[1] == 0x00 && buff[2] == 0xFE && buff[3] == 0xFF)
     {
         rewind(file);
         return utf32_be;
     }
-    else if (sizeOfFile >= 4 && (unsigned char) buff[0] == 0xFF && (unsigned char) buff[1] == 0xFE && (unsigned char) buff[2] == 0x00 && (unsigned char) buff[3] == 0x00)
+    else if (sizeOfFile >= 4 && buff[0] == 0xFF && buff[1] == 0xFE && buff[2] == 0x00 && buff[3] == 0x00)
     {
         rewind(file);
         return utf32_le;
@@ -181,11 +181,11 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_get
             return unknown;
         }
         
-        char currentChar = 0;
+        int current_char = 0;
         size_t cpt = 0;
-        while((currentChar = (char)fgetc(file)) != EOF)
+        while((current_char = fgetc(file)) != EOF)
         {
-            if (currentChar != EOF &&  (unsigned char) currentChar > 127)
+            if (current_char != EOF && current_char > 127)
             {
                 rewind(file);
                 return utf8;

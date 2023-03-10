@@ -34,6 +34,13 @@ SOFTWARE.
 #include "../data_analyze/encodings/FMC_encodings.h"
 #include "../cpp/FMC_wrapper.h"
 
+#if defined(FMC_COMPILING_ON_WINDOWS)
+    #include <windows.h>
+#else 
+    #include <unistd.h>
+    #include <sys/stat.h>
+    #include <sys/types.h>
+#endif
 
 
 // TODO : FMC_getFileSize
@@ -171,7 +178,7 @@ FMC_SHARED FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File *FMC_allocFile(const unsign
         
         check_in user_flags for_at_least_flags(GET_SIZE) // size set
         {
-            #if defined(_WIN32) || defined(_WIN64)
+            #if defined(FMC_COMPILING_ON_WINDOWS)
             LONGLONG file_size = 0LL;
             file_size = FMC_getFileSize(path);
             #else
@@ -214,7 +221,7 @@ FMC_SHARED FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File *FMC_allocFile(const unsign
         {
             check_in user_flags if_not_set(BYTE_ORIENTED)
             {
-                returned_file->orientation = wide;
+                returned_file->orientation = (FMC_changeStreamOrientation(returned_file->file, full_mode, BYTE_ORIENTED) == BYTE_ORIENTED ? byte : failed_to_change); 
             }
             else // error, you can only provide one of both
             {
@@ -234,7 +241,7 @@ FMC_SHARED FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File *FMC_allocFile(const unsign
         {
             check_in user_flags if_not_set(WIDE_ORIENTED)
             {
-                returned_file->orientation = byte;
+                returned_file->orientation = (FMC_changeStreamOrientation(returned_file->file, full_mode, WIDE_ORIENTED) == WIDE_ORIENTED ? wide : failed_to_change);
             }
             else // error, you can only provide one of both
             {
@@ -252,7 +259,10 @@ FMC_SHARED FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File *FMC_allocFile(const unsign
 
         return returned_file;
     }
+    if (returned_file->file) fclose(returned_file->file); // can't reach this since there is either "TO_OPEN" or not
+    free(returned_file);
     FMC_UNREACHABLE;
+    return NULL;
 }
 
 
@@ -282,10 +292,10 @@ FMC_SHARED FMC_FUNC_NONNULL(1) void FMC_freeFile(FMC_File *file)
     FMC_UNREACHABLE;
 }
 
-FMC_SHARED FMC_FUNC_NONNULL(1) unsigned int FMC_changeStreamOrientation(FILE* file, unsigned int orientation_flag)
+FMC_SHARED FMC_FUNC_NONNULL(1, 2) unsigned int FMC_changeStreamOrientation(FILE* file, char* mode, unsigned int orientation_flag)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
-    if (!file)
+    if (!file || !mode)
     {
     #pragma GCC diagnostic pop // -Wnonnull-compare
         if (FMC_getDebugState())
@@ -301,9 +311,150 @@ FMC_SHARED FMC_FUNC_NONNULL(1) unsigned int FMC_changeStreamOrientation(FILE* fi
     {
         if (fwide(file, 1) <= 0)
         {
-            file = freopen(NULL, "w+", file);
+            file = freopen(NULL, mode, file);
+            if (!file)
+            {
+                if (FMC_getDebugState())
+                {
+                    FMC_makeMsg(err_freopen, 1, "INTERNAL ERROR: FMC_changeStreamOrientation: freopen failed.");
+                    FMC_printRedError(stderr, err_freopen);
+                }
+                FMC_setError(FMC_INTERNAL_ERROR, "FMC_changeStreamOrientation: freopen failed.");
+                return 0;
+                FMC_UNREACHABLE;
+            }
+            if (fwide(file, 1) <= 0)
+            {
+                if (FMC_getDebugState())
+                {
+                    FMC_makeMsg(err_fwide, 1, "INTERNAL ERROR: FMC_changeStreamOrientation: fwide failed.");
+                    FMC_printRedError(stderr, err_fwide);
+                }
+                FMC_setError(FMC_INTERNAL_ERROR, "FMC_changeStreamOrientation: fwide failed.");
+                return 0;
+                FMC_UNREACHABLE;
+            }
+            return WIDE_ORIENTED;
         }
+        else return WIDE_ORIENTED;
     }
+
+    check_in orientation_flag for_only_flags(BYTE_ORIENTED)
+    {
+        if (fwide(file, -1) >= 0)
+        {
+            file = freopen(NULL, mode, file);
+            if (!file)
+            {
+                if (FMC_getDebugState())
+                {
+                    FMC_makeMsg(err_freopen, 1, "INTERNAL ERROR: FMC_changeStreamOrientation: freopen failed.");
+                    FMC_printRedError(stderr, err_freopen);
+                }
+                FMC_setError(FMC_INTERNAL_ERROR, "FMC_changeStreamOrientation: freopen failed.");
+                return 0;
+                FMC_UNREACHABLE;
+            }
+            if (fwide(file, -1) >= 0)
+            {
+                if (FMC_getDebugState())
+                {
+                    FMC_makeMsg(err_fwide, 1, "INTERNAL ERROR: FMC_changeStreamOrientation: fwide failed.");
+                    FMC_printRedError(stderr, err_fwide);
+                }
+                FMC_setError(FMC_INTERNAL_ERROR, "FMC_changeStreamOrientation: fwide failed.");
+                return 0;
+                FMC_UNREACHABLE;
+            }
+            return BYTE_ORIENTED;
+        }
+        else return BYTE_ORIENTED;
+    }
+    else
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_arg_invalid, 1, "FMC_changeStreamOrientation: You can only provide one of both WIDE_ORIENTED and BYTE_ORIENTED flags.");
+            FMC_printRedError(stderr, err_arg_invalid);
+        }
+        FMC_setError(FMC_INVALID_ARGUMENT, "FMC_changeStreamOrientation: You can only provide one of both WIDE_ORIENTED and BYTE_ORIENTED flags.");
+        return 0;
+        FMC_UNREACHABLE;
+    }
+    FMC_UNREACHABLE;
+    return 0;
+}
+
+FMC_SHARED size_t FMC_getOptimalWriteBufferSize(const char* restrict const path)
+{
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (!path || !FMC_isRegFile(path))
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_arg_null, 1, "ERROR: Provided argument to FMC_getOptimalWriteBufferSize is NULL or the path is not a regular file.");
+            FMC_printRedError(stderr, err_arg_null);
+        }
+        FMC_setError(FMC_INVALID_ARGUMENT, "Provided argument to FMC_getOptimalWriteBufferSize is NULL or the path is not a regular file.");
+        return 0;
+        FMC_UNREACHABLE;
+    }
+    #pragma GCC diagnostic pop // -Wnonnull-compare
+
+    #if defined(FMC_COMPILING_ON_WINDOWS)
+        FILE_STORAGE_INFO storage_info;
+        HANDLE file_handle = CreateFileA(path, FMC_mergeFlags(GENERIC_READ, GENERIC_WRITE), FMC_mergeFlags(FILE_SHARE_READ, FILE_SHARE_WRITE), NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+        if (file_handle == INVALID_HANDLE_VALUE)
+        {
+            if (FMC_getDebugState())
+            {
+                FMC_makeMsg(err_file_open, 1, "ERROR: FMC_getOptimalWriteBufferSize: CreateFileA failed.");
+                FMC_printRedError(stderr, err_file_open);
+            }
+            FMC_setError(FMC_FILE_ERROR, "FMC_getOptimalWriteBufferSize: CreateFileA failed.");
+            return 0;
+            FMC_UNREACHABLE;
+        }
+        if (!GetFileInformationByHandleEx(file_handle, FileStorageInfo, &storage_info, sizeof(storage_info)))
+        {
+            if (FMC_getDebugState())
+            {
+                FMC_makeMsg(err_file_open, 1, "ERROR: FMC_getOptimalWriteBufferSize: GetFileInformationByHandleEx failed.");
+                FMC_printRedError(stderr, err_file_open);
+            }
+            FMC_setError(FMC_FILE_ERROR, "FMC_getOptimalWriteBufferSize: GetFileInformationByHandleEx failed.");
+            return 0;
+            FMC_UNREACHABLE;
+        }
+        if (!CloseHandle(file_handle))
+        {
+            if (FMC_getDebugState())
+            {
+                FMC_makeMsg(err_file_close, 1, "ERROR: FMC_getOptimalWriteBufferSize: CloseHandle failed.");
+                FMC_printRedError(stderr, err_file_close);
+            }
+            FMC_setError(FMC_FILE_ERROR, "FMC_getOptimalWriteBufferSize: CloseHandle failed.");
+            return 0;
+            FMC_UNREACHABLE;
+        }
+        return storage_info.PhysicalBytesPerSectorForPerformance;
+        FMC_UNREACHABLE;
+    #else
+        struct stat file_stat;
+        if (stat(path, &file_stat))
+        {
+            if (FMC_getDebugState())
+            {
+                FMC_makeMsg(err_file_stat, 1, "ERROR: FMC_getOptimalWriteBufferSize: stat failed.");
+                FMC_printRedError(stderr, err_file_stat);
+            }
+            FMC_setError(FMC_INTERNAL_ERROR, "FMC_getOptimalWriteBufferSize: stat failed.");
+            return 0;
+            FMC_UNREACHABLE;
+        }
+        return file_stat.st_blksize;
+        FMC_UNREACHABLE;
+    #endif 
 }
 
 /* #pragma GCC diagnostic ignored "-Wnonnull-compare"
@@ -314,6 +465,8 @@ FMC_SHARED FMC_FUNC_NONNULL(1) unsigned int FMC_changeStreamOrientation(FILE* fi
     #pragma GCC diagnostic pop // -Wnonnull-compare */
 
 /* FMC_SHARED FMC_File *FMC_openFile();
+
+FMC_SHARED size_t FMC_getOptimalBufferSize();
 
 FMC_SHARED static FMC_File *FMC_open_getEncoding();
 

@@ -81,6 +81,7 @@ FMC_SHARED struct FManC_File
         not_set = 0,
         wide,
         byte,
+        failed_to_change,
     } orientation;
     enum FMC_File_dataMode
     {
