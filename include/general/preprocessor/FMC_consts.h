@@ -41,6 +41,11 @@ SOFTWARE.
 #define MAX_FNAME_SIZE 256
 #define MAX_FPATH_SIZE 512
 
+#if defined(MAX_MODE_SIZE)
+    #undef MAX_MODE_SIZE
+#endif
+#define MAX_MODE_SIZE 16
+
 #if defined(FMC_MAX_ERR_STCK_SIZE) || defined(FMC_ERR_STR_LEN) || defined(FMC_ERR_STR_COUNT)
     #undef FMC_MAX_ERR_STCK_SIZE
     #undef FMC_ERR_STR_LEN
@@ -48,7 +53,7 @@ SOFTWARE.
 #endif
 #define FMC_MAX_ERR_STCK_SIZE 10
 #define FMC_ERR_STR_LEN 256
-#define FMC_ERR_STR_COUNT 6
+#define FMC_ERR_STR_COUNT 7
 
 #if defined(FMC_ERR_MTX_INITIALIZER)
     #undef FMC_ERR_MTX_INITIALIZER

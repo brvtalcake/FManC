@@ -4,8 +4,8 @@
 void test_Error_System()
 {
     char err_buf[256];
-    FMC_setError(FMC_INVALID_ARGUMENT, "test1");
-    assert(FMC_getLastErrorNum_noDepop() == FMC_INVALID_ARGUMENT);
+    FMC_setError(FMC_ERR_INVALID_ARGUMENT, "test1");
+    assert(FMC_getLastErrorNum_noDepop() == FMC_ERR_INVALID_ARGUMENT);
     FMC_getLastErrorStr_noDepop(err_buf, 256);
 
     FMC_makeMsg(err_msg1, 2, "Here is the error: ", err_buf);
@@ -39,5 +39,5 @@ void test_Error_System()
     FMC_printBrightCyanText(stderr, err_msg1);    
     
     assert(strcmp("Invalid argument. Additional info: test1", err_buf) == 0);
-    FMC_setError(FMC_INVALID_ARGUMENT, "test2");
+    FMC_setError(FMC_ERR_INVALID_ARGUMENT, "test2");
 }

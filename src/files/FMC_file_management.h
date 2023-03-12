@@ -59,11 +59,15 @@ FMC_SHARED int FMC_mkDir(const char* restrict path);
 FMC_SHARED int FMC_rmDir(const char* restrict path, unsigned int user_flags);
 
 FMC_SHARED FMC_FUNC_NONNULL(1) void FMC_freeFile(FMC_File* restrict file);
-FMC_SHARED FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File *FMC_allocFile(const unsigned int user_flags, const char* restrict const path, const char* restrict const full_mode);
-FMC_SHARED FMC_FUNC_NONNULL(1, 2) unsigned int FMC_changeStreamOrientation(FILE* restrict file, const char* restrict const mode, unsigned int orientation_flag);
+FMC_SHARED FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File *FMC_allocFile(const char* restrict const path, const char* restrict const full_mode, const unsigned int user_flags);
+FMC_SHARED FMC_FUNC_NONNULL(1, 2) unsigned int FMC_changeStreamOrientation(FILE* restrict file, const char* restrict const mode, const unsigned int orientation_flag);
 FMC_SHARED unsigned long long FMC_getOptimalWriteBufferSize(const char* restrict const path);
 
-FMC_SHARED FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_File* FMC_openFile(FMC_File* file, char* mode, unsigned int user_flags);
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_File* FMC_openFile_withoutFlags(FMC_File* file, const char* mode);
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_File* FMC_openFile_withFlags(FMC_File* file, const char* const mode, const unsigned int user_flags);
+#define FMC_openFile(file, mode, ...) FMC_CHOOSE_FUNC(2)(FMC_openFile_withoutFlags, FMC_openFile_withFlags, file, mode, __VA_ARGS__)
+FMC_SHARED void FMC_closeFile(FMC_File* restrict file);
+FMC_SHARED FMC_FUNC_NONNULL(1, 2, 3) FMC_File* FMC_reopenFile(FMC_File* restrict file, const char* restrict const new_path, const char* restrict const full_mode, const unsigned int user_flags);
 
 FMC_END_DECLS
 

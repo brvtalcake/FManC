@@ -24,8 +24,6 @@ SOFTWARE.
 
 */
 
-#pragma once
-
 #ifndef FMC_STRINGS_H
 #define FMC_STRINGS_H
 

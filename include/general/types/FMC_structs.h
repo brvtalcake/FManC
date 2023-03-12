@@ -24,8 +24,6 @@ SOFTWARE.
 
 */
 
-#pragma once
-
 #ifndef FMC_STRUCTS_H
 #define FMC_STRUCTS_H
 
@@ -57,7 +55,7 @@ typedef struct FManC_ErrStack FMC_ErrStack;
 
 FMC_SHARED struct FManC_Perms
 {
-    
+    // TO BE IMPLEMENTED
 };
 
 
@@ -74,6 +72,7 @@ typedef struct FManC_Directory FMC_Directory;
 FMC_SHARED struct FManC_File
 {
     FILE *file;
+    // mtx_t fileMutex;
     unsigned long long int fileSize;
     FMC_Encodings encoding;
     enum FMC_File_orientation
@@ -93,12 +92,12 @@ FMC_SHARED struct FManC_File
     char path[MAX_FPATH_SIZE];
     char name[MAX_FNAME_SIZE];
     char extension[MAX_FEXT_SIZE];
-    char fullMode[13];
+    char fullMode[MAX_MODE_SIZE];
 };
 typedef struct FManC_File FMC_File;
 
 #ifdef DEBUG_STRUCTS
-static_assert(sizeof(FMC_File) == sizeof(FILE*) + sizeof(unsigned long long int) + sizeof(FMC_Encodings) + sizeof(enum { a,b }) + sizeof(FMC_FileState) + sizeof(char[MAX_FPATH_SIZE]) + sizeof(char[MAX_FNAME_SIZE]) + sizeof(char[MAX_FEXT_SIZE]) + sizeof(char[13]) , "FMC_File has some padding bytes");
+static_assert(sizeof(FMC_File) == sizeof(FILE*) + sizeof(unsigned long long int) + sizeof(FMC_Encodings) + sizeof(enum { a,b }) + sizeof(FMC_FileState) + sizeof(char[MAX_FPATH_SIZE]) + sizeof(char[MAX_FNAME_SIZE]) + sizeof(char[MAX_FEXT_SIZE]) + sizeof(char[MAX_MODE_SIZE]) , "FMC_File has some padding bytes");
 #endif
 
 FMC_SHARED struct FManC_StrOcc
@@ -129,7 +128,7 @@ typedef struct FManC_Char FMC_Char;
 FMC_SHARED struct FManC_String
 {
     FMC_Char *chars;
-    size_t size;
+    uint64_t size;
 };
 typedef struct FManC_String FMC_String;
 

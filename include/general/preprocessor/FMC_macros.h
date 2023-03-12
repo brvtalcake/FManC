@@ -100,6 +100,43 @@ SOFTWARE.
     #define FMC_STRINGIZE_9(x, y, z, w, v, u, t, s, r) FMC_STRINGIZE(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(x, y), z), w), v), u), t), s), r))
 #endif
 
+#if defined(FMC_GET_ARGC) || defined(FMC_GET_ARGC_INT)
+    #undef FMC_GET_ARGC
+    #undef FMC_GET_ARGC_INT
+#endif
+#define FMC_GET_ARGC(...) FMC_GET_ARGC_INT(0, ## __VA_ARGS__, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0)
+#define FMC_GET_ARGC_INT(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_, _10_, _11_, _12_, _13_, _14_, _15_, _16_, _17_, _18_, _19_, _20_, _21_, _22_, _23_, _24_, _25_, _26_, _27_, _28_, _29_, _30_, _31_, _32_, _33_, _34_, _35_, _36, _37, _38, _39, _40, _41, _42, _43, _44, _45, _46, _47, _48, _49, _50, _51, _52, _53, _54, _55, _56, _57, _58, _59, _60, _61, _62, _63, _64, _65, _66, _67, _68, _69, _70, count, ...) count
+
+#if defined(FMC_CHOOSE_FUNC)
+    #undef FMC_CHOOSE_FUNC
+#endif
+#define FMC_CHOOSE_FUNC(param_number) FMC_CHOOSE_FUNC_##param_number
+
+#if defined(FMC_CHOOSE_FUNC_1) || defined(FMC_CHOOSE_FUNC_2) || defined(FMC_CHOOSE_FUNC_3) || defined(FMC_CHOOSE_FUNC_4) || defined(FMC_CHOOSE_FUNC_5)
+    #undef FMC_CHOOSE_FUNC_1
+    #undef FMC_CHOOSE_FUNC_2
+    #undef FMC_CHOOSE_FUNC_3
+    #undef FMC_CHOOSE_FUNC_4
+    #undef FMC_CHOOSE_FUNC_5
+#endif
+#define FMC_CHOOSE_FUNC_1(func_without_vaargs, func_with_vaargs, param1, ...)                                                   \
+ML99_EVAL(ML99_call(ML99_if, ML99_natEq(v(FMC_GET_ARGC(__VA_ARGS__)), v(0)),                                                    \
+v(func_without_vaargs(param1)), v(func_with_vaargs(param1, __VA_ARGS__))))
+#define FMC_CHOOSE_FUNC_2(func_without_vaargs, func_with_vaargs, param1, param2, ...)                                           \
+ML99_EVAL(ML99_call(ML99_if, ML99_natEq(v(FMC_GET_ARGC(__VA_ARGS__)), v(0)),                                                    \
+v(func_without_vaargs(param1, param2)), v(func_with_vaargs(param1, param2, __VA_ARGS__))))
+#define FMC_CHOOSE_FUNC_3(func_without_vaargs, func_with_vaargs, param1, param2, param3, ...)                                   \
+ML99_EVAL(ML99_call(ML99_if, ML99_natEq(v(FMC_GET_ARGC(__VA_ARGS__)), v(0)),                                                    \
+v(func_without_vaargs(param1, param2, param3)), v(func_with_vaargs(param1, param2, param3, __VA_ARGS__))))
+#define FMC_CHOOSE_FUNC_4(func_without_vaargs, func_with_vaargs, param1, param2, param3, param4, ...)                           \
+ML99_EVAL(ML99_call(ML99_if, ML99_natEq(v(FMC_GET_ARGC(__VA_ARGS__)), v(0)),                                                    \
+v(func_without_vaargs(param1, param2, param3, param4)), v(func_with_vaargs(param1, param2, param3, param4, __VA_ARGS__))))
+#define FMC_CHOOSE_FUNC_5(func_without_vaargs, func_with_vaargs, param1, param2, param3, param4, param5, ...)                   \
+ML99_EVAL(ML99_call(ML99_if, ML99_natEq(v(FMC_GET_ARGC(__VA_ARGS__)), v(0)),                                                    \
+v(func_without_vaargs(param1, param2, param3, param4, param5)), v(func_with_vaargs(param1, param2, param3, param4, param5,      \
+__VA_ARGS__))))
+
+
 #if defined(FMC_ID) || defined(FMC_ID2) || defined(FMC_ID3) || defined(FMC_ID4) || defined(FMC_ID5) || defined(FMC_ID6) || defined(FMC_ID7) || defined(FMC_ID8) || defined(FMC_ID9)
     #undef FMC_ID
     #undef FMC_ID2
