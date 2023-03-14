@@ -46,7 +46,7 @@ SOFTWARE.
 // TODO : FMC_getFileSize
 // TODO : FMC_setFileOrientation
 
-FMC_SHARED FMC_FUNC_PURE static unsigned int FMC_getDataModeFromMode(const char* const full_mode)
+FMC_FUNC_PURE static unsigned int FMC_getDataModeFromMode(const char* const full_mode)
 {
     if (!full_mode)
     {
@@ -225,7 +225,7 @@ FMC_SHARED FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File *FMC_allocFile(const char* 
         {
             check_in user_flags if_not_set(BYTE_ORIENTED)
             {
-                returned_file->orientation = (FMC_changeStreamOrientation(returned_file->file, full_mode, BYTE_ORIENTED) == BYTE_ORIENTED ? byte : failed_to_change); 
+                returned_file->orientation = (FMC_changeStreamOrientation(returned_file->file, full_mode, BYTE_ORIENTED) == BYTE_ORIENTED ? byte_oriented : failed_to_change); 
             }
             else // error, you can only provide one of both
             {
@@ -246,7 +246,7 @@ FMC_SHARED FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File *FMC_allocFile(const char* 
         {
             check_in user_flags if_not_set(WIDE_ORIENTED)
             {
-                returned_file->orientation = (FMC_changeStreamOrientation(returned_file->file, full_mode, WIDE_ORIENTED) == WIDE_ORIENTED ? wide : failed_to_change);
+                returned_file->orientation = (FMC_changeStreamOrientation(returned_file->file, full_mode, WIDE_ORIENTED) == WIDE_ORIENTED ? wide_oriented : failed_to_change);
             }
             else // error, you can only provide one of both
             {
@@ -451,7 +451,7 @@ FMC_SHARED unsigned long long FMC_getOptimalWriteBufferSize(const char* restrict
                 FMC_makeMsg(err_file_open, 1, "ERROR: FMC_getOptimalWriteBufferSize: CreateFileA failed.");
                 FMC_printRedError(stderr, err_file_open);
             }
-            FMC_setError(FMC_FILE_ERROR, "FMC_getOptimalWriteBufferSize: CreateFileA failed.");
+            FMC_setError(FMC_ERR_FILE, "FMC_getOptimalWriteBufferSize: CreateFileA failed.");
             return 0;
             FMC_UNREACHABLE;
         }
@@ -462,7 +462,7 @@ FMC_SHARED unsigned long long FMC_getOptimalWriteBufferSize(const char* restrict
                 FMC_makeMsg(err_file_open, 1, "ERROR: FMC_getOptimalWriteBufferSize: GetFileInformationByHandleEx failed.");
                 FMC_printRedError(stderr, err_file_open);
             }
-            FMC_setError(FMC_FILE_ERROR, "FMC_getOptimalWriteBufferSize: GetFileInformationByHandleEx failed.");
+            FMC_setError(FMC_ERR_FILE, "FMC_getOptimalWriteBufferSize: GetFileInformationByHandleEx failed.");
             return 0;
             FMC_UNREACHABLE;
         }
@@ -473,7 +473,7 @@ FMC_SHARED unsigned long long FMC_getOptimalWriteBufferSize(const char* restrict
                 FMC_makeMsg(err_file_close, 1, "ERROR: FMC_getOptimalWriteBufferSize: CloseHandle failed.");
                 FMC_printRedError(stderr, err_file_close);
             }
-            FMC_setError(FMC_FILE_ERROR, "FMC_getOptimalWriteBufferSize: CloseHandle failed.");
+            FMC_setError(FMC_ERR_FILE, "FMC_getOptimalWriteBufferSize: CloseHandle failed.");
             return 0;
             FMC_UNREACHABLE;
         }
@@ -693,7 +693,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_File* FMC_openFil
         {
             check_in user_flags if_not_set(NOT_SET)
             {
-                file->orientation = (FMC_changeStreamOrientation(file->file, file->fullMode, WIDE_ORIENTED) == WIDE_ORIENTED ? wide : failed_to_change); 
+                file->orientation = (FMC_changeStreamOrientation(file->file, file->fullMode, WIDE_ORIENTED) == WIDE_ORIENTED ? wide_oriented : failed_to_change); 
             }
             else goto error_orientation_arg1;
         }
@@ -718,7 +718,7 @@ error_orientation_arg1:
         {
             check_in user_flags if_not_set(NOT_SET)
             {
-                file->orientation = (FMC_changeStreamOrientation(file->file, file->fullMode, BYTE_ORIENTED) == BYTE_ORIENTED ? byte : failed_to_change);
+                file->orientation = (FMC_changeStreamOrientation(file->file, file->fullMode, BYTE_ORIENTED) == BYTE_ORIENTED ? byte_oriented : failed_to_change);
             }
             else goto error_orientation_arg2;
         }

@@ -186,6 +186,143 @@ __VA_ARGS__))))
     signed long long: first_str "%lld" second_str,                             \
     unsigned long long: first_str "%llu" second_str)
 
+// Generated usefull macros
+#if defined(FMC_2_EXP_X) || defined(FMC_2_EXP_0) || defined(FMC_2_EXP_1) || defined(FMC_2_EXP_2) || defined(FMC_2_EXP_3) || defined(FMC_2_EXP_4) || defined(FMC_2_EXP_5) || defined(FMC_2_EXP_6) || defined(FMC_2_EXP_7) || defined(FMC_2_EXP_8) || defined(FMC_2_EXP_9) || defined(FMC_2_EXP_10) || defined(FMC_2_EXP_11) || defined(FMC_2_EXP_12) || defined(FMC_2_EXP_13) || defined(FMC_2_EXP_14) || defined(FMC_2_EXP_15) || defined(FMC_2_EXP_16) || defined(FMC_2_EXP_17) || defined(FMC_2_EXP_18) || defined(FMC_2_EXP_19) || defined(FMC_2_EXP_20) || defined(FMC_2_EXP_21) || defined(FMC_2_EXP_22) || defined(FMC_2_EXP_23) || defined(FMC_2_EXP_24) || defined(FMC_2_EXP_25) || defined(FMC_2_EXP_26) || defined(FMC_2_EXP_27) || defined(FMC_2_EXP_28) || defined(FMC_2_EXP_29) || defined(FMC_2_EXP_30) || defined(FMC_2_EXP_31) || defined(FMC_2_EXP_32) || defined(FMC_2_EXP_33) || defined(FMC_2_EXP_34) || defined(FMC_2_EXP_35) || defined(FMC_2_EXP_36) || defined(FMC_2_EXP_37) || defined(FMC_2_EXP_38) || defined(FMC_2_EXP_39) || defined(FMC_2_EXP_40) || defined(FMC_2_EXP_41) || defined(FMC_2_EXP_42) || defined(FMC_2_EXP_43) || defined(FMC_2_EXP_44) || defined(FMC_2_EXP_45) || defined(FMC_2_EXP_46) || defined(FMC_2_EXP_47) || defined(FMC_2_EXP_48) || defined(FMC_2_EXP_49) || defined(FMC_2_EXP_50) || defined(FMC_2_EXP_51) || defined(FMC_2_EXP_52) || defined(FMC_2_EXP_53) || defined(FMC_2_EXP_54) || defined(FMC_2_EXP_55) || defined(FMC_2_EXP_56) || defined(FMC_2_EXP_57) || defined(FMC_2_EXP_58) || defined(FMC_2_EXP_59) || defined(FMC_2_EXP_60) || defined(FMC_2_EXP_61) || defined(FMC_2_EXP_62) || defined(FMC_2_EXP_63) || defined(FMC_2_EXP_64)
+    #undef FMC_2_EXP_X
+    #undef FMC_2_EXP_0
+    #undef FMC_2_EXP_1
+    #undef FMC_2_EXP_2
+    #undef FMC_2_EXP_3
+    #undef FMC_2_EXP_4
+    #undef FMC_2_EXP_5
+    #undef FMC_2_EXP_6
+    #undef FMC_2_EXP_7
+    #undef FMC_2_EXP_8
+    #undef FMC_2_EXP_9
+    #undef FMC_2_EXP_10
+    #undef FMC_2_EXP_11
+    #undef FMC_2_EXP_12
+    #undef FMC_2_EXP_13
+    #undef FMC_2_EXP_14
+    #undef FMC_2_EXP_15
+    #undef FMC_2_EXP_16
+    #undef FMC_2_EXP_17
+    #undef FMC_2_EXP_18
+    #undef FMC_2_EXP_19
+    #undef FMC_2_EXP_20
+    #undef FMC_2_EXP_21
+    #undef FMC_2_EXP_22
+    #undef FMC_2_EXP_23
+    #undef FMC_2_EXP_24
+    #undef FMC_2_EXP_25
+    #undef FMC_2_EXP_26
+    #undef FMC_2_EXP_27
+    #undef FMC_2_EXP_28
+    #undef FMC_2_EXP_29
+    #undef FMC_2_EXP_30
+    #undef FMC_2_EXP_31
+    #undef FMC_2_EXP_32
+    #undef FMC_2_EXP_33
+    #undef FMC_2_EXP_34
+    #undef FMC_2_EXP_35
+    #undef FMC_2_EXP_36
+    #undef FMC_2_EXP_37
+    #undef FMC_2_EXP_38
+    #undef FMC_2_EXP_39
+    #undef FMC_2_EXP_40
+    #undef FMC_2_EXP_41
+    #undef FMC_2_EXP_42
+    #undef FMC_2_EXP_43
+    #undef FMC_2_EXP_44
+    #undef FMC_2_EXP_45
+    #undef FMC_2_EXP_46
+    #undef FMC_2_EXP_47
+    #undef FMC_2_EXP_48
+    #undef FMC_2_EXP_49
+    #undef FMC_2_EXP_50
+    #undef FMC_2_EXP_51
+    #undef FMC_2_EXP_52
+    #undef FMC_2_EXP_53
+    #undef FMC_2_EXP_54
+    #undef FMC_2_EXP_55
+    #undef FMC_2_EXP_56
+    #undef FMC_2_EXP_57
+    #undef FMC_2_EXP_58
+    #undef FMC_2_EXP_59
+    #undef FMC_2_EXP_60
+    #undef FMC_2_EXP_61
+    #undef FMC_2_EXP_62
+    #undef FMC_2_EXP_63
+    #undef FMC_2_EXP_64
+#endif
+
+#define FMC_2_EXP_64 18446744073709551616
+#define FMC_2_EXP_63 9223372036854775808
+#define FMC_2_EXP_62 4611686018427387904
+#define FMC_2_EXP_61 2305843009213693952
+#define FMC_2_EXP_60 1152921504606846976
+#define FMC_2_EXP_59 576460752303423488
+#define FMC_2_EXP_58 288230376151711744
+#define FMC_2_EXP_57 144115188075855872
+#define FMC_2_EXP_56 72057594037927936
+#define FMC_2_EXP_55 36028797018963968
+#define FMC_2_EXP_54 18014398509481984
+#define FMC_2_EXP_53 9007199254740992
+#define FMC_2_EXP_52 4503599627370496
+#define FMC_2_EXP_51 2251799813685248
+#define FMC_2_EXP_50 1125899906842624
+#define FMC_2_EXP_49 562949953421312
+#define FMC_2_EXP_48 281474976710656
+#define FMC_2_EXP_47 140737488355328
+#define FMC_2_EXP_46 70368744177664
+#define FMC_2_EXP_45 35184372088832
+#define FMC_2_EXP_44 17592186044416
+#define FMC_2_EXP_43 8796093022208
+#define FMC_2_EXP_42 4398046511104
+#define FMC_2_EXP_41 2199023255552
+#define FMC_2_EXP_40 1099511627776
+#define FMC_2_EXP_39 549755813888
+#define FMC_2_EXP_38 274877906944
+#define FMC_2_EXP_37 137438953472
+#define FMC_2_EXP_36 68719476736
+#define FMC_2_EXP_35 34359738368
+#define FMC_2_EXP_34 17179869184
+#define FMC_2_EXP_33 8589934592
+#define FMC_2_EXP_32 4294967296
+#define FMC_2_EXP_31 2147483648
+#define FMC_2_EXP_30 1073741824
+#define FMC_2_EXP_29 536870912
+#define FMC_2_EXP_28 268435456
+#define FMC_2_EXP_27 134217728
+#define FMC_2_EXP_26 67108864
+#define FMC_2_EXP_25 33554432
+#define FMC_2_EXP_24 16777216
+#define FMC_2_EXP_23 8388608
+#define FMC_2_EXP_22 4194304
+#define FMC_2_EXP_21 2097152
+#define FMC_2_EXP_20 1048576
+#define FMC_2_EXP_19 524288
+#define FMC_2_EXP_18 262144
+#define FMC_2_EXP_17 131072
+#define FMC_2_EXP_16 65536
+#define FMC_2_EXP_15 32768
+#define FMC_2_EXP_14 16384
+#define FMC_2_EXP_13 8192
+#define FMC_2_EXP_12 4096
+#define FMC_2_EXP_11 2048
+#define FMC_2_EXP_10 1024
+#define FMC_2_EXP_9 512
+#define FMC_2_EXP_8 256
+#define FMC_2_EXP_7 128
+#define FMC_2_EXP_6 64
+#define FMC_2_EXP_5 32
+#define FMC_2_EXP_4 16
+#define FMC_2_EXP_3 8
+#define FMC_2_EXP_2 4
+#define FMC_2_EXP_1 2
+#define FMC_2_EXP_0 1
+#define FMC_2_EXP_X(x) FMC_2_EXP_##x
+
 #if defined(FMC_DECR_BY)
     #undef FMC_DECR_BY
 #endif
@@ -353,10 +490,12 @@ __VA_ARGS__))))
     #undef destroy_err_mtx
 #endif
 #if defined(FMC_COMPILING_ON_WINDOWS)
-    #if defined(SEC_ATTR_STRUCT)
-        #undef SEC_ATTR_STRUCT
+    #if defined(ERR_MTX_SEC_ATTR_STRUCT)
+        #undef ERR_MTX_SEC_ATTR_STRUCT
     #endif
-    #define SEC_ATTR_STRUCT {sizeof(SECURITY_ATTRIBUTES), NULL, TRUE}
+    #define ERR_MTX_SEC_ATTR_STRUCT \
+       (&(SECURITY_ATTRIBUTES){.nLength = sizeof(SECURITY_ATTRIBUTES), .lpSecurityDescriptor = NULL, .bInheritHandle = TRUE})
+
     #define lock_err_mtx()                                                                      \
         if (WaitForSingleObject(FMC_ERR_STACK_MUTEX, 20000) != WAIT_OBJECT_0)                   \
         {                                                                                       \
@@ -374,7 +513,7 @@ __VA_ARGS__))))
         }
 
     #define create_err_mtx()                                                                    \
-        FMC_ERR_STACK_MUTEX = CreateMutexA(SEC_ATTR_STRUCT, FALSE, NULL);                       \
+        FMC_ERR_STACK_MUTEX = CreateMutexA(ERR_MTX_SEC_ATTR_STRUCT, FALSE, NULL);               \
         if (FMC_ERR_STACK_MUTEX == INVALID_HANDLE_VALUE)                                        \
         {                                                                                       \
             FMC_printBrightRedError(stderr,                                                     \

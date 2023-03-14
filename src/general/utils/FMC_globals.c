@@ -14,20 +14,20 @@
     #include <windows.h>
 #else 
     #include <pthread.h>
-    FMC_SHARED static pthread_mutexattr_t FMC_ERR_STACK_MUTEX_ATTR FMC_VAR_COMMON = {0};
+    static pthread_mutexattr_t FMC_ERR_STACK_MUTEX_ATTR FMC_VAR_COMMON = {0};
 #endif
 
 #ifndef __STDC_NO_ATOMICS__
-FMC_SHARED static volatile _Atomic(FMC_Bool) FMC_ENABLE_DEBUG FMC_VAR_COMMON = True;
+static volatile _Atomic(FMC_Bool) FMC_ENABLE_DEBUG FMC_VAR_COMMON = True;
 #else
-FMC_SHARED static volatile FMC_Bool FMC_ENABLE_DEBUG FMC_VAR_COMMON = True;
+static volatile FMC_Bool FMC_ENABLE_DEBUG FMC_VAR_COMMON = True;
 #endif
 
-FMC_SHARED static volatile FMC_ErrStack FMC_ERR_STACK FMC_VAR_COMMON = {0};
+static volatile FMC_ErrStack FMC_ERR_STACK FMC_VAR_COMMON = {0};
 
-FMC_SHARED static FMC_Mutex FMC_ERR_STACK_MUTEX FMC_VAR_COMMON = FMC_ERR_MTX_INITIALIZER;
+static FMC_Mutex FMC_ERR_STACK_MUTEX FMC_VAR_COMMON = FMC_ERR_MTX_INITIALIZER;
 
-FMC_SHARED static const char FMC_ERROR_STR[FMC_ERR_STR_COUNT][FMC_ERR_STR_LEN / 2] = 
+static const char FMC_ERROR_STR[FMC_ERR_STR_COUNT][FMC_ERR_STR_LEN / 2] = 
 {
     "No error occured. ",                                                     // FMC_OK
     "A problem occured while trying to push an error onto the error stack. ", // FMC_ERR_PUSH
@@ -39,9 +39,9 @@ FMC_SHARED static const char FMC_ERROR_STR[FMC_ERR_STR_COUNT][FMC_ERR_STR_LEN / 
 };
 
 #ifndef __STDC_NO_ATOMICS__
-FMC_SHARED static volatile _Atomic(FMC_Bool) FMC_ERR_STACK_MUTEX_CREATED FMC_VAR_COMMON = False;
+static volatile _Atomic(FMC_Bool) FMC_ERR_STACK_MUTEX_CREATED FMC_VAR_COMMON = False;
 #else
-FMC_SHARED static volatile FMC_Bool FMC_ERR_STACK_MUTEX_CREATED FMC_VAR_COMMON = False;
+static volatile FMC_Bool FMC_ERR_STACK_MUTEX_CREATED FMC_VAR_COMMON = False;
 #endif
 
 FMC_SHARED FMC_FUNC_COLD FMC_Bool FMC_setDebugState(FMC_Bool state)
@@ -63,7 +63,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_Bool FMC_getDebugState(void)
     #endif
 }
 
-FMC_SHARED static void FMC_consumeOldestError(void)
+static void FMC_consumeOldestError(void)
 {
     if (FMC_ERR_STACK.stackSize < FMC_MAX_ERR_STCK_SIZE) return;
     FMC_ErrStackElement *tmp = FMC_ERR_STACK.lastError;
@@ -75,7 +75,7 @@ FMC_SHARED static void FMC_consumeOldestError(void)
     FMC_ERR_STACK.stackSize--;
 }
 
-FMC_SHARED static FMC_Error FMC_pushError(FMC_Error err, const char* const additional_message)
+static FMC_Error FMC_pushError(FMC_Error err, const char* const additional_message)
 {
     if (!FMC_ERR_STACK_MUTEX_CREATED)
     {
@@ -112,7 +112,7 @@ FMC_SHARED FMC_Error FMC_setError(FMC_Error err, const char* const additional_me
     return FMC_pushError(err, additional_message);
 }
 
-FMC_SHARED static FMC_Error FMC_popError(void)
+static FMC_Error FMC_popError(void)
 {
     if (!FMC_ERR_STACK_MUTEX_CREATED)
     {
@@ -139,7 +139,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_Error FMC_getLastErrorNum(void)
     return FMC_popError();
 }
 
-FMC_SHARED static char* FMC_getLastAdditionalInfo(char *str, size_t len)
+static char* FMC_getLastAdditionalInfo(char *str, size_t len)
 {
     if (!str) return NULL;
     memset(str, '\0', len);

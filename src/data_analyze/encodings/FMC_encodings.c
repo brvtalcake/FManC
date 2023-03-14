@@ -213,7 +213,7 @@ FMC_SHARED FMC_FUNC_CONST FMC_FUNC_ALWAYS_INLINE extern inline FMC_Encodings FMC
     }
     else if (fwide(file.file, 0) > 0)
     {
-        fprintf(stderr, "Error: file is wide oriented when trying to read with byte orientation\n");
+        fprintf(stderr, "Error: file is wide_oriented oriented when trying to read with byte_oriented orientation\n");
         c.isNull = 1;
         return c;
     }

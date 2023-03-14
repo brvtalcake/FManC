@@ -26,6 +26,7 @@ SOFTWARE.
 
 #include <stdint.h>
 #include <stdlib.h>
+#include <tgmath.h>
 #include "FMC_file_management.h"
 #include "../cpp/FMC_wrapper.h"
 
@@ -46,7 +47,9 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT off64_t FMC_getFileSize(const char* restr
         if (!GetFileAttributesEx(path, GetFileExInfoStandard, &fad))
             return 0LL;
         LARGE_INTEGER size;
-        size.HighPart = fad.nFileSizeHigh;
+        #pragma GCC diagnostic ignored "-Wsign-conversion" // We verify that the value is less than the max
+        size.HighPart = fad.nFileSizeHigh <= pow(2, sizeof(LONG) * 8) - 1 ? fad.nFileSizeHigh : 0; 
+        #pragma GCC diagnostic ignored "-Wsign-conversion"
         size.LowPart = fad.nFileSizeLow;
         return size.QuadPart;
     #else

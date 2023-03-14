@@ -78,8 +78,8 @@ FMC_SHARED struct FManC_File
     enum FMC_File_orientation
     {
         not_set = 0,
-        wide,
-        byte,
+        wide_oriented,
+        byte_oriented,
         failed_to_change,
     } orientation;
     enum FMC_File_dataMode
