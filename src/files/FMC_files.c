@@ -129,10 +129,10 @@ FMC_SHARED FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File *FMC_allocFile(const char* 
     strncpy(returned_file->path, tmp_path, MAX_FPATH_SIZE);
     strncpy(returned_file->name, tmp_name, MAX_FNAME_SIZE);
     strncpy(returned_file->extension, tmp_ext, MAX_FEXT_SIZE);
-    returned_file->isOpened = True;
+    returned_file->isOpened = FMC_TRUE;
     check_in user_flags if_not_set(TO_OPEN) // create the file struct but do not open the FILE
     {
-        returned_file->isOpened = False;
+        returned_file->isOpened = FMC_FALSE;
         returned_file->file = NULL;
         returned_file->fileSize = 0ULL;
         returned_file->encoding = unknown;
@@ -144,15 +144,15 @@ FMC_SHARED FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File *FMC_allocFile(const char* 
     }
     else check_in user_flags for_at_least_flags(TO_OPEN)
     {
-        returned_file->isOpened = True; // isOpened set
+        returned_file->isOpened = FMC_TRUE; // isOpened set
         returned_file->dataMode = (FMC_getDataModeFromMode(full_mode) == BINARY_MODE ? binary : text); // dataMode set
         
-        _Bool wanted_encoding = False;
+        _Bool wanted_encoding = FMC_FALSE;
         check_in user_flags if_not_set(GET_ENCODING) returned_file->file = fopen(path, full_mode);
         else 
         {
             returned_file->file = fopen(path, "rb");
-            wanted_encoding = True;
+            wanted_encoding = FMC_TRUE;
         }
 
         if (!returned_file->file)
@@ -288,7 +288,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) void FMC_freeFile(FMC_File* restrict file)
     }
     #pragma GCC diagnostic pop // -Wnonnull-compare
     
-    #pragma GCC diagnostic ignored "-Wanalyzer-use-after-free" // false positive
+    #pragma GCC diagnostic ignored "-Wanalyzer-use-after-free" // FMC_FALSE positive
     if (file->isOpened && file->file)
     {
         fclose(file->file);
@@ -649,7 +649,7 @@ open_file:
 
     file->dataMode = FMC_getDataModeFromMode(file->fullMode);
 
-    file->isOpened = True;
+    file->isOpened = FMC_TRUE;
     return file;
     FMC_UNREACHABLE;
 }
@@ -757,7 +757,7 @@ FMC_SHARED void FMC_closeFile(FMC_File* restrict file)
     if (file->isOpened)
     {
         fclose(file->file);
-        file->isOpened = False;
+        file->isOpened = FMC_FALSE;
         return;
         FMC_UNREACHABLE;
     }

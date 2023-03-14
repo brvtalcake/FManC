@@ -18,9 +18,9 @@
 #endif
 
 #ifndef __STDC_NO_ATOMICS__
-static volatile _Atomic(FMC_Bool) FMC_ENABLE_DEBUG FMC_VAR_COMMON = True;
+static volatile _Atomic(FMC_Bool) FMC_ENABLE_DEBUG FMC_VAR_COMMON = FMC_TRUE;
 #else
-static volatile FMC_Bool FMC_ENABLE_DEBUG FMC_VAR_COMMON = True;
+static volatile FMC_Bool FMC_ENABLE_DEBUG FMC_VAR_COMMON = FMC_TRUE;
 #endif
 
 static volatile FMC_ErrStack FMC_ERR_STACK FMC_VAR_COMMON = {0};
@@ -39,9 +39,9 @@ static const char FMC_ERROR_STR[FMC_ERR_STR_COUNT][FMC_ERR_STR_LEN / 2] =
 };
 
 #ifndef __STDC_NO_ATOMICS__
-static volatile _Atomic(FMC_Bool) FMC_ERR_STACK_MUTEX_CREATED FMC_VAR_COMMON = False;
+static volatile _Atomic(FMC_Bool) FMC_ERR_STACK_MUTEX_CREATED FMC_VAR_COMMON = FMC_FALSE;
 #else
-static volatile FMC_Bool FMC_ERR_STACK_MUTEX_CREATED FMC_VAR_COMMON = False;
+static volatile FMC_Bool FMC_ERR_STACK_MUTEX_CREATED FMC_VAR_COMMON = FMC_FALSE;
 #endif
 
 FMC_SHARED FMC_FUNC_COLD FMC_Bool FMC_setDebugState(FMC_Bool state)
@@ -211,7 +211,7 @@ FMC_SHARED void FMC_destroyErrorStack(void)
 {
     FMC_clearErrorStack();
     destroy_err_mtx();
-    FMC_ERR_STACK_MUTEX_CREATED = False;
+    FMC_ERR_STACK_MUTEX_CREATED = FMC_FALSE;
 }
 
 FMC_SHARED FMC_Bool FMC_searchError(FMC_Error err)

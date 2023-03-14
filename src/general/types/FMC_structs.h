@@ -109,10 +109,10 @@ typedef struct FManC_StrOcc FMC_StrOcc;
 
 FMC_SHARED struct FManC_CharComp
 {
-    FMC_Byte mostLeft : 8;
-    FMC_Byte middleLeft : 8;
+    FMC_Byte mostLeft    : 8;
+    FMC_Byte middleLeft  : 8;
     FMC_Byte middleRight : 8;
-    FMC_Byte mostRight : 8;
+    FMC_Byte mostRight   : 8;
 };
 typedef struct FManC_CharComp FMC_CharComp;
 

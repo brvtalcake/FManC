@@ -112,13 +112,13 @@ SOFTWARE.
 
 #endif // FMC_STYLES
 
-#if defined(FMC_BOOLEANS) || defined(True) || defined(False)
+#if defined(FMC_BOOLEANS) || defined(FMC_TRUE) || defined(FMC_FALSE)
     #undef FMC_BOOLEANS
-    #undef True
-    #undef False
+    #undef FMC_TRUE
+    #undef FMC_FALSE
 #endif // FMC_BOOLEANS
 #define FMC_BOOLEANS
-#define True 1
-#define False 0
+#define FMC_TRUE 1
+#define FMC_FALSE 0
 
 #endif // FMC_CONSTS_H

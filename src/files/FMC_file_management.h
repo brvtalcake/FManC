@@ -35,6 +35,7 @@ SOFTWARE.
     #include <sys/stat.h>
     #include <sys/types.h>
     #include <dirent.h>
+    #include <pwd.h>
     #include <unistd.h>
 #endif
 
