@@ -13,7 +13,7 @@
 
 int main()
 {
-    FMC_setDebugState(True);
+    FMC_setDebugState(FMC_TRUE);
     test_FMC_isDir();
     fprintf(stderr, "\x1b[32m%s\n\x1b[0m", "test_FMC_isDir() passed");
     test_FMC_dirExists();

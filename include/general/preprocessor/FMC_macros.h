@@ -494,7 +494,7 @@ __VA_ARGS__))))
         #undef ERR_MTX_SEC_ATTR_STRUCT
     #endif
     #define ERR_MTX_SEC_ATTR_STRUCT \
-       (&(SECURITY_ATTRIBUTES){.nLength = sizeof(SECURITY_ATTRIBUTES), .lpSecurityDescriptor = NULL, .bInheritHandle = TRUE})
+       (&(SECURITY_ATTRIBUTES){.nLength = sizeof(SECURITY_ATTRIBUTES), .lpSecurityDescriptor = NULL, .bInheritHandle = FMC_TRUE})
 
     #define lock_err_mtx()                                                                      \
         if (WaitForSingleObject(FMC_ERR_STACK_MUTEX, 20000) != WAIT_OBJECT_0)                   \
@@ -513,7 +513,7 @@ __VA_ARGS__))))
         }
 
     #define create_err_mtx()                                                                    \
-        FMC_ERR_STACK_MUTEX = CreateMutexA(ERR_MTX_SEC_ATTR_STRUCT, FALSE, NULL);               \
+        FMC_ERR_STACK_MUTEX = CreateMutexA(ERR_MTX_SEC_ATTR_STRUCT, FMC_FALSE, NULL);               \
         if (FMC_ERR_STACK_MUTEX == INVALID_HANDLE_VALUE)                                        \
         {                                                                                       \
             FMC_printBrightRedError(stderr,                                                     \

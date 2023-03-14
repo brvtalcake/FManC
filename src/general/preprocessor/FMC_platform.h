@@ -35,6 +35,7 @@ SOFTWARE.
 #endif // OS detection
 #if defined(_WIN32) || defined(_WIN64) || defined(__WIN32__) || defined(__TOS_WIN__) || defined(__WINDOWS__)
     #define FMC_COMPILING_ON_WINDOWS 1
+    #define SECURITY_WIN32
 #elif defined(__linux__) || defined(__linux) || defined(linux) || defined(__gnu_linux__) 
     #define FMC_COMPILING_ON_LINUX 1
 #else

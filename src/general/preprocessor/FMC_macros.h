@@ -42,7 +42,7 @@ SOFTWARE.
     #define _FORTIFY_SOURCE 1   // Enable _FORTIFY_SOURCE to this minimum value if not already enabled
 #endif
 
-/* Used to avoid FMC_FALSE warnings (for example "attribute destructor/constructor does not take argument", when it actually can) */
+/* Used to avoid false warnings (for example "attribute destructor/constructor does not take argument", when it actually can) */
 #if defined(__INTELLISENSE__ )
     #pragma diag_suppress 1094
 #endif

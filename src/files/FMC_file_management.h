@@ -70,6 +70,8 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_File* FMC_openFil
 FMC_SHARED void FMC_closeFile(FMC_File* restrict file);
 FMC_SHARED FMC_FUNC_NONNULL(1, 2, 3) FMC_File* FMC_reopenFile(FMC_File* restrict file, const char* restrict const new_path, const char* restrict const full_mode, const unsigned int user_flags);
 
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_COLD char* FMC_getCurrentUserName(char* const user_name, const size_t len);
+
 FMC_END_DECLS
 
 #endif // FMC_FILE_MANAGEMENT_H
