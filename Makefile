@@ -26,8 +26,8 @@ else ifneq (,$(findstring windows,$(OS)))
 endif
 
 # Project subdirectories
-CPP_SRC_SUBDIRS=src/cpp/ src/cpp/FMC_dir/ src/cpp/FMC_filesystem/
-C_SRC_SUBDIRS=src/ src/general/ src/general/preprocessor/ src/general/types/ src/general/utils/ src/files/ src/data_analyze/ src/data_analyze/encodings/ src/data_analyze/strings/ src/code_utils/
+CPP_SRC_SUBDIRS=src/cpp/ src/cpp/FMC_dir/ src/cpp/FMC_filesystem/ src/cpp/FMC_perms/
+C_SRC_SUBDIRS=src/ src/general/ src/general/preprocessor/ src/general/types/ src/general/utils/ src/file_management/ src/data_analyze/ src/data_analyze/encodings/ src/data_analyze/strings/ src/code_utils/ src/file_management/sys/ src/file_management/filesystem/files/ src/file_management/filesystem/ src/file_management/filesystem/dirs/
 SRC_SUBDIRS=$(C_SRC_SUBDIRS) $(CPP_SRC_SUBDIRS)
 
 VPATH=$(subst / ,/:,$(SRC_SUBDIRS))
@@ -81,11 +81,25 @@ ifneq (,$(findstring struct,$(MAKECMDGOALS)))
 	CXX_FLAGS+=-Wpadded
 endif
 
-C_DEBUG_FLAGS=-D _DEFAULT_SOURCE -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=64 -g3 -O0 -std=gnu17 -ftrack-macro-expansion=1 -fprofile-arcs -ftest-coverage
-CXX_DEBUG_FLAGS=-D _DEFAULT_SOURCE -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=64 -g3 -O0 -std=gnu++17 -ftrack-macro-expansion=1 -fprofile-arcs -ftest-coverage
+
+
+C_DEBUG_FLAGS=-D _DEFAULT_SOURCE -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=64 -g3 -O0 -std=gnu17 -ftrack-macro-expansion=1 -fprofile-arcs -ftest-coverage --coverage
+CXX_DEBUG_FLAGS=-D _DEFAULT_SOURCE -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=64 -g3 -O0 -std=gnu++17 -ftrack-macro-expansion=1 -fprofile-arcs -ftest-coverage --coverage
 
 LD_FLAGS_DLL=-lstdc++ "-Wl,--out-implib=libFManC.dll.a,--export-all-symbols,--enable-auto-import"
 LD_FLAGS_SO=-lstdc++ -Wl,-soname,
+
+ifeq (,$(findstring Windows,$(OS)))
+	CFLAGS+=-fuse-ld=gold
+	CXX_FLAGS+=-fuse-ld=gold
+	C_DEBUG_FLAGS+=-fuse-ld=gold
+	CXX_DEBUG_FLAGS+=-fuse-ld=gold
+else ifeq (,$(findstring windows,$(OS)))
+	CFLAGS+=-fuse-ld=gold
+	CXX_FLAGS+=-fuse-ld=gold
+	C_DEBUG_FLAGS+=-fuse-ld=gold
+	CXX_DEBUG_FLAGS+=-fuse-ld=gold
+endif
 
 INC_FLAGS=-I./third_party_libs/metalang99/include/
 # All target
@@ -97,7 +111,7 @@ DEBUG_STRUCT_TARGET=$(addsuffix _$(DETECTED_OS), debug_struct)
 
 debug_struct : $(DEBUG_STRUCT_TARGET)
 
-debug_struct_lin : all 
+debug_struct_lin : all
 
 debug_struct_win : all
 
@@ -168,13 +182,13 @@ test_lin : $(LIB_LIN_TEST)
 	$(CC) $(TEST_SUITE_FILES) $(C_DEBUG_FLAGS) -o test/test_builds/$(TEST_RES_FOLD)/$@.out $(INC_FLAGS) -Ltest/lib/ -lFManC_linux_x86_64 -lstdc++
 	@printf "\e[92mRunning tests for $(PRINTED_OS)\n\e[0m"
 	@cd ./test/test_builds/$(TEST_RES_FOLD) && ./$@.out
-	gcov -b -p $(GCNO_LIN_FILES)
+	gcov -b $(GCNO_LIN_FILES)
 
 test_win : $(LIB_WIN_TEST)
 	$(CC) -D FMC_STATIC $(TEST_SUITE_FILES) $(C_DEBUG_FLAGS) -o test/test_builds/$(TEST_RES_FOLD)/$@.exe $(INC_FLAGS) -Ltest/lib -lFManC_linux_x86_64 -lstdc++
 	@printgreen Running tests for $(PRINTED_OS)
 	@cd .\test\test_builds\$(TEST_RES_FOLD) && $@.exe
-	gcov -b -p $(GCNO_LIN_FILES)
+	gcov -b $(GCNO_LIN_FILES)
 
 $(LIB_LIN_TEST) : $(O_LIN_TEST)
 	$(AR) $(AR_FLAGS) $@ $^
@@ -203,14 +217,16 @@ clean_lin :
 clean_win : 
 	@rm -f --verbose $(subst /,\,$(O_WIN_STATIC_FILES) $(O_WIN_SHARED_FILES) $(LIB_WIN_STATIC_FILES) $(LIB_WIN_SHARED_FILES) $(O_WIN_TEST) $(LIB_WIN_TEST)) test/obj/win/*.gcda test/obj/win/*.gcno *.gcov
 	@printgreen Cleaned everything for $(PRINTED_OS)
-## TO DO : check if rm exists on windows
+
+copy_src_structure :
+	./scripts/copy_src_struct.sh
 
 copy_headers : $(COPY_HEADERS_TARGET)
 
-copy_headers_lin : $(subst src/,include/,$(H_SRC_FILES) $(HPP_SRC_FILES))
+copy_headers_lin : $(copy_src_structure) $(subst src/,include/,$(H_SRC_FILES) $(HPP_SRC_FILES))
 	@printf "\e[92mCopied headers for $(PRINTED_OS)\n\e[0m"
 
-copy_headers_win : $(subst src/,include/,$(H_SRC_FILES) $(HPP_SRC_FILES))
+copy_headers_win : $(copy_src_structure) $(subst src/,include/,$(H_SRC_FILES) $(HPP_SRC_FILES))
 	@printgreen Copied headers for $(PRINTED_OS)
 
 doc : $(DOC_TARGET)

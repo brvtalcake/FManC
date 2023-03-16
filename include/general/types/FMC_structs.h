@@ -55,7 +55,8 @@ typedef struct FManC_ErrStack FMC_ErrStack;
 
 FMC_SHARED struct FManC_Perms
 {
-    // TO BE IMPLEMENTED
+    unsigned int permFlags;
+    // TODO
 };
 
 

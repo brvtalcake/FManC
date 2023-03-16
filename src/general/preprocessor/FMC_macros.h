@@ -435,6 +435,7 @@ __VA_ARGS__))))
 #ifdef __cplusplus
     #define FMC_BEGIN_DECLS extern "C" {
     #define FMC_END_DECLS }
+    #define _Bool bool
 #else
     #define FMC_BEGIN_DECLS
     #define FMC_END_DECLS

@@ -42,6 +42,7 @@ typedef uint8_t FMC_Byte;
 typedef _Bool FMC_CharControl;
 typedef _Bool FMC_FileState;
 typedef _Bool FMC_Bool;
+typedef unsigned int FMC_PermsFlags;
 
 #if defined(FMC_COMPILING_ON_WINDOWS)
     typedef HANDLE FMC_Mutex;

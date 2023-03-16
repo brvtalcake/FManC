@@ -28,6 +28,7 @@ SOFTWARE.
 #define FMC_WRAPPER_H
 
 #include "../general/preprocessor/FMC_macros.h"
+#include "../general/types/FMC_structs.h"
 #include <stddef.h>
 
 FMC_BEGIN_DECLS
@@ -46,6 +47,10 @@ FMC_SHARED int FMC_isEmpty(const char *path);
 FMC_SHARED char *FMC_getCurrentPath(char *path, const size_t size);
 FMC_SHARED char *FMC_getAbsolutePath(char *path, char *buffer, const size_t size);
 /* !FMC_Filesystem */
+
+/* FMC_perms (C++ part) */
+FMC_SHARED FMC_PermsFlags FMC_getPerms(const char *path);
+/* !FMC_perms */
 
 FMC_END_DECLS
 
