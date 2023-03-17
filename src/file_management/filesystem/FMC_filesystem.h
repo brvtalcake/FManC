@@ -33,19 +33,12 @@ SOFTWARE.
 
 FMC_BEGIN_DECLS
 
-#if defined(FMC_COMPILING_ON_WINDOWS)
-FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT LONGLONG FMC_getFileSize(const char* restrict path);
-#else
-FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT off64_t FMC_getFileSize(const char* restrict path);
-#endif
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT int FMC_dirExists(const char* restrict path);
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT int FMC_isRegFile(const char* restrict path);
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT int FMC_isDir(const char* restrict path);
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT int FMC_isCharDevice(const char* restrict path);
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT int FMC_isSocket(const char* restrict path);
-FMC_SHARED int_fast64_t FMC_getDirEntryCount(const char* restrict const path);
-FMC_SHARED int FMC_mkDir(const char* restrict path);
-FMC_SHARED int FMC_rmDir(const char* restrict path, unsigned int user_flags);
+
 
 FMC_END_DECLS
 

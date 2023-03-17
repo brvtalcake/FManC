@@ -31,9 +31,9 @@ SOFTWARE.
 #include <wchar.h>
 
 #include "FMC_files.h"
-#include "../filesystem/FMC_filesystem.h"
-#include "../../data_analyze/encodings/FMC_encodings.h"
-#include "../../cpp/FMC_wrapper.h"
+#include "../FMC_filesystem.h"
+#include "../../../data_analyze/encodings/FMC_encodings.h"
+#include "../../../cpp/FMC_wrapper.h"
 
 #if defined(FMC_COMPILING_ON_WINDOWS)
     #include <windows.h>
@@ -58,6 +58,40 @@ FMC_FUNC_PURE static unsigned int FMC_getDataModeFromMode(const char* const full
     if (((tmp = strchr(full_mode, 'b')) != NULL) && tmp - full_mode < 3) return BINARY_MODE;
     else return TEXT_MODE;
     FMC_UNREACHABLE;   
+}
+
+#if defined(FMC_COMPILING_ON_WINDOWS)
+FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT LONGLONG FMC_getFileSize(const char* restrict path)
+#else
+FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT off64_t FMC_getFileSize(const char* restrict path)
+#endif
+{
+    #if defined(FMC_COMPILING_ON_WINDOWS) 
+        if (!path || !FMC_isRegFile(path)) 
+        {
+            FMC_setError(FMC_ERR_INVALID_ARGUMENT, "In function 'FMC_getFileSize': Invalid argument: path is NULL or not a regular file");
+            return -1LL;
+        }
+        WIN32_FILE_ATTRIBUTE_DATA fad;
+        if (!GetFileAttributesEx(path, GetFileExInfoStandard, &fad))
+            return 0LL;
+        LARGE_INTEGER size;
+        #pragma GCC diagnostic ignored "-Wsign-conversion" // We verify that the value is less than the max
+        size.HighPart = fad.nFileSizeHigh <= pow(2, sizeof(LONG) * 8) - 1 ? fad.nFileSizeHigh : 0; 
+        #pragma GCC diagnostic ignored "-Wsign-conversion"
+        size.LowPart = fad.nFileSizeLow;
+        return size.QuadPart;
+    #else
+        if (!path || !FMC_isRegFile(path)) 
+        {
+            FMC_setError(FMC_ERR_INVALID_ARGUMENT, "In function 'FMC_getFileSize': Invalid argument: path is NULL or not a regular file");
+            return ((off64_t)(-1LL) > 0 ? 0 : -1);
+        }
+        struct stat64 st = {0};
+        if (stat64(path, &st) == 0) return st.st_size;
+        return 0;
+
+    #endif
 }
 
 FMC_SHARED FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File *FMC_allocFile(const char* restrict const path, const char* restrict const full_mode, const unsigned int user_flags)

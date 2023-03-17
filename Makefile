@@ -39,7 +39,7 @@ C_SRC_FILES=$(foreach dir,$(SRC_SUBDIRS),$(wildcard $(dir)/*.c))
 H_SRC_FILES=$(foreach dir,$(SRC_SUBDIRS),$(wildcard $(dir)/*.h))
 SRC_FILES=$(CPP_SRC_FILES) $(C_SRC_FILES) $(HPP_SRC_FILES) $(H_SRC_FILES)
 
-TEST_SUITE_FILES=$(addprefix test/src_test/,test.c test1_2.c test2_2.c test3_2.c test4_2.c)
+TEST_SUITE_FILES=$(addprefix test/src_test/,test.c test1_2.c test2_2.c test3_2.c test4_2.c test5_2.c)
 
 
 # Object files

@@ -67,6 +67,7 @@ static void FMC_consumeOldestError(void)
 {
     if (FMC_ERR_STACK.stackSize < FMC_MAX_ERR_STCK_SIZE) return;
     FMC_ErrStackElement *tmp = FMC_ERR_STACK.lastError;
+    if (!tmp) return;
     while (tmp->next)
     {
         tmp = tmp->next;
@@ -83,9 +84,11 @@ static FMC_Error FMC_pushError(FMC_Error err, const char* const additional_messa
         atexit(FMC_destroyErrorStack);
     }
     lock_err_mtx();
-    FMC_ErrStackElement *tmp = FMC_ERR_STACK.lastError;
+    FMC_ErrStackElement *tmp;
+    if (FMC_ERR_STACK.lastError != NULL) {tmp = FMC_ERR_STACK.lastError;}
+    else tmp = NULL;
 
-    if (FMC_ERR_STACK.stackSize == FMC_MAX_ERR_STCK_SIZE) FMC_consumeOldestError();
+    if (FMC_ERR_STACK.stackSize >= FMC_MAX_ERR_STCK_SIZE) FMC_consumeOldestError();
 
     FMC_ErrStackElement *new = malloc(sizeof(FMC_ErrStackElement));
     #pragma GCC diagnostic ignored "-Wunsuffixed-float-constants"
@@ -95,11 +98,11 @@ static FMC_Error FMC_pushError(FMC_Error err, const char* const additional_messa
         return FMC_ERR_PUSH;
     }
     #pragma GCC diagnostic pop
-    FMC_prefetch(tmp, FMC_OPT(0, 1));
+    if (tmp) FMC_prefetch(tmp, FMC_OPT(0, 1));
 
     new->errorNum = err;
     new->next = tmp;
-    if (additional_message && strlen(additional_message) < FMC_ERR_STR_LEN / 2) { strcpy(new->additionalInfo, additional_message); }
+    if (additional_message && strnlen(additional_message, FMC_ERR_STR_LEN / 2) < FMC_ERR_STR_LEN / 2) { strcpy(new->additionalInfo, additional_message); }
     else { new->additionalInfo[0] = '\0'; }
     FMC_ERR_STACK.lastError = new;    
     FMC_ERR_STACK.stackSize++;

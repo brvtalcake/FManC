@@ -37,7 +37,44 @@ void test_Error_System()
     FMC_printBrightMagentaText(stderr, err_msg1);
     FMC_printCyanText(stderr, err_msg1);
     FMC_printBrightCyanText(stderr, err_msg1);    
-    
-    assert(strcmp("Invalid argument. Additional info: test1", err_buf) == 0);
+
+    assert(strncmp("Invalid argument. Additional info: test1", err_buf, 256) == 0);
     FMC_setError(FMC_ERR_INVALID_ARGUMENT, "test2");
+    FMC_setError(FMC_ERR_FILE, "test3");
+    FMC_setError(FMC_ERR_FILE, "test4");
+    FMC_setError(FMC_ERR_NULL_PTR, "test5");
+    FMC_setError(FMC_ERR_NULL_PTR, "test6");
+    FMC_setError(FMC_ERR_WRONG_FLAGS_COMBINATION, "test7");
+    FMC_setError(FMC_ERR_WRONG_FLAGS_COMBINATION, "test8");
+    FMC_setError(FMC_ERR_INTERNAL, "test9");
+    FMC_setError(FMC_ERR_PUSH, "test10");
+    FMC_setError(FMC_ERR_PUSH, "test11");
+    FMC_setError(FMC_ERR_PUSH, "test12");
+    FMC_setError(FMC_ERR_PUSH, "test13");
+    FMC_setError(FMC_ERR_PUSH, "test14");
+    fprintf(stderr, "We arrived here\n");
+    assert(FMC_searchError(FMC_ERR_INVALID_ARGUMENT) == FMC_FALSE); // it has been cleared because of too many errors
+    assert(FMC_searchError(FMC_ERR_PUSH) == FMC_TRUE);
+    assert(FMC_searchErrorMsg("test10") == FMC_TRUE);
+    assert(FMC_searchErrorMsg("test11") == FMC_TRUE);
+    assert(FMC_searchErrorMsg("test1") == FMC_FALSE);
+    assert(FMC_searchErrorMsg("test2") == FMC_FALSE);
+    memset(err_buf, 0, 256);
+    FMC_getLastErrorStr_noDepop(err_buf, 256);
+    assert(strcmp("A problem occured while trying to push an error onto the error stack. Additional info: test14", err_buf) == 0);
+    FMC_clearErrorStack();
+    assert(FMC_searchError(FMC_ERR_PUSH) == FMC_FALSE);
+    assert(FMC_getDebugState() == FMC_TRUE);
+    FMC_setDebugState(FMC_FALSE);
+    assert(FMC_getDebugState() == FMC_FALSE);
+    FMC_setDebugState(FMC_TRUE);
+}
+
+void test_FMC_allocStrView()
+{
+    FMC_CStrView* str_view = FMC_allocStrView("Hello World!", sizeof("Hello World!"));
+    assert(str_view != NULL);
+    assert(str_view->size == sizeof("Hello World!"));
+    assert(strncmp(str_view->str, "Hello World!", 13) == 0);
+    FMC_freeStrView(str_view);
 }

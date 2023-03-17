@@ -36,6 +36,10 @@ int main()
     fprintf(stderr, "\x1b[32m%s\n\x1b[0m", "test_FMC_mkDir_rmDir() passed");
     test_FMC_getOptimalWriteBufferSize();
     fprintf(stderr, "\x1b[32m%s\n\x1b[0m", "test_FMC_getOptimalWriteBufferSize() passed");
+    test_FMC_allocStrView();
+    fprintf(stderr, "\x1b[32m%s\n\x1b[0m", "test_FMC_allocStrView() passed");
+    test_FMC_getCurrentUserName();
+    fprintf(stderr, "\x1b[32m%s\n\x1b[0m", "test_FMC_getCurrentUserName() passed");
 
     return 0;
 }

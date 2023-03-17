@@ -27,7 +27,23 @@ SOFTWARE.
 #ifndef FMC_DIRS_H
 #define FMC_DIRS_H
 
+#include "../../../general/FMC_general.h"
+
+#if defined(FMC_COMPILING_ON_WINDOWS)
+    #include <windows.h>
+#else
+    #include <sys/stat.h>
+    #include <sys/types.h>
+    #include <dirent.h>
+    #include <pwd.h>
+    #include <unistd.h>
+#endif
+
 FMC_BEGIN_DECLS
+
+FMC_SHARED int_fast64_t FMC_getDirEntryCount(const char* restrict const path);
+FMC_SHARED int FMC_mkDir(const char* restrict path);
+FMC_SHARED int FMC_rmDir(const char* restrict path, unsigned int user_flags);
 
 FMC_END_DECLS
 

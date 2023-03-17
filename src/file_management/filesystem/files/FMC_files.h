@@ -27,7 +27,7 @@ SOFTWARE.
 #ifndef FMC_FILES_H
 #define FMC_FILES_H
 
-#include "../../general/FMC_general.h"
+#include "../../../general/FMC_general.h"
 
 FMC_BEGIN_DECLS
 
@@ -45,6 +45,11 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_File* FMC_openFil
 #define FMC_openFile(file, mode, ...) FMC_CHOOSE_FUNC(2)(FMC_openFile_withoutFlags, FMC_openFile_withFlags, file, mode, __VA_ARGS__)
 FMC_SHARED void FMC_closeFile(FMC_File* restrict file);
 FMC_SHARED FMC_FUNC_NONNULL(1, 2, 3) FMC_File* FMC_reopenFile(FMC_File* restrict file, const char* restrict const new_path, const char* restrict const full_mode, const unsigned int user_flags);
+#if defined(FMC_COMPILING_ON_WINDOWS)
+FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT LONGLONG FMC_getFileSize(const char* restrict path);
+#else
+FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT off64_t FMC_getFileSize(const char* restrict path);
+#endif
 
 FMC_END_DECLS
 

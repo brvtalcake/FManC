@@ -13,3 +13,4 @@ void test_FMC_getOptimalWriteBufferSize()
     assert(FMC_getOptimalWriteBufferSize("file_that_doesnt_exist.ext") == 0);
 }
 
+

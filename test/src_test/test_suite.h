@@ -32,4 +32,6 @@ void test_FMC_checkEncodingFlag();
 void test_FMC_mkDir_rmDir();
 void test_Error_System();
 void test_FMC_getOptimalWriteBufferSize();
+void test_FMC_allocStrView();
+void test_FMC_getCurrentUserName();
 #endif // TEST_SUITE_H

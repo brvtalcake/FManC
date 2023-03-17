@@ -28,6 +28,9 @@ SOFTWARE.
 
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdarg.h>
+#include <assert.h>
 
 #include "FMC_sys.h"
 
@@ -97,6 +100,90 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_COLD char* FMC_getCurrentUserName(char* 
     FMC_UNREACHABLE;
 }
 
+#if !defined(FMC_COMPILING_ON_WINDOWS)
+FMC_SHARED FMC_FUNC_MALLOC(free) unsigned int* FMC_getAllUIDs(unsigned int range_number, ...)
+{
+    // this function gets all the UIDs in the system between the specified ranges (wich are variables)
+    if (range_number == 0)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_get_all_uids, 1, "ERROR: FMC_getAllUIDs: range_number is 0.");
+            FMC_printRedError(stderr, err_get_all_uids);
+        }
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_getAllUIDs: range_number is 0.");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    if (range_number >= 100)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_get_all_uids, 1, "ERROR: FMC_getAllUIDs: range_number is too big.");
+            FMC_printRedError(stderr, err_get_all_uids);
+        }
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_getAllUIDs: range_number is too big.");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    FMC_UNREACHABLE_ASSERT(range_number > 100);
+    va_list args;
+    va_start(args, range_number);
+    unsigned int ranges[range_number][2];
+    unsigned int *tmp = malloc(sizeof(unsigned int) * 2);
+    for (size_t i = 0; i < range_number; i++)
+    {
+        tmp = va_arg(args, unsigned int*);
+        ranges[i][0] = tmp[0];
+        ranges[i][1] = tmp[1];
+    }
+    va_end(args);
+    free(tmp);
+    unsigned int* uids = malloc(sizeof(unsigned int));
+    if (!uids)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_get_all_uids, 1, "ERROR: FMC_getAllUIDs: malloc() failed.");
+            FMC_printRedError(stderr, err_get_all_uids);
+        }
+        FMC_setError(FMC_ERR_INTERNAL, "FMC_getAllUIDs: malloc() failed.");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    memset(uids, 0, sizeof(unsigned int));
+    struct passwd* pw = NULL;
+    size_t i = 0;
+    while ((pw = getpwent()))
+    {
+        for (size_t j = 0; j < range_number; j++)
+        {
+            if (pw->pw_uid >= ranges[j][0] && pw->pw_uid <= ranges[j][1])
+            {
+                uids = realloc(uids, sizeof(unsigned int) * (i + 1));
+                if (!uids)
+                {
+                    if (FMC_getDebugState())
+                    {
+                        FMC_makeMsg(err_get_all_uids, 1, "ERROR: FMC_getAllUIDs: realloc() failed.");
+                        FMC_printRedError(stderr, err_get_all_uids);
+                    }
+                    FMC_setError(FMC_ERR_INTERNAL, "FMC_getAllUIDs: realloc() failed.");
+                    free(uids);
+                    return NULL;
+                    FMC_UNREACHABLE;
+                }
+                uids[i] = pw->pw_uid;
+                i++;
+            }
+        }
+    }
+    endpwent();
+    return uids;
+    FMC_UNREACHABLE;
+}
+#endif
+
 /* FMC_SHARED FMC_FUNC_NONNULL(2) FMC_FUNC_COLD char* FMC_getUserNameByUID(uid_t uid, char* user_name, size_t len)
 {
     #if defined(FMC_COMPILING_ON_WINDOWS)
@@ -105,3 +192,15 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_COLD char* FMC_getCurrentUserName(char* 
         
     #endif
 } */
+
+/*
+ * TODO: FMC_getNativeUIDRanges() (only POSIX)
+ * TODO: FMC_getNativeGIDRanges() (only POSIX)
+ * TODO: FMC_getUserNameByUID() (only POSIX)
+ * TODO: FMC_getGroupNameByGID() (only POSIX)
+ * TODO: FMC_getAllGIDs() (only POSIX)
+ * TODO: FMC_getAllGroupNames() (only POSIX)
+ * TODO: FMC_getAllUserNames() (only POSIX)
+ * TODO: FMC_parseEtcLoginDefs() (only POSIX, static)
+ * TODO: FMC_parseEtcPasswd() (only POSIX, static)
+*/

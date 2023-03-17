@@ -424,6 +424,11 @@ __VA_ARGS__))))
     #define FMC_UNREACHABLE __builtin_unreachable()
 #endif
 
+#if defined(FMC_UNREACHABLE_ASSERT)
+    #undef FMC_UNREACHABLE_ASSERT
+#endif
+#define FMC_UNREACHABLE_ASSERT(expr) assert(expr)
+
 #ifndef FMC_MAKE_VOID
     #define FMC_MAKE_VOID(expr) do { (void)(expr); } while (0)
 #endif
