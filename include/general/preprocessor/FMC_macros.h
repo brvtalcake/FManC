@@ -372,6 +372,11 @@ __VA_ARGS__))))
 #define FMC_UINT_ARR(...) (unsigned int[]){__VA_ARGS__}
 #define FMC_INT_ARR(...) (int[]){__VA_ARGS__}
 
+#if defined(FMC_LOCAL_LABEL)
+    #undef FMC_LOCAL_LABEL
+#endif
+#define FMC_LOCAL_LABEL(x) __label__ x
+
 #ifndef FMC_METHODS
     #define FMC_METHODS
 

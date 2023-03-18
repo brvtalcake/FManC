@@ -260,7 +260,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File
         {
             check_in user_flags if_not_set(BYTE_ORIENTED)
             {
-                returned_file->orientation = (FMC_changeStreamOrientation(returned_file->file, full_mode, BYTE_ORIENTED) == BYTE_ORIENTED ? byte_oriented : failed_to_change); 
+                returned_file->orientation = (FMC_changeStreamOrientation(returned_file->file, full_mode, WIDE_ORIENTED) == WIDE_ORIENTED ? wide_oriented : failed_to_change); 
             }
             else // error, you can only provide one of both
             {
@@ -281,7 +281,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File
         {
             check_in user_flags if_not_set(WIDE_ORIENTED)
             {
-                returned_file->orientation = (FMC_changeStreamOrientation(returned_file->file, full_mode, WIDE_ORIENTED) == WIDE_ORIENTED ? wide_oriented : failed_to_change);
+                returned_file->orientation = (FMC_changeStreamOrientation(returned_file->file, full_mode, BYTE_ORIENTED) == BYTE_ORIENTED ? byte_oriented : failed_to_change);
             }
             else // error, you can only provide one of both
             {

@@ -43,6 +43,7 @@ typedef _Bool FMC_CharControl;
 typedef _Bool FMC_FileState;
 typedef _Bool FMC_Bool;
 typedef unsigned int FMC_PermsFlags;
+typedef struct FManC_CharComp FMC_CodePoint;
 
 #if defined(FMC_COMPILING_ON_WINDOWS)
     typedef HANDLE FMC_Mutex;

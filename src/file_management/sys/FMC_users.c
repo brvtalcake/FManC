@@ -138,7 +138,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_MALLOC(free) unsigned int* FMC_g
 
     for (size_t i = 0; i < range_number; i++)
     {
-        tmp = va_arg(args, unsigned int*);
+        tmp = (unsigned int*) va_arg(args, void*);
         // copy the first elem of tmp range to the ranges array, then the second, in two different instructions
         ranges[i][0] = tmp[0];
         ranges[i][1] = tmp[1];

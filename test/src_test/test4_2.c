@@ -1,6 +1,9 @@
 #include "test_suite.h"
 #include <assert.h>
 #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <wchar.h>
 
 void test_FMC_getOptimalWriteBufferSize()
 {
@@ -39,11 +42,25 @@ void test_FMC_cutFilename()
 
 void test_FMC_FileAPI()
 {
+    FILE* FILE_file = fopen("./test.txt", "rb");
+    assert(FILE_file != NULL);
+    assert(fwide(FILE_file, 0) == 0);
+    assert(FMC_changeStreamOrientation(FILE_file,"rb", BYTE_ORIENTED) == BYTE_ORIENTED);
+    assert(fwide(FILE_file, 0) < 0);
+    fclose(FILE_file);
+
     FMC_File* file = FMC_allocFile("./test.txt", "rb", FMC_mergeFlags(TO_OPEN, GET_ENCODING, GET_SIZE, BYTE_ORIENTED));
+    assert(file != NULL);
     off64_t file_size = FMC_getFileSize("./test.txt");
-    fprintf(stderr, "File orientation: %d\n", file->orientation);
-    fprintf(stderr, "Encoding values:\n%d\t%d", (int)FMC_getEncoding(file->file), file->encoding);
-    assert(file_size == 0);
+    assert(file_size == 3); // because the UTF-8 BOM is 3 bytes long
     assert(file->fileSize == file_size);
     assert(file->encoding == FMC_getEncoding(file->file));
+    FMC_freeFile(file);
+
+    file = FMC_allocFile("./test.txt", "rb", 0U);
+    assert(file != NULL);
+    assert(file->fileSize == 0);
+    assert(!file->file);
+    assert(file->encoding == unknown);
+    assert(0);
 }
