@@ -31,6 +31,7 @@ SOFTWARE.
 #include <stdlib.h>
 #include <stdarg.h>
 #include <assert.h>
+#include <limits.h>
 
 #include "FMC_sys.h"
 
@@ -101,9 +102,11 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_COLD char* FMC_getCurrentUserName(char* 
 }
 
 #if !defined(FMC_COMPILING_ON_WINDOWS)
-FMC_SHARED FMC_FUNC_MALLOC(free) unsigned int* FMC_getAllUIDs(unsigned int range_number, ...)
+#pragma GCC diagnostic ignored "-Wstack-protector" 
+FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_MALLOC(free) unsigned int* FMC_getAllUIDs(unsigned int range_number, ...)
 {
-    // this function gets all the UIDs in the system between the specified ranges (wich are variables)
+    #pragma GCC diagnostic pop
+    // this function gets all the UIDs in the system between the specified ranges (wich are variable)
     if (range_number == 0)
     {
         if (FMC_getDebugState())
@@ -115,7 +118,7 @@ FMC_SHARED FMC_FUNC_MALLOC(free) unsigned int* FMC_getAllUIDs(unsigned int range
         return NULL;
         FMC_UNREACHABLE;
     }
-    if (range_number >= 100)
+    if (range_number >= 10)
     {
         if (FMC_getDebugState())
         {
@@ -126,20 +129,23 @@ FMC_SHARED FMC_FUNC_MALLOC(free) unsigned int* FMC_getAllUIDs(unsigned int range
         return NULL;
         FMC_UNREACHABLE;
     }
-    FMC_UNREACHABLE_ASSERT(range_number > 100);
+    FMC_UNREACHABLE_ASSERT(range_number < 10);
     va_list args;
     va_start(args, range_number);
     unsigned int ranges[range_number][2];
-    unsigned int *tmp = malloc(sizeof(unsigned int) * 2);
+    memset(ranges, 0, sizeof(unsigned int) * 2 * range_number);
+    unsigned int *tmp = NULL;
+
     for (size_t i = 0; i < range_number; i++)
     {
         tmp = va_arg(args, unsigned int*);
+        // copy the first elem of tmp range to the ranges array, then the second, in two different instructions
         ranges[i][0] = tmp[0];
         ranges[i][1] = tmp[1];
     }
     va_end(args);
-    free(tmp);
-    unsigned int* uids = malloc(sizeof(unsigned int));
+    
+    unsigned int* uids = malloc(2*sizeof(unsigned int));
     if (!uids)
     {
         if (FMC_getDebugState())
@@ -151,16 +157,29 @@ FMC_SHARED FMC_FUNC_MALLOC(free) unsigned int* FMC_getAllUIDs(unsigned int range
         return NULL;
         FMC_UNREACHABLE;
     }
-    memset(uids, 0, sizeof(unsigned int));
+    memset(uids + 1, 0, sizeof(unsigned int));
     struct passwd* pw = NULL;
-    size_t i = 0;
+    size_t i = 1;
     while ((pw = getpwent()))
     {
+        if (i > UINT_MAX)
+        {
+            if (FMC_getDebugState())
+            {
+                FMC_makeMsg(err_get_all_uids, 1, "ERROR: FMC_getAllUIDs: too many UIDs.");
+                FMC_printRedError(stderr, err_get_all_uids);
+            }
+            FMC_setError(FMC_ERR_INTERNAL, "FMC_getAllUIDs: too many UIDs.");
+            free(uids);
+            return NULL;
+            FMC_UNREACHABLE;
+        }
+        unsigned int* old_uids = NULL;
         for (size_t j = 0; j < range_number; j++)
         {
             if (pw->pw_uid >= ranges[j][0] && pw->pw_uid <= ranges[j][1])
             {
-                uids = realloc(uids, sizeof(unsigned int) * (i + 1));
+                uids = realloc((old_uids = uids), sizeof(unsigned int) * (i + 1));
                 if (!uids)
                 {
                     if (FMC_getDebugState())
@@ -169,7 +188,7 @@ FMC_SHARED FMC_FUNC_MALLOC(free) unsigned int* FMC_getAllUIDs(unsigned int range
                         FMC_printRedError(stderr, err_get_all_uids);
                     }
                     FMC_setError(FMC_ERR_INTERNAL, "FMC_getAllUIDs: realloc() failed.");
-                    free(uids);
+                    free(old_uids);
                     return NULL;
                     FMC_UNREACHABLE;
                 }
@@ -179,6 +198,10 @@ FMC_SHARED FMC_FUNC_MALLOC(free) unsigned int* FMC_getAllUIDs(unsigned int range
         }
     }
     endpwent();
+
+    // store the number of UIDs in the first position of the array
+    FMC_UNREACHABLE_ASSERT(i < UINT_MAX);
+    uids[0] = (unsigned int) (i - 1);
     return uids;
     FMC_UNREACHABLE;
 }

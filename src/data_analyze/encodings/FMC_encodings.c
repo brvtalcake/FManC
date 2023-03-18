@@ -33,6 +33,7 @@ SOFTWARE.
 
 #include "FMC_encodings.h"
 
+// TODO: make it reopen the file properly if it's not opened with the right orientation or the right mode
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_getEncoding(FILE *file)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare" // get an error at compile time without this (because of attribute nonnull)
@@ -52,7 +53,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_get
     {
         if (FMC_getDebugState()) 
         {
-            FMC_makeMsg(err_wide, 4, "ERROR : ", "In function : ", __func__, ". The provided file must be opened with by orientation.");
+            FMC_makeMsg(err_wide, 4, "ERROR : ", "In function : ", __func__, ". The provided file must be opened with byte orientation.");
             FMC_printBrightRedError(stderr, err_wide);
         }
         return error;

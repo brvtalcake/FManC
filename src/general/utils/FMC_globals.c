@@ -67,12 +67,15 @@ static void FMC_consumeOldestError(void)
 {
     if (FMC_ERR_STACK.stackSize < FMC_MAX_ERR_STCK_SIZE) return;
     FMC_ErrStackElement *tmp = FMC_ERR_STACK.lastError;
+    FMC_ErrStackElement *tmp2 = NULL;
     if (!tmp) return;
     while (tmp->next)
     {
+        tmp2 = tmp;
         tmp = tmp->next;
     }
     free(tmp);
+    if (tmp2) tmp2->next = NULL;
     FMC_ERR_STACK.stackSize--;
 }
 

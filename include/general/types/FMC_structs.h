@@ -40,9 +40,9 @@ FMC_BEGIN_DECLS
 
 FMC_SHARED struct FManC_ErrStackElement
 {
-    FMC_Error errorNum;
     struct FManC_ErrStackElement *next;
     char additionalInfo[FMC_ERR_STR_LEN / 2];
+    FMC_Error errorNum;
 };
 typedef struct FManC_ErrStackElement FMC_ErrStackElement;
 
@@ -73,7 +73,6 @@ typedef struct FManC_Directory FMC_Directory;
 FMC_SHARED struct FManC_File
 {
     FILE *file;
-    // mtx_t fileMutex;
     unsigned long long int fileSize;
     FMC_Encodings encoding;
     enum FMC_File_orientation
@@ -94,6 +93,7 @@ FMC_SHARED struct FManC_File
     char name[MAX_FNAME_SIZE];
     char extension[MAX_FEXT_SIZE];
     char fullMode[MAX_MODE_SIZE];
+    // mtx_t fileMutex;
 };
 typedef struct FManC_File FMC_File;
 

@@ -4,7 +4,7 @@
 void test_Error_System()
 {
     char err_buf[256];
-    FMC_setError(FMC_ERR_INVALID_ARGUMENT, "test1");
+    FMC_setError(FMC_ERR_INVALID_ARGUMENT, "first_test");
     assert(FMC_getLastErrorNum_noDepop() == FMC_ERR_INVALID_ARGUMENT);
     FMC_getLastErrorStr_noDepop(err_buf, 256);
 
@@ -38,7 +38,7 @@ void test_Error_System()
     FMC_printCyanText(stderr, err_msg1);
     FMC_printBrightCyanText(stderr, err_msg1);    
 
-    assert(strncmp("Invalid argument. Additional info: test1", err_buf, 256) == 0);
+    assert(strncmp("Invalid argument. Additional info: first_test", err_buf, 256) == 0);
     FMC_setError(FMC_ERR_INVALID_ARGUMENT, "test2");
     FMC_setError(FMC_ERR_FILE, "test3");
     FMC_setError(FMC_ERR_FILE, "test4");
@@ -57,12 +57,13 @@ void test_Error_System()
     assert(FMC_searchError(FMC_ERR_PUSH) == FMC_TRUE);
     assert(FMC_searchErrorMsg("test10") == FMC_TRUE);
     assert(FMC_searchErrorMsg("test11") == FMC_TRUE);
-    assert(FMC_searchErrorMsg("test1") == FMC_FALSE);
+    assert(FMC_searchErrorMsg("first_test") == FMC_FALSE);
     assert(FMC_searchErrorMsg("test2") == FMC_FALSE);
     memset(err_buf, 0, 256);
     FMC_getLastErrorStr_noDepop(err_buf, 256);
     assert(strcmp("A problem occured while trying to push an error onto the error stack. Additional info: test14", err_buf) == 0);
     FMC_clearErrorStack();
+    FMC_destroyErrorStack();
     assert(FMC_searchError(FMC_ERR_PUSH) == FMC_FALSE);
     assert(FMC_getDebugState() == FMC_TRUE);
     FMC_setDebugState(FMC_FALSE);
@@ -72,7 +73,7 @@ void test_Error_System()
 
 void test_FMC_allocStrView()
 {
-    FMC_CStrView* str_view = FMC_allocStrView("Hello World!", sizeof("Hello World!"));
+    FMC_CStrView* str_view = FMC_allocStrView("Hello World!", sizeof("Hello World!") - 1); // -1 because null terminator is not counted
     assert(str_view != NULL);
     assert(str_view->size == sizeof("Hello World!"));
     assert(strncmp(str_view->str, "Hello World!", 13) == 0);

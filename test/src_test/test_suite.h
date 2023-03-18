@@ -34,4 +34,13 @@ void test_Error_System();
 void test_FMC_getOptimalWriteBufferSize();
 void test_FMC_allocStrView();
 void test_FMC_getCurrentUserName();
+
+#if !defined(FMC_COMPILING_ON_WINDOWS)
+void test_FMC_getAllUIDs();
+#endif // !defined(FMC_COMPILING_ON_WINDOWS)
+
+void test_FMC_extractFilename();
+void test_FMC_getExtension();
+void test_FMC_cutFilename();
+void test_FMC_FileAPI();
 #endif // TEST_SUITE_H

@@ -223,3 +223,8 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
         }
     }
 }
+
+
+/*
+ * TODO: FMC_cutExtension
+*/

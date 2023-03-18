@@ -35,6 +35,21 @@ FMC_BEGIN_DECLS
 
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_getEncoding(FILE *file);
 
+// TODO: add more functions to get encoding from a file path or a FMC_String, for example
+
+/* FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_getEncoding_FILE(FILE *file);
+FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_getEncoding_FMC_File(FMC_File* file);
+FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_getEncoding_filePath(char* path);
+FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_getEncoding_FMC_String(FMC_String* string);
+
+#define FMC_getEncoding(x) _Generic((x), \
+    FILE*: FMC_getEncoding_FILE, \
+    FMC_File*: FMC_getEncoding_FMC_File, \
+    char*: FMC_getEncoding_filePath, \
+    FMC_String*: FMC_getEncoding_FMC_String \
+)(x) */
+
+
 FMC_FUNC_CONST FMC_FUNC_ALWAYS_INLINE inline FMC_Encodings FMC_checkEncodingFlag(unsigned int encoding)
 {
     switch (encoding)

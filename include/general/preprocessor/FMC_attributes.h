@@ -103,7 +103,7 @@ SOFTWARE.
     #endif // FMC_FUNC_HOT
 
     #ifndef FMC_FUNC_MALLOC
-        #define FMC_FUNC_MALLOC(...) __attribute__((malloc(__VA_ARGS__)))
+        #define FMC_FUNC_MALLOC(...) FMC_FUNC_WARN_UNUSED_RESULT __attribute__((malloc(__VA_ARGS__)))
     #endif // FMC_FUNC_MALLOC
 
     #ifndef FMC_FUNC_NONNULL

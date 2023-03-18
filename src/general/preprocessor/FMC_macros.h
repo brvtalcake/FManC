@@ -365,6 +365,13 @@ __VA_ARGS__))))
 #define FMC_MAKE_I32(x) INT32_C(x)
 #define FMC_MAKE_I64(x) INT64_C(x)
 
+#if defined(FMC_UINT_ARR) || defined(FMC_INT_ARR)
+    #undef FMC_UINT_ARR
+    #undef FMC_INT_ARR
+#endif
+#define FMC_UINT_ARR(...) (unsigned int[]){__VA_ARGS__}
+#define FMC_INT_ARR(...) (int[]){__VA_ARGS__}
+
 #ifndef FMC_METHODS
     #define FMC_METHODS
 
