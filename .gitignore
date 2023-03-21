@@ -11,15 +11,8 @@ codecov.exe
 *.gcda
 *.gcov
 test/tmp/*
-main.c 
-prog
-txt.txt
 *.old
 *.o
-test.c
-!test/src_test/test.c
-test_.c
-test__.c 
 nobuild*
 build_lib*
 Makefile_
@@ -27,9 +20,20 @@ test_
 !lib/libFManC_linux_x86_64.a
 export_cov.sh
 export_cov.bat
-*prog*
 src/general/utils/FMC_mtx*
 .markdownlintignore
 mkdocs/site*
 .clang-format
+
+# Random test files just for myself
 main.preprocessed.c
+main2.c
+main2 
+test_.c
+test__.c 
+main.c 
+prog
+test.c
+!test/src_test/test.c
+txt.txt
+*prog*
