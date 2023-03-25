@@ -58,9 +58,5 @@ void test_FMC_FileAPI()
     FMC_freeFile(file);
 
     file = FMC_allocFile("./test.txt", "rb", 0U);
-    assert(file != NULL);
-    assert(file->fileSize == 0);
-    assert(!file->file);
-    assert(file->encoding == unknown);
-    assert(0);
+    assert(file == NULL);
 }

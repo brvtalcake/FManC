@@ -73,6 +73,7 @@ typedef struct FManC_Directory FMC_Directory;
 FMC_SHARED struct FManC_File
 {
     FILE *file;
+    // mtx_t fileMutex;
     unsigned long long int fileSize;
     FMC_Encodings encoding;
     enum FMC_File_orientation
@@ -93,7 +94,6 @@ FMC_SHARED struct FManC_File
     char name[MAX_FNAME_SIZE];
     char extension[MAX_FEXT_SIZE];
     char fullMode[MAX_MODE_SIZE];
-    // mtx_t fileMutex;
 };
 typedef struct FManC_File FMC_File;
 
@@ -108,12 +108,14 @@ FMC_SHARED struct FManC_StrOcc
 };
 typedef struct FManC_StrOcc FMC_StrOcc;
 
+// the least significant byte is byte1. For instance, in 257, byte1 = 0000 0001, byte2 = 0000 0001, 
+//                                                            byte3 = 0000 0000, byte4 = 0000 0000.
 FMC_SHARED struct FManC_CharComp
 {
-    FMC_Byte mostLeft    : 8;
-    FMC_Byte middleLeft  : 8;
-    FMC_Byte middleRight : 8;
-    FMC_Byte mostRight   : 8;
+    FMC_Byte byte1 : 8;
+    FMC_Byte byte2 : 8;
+    FMC_Byte byte3 : 8;
+    FMC_Byte byte4 : 8;
 };
 typedef struct FManC_CharComp FMC_CharComp;
 
@@ -122,6 +124,7 @@ FMC_SHARED struct FManC_Char
     FMC_Encodings encoding;
     FMC_CharComp comp;
     FMC_CharControl isNull;
+    uint8_t byteNumber;
 };
 typedef struct FManC_Char FMC_Char;
 

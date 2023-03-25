@@ -98,7 +98,14 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_MALLOC(FMC_freeFile, 1) FMC_File
 {
     if (!path || !full_mode || user_flags == 0U || FMC_isRegFile(path) != 1)
     {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_alloc_file, 1, "ERROR: FMC_allocFile: Invalid arguments.");
+            FMC_printRedError(stderr, err_alloc_file);
+        }
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_allocFile: Invalid arguments.");
         return NULL;
+        FMC_UNREACHABLE;
     }
 
     char tmp_path[MAX_FPATH_SIZE];

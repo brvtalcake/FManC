@@ -26,25 +26,223 @@ SOFTWARE.
 
 #include "FMC_conversions.h"
 
-FMC_SHARED FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF8(const uint8_t* restrict const utf8_hex_values)
+/*
+ * Code points from UTF-8 encoded characters
+*/
+
+FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF8_FMC_Char_ptr(const FMC_Char* restrict const utf8_char)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
-    if (!utf8_hex_values)
+    if (!utf8_char || utf8_char->byteNumber > 4 || utf8_char->encoding != utf8)
     {
         if (FMC_getDebugState())
         {
-            FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_codePointFromUTF8: utf8_hex_values is NULL");
+            FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_codePointFromUTF8: Provided argument is NULL or invalid");
             FMC_printRedError(stderr, err_inv_arg);
         }
-        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_codePointFromUTF8: utf8_hex_values is NULL");
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_codePointFromUTF8: Provided argument is NULL or invalid");
         return FMC_CODE_POINT_NULL;
         FMC_UNREACHABLE;
     }
     #pragma GCC diagnostic pop
 
+    if ((utf8_char->comp.byte1 == 0 && utf8_char->comp.byte2 == 0 && utf8_char->comp.byte3 == 0 && utf8_char->comp.byte4 == 0) ||
+         utf8_char->byteNumber == 0) return FMC_CODE_POINT_NULL;
+
     FMC_CodePoint code_point = FMC_CODE_POINT_NULL;
-    const uint8_t byte_count = FMC_getUTF8ByteCount(utf8_hex_values[0]);
+    switch(utf8_char->byteNumber) // byte1 is the least significant byte
+    {
+        case 1:
+            code_point = utf8_char->comp.byte1;
+            break;
+        case 2:
+            code_point = ((utf8_char->comp.byte2 & 0x1F) << 6) | (utf8_char->comp.byte1 & 0x3F);
+            break;
+        case 3:
+            code_point = ((utf8_char->comp.byte3 & 0x0F) << 12) | ((utf8_char->comp.byte2 & 0x3F) << 6) | (utf8_char->comp.byte1 & 0x3F);
+            break;
+        case 4:
+            code_point = ((utf8_char->comp.byte4 & 0x07) << 18) | ((utf8_char->comp.byte3 & 0x3F) << 12) | ((utf8_char->comp.byte2 & 0x3F) << 6) | (utf8_char->comp.byte1 & 0x3F);
+            break;
+        default:
+            FMC_UNREACHABLE;
+            return FMC_CODE_POINT_NULL;
+    }
+    return code_point;
+    FMC_UNREACHABLE;
+}
 
-    FMC_UNIMPLEMENTED(FMC_codePointFromUTF8: not implemented yet.);
+FMC_SHARED FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF8_FMC_Char(const FMC_Char utf8_char)
+{
+    return FMC_codePointFromUTF8_FMC_Char_ptr(&utf8_char);
+}
 
+FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF8_FMC_CharComp_ptr(const FMC_CharComp* restrict const utf8_char_comp)
+{
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (!utf8_char_comp)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_codePointFromUTF8: Provided argument is NULL");
+            FMC_printRedError(stderr, err_inv_arg);
+        }
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_codePointFromUTF8: Provided argument is NULL");
+        return FMC_CODE_POINT_NULL;
+        FMC_UNREACHABLE;
+    }
+    #pragma GCC diagnostic pop
+    if ((utf8_char_comp->byte1 == 0 && utf8_char_comp->byte2 == 0 && utf8_char_comp->byte3 == 0 && utf8_char_comp->byte4 == 0)) 
+        return FMC_CODE_POINT_NULL;
+    // Calculate the number of encoded bytes, since there is no byteNumber field in FMC_CharComp
+    uint8_t byte_number = 0;
+    if (utf8_char_comp->byte1 != 0)
+    {
+        if (utf8_char_comp->byte2 != 0)
+        {
+            if (utf8_char_comp->byte3 != 0)
+            {
+                if (utf8_char_comp->byte4 != 0) byte_number = 4;
+                else byte_number = 3;
+            }
+            else byte_number = 2;
+        }
+        else byte_number = 1;
+    }
+    else return FMC_CODE_POINT_NULL;
+
+    FMC_CodePoint code_point = FMC_CODE_POINT_NULL;
+    switch(byte_number)
+    {
+        case 1:
+            code_point = utf8_char_comp->byte1;
+            break;
+        case 2:
+            code_point = ((utf8_char_comp->byte2 & 0x1F) << 6) | (utf8_char_comp->byte1 & 0x3F);
+            break;
+        case 3:
+            code_point = ((utf8_char_comp->byte3 & 0x0F) << 12) | ((utf8_char_comp->byte2 & 0x3F) << 6) | (utf8_char_comp->byte1 & 0x3F);
+            break;
+        case 4:
+            code_point = ((utf8_char_comp->byte4 & 0x07) << 18) | ((utf8_char_comp->byte3 & 0x3F) << 12) 
+                       | ((utf8_char_comp->byte2 & 0x3F) << 6)  | (utf8_char_comp->byte1 & 0x3F);
+            break;
+        default:
+            FMC_UNREACHABLE;
+            return FMC_CODE_POINT_NULL;
+    }
+    return code_point;
+    FMC_UNREACHABLE;
+}
+
+FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF8_FMC_CharComp(const FMC_CharComp utf8_char_comp)
+{
+    return FMC_codePointFromUTF8_FMC_CharComp_ptr(&utf8_char_comp);
+}
+
+FMC_SHARED FMC_FUNC_CONST FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF8_uint32_t_ptr(const uint32_t* restrict const raw_utf8_encoded_char)
+{
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (!raw_utf8_encoded_char)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_codePointFromUTF8: Provided argument is NULL");
+            FMC_printRedError(stderr, err_inv_arg);
+        }
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_codePointFromUTF8: Provided argument is NULL");
+        return FMC_CODE_POINT_NULL;
+        FMC_UNREACHABLE;
+    }
+    #pragma GCC diagnostic pop
+    if (*raw_utf8_encoded_char == 0) return FMC_CODE_POINT_NULL;
+    // Calculate the number of encoded bytes
+    uint8_t byte_number = 0;
+    if (*raw_utf8_encoded_char != 0)
+    {
+        if ((*raw_utf8_encoded_char & 0x000000FF) != 0)
+        {
+            if ((*raw_utf8_encoded_char & 0x0000FF00) != 0)
+            {
+                if ((*raw_utf8_encoded_char & 0x00FF0000) != 0) byte_number = 4;
+                else byte_number = 3;
+            }
+            else byte_number = 2;
+        }
+        else byte_number = 1;
+    }
+    else return FMC_CODE_POINT_NULL;
+
+    FMC_CodePoint code_point = FMC_CODE_POINT_NULL;
+    switch(byte_number)
+    {
+        case 1:
+            code_point = *raw_utf8_encoded_char;
+            break;
+        case 2:
+            code_point = ((*raw_utf8_encoded_char & 0x00001F00) << 6) | (*raw_utf8_encoded_char & 0x0000003F);
+            break;
+        case 3:
+            code_point = ((*raw_utf8_encoded_char & 0x000F0000) << 12) | ((*raw_utf8_encoded_char & 0x00003F00) << 6) 
+                       | (*raw_utf8_encoded_char & 0x0000003F);
+            break;
+        case 4:
+            code_point = ((*raw_utf8_encoded_char & 0x07000000) << 18) | ((*raw_utf8_encoded_char & 0x003F0000) << 12) 
+                       | ((*raw_utf8_encoded_char & 0x00003F00) << 6)  | (*raw_utf8_encoded_char & 0x0000003F);
+            break;
+        default:
+            FMC_UNREACHABLE;
+            return FMC_CODE_POINT_NULL;
+    }
+    return code_point;
+    FMC_UNREACHABLE;
+}
+
+FMC_SHARED FMC_FUNC_CONST FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF8_uint32_t(const uint32_t raw_utf8_encoded_char)
+{
+    return FMC_codePointFromUTF8_uint32_t_ptr(&raw_utf8_encoded_char);
+}
+
+/*
+ * Code points from UTF-16LE encoded characters
+*/
+
+FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF16LE_FMC_Char_ptr(const FMC_Char* restrict const utf16le_char)
+{
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (!utf16le_char || utf16le_char->byteNumber > 4 || utf16le_char->encoding != utf16_le)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_codePointFromUTF16LE: Provided argument is NULL or invalid");
+            FMC_printRedError(stderr, err_inv_arg);
+        }
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_codePointFromUTF16LE: Provided argument is NULL or invalid");
+        return FMC_CODE_POINT_NULL;
+        FMC_UNREACHABLE;
+    }
+    #pragma GCC diagnostic pop
+    if ((utf16le_char->comp.byte1 == 0 && utf16le_char->comp.byte2 == 0 && utf16le_char->comp.byte3 == 0 &&
+         utf16le_char->comp.byte4 == 0) || utf16le_char->byteNumber == 0) return FMC_CODE_POINT_NULL;
+    
+    FMC_CodePoint code_point = FMC_CODE_POINT_NULL;
+    switch(utf16le_char->byteNumber)
+    {
+        case 2:
+            code_point = utf16le_char->comp.byte2 << 8 | utf16le_char->comp.byte1;
+            break;
+        case 4:
+            code_point = ((utf16le_char->comp.byte4 & 0x03) << 16) | (utf16le_char->comp.byte3 << 8) | utf16le_char->comp.byte2;
+            break;
+        default:
+            FMC_UNREACHABLE;
+            return FMC_CODE_POINT_NULL;
+    }
+    return code_point;
+    FMC_UNREACHABLE;
+}
+
+FMC_SHARED FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF16LE_FMC_Char(const FMC_Char utf16le_char)
+{
+    return FMC_codePointFromUTF16LE_FMC_Char_ptr(&utf16le_char);
 }

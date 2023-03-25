@@ -47,6 +47,7 @@ FMC_SHARED void FMC_closeFile(FMC_File* restrict file);
 FMC_SHARED FMC_FUNC_NONNULL(1, 2, 3) FMC_File* FMC_reopenFile(FMC_File* restrict file, const char* restrict const new_path, const char* restrict const full_mode, const unsigned int user_flags);
 
 // TODO: make FMC_getFileSize() generic and add more functions that accepts a FMC_File* or a FILE* as argument
+// TODO: FMC_getExecutablePath() and FMC_getExecutableDirectory()
 #if defined(FMC_COMPILING_ON_WINDOWS)
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT LONGLONG FMC_getFileSize(const char* restrict path);
 #else

@@ -30,6 +30,7 @@ SOFTWARE.
 #define FMC_ENCODINGS_H
 
 #include "../../general/FMC_general.h"
+#include "conversions/FMC_conversions.h"
 
 FMC_BEGIN_DECLS
 

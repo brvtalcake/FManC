@@ -29,4 +29,35 @@ SOFTWARE.
 
 #include "../../../general/FMC_general.h"
 
+FMC_BEGIN_DECLS
+
+FMC_SHARED FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF8_FMC_Char(const FMC_Char utf8_char);
+FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF8_FMC_CharComp(const FMC_CharComp utf8_char_comp);
+FMC_SHARED FMC_FUNC_CONST FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF8_uint32_t(const uint32_t raw_utf8_encoded_char);
+FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF8_FMC_Char_ptr(const FMC_Char* restrict const utf8_char);
+FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF8_FMC_CharComp_ptr(const FMC_CharComp* restrict const utf8_char_comp);
+FMC_SHARED FMC_FUNC_CONST FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF8_uint32_t_ptr(const uint32_t* restrict const raw_utf8_encoded_char);
+
+#define FMC_codePointFromUTF8(x) _Generic((x),              \
+    FMC_Char*     : FMC_codePointFromUTF8_FMC_Char_ptr,     \
+    FMC_Char      : FMC_codePointFromUTF8_FMC_Char,         \
+    FMC_CharComp* : FMC_codePointFromUTF8_FMC_CharComp_ptr, \
+    FMC_CharComp  : FMC_codePointFromUTF8_FMC_CharComp,     \
+    uint32_t*     : FMC_codePointFromUTF8_uint32_t_ptr,     \
+    uint32_t      : FMC_codePointFromUTF8_uint32_t)(x)
+
+
+FMC_SHARED FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF16LE_FMC_Char(const FMC_Char utf16le_char);
+FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF16LE_FMC_Char_ptr(const FMC_Char* restrict const utf16le_char);
+
+#define FMC_codePointFromUTF16LE(x) _Generic((x),          \
+    FMC_Char*     : FMC_codePointFromUTF16LE_FMC_Char_ptr, \
+    FMC_Char      : FMC_codePointFromUTF16LE_FMC_Char,     \
+    FMC_CharComp* : FMC_codePointFromUTF16LE_FMC_Char_ptr, \
+    FMC_CharComp  : FMC_codePointFromUTF16LE_FMC_Char,     \
+    uint32_t*     : FMC_codePointFromUTF16LE_FMC_Char_ptr, \
+    uint32_t      : FMC_codePointFromUTF16LE_FMC_Char)(x)
+
+FMC_END_DECLS
+
 #endif // FMC_CONVERSIONS_H

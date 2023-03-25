@@ -36,4 +36,5 @@ prog
 test.c
 !test/src_test/test.c
 txt.txt
+txt*
 *prog*

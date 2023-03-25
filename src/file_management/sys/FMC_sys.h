@@ -39,6 +39,8 @@ SOFTWARE.
     #include <unistd.h>
 #endif
 
+#include <stdlib.h>
+
 FMC_BEGIN_DECLS
 
 FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_COLD char* FMC_getCurrentUserName(char* const user_name, const size_t len);

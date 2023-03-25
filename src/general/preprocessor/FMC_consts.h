@@ -67,7 +67,8 @@ SOFTWARE.
 #if defined(FMC_CODE_POINT_NULL)
     #undef FMC_CODE_POINT_NULL
 #endif
-#define FMC_CODE_POINT_NULL (FMC_CodePoint){.byte1 = 0, .byte2 = 0, .byte3 = 0, .byte4 = 0}
+// #define FMC_CODE_POINT_NULL (FMC_CodePoint){.byte1 = 0, .byte2 = 0, .byte3 = 0, .byte4 = 0}
+#define FMC_CODE_POINT_NULL FMC_MAKE_UI32(0)
 
 #ifndef FMC_STYLES
     #define FMC_STYLES
