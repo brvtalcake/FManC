@@ -181,7 +181,7 @@ SOFTWARE.
     #endif // FMC_FUNC_STRONG_ALIAS
 
     #ifndef FMC_FUNC_INLINE
-        #define FMC_FUNC_INLINE inline FMC_FUNC_ALWAYS_INLINE
+        #define FMC_FUNC_INLINE FMC_FUNC_ALWAYS_INLINE inline
     #endif // FMC_FUNC_INLINE
 
     #ifndef FMC_FUNC_PRINTF_FMT

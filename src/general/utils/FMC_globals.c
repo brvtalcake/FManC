@@ -36,6 +36,7 @@ static const char FMC_ERROR_STR[FMC_ERR_STR_COUNT][FMC_ERR_STR_LEN / 2] =
     "An internal error occured. ",                                            // FMC_ERR_INTERNAL
     "Invalid argument. ",                                                     // FMC_ERR_INVALID_ARGUMENT
     "The provided FMC_File pointer is inconsistent. ",                        // FMC_ERR_FILE
+    "The provided UTF-X character or string is inconsistent. ",               // FMC_ERR_UTF
 };
 
 #ifndef __STDC_NO_ATOMICS__

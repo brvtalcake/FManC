@@ -46,6 +46,7 @@ SOFTWARE.
 
 // TODO : FMC_getFileSize
 // TODO : FMC_setFileOrientation
+// TODO : FMC_allocFile : let the user provide an encoding if he knows it
 
 FMC_FUNC_PURE static unsigned int FMC_getDataModeFromMode(const char* const full_mode)
 {

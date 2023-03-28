@@ -34,6 +34,7 @@ SOFTWARE.
 #include "FMC_encodings.h"
 
 // TODO: make it reopen the file properly if it's not opened with the right orientation or the right mode
+// TODO: check if a lot of zeroed bytes are present between non-zeroed bytes, if so, it's probably UTF-16 or UTF-32
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_getEncoding(FILE *file)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare" // get an error at compile time without this (because of attribute nonnull)

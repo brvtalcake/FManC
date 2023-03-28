@@ -26,6 +26,8 @@ SOFTWARE.
 
 #include "FMC_conversions.h"
 
+// TODO: Add more verifications against invalid arguments or invalid UTF-X encoded characters
+
 /*
  * Code points from UTF-8 encoded characters
 */
@@ -229,14 +231,51 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF16
     switch(utf16le_char->byteNumber)
     {
         case 2:
-            code_point = utf16le_char->comp.byte2 << 8 | utf16le_char->comp.byte1;
+            code_point = utf16le_char->comp.byte2 | (utf16le_char->comp.byte1 << 8);
+            if (code_point >= 0xD800 && code_point <= 0xDFFF)
+            {
+                if (FMC_getDebugState())
+                {
+                    FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_codePointFromUTF16LE: Invalid UTF-16LE character");
+                    FMC_printRedError(stderr, err_inv_arg);
+                }
+                FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_codePointFromUTF16LE: Invalid UTF-16LE character");
+                return FMC_CODE_POINT_NULL;
+                FMC_UNREACHABLE;
+            }
             break;
         case 4:
-            code_point = ((utf16le_char->comp.byte4 & 0x03) << 16) | (utf16le_char->comp.byte3 << 8) | utf16le_char->comp.byte2;
+            code_point = 0x10000;
+            if ((utf16le_char->comp.byte1 | (utf16le_char->comp.byte2 << 8)) < 0xD800 || 
+                (utf16le_char->comp.byte1 | (utf16le_char->comp.byte2 << 8)) > 0xDBFF)
+            {
+                if (FMC_getDebugState())
+                {
+                    FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_codePointFromUTF16LE: Provided argument is not a valid UTF-16LE encoded character");
+                    FMC_printRedError(stderr, err_inv_arg);
+                }
+                FMC_setError(FMC_ERR_UTF, "FMC_codePointFromUTF16LE: Provided argument is not a valid UTF-16LE encoded character");
+                return FMC_CODE_POINT_NULL;
+                FMC_UNREACHABLE;
+            }
+            if ((utf16le_char->comp.byte3 | (utf16le_char->comp.byte4 << 8)) < 0xDC00 || 
+                (utf16le_char->comp.byte3 | (utf16le_char->comp.byte4 << 8)) > 0xDFFF)
+            {
+                if (FMC_getDebugState())
+                {
+                    FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_codePointFromUTF16LE: Provided argument is not a valid UTF-16LE encoded character");
+                    FMC_printRedError(stderr, err_inv_arg);
+                }
+                FMC_setError(FMC_ERR_UTF, "FMC_codePointFromUTF16LE: Provided argument is not a valid UTF-16LE encoded character");
+                return FMC_CODE_POINT_NULL;
+                FMC_UNREACHABLE;
+            }
+            code_point += ((utf16le_char->comp.byte1 | (utf16le_char->comp.byte2 << 8)) & 0x03FF) << 10;
+            code_point += (utf16le_char->comp.byte3 | (utf16le_char->comp.byte4 << 8)) & 0x03FF;
             break;
         default:
+            return FMC_CODE_POINT_NULL; // Wrong byte number
             FMC_UNREACHABLE;
-            return FMC_CODE_POINT_NULL;
     }
     return code_point;
     FMC_UNREACHABLE;
@@ -246,3 +285,132 @@ FMC_SHARED FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF16LE_FMC_Char(const FM
 {
     return FMC_codePointFromUTF16LE_FMC_Char_ptr(&utf16le_char);
 }
+
+FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF16LE_FMC_CharComp_ptr(const FMC_CharComp* restrict const utf16le_char_comp)
+{
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (!utf16le_char_comp)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_codePointFromUTF16LE: Provided argument is NULL");
+            FMC_printRedError(stderr, err_inv_arg);
+        }
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_codePointFromUTF16LE: Provided argument is NULL");
+        return FMC_CODE_POINT_NULL;
+        FMC_UNREACHABLE;
+    }
+    #pragma GCC diagnostic pop
+    if ((utf16le_char_comp->byte1 == 0 && utf16le_char_comp->byte2 == 0 && utf16le_char_comp->byte3 == 0 &&
+         utf16le_char_comp->byte4 == 0)) return FMC_CODE_POINT_NULL;
+    
+    FMC_CodePoint code_point = FMC_CODE_POINT_NULL;
+    if (utf16le_char_comp->byte3 == 0 && utf16le_char_comp->byte4 == 0)
+    {
+        code_point = utf16le_char_comp->byte2 | (utf16le_char_comp->byte1 << 8);
+    }
+    else
+    {
+        code_point = 0x10000;
+        if ((utf16le_char_comp->byte1 | (utf16le_char_comp->byte2 << 8)) < 0xD800 || 
+            (utf16le_char_comp->byte1 | (utf16le_char_comp->byte2 << 8)) > 0xDBFF)
+        {
+            if (FMC_getDebugState())
+            {
+                FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_codePointFromUTF16LE: Provided argument is not a valid UTF-16LE encoded character");
+                FMC_printRedError(stderr, err_inv_arg);
+            }
+            FMC_setError(FMC_ERR_UTF, "FMC_codePointFromUTF16LE: Provided argument is not a valid UTF-16LE encoded character");
+            return FMC_CODE_POINT_NULL;
+            FMC_UNREACHABLE;
+        }
+        if ((utf16le_char_comp->byte3 | (utf16le_char_comp->byte4 << 8)) < 0xDC00 || 
+            (utf16le_char_comp->byte3 | (utf16le_char_comp->byte4 << 8)) > 0xDFFF)
+        {
+            if (FMC_getDebugState())
+            {
+                FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_codePointFromUTF16LE: Provided argument is not a valid UTF-16LE encoded character");
+                FMC_printRedError(stderr, err_inv_arg);
+            }
+            FMC_setError(FMC_ERR_UTF, "FMC_codePointFromUTF16LE: Provided argument is not a valid UTF-16LE encoded character");
+            return FMC_CODE_POINT_NULL;
+            FMC_UNREACHABLE;
+        }
+        code_point += ((utf16le_char_comp->byte1 | (utf16le_char_comp->byte2 << 8)) & 0x03FF) << 10;
+        code_point += (utf16le_char_comp->byte3 | (utf16le_char_comp->byte4 << 8)) & 0x03FF;
+    }
+    return code_point;
+    FMC_UNREACHABLE;
+}
+
+FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF16LE_FMC_CharComp(const FMC_CharComp utf16le_char_comp)
+{
+    return FMC_codePointFromUTF16LE_FMC_CharComp_ptr(&utf16le_char_comp);
+}
+
+FMC_SHARED FMC_FUNC_CONST FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF16LE_uint32_t_ptr(const uint32_t* restrict const raw_utf16le_char)
+{
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (!raw_utf16le_char)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_codePointFromUTF16LE: Provided argument is NULL");
+            FMC_printRedError(stderr, err_inv_arg);
+        }
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_codePointFromUTF16LE: Provided argument is NULL");
+        return FMC_CODE_POINT_NULL;
+        FMC_UNREACHABLE;
+    }
+    #pragma GCC diagnostic pop
+    if (*raw_utf16le_char == 0) return FMC_CODE_POINT_NULL;
+    
+    FMC_CodePoint code_point = FMC_CODE_POINT_NULL;
+    if ((*raw_utf16le_char & 0xFFFF0000) == 0)
+    {
+        code_point = (*raw_utf16le_char & 0xFF00) >> 8 | (*raw_utf16le_char & 0x00FF) << 8;
+    }
+    else
+    {
+        code_point = 0x10000;
+        if ((*raw_utf16le_char & 0xFFFF) < 0xD800 || 
+            (*raw_utf16le_char & 0xFFFF) > 0xDBFF)
+        {
+            if (FMC_getDebugState())
+            {
+                FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_codePointFromUTF16LE: Provided argument is not a valid UTF-16LE encoded character");
+                FMC_printRedError(stderr, err_inv_arg);
+            }
+            FMC_setError(FMC_ERR_UTF, "FMC_codePointFromUTF16LE: Provided argument is not a valid UTF-16LE encoded character");
+            return FMC_CODE_POINT_NULL;
+            FMC_UNREACHABLE;
+        }
+        if ((*raw_utf16le_char & 0xFFFF0000) < 0xDC000000 || 
+            (*raw_utf16le_char & 0xFFFF0000) > 0xDFFF0000)
+        {
+            if (FMC_getDebugState())
+            {
+                FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_codePointFromUTF16LE: Provided argument is not a valid UTF-16LE encoded character");
+                FMC_printRedError(stderr, err_inv_arg);
+            }
+            FMC_setError(FMC_ERR_UTF, "FMC_codePointFromUTF16LE: Provided argument is not a valid UTF-16LE encoded character");
+            return FMC_CODE_POINT_NULL;
+            FMC_UNREACHABLE;
+        }
+        code_point += ((*raw_utf16le_char & 0xFFFF) & 0x03FF) << 10;
+        code_point += ((*raw_utf16le_char & 0xFFFF0000) & 0x03FF0000) >> 16;
+    }
+    return code_point;
+    FMC_UNREACHABLE;
+}
+
+FMC_SHARED FMC_FUNC_CONST FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF16LE_uint32_t(const uint32_t raw_utf16le_char)
+{
+    return FMC_codePointFromUTF16LE_uint32_t_ptr(&raw_utf16le_char);
+}
+
+/*
+ * Code point from UTF-16BE encoded character
+*/
+
+/* FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF16BE */
