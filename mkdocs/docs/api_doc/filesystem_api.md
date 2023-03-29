@@ -80,11 +80,11 @@ You can use this function on any Unix system or Windows. The Windows version use
 			printf("%s\n", entries->d_name);
 		}
 		closedir(your_dir);
-		// ... (1)
+		// ... (1)!
 	}
 	```
 
-	1.	This example is not that usefull by itself since you could have checked `#!C your_dir != NULL` after it has been opened, but the whole interest is the fact that it's a portable and simple way to check for a dir.
+	1. This example is not that usefull by itself since you could have checked `#!C your_dir != NULL` after it has been opened, but the whole interest is the fact that it's a portable and simple way to check for a dir.
 
 
 **Parameters**

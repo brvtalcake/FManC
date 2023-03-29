@@ -21,8 +21,6 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true
       pygments_style: 'material'
-      noclasses: true
-
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
@@ -38,6 +36,7 @@ plugins:
       separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
       lang: 
         - en
+  - pdf-export
 extra:
   consent:
     title: Cookie consent
@@ -55,10 +54,17 @@ extra:
       - manage
       - reject
 theme:
-  highlightjs: True
-  hljs_languages:
-    - c
-    - c++
+#  highlightjs: True
+#  hljs_languages:
+#    - c
+#    - c++
+  features:
+    - content.code.annotate
+    - search.suggest
+    - search.share
+    - content.code.copy
+    - navigation.tabs
+    - navigation.tabs.sticky
   name: material
   locale: en
   logo: ./_images_/FManC.png
@@ -68,11 +74,6 @@ theme:
   font:
     #text: Ubuntu
     text: Open Sans
-  features:
-    - search.suggest
-    - search.share
-    - content.code.copy
-    - content.code.annotate
 
   palette:
     scheme: slate
