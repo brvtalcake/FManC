@@ -15,7 +15,7 @@
         <link rel="next" href="../encoding_facilities/">
       
       <link rel="icon" href="../../_images_/FManC.ico">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.14">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.4">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.113286f1.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.240905d7.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -74,7 +74,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="FManC" class="md-header__button md-logo" aria-label="FManC" data-md-component="logo">
       
@@ -157,13 +159,76 @@
     
   </nav>
   
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Getting started
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        API Reference
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../function_index/" class="md-tabs__link">
+      Function index
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../data_structure_index/" class="md-tabs__link">
+      Data structure index
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
-        
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -176,8 +241,10 @@
                   <div class="md-sidebar__inner">
                     
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="FManC" class="md-nav__button md-logo" aria-label="FManC" data-md-component="logo">
       
@@ -381,37 +448,37 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Function signature</label><label for="__tabbed_1_2">Example 1</label><label for="__tabbed_1_3">Example 2</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-c highlight" style="background: #263238"><pre style="line-height: 125%;"><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span style="color: #BB80B3">int</span><span style="color: #EEFFFF"> </span><span style="color: #82AAFF">FMC_dirExists</span><span style="color: #89DDFF">(</span><span style="color: #BB80B3">const</span><span style="color: #EEFFFF"> </span><span style="color: #BB80B3">char</span><span style="color: #89DDFF">*</span><span style="color: #EEFFFF"> </span><span style="color: #BB80B3">restrict</span><span style="color: #EEFFFF"> path</span><span style="color: #89DDFF">);</span><span style="color: #EEFFFF"> </span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">FMC_dirExists</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="kr">restrict</span><span class="w"> </span><span class="n">path</span><span class="p">);</span><span class="w"> </span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-c highlight" style="background: #263238"><pre style="line-height: 125%;"><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span style="color: #BB80B3">if</span><span style="color: #EEFFFF"> </span><span style="color: #89DDFF">(</span><span style="color: #EEFFFF">FMC_dirExists</span><span style="color: #89DDFF">(</span><span style="color: #C3E88D">&quot;test/main.c&quot;</span><span style="color: #89DDFF">))</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span style="color: #89DDFF">{</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span style="color: #EEFFFF">    </span><span style="color: #BB80B3">FILE</span><span style="color: #EEFFFF"> </span><span style="color: #89DDFF">*</span><span style="color: #EEFFFF">src_file </span><span style="color: #89DDFF">=</span><span style="color: #EEFFFF"> fopen</span><span style="color: #89DDFF">(</span><span style="color: #C3E88D">&quot;test/main.c&quot;</span><span style="color: #89DDFF">,</span><span style="color: #EEFFFF"> </span><span style="color: #C3E88D">&quot;rb&quot;</span><span style="color: #89DDFF">);</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span style="color: #EEFFFF">    </span><span style="color: #546E7A; font-style: italic">// do something with it</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span style="color: #89DDFF">}</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span style="color: #BB80B3">else</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span style="color: #89DDFF">{</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">FMC_dirExists</span><span class="p">(</span><span class="s">&quot;test/main.c&quot;</span><span class="p">))</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">src_file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">&quot;test/main.c&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;rb&quot;</span><span class="p">);</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="c1">// do something with it</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">else</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">{</span>
 </span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span style="color: #89DDFF">}</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span style="color: #EEFFFF">    </span><span style="color: #546E7A; font-style: italic">// ...</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="c1">// ...</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-c highlight" style="background: #263238"><pre style="line-height: 125%;"><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span style="color: #BB80B3">char</span><span style="color: #EEFFFF"> directory</span><span style="color: #89DDFF">[</span><span style="color: #F78C6C">128</span><span style="color: #89DDFF">]</span><span style="color: #EEFFFF"> </span><span style="color: #89DDFF">=</span><span style="color: #EEFFFF"> </span><span style="color: #C3E88D">&quot;C:</span><span style="color: #EEFFFF">\\</span><span style="color: #C3E88D">Users</span><span style="color: #EEFFFF">\\</span><span style="color: #C3E88D">YourFolder</span><span style="color: #EEFFFF">\\</span><span style="color: #C3E88D">&quot;</span><span style="color: #89DDFF">;</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span style="color: #BB80B3">if</span><span style="color: #EEFFFF"> </span><span style="color: #89DDFF">(</span><span style="color: #EEFFFF">FMC_dirExists</span><span style="color: #89DDFF">(</span><span style="color: #EEFFFF">directory</span><span style="color: #89DDFF">))</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span style="color: #89DDFF">{</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span style="color: #EEFFFF">    printf</span><span style="color: #89DDFF">(</span><span style="color: #C3E88D">&quot;Entering directory %s</span><span style="color: #EEFFFF">\n</span><span style="color: #C3E88D">&quot;</span><span style="color: #89DDFF">,</span><span style="color: #EEFFFF"> directory</span><span style="color: #89DDFF">);</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span style="color: #EEFFFF">    </span><span style="color: #546E7A; font-style: italic">// ...</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span style="color: #89DDFF">}</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span style="color: #BB80B3">else</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span style="color: #EEFFFF">    </span><span style="color: #546E7A; font-style: italic">// ...</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">directory</span><span class="p">[</span><span class="mi">128</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;C:</span><span class="se">\\</span><span class="s">Users</span><span class="se">\\</span><span class="s">YourFolder</span><span class="se">\\</span><span class="s">&quot;</span><span class="p">;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">FMC_dirExists</span><span class="p">(</span><span class="n">directory</span><span class="p">))</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">{</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Entering directory %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">directory</span><span class="p">);</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="c1">// ...</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="k">else</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="c1">// ...</span>
 </span></code></pre></div>
 </div>
 </div>
 </div>
 <p><strong>Parameters</strong></p>
-<p><strong><em><code class="language-C highlight"><span style="color: #EEFFFF">path</span></code></em></strong> : the path whose you want to check the existence. The file can either be a regular file, a directory, or any valid device, socket... Multi-byte caracters are not supported.</p>
+<p><strong><em><code class="language-C highlight"><span class="n">path</span></code></em></strong> : the path whose you want to check the existence. The file can either be a regular file, a directory, or any valid device, socket... Multi-byte caracters are not supported.</p>
 <p><strong>Return value</strong> </p>
 <p>The function returns non-zero value if the path effectively exists, 0 otherwise.</p>
 <p><strong>Description</strong></p>
@@ -421,31 +488,31 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Function signature</label><label for="__tabbed_2_2">Example of use</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-c highlight" style="background: #263238"><pre style="line-height: 125%;"><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span style="color: #BB80B3">int</span><span style="color: #EEFFFF"> </span><span style="color: #82AAFF">FMC_isDir</span><span style="color: #89DDFF">(</span><span style="color: #BB80B3">const</span><span style="color: #EEFFFF"> </span><span style="color: #BB80B3">char</span><span style="color: #89DDFF">*</span><span style="color: #EEFFFF"> </span><span style="color: #BB80B3">restrict</span><span style="color: #EEFFFF"> path</span><span style="color: #89DDFF">);</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">FMC_isDir</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="kr">restrict</span><span class="w"> </span><span class="n">path</span><span class="p">);</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-c highlight" style="background: #263238"><pre style="line-height: 125%;"><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span style="color: #BB80B3">if</span><span style="color: #89DDFF">(</span><span style="color: #EEFFFF">FMC_isDir</span><span style="color: #89DDFF">(</span><span style="color: #C3E88D">&quot;/home/you/random_folder/&quot;</span><span style="color: #89DDFF">)</span><span style="color: #EEFFFF"> </span><span style="color: #89DDFF">==</span><span style="color: #EEFFFF"> </span><span style="color: #F78C6C">0</span><span style="color: #89DDFF">)</span><span style="color: #EEFFFF"> </span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span style="color: #89DDFF">{</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span style="color: #EEFFFF">    </span><span style="color: #BB80B3">DIR</span><span style="color: #EEFFFF"> </span><span style="color: #89DDFF">*</span><span style="color: #EEFFFF">your_dir</span><span style="color: #89DDFF">;</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span style="color: #EEFFFF">    </span><span style="color: #BB80B3">struct</span><span style="color: #EEFFFF"> </span><span style="color: #FFCB6B">dirent</span><span style="color: #EEFFFF"> </span><span style="color: #89DDFF">*</span><span style="color: #EEFFFF">entries</span><span style="color: #89DDFF">;</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span style="color: #EEFFFF">    your_dir </span><span style="color: #89DDFF">=</span><span style="color: #EEFFFF"> opendir</span><span style="color: #89DDFF">(</span><span style="color: #C3E88D">&quot;/home/you/random_folder/&quot;</span><span style="color: #89DDFF">);</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span style="color: #EEFFFF">    </span><span style="color: #BB80B3">while</span><span style="color: #89DDFF">((</span><span style="color: #EEFFFF">entries </span><span style="color: #89DDFF">=</span><span style="color: #EEFFFF"> readdir</span><span style="color: #89DDFF">(</span><span style="color: #EEFFFF">your_dir</span><span style="color: #89DDFF">))</span><span style="color: #EEFFFF"> </span><span style="color: #89DDFF">!=</span><span style="color: #EEFFFF"> </span><span style="color: #82AAFF">NULL</span><span style="color: #89DDFF">)</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span style="color: #EEFFFF">    </span><span style="color: #89DDFF">{</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span style="color: #EEFFFF">        printf</span><span style="color: #89DDFF">(</span><span style="color: #C3E88D">&quot;%s</span><span style="color: #EEFFFF">\n</span><span style="color: #C3E88D">&quot;</span><span style="color: #89DDFF">,</span><span style="color: #EEFFFF"> entries</span><span style="color: #89DDFF">-&gt;</span><span style="color: #EEFFFF">d_name</span><span style="color: #89DDFF">);</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span style="color: #EEFFFF">    </span><span style="color: #89DDFF">}</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span style="color: #EEFFFF">    closedir</span><span style="color: #89DDFF">(</span><span style="color: #EEFFFF">your_dir</span><span style="color: #89DDFF">);</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span style="color: #EEFFFF">    </span><span style="color: #546E7A; font-style: italic">// ... (1)</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span style="color: #89DDFF">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">if</span><span class="p">(</span><span class="n">FMC_isDir</span><span class="p">(</span><span class="s">&quot;/home/you/random_folder/&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="kt">DIR</span><span class="w"> </span><span class="o">*</span><span class="n">your_dir</span><span class="p">;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">dirent</span><span class="w"> </span><span class="o">*</span><span class="n">entries</span><span class="p">;</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="n">your_dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">opendir</span><span class="p">(</span><span class="s">&quot;/home/you/random_folder/&quot;</span><span class="p">);</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="k">while</span><span class="p">((</span><span class="n">entries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">readdir</span><span class="p">(</span><span class="n">your_dir</span><span class="p">))</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">entries</span><span class="o">-&gt;</span><span class="n">d_name</span><span class="p">);</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="n">closedir</span><span class="p">(</span><span class="n">your_dir</span><span class="p">);</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="c1">// ... (1)!</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="p">}</span>
 </span></code></pre></div>
 <ol>
-<li>This example is not that usefull by itself since you could have checked <code class="language-C highlight"><span style="color: #EEFFFF">your_dir </span><span style="color: #89DDFF">!=</span><span style="color: #EEFFFF"> </span><span style="color: #82AAFF">NULL</span></code> after it has been opened, but the whole interest is the fact that it's a portable and simple way to check for a dir.</li>
+<li>This example is not that usefull by itself since you could have checked <code class="language-C highlight"><span class="n">your_dir</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span></code> after it has been opened, but the whole interest is the fact that it's a portable and simple way to check for a dir.</li>
 </ol>
 </div>
 </div>
 </div>
 <p><strong>Parameters</strong></p>
-<p><strong><em><code class="language-C highlight"><span style="color: #EEFFFF">path</span></code></em></strong> : the path whose you want to check if it's a directory. Multi-byte caracters are not supported.</p>
+<p><strong><em><code class="language-C highlight"><span class="n">path</span></code></em></strong> : the path whose you want to check if it's a directory. Multi-byte caracters are not supported.</p>
 <p><strong>Return value</strong></p>
 <p>The function returns non-zero value if the path effectively exists, 0 if not.</p>
 <p><strong>Description</strong></p>
@@ -454,11 +521,11 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Function signature</label><label for="__tabbed_3_2">Example of use</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-c highlight" style="background: #263238"><pre style="line-height: 125%;"><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span style="color: #BB80B3">int</span><span style="color: #EEFFFF"> </span><span style="color: #82AAFF">FMC_isRegFile</span><span style="color: #89DDFF">(</span><span style="color: #BB80B3">const</span><span style="color: #EEFFFF"> </span><span style="color: #BB80B3">char</span><span style="color: #89DDFF">*</span><span style="color: #EEFFFF"> </span><span style="color: #BB80B3">restrict</span><span style="color: #EEFFFF"> path</span><span style="color: #89DDFF">);</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">FMC_isRegFile</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="kr">restrict</span><span class="w"> </span><span class="n">path</span><span class="p">);</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-c highlight" style="background: #263238"><pre style="line-height: 125%;"><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span style="color: #546E7A; font-style: italic">// To be done</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// To be done</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -567,10 +634,10 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.share", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "search.suggest", "search.share", "content.code.copy", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.2a6f1dda.min.js"></script>
+      <script src="../../assets/javascripts/bundle.19047be9.min.js"></script>
       
     
   </body>
