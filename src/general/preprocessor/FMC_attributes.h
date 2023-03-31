@@ -274,6 +274,10 @@ SOFTWARE.
         #define FMC_TYPE_UNUSED __attribute__((unused))
     #endif // FMC_TYPE_UNUSED
 
+    #ifndef FMC_TYPE_VEC_SIZE
+        #define FMC_TYPE_VEC_SIZE(size) __attribute__((vector_size(size)))
+    #endif // FMC_TYPE_VEC_SIZE
+
     #ifndef FMC_TYPE_VISIBILITY
         #define FMC_TYPE_VISIBILITY(visibility_type) __attribute__((visibility(FMC_STRINGIZE(visibility_type))))
     #endif // FMC_TYPE_VISIBILITY
