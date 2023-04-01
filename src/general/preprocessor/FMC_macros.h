@@ -417,6 +417,11 @@ __VA_ARGS__))))
     #define FMC_alloca(size) __builtin_alloca(size)
 #endif
 
+#ifdef FMC_bitSwap
+    #undef FMC_bitSwap
+#endif
+#define FMC_bitSwap(width, to_swap) FMC_CONCAT(__builtin_bswap, width)(to_swap)
+
 #if defined(FMC_objSize) || defined(FMC_dynObjSize) || defined(FMC_prefetch) || defined(FMC_arrSize)
     #undef FMC_objSize
     #undef FMC_dynObjSize
