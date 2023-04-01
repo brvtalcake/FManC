@@ -33,7 +33,47 @@ SOFTWARE.
 #include "../preprocessor/FMC_consts.h"
 #include "../types/FMC_enums.h"
 
+#if defined(FMC_COMPILING_ON_LINUX)
+    #include <unistd.h>
+#endif
+
 FMC_BEGIN_DECLS
+
+#if defined(FMC_COMPILING_ON_LINUX)
+
+inline ssize_t FMC_fastWrite(int fd, const void *buf, size_t size) 
+{
+    register int64_t rax __asm__ ("rax") = 1;
+    register int rdi __asm__ ("rdi") = fd;
+    register const void *rsi __asm__ ("rsi") = buf;
+    register size_t rdx __asm__ ("rdx") = size;
+    __asm__ volatile (
+        "syscall"
+        : "+r" (rax)
+        : "r" (rdi), "r" (rsi), "r" (rdx)
+        : "rcx", "r11", "memory"
+    );
+    return rax;
+    FMC_UNREACHABLE;
+}
+
+#else // !defined(FMC_COMPILING_ON_LINUX)
+    #define FMC_fastWrite(fd, buf, size)     \
+        if (size > 0)                        \
+        {                                    \
+            switch(fd)                       \
+            {                                \
+                case 1:                      \
+                    fputs(buf, stdout);      \
+                    break;                   \
+                case 2:                      \
+                    fputs(buf, stderr);      \
+                    break;                   \
+                default:                     \
+                    break;                   \
+            }                                \
+        }
+#endif
 
 /* FMC_SHARED FMC_FUNC_FORMAT(printf, 3, 4) int FMC_fprintf(FMC_Encodings stream_encoding, FILE *stream, const char *format, ...); */
 

@@ -93,39 +93,12 @@ FMC_SHARED FMC_FUNC_CONST FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_cod
     uint32_t      : FMC_codePointFromUTF16BE_uint32_t)(_char)
 
 
-#ifdef FMC_codePointFromUTF32LE_FMC_Char_ptr
-    #undef FMC_codePointFromUTF32LE_FMC_Char_ptr
-#endif
-#define FMC_codePointFromUTF32LE_FMC_Char_ptr(_char)            \
-    ((FMC_CodePoint)((_char->comp.byte1 << 8) | _char->comp.byte2 | (_char->comp.byte3 << 24) | (_char->comp.byte4 << 16)))
-
-#ifdef FMC_codePointFromUTF32LE_FMC_CharComp_ptr
-    #undef FMC_codePointFromUTF32LE_FMC_CharComp_ptr
-#endif
-#define FMC_codePointFromUTF32LE_FMC_CharComp_ptr(_char)        \
-    ((FMC_CodePoint)((_char->byte1 << 8) | _char->byte2 | (_char->byte3 << 24) | (_char->byte4 << 16)))
-
-#ifdef FMC_codePointFromUTF32LE_uint32_t_ptr
-    #undef FMC_codePointFromUTF32LE_uint32_t_ptr
-#endif
-#define FMC_codePointFromUTF32LE_uint32_t_ptr(_char) ((FMC_CodePoint) FMC_bitSwap(32, *_char))
-
-#ifdef FMC_codePointFromUTF32LE_FMC_Char
-    #undef FMC_codePointFromUTF32LE_FMC_Char
-#endif
-#define FMC_codePointFromUTF32LE_FMC_Char(_char)                \
-    ((FMC_CodePoint)((_char.comp.byte1 << 8) | _char.comp.byte2 | (_char.comp.byte3 << 24) | (_char.comp.byte4 << 16)))
-
-#ifdef FMC_codePointFromUTF32LE_FMC_CharComp
-    #undef FMC_codePointFromUTF32LE_FMC_CharComp
-#endif
-#define FMC_codePointFromUTF32LE_FMC_CharComp(_char)            \
-    ((FMC_CodePoint)((_char.byte1 << 8) | _char.byte2 | (_char.byte3 << 24) | (_char.byte4 << 16)))
-
-#ifdef FMC_codePointFromUTF32LE_uint32_t
-    #undef FMC_codePointFromUTF32LE_uint32_t
-#endif
-#define FMC_codePointFromUTF32LE_uint32_t(_char) ((FMC_CodePoint) FMC_bitSwap(32, _char))
+FMC_SHARED FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF32LE_FMC_Char(const FMC_Char utf32le_char);
+FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF32LE_FMC_CharComp(const FMC_CharComp utf32le_char);
+FMC_SHARED FMC_FUNC_CONST FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF32LE_uint32_t(const uint32_t raw_utf32le_char);
+FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF32LE_FMC_Char_ptr(const FMC_Char* restrict const utf32le_char);
+FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF32LE_FMC_CharComp_ptr(const FMC_CharComp* restrict const utf32le_char);
+FMC_SHARED FMC_FUNC_CONST FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF32LE_uint32_t_ptr(const uint32_t* restrict const raw_utf32le_char);
 
 #ifdef FMC_codePointFromUTF32LE
     #undef FMC_codePointFromUTF32LE
@@ -139,39 +112,12 @@ FMC_SHARED FMC_FUNC_CONST FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_cod
     uint32_t      : FMC_codePointFromUTF32LE_uint32_t)(_char)
 
 
-#ifdef FMC_codePointFromUTF32BE_FMC_Char_ptr
-    #undef FMC_codePointFromUTF32BE_FMC_Char_ptr
-#endif
-#define FMC_codePointFromUTF32BE_FMC_Char_ptr(_char)            \
-    ((FMC_CodePoint)((_char->comp.byte1 << 24) | (_char->comp.byte2 << 16) | (_char->comp.byte3 << 8) | _char->comp.byte4))
-
-#ifdef FMC_codePointFromUTF32BE_FMC_CharComp_ptr
-    #undef FMC_codePointFromUTF32BE_FMC_CharComp_ptr
-#endif
-#define FMC_codePointFromUTF32BE_FMC_CharComp_ptr(_char)        \
-    ((FMC_CodePoint)((_char->byte1 << 24) | (_char->byte2 << 16) | (_char->byte3 << 8) | _char->byte4))
-
-#ifdef FMC_codePointFromUTF32BE_uint32_t_ptr
-    #undef FMC_codePointFromUTF32BE_uint32_t_ptr
-#endif
-#define FMC_codePointFromUTF32BE_uint32_t_ptr(_char) (*_char)
-
-#ifdef FMC_codePointFromUTF32BE_FMC_Char
-    #undef FMC_codePointFromUTF32BE_FMC_Char
-#endif
-#define FMC_codePointFromUTF32BE_FMC_Char(_char)                \
-    ((FMC_CodePoint)((_char.comp.byte1 << 24) | (_char.comp.byte2 << 16) | (_char.comp.byte3 << 8) | _char.comp.byte4))
-
-#ifdef FMC_codePointFromUTF32BE_FMC_CharComp
-    #undef FMC_codePointFromUTF32BE_FMC_CharComp
-#endif
-#define FMC_codePointFromUTF32BE_FMC_CharComp(_char)            \
-    ((FMC_CodePoint)((_char.byte1 << 24) | (_char.byte2 << 16) | (_char.byte3 << 8) | _char.byte4))
-
-#ifdef FMC_codePointFromUTF32BE_uint32_t
-    #undef FMC_codePointFromUTF32BE_uint32_t
-#endif
-#define FMC_codePointFromUTF32BE_uint32_t(_char) (_char)
+FMC_SHARED FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF32BE_FMC_Char(const FMC_Char utf32be_char);
+FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF32BE_FMC_CharComp(const FMC_CharComp utf32be_char);
+FMC_SHARED FMC_FUNC_CONST FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF32BE_uint32_t(const uint32_t raw_utf32be_char);
+FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF32BE_FMC_Char_ptr(const FMC_Char* restrict const utf32be_char);
+FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF32BE_FMC_CharComp_ptr(const FMC_CharComp* restrict const utf32be_char);
+FMC_SHARED FMC_FUNC_CONST FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF32BE_uint32_t_ptr(const uint32_t* restrict const raw_utf32be_char);
 
 #ifdef FMC_codePointFromUTF32BE
     #undef FMC_codePointFromUTF32BE

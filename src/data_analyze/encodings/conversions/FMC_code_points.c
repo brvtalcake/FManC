@@ -646,3 +646,219 @@ FMC_SHARED FMC_FUNC_CONST FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF16BE_ui
 {
     return FMC_codePointFromUTF16BE_uint32_t_ptr(&raw_utf16be_char);
 }
+
+/*
+ * Code point from UTF-32LE encoded character
+*/
+
+FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF32LE_FMC_Char_ptr(const FMC_Char* restrict const utf32le_char)
+{
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (!utf32le_char)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_codePointFromUTF32LE: Provided argument is NULL");
+            FMC_printRedError(stderr, err_inv_arg);
+        }
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_codePointFromUTF32LE: Provided argument is NULL");
+        return FMC_CODE_POINT_NULL;
+        FMC_UNREACHABLE;
+    }
+    #pragma GCC diagnostic pop
+
+    if (utf32le_char->byteNumber != 4 || utf32le_char->encoding != utf32_le)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_codePointFromUTF32LE: Provided argument is not a valid UTF-32LE encoded character");
+            FMC_printRedError(stderr, err_inv_arg);
+        }
+        FMC_setError(FMC_ERR_UTF, "FMC_codePointFromUTF32LE: Provided argument is not a valid UTF-32LE encoded character");
+        return FMC_CODE_POINT_NULL;
+        FMC_UNREACHABLE;
+    }
+
+    return (FMC_CodePoint)((utf32le_char->comp.byte1 << 24) | (utf32le_char->comp.byte2 << 16) | 
+                           (utf32le_char->comp.byte3 << 8)  |  utf32le_char->comp.byte4);
+    FMC_UNREACHABLE;
+}
+
+FMC_SHARED FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF32LE_FMC_Char(const FMC_Char utf32le_char)
+{
+    if (utf32le_char.byteNumber != 4 || utf32le_char.encoding != utf32_le)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_codePointFromUTF32LE: Provided argument is not a valid UTF-32LE encoded character");
+            FMC_printRedError(stderr, err_inv_arg);
+        }
+        FMC_setError(FMC_ERR_UTF, "FMC_codePointFromUTF32LE: Provided argument is not a valid UTF-32LE encoded character");
+        return FMC_CODE_POINT_NULL;
+        FMC_UNREACHABLE;
+    }
+
+    return (FMC_CodePoint)((utf32le_char.comp.byte1 << 24) | (utf32le_char.comp.byte2 << 16) | 
+                           (utf32le_char.comp.byte3 << 8)  |  utf32le_char.comp.byte4);
+    FMC_UNREACHABLE;
+}
+
+FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF32LE_FMC_CharComp_ptr(const FMC_CharComp* restrict const utf32le_char)
+{
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (!utf32le_char)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_codePointFromUTF32LE: Provided argument is NULL");
+            FMC_printRedError(stderr, err_inv_arg);
+        }
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_codePointFromUTF32LE: Provided argument is NULL");
+        return FMC_CODE_POINT_NULL;
+        FMC_UNREACHABLE;
+    }
+    #pragma GCC diagnostic pop
+
+    return (FMC_CodePoint)((utf32le_char->byte1 << 24) | (utf32le_char->byte2 << 16) | 
+                           (utf32le_char->byte3 << 8)  |  utf32le_char->byte4);
+    FMC_UNREACHABLE;
+}
+
+FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF32LE_FMC_CharComp(const FMC_CharComp utf32le_char)
+{
+    return (FMC_CodePoint)((utf32le_char.byte1 << 24) | (utf32le_char.byte2 << 16) | 
+                           (utf32le_char.byte3 << 8)  |  utf32le_char.byte4);
+    FMC_UNREACHABLE;
+}
+
+FMC_SHARED FMC_FUNC_CONST FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF32LE_uint32_t_ptr(const uint32_t* restrict const raw_utf32le_char)
+{
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (!raw_utf32le_char)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_codePointFromUTF32LE: Provided argument is NULL");
+            FMC_printRedError(stderr, err_inv_arg);
+        }
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_codePointFromUTF32LE: Provided argument is NULL");
+        return FMC_CODE_POINT_NULL;
+        FMC_UNREACHABLE;
+    }
+    #pragma GCC diagnostic pop
+
+    return (FMC_CodePoint)(FMC_bitSwap(32, *raw_utf32le_char));
+    FMC_UNREACHABLE;
+}
+
+FMC_SHARED FMC_FUNC_CONST FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF32LE_uint32_t(const uint32_t raw_utf32le_char)
+{
+    return (FMC_CodePoint)(FMC_bitSwap(32, raw_utf32le_char));
+    FMC_UNREACHABLE;
+}
+
+/*
+ * Code point from UTF-32BE encoded character
+*/
+
+FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF32BE_FMC_Char_ptr(const FMC_Char* restrict const utf32be_char)
+{
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (!utf32be_char)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_codePointFromUTF32BE: Provided argument is NULL");
+            FMC_printRedError(stderr, err_inv_arg);
+        }
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_codePointFromUTF32BE: Provided argument is NULL");
+        return FMC_CODE_POINT_NULL;
+        FMC_UNREACHABLE;
+    }
+    #pragma GCC diagnostic pop
+
+    if (utf32be_char->byteNumber != 4 || utf32be_char->encoding != utf32_be)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_codePointFromUTF32BE: Provided argument is not a valid UTF-32BE encoded character");
+            FMC_printRedError(stderr, err_inv_arg);
+        }
+        FMC_setError(FMC_ERR_UTF, "FMC_codePointFromUTF32BE: Provided argument is not a valid UTF-32BE encoded character");
+        return FMC_CODE_POINT_NULL;
+        FMC_UNREACHABLE;
+    }
+
+    return (FMC_CodePoint)((utf32be_char->comp.byte1 << 24) | (utf32be_char->comp.byte2 << 16) | (utf32be_char->comp.byte3 << 8) | utf32be_char->comp.byte4);
+    FMC_UNREACHABLE;
+}
+
+FMC_SHARED FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF32BE_FMC_Char(const FMC_Char utf32be_char)
+{
+    if (utf32be_char.byteNumber != 4 || utf32be_char.encoding != utf32_be)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_codePointFromUTF32BE: Provided argument is not a valid UTF-32BE encoded character");
+            FMC_printRedError(stderr, err_inv_arg);
+        }
+        FMC_setError(FMC_ERR_UTF, "FMC_codePointFromUTF32BE: Provided argument is not a valid UTF-32BE encoded character");
+        return FMC_CODE_POINT_NULL;
+        FMC_UNREACHABLE;
+    }
+
+    return (FMC_CodePoint)((utf32be_char.comp.byte1 << 24) | (utf32be_char.comp.byte2 << 16) | (utf32be_char.comp.byte3 << 8) | utf32be_char.comp.byte4);
+    FMC_UNREACHABLE;
+}
+
+FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF32BE_FMC_CharComp_ptr(const FMC_CharComp* restrict const utf32be_char)
+{
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (!utf32be_char)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_codePointFromUTF32BE: Provided argument is NULL");
+            FMC_printRedError(stderr, err_inv_arg);
+        }
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_codePointFromUTF32BE: Provided argument is NULL");
+        return FMC_CODE_POINT_NULL;
+        FMC_UNREACHABLE;
+    }
+    #pragma GCC diagnostic pop
+
+    return (FMC_CodePoint)((utf32be_char->byte1 << 24) | (utf32be_char->byte2 << 16) | (utf32be_char->byte3 << 8) | utf32be_char->byte4);
+    FMC_UNREACHABLE;
+}
+
+FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF32BE_FMC_CharComp(const FMC_CharComp utf32be_char)
+{
+    return (FMC_CodePoint)((utf32be_char.byte1 << 24) | (utf32be_char.byte2 << 16) | (utf32be_char.byte3 << 8) | utf32be_char.byte4);
+    FMC_UNREACHABLE;
+}
+
+FMC_SHARED FMC_FUNC_CONST FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF32BE_uint32_t_ptr(const uint32_t* restrict const raw_utf32be_char)
+{
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (!raw_utf32be_char)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_codePointFromUTF32BE: Provided argument is NULL");
+            FMC_printRedError(stderr, err_inv_arg);
+        }
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_codePointFromUTF32BE: Provided argument is NULL");
+        return FMC_CODE_POINT_NULL;
+        FMC_UNREACHABLE;
+    }
+    #pragma GCC diagnostic pop
+
+    return (FMC_CodePoint)(*raw_utf32be_char);
+    FMC_UNREACHABLE;
+}
+
+FMC_SHARED FMC_FUNC_CONST FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF32BE_uint32_t(const uint32_t raw_utf32be_char)
+{
+    return (FMC_CodePoint)(raw_utf32be_char);
+    FMC_UNREACHABLE;
+}
