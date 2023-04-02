@@ -28,7 +28,9 @@ mkdocs/site*
 # Random test files just for myself
 main.preprocessed.c
 main2.c
-main2 
+main2
+main3.c
+main3
 test_.c
 test__.c 
 main.c 

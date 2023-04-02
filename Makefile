@@ -101,10 +101,14 @@ else ifeq (,$(findstring windows,$(OS)))
 	CXX_DEBUG_FLAGS+=-fuse-ld=gold
 endif
 
-INC_FLAGS=-I./third_party_libs/metalang99/include/
+INC_FLAGS=-I./third_party_libs/metalang99/include/ -I./third_party_libs/mimalloc/include/
+LIB_FLAGS=-L./third_party_libs/built_libs/static -lmimalloc-secure
 # All target
 ALL_TARGET=$(addsuffix _$(DETECTED_OS), all)
 .PHONY : all
+
+THIRD_PARTY_LIBS_TARGET=$(addsuffix _$(DETECTED_OS), third_party)
+.PHONY : third_party
 
 DEBUG_STRUCT_TARGET=$(addsuffix _$(DETECTED_OS), debug_struct)
 .PHONY : debug_struct
@@ -154,11 +158,45 @@ exp_cov_win :
 
 all : $(ALL_TARGET)
 
-all_lin : static shared copy_headers test 
+all_lin : third_party static shared copy_headers test 
 	@printf "\e[92mBuilt everything for $(PRINTED_OS)\n\e[0m"
 
-all_win : static shared copy_headers test
+all_win : third_party static shared copy_headers test
 	@printgreen Built everything for $(PRINTED_OS)
+
+third_party : $(THIRD_PARTY_LIBS_TARGET)
+
+third_party_lin :
+	cd ./third_party_libs/metalang99 && git checkout master
+	cd ./third_party_libs/mimalloc && git checkout master
+	git submodule update --init --recursive
+	rm -rf ./third_party_libs/built_libs/mimalloc/*
+	rm -f ./third_party_libs/built_libs/static/libmimalloc-secure.a
+	rm -f ./third_party_libs/built_libs/shared/libmimalloc-secure.so
+	rm -f ./third_party_libs/built_libs/shared/libmimalloc-secure.so.2
+	rm -f ./third_party_libs/built_libs/shared/libmimalloc-secure.so.2.1
+	cd ./third_party_libs/mimalloc && cmake -DMI_SECURE=ON -S . -B ../built_libs/mimalloc -G "Unix Makefiles"
+	cd ./third_party_libs/built_libs/mimalloc && $(MAKE) all
+	cp ./third_party_libs/built_libs/mimalloc/libmimalloc-secure.a ./third_party_libs/built_libs/static
+	cp ./third_party_libs/built_libs/mimalloc/libmimalloc-secure.so.2.1 ./third_party_libs/built_libs/shared
+	cd ./third_party_libs/built_libs/shared && ln -s libmimalloc-secure.so.2.1 libmimalloc-secure.so.2
+	cd ./third_party_libs/built_libs/shared && ln -s libmimalloc-secure.so.2 libmimalloc-secure.so
+
+third_party_win :
+	cd ./third_party_libs/metalang99 && git checkout master
+	cd ./third_party_libs/mimalloc && git checkout master
+	git submodule update --init --recursive
+	rm -rf ./third_party_libs/built_libs/mimalloc/*
+	rm -f ./third_party_libs/built_libs/static/libmimalloc-secure.a
+	rm -f ./third_party_libs/built_libs/shared/libmimalloc-secure.so
+	rm -f ./third_party_libs/built_libs/shared/libmimalloc-secure.so.2
+	rm -f ./third_party_libs/built_libs/shared/libmimalloc-secure.so.2.1
+	cd ./third_party_libs/mimalloc && cmake -DMI_SECURE=ON -S . -B ../built_libs/mimalloc -G "Unix Makefiles"
+	cd ./third_party_libs/built_libs/mimalloc && $(MAKE) all
+	cp ./third_party_libs/built_libs/mimalloc/libmimalloc-secure.a ./third_party_libs/built_libs/static
+	cp ./third_party_libs/built_libs/mimalloc/libmimalloc-secure.so.2.1 ./third_party_libs/built_libs/shared
+	cd ./third_party_libs/built_libs/shared && ln -s libmimalloc-secure.so.2.1 libmimalloc-secure.so.2
+	cd ./third_party_libs/built_libs/shared && ln -s libmimalloc-secure.so.2 libmimalloc-secure.so
 
 static : $(STAT_TARGET)
 
@@ -179,13 +217,13 @@ shared_win : $(LIB_WIN_SHARED_FILES) copy_headers
 test : copy_headers $(TEST_TARGET) exp_cov
 
 test_lin : $(LIB_LIN_TEST)
-	$(CC) $(TEST_SUITE_FILES) $(C_DEBUG_FLAGS) -o test/test_builds/$(TEST_RES_FOLD)/$@.out $(INC_FLAGS) -Ltest/lib/ -lFManC_linux_x86_64 -lstdc++
+	$(CC) $(TEST_SUITE_FILES) $(C_DEBUG_FLAGS) -o test/test_builds/$(TEST_RES_FOLD)/$@.out $(INC_FLAGS) $(LIB_FLAGS) -Ltest/lib/ -lFManC_linux_x86_64 -lstdc++
 	@printf "\e[92mRunning tests for $(PRINTED_OS)\n\e[0m"
 	@cd ./test/test_builds/$(TEST_RES_FOLD) && ./$@.out
 	gcov -b $(GCNO_LIN_FILES)
 
 test_win : $(LIB_WIN_TEST)
-	$(CC) -D FMC_STATIC $(TEST_SUITE_FILES) $(C_DEBUG_FLAGS) -o test/test_builds/$(TEST_RES_FOLD)/$@.exe $(INC_FLAGS) -Ltest/lib -lFManC_linux_x86_64 -lstdc++
+	$(CC) -D FMC_STATIC $(TEST_SUITE_FILES) $(C_DEBUG_FLAGS) -o test/test_builds/$(TEST_RES_FOLD)/$@.exe $(INC_FLAGS) $(LIB_FLAGS) -Ltest/lib -lFManC_linux_x86_64 -lstdc++
 	@printgreen Running tests for $(PRINTED_OS)
 	@cd .\test\test_builds\$(TEST_RES_FOLD) && $@.exe
 	gcov -b $(GCNO_LIN_FILES)
@@ -194,19 +232,19 @@ $(LIB_LIN_TEST) : $(O_LIN_TEST)
 	$(AR) $(AR_FLAGS) $@ $^
 
 test/obj/lin/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
-	$(CC) -D BUILDING_FMANC $< $(C_DEBUG_FLAGS) -c -o $@ $(INC_FLAGS) -lstdc++
+	$(CC) -D BUILDING_FMANC $< $(C_DEBUG_FLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 
 test/obj/lin/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
-	$(CCXX) -D BUILDING_FMANC $< $(CXX_DEBUG_FLAGS) -c -o $@ $(INC_FLAGS) -lstdc++
+	$(CCXX) -D BUILDING_FMANC $< $(CXX_DEBUG_FLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 
 $(LIB_WIN_TEST) : $(O_WIN_TEST)
 	$(AR) $(AR_FLAGS) $@ $^
 
 test/obj/win/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
-	$(CC) -D FMC_STATIC -D BUILDING_FMANC $< $(C_DEBUG_FLAGS) -c -o $@ $(INC_FLAGS) -lstdc++
+	$(CC) -D FMC_STATIC -D BUILDING_FMANC $< $(C_DEBUG_FLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 
 test/obj/win/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
-	$(CCXX) -D FMC_STATIC -D BUILDING_FMANC $< $(CXX_DEBUG_FLAGS) -c -o $@ $(INC_FLAGS) -lstdc++
+	$(CCXX) -D FMC_STATIC -D BUILDING_FMANC $< $(CXX_DEBUG_FLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 
 clean : $(CLEAN_TARGET)
 
@@ -254,24 +292,24 @@ lib/libFManC_win_x86_64.a : $(O_WIN_STATIC_FILES)
 	@printgreen Built $@ sucessfully
 
 obj/lin/static/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
-	$(CC) -D BUILDING_FMANC $< $(CFLAGS) -c -o $@ $(INC_FLAGS) -lstdc++
+	$(CC) -D BUILDING_FMANC $< $(CFLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 	@printf "\e[92mBuilt $@ sucessfully\n\n\e[0m"
 
 obj/lin/static/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
-	$(CCXX) -D BUILDING_FMANC $< $(CXX_FLAGS) -c -o $@ $(INC_FLAGS) -lstdc++
+	$(CCXX) -D BUILDING_FMANC $< $(CXX_FLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 	@printf "\e[92mBuilt $@ sucessfully\n\n\e[0m"
 
 obj/win/static/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
-	$(CC) -D BUILDING_FMANC -D FMC_STATIC $< $(CFLAGS) -c -o $@ $(INC_FLAGS) -lstdc++
+	$(CC) -D BUILDING_FMANC -D FMC_STATIC $< $(CFLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 	@printgreen Built $@ sucessfully
 
 obj/win/static/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
-	$(CCXX) -D BUILDING_FMANC -D FMC_STATIC $< $(CXX_FLAGS) -c -o $@ $(INC_FLAGS) -lstdc++
+	$(CCXX) -D BUILDING_FMANC -D FMC_STATIC $< $(CXX_FLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 	@printgreen Built $@ sucessfully
 
 bin/libFManC_x86_64.so : $(O_LIN_SHARED_FILES)
 	rm -f $@ && rm -f $@.$(MAJOR_VERSION) && rm -f $@.$(VERSION)
-	$(CC) -D BUILDING_FMANC $(O_LIN_SHARED_FILES) $(CFLAGS) -shared -fPIC -o $@.$(VERSION) $(INC_FLAGS) -lstdc++ $(LD_FLAGS_SO)libFManC_x86_64.so.$(MAJOR_VERSION)
+	$(CC) -D BUILDING_FMANC $(O_LIN_SHARED_FILES) $(CFLAGS) -shared -fPIC -o $@.$(VERSION) $(INC_FLAGS) $(LIB_FLAGS) -lstdc++ $(LD_FLAGS_SO)libFManC_x86_64.so.$(MAJOR_VERSION)
 	cd ./bin/ && ln -s $(notdir $@).$(VERSION) $(notdir $@).$(MAJOR_VERSION) && ln -s $(notdir $@).$(MAJOR_VERSION) $(notdir $@)
 	@printf "\e[92mBuilt $@ sucessfully\n\n\e[0m"
 
@@ -279,22 +317,22 @@ bin/libFManC_x86_64.dll : lib/libFManC_x86_64.dll.a
 	@printgreen Built DLL for $(PRINTED_OS)
 
 lib/libFManC_x86_64.dll.a : $(O_WIN_SHARED_FILES)
-	$(CC) -D BUILDING_FMANC $(O_WIN_SHARED_FILES) $(CFLAGS) -shared -o bin/libFManC_x86_64.dll $(INC_FLAGS) -lstdc++ $(LD_FLAGS_DLL)
+	$(CC) -D BUILDING_FMANC $(O_WIN_SHARED_FILES) $(CFLAGS) -shared -o bin/libFManC_x86_64.dll $(INC_FLAGS) $(LIB_FLAGS) -lstdc++ $(LD_FLAGS_DLL)
 	@move /Y .\\libFManC.dll.a .\\lib\\
 	@printgreen Built $@ sucessfully
 
 obj/lin/shared/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
-	$(CC) -D BUILDING_FMANC $< $(CFLAGS) -c -fPIC -o $@ $(INC_FLAGS) -lstdc++
+	$(CC) -D BUILDING_FMANC $< $(CFLAGS) -c -fPIC -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 	@printf "\e[92mBuilt $@ sucessfully\n\n\e[0m"
 
 obj/lin/shared/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
-	$(CCXX) -D BUILDING_FMANC $< $(CXX_FLAGS) -c -fPIC -o $@ $(INC_FLAGS) -lstdc++
+	$(CCXX) -D BUILDING_FMANC $< $(CXX_FLAGS) -c -fPIC -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 	@printf "\e[92mBuilt $@ sucessfully\n\n\e[0m"
 
 obj/win/shared/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
-	$(CC) -D BUILDING_FMANC -D FMC_BUILD_DLL $< $(CFLAGS) -c -o $@ $(INC_FLAGS) -lstdc++
+	$(CC) -D BUILDING_FMANC -D FMC_BUILD_DLL $< $(CFLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 	@printgreen Built $@ sucessfully
 
 obj/win/shared/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
-	$(CCXX) -D BUILDING_FMANC -D FMC_BUILD_DLL $< $(CXX_FLAGS) -c -o $@ $(INC_FLAGS) -lstdc++
+	$(CCXX) -D BUILDING_FMANC -D FMC_BUILD_DLL $< $(CXX_FLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 	@printgreen Built $@ sucessfully

@@ -1,0 +1,41 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/mimalloc.dir/src/alloc-aligned.c.o"
+  "CMakeFiles/mimalloc.dir/src/alloc-aligned.c.o.d"
+  "CMakeFiles/mimalloc.dir/src/alloc-posix.c.o"
+  "CMakeFiles/mimalloc.dir/src/alloc-posix.c.o.d"
+  "CMakeFiles/mimalloc.dir/src/alloc.c.o"
+  "CMakeFiles/mimalloc.dir/src/alloc.c.o.d"
+  "CMakeFiles/mimalloc.dir/src/arena.c.o"
+  "CMakeFiles/mimalloc.dir/src/arena.c.o.d"
+  "CMakeFiles/mimalloc.dir/src/bitmap.c.o"
+  "CMakeFiles/mimalloc.dir/src/bitmap.c.o.d"
+  "CMakeFiles/mimalloc.dir/src/heap.c.o"
+  "CMakeFiles/mimalloc.dir/src/heap.c.o.d"
+  "CMakeFiles/mimalloc.dir/src/init.c.o"
+  "CMakeFiles/mimalloc.dir/src/init.c.o.d"
+  "CMakeFiles/mimalloc.dir/src/options.c.o"
+  "CMakeFiles/mimalloc.dir/src/options.c.o.d"
+  "CMakeFiles/mimalloc.dir/src/os.c.o"
+  "CMakeFiles/mimalloc.dir/src/os.c.o.d"
+  "CMakeFiles/mimalloc.dir/src/page.c.o"
+  "CMakeFiles/mimalloc.dir/src/page.c.o.d"
+  "CMakeFiles/mimalloc.dir/src/prim/prim.c.o"
+  "CMakeFiles/mimalloc.dir/src/prim/prim.c.o.d"
+  "CMakeFiles/mimalloc.dir/src/random.c.o"
+  "CMakeFiles/mimalloc.dir/src/random.c.o.d"
+  "CMakeFiles/mimalloc.dir/src/segment-cache.c.o"
+  "CMakeFiles/mimalloc.dir/src/segment-cache.c.o.d"
+  "CMakeFiles/mimalloc.dir/src/segment.c.o"
+  "CMakeFiles/mimalloc.dir/src/segment.c.o.d"
+  "CMakeFiles/mimalloc.dir/src/stats.c.o"
+  "CMakeFiles/mimalloc.dir/src/stats.c.o.d"
+  "libmimalloc-secure.pdb"
+  "libmimalloc-secure.so"
+  "libmimalloc-secure.so.2"
+  "libmimalloc-secure.so.2.1"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C)
+  include(CMakeFiles/mimalloc.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

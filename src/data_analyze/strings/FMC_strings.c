@@ -24,3 +24,6 @@ SOFTWARE.
 
 */
 
+#include "FMC_strings.h"
+
+/* FMC_SHARED FMC_String FMC_allocStr(const FMC_Char ) */
