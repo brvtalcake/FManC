@@ -40,3 +40,4 @@ test.c
 txt.txt
 txt*
 *prog*
+.github/workflows/c.yml

@@ -1,51 +1,52 @@
-name: C/C++ CI
-
-on:
-  #push:
-  #  branches: [ "main" ]
-  #pull_request:
-  #  branches: [ "main" ]
-
-jobs:
-  build-stat-lin:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: make static lib for linux
-      run: make stat_lin_only
-  
-  build-dyn-lin:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: make dynamic lib for linux
-      run: make dyn_lin_only
-      
-  build-stat-win:
-    runs-on: windows-latest
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: Set up MinGW
-      uses: egor-tensin/setup-mingw@v2
-      with:
-        platform: x64
-        
-        
-    - name: make static lib for windows
-      run: mingw32-make stat_win_only
-      shell: cmd
-      
-  build-dyn-win:
-    runs-on: windows-latest
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: Set up MinGW
-      uses: egor-tensin/setup-mingw@v2
-      with:
-        platform: x64
-
-    - name: make dynamic lib for windows
-      run: mingw32-make dyn_win_only
-      shell: cmd
+#name: C/C++ CI
+#
+#on:
+#  #push:
+#  #  branches: [ "main" ]
+#  #pull_request:
+#  #  branches: [ "main" ]
+#
+#jobs:
+#  build-stat-lin:
+#    runs-on: ubuntu-latest
+#    steps:
+#    - uses: actions/checkout@v3
+#    - name: make static lib for linux
+#      run: make stat_lin_only
+#  
+#  build-dyn-lin:
+#    runs-on: ubuntu-latest
+#    steps:
+#    - uses: actions/checkout@v3
+#    - name: make dynamic lib for linux
+#      run: make dyn_lin_only
+#      
+#  build-stat-win:
+#    runs-on: windows-latest
+#    steps:
+#    - uses: actions/checkout@v3
+#
+#    - name: Set up MinGW
+#      uses: egor-tensin/setup-mingw@v2
+#      with:
+#        platform: x64
+#        
+#        
+#    - name: make static lib for windows
+#      run: mingw32-make stat_win_only
+#      shell: cmd
+#      
+#  build-dyn-win:
+#    runs-on: windows-latest
+#    steps:
+#    - uses: actions/checkout@v3
+#
+#    - name: Set up MinGW
+#      uses: egor-tensin/setup-mingw@v2
+#      with:
+#        platform: x64
+#
+#    - name: make dynamic lib for windows
+#      run: mingw32-make dyn_win_only
+#      shell: cmd
+#
