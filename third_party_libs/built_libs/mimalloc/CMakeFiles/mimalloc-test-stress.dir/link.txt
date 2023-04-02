@@ -1,1 +1,0 @@
-/usr/bin/cc -O3 -DNDEBUG "CMakeFiles/mimalloc-test-stress.dir/test/test-stress.c.o" -o mimalloc-test-stress  -Wl,-rpath,/home/axel/Documents/programmation/c/FManC/third_party_libs/built_libs/mimalloc libmimalloc-secure.so.2.1 /usr/lib/x86_64-linux-gnu/libpthread.a /usr/lib/x86_64-linux-gnu/librt.a 
