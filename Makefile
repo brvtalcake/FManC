@@ -181,6 +181,7 @@ third_party_lin :
 	cp ./third_party_libs/built_libs/mimalloc/libmimalloc-secure.so.2.1 ./third_party_libs/built_libs/shared
 	cd ./third_party_libs/built_libs/shared && ln -s libmimalloc-secure.so.2.1 libmimalloc-secure.so.2
 	cd ./third_party_libs/built_libs/shared && ln -s libmimalloc-secure.so.2 libmimalloc-secure.so
+	cd ./third_party_libs/built_libs/mimalloc/ && $(MAKE) clean
 
 third_party_win :
 	cd ./third_party_libs/metalang99 && git checkout master
@@ -197,6 +198,7 @@ third_party_win :
 	cp ./third_party_libs/built_libs/mimalloc/libmimalloc-secure.so.2.1 ./third_party_libs/built_libs/shared
 	cd ./third_party_libs/built_libs/shared && ln -s libmimalloc-secure.so.2.1 libmimalloc-secure.so.2
 	cd ./third_party_libs/built_libs/shared && ln -s libmimalloc-secure.so.2 libmimalloc-secure.so
+	cd ./third_party_libs/built_libs/mimalloc/ && $(MAKE) clean
 
 static : $(STAT_TARGET)
 
