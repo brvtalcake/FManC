@@ -24,8 +24,6 @@ SOFTWARE.
 
 */
 
-#pragma once
-
 #ifndef FMC_STR_VIEW_H
 #define FMC_STR_VIEW_H
 

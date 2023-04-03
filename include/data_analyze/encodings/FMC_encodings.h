@@ -24,8 +24,6 @@ SOFTWARE.
 
 */
 
-#pragma once
-
 #ifndef FMC_ENCODINGS_H
 #define FMC_ENCODINGS_H
 

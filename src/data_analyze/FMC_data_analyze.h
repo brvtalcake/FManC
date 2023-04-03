@@ -24,8 +24,6 @@ SOFTWARE.
 
 */
 
-#pragma once
-
 #ifndef FMC_DATA_ANALYZE_H
 #define FMC_DATA_ANALYZE_H
 

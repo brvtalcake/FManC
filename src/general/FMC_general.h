@@ -24,8 +24,6 @@ SOFTWARE.
 
 */
 
-#pragma once
-
 #ifndef FMC_GENERAL_H
 #define FMC_GENERAL_H
 
