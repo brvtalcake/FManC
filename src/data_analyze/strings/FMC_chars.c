@@ -160,7 +160,7 @@ FMC_SHARED FMC_FUNC_NONNULL(2) FMC_FUNC_MALLOC(mi_free) FMC_FUNC_WARN_UNUSED_RES
             FMC_UNREACHABLE;
     }
     c->isNull = char_is_null;
-    // Assert that already is zeroed-out by mi_zalloc
+    // Assert that everything is already zeroed-out by mi_zalloc
     FMC_UNREACHABLE_ASSERT(c->comp.byte1 == 0);
     FMC_UNREACHABLE_ASSERT(c->comp.byte2 == 0);
     FMC_UNREACHABLE_ASSERT(c->comp.byte3 == 0);

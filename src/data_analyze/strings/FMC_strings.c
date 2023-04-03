@@ -28,6 +28,9 @@ SOFTWARE.
 
 #include "FMC_strings.h"
 
+extern FMC_FUNC_INLINE FMC_Bool FMC_checkEncoding(const FMC_String* const str);
+extern FMC_FUNC_INLINE FMC_FUNC_NONNULL(1) void FMC_removeTrailNullChars(FMC_String* const str);
+
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_MALLOC(mi_free) FMC_String* FMC_allocStr(FMC_Char* const* chars, uint64_t size)
 {
     FMC_String *str = mi_zalloc(sizeof(FMC_String));
@@ -50,9 +53,21 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_MALLOC(mi_free) FMC_String* FMC_
         default:
             str->firstChar = *chars;
             FMC_Char* tmp_ch = str->firstChar;
+            FMC_Encodings enc = tmp_ch->encoding;
             for (uint64_t i = 1; i < size; i++)
             {
                 FMC_Char* tmp_ch2 = *(chars + i);
+                if (tmp_ch2->encoding != enc)
+                {
+                    if (FMC_getDebugState())
+                    {
+                        FMC_makeMsg(err_invalid_encoding, 3, "ERROR : In function : ", __func__, " : the provided string contains characters with different encodings");
+                        FMC_printRedError(stderr, err_invalid_encoding);
+                    }
+                    FMC_freeStr(str);
+                    return NULL;
+                    FMC_UNREACHABLE;
+                }
                 tmp_ch->next = tmp_ch2;
                 tmp_ch2->prev = tmp_ch;
                 tmp_ch = tmp_ch2;
@@ -113,7 +128,6 @@ end:
     FMC_UNREACHABLE;
 }
 
-// TODO: Finish this function
 // TODO: Make it generic and make it accept a FMC_Char* as a parameter too
 FMC_SHARED FMC_FUNC_NONNULL(1, 2) FMC_String* FMC_append_str(FMC_String* str1, FMC_String* str2) 
 {
@@ -132,10 +146,165 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) FMC_String* FMC_append_str(FMC_String* str1, F
     #pragma GCC diagnostic pop
     if (!str1->firstChar || !str1->lastChar) return str2;
     if (!str2->firstChar || !str2->lastChar) return str1;
-    str1->lastChar->next = str2->firstChar;
-    str2->firstChar->prev = str1->lastChar;
-    str1->lastChar = str2->lastChar;
+    if (str1->firstChar->encoding != str2->firstChar->encoding) 
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_encoding, 3, "ERROR : In function : ", __func__, " : the provided strings have different encodings");
+            FMC_printRedError(stderr, err_encoding);
+        }
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "In function : FMC_append_str : the provided strings have different encodings");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    if (!FMC_checkEncoding(str1) || !FMC_checkEncoding(str2))
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_invalid_encoding, 3, "ERROR : In function : ", __func__, " : the provided string contains characters with invalid encodings");
+            FMC_printRedError(stderr, err_invalid_encoding);
+        }
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "In function : FMC_append_str : the provided string contains characters with invalid encodings");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    FMC_removeTrailNullChars(str1);
+    FMC_removeTrailNullChars(str2);
+    FMC_Char* last_ch = NULL;
+    FMC_UNREACHABLE_ASSERT(str1->lastChar != NULL);
+    if (str1->lastChar->isNull) 
+    {
+        last_ch = str1->lastChar->prev;
+        mi_free(str1->lastChar);
+        last_ch->next = NULL;
+        str1->lastChar = last_ch;
+        str1->size--;
+    }
+    else last_ch = str1->lastChar;    
+    FMC_Char* ch = NULL;
+    for (uint64_t i = 0; i < str2->size; i++)
+    {
+        ch = FMC_getCharAt(str2, i);
+        if (ch == NULL || ch->isNull) break;
+        last_ch->next = mi_zalloc(sizeof(FMC_Char));
+        FMC_UNREACHABLE_ASSERT(last_ch->next != NULL);
+        last_ch->next->prev = last_ch;
+        last_ch->next->next = NULL;
+        last_ch->next->encoding = ch->encoding;
+        last_ch->next->comp = ch->comp;
+        last_ch->next->isNull = ch->isNull;
+        last_ch->next->byteNumber = ch->byteNumber;
+
+        last_ch = last_ch->next;
+    }
+    // Append the null character
+    /* last_ch->next = mi_zalloc(sizeof(FMC_Char));
+    FMC_UNREACHABLE_ASSERT(last_ch->next != NULL);
+    last_ch->next->prev = last_ch;
+    last_ch->next->next = NULL;
+    last_ch->next->encoding = last_ch->encoding;
+    last_ch->next->comp = FMC_CHARCOMP_NULL;
+    last_ch->next->isNull = FMC_TRUE;
+    last_ch->next->byteNumber = 0; */
+    str1->lastChar = last_ch;
     str1->size += str2->size;
+    if (!str1->lastChar->isNull)
+    {
+        str1->lastChar->next = mi_zalloc(sizeof(FMC_Char));
+        FMC_UNREACHABLE_ASSERT(str1->lastChar->next != NULL);
+        str1->lastChar->next->prev = str1->lastChar;
+        str1->lastChar->next->next = NULL;
+        str1->lastChar->next->encoding = str1->lastChar->encoding;
+        str1->lastChar->next->comp = FMC_CHARCOMP_NULL;
+        str1->lastChar->next->isNull = FMC_TRUE;
+        str1->lastChar->next->byteNumber = 0;
+        str1->size++;
+        str1->lastChar = str1->lastChar->next;
+    }
     return str1;
+    FMC_UNREACHABLE;
+}
+
+FMC_SHARED FMC_FUNC_NONNULL(1, 2) FMC_String* FMC_append_ch(FMC_String* str, FMC_Char* ch) // TODO: Need to be tested
+{
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (!str || !ch) 
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_nullarg, 3, "ERROR : In function : ", __func__, " : the provided pointer is NULL");
+            FMC_printRedError(stderr, err_nullarg);
+        }
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "In function : FMC_append_ch : the provided pointer is NULL");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    #pragma GCC diagnostic pop
+    if (!str->firstChar || !str->lastChar) 
+    {
+        str->firstChar = ch;
+        str->lastChar = ch;
+        str->size = 1;
+        return str;
+        FMC_UNREACHABLE;
+    }
+    if (!FMC_checkEncoding(str))
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_encoding, 3, "ERROR : In function : ", __func__, " : the provided string do not have a coherent encoding");
+            FMC_printRedError(stderr, err_encoding);
+        }
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "In function : FMC_append_ch : the provided string do not have a coherent encoding");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    else if (str->firstChar->encoding != ch->encoding) 
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_encoding, 3, "ERROR : In function : ", __func__, " : the provided string and the provided character have different encodings");
+            FMC_printRedError(stderr, err_encoding);
+        }
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "In function : FMC_append_ch : the provided string and the provided character have different encodings");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    FMC_removeTrailNullChars(str);
+    FMC_Char* last_ch = NULL;
+    FMC_UNREACHABLE_ASSERT(str->lastChar != NULL);
+    if (str->lastChar->isNull) 
+    {
+        last_ch = str->lastChar->prev;
+        mi_free(str->lastChar);
+        last_ch->next = NULL;
+        str->size--;
+        str->lastChar = last_ch;
+    }
+    else last_ch = str->lastChar;
+    last_ch->next = mi_zalloc(sizeof(FMC_Char));
+    FMC_UNREACHABLE_ASSERT(last_ch->next != NULL);
+    last_ch->next->prev = last_ch;
+    last_ch->next->next = NULL;
+    last_ch->next->encoding = ch->encoding;
+    last_ch->next->comp = ch->comp;
+    last_ch->next->isNull = ch->isNull;
+    last_ch->next->byteNumber = ch->byteNumber;
+    str->lastChar = last_ch->next;
+    str->size++;
+    if (!str->lastChar->isNull)
+    {
+        str->lastChar->next = mi_zalloc(sizeof(FMC_Char));
+        FMC_UNREACHABLE_ASSERT(str->lastChar->next != NULL);
+        str->lastChar->next->prev = str->lastChar;
+        str->lastChar->next->next = NULL;
+        str->lastChar->next->encoding = str->lastChar->encoding;
+        str->lastChar->next->comp = FMC_CHARCOMP_NULL;
+        str->lastChar->next->isNull = FMC_TRUE;
+        str->lastChar->next->byteNumber = 0;
+        str->size++;
+        str->lastChar = str->lastChar->next;
+    }
+    return str;
     FMC_UNREACHABLE;
 }
