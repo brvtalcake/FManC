@@ -60,7 +60,6 @@ FMC_SHARED struct FManC_Perms
 };
 
 
-
 FMC_SHARED struct FManC_Directory
 {
     size_t fileCount;
@@ -72,7 +71,7 @@ typedef struct FManC_Directory FMC_Directory;
 
 FMC_SHARED struct FManC_File
 {
-    FILE *file;
+    FILE* file;
     // mtx_t fileMutex;
     unsigned long long int fileSize;
     FMC_Encodings encoding;
@@ -121,6 +120,8 @@ typedef struct FManC_CharComp FMC_CharComp;
 
 FMC_SHARED struct FManC_Char
 {
+    struct FManC_Char* next;
+    struct FManC_Char* prev;
     FMC_Encodings encoding;
     FMC_CharComp comp;
     FMC_CharControl isNull;
@@ -131,7 +132,8 @@ typedef struct FManC_Char FMC_Char;
 
 FMC_SHARED struct FManC_String
 {
-    FMC_Char *chars;
+    FMC_Char *firstChar;
+    FMC_Char *lastChar;
     uint64_t size;
 };
 typedef struct FManC_String FMC_String;

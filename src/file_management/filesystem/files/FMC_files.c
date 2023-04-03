@@ -484,7 +484,7 @@ FMC_SHARED unsigned long long FMC_getOptimalWriteBufferSize(const char* restrict
     }
     #pragma GCC diagnostic pop // -Wnonnull-compare
 
-    #if defined(FMC_COMPILING_ON_WINDOWS)
+    #if defined(FMC_COMPILING_ON_WINDOWS) // TODO: Check if there is a bug for the windows version, when the path has already been opened.
         FILE_STORAGE_INFO storage_info;
         HANDLE file_handle = CreateFileA(path, FMC_mergeFlags(GENERIC_READ, GENERIC_WRITE), FMC_mergeFlags(FILE_SHARE_READ, FILE_SHARE_WRITE), NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
         if (file_handle == INVALID_HANDLE_VALUE)

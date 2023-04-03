@@ -52,6 +52,7 @@ If you want to download a PDF documentation, it's [here](https://github.com/brvt
 - [x] Wrap decls with FMC_BEGING_DECLS / FMC_END_DECLS
 - [ ] Print error message when trying to use the C++ wrapped functions in C++, since it's better to simply use the standard functions (or maybe use GCC's visibility attribute)
 - [ ] Make use of GCC's symver attribute
+- [ ] Support handling symlinks
 - [x] Build a better error system to make functions more simple (maybe think about asserting obvious "in" conditions that must be satisfied)
 - [ ] Make a header to put all pre-include macro definitions
 - [x] Make a real test folder with unit tests
