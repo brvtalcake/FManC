@@ -61,6 +61,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_MALLOC(mi_free) FMC_String* FMC_
 FMC_SHARED FMC_FUNC_NONNULL(1) FMC_Char* FMC_getCharAt(FMC_String* str, uint64_t index);
 FMC_SHARED FMC_FUNC_NONNULL(1, 2) FMC_String* FMC_append_str(FMC_String* str1, FMC_String* str2);
 FMC_SHARED FMC_FUNC_NONNULL(1, 2) FMC_String* FMC_append_ch(FMC_String* str, FMC_Char* ch);
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_String* FMC_cloneStr(FMC_String* str);
 
 #if defined(FMC_append)
     #undef FMC_append

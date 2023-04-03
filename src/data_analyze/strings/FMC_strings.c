@@ -308,3 +308,8 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) FMC_String* FMC_append_ch(FMC_String* str, FMC
     return str;
     FMC_UNREACHABLE;
 }
+
+/* FMC_SHARED FMC_FUNC_NONNULL(1) FMC_String* FMC_cloneStr(FMC_String* str)
+{
+    
+} */
