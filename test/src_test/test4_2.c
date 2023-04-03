@@ -5,15 +5,15 @@
 #include <stdlib.h>
 #include <wchar.h>
 
-void test_FMC_getOptimalWriteBufferSize()
+void test_FMC_getOptIOBufSize()
 {
     char opt_buf_size_res[10];
-    snprintf(opt_buf_size_res, 10, "%lld", FMC_getOptimalWriteBufferSize("test.txt"));
+    snprintf(opt_buf_size_res, 10, "%lld", FMC_getOptIOBufSize("test.txt"));
     FMC_makeMsg(msg_opt_buf_size, 2, "Optimal write buffer size: ", opt_buf_size_res);
     FMC_printBlueText(stderr, msg_opt_buf_size);
-    assert(FMC_getOptimalWriteBufferSize("test.txt") > 0);
-    assert(FMC_getOptimalWriteBufferSize(NULL) == 0); 
-    assert(FMC_getOptimalWriteBufferSize("file_that_doesnt_exist.ext") == 0);
+    assert(FMC_getOptIOBufSize("test.txt") > 0);
+    assert(FMC_getOptIOBufSize(NULL) == 0); 
+    assert(FMC_getOptIOBufSize("file_that_doesnt_exist.ext") == 0);
 }
 
 void test_FMC_extractFilename()

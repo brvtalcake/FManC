@@ -27,7 +27,7 @@ endif
 
 # Project subdirectories
 CPP_SRC_SUBDIRS=src/cpp/ src/cpp/FMC_dir/ src/cpp/FMC_filesystem/ src/cpp/FMC_perms/
-C_SRC_SUBDIRS=src/ src/general/ src/general/preprocessor/ src/general/types/ src/general/utils/ src/file_management/ src/data_analyze/ src/data_analyze/encodings/ src/data_analyze/strings/ src/code_utils/ src/file_management/sys/ src/file_management/filesystem/files/ src/file_management/filesystem/ src/file_management/filesystem/dirs/ src/data_analyze/encodings/conversions/
+C_SRC_SUBDIRS=src/ src/general/ src/general/preprocessor/ src/general/types/ src/general/utils/ src/file_management/ src/data_analyze/ src/data_analyze/encodings/ src/data_analyze/strings/ src/code_utils/ src/file_management/sys/ src/file_management/filesystem/files/ src/file_management/filesystem/ src/file_management/filesystem/dirs/ src/data_analyze/encodings/conversions/ src/file_management/io/
 SRC_SUBDIRS=$(C_SRC_SUBDIRS) $(CPP_SRC_SUBDIRS)
 
 VPATH=$(subst / ,/:,$(SRC_SUBDIRS))

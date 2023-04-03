@@ -197,6 +197,35 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_MALLOC(free, 1) FMC_File *FMC_al
             returned_file->file = fopen(path, "rb");
             wanted_encoding = FMC_TRUE;
         }
+        unsigned long long opt_buff_size = FMC_getOptIOBufSize(path);
+        if (opt_buff_size) 
+        {
+            if(setvbuf(returned_file->file, NULL, _IOFBF, opt_buff_size))
+            {
+                if (FMC_getDebugState())
+                {
+                    FMC_makeMsg(err_setvbuf, 1, "INTERNAL ERROR: FMC_createFile: setvbuf failed to set the buffer size.");
+                    FMC_printRedError(stderr, err_setvbuf);
+                }
+                FMC_setError(FMC_ERR_INTERNAL, "FMC_createFile: setvbuf failed to set the buffer size.");
+                free(returned_file);
+                return NULL;
+                FMC_UNREACHABLE;
+            }
+        }
+        else
+        {
+            // FMC_getOptIOBufSize failed to get the optimal buffer size
+            if (FMC_getDebugState())
+            {
+                FMC_makeMsg(err_get_opt_buf, 1, "INTERNAL ERROR: FMC_createFile: FMC_getOptIOBufSize failed to get the optimal buffer size.");
+                FMC_printRedError(stderr, err_get_opt_buf);
+            }
+            FMC_setError(FMC_ERR_INTERNAL, "FMC_createFile: FMC_getOptIOBufSize failed to get the optimal buffer size.");
+            free(returned_file);
+            return NULL;
+            FMC_UNREACHABLE;
+        }
 
         if (!returned_file->file)
         {
@@ -355,7 +384,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) unsigned int FMC_changeStreamOrientation(FILE*
             FMC_printRedError(stderr, err_arg_null);
         }
         FMC_setError(FMC_ERR_INVALID_ARGUMENT, "Provided argument to FMC_changeStreamOrientation is NULL.");
-        return 0;
+        return failed_to_change;
         FMC_UNREACHABLE;
     }
     check_in orientation_flag for_only_flags(WIDE_ORIENTED)
@@ -371,7 +400,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) unsigned int FMC_changeStreamOrientation(FILE*
                     FMC_printRedError(stderr, err_freopen);
                 }
                 FMC_setError(FMC_ERR_INTERNAL, "FMC_changeStreamOrientation: freopen failed.");
-                return 0;
+                return failed_to_change;
                 FMC_UNREACHABLE;
             }
             if (fwide(file, 1) <= 0)
@@ -382,7 +411,34 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) unsigned int FMC_changeStreamOrientation(FILE*
                     FMC_printRedError(stderr, err_fwide);
                 }
                 FMC_setError(FMC_ERR_INTERNAL, "FMC_changeStreamOrientation: fwide failed.");
-                return 0;
+                return failed_to_change;
+                FMC_UNREACHABLE;
+            }
+            // The file has been reopened : change the buffer size
+            unsigned long long opt_buff_size = FMC_getOptIOBufSize(file);
+            if (opt_buff_size > 0)
+            {
+                if (setvbuf(file, NULL, _IOFBF, opt_buff_size))
+                {
+                    if (FMC_getDebugState())
+                    {
+                        FMC_makeMsg(err_setvbuf, 1, "INTERNAL ERROR: FMC_changeStreamOrientation: setvbuf failed.");
+                        FMC_printRedError(stderr, err_setvbuf);
+                    }
+                    FMC_setError(FMC_ERR_INTERNAL, "FMC_changeStreamOrientation: setvbuf failed.");
+                    return failed_to_change;
+                    FMC_UNREACHABLE;
+                }
+            }
+            else
+            {
+                if (FMC_getDebugState())
+                {
+                    FMC_makeMsg(err_setvbuf, 1, "INTERNAL ERROR: FMC_changeStreamOrientation: FMC_getOptIOBufSize failed.");
+                    FMC_printRedError(stderr, err_setvbuf);
+                }
+                FMC_setError(FMC_ERR_INTERNAL, "FMC_changeStreamOrientation: FMC_getOptIOBufSize failed.");
+                return failed_to_change;
                 FMC_UNREACHABLE;
             }
             return WIDE_ORIENTED;
@@ -403,7 +459,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) unsigned int FMC_changeStreamOrientation(FILE*
                     FMC_printRedError(stderr, err_freopen);
                 }
                 FMC_setError(FMC_ERR_INTERNAL, "FMC_changeStreamOrientation: freopen failed.");
-                return 0;
+                return failed_to_change;
                 FMC_UNREACHABLE;
             }
             if (fwide(file, -1) >= 0)
@@ -414,7 +470,34 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) unsigned int FMC_changeStreamOrientation(FILE*
                     FMC_printRedError(stderr, err_fwide);
                 }
                 FMC_setError(FMC_ERR_INTERNAL, "FMC_changeStreamOrientation: fwide failed.");
-                return 0;
+                return failed_to_change;
+                FMC_UNREACHABLE;
+            }
+            // The file has been reopened : change the buffer size
+            unsigned long long opt_buff_size = FMC_getOptIOBufSize(file);
+            if (opt_buff_size > 0)
+            {
+                if (setvbuf(file, NULL, _IOFBF, opt_buff_size))
+                {
+                    if (FMC_getDebugState())
+                    {
+                        FMC_makeMsg(err_setvbuf, 1, "INTERNAL ERROR: FMC_changeStreamOrientation: setvbuf failed.");
+                        FMC_printRedError(stderr, err_setvbuf);
+                    }
+                    FMC_setError(FMC_ERR_INTERNAL, "FMC_changeStreamOrientation: setvbuf failed.");
+                    return failed_to_change;
+                    FMC_UNREACHABLE;
+                }
+            }
+            else
+            {
+                if (FMC_getDebugState())
+                {
+                    FMC_makeMsg(err_setvbuf, 1, "INTERNAL ERROR: FMC_changeStreamOrientation: FMC_getOptIOBufSize failed.");
+                    FMC_printRedError(stderr, err_setvbuf);
+                }
+                FMC_setError(FMC_ERR_INTERNAL, "FMC_changeStreamOrientation: FMC_getOptIOBufSize failed.");
+                return failed_to_change;
                 FMC_UNREACHABLE;
             }
             return BYTE_ORIENTED;
@@ -449,6 +532,33 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) unsigned int FMC_changeStreamOrientation(FILE*
                 return 0;
                 FMC_UNREACHABLE;
             }
+            // The file has been reopened : change the buffer size
+            unsigned long long opt_buff_size = FMC_getOptIOBufSize(file);
+            if (opt_buff_size > 0)
+            {
+                if (setvbuf(file, NULL, _IOFBF, opt_buff_size))
+                {
+                    if (FMC_getDebugState())
+                    {
+                        FMC_makeMsg(err_setvbuf, 1, "INTERNAL ERROR: FMC_changeStreamOrientation: setvbuf failed.");
+                        FMC_printRedError(stderr, err_setvbuf);
+                    }
+                    FMC_setError(FMC_ERR_INTERNAL, "FMC_changeStreamOrientation: setvbuf failed.");
+                    return 0;
+                    FMC_UNREACHABLE;
+                }
+            }
+            else
+            {
+                if (FMC_getDebugState())
+                {
+                    FMC_makeMsg(err_setvbuf, 1, "INTERNAL ERROR: FMC_changeStreamOrientation: FMC_getOptIOBufSize failed.");
+                    FMC_printRedError(stderr, err_setvbuf);
+                }
+                FMC_setError(FMC_ERR_INTERNAL, "FMC_changeStreamOrientation: FMC_getOptIOBufSize failed.");
+                return 0;
+                FMC_UNREACHABLE;
+            }
             return NOT_SET;
         }
         else return NOT_SET;
@@ -461,24 +571,24 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) unsigned int FMC_changeStreamOrientation(FILE*
             FMC_printRedError(stderr, err_arg_invalid);
         }
         FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_changeStreamOrientation: You can only provide one of BYTE_ORIENTED, WIDE_ORIENTED and NOT_SET flags.");
-        return 0;
+        return failed_to_change;
         FMC_UNREACHABLE;
     }
     FMC_UNREACHABLE;
-    return 0;
+    return failed_to_change;
 }
 
-FMC_SHARED unsigned long long FMC_getOptimalWriteBufferSize(const char* restrict const path)
+FMC_SHARED unsigned long long FMC_getOptIOBufSize(const char* restrict const path)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
     if (!path || !FMC_isRegFile(path))
     {
         if (FMC_getDebugState())
         {
-            FMC_makeMsg(err_arg_null, 1, "ERROR: Provided argument to FMC_getOptimalWriteBufferSize is NULL or the path is not a regular file.");
+            FMC_makeMsg(err_arg_null, 1, "ERROR: Provided argument to FMC_getOptIOBufSize is NULL or the path is not a regular file.");
             FMC_printRedError(stderr, err_arg_null);
         }
-        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "Provided argument to FMC_getOptimalWriteBufferSize is NULL or the path is not a regular file.");
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "Provided argument to FMC_getOptIOBufSize is NULL or the path is not a regular file.");
         return 0;
         FMC_UNREACHABLE;
     }
@@ -491,10 +601,10 @@ FMC_SHARED unsigned long long FMC_getOptimalWriteBufferSize(const char* restrict
         {
             if (FMC_getDebugState())
             {
-                FMC_makeMsg(err_file_open, 1, "ERROR: FMC_getOptimalWriteBufferSize: CreateFileA failed.");
+                FMC_makeMsg(err_file_open, 1, "ERROR: FMC_getOptIOBufSize: CreateFileA failed.");
                 FMC_printRedError(stderr, err_file_open);
             }
-            FMC_setError(FMC_ERR_FILE, "FMC_getOptimalWriteBufferSize: CreateFileA failed.");
+            FMC_setError(FMC_ERR_FILE, "FMC_getOptIOBufSize: CreateFileA failed.");
             return 0;
             FMC_UNREACHABLE;
         }
@@ -502,10 +612,10 @@ FMC_SHARED unsigned long long FMC_getOptimalWriteBufferSize(const char* restrict
         {
             if (FMC_getDebugState())
             {
-                FMC_makeMsg(err_file_open, 1, "ERROR: FMC_getOptimalWriteBufferSize: GetFileInformationByHandleEx failed.");
+                FMC_makeMsg(err_file_open, 1, "ERROR: FMC_getOptIOBufSize: GetFileInformationByHandleEx failed.");
                 FMC_printRedError(stderr, err_file_open);
             }
-            FMC_setError(FMC_ERR_FILE, "FMC_getOptimalWriteBufferSize: GetFileInformationByHandleEx failed.");
+            FMC_setError(FMC_ERR_FILE, "FMC_getOptIOBufSize: GetFileInformationByHandleEx failed.");
             return 0;
             FMC_UNREACHABLE;
         }
@@ -513,10 +623,10 @@ FMC_SHARED unsigned long long FMC_getOptimalWriteBufferSize(const char* restrict
         {
             if (FMC_getDebugState())
             {
-                FMC_makeMsg(err_file_close, 1, "ERROR: FMC_getOptimalWriteBufferSize: CloseHandle failed.");
+                FMC_makeMsg(err_file_close, 1, "ERROR: FMC_getOptIOBufSize: CloseHandle failed.");
                 FMC_printRedError(stderr, err_file_close);
             }
-            FMC_setError(FMC_ERR_FILE, "FMC_getOptimalWriteBufferSize: CloseHandle failed.");
+            FMC_setError(FMC_ERR_FILE, "FMC_getOptIOBufSize: CloseHandle failed.");
             return 0;
             FMC_UNREACHABLE;
         }
@@ -528,10 +638,10 @@ FMC_SHARED unsigned long long FMC_getOptimalWriteBufferSize(const char* restrict
         {
             if (FMC_getDebugState())
             {
-                FMC_makeMsg(err_file_stat, 1, "ERROR: FMC_getOptimalWriteBufferSize: stat failed.");
+                FMC_makeMsg(err_file_stat, 1, "ERROR: FMC_getOptIOBufSize: stat failed.");
                 FMC_printRedError(stderr, err_file_stat);
             }
-            FMC_setError(FMC_ERR_INTERNAL, "FMC_getOptimalWriteBufferSize: stat failed.");
+            FMC_setError(FMC_ERR_INTERNAL, "FMC_getOptIOBufSize: stat failed.");
             return 0;
             FMC_UNREACHABLE;
         }
@@ -690,6 +800,34 @@ open_file:
         FMC_UNREACHABLE;
     }
 
+    // Change the buffer size
+    unsigned long long opt_buf_size = FMC_getOptIOBufSize(file->file);
+    if (opt_buf_size > 0)
+    {
+        if (setvbuf(file->file, NULL, _IOFBF, opt_buf_size) != 0)
+        {
+            if (FMC_getDebugState())
+            {
+                FMC_makeMsg(err_file_open, 1, "ERROR: FMC_openFile: setvbuf failed.");
+                FMC_printRedError(stderr, err_file_open);
+            }
+            FMC_setError(FMC_ERR_INTERNAL, "FMC_openFile: setvbuf failed.");
+            return NULL;
+            FMC_UNREACHABLE;
+        }
+    }
+    else
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_file_open, 1, "ERROR: FMC_openFile: Cannot get optimal buffer size.");
+            FMC_printRedError(stderr, err_file_open);
+        }
+        FMC_setError(FMC_ERR_INTERNAL, "FMC_openFile: Cannot get optimal buffer size.");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+
     file->dataMode = FMC_getDataModeFromMode(file->fullMode);
 
     file->isOpened = FMC_TRUE;
@@ -818,7 +956,7 @@ FMC_SHARED void FMC_closeFile(FMC_File* restrict file)
     FMC_UNREACHABLE;
 }
 
-FMC_SHARED FMC_FUNC_NONNULL(1, 2, 3) FMC_File* FMC_reopenFile(FMC_File* restrict file, const char* restrict const new_path, const char* restrict const full_mode, const unsigned int user_flags) // new_path is restrict because we copy a part of it in tmp_[name | path | ext], so there's no aliasing
+FMC_SHARED FMC_FUNC_NONNULL(1, 2, 3) FMC_File* FMC_reopenFile(FMC_File* restrict file, const char* restrict const new_path, const char* restrict const full_mode, const unsigned int user_flags) // new_path can be restrict because we copy a part of it in tmp_[name | path | ext], so no aliasing
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
     if (!new_path || !*new_path || !file || !full_mode || !*full_mode)

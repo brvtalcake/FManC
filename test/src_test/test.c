@@ -45,8 +45,8 @@ int main()
     test_FMC_mkDir_rmDir();
     fprintf(stderr, "\x1b[32m%s\n\x1b[0m", "test_FMC_mkDir_rmDir() passed");
     
-    test_FMC_getOptimalWriteBufferSize();
-    fprintf(stderr, "\x1b[32m%s\n\x1b[0m", "test_FMC_getOptimalWriteBufferSize() passed");
+    test_FMC_getOptIOBufSize();
+    fprintf(stderr, "\x1b[32m%s\n\x1b[0m", "test_FMC_getOptIOBufSize() passed");
     
     test_FMC_allocStrView();
     fprintf(stderr, "\x1b[32m%s\n\x1b[0m", "test_FMC_allocStrView() passed");
