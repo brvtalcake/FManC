@@ -31,15 +31,14 @@ SOFTWARE.
 
 extern FMC_FUNC_INLINE FMC_FUNC_NONNULL(1) void FMC_freeChar(FMC_Char* const c);
 
-FMC_SHARED FMC_FUNC_NONNULL(2) FMC_FUNC_MALLOC(mi_free) FMC_FUNC_WARN_UNUSED_RESULT FMC_Char* FMC_allocChar(FMC_Char* prev, const FMC_Byte* restrict const bytes, FMC_Encodings char_encoding, FMC_CharControl char_is_null, uint8_t byte_number)
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_MALLOC(mi_free) FMC_FUNC_WARN_UNUSED_RESULT FMC_Char* FMC_allocChar(const FMC_Byte* restrict const bytes, FMC_Encodings char_encoding, FMC_CharControl char_is_null, uint8_t byte_number)
 {
     FMC_Char* c = mi_zalloc(sizeof(FMC_Char));
     FMC_UNREACHABLE_ASSERT(c != NULL);
     FMC_UNREACHABLE_ASSERT(c->next == NULL);
     FMC_UNREACHABLE_ASSERT(c->prev == NULL);
-    c->prev = prev;
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
-    if (c == NULL)
+    if (bytes == NULL)
     {
         if (FMC_getDebugState())
         {

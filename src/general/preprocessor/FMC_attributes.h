@@ -321,6 +321,11 @@ SOFTWARE.
         #define FMC_STMT_FALLTHROUGH __attribute__((fallthrough))
     #endif // FM_STMT_FALLTHROUGH
 
+    #ifdef FMC_STMT_ASSUME
+        #undef FMC_STMT_ASSUME
+    #endif // FMC_STMT_ASSUME
+    #define FMC_STMT_ASSUME(cond) // __attribute__((assume(cond))) (apparently not supported by GCC yet)
+
 #endif // FMC_STMT_ATTRIBUTES
 
 #endif // FMC_ATTRIBUTES_H

@@ -617,6 +617,15 @@ __VA_ARGS__))))
             exit(EXIT_FAILURE);                                                                 \
         }
 
+#if defined(FMC_ADD_OVERFLOW) || defined(FMC_SUB_OVERFLOW) || defined(FMC_MUL_OVERFLOW)
+    #undef FMC_ADD_OVERFLOW
+    #undef FMC_SUB_OVERFLOW
+    #undef FMC_MUL_OVERFLOW
+#endif
+#define FMC_ADD_OVERFLOW(a, b, res) __builtin_add_overflow(a, b, res)
+#define FMC_SUB_OVERFLOW(a, b, res) __builtin_sub_overflow(a, b, res)
+#define FMC_MUL_OVERFLOW(a, b, res) __builtin_mul_overflow(a, b, res)
+
 #endif // ERR_STACK_MUTEX_MACROS
 
 

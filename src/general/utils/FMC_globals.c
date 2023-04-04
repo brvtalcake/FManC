@@ -29,14 +29,14 @@ static FMC_Mutex FMC_ERR_STACK_MUTEX FMC_VAR_COMMON = FMC_ERR_MTX_INITIALIZER;
 
 static const char FMC_ERROR_STR[FMC_ERR_STR_COUNT][FMC_ERR_STR_LEN / 2] = 
 {
-    "No error occured. ",                                                     // FMC_OK
-    "A problem occured while trying to push an error onto the error stack. ", // FMC_ERR_PUSH
-    "Provided pointer is NULL. ",                                             // FMC_ERR_NULL_PTR
-    "A wrong flags combination was provided. ",                               // FMC_ERR_WRONG_FLAGS_COMBINATION
-    "An internal error occured. ",                                            // FMC_ERR_INTERNAL
-    "Invalid argument. ",                                                     // FMC_ERR_INVALID_ARGUMENT
-    "The provided FMC_File pointer is inconsistent. ",                        // FMC_ERR_FILE
-    "The provided UTF-X character or string is inconsistent. ",               // FMC_ERR_UTF
+    "No error occured. "                                                    ,  // FMC_OK
+    "A problem occured while trying to push an error onto the error stack. ",  // FMC_ERR_PUSH
+    "Provided pointer is NULL. "                                            ,  // FMC_ERR_NULL_PTR
+    "A wrong flags combination was provided. "                              ,  // FMC_ERR_WRONG_FLAGS_COMBINATION
+    "An internal error occured. "                                           ,  // FMC_ERR_INTERNAL
+    "Invalid argument. "                                                    ,  // FMC_ERR_INVALID_ARGUMENT
+    "The provided FMC_File pointer is inconsistent. "                       ,  // FMC_ERR_FILE
+    "The encoded character or string is inconsistent. "                     ,  // FMC_ERR_ENC
 };
 
 #ifndef __STDC_NO_ATOMICS__
@@ -67,7 +67,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_Bool FMC_getDebugState(void)
 static void FMC_consumeOldestError(void)
 {
     if (FMC_ERR_STACK.stackSize < FMC_MAX_ERR_STCK_SIZE) return;
-    FMC_ErrStackElement *tmp = FMC_ERR_STACK.lastError;
+    FMC_ErrStackElement *tmp  = FMC_ERR_STACK.lastError;
     FMC_ErrStackElement *tmp2 = NULL;
     if (!tmp) return;
     while (tmp->next)

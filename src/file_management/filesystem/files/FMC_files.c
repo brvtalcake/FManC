@@ -297,7 +297,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_MALLOC(free, 1) FMC_File *FMC_al
         {
             check_in user_flags if_not_set(BYTE_ORIENTED)
             {
-                returned_file->orientation = (FMC_changeStreamOrientation(returned_file->file, full_mode, WIDE_ORIENTED) == WIDE_ORIENTED ? wide_oriented : failed_to_change); 
+                returned_file->orientation = (FMC_changeStreamOrientation(returned_file->file, full_mode, WIDE_ORIENTED, path) == WIDE_ORIENTED ? wide_oriented : failed_to_change); 
             }
             else // error, you can only provide one of both
             {
@@ -318,7 +318,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_MALLOC(free, 1) FMC_File *FMC_al
         {
             check_in user_flags if_not_set(WIDE_ORIENTED)
             {
-                returned_file->orientation = (FMC_changeStreamOrientation(returned_file->file, full_mode, BYTE_ORIENTED) == BYTE_ORIENTED ? byte_oriented : failed_to_change);
+                returned_file->orientation = (FMC_changeStreamOrientation(returned_file->file, full_mode, BYTE_ORIENTED, path) == BYTE_ORIENTED ? byte_oriented : failed_to_change);
             }
             else // error, you can only provide one of both
             {
@@ -372,7 +372,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) void FMC_freeFile(FMC_File* restrict file)
     FMC_UNREACHABLE;
 }
 
-FMC_SHARED FMC_FUNC_NONNULL(1, 2) unsigned int FMC_changeStreamOrientation(FILE* restrict file, const char* restrict const mode, const unsigned int orientation_flag)
+FMC_SHARED FMC_FUNC_NONNULL(1, 2) unsigned int FMC_changeStreamOrientation(FILE* restrict file, const char* restrict const mode, const unsigned int orientation_flag, const char* const file_name)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
     if (!file || !mode)
@@ -415,31 +415,34 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) unsigned int FMC_changeStreamOrientation(FILE*
                 FMC_UNREACHABLE;
             }
             // The file has been reopened : change the buffer size
-            unsigned long long opt_buff_size = FMC_getOptIOBufSize(file);
-            if (opt_buff_size > 0)
+            if (file_name) 
             {
-                if (setvbuf(file, NULL, _IOFBF, opt_buff_size))
+                unsigned long long opt_buff_size = FMC_getOptIOBufSize(file_name);
+                if (opt_buff_size > 0)
+                {
+                    if (setvbuf(file, NULL, _IOFBF, opt_buff_size))
+                    {
+                        if (FMC_getDebugState())
+                        {
+                            FMC_makeMsg(err_setvbuf, 1, "INTERNAL ERROR: FMC_changeStreamOrientation: setvbuf failed.");
+                            FMC_printRedError(stderr, err_setvbuf);
+                        }
+                        FMC_setError(FMC_ERR_INTERNAL, "FMC_changeStreamOrientation: setvbuf failed.");
+                        return failed_to_change;
+                        FMC_UNREACHABLE;
+                    }
+                }
+                else
                 {
                     if (FMC_getDebugState())
                     {
-                        FMC_makeMsg(err_setvbuf, 1, "INTERNAL ERROR: FMC_changeStreamOrientation: setvbuf failed.");
+                        FMC_makeMsg(err_setvbuf, 1, "INTERNAL ERROR: FMC_changeStreamOrientation: FMC_getOptIOBufSize failed.");
                         FMC_printRedError(stderr, err_setvbuf);
                     }
-                    FMC_setError(FMC_ERR_INTERNAL, "FMC_changeStreamOrientation: setvbuf failed.");
+                    FMC_setError(FMC_ERR_INTERNAL, "FMC_changeStreamOrientation: FMC_getOptIOBufSize failed.");
                     return failed_to_change;
                     FMC_UNREACHABLE;
                 }
-            }
-            else
-            {
-                if (FMC_getDebugState())
-                {
-                    FMC_makeMsg(err_setvbuf, 1, "INTERNAL ERROR: FMC_changeStreamOrientation: FMC_getOptIOBufSize failed.");
-                    FMC_printRedError(stderr, err_setvbuf);
-                }
-                FMC_setError(FMC_ERR_INTERNAL, "FMC_changeStreamOrientation: FMC_getOptIOBufSize failed.");
-                return failed_to_change;
-                FMC_UNREACHABLE;
             }
             return WIDE_ORIENTED;
         }
@@ -474,31 +477,34 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) unsigned int FMC_changeStreamOrientation(FILE*
                 FMC_UNREACHABLE;
             }
             // The file has been reopened : change the buffer size
-            unsigned long long opt_buff_size = FMC_getOptIOBufSize(file);
-            if (opt_buff_size > 0)
+            if (file_name)
             {
-                if (setvbuf(file, NULL, _IOFBF, opt_buff_size))
+                unsigned long long opt_buff_size = FMC_getOptIOBufSize(file_name);
+                if (opt_buff_size > 0)
+                {
+                    if (setvbuf(file, NULL, _IOFBF, opt_buff_size))
+                    {
+                        if (FMC_getDebugState())
+                        {
+                            FMC_makeMsg(err_setvbuf, 1, "INTERNAL ERROR: FMC_changeStreamOrientation: setvbuf failed.");
+                            FMC_printRedError(stderr, err_setvbuf);
+                        }
+                        FMC_setError(FMC_ERR_INTERNAL, "FMC_changeStreamOrientation: setvbuf failed.");
+                        return failed_to_change;
+                        FMC_UNREACHABLE;
+                    }
+                }
+                else
                 {
                     if (FMC_getDebugState())
                     {
-                        FMC_makeMsg(err_setvbuf, 1, "INTERNAL ERROR: FMC_changeStreamOrientation: setvbuf failed.");
+                        FMC_makeMsg(err_setvbuf, 1, "INTERNAL ERROR: FMC_changeStreamOrientation: FMC_getOptIOBufSize failed.");
                         FMC_printRedError(stderr, err_setvbuf);
                     }
-                    FMC_setError(FMC_ERR_INTERNAL, "FMC_changeStreamOrientation: setvbuf failed.");
+                    FMC_setError(FMC_ERR_INTERNAL, "FMC_changeStreamOrientation: FMC_getOptIOBufSize failed.");
                     return failed_to_change;
                     FMC_UNREACHABLE;
                 }
-            }
-            else
-            {
-                if (FMC_getDebugState())
-                {
-                    FMC_makeMsg(err_setvbuf, 1, "INTERNAL ERROR: FMC_changeStreamOrientation: FMC_getOptIOBufSize failed.");
-                    FMC_printRedError(stderr, err_setvbuf);
-                }
-                FMC_setError(FMC_ERR_INTERNAL, "FMC_changeStreamOrientation: FMC_getOptIOBufSize failed.");
-                return failed_to_change;
-                FMC_UNREACHABLE;
             }
             return BYTE_ORIENTED;
         }
@@ -533,31 +539,34 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) unsigned int FMC_changeStreamOrientation(FILE*
                 FMC_UNREACHABLE;
             }
             // The file has been reopened : change the buffer size
-            unsigned long long opt_buff_size = FMC_getOptIOBufSize(file);
-            if (opt_buff_size > 0)
+            if (file_name)
             {
-                if (setvbuf(file, NULL, _IOFBF, opt_buff_size))
+                unsigned long long opt_buff_size = FMC_getOptIOBufSize(file_name);
+                if (opt_buff_size > 0)
+                {
+                    if (setvbuf(file, NULL, _IOFBF, opt_buff_size))
+                    {
+                        if (FMC_getDebugState())
+                        {
+                            FMC_makeMsg(err_setvbuf, 1, "INTERNAL ERROR: FMC_changeStreamOrientation: setvbuf failed.");
+                            FMC_printRedError(stderr, err_setvbuf);
+                        }
+                        FMC_setError(FMC_ERR_INTERNAL, "FMC_changeStreamOrientation: setvbuf failed.");
+                        return 0;
+                        FMC_UNREACHABLE;
+                    }
+                }
+                else
                 {
                     if (FMC_getDebugState())
                     {
-                        FMC_makeMsg(err_setvbuf, 1, "INTERNAL ERROR: FMC_changeStreamOrientation: setvbuf failed.");
+                        FMC_makeMsg(err_setvbuf, 1, "INTERNAL ERROR: FMC_changeStreamOrientation: FMC_getOptIOBufSize failed.");
                         FMC_printRedError(stderr, err_setvbuf);
                     }
-                    FMC_setError(FMC_ERR_INTERNAL, "FMC_changeStreamOrientation: setvbuf failed.");
+                    FMC_setError(FMC_ERR_INTERNAL, "FMC_changeStreamOrientation: FMC_getOptIOBufSize failed.");
                     return 0;
                     FMC_UNREACHABLE;
                 }
-            }
-            else
-            {
-                if (FMC_getDebugState())
-                {
-                    FMC_makeMsg(err_setvbuf, 1, "INTERNAL ERROR: FMC_changeStreamOrientation: FMC_getOptIOBufSize failed.");
-                    FMC_printRedError(stderr, err_setvbuf);
-                }
-                FMC_setError(FMC_ERR_INTERNAL, "FMC_changeStreamOrientation: FMC_getOptIOBufSize failed.");
-                return 0;
-                FMC_UNREACHABLE;
             }
             return NOT_SET;
         }
@@ -801,7 +810,42 @@ open_file:
     }
 
     // Change the buffer size
-    unsigned long long opt_buf_size = FMC_getOptIOBufSize(file->file);
+    char full_filename[MAX_FNAME_SIZE + MAX_FEXT_SIZE + MAX_FPATH_SIZE + 1];
+    memset(full_filename, 0, sizeof(full_filename) / sizeof(char));
+    if (strcpy(full_filename, file->path) != full_filename)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_file_open, 1, "ERROR: FMC_openFile: strcpy failed.");
+            FMC_printRedError(stderr, err_file_open);
+        }
+        FMC_setError(FMC_ERR_INTERNAL, "FMC_openFile: strcpy failed.");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    if (strcat(full_filename, file->name) != full_filename)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_file_open, 1, "ERROR: FMC_openFile: strcat failed.");
+            FMC_printRedError(stderr, err_file_open);
+        }
+        FMC_setError(FMC_ERR_INTERNAL, "FMC_openFile: strcat failed.");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    if (strcat(full_filename, file->extension) != full_filename)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_file_open, 1, "ERROR: FMC_openFile: strcat failed.");
+            FMC_printRedError(stderr, err_file_open);
+        }
+        FMC_setError(FMC_ERR_INTERNAL, "FMC_openFile: strcat failed.");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    unsigned long long opt_buf_size = FMC_getOptIOBufSize(full_filename);
     if (opt_buf_size > 0)
     {
         if (setvbuf(file->file, NULL, _IOFBF, opt_buf_size) != 0)
@@ -839,9 +883,45 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_File* FMC_openFil
 {
     if(!FMC_openFile_withoutFlags(file, mode)) return NULL;
 
+    char full_filename[MAX_FNAME_SIZE + MAX_FEXT_SIZE + MAX_FPATH_SIZE + 1];
+    memset(full_filename, 0, sizeof(full_filename) / sizeof(char));
+    if (strcpy(full_filename, file->path) != full_filename)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_file_open, 1, "ERROR: FMC_openFile: strcpy failed.");
+            FMC_printRedError(stderr, err_file_open);
+        }
+        FMC_setError(FMC_ERR_INTERNAL, "FMC_openFile: strcpy failed.");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    if (strcat(full_filename, file->name) != full_filename)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_file_open, 1, "ERROR: FMC_openFile: strcat failed.");
+            FMC_printRedError(stderr, err_file_open);
+        }
+        FMC_setError(FMC_ERR_INTERNAL, "FMC_openFile: strcat failed.");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    if (strcat(full_filename, file->extension) != full_filename)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_file_open, 1, "ERROR: FMC_openFile: strcat failed.");
+            FMC_printRedError(stderr, err_file_open);
+        }
+        FMC_setError(FMC_ERR_INTERNAL, "FMC_openFile: strcat failed.");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+
     check_in user_flags for_at_least_flags(GET_ENCODING)
     {
-        if (FMC_changeStreamOrientation(file->file, "rb", BYTE_ORIENTED) != BYTE_ORIENTED)
+        if (FMC_changeStreamOrientation(file->file, "rb", BYTE_ORIENTED, full_filename) != BYTE_ORIENTED)
         {
             if (FMC_getDebugState())
             {
@@ -854,7 +934,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_File* FMC_openFil
             FMC_UNREACHABLE;
         }
         file->encoding = FMC_getEncoding(file->file);
-        if (FMC_changeStreamOrientation(file->file, file->fullMode, NOT_SET) != NOT_SET)
+        if (FMC_changeStreamOrientation(file->file, file->fullMode, NOT_SET, full_filename) != NOT_SET)
         {
             if (FMC_getDebugState())
             {
@@ -874,7 +954,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_File* FMC_openFil
         {
             check_in user_flags if_not_set(NOT_SET)
             {
-                file->orientation = (FMC_changeStreamOrientation(file->file, file->fullMode, WIDE_ORIENTED) == WIDE_ORIENTED ? wide_oriented : failed_to_change); 
+                file->orientation = (FMC_changeStreamOrientation(file->file, file->fullMode, WIDE_ORIENTED, full_filename) == WIDE_ORIENTED ? wide_oriented : failed_to_change); 
             }
             else goto error_orientation_arg1;
         }
@@ -899,7 +979,7 @@ error_orientation_arg1:
         {
             check_in user_flags if_not_set(NOT_SET)
             {
-                file->orientation = (FMC_changeStreamOrientation(file->file, file->fullMode, BYTE_ORIENTED) == BYTE_ORIENTED ? byte_oriented : failed_to_change);
+                file->orientation = (FMC_changeStreamOrientation(file->file, file->fullMode, BYTE_ORIENTED, full_filename) == BYTE_ORIENTED ? byte_oriented : failed_to_change);
             }
             else goto error_orientation_arg2;
         }
