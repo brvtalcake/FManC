@@ -33,7 +33,7 @@ extern FMC_FUNC_INLINE FMC_FUNC_NONNULL(1) void FMC_removeTrailNullChars(FMC_Str
 
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_MALLOC(mi_free) FMC_String* FMC_allocStr(FMC_Char* const* const chars, uint64_t size)
 {
-    FMC_String *str = mi_zalloc(sizeof(FMC_String));
+    FMC_String *str = mi_zalloc_small(sizeof(FMC_String));
     FMC_UNREACHABLE_ASSERT(str != NULL);
     FMC_UNREACHABLE_ASSERT(str->firstChar == NULL);
     FMC_UNREACHABLE_ASSERT(str->lastChar == NULL);
@@ -186,7 +186,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) FMC_String* FMC_append_str(FMC_String* str1, F
     {
         ch = FMC_getCharAt(str2, i);
         if (ch == NULL || ch->isNull) break;
-        last_ch->next = mi_zalloc(sizeof(FMC_Char));
+        last_ch->next = mi_zalloc_small(sizeof(FMC_Char));
         FMC_UNREACHABLE_ASSERT(last_ch->next != NULL);
         last_ch->next->prev = last_ch;
         last_ch->next->next = NULL;
@@ -198,7 +198,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) FMC_String* FMC_append_str(FMC_String* str1, F
         last_ch = last_ch->next;
     }
     // Append the null character
-    /* last_ch->next = mi_zalloc(sizeof(FMC_Char));
+    /* last_ch->next = mi_zalloc_small(sizeof(FMC_Char));
     FMC_UNREACHABLE_ASSERT(last_ch->next != NULL);
     last_ch->next->prev = last_ch;
     last_ch->next->next = NULL;
@@ -210,7 +210,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) FMC_String* FMC_append_str(FMC_String* str1, F
     str1->size += str2->size;
     if (!str1->lastChar->isNull)
     {
-        str1->lastChar->next = mi_zalloc(sizeof(FMC_Char));
+        str1->lastChar->next = mi_zalloc_small(sizeof(FMC_Char));
         FMC_UNREACHABLE_ASSERT(str1->lastChar->next != NULL);
         str1->lastChar->next->prev = str1->lastChar;
         str1->lastChar->next->next = NULL;
@@ -282,7 +282,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) FMC_String* FMC_append_ch(FMC_String* str, FMC
         str->lastChar = last_ch;
     }
     else last_ch = str->lastChar;
-    last_ch->next = mi_zalloc(sizeof(FMC_Char));
+    last_ch->next = mi_zalloc_small(sizeof(FMC_Char));
     FMC_UNREACHABLE_ASSERT(last_ch->next != NULL);
     last_ch->next->prev = last_ch;
     last_ch->next->next = NULL;
@@ -294,7 +294,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) FMC_String* FMC_append_ch(FMC_String* str, FMC
     str->size++;
     if (!str->lastChar->isNull)
     {
-        str->lastChar->next = mi_zalloc(sizeof(FMC_Char));
+        str->lastChar->next = mi_zalloc_small(sizeof(FMC_Char));
         FMC_UNREACHABLE_ASSERT(str->lastChar->next != NULL);
         str->lastChar->next->prev = str->lastChar;
         str->lastChar->next->next = NULL;

@@ -33,7 +33,7 @@ extern FMC_FUNC_INLINE FMC_FUNC_NONNULL(1) void FMC_freeChar(FMC_Char* const c);
 
 FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_MALLOC(mi_free) FMC_FUNC_WARN_UNUSED_RESULT FMC_Char* FMC_allocChar(const FMC_Byte* restrict const bytes, FMC_Encodings char_encoding, FMC_CharControl char_is_null, uint8_t byte_number)
 {
-    FMC_Char* c = mi_zalloc(sizeof(FMC_Char));
+    FMC_Char* c = mi_zalloc_small(sizeof(FMC_Char));
     FMC_UNREACHABLE_ASSERT(c != NULL);
     FMC_UNREACHABLE_ASSERT(c->next == NULL);
     FMC_UNREACHABLE_ASSERT(c->prev == NULL);
@@ -159,7 +159,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_MALLOC(mi_free) FMC_FUNC_WARN_UNUSED_RES
             FMC_UNREACHABLE;
     }
     c->isNull = char_is_null;
-    // Assert that everything is already zeroed-out by mi_zalloc
+    // Assert that everything is already zeroed-out by mi_zalloc_small
     FMC_UNREACHABLE_ASSERT(c->comp.byte1 == 0);
     FMC_UNREACHABLE_ASSERT(c->comp.byte2 == 0);
     FMC_UNREACHABLE_ASSERT(c->comp.byte3 == 0);
