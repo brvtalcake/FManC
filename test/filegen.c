@@ -27,8 +27,8 @@ int main(int argc, char const *argv[])
     }
 
     fputc('\0', file1);
-    fputc('\xc3', file2);
-    fputc('\xa9', file2);
+    fputc(0xc3, file2);
+    fputc(0xa9, file2);
     fputc('\0', file2);
 
     fclose(file1);
