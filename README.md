@@ -48,6 +48,7 @@ If you want to download a PDF documentation, it's [here](https://github.com/brvt
 - [x] Rewrite part of the filesystem API in pure C
 - [x] Update these files due to the above TODO : FMC_macros.h, FMC_platform.h, Makefile, (... ?)
 - [ ] Make more issue / pull request templates
+- [ ] Globally change all the \_\_attribute\_\_((malloc(free_func))) to only \_\_attribute\_\_((malloc))
 - [ ] Documenting, as I'm starting to do with Doxygen
 - [x] Wrap decls with FMC_BEGING_DECLS / FMC_END_DECLS
 - [ ] Print error message when trying to use the C++ wrapped functions in C++, since it's better to simply use the standard functions (or maybe use GCC's visibility attribute)

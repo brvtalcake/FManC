@@ -144,7 +144,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_String* FMC_slurp
         return NULL;
         FMC_UNREACHABLE;
     }
-    
+
     // Possible encodings :
     // utf8     = 1,
 	// utf8_bom = 2,
@@ -1134,7 +1134,8 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_String* FMC_slurp
             FMC_UNREACHABLE;
     }
 
-    if (ferror(file->file))
+    rewind(file->file);
+    if (ferror(file->file) || feof(file->file))
     {
         if (FMC_getDebugState())
         {
