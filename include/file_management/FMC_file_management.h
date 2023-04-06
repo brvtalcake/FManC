@@ -41,6 +41,7 @@ SOFTWARE.
 
 #include "sys/FMC_sys.h"
 #include "filesystem/FMC_filesystem.h"
+#include "io/FMC_io.h"
 
 
 #endif // FMC_FILE_MANAGEMENT_H

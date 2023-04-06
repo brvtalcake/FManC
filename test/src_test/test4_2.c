@@ -45,7 +45,7 @@ void test_FMC_FileAPI()
     FILE* FILE_file = fopen("./test.txt", "rb");
     assert(FILE_file != NULL);
     assert(fwide(FILE_file, 0) == 0);
-    assert(FMC_changeStreamOrientation(FILE_file,"rb", BYTE_ORIENTED) == BYTE_ORIENTED);
+    assert(FMC_changeStreamOrientation(FILE_file,"rb", BYTE_ORIENTED, "./test.txt") == BYTE_ORIENTED);
     assert(fwide(FILE_file, 0) < 0);
     fclose(FILE_file);
 

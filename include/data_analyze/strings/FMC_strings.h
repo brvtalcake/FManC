@@ -57,7 +57,9 @@ FMC_BEGIN_DECLS
         _ch.isNull = FMC_TRUE;       \
     } while (0)
 
-FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_MALLOC(mi_free) FMC_String* FMC_allocStr(FMC_Char* const* chars, uint64_t size);
+FMC_SHARED FMC_FUNC_NONNULL(1) void FMC_freeStr(FMC_String* str);
+
+FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_MALLOC(FMC_freeStr) FMC_String* FMC_allocStr(FMC_Char* const* const chars, uint64_t size);
 FMC_SHARED FMC_FUNC_NONNULL(1) FMC_Char* FMC_getCharAt(FMC_String* str, uint64_t index);
 FMC_SHARED FMC_FUNC_NONNULL(1, 2) FMC_String* FMC_append_str(FMC_String* str1, FMC_String* str2);
 FMC_SHARED FMC_FUNC_NONNULL(1, 2) FMC_String* FMC_append_ch(FMC_String* str, FMC_Char* ch);
@@ -71,38 +73,6 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_String* FMC_cloneStr(FMC_String* str);
     FMC_Char*: FMC_append_ch,                      \
     default: FMC_append_str                        \
 )(_str1, _str2)
-
-FMC_FUNC_INLINE FMC_FUNC_NONNULL(1) void FMC_freeStr(FMC_String* str)
-{
-    #pragma GCC diagnostic ignored "-Wnonnull-compare"
-    if (!str)
-    {
-        if (FMC_getDebugState())
-        {
-            FMC_makeMsg(err_nullarg, 3, "ERROR : In function : ", __func__, " : the provided pointer is NULL");
-            FMC_printRedError(stderr, err_nullarg);
-        }
-        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "In function : FMC_freeStr : the provided pointer is NULL");
-        return;
-        FMC_UNREACHABLE;
-    }
-    #pragma GCC diagnostic pop
-    FMC_Char* ch = NULL;
-    goto jmp_loop; // To avoid a NULL pointer dereference
-    while (ch != str->lastChar)
-    {
-jmp_loop:
-        ch = str->firstChar;
-        if (ch == NULL) goto free_str;
-        str->firstChar = ch->next;
-        str->size--;
-        mi_free(ch);
-    }
-free_str:
-    mi_free(str);
-    return;
-    FMC_UNREACHABLE;
-}
 
 FMC_FUNC_INLINE FMC_FUNC_NONNULL(1) FMC_Bool FMC_checkEncoding(const FMC_String* const str)
 {
@@ -165,27 +135,9 @@ FMC_FUNC_INLINE FMC_FUNC_NONNULL(1) void FMC_removeTrailNullChars(FMC_String* co
     FMC_UNREACHABLE;
 }
 
-FMC_SHARED FMC_FUNC_NONNULL(2) FMC_FUNC_MALLOC(mi_free) FMC_FUNC_WARN_UNUSED_RESULT FMC_Char* FMC_allocChar(FMC_Char* prev, const FMC_Byte* restrict const bytes, FMC_Encodings char_encoding, FMC_CharControl char_is_null, uint8_t byte_number);
+FMC_SHARED FMC_FUNC_NONNULL(1) void FMC_freeChar(FMC_Char* const c);
 
-FMC_FUNC_INLINE FMC_FUNC_NONNULL(1) void FMC_freeChar(FMC_Char* const c)
-{
-    #pragma GCC diagnostic ignored "-Wnonnull-compare"
-    if (c == NULL)
-    {
-        if (FMC_getDebugState())
-        {
-            FMC_makeMsg(err_nullarg, 3, "ERROR : In function : ", __func__, " : the provided file pointer is NULL");
-            FMC_printRedError(stderr, err_nullarg);
-        }
-        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "The provided pointer is NULL");
-        return;
-        FMC_UNREACHABLE;
-    }
-    #pragma GCC diagnostic pop
-    mi_free(c);
-    return;
-    FMC_UNREACHABLE;
-}
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_JUST_MALLOC FMC_FUNC_WARN_UNUSED_RESULT FMC_Char* FMC_allocChar(const FMC_Byte* restrict const bytes, FMC_Encodings char_encoding, FMC_CharControl char_is_null, uint8_t byte_number);
 
 FMC_END_DECLS
 

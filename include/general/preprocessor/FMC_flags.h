@@ -55,14 +55,14 @@ SOFTWARE.
     #undef UNKNOWN
 #endif
 #define FMC_ENCODING_FLAGS
-#define UTF8 1U
-#define UTF8_BOM 2U
-#define UTF16_LE 4U
-#define UTF16_BE 8U
-#define UTF32_LE 16U
-#define UTF32_BE 32U
-#define ASCII 64U
-#define UNKNOWN 128U
+#define UTF8 (1U)
+#define UTF8_BOM (2U)
+#define UTF16_LE (4U)
+#define UTF16_BE (8U)
+#define UTF32_LE (16U)
+#define UTF32_BE (32U)
+#define ASCII (64U)
+#define UNKNOWN (128U)
 
 #if defined(FMC_C_STR_VIEW) || defined(C_STR) || defined(FMC_C_STR_VIEW_PTR) || defined(C_STR_PTR)
     #undef FMC_C_STR_VIEW_PTR
@@ -70,10 +70,10 @@ SOFTWARE.
     #undef C_STR
     #undef FMC_C_STR_VIEW
 #endif // FMC_CSTR || C_STR || FMC_C_STR_VIEW_PTR || C_STR_PTR
-#define FMC_C_STR_VIEW 1U
-#define C_STR 2U
-#define FMC_C_STR_VIEW_PTR 4U
-#define C_STR_PTR 8U
+#define FMC_C_STR_VIEW (1U)
+#define C_STR (2U)
+#define FMC_C_STR_VIEW_PTR (4U)
+#define C_STR_PTR (8U)
 
 #if defined(FMC_FILE_FLAGS) || defined(TO_OPEN) || defined(GET_ENCODING) || defined(GET_SIZE) || defined(BINARY_MODE) || defined(TEXT_MODE) || defined(BYTE_ORIENTED) || defined(WIDE_ORIENTED) || defined(NOT_SET)
     #undef FMC_FILE_FLAGS
@@ -87,14 +87,14 @@ SOFTWARE.
     #undef NOT_SET
 #endif // FMC_FILE_FLAGS || TO_OPEN || GET_ENCODING || GET_SIZE || BINARY_MODE || TEXT_MODE || BYTE_ORIENTED || WIDE_ORIENTED || NOT_SET
 #define FMC_FILE_FLAGS
-#define TO_OPEN 16U
-#define GET_ENCODING 32U
-#define GET_SIZE 64U
-#define BINARY_MODE 128U
-#define TEXT_MODE 256U
-#define BYTE_ORIENTED 512U
-#define WIDE_ORIENTED 1024U
-#define NOT_SET 2048U
+#define TO_OPEN (16U)
+#define GET_ENCODING (32U)
+#define GET_SIZE (64U)
+#define BINARY_MODE (128U)
+#define TEXT_MODE (256U)
+#define BYTE_ORIENTED (512U)
+#define WIDE_ORIENTED (1024U)
+#define NOT_SET (2048U)
 
 #if defined(RM_DIR_RECURSIVE) || defined(RM_DIR_ONLY_CONTENT) || defined(RM_DIR_ONLY_SUBDIRS) || defined(RM_DIR_ONLY_FILES) || defined(CONFIRMATION) || defined(NO_CONFIRMATION)
     #undef RM_DIR_RECURSIVE
@@ -104,11 +104,11 @@ SOFTWARE.
     #undef CONFIRMATION
     #undef NO_CONFIRMATION
 #endif // RM_DIR_RECURSIVE || RM_DIR_ONLY_CONTENT || RM_DIR_ONLY_SUBDIRS || RM_DIR_ONLY_FILES || CONFIRMATION || NO_CONFIRMATION
-#define RM_DIR_RECURSIVE 1U
-#define RM_DIR_ONLY_CONTENT 2U
-#define RM_DIR_ONLY_SUBDIRS 4U
-#define RM_DIR_ONLY_FILES 8U
-#define CONFIRMATION 16U
-#define NO_CONFIRMATION 32U
+#define RM_DIR_RECURSIVE (1U)
+#define RM_DIR_ONLY_CONTENT (2U)
+#define RM_DIR_ONLY_SUBDIRS (4U)
+#define RM_DIR_ONLY_FILES (8U)
+#define CONFIRMATION (16U)
+#define NO_CONFIRMATION (32U)
 
 #endif // FMC_FLAGS_H

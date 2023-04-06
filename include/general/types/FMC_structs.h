@@ -77,16 +77,16 @@ FMC_SHARED struct FManC_File
     FMC_Encodings encoding;
     enum FMC_File_orientation
     {
-        not_set = 0,
-        wide_oriented,
-        byte_oriented,
-        failed_to_change,
+        failed_to_change = 1,
+        not_set          = 2,
+        byte_oriented    = 512,    // To stick to the corresponding flags in FMC_flags.h
+        wide_oriented    = 1024,   // To stick to the corresponding flags in FMC_flags.h
     } orientation;
     enum FMC_File_dataMode
     {
-        undefined = 0,
-        binary,
-        text,
+        undefined = 1,
+        binary    = 128,   // To stick to the corresponding flags in FMC_flags.h
+        text      = 256,   // To stick to the corresponding flags in FMC_flags.h
     } dataMode;
     FMC_FileState isOpened;
     char path[MAX_FPATH_SIZE];

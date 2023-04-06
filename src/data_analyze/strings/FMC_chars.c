@@ -29,14 +29,30 @@ SOFTWARE.
 
 #include "FMC_strings.h"
 
-extern FMC_FUNC_INLINE FMC_FUNC_NONNULL(1) void FMC_freeChar(FMC_Char* const c);
-
-FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_MALLOC(mi_free) FMC_FUNC_WARN_UNUSED_RESULT FMC_Char* FMC_allocChar(const FMC_Byte* restrict const bytes, FMC_Encodings char_encoding, FMC_CharControl char_is_null, uint8_t byte_number)
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_JUST_MALLOC FMC_FUNC_WARN_UNUSED_RESULT FMC_Char* FMC_allocChar(const FMC_Byte* restrict const bytes, FMC_Encodings char_encoding, FMC_CharControl char_is_null, uint8_t byte_number)
 {
     FMC_Char* c = mi_zalloc_small(sizeof(FMC_Char));
-    FMC_UNREACHABLE_ASSERT(c != NULL);
-    FMC_UNREACHABLE_ASSERT(c->next == NULL);
-    FMC_UNREACHABLE_ASSERT(c->prev == NULL);
+    #pragma GCC diagnostic ignored "-Wunsuffixed-float-constants"
+    if (FMC_PROB((c == NULL), 0.001))
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_alloc, 3, "ERROR : In function : ", __func__, " : failed to allocate memory for a new FMC_Char");
+            FMC_printRedError(stderr, err_alloc);
+        }
+        FMC_setError(FMC_ERR_INTERNAL, "Failed to allocate memory for a new FMC_Char");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    if (FMC_PROB((c->next != NULL || c->prev != NULL), 0.001))
+    {
+        c->next = NULL;
+        c->prev = NULL;
+    }
+    #pragma GCC diagnostic pop
+    FMC_STMT_ASSUME(c != NULL);
+    FMC_STMT_ASSUME(c->next == NULL);
+    FMC_STMT_ASSUME(c->prev == NULL);
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
     if (bytes == NULL)
     {
@@ -174,6 +190,26 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_MALLOC(mi_free) FMC_FUNC_WARN_UNUSED_RES
     }
 
     return c;
+}
+
+FMC_SHARED FMC_FUNC_NONNULL(1) void FMC_freeChar(FMC_Char* const c)
+{
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (c == NULL)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_nullarg, 3, "ERROR : In function : ", __func__, " : the provided file pointer is NULL");
+            FMC_printRedError(stderr, err_nullarg);
+        }
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "The provided pointer is NULL");
+        return;
+        FMC_UNREACHABLE;
+    }
+    #pragma GCC diagnostic pop
+    mi_free(c);
+    return;
+    FMC_UNREACHABLE;
 }
 
 /* FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char FMC_getChar(FMC_File *file)

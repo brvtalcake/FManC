@@ -31,7 +31,7 @@ SOFTWARE.
 extern FMC_FUNC_INLINE FMC_Bool FMC_checkEncoding(const FMC_String* const str);
 extern FMC_FUNC_INLINE FMC_FUNC_NONNULL(1) void FMC_removeTrailNullChars(FMC_String* const str);
 
-FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_MALLOC(mi_free) FMC_String* FMC_allocStr(FMC_Char* const* const chars, uint64_t size)
+FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_MALLOC(FMC_freeStr) FMC_String* FMC_allocStr(FMC_Char* const* const chars, uint64_t size)
 {
     FMC_String *str = mi_zalloc_small(sizeof(FMC_String));
     FMC_UNREACHABLE_ASSERT(str != NULL);
@@ -82,7 +82,37 @@ end:
     FMC_UNREACHABLE;
 }
 
-extern FMC_FUNC_INLINE FMC_FUNC_NONNULL(1) void FMC_freeStr(FMC_String* str);
+FMC_SHARED FMC_FUNC_NONNULL(1) void FMC_freeStr(FMC_String* str)
+{
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (!str)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_nullarg, 3, "ERROR : In function : ", __func__, " : the provided pointer is NULL");
+            FMC_printRedError(stderr, err_nullarg);
+        }
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "In function : FMC_freeStr : the provided pointer is NULL");
+        return;
+        FMC_UNREACHABLE;
+    }
+    #pragma GCC diagnostic pop
+    FMC_Char* ch = NULL;
+    goto jmp_loop; // To avoid a NULL pointer dereference
+    while (ch != str->lastChar)
+    {
+jmp_loop:
+        ch = str->firstChar;
+        if (ch == NULL) goto free_str;
+        str->firstChar = ch->next;
+        str->size--;
+        mi_free(ch);
+    }
+free_str:
+    mi_free(str);
+    return;
+    FMC_UNREACHABLE;
+}
 
 FMC_SHARED FMC_FUNC_NONNULL(1) FMC_Char* FMC_getCharAt(FMC_String* str, uint64_t index)
 {

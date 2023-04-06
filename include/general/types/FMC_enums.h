@@ -53,6 +53,7 @@ FMC_SHARED enum FManC_Error
 	FMC_ERR_INVALID_ARGUMENT        = 5,
 	FMC_ERR_FILE			  		= 6,
 	FMC_ERR_ENC			  			= 7,
+	FMC_ERR_IO			  			= 8,
 };
 typedef enum FManC_Error FMC_Error;
 

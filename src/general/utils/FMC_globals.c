@@ -37,6 +37,7 @@ static const char FMC_ERROR_STR[FMC_ERR_STR_COUNT][FMC_ERR_STR_LEN / 2] =
     "Invalid argument. "                                                    ,  // FMC_ERR_INVALID_ARGUMENT
     "The provided FMC_File pointer is inconsistent. "                       ,  // FMC_ERR_FILE
     "The encoded character or string is inconsistent. "                     ,  // FMC_ERR_ENC
+    "A FILE I/O error occured. "                                            ,  // FMC_ERR_IO
 };
 
 #ifndef __STDC_NO_ATOMICS__

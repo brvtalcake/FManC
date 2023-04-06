@@ -340,8 +340,8 @@ __VA_ARGS__))))
 #define LOOP_TO_THE_END ML99_nothing()
 #define LOOP_WHILE(x) ML99_just(v(x))
 #define foreach_counter(lines_after_foreach) FMC_CONCAT_2(base_index, FMC_DECR_BY(__LINE__, lines_after_foreach))
-#define foreach_stop_cond(x) ML99_EVAL(ML99_EVAL(ML99_call(ML99_if, ML99_isNothing(x), v(ML99_id(ML99_id(v(foreach_counter(0) < sizeof(array)/sizeof(array[0]))))), v(ML99_maybeUnwrap(x)))))
-#define foreach(elem, array, start, stop_index_cond) size_t foreach_counter(0) = start; for(typeof(array[foreach_counter(0)]) elem = array[foreach_counter(0)]; foreach_stop_cond(stop_index_cond) ; foreach_counter(0)++, elem = array[foreach_counter(0)])
+#define foreach_stop_cond(x, array) ML99_EVAL(ML99_EVAL(ML99_call(ML99_if, ML99_isNothing(x), v(ML99_id(ML99_id(v(foreach_counter(0) < sizeof(array)/sizeof(array[0]))))), v(ML99_maybeUnwrap(x)))))
+#define foreach(elem, array, start, stop_index_cond) size_t foreach_counter(0) = start; for(typeof(array[foreach_counter(0)]) elem = array[foreach_counter(0)]; foreach_stop_cond(stop_index_cond, array) ; foreach_counter(0)++, elem = array[foreach_counter(0)])
 
 #if defined(FMC_MAKE_UI8) || defined(FMC_MAKE_UI16) || defined(FMC_MAKE_UI32) || defined(FMC_MAKE_UI64) || defined(FMC_MAKE_I8) || defined(FMC_MAKE_I16) || defined(FMC_MAKE_I32) || defined(FMC_MAKE_I64) 
     #undef FMC_MAKE_UI8
@@ -410,14 +410,25 @@ __VA_ARGS__))))
 #endif
 #define FMC_OPT(...) , __VA_ARGS__
 
-#ifndef FMC_alloca
-    #define FMC_alloca(size) __builtin_alloca(size)
+#ifdef FMC_alloca
+    #undef FMC_alloca
 #endif
+#define FMC_alloca(size) __builtin_alloca(size)
+
 
 #ifdef FMC_bitSwap
     #undef FMC_bitSwap
 #endif
 #define FMC_bitSwap(width, to_swap) FMC_CONCAT(__builtin_bswap, width)(to_swap)
+
+#if defined(FMC_Byte_leadingZeros) || defined(FMC_Byte_trailingZeros) || defined(FMC_Byte_popCount)
+    #undef FMC_Byte_leadingZeros
+    #undef FMC_Byte_trailingZeros
+    #undef FMC_Byte_popCount
+#endif
+#define FMC_Byte_leadingZeros(x) (__builtin_clz((unsigned int) x) - 24) // because FMC_Byte is 8 bits
+#define FMC_Byte_trailingZeros(x) (__builtin_ctz((unsigned int) x) - 24) // because FMC_Byte is 8 bits
+#define FMC_Byte_popCount(x) (__builtin_popcount((unsigned int) x) - 24) // because FMC_Byte is 8 bits
 
 #if defined(FMC_objSize) || defined(FMC_dynObjSize) || defined(FMC_prefetch) || defined(FMC_arrSize)
     #undef FMC_objSize
@@ -616,6 +627,15 @@ __VA_ARGS__))))
                 "FATAL ERROR : could not destroy mutex attribute for error stack.");            \
             exit(EXIT_FAILURE);                                                                 \
         }
+
+#if defined(FMC_ADD_OVERFLOW) || defined(FMC_SUB_OVERFLOW) || defined(FMC_MUL_OVERFLOW)
+    #undef FMC_ADD_OVERFLOW
+    #undef FMC_SUB_OVERFLOW
+    #undef FMC_MUL_OVERFLOW
+#endif
+#define FMC_ADD_OVERFLOW(a, b, res) __builtin_add_overflow(a, b, res)
+#define FMC_SUB_OVERFLOW(a, b, res) __builtin_sub_overflow(a, b, res)
+#define FMC_MUL_OVERFLOW(a, b, res) __builtin_mul_overflow(a, b, res)
 
 #endif // ERR_STACK_MUTEX_MACROS
 

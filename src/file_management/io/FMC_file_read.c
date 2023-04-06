@@ -144,7 +144,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_String* FMC_slurp
         return NULL;
         FMC_UNREACHABLE;
     }
-    FMC_Bool enc_has_bom = (file->encoding == utf8_bom || file->encoding == utf16_le || file->encoding == utf16_be || file->encoding == utf32_le || file->encoding == utf32_be);
+    
     // Possible encodings :
     // utf8     = 1,
 	// utf8_bom = 2,
@@ -219,7 +219,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_String* FMC_slurp
                             return NULL;
                             FMC_UNREACHABLE;
                         }
-                        if (!(str = FMC_append(str, new_char)))
+                        if (!FMC_append(str, new_char))
                         {
                             if (FMC_getDebugState())
                             {
@@ -227,9 +227,14 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_String* FMC_slurp
                                 FMC_printRedError(stderr, err_int);
                             }
                             FMC_setError(FMC_ERR_INTERNAL, "FMC_append failed");
+                            FMC_freeStr(str);
+                            FMC_freeChar(new_char);
                             return NULL;
                             FMC_UNREACHABLE;
                         }
+
+                        // Free the char because FMC_append makes a copy
+                        FMC_freeChar(new_char); 
                     }
                     break;
 
@@ -237,7 +242,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_String* FMC_slurp
                     {
                         FMC_UNREACHABLE_ASSERT(ch >> 5 == 6);
                         FMC_STMT_ASSUME(ch >> 5 == 6);
-                        bytes[0] = (FMC_Byte)ch & 0xFF;
+                        bytes[1] = (FMC_Byte)ch & 0xFF;
                         if ((ch = fgetc(file->file)) == EOF)
                         {
                             if (FMC_getDebugState())
@@ -263,7 +268,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_String* FMC_slurp
                             FMC_UNREACHABLE;
                         }
                         FMC_UNREACHABLE_ASSERT(ch >> 6 == 2);
-                        bytes[1] = (FMC_Byte)ch & 0xFF;
+                        bytes[0] = (FMC_Byte)ch & 0xFF;
                         FMC_Char* new_char = FMC_allocChar(bytes, utf8, FMC_FALSE, 2);
                         if (!new_char)
                         {
@@ -277,7 +282,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_String* FMC_slurp
                             return NULL;
                             FMC_UNREACHABLE;
                         }
-                        if (!(str = FMC_append(str, new_char)))
+                        if (!FMC_append(str, new_char))
                         {
                             if (FMC_getDebugState())
                             {
@@ -285,9 +290,14 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_String* FMC_slurp
                                 FMC_printRedError(stderr, err_int);
                             }
                             FMC_setError(FMC_ERR_INTERNAL, "FMC_append failed");
+                            FMC_freeStr(str);
+                            FMC_freeChar(new_char);
                             return NULL;
                             FMC_UNREACHABLE;
                         }
+
+                        // Free the char because FMC_append makes a copy
+                        FMC_freeChar(new_char); 
                     }
                     break;
 
@@ -295,7 +305,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_String* FMC_slurp
                     {
                         FMC_UNREACHABLE_ASSERT(ch >> 4 == 14);
                         FMC_STMT_ASSUME(ch >> 4 == 14);
-                        bytes[0] = (FMC_Byte)ch & 0xFF;
+                        bytes[2] = (FMC_Byte)ch & 0xFF;
                         for (uint8_t i = 1; i < 3; i++)
                         {
                             if ((ch = fgetc(file->file)) == EOF)
@@ -323,7 +333,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_String* FMC_slurp
                                 FMC_UNREACHABLE;
                             }
                             FMC_UNREACHABLE_ASSERT(ch >> 6 == 2);
-                            bytes[i] = (FMC_Byte)ch & 0xFF;
+                            bytes[2 - i] = (FMC_Byte)ch & 0xFF;
                         }
                         FMC_Char* new_char = FMC_allocChar(bytes, utf8, FMC_FALSE, 3);
                         if (!new_char)
@@ -338,7 +348,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_String* FMC_slurp
                             return NULL;
                             FMC_UNREACHABLE;
                         }
-                        if (!(str = FMC_append(str, new_char)))
+                        if (!FMC_append(str, new_char))
                         {
                             if (FMC_getDebugState())
                             {
@@ -347,8 +357,13 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_String* FMC_slurp
                             }
                             FMC_setError(FMC_ERR_INTERNAL, "FMC_append failed");
                             return NULL;
+                            FMC_freeStr(str);
+                            FMC_freeChar(new_char);
                             FMC_UNREACHABLE;
                         }
+
+                        // Free the char because FMC_append makes a copy
+                        FMC_freeChar(new_char); 
                     }
                     break;
 
@@ -356,7 +371,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_String* FMC_slurp
                     {
                         FMC_UNREACHABLE_ASSERT(ch >> 3 == 30);
                         FMC_STMT_ASSUME(ch >> 3 == 30);
-                        bytes[0] = (FMC_Byte)ch & 0xFF;
+                        bytes[3] = (FMC_Byte)ch & 0xFF;
                         for (uint8_t i = 1; i < 4; i++)
                         {
                             if ((ch = fgetc(file->file)) == EOF)
@@ -384,7 +399,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_String* FMC_slurp
                                 FMC_UNREACHABLE;
                             }
                             FMC_UNREACHABLE_ASSERT(ch >> 6 == 2);
-                            bytes[i] = (FMC_Byte)ch & 0xFF;
+                            bytes[3 - i] = (FMC_Byte)ch & 0xFF;
                         }
                         FMC_Char* new_char = FMC_allocChar(bytes, utf8, FMC_FALSE, 4);
                         if (!new_char)
@@ -399,7 +414,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_String* FMC_slurp
                             return NULL;
                             FMC_UNREACHABLE;
                         }
-                        if (!(str = FMC_append(str, new_char)))
+                        if (!FMC_append(str, new_char))
                         {
                             if (FMC_getDebugState())
                             {
@@ -408,8 +423,13 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_String* FMC_slurp
                             }
                             FMC_setError(FMC_ERR_INTERNAL, "FMC_append failed");
                             return NULL;
+                            FMC_freeStr(str);
+                            FMC_freeChar(new_char);
                             FMC_UNREACHABLE;
                         }
+
+                        // Free the char because FMC_append makes a copy
+                        FMC_freeChar(new_char); 
                     }
                     break;
 
@@ -420,60 +440,685 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_String* FMC_slurp
                             FMC_printRedError(stderr, err_int);
                         }
                         FMC_setError(FMC_ERR_ENC, "An invalid UTF-8 character was encountered");
+                        FMC_freeStr(str);
                         return NULL;
                         FMC_UNREACHABLE;
                 }
-                
+
+                  
             }
         }
         break;
 
         case utf16_le:
         {
-            FMC_Byte bytes[4];
+            // Skip the BOM
+            if (fseek(file->file, 2, SEEK_SET) != 0)
+            {
+                if (FMC_getDebugState())
+                {
+                    FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": fseek failed");
+                    FMC_printRedError(stderr, err_int);
+                }
+                FMC_setError(FMC_ERR_INTERNAL, "fseek failed");
+                return NULL;
+                FMC_UNREACHABLE;
+            }
+
             while ((ch = fgetc(file->file)) != EOF)
             {
+                if (ch < 0 || ch > 255)
+                {
+                    if (FMC_getDebugState())
+                    {
+                        FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": fgetc returned a value out of range");
+                        FMC_printRedError(stderr, err_int);
+                    }
+                    FMC_setError(FMC_ERR_INTERNAL, "fgetc returned a value out of range");
+                    FMC_freeStr(str);
+                    return NULL;
+                    FMC_UNREACHABLE;
+                }
+                // Get a second byte and see if it's a surrogate
+                int ch2 = fgetc(file->file);
+                if (ch2 == EOF)
+                {
+                    if (FMC_getDebugState())
+                    {
+                        FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": fgetc returned EOF while reading a 2-byte character");
+                        FMC_printRedError(stderr, err_int);
+                    }
+                    FMC_setError(FMC_ERR_ENC, "fgetc returned EOF while reading a 2-byte character");
+                    FMC_freeStr(str);
+                    return NULL;
+                    FMC_UNREACHABLE;
+                }
+                if (ch2 < 0 || ch2 > 255)
+                {
+                    if (FMC_getDebugState())
+                    {
+                        FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": fgetc returned a value out of range");
+                        FMC_printRedError(stderr, err_int);
+                    }
+                    FMC_setError(FMC_ERR_INTERNAL, "fgetc returned a value out of range");
+                    FMC_freeStr(str);
+                    return NULL;
+                    FMC_UNREACHABLE;
+                }
 
+                FMC_UNREACHABLE_ASSERT(ch >= 0 && ch <= 255 && ch2 >= 0 && ch2 <= 255);
+                FMC_STMT_ASSUME(ch >= 0 && ch <= 255 && ch2 >= 0 && ch2 <= 255);
+
+                FMC_Byte bytes[4] = {0};
+                // These are the first two bytes of the character ("at the right" when we read them)
+                uint16_t first_two_read_bytes = (uint16_t)((ch << 8) | ch2); // Little endian but with words of 16 bits, so no need to swap
+                FMC_Bool is_surrogate = (first_two_read_bytes >= 0xD800 && first_two_read_bytes <= 0xDFFF);
+                if (!is_surrogate)
+                {
+                    // It's a normal character
+                    bytes[1] = (FMC_Byte)ch;
+                    bytes[0] = (FMC_Byte)ch2;
+                    FMC_Char* new_char = FMC_allocChar(bytes, utf16_le,
+                                                       first_two_read_bytes == 0 ? FMC_TRUE : FMC_FALSE,
+                                                       2);
+                    if (!new_char)
+                    {
+                        if (FMC_getDebugState())
+                        {
+                            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": FMC_allocChar failed");
+                            FMC_printRedError(stderr, err_int);
+                        }
+                        FMC_setError(FMC_ERR_INTERNAL, "FMC_allocChar failed");
+                        FMC_freeStr(str);
+                        return NULL;
+                        FMC_UNREACHABLE;
+                    }
+                    if (!FMC_append(str, new_char))
+                    {
+                        if (FMC_getDebugState())
+                        {
+                            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": FMC_append failed");
+                            FMC_printRedError(stderr, err_int);
+                        }
+                        FMC_setError(FMC_ERR_INTERNAL, "FMC_append failed");
+                        return NULL;
+                        FMC_freeStr(str);
+                        FMC_freeChar(new_char);
+                        FMC_UNREACHABLE;
+                    }
+                    FMC_freeChar(new_char);
+                }
+                else
+                {
+                    // It's a surrogate
+                    // Get the next two bytes
+                    int ch3 = fgetc(file->file);
+                    if (ch3 == EOF)
+                    {
+                        if (FMC_getDebugState())
+                        {
+                            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": fgetc returned EOF while reading a 4-byte character");
+                            FMC_printRedError(stderr, err_int);
+                        }
+                        FMC_setError(FMC_ERR_ENC, "fgetc returned EOF while reading a 4-byte character");
+                        FMC_freeStr(str);
+                        return NULL;
+                        FMC_UNREACHABLE;
+                    }
+                    if (ch3 < 0 || ch3 > 255)
+                    {
+                        if (FMC_getDebugState())
+                        {
+                            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": fgetc returned a value out of range");
+                            FMC_printRedError(stderr, err_int);
+                        }
+                        FMC_setError(FMC_ERR_INTERNAL, "fgetc returned a value out of range");
+                        FMC_freeStr(str);
+                        return NULL;
+                        FMC_UNREACHABLE;
+                    }
+                    int ch4 = fgetc(file->file);
+                    if (ch4 == EOF)
+                    {
+                        if (FMC_getDebugState())
+                        {
+                            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": fgetc returned EOF while reading a 4-byte character");
+                            FMC_printRedError(stderr, err_int);
+                        }
+                        FMC_setError(FMC_ERR_ENC, "fgetc returned EOF while reading a 4-byte character");
+                        FMC_freeStr(str);
+                        return NULL;
+                        FMC_UNREACHABLE;
+                    }
+                    if (ch4 < 0 || ch4 > 255)
+                    {
+                        if (FMC_getDebugState())
+                        {
+                            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": fgetc returned a value out of range");
+                            FMC_printRedError(stderr, err_int);
+                        }
+                        FMC_setError(FMC_ERR_INTERNAL, "fgetc returned a value out of range");
+                        FMC_freeStr(str);
+                        return NULL;
+                        FMC_UNREACHABLE;
+                    }
+
+                    FMC_UNREACHABLE_ASSERT(ch3 >= 0 && ch3 <= 255 && ch4 >= 0 && ch4 <= 255);
+                    FMC_STMT_ASSUME(ch3 >= 0 && ch3 <= 255 && ch4 >= 0 && ch4 <= 255);
+
+                    // These are the last two bytes of the character ("at the left" when we read them)
+                    uint16_t last_two_read_bytes = (uint16_t)((ch3 << 8) | ch4); // Little endian but with words of 16 bits, so no need to swap
+                    FMC_Bool is_valid_surrogate = (last_two_read_bytes >= 0xDC00 && last_two_read_bytes <= 0xDFFF);
+                    if (!is_valid_surrogate)
+                    {
+                        if (FMC_getDebugState())
+                        {
+                            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": fgetc returned a value out of range");
+                            FMC_printRedError(stderr, err_int);
+                        }
+                        FMC_setError(FMC_ERR_ENC, "fgetc returned a value out of range");
+                        FMC_freeStr(str);
+                        return NULL;
+                        FMC_UNREACHABLE;
+                    }
+
+                    // We have a valid surrogate pair
+                    bytes[3] = (FMC_Byte)ch;
+                    bytes[2] = (FMC_Byte)ch2;
+                    bytes[1] = (FMC_Byte)ch3;
+                    bytes[0] = (FMC_Byte)ch4;
+                    FMC_Char* new_char = FMC_allocChar(bytes, utf16_le, FMC_FALSE, 4);
+                    if (!new_char)
+                    {
+                        if (FMC_getDebugState())
+                        {
+                            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": FMC_allocChar failed");
+                            FMC_printRedError(stderr, err_int);
+                        }
+                        FMC_setError(FMC_ERR_INTERNAL, "FMC_allocChar failed");
+                        FMC_freeStr(str);
+                        return NULL;
+                        FMC_UNREACHABLE;
+                    }
+                    if (!FMC_append(str, new_char))
+                    {
+                        if (FMC_getDebugState())
+                        {
+                            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": FMC_append failed");
+                            FMC_printRedError(stderr, err_int);
+                        }
+                        FMC_setError(FMC_ERR_INTERNAL, "FMC_append failed");
+                        FMC_freeStr(str);
+                        FMC_freeChar(new_char);
+                        return NULL;
+                        FMC_UNREACHABLE;
+                    }
+
+                    // We have to free the character because FMC_append makes a copy of it
+                    FMC_freeChar(new_char);
+                }
             }
         }
         break;
 
         case utf16_be:
         {
-            FMC_Byte bytes[4];
             while ((ch = fgetc(file->file)) != EOF)
             {
+                if (ch < 0 || ch > 255)
+                {
+                    if (FMC_getDebugState())
+                    {
+                        FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": fgetc returned a value out of range");
+                        FMC_printRedError(stderr, err_int);
+                    }
+                    FMC_setError(FMC_ERR_INTERNAL, "fgetc returned a value out of range");
+                    FMC_freeStr(str);
+                    return NULL;
+                    FMC_UNREACHABLE;
+                }
+                int ch2 = fgetc(file->file);
+                if (ch2 == EOF)
+                {
+                    if (FMC_getDebugState())
+                    {
+                        FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": fgetc returned EOF while reading the 2nd byte of a UTF-16 character");
+                        FMC_printRedError(stderr, err_int);
+                    }
+                    FMC_setError(FMC_ERR_ENC, "fgetc returned EOF while reading the 2nd byte of a UTF-16 character");
+                    FMC_freeStr(str);
+                    return NULL;
+                    FMC_UNREACHABLE;
+                }
+                if (ch2 < 0 || ch2 > 255)
+                {
+                    if (FMC_getDebugState())
+                    {
+                        FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": fgetc returned a value out of range");
+                        FMC_printRedError(stderr, err_int);
+                    }
+                    FMC_setError(FMC_ERR_INTERNAL, "fgetc returned a value out of range");
+                    FMC_freeStr(str);
+                    return NULL;
+                    FMC_UNREACHABLE;
+                }
 
+                FMC_UNREACHABLE_ASSERT(ch >= 0 && ch <= 255 && ch2 >= 0 && ch2 <= 255);
+                FMC_STMT_ASSUME(ch >= 0 && ch <= 255 && ch2 >= 0 && ch2 <= 255);
+
+                uint16_t first_two_read_bytes = (uint16_t)((ch << 8) | ch2); 
+                FMC_Bool is_surrogate = (first_two_read_bytes >= 0xD800 && first_two_read_bytes <= 0xDBFF);
+                if (!is_surrogate)
+                {
+                    // We have a valid character
+                    FMC_Byte bytes[2];
+                    bytes[1] = (FMC_Byte)ch;
+                    bytes[0] = (FMC_Byte)ch2;
+                    FMC_Char* new_char = FMC_allocChar(bytes, utf16_be,
+                                                       first_two_read_bytes == 0 ? FMC_TRUE : FMC_FALSE,
+                                                       2);
+                    if (!new_char)
+                    {
+                        if (FMC_getDebugState())
+                        {
+                            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": FMC_allocChar failed");
+                            FMC_printRedError(stderr, err_int);
+                        }
+                        FMC_setError(FMC_ERR_INTERNAL, "FMC_allocChar failed");
+                        FMC_freeStr(str);
+                        return NULL;
+                        FMC_UNREACHABLE;
+                    }
+                    if (!FMC_append(str, new_char))
+                    {
+                        if (FMC_getDebugState())
+                        {
+                            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": FMC_append failed");
+                            FMC_printRedError(stderr, err_int);
+                        }
+                        FMC_setError(FMC_ERR_INTERNAL, "FMC_append failed");
+                        FMC_freeStr(str);
+                        FMC_freeChar(new_char);
+                        return NULL;
+                        FMC_UNREACHABLE;
+                    }
+
+                    // We have to free the character because FMC_append makes a copy of it
+                    FMC_freeChar(new_char);
+                }
+                else
+                {
+                    // We have a surrogate pair
+                    int ch3 = fgetc(file->file);
+                    if (ch3 == EOF)
+                    {
+                        if (FMC_getDebugState())
+                        {
+                            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": fgetc returned EOF while reading the 3rd byte of a UTF-16 character");
+                            FMC_printRedError(stderr, err_int);
+                        }
+                        FMC_setError(FMC_ERR_ENC, "fgetc returned EOF while reading the 3rd byte of a UTF-16 character");
+                        FMC_freeStr(str);
+                        return NULL;
+                        FMC_UNREACHABLE;
+                    }
+                    if (ch3 < 0 || ch3 > 255)
+                    {
+                        if (FMC_getDebugState())
+                        {
+                            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": fgetc returned a value out of range");
+                            FMC_printRedError(stderr, err_int);
+                        }
+                        FMC_setError(FMC_ERR_INTERNAL, "fgetc returned a value out of range");
+                        FMC_freeStr(str);
+                        return NULL;
+                        FMC_UNREACHABLE;
+                    }
+                    int ch4 = fgetc(file->file);
+                    if (ch4 == EOF)
+                    {
+                        if (FMC_getDebugState())
+                        {
+                            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": fgetc returned EOF while reading the 4th byte of a UTF-16 character");
+                            FMC_printRedError(stderr, err_int);
+                        }
+                        FMC_setError(FMC_ERR_ENC, "fgetc returned EOF while reading the 4th byte of a UTF-16 character");
+                        FMC_freeStr(str);
+                        return NULL;
+                        FMC_UNREACHABLE;
+                    }
+                    if (ch4 < 0 || ch4 > 255)
+                    {
+                        if (FMC_getDebugState())
+                        {
+                            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": fgetc returned a value out of range");
+                            FMC_printRedError(stderr, err_int);
+                        }
+                        FMC_setError(FMC_ERR_INTERNAL, "fgetc returned a value out of range");
+                        FMC_freeStr(str);
+                        return NULL;
+                        FMC_UNREACHABLE;
+                    }
+
+                    FMC_UNREACHABLE_ASSERT(ch3 >= 0 && ch3 <= 255 && ch4 >= 0 && ch4 <= 255);
+                    FMC_STMT_ASSUME(ch3 >= 0 && ch3 <= 255 && ch4 >= 0 && ch4 <= 255);
+
+                    uint16_t second_two_read_bytes = (uint16_t)((ch3 << 8) | ch4);
+                    FMC_Bool is_valid_surrogate = (second_two_read_bytes >= 0xDC00 && second_two_read_bytes <= 0xDFFF);
+                    if (!is_valid_surrogate)
+                    {
+                        if (FMC_getDebugState())
+                        {
+                            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": Invalid surrogate pair");
+                            FMC_printRedError(stderr, err_int);
+                        }
+                        FMC_setError(FMC_ERR_ENC, "Invalid surrogate pair");
+                        FMC_freeStr(str);
+                        return NULL;
+                        FMC_UNREACHABLE;
+                    }
+
+                    FMC_Byte bytes[4];
+                    uint32_t complete_char = (uint32_t)(((uint32_t) ch << 24) | ((uint32_t) ch2 << 16) | ((uint32_t) ch3 << 8) | (uint32_t) ch4);
+                    // foreach(b, bytes, 0, LOOP_TO_THE_END)
+                    // {
+                    //     FMC_MAKE_VOID(b);
+                    //     bytes[foreach_counter(3)] = (FMC_Byte)((complete_char >> (8 * foreach_counter(3))) & 0xFF);
+                    // } 
+                    // my editor crashed when expanding all foreach loops
+
+                    for (size_t i = 0; i < 4; i++)
+                    {
+                        bytes[i] = (FMC_Byte)((complete_char >> (8 * i)) & 0xFF);
+                    }
+                    
+
+                    FMC_Char *new_char = FMC_allocChar(bytes, utf16_be, FMC_FALSE, 4);
+                    if (!new_char)
+                    {
+                        if (FMC_getDebugState())
+                        {
+                            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": FMC_allocChar failed");
+                            FMC_printRedError(stderr, err_int);
+                        }
+                        FMC_setError(FMC_ERR_INTERNAL, "FMC_allocChar failed");
+                        FMC_freeStr(str);
+                        return NULL;
+                        FMC_UNREACHABLE;
+                    }
+
+                    if (!FMC_append(str, new_char))
+                    {
+                        if (FMC_getDebugState())
+                        {
+                            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": FMC_append failed");
+                            FMC_printRedError(stderr, err_int);
+                        }
+                        FMC_setError(FMC_ERR_INTERNAL, "FMC_append failed");
+                        FMC_freeStr(str);
+                        FMC_freeChar(new_char);
+                        return NULL;
+                        FMC_UNREACHABLE;
+                    }
+                    FMC_freeChar(new_char);
+                }
             }
         }
         break;
 
         case utf32_le:
         {
-            FMC_Byte bytes[4];
             while ((ch = fgetc(file->file)) != EOF)
             {
+                if (ch < 0 || ch > 255)
+                {
+                    if (FMC_getDebugState())
+                    {
+                        FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": fgetc returned a value out of range");
+                        FMC_printRedError(stderr, err_int);
+                    }
+                    FMC_setError(FMC_ERR_INTERNAL, "fgetc returned a value out of range");
+                    FMC_freeStr(str);
+                    return NULL;
+                    FMC_UNREACHABLE;
+                }
 
+                int next_chs[3] = {0};
+
+                for (uint_fast8_t i = 0; i < 3; i++)
+                {
+                    if ((next_chs[2 - i] = fgetc(file->file)) == EOF)
+                    {
+                        if (FMC_getDebugState())
+                        {
+                            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": fgetc returned EOF while reading the next byte of a UTF-32 character");
+                            FMC_printRedError(stderr, err_int);
+                        }
+                        FMC_setError(FMC_ERR_ENC, "fgetc returned EOF while reading the next byte of a UTF-32 character");
+                        FMC_freeStr(str);
+                        return NULL;
+                        FMC_UNREACHABLE;
+                    }
+                    if (next_chs[2 - i] < 0 || next_chs[2 - i] > 255)
+                    {
+                        if (FMC_getDebugState())
+                        {
+                            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": fgetc returned a value out of range");
+                            FMC_printRedError(stderr, err_int);
+                        }
+                        FMC_setError(FMC_ERR_INTERNAL, "fgetc returned a value out of range");
+                        FMC_freeStr(str);
+                        return NULL;
+                        FMC_UNREACHABLE;
+                    }
+
+                    FMC_UNREACHABLE_ASSERT(next_chs[2 - i] >= 0 && next_chs[2 - i] <= 255);
+                    FMC_STMT_ASSUME(next_chs[2 - i] >= 0 && next_chs[2 - i] <= 255);
+                }
+
+                FMC_Byte bytes[4] = {0};
+                bytes[3] = (FMC_Byte)ch;
+
+                // foreach(b, next_chs, 0, LOOP_TO_THE_END)
+                // {
+                //     FMC_MAKE_VOID(b);
+                //     bytes[foreach_counter(3)] = (FMC_Byte)next_chs[foreach_counter(3)];
+                // }
+
+                for (size_t i = 0; i < 3; i++)
+                {
+                    bytes[i] = (FMC_Byte)next_chs[i];
+                }
+
+                uint32_t complete_char = (uint32_t)(((uint32_t) bytes[3] << 24) | ((uint32_t) bytes[2] << 16) | ((uint32_t) bytes[1] << 8) | (uint32_t) bytes[0]);
+                FMC_Char *new_char = FMC_allocChar(bytes, utf32_le,
+                                                   !complete_char ? FMC_TRUE : FMC_FALSE,
+                                                   4);
+                if (!new_char)
+                {
+                    if (FMC_getDebugState())
+                    {
+                        FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": FMC_allocChar failed");
+                        FMC_printRedError(stderr, err_int);
+                    }
+                    FMC_setError(FMC_ERR_INTERNAL, "FMC_allocChar failed");
+                    FMC_freeStr(str);
+                    return NULL;
+                    FMC_UNREACHABLE;
+                }
+
+                if (!FMC_append(str, new_char))
+                {
+                    if (FMC_getDebugState())
+                    {
+                        FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": FMC_append failed");
+                        FMC_printRedError(stderr, err_int);
+                    }
+                    FMC_setError(FMC_ERR_INTERNAL, "FMC_append failed");
+                    FMC_freeStr(str);
+                    FMC_freeChar(new_char);
+                    return NULL;
+                    FMC_UNREACHABLE;
+                }
+
+                FMC_freeChar(new_char);
+                                                   
             }
         }
         break;
 
         case utf32_be:
         {
-            FMC_Byte bytes[4];
             while ((ch = fgetc(file->file)) != EOF)
             {
+                if (ch < 0 || ch > 255)
+                {
+                    if (FMC_getDebugState())
+                    {
+                        FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": fgetc returned a value out of range");
+                        FMC_printRedError(stderr, err_int);
+                    }
+                    FMC_setError(FMC_ERR_INTERNAL, "fgetc returned a value out of range");
+                    FMC_freeStr(str);
+                    return NULL;
+                    FMC_UNREACHABLE;
+                }
 
+                int next_chs[3] = {0};
+
+                for (uint_fast8_t i = 0; i < 3; i++)
+                {
+                    if ((next_chs[2 - i] = fgetc(file->file)) == EOF)
+                    {
+                        if (FMC_getDebugState())
+                        {
+                            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": fgetc returned EOF while reading the next byte of a UTF-32 character");
+                            FMC_printRedError(stderr, err_int);
+                        }
+                        FMC_setError(FMC_ERR_ENC, "fgetc returned EOF while reading the next byte of a UTF-32 character");
+                        FMC_freeStr(str);
+                        return NULL;
+                        FMC_UNREACHABLE;
+                    }
+                    if (next_chs[2 - i] < 0 || next_chs[2 - i] > 255)
+                    {
+                        if (FMC_getDebugState())
+                        {
+                            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": fgetc returned a value out of range");
+                            FMC_printRedError(stderr, err_int);
+                        }
+                        FMC_setError(FMC_ERR_INTERNAL, "fgetc returned a value out of range");
+                        FMC_freeStr(str);
+                        return NULL;
+                        FMC_UNREACHABLE;
+                    }
+
+                    FMC_UNREACHABLE_ASSERT(next_chs[2 - i] >= 0 && next_chs[2 - i] <= 255);
+                    FMC_STMT_ASSUME(next_chs[2 - i] >= 0 && next_chs[2 - i] <= 255);
+                }
+
+                FMC_Byte bytes[4] = {0};
+                bytes[3] = (FMC_Byte)ch;
+
+                // foreach(b, next_chs, 0, LOOP_TO_THE_END)
+                // {
+                //     FMC_MAKE_VOID(b);
+                //     bytes[foreach_counter(3)] = (FMC_Byte)next_chs[foreach_counter(3)];
+                // }
+
+                for (size_t i = 0; i < 3; i++)
+                {
+                    bytes[i] = (FMC_Byte)next_chs[i];
+                }
+
+                uint32_t complete_char = (uint32_t)(((uint32_t) bytes[3] << 24) | ((uint32_t) bytes[2] << 16) | ((uint32_t) bytes[1] << 8) | (uint32_t) bytes[0]);
+                FMC_Char *new_char = FMC_allocChar(bytes, utf32_be,
+                                                   !complete_char ? FMC_TRUE : FMC_FALSE,
+                                                   4);
+                if (!new_char)
+                {
+                    if (FMC_getDebugState())
+                    {
+                        FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": FMC_allocChar failed");
+                        FMC_printRedError(stderr, err_int);
+                    }
+                    FMC_setError(FMC_ERR_INTERNAL, "FMC_allocChar failed");
+                    FMC_freeStr(str);
+                    return NULL;
+                    FMC_UNREACHABLE;
+                }
+
+                if (!FMC_append(str, new_char))
+                {
+                    if (FMC_getDebugState())
+                    {
+                        FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": FMC_append failed");
+                        FMC_printRedError(stderr, err_int);
+                    }
+                    FMC_setError(FMC_ERR_INTERNAL, "FMC_append failed");
+                    FMC_freeStr(str);
+                    FMC_freeChar(new_char);
+                    return NULL;
+                    FMC_UNREACHABLE;
+                }
+
+                FMC_freeChar(new_char);
             }
         }
         break;
 
         case ascii:
         {
-            FMC_Byte bytes[4];
             while ((ch = fgetc(file->file)) != EOF)
             {
+                if (ch < 0 || ch > 255)
+                {
+                    if (FMC_getDebugState())
+                    {
+                        FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": fgetc returned a value out of range");
+                        FMC_printRedError(stderr, err_int);
+                    }
+                    FMC_setError(FMC_ERR_INTERNAL, "fgetc returned a value out of range");
+                    FMC_freeStr(str);
+                    return NULL;
+                    FMC_UNREACHABLE;
+                }
 
+                FMC_Byte bytes[1] = {0};
+                bytes[0] = (FMC_Byte)ch;
+
+                uint32_t complete_char = (uint32_t)bytes[0];
+                FMC_Char *new_char = FMC_allocChar(bytes, ascii,
+                                                   !complete_char ? FMC_TRUE : FMC_FALSE,
+                                                   1);
+                if (!new_char)
+                {
+                    if (FMC_getDebugState())
+                    {
+                        FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": FMC_allocChar failed");
+                        FMC_printRedError(stderr, err_int);
+                    }
+                    FMC_setError(FMC_ERR_INTERNAL, "FMC_allocChar failed");
+                    FMC_freeStr(str);
+                    return NULL;
+                    FMC_UNREACHABLE;
+                }
+
+                if (!FMC_append(str, new_char))
+                {
+                    if (FMC_getDebugState())
+                    {
+                        FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": FMC_append failed");
+                        FMC_printRedError(stderr, err_int);
+                    }
+                    FMC_setError(FMC_ERR_INTERNAL, "FMC_append failed");
+                    FMC_freeStr(str);
+                    FMC_freeChar(new_char);
+                    return NULL;
+                    FMC_UNREACHABLE;
+                }
+
+                FMC_freeChar(new_char);
             }
         }
         break;
@@ -488,6 +1133,20 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_String* FMC_slurp
             return NULL;
             FMC_UNREACHABLE;
     }
+
+    if (ferror(file->file))
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": fgetc returned an error");
+            FMC_printRedError(stderr, err_int);
+        }
+        FMC_setError(FMC_ERR_IO, "fgetc returned an error");
+        FMC_freeStr(str);
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+
     return str;
     FMC_UNREACHABLE;
 }

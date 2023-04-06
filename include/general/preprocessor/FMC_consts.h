@@ -51,7 +51,7 @@ SOFTWARE.
 #endif
 #define FMC_MAX_ERR_STCK_SIZE 10
 #define FMC_ERR_STR_LEN 256
-#define FMC_ERR_STR_COUNT 8
+#define FMC_ERR_STR_COUNT 9
 
 #if defined(FMC_ERR_MTX_INITIALIZER)
     #undef FMC_ERR_MTX_INITIALIZER
@@ -62,13 +62,15 @@ SOFTWARE.
     #define FMC_ERR_MTX_INITIALIZER PTHREAD_MUTEX_INITIALIZER
 #endif
 
-#if defined(FMC_CODE_POINT_NULL) || defined(FMC_CHARCOMP_NULL)
+#if defined(FMC_CODE_POINT_NULL) || defined(FMC_CHARCOMP_NULL) || defined(FMC_NULL_BYTES)
     #undef FMC_CODE_POINT_NULL
     #undef FMC_CHARCOMP_NULL
+    #undef FMC_NULL_BYTES
 #endif
 // #define FMC_CODE_POINT_NULL (FMC_CodePoint){.byte1 = 0, .byte2 = 0, .byte3 = 0, .byte4 = 0}
-#define FMC_CODE_POINT_NULL FMC_MAKE_UI32(0)
+#define FMC_CODE_POINT_NULL (FMC_MAKE_UI32(0))
 #define FMC_CHARCOMP_NULL ((FMC_CharComp){.byte1 = 0, .byte2 = 0, .byte3 = 0, .byte4 = 0})
+#define FMC_NULL_BYTES ((FMC_Byte[4]){0x00, 0x00, 0x00, 0x00})
 
 #ifndef FMC_STYLES
     #define FMC_STYLES

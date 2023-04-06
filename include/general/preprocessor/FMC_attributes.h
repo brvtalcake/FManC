@@ -102,9 +102,15 @@ SOFTWARE.
         #define FMC_FUNC_HOT __attribute__((hot))
     #endif // FMC_FUNC_HOT
 
-    #ifndef FMC_FUNC_MALLOC
-        #define FMC_FUNC_MALLOC(...) FMC_FUNC_WARN_UNUSED_RESULT __attribute__((malloc(__VA_ARGS__)))
+    #ifdef FMC_FUNC_MALLOC
+        #undef FMC_FUNC_MALLOC
     #endif // FMC_FUNC_MALLOC
+    #define FMC_FUNC_MALLOC(...) FMC_FUNC_WARN_UNUSED_RESULT __attribute__((malloc(__VA_ARGS__)))
+    
+    #ifdef FMC_FUNC_JUST_MALLOC
+        #undef FMC_FUNC_JUST_MALLOC
+    #endif // FMC_FUNC_JUST_MALLOC
+    #define FMC_FUNC_JUST_MALLOC __attribute__((malloc))
 
     #ifndef FMC_FUNC_NONNULL
         #if !(defined(FMC_COMPILING_ON_WINDOWS) || defined(FMC_COMPILING_ON_MINGW))
@@ -320,6 +326,11 @@ SOFTWARE.
     #ifndef FMC_STMT_FALLTHROUGH
         #define FMC_STMT_FALLTHROUGH __attribute__((fallthrough))
     #endif // FM_STMT_FALLTHROUGH
+
+    #ifdef FMC_STMT_ASSUME
+        #undef FMC_STMT_ASSUME
+    #endif // FMC_STMT_ASSUME
+    #define FMC_STMT_ASSUME(cond) // __attribute__((assume(cond))) (apparently not supported by GCC yet)
 
 #endif // FMC_STMT_ATTRIBUTES
 
