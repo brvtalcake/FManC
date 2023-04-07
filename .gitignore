@@ -41,3 +41,5 @@ txt.txt
 txt*
 *prog*
 .github/workflows/c.yml
+mi_malloc_test.c 
+mi_test

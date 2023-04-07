@@ -31,4 +31,15 @@ SOFTWARE.
 #include "../filesystem/FMC_filesystem.h"
 #include "../../data_analyze/strings/FMC_strings.h"
 
+FMC_BEGIN_DECLS
+
+// TODO: FMC_readFileByPath(const FMC_Path* const path);
+
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_String* FMC_readFile(FMC_File* const file);
+
+// TODO : 
+/* FMC_SHARED FMC_FUNC_NONNULL(1, 2) FMC_Bool FMC_writeFile(FMC_File* const file, const FMC_String* const str); */
+
+FMC_END_DECLS
+
 #endif // FMC_IO_H
