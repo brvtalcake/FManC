@@ -29,7 +29,7 @@ SOFTWARE.
 
 
 
-// FMC_SHARED FMC_FUNC_MALLOC(FMC_Uint128Free, 1) FMC_Uint128* FMC_Uint128Alloc(uint64_t right_part, uint64_t left_part)
+// FMC_SHARED FMC_FUNC_JUST_MALLOC FMC_Uint128* FMC_Uint128Alloc(uint64_t right_part, uint64_t left_part)
 // {
 //     FMC_Uint128* ptr = malloc(sizeof(FMC_Uint128));
 //     if (ptr != NULL)

@@ -36,7 +36,7 @@ SOFTWARE.
 FMC_BEGIN_DECLS 
 
 FMC_SHARED void FMC_freeStrView(FMC_CStrView* view);
-FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_MALLOC(FMC_freeStrView, 1) FMC_CStrView* FMC_allocStrView(const char* const str, size_t len);
+FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_JUST_MALLOC FMC_CStrView* FMC_allocStrView(const char* const str, size_t len);
 
 FMC_END_DECLS
 

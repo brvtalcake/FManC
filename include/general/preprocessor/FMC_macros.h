@@ -30,6 +30,7 @@ SOFTWARE.
 #include "FMC_platform.h"
 #include <metalang99.h>
 #include <stdint.h>
+#include <stdalign.h>
 #include "FMC_attributes.h"
 
 #if defined(_FORTIFY_SOURCE) && _FORTIFY_SOURCE < 1
@@ -410,10 +411,12 @@ __VA_ARGS__))))
 #endif
 #define FMC_OPT(...) , __VA_ARGS__
 
-#ifdef FMC_alloca
+#if defined(FMC_alloca) || defined(FMC_alignedAlloca)
     #undef FMC_alloca
+    #undef FMC_alignedAlloca
 #endif
 #define FMC_alloca(size) __builtin_alloca(size)
+#define FMC_alignedAlloca(size, type_name) __builtin_alloca_with_align(size, alignof(type_name))
 
 
 #ifdef FMC_bitSwap

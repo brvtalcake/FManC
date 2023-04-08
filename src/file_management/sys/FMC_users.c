@@ -103,7 +103,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_COLD char* FMC_getCurrentUserName(char* 
 
 #if !defined(FMC_COMPILING_ON_WINDOWS)
 #pragma GCC diagnostic ignored "-Wstack-protector" 
-FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_MALLOC(free) unsigned int* FMC_getAllUIDs(unsigned int range_number, ...)
+FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_JUST_MALLOC unsigned int* FMC_getAllUIDs(unsigned int range_number, ...)
 {
     #pragma GCC diagnostic pop
     // this function gets all the UIDs in the system between the specified ranges (wich are variable)

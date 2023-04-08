@@ -32,8 +32,6 @@ SOFTWARE.
 #include "FMC_io.h"
 #include "../../cpp/FMC_wrapper.h"
 
-// TODO: Replace FMC_allocChar with FMC_alloca and manually initialize the char
-
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_String* FMC_readFile(FMC_File* const file)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
@@ -158,6 +156,7 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
 	// error    = 256
     rewind(file->file);
     int ch = 0;
+    FMC_Char* new_char = FMC_alloca(sizeof(FMC_Char));
     switch (file->encoding)
     {
         case utf8_bom: // skip the BOM and then fallthru on utf8
@@ -205,21 +204,17 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                         FMC_UNREACHABLE_ASSERT(ch < 128 && ch >= 0);
                         FMC_STMT_ASSUME(ch < 128 && ch >= 0);
                         bytes[0] = (FMC_Byte)ch & 0xFF;
-                        FMC_Char* new_char = FMC_allocChar(bytes, utf8,
+                        /* new_char = FMC_allocChar(bytes, utf8,
                                                            ch == 0 ? FMC_TRUE : FMC_FALSE,
-                                                           1);
-                        if (!new_char)
-                        {
-                            if (FMC_getDebugState())
-                            {
-                                FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": FMC_allocChar failed");
-                                FMC_printRedError(stderr, err_int);
-                            }
-                            FMC_setError(FMC_ERR_INTERNAL, "FMC_allocChar failed");
-                            FMC_freeStr(str);
-                            return NULL;
-                            FMC_UNREACHABLE;
-                        }
+                                                           1); */
+                        memset(new_char, 0, sizeof(FMC_Char));
+                        new_char->encoding = utf8;
+                        new_char->comp.byte1 = bytes[0];
+                        new_char->comp.byte2 = 0x00;
+                        new_char->comp.byte3 = 0x00;
+                        new_char->comp.byte4 = 0x00;
+                        new_char->isNull = (ch == 0 ? FMC_TRUE : FMC_FALSE);
+                        new_char->byteNumber = 1;
                         if (!FMC_append(str, new_char))
                         {
                             if (FMC_getDebugState())
@@ -229,13 +224,12 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                             }
                             FMC_setError(FMC_ERR_INTERNAL, "FMC_append failed");
                             FMC_freeStr(str);
-                            FMC_freeChar(new_char);
                             return NULL;
                             FMC_UNREACHABLE;
                         }
 
                         // Free the char because FMC_append makes a copy
-                        FMC_freeChar(new_char); 
+                        /* FMC_freeChar(new_char);  */
                     }
                     break;
 
@@ -270,19 +264,15 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                         }
                         FMC_UNREACHABLE_ASSERT(ch >> 6 == 2);
                         bytes[0] = (FMC_Byte)ch & 0xFF;
-                        FMC_Char* new_char = FMC_allocChar(bytes, utf8, FMC_FALSE, 2);
-                        if (!new_char)
-                        {
-                            if (FMC_getDebugState())
-                            {
-                                FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": FMC_allocChar failed");
-                                FMC_printRedError(stderr, err_int);
-                            }
-                            FMC_setError(FMC_ERR_INTERNAL, "FMC_allocChar failed");
-                            FMC_freeStr(str);
-                            return NULL;
-                            FMC_UNREACHABLE;
-                        }
+                        /* FMC_Char* new_char = FMC_allocChar(bytes, utf8, FMC_FALSE, 2); */
+                        memset(new_char, 0, sizeof(FMC_Char));
+                        new_char->encoding = utf8;
+                        new_char->comp.byte1 = bytes[0];
+                        new_char->comp.byte2 = bytes[1];
+                        new_char->comp.byte3 = 0x00;
+                        new_char->comp.byte4 = 0x00;
+                        new_char->isNull = FMC_FALSE;
+                        new_char->byteNumber = 2;
                         if (!FMC_append(str, new_char))
                         {
                             if (FMC_getDebugState())
@@ -292,13 +282,9 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                             }
                             FMC_setError(FMC_ERR_INTERNAL, "FMC_append failed");
                             FMC_freeStr(str);
-                            FMC_freeChar(new_char);
                             return NULL;
                             FMC_UNREACHABLE;
                         }
-
-                        // Free the char because FMC_append makes a copy
-                        FMC_freeChar(new_char); 
                     }
                     break;
 
@@ -336,19 +322,15 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                             FMC_UNREACHABLE_ASSERT(ch >> 6 == 2);
                             bytes[2 - i] = (FMC_Byte)ch & 0xFF;
                         }
-                        FMC_Char* new_char = FMC_allocChar(bytes, utf8, FMC_FALSE, 3);
-                        if (!new_char)
-                        {
-                            if (FMC_getDebugState())
-                            {
-                                FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": FMC_allocChar failed");
-                                FMC_printRedError(stderr, err_int);
-                            }
-                            FMC_setError(FMC_ERR_INTERNAL, "FMC_allocChar failed");
-                            FMC_freeStr(str);
-                            return NULL;
-                            FMC_UNREACHABLE;
-                        }
+                        /* FMC_Char* new_char = FMC_allocChar(bytes, utf8, FMC_FALSE, 3); */
+                        memset(new_char, 0, sizeof(FMC_Char));
+                        new_char->encoding = utf8;
+                        new_char->comp.byte1 = bytes[0];
+                        new_char->comp.byte2 = bytes[1];
+                        new_char->comp.byte3 = bytes[2];
+                        new_char->comp.byte4 = 0x00;
+                        new_char->isNull = FMC_FALSE;
+                        new_char->byteNumber = 3;
                         if (!FMC_append(str, new_char))
                         {
                             if (FMC_getDebugState())
@@ -359,12 +341,8 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                             FMC_setError(FMC_ERR_INTERNAL, "FMC_append failed");
                             return NULL;
                             FMC_freeStr(str);
-                            FMC_freeChar(new_char);
                             FMC_UNREACHABLE;
                         }
-
-                        // Free the char because FMC_append makes a copy
-                        FMC_freeChar(new_char); 
                     }
                     break;
 
@@ -402,19 +380,15 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                             FMC_UNREACHABLE_ASSERT(ch >> 6 == 2);
                             bytes[3 - i] = (FMC_Byte)ch & 0xFF;
                         }
-                        FMC_Char* new_char = FMC_allocChar(bytes, utf8, FMC_FALSE, 4);
-                        if (!new_char)
-                        {
-                            if (FMC_getDebugState())
-                            {
-                                FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": FMC_allocChar failed");
-                                FMC_printRedError(stderr, err_int);
-                            }
-                            FMC_setError(FMC_ERR_INTERNAL, "FMC_allocChar failed");
-                            FMC_freeStr(str);
-                            return NULL;
-                            FMC_UNREACHABLE;
-                        }
+                        /* FMC_Char* new_char = FMC_allocChar(bytes, utf8, FMC_FALSE, 4); */
+                        memset(new_char, 0, sizeof(FMC_Char));
+                        new_char->encoding = utf8;
+                        new_char->comp.byte1 = bytes[0];
+                        new_char->comp.byte2 = bytes[1];
+                        new_char->comp.byte3 = bytes[2];
+                        new_char->comp.byte4 = bytes[3];
+                        new_char->isNull = FMC_FALSE;
+                        new_char->byteNumber = 4;
                         if (!FMC_append(str, new_char))
                         {
                             if (FMC_getDebugState())
@@ -425,12 +399,8 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                             FMC_setError(FMC_ERR_INTERNAL, "FMC_append failed");
                             return NULL;
                             FMC_freeStr(str);
-                            FMC_freeChar(new_char);
                             FMC_UNREACHABLE;
                         }
-
-                        // Free the char because FMC_append makes a copy
-                        FMC_freeChar(new_char); 
                     }
                     break;
 
@@ -519,21 +489,17 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                     // It's a normal character
                     bytes[1] = (FMC_Byte)ch;
                     bytes[0] = (FMC_Byte)ch2;
-                    FMC_Char* new_char = FMC_allocChar(bytes, utf16_le,
+                    /* FMC_Char* new_char = FMC_allocChar(bytes, utf16_le,
                                                        first_two_read_bytes == 0 ? FMC_TRUE : FMC_FALSE,
-                                                       2);
-                    if (!new_char)
-                    {
-                        if (FMC_getDebugState())
-                        {
-                            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": FMC_allocChar failed");
-                            FMC_printRedError(stderr, err_int);
-                        }
-                        FMC_setError(FMC_ERR_INTERNAL, "FMC_allocChar failed");
-                        FMC_freeStr(str);
-                        return NULL;
-                        FMC_UNREACHABLE;
-                    }
+                                                       2); */
+                    memset(new_char, 0, sizeof(FMC_Char));
+                    new_char->comp.byte1 = bytes[0];
+                    new_char->comp.byte2 = bytes[1];
+                    new_char->comp.byte3 = 0x00;
+                    new_char->comp.byte4 = 0x00;
+                    new_char->encoding = utf16_le;
+                    new_char->isNull = first_two_read_bytes == 0 ? FMC_TRUE : FMC_FALSE;
+                    new_char->byteNumber = 2;
                     if (!FMC_append(str, new_char))
                     {
                         if (FMC_getDebugState())
@@ -544,10 +510,8 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                         FMC_setError(FMC_ERR_INTERNAL, "FMC_append failed");
                         return NULL;
                         FMC_freeStr(str);
-                        FMC_freeChar(new_char);
                         FMC_UNREACHABLE;
                     }
-                    FMC_freeChar(new_char);
                 }
                 else
                 {
@@ -628,19 +592,15 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                     bytes[2] = (FMC_Byte)ch2;
                     bytes[1] = (FMC_Byte)ch3;
                     bytes[0] = (FMC_Byte)ch4;
-                    FMC_Char* new_char = FMC_allocChar(bytes, utf16_le, FMC_FALSE, 4);
-                    if (!new_char)
-                    {
-                        if (FMC_getDebugState())
-                        {
-                            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": FMC_allocChar failed");
-                            FMC_printRedError(stderr, err_int);
-                        }
-                        FMC_setError(FMC_ERR_INTERNAL, "FMC_allocChar failed");
-                        FMC_freeStr(str);
-                        return NULL;
-                        FMC_UNREACHABLE;
-                    }
+                    /* FMC_Char* new_char = FMC_allocChar(bytes, utf16_le, FMC_FALSE, 4); */
+                    memset(new_char, 0, sizeof(FMC_Char));
+                    new_char->comp.byte1 = bytes[0];
+                    new_char->comp.byte2 = bytes[1];
+                    new_char->comp.byte3 = bytes[2];
+                    new_char->comp.byte4 = bytes[3];
+                    new_char->encoding = utf16_le;
+                    new_char->isNull = FMC_FALSE;
+                    new_char->byteNumber = 4;
                     if (!FMC_append(str, new_char))
                     {
                         if (FMC_getDebugState())
@@ -650,13 +610,9 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                         }
                         FMC_setError(FMC_ERR_INTERNAL, "FMC_append failed");
                         FMC_freeStr(str);
-                        FMC_freeChar(new_char);
                         return NULL;
                         FMC_UNREACHABLE;
                     }
-
-                    // We have to free the character because FMC_append makes a copy of it
-                    FMC_freeChar(new_char);
                 }
             }
         }
@@ -715,21 +671,17 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                     FMC_Byte bytes[2];
                     bytes[1] = (FMC_Byte)ch;
                     bytes[0] = (FMC_Byte)ch2;
-                    FMC_Char* new_char = FMC_allocChar(bytes, utf16_be,
+                    /* FMC_Char* new_char = FMC_allocChar(bytes, utf16_be,
                                                        first_two_read_bytes == 0 ? FMC_TRUE : FMC_FALSE,
-                                                       2);
-                    if (!new_char)
-                    {
-                        if (FMC_getDebugState())
-                        {
-                            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": FMC_allocChar failed");
-                            FMC_printRedError(stderr, err_int);
-                        }
-                        FMC_setError(FMC_ERR_INTERNAL, "FMC_allocChar failed");
-                        FMC_freeStr(str);
-                        return NULL;
-                        FMC_UNREACHABLE;
-                    }
+                                                       2); */
+                    memset(new_char, 0, sizeof(FMC_Char));
+                    new_char->comp.byte1 = bytes[0];
+                    new_char->comp.byte2 = bytes[1];
+                    new_char->comp.byte3 = 0x00;
+                    new_char->comp.byte4 = 0x00;
+                    new_char->encoding = utf16_be;
+                    new_char->isNull = first_two_read_bytes == 0 ? FMC_TRUE : FMC_FALSE;
+                    new_char->byteNumber = 2;
                     if (!FMC_append(str, new_char))
                     {
                         if (FMC_getDebugState())
@@ -739,13 +691,9 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                         }
                         FMC_setError(FMC_ERR_INTERNAL, "FMC_append failed");
                         FMC_freeStr(str);
-                        FMC_freeChar(new_char);
                         return NULL;
                         FMC_UNREACHABLE;
                     }
-
-                    // We have to free the character because FMC_append makes a copy of it
-                    FMC_freeChar(new_char);
                 }
                 else
                 {
@@ -834,20 +782,15 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                     }
                     
 
-                    FMC_Char *new_char = FMC_allocChar(bytes, utf16_be, FMC_FALSE, 4);
-                    if (!new_char)
-                    {
-                        if (FMC_getDebugState())
-                        {
-                            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": FMC_allocChar failed");
-                            FMC_printRedError(stderr, err_int);
-                        }
-                        FMC_setError(FMC_ERR_INTERNAL, "FMC_allocChar failed");
-                        FMC_freeStr(str);
-                        return NULL;
-                        FMC_UNREACHABLE;
-                    }
-
+                    /* FMC_Char *new_char = FMC_allocChar(bytes, utf16_be, FMC_FALSE, 4); */
+                    memset(new_char, 0, sizeof(FMC_Char));
+                    new_char->byteNumber = 4;
+                    new_char->isNull = FMC_FALSE;
+                    new_char->encoding = utf16_be;
+                    new_char->comp.byte1 = bytes[0];
+                    new_char->comp.byte2 = bytes[1];
+                    new_char->comp.byte3 = bytes[2];
+                    new_char->comp.byte4 = bytes[3];
                     if (!FMC_append(str, new_char))
                     {
                         if (FMC_getDebugState())
@@ -857,11 +800,9 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                         }
                         FMC_setError(FMC_ERR_INTERNAL, "FMC_append failed");
                         FMC_freeStr(str);
-                        FMC_freeChar(new_char);
                         return NULL;
                         FMC_UNREACHABLE;
                     }
-                    FMC_freeChar(new_char);
                 }
             }
         }
@@ -932,22 +873,17 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                 }
 
                 uint32_t complete_char = (uint32_t)(((uint32_t) bytes[3] << 24) | ((uint32_t) bytes[2] << 16) | ((uint32_t) bytes[1] << 8) | (uint32_t) bytes[0]);
-                FMC_Char *new_char = FMC_allocChar(bytes, utf32_le,
+                /* FMC_Char *new_char = FMC_allocChar(bytes, utf32_le,
                                                    !complete_char ? FMC_TRUE : FMC_FALSE,
-                                                   4);
-                if (!new_char)
-                {
-                    if (FMC_getDebugState())
-                    {
-                        FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": FMC_allocChar failed");
-                        FMC_printRedError(stderr, err_int);
-                    }
-                    FMC_setError(FMC_ERR_INTERNAL, "FMC_allocChar failed");
-                    FMC_freeStr(str);
-                    return NULL;
-                    FMC_UNREACHABLE;
-                }
-
+                                                   4); */
+                memset(new_char, 0, sizeof(FMC_Char));
+                new_char->byteNumber = 4;
+                new_char->isNull = !complete_char ? FMC_TRUE : FMC_FALSE;
+                new_char->encoding = utf32_le;
+                new_char->comp.byte1 = bytes[0];
+                new_char->comp.byte2 = bytes[1];
+                new_char->comp.byte3 = bytes[2];
+                new_char->comp.byte4 = bytes[3];
                 if (!FMC_append(str, new_char))
                 {
                     if (FMC_getDebugState())
@@ -957,13 +893,9 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                     }
                     FMC_setError(FMC_ERR_INTERNAL, "FMC_append failed");
                     FMC_freeStr(str);
-                    FMC_freeChar(new_char);
                     return NULL;
                     FMC_UNREACHABLE;
                 }
-
-                FMC_freeChar(new_char);
-                                                   
             }
         }
         break;
@@ -1033,22 +965,17 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                 }
 
                 uint32_t complete_char = (uint32_t)(((uint32_t) bytes[3] << 24) | ((uint32_t) bytes[2] << 16) | ((uint32_t) bytes[1] << 8) | (uint32_t) bytes[0]);
-                FMC_Char *new_char = FMC_allocChar(bytes, utf32_be,
+                /* FMC_Char *new_char = FMC_allocChar(bytes, utf32_be,
                                                    !complete_char ? FMC_TRUE : FMC_FALSE,
-                                                   4);
-                if (!new_char)
-                {
-                    if (FMC_getDebugState())
-                    {
-                        FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": FMC_allocChar failed");
-                        FMC_printRedError(stderr, err_int);
-                    }
-                    FMC_setError(FMC_ERR_INTERNAL, "FMC_allocChar failed");
-                    FMC_freeStr(str);
-                    return NULL;
-                    FMC_UNREACHABLE;
-                }
-
+                                                   4); */
+                memset(new_char, 0, sizeof(FMC_Char));
+                new_char->byteNumber = 4;
+                new_char->isNull = !complete_char ? FMC_TRUE : FMC_FALSE;
+                new_char->encoding = utf32_be;
+                new_char->comp.byte1 = bytes[0];
+                new_char->comp.byte2 = bytes[1];
+                new_char->comp.byte3 = bytes[2];
+                new_char->comp.byte4 = bytes[3];
                 if (!FMC_append(str, new_char))
                 {
                     if (FMC_getDebugState())
@@ -1058,12 +985,9 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                     }
                     FMC_setError(FMC_ERR_INTERNAL, "FMC_append failed");
                     FMC_freeStr(str);
-                    FMC_freeChar(new_char);
                     return NULL;
                     FMC_UNREACHABLE;
                 }
-
-                FMC_freeChar(new_char);
             }
         }
         break;
@@ -1089,22 +1013,17 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                 bytes[0] = (FMC_Byte)ch;
 
                 uint32_t complete_char = (uint32_t)bytes[0];
-                FMC_Char *new_char = FMC_allocChar(bytes, ascii,
+                /* FMC_Char *new_char = FMC_allocChar(bytes, ascii,
                                                    !complete_char ? FMC_TRUE : FMC_FALSE,
-                                                   1);
-                if (!new_char)
-                {
-                    if (FMC_getDebugState())
-                    {
-                        FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": FMC_allocChar failed");
-                        FMC_printRedError(stderr, err_int);
-                    }
-                    FMC_setError(FMC_ERR_INTERNAL, "FMC_allocChar failed");
-                    FMC_freeStr(str);
-                    return NULL;
-                    FMC_UNREACHABLE;
-                }
-
+                                                   1); */
+                memset(new_char, 0, sizeof(FMC_Char));
+                new_char->byteNumber = 1;
+                new_char->isNull = !complete_char ? FMC_TRUE : FMC_FALSE;
+                new_char->encoding = ascii;
+                new_char->comp.byte1 = bytes[0];
+                new_char->comp.byte2 = 0x00;
+                new_char->comp.byte3 = 0x00;
+                new_char->comp.byte4 = 0x00;
                 if (!FMC_append(str, new_char))
                 {
                     if (FMC_getDebugState())
@@ -1114,12 +1033,9 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                     }
                     FMC_setError(FMC_ERR_INTERNAL, "FMC_append failed");
                     FMC_freeStr(str);
-                    FMC_freeChar(new_char);
                     return NULL;
                     FMC_UNREACHABLE;
                 }
-
-                FMC_freeChar(new_char);
             }
         }
         break;

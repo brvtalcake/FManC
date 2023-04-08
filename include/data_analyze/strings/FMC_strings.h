@@ -59,7 +59,7 @@ FMC_BEGIN_DECLS
 
 FMC_SHARED FMC_FUNC_NONNULL(1) void FMC_freeStr(FMC_String* str);
 
-FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_MALLOC(FMC_freeStr) FMC_String* FMC_allocStr(FMC_Char* const* const chars, uint64_t size);
+FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_JUST_MALLOC FMC_String* FMC_allocStr(FMC_Char* const* const chars, uint64_t size);
 FMC_SHARED FMC_FUNC_NONNULL(1) FMC_Char* FMC_getCharAt(FMC_String* str, uint64_t index);
 FMC_SHARED FMC_FUNC_NONNULL(1, 2) FMC_String* FMC_append_str(FMC_String* str1, FMC_String* str2);
 FMC_SHARED FMC_FUNC_NONNULL(1, 2) FMC_String* FMC_append_ch(FMC_String* str, FMC_Char* ch);

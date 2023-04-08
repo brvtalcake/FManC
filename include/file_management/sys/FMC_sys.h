@@ -46,7 +46,7 @@ FMC_BEGIN_DECLS
 FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_COLD char* FMC_getCurrentUserName(char* const user_name, const size_t len);
 
 #if !defined(FMC_COMPILING_ON_WINDOWS)
-FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_MALLOC(free) unsigned int* FMC_getAllUIDs(unsigned int range_number, ...);
+FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_JUST_MALLOC unsigned int* FMC_getAllUIDs(unsigned int range_number, ...);
 #endif
 
 FMC_END_DECLS
