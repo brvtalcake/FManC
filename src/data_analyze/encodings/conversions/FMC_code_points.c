@@ -48,23 +48,23 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF8_
     }
     #pragma GCC diagnostic pop
 
-    if ((utf8_char->comp.byte1 == 0 && utf8_char->comp.byte2 == 0 && utf8_char->comp.byte3 == 0 && utf8_char->comp.byte4 == 0) ||
+    if ((utf8_char->comp.byte0 == 0 && utf8_char->comp.byte1 == 0 && utf8_char->comp.byte2 == 0 && utf8_char->comp.byte3 == 0) ||
          utf8_char->byteNumber == 0) return FMC_CODE_POINT_NULL;
 
     FMC_CodePoint code_point = FMC_CODE_POINT_NULL;
-    switch(utf8_char->byteNumber) // byte1 is the least significant byte
+    switch(utf8_char->byteNumber) // byte0 is the least significant byte
     {
         case 1:
-            code_point = utf8_char->comp.byte1;
+            code_point = utf8_char->comp.byte0;
             break;
         case 2:
-            code_point = ((utf8_char->comp.byte2 & 0x1F) << 6) | (utf8_char->comp.byte1 & 0x3F);
+            code_point = ((utf8_char->comp.byte1 & 0x1F) << 6) | (utf8_char->comp.byte0 & 0x3F);
             break;
         case 3:
-            code_point = ((utf8_char->comp.byte3 & 0x0F) << 12) | ((utf8_char->comp.byte2 & 0x3F) << 6) | (utf8_char->comp.byte1 & 0x3F);
+            code_point = ((utf8_char->comp.byte2 & 0x0F) << 12) | ((utf8_char->comp.byte1 & 0x3F) << 6) | (utf8_char->comp.byte0 & 0x3F);
             break;
         case 4:
-            code_point = ((utf8_char->comp.byte4 & 0x07) << 18) | ((utf8_char->comp.byte3 & 0x3F) << 12) | ((utf8_char->comp.byte2 & 0x3F) << 6) | (utf8_char->comp.byte1 & 0x3F);
+            code_point = ((utf8_char->comp.byte3 & 0x07) << 18) | ((utf8_char->comp.byte2 & 0x3F) << 12) | ((utf8_char->comp.byte1 & 0x3F) << 6) | (utf8_char->comp.byte0 & 0x3F);
             break;
         default:
             FMC_UNREACHABLE;
@@ -94,17 +94,17 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_code
         FMC_UNREACHABLE;
     }
     #pragma GCC diagnostic pop
-    if ((utf8_char_comp->byte1 == 0 && utf8_char_comp->byte2 == 0 && utf8_char_comp->byte3 == 0 && utf8_char_comp->byte4 == 0)) 
+    if ((utf8_char_comp->byte0 == 0 && utf8_char_comp->byte1 == 0 && utf8_char_comp->byte2 == 0 && utf8_char_comp->byte3 == 0)) 
         return FMC_CODE_POINT_NULL;
     // Calculate the number of encoded bytes, since there is no byteNumber field in FMC_CharComp
     uint8_t byte_number = 0;
-    if (utf8_char_comp->byte1 != 0)
+    if (utf8_char_comp->byte0 != 0)
     {
-        if (utf8_char_comp->byte2 != 0)
+        if (utf8_char_comp->byte1 != 0)
         {
-            if (utf8_char_comp->byte3 != 0)
+            if (utf8_char_comp->byte2 != 0)
             {
-                if (utf8_char_comp->byte4 != 0) byte_number = 4;
+                if (utf8_char_comp->byte3 != 0) byte_number = 4;
                 else byte_number = 3;
             }
             else byte_number = 2;
@@ -117,17 +117,17 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_code
     switch(byte_number)
     {
         case 1:
-            code_point = utf8_char_comp->byte1;
+            code_point = utf8_char_comp->byte0;
             break;
         case 2:
-            code_point = ((utf8_char_comp->byte2 & 0x1F) << 6) | (utf8_char_comp->byte1 & 0x3F);
+            code_point = ((utf8_char_comp->byte1 & 0x1F) << 6) | (utf8_char_comp->byte0 & 0x3F);
             break;
         case 3:
-            code_point = ((utf8_char_comp->byte3 & 0x0F) << 12) | ((utf8_char_comp->byte2 & 0x3F) << 6) | (utf8_char_comp->byte1 & 0x3F);
+            code_point = ((utf8_char_comp->byte2 & 0x0F) << 12) | ((utf8_char_comp->byte1 & 0x3F) << 6) | (utf8_char_comp->byte0 & 0x3F);
             break;
         case 4:
-            code_point = ((utf8_char_comp->byte4 & 0x07) << 18) | ((utf8_char_comp->byte3 & 0x3F) << 12) 
-                       | ((utf8_char_comp->byte2 & 0x3F) << 6)  | (utf8_char_comp->byte1 & 0x3F);
+            code_point = ((utf8_char_comp->byte3 & 0x07) << 18) | ((utf8_char_comp->byte2 & 0x3F) << 12) 
+                       | ((utf8_char_comp->byte1 & 0x3F) << 6)  | (utf8_char_comp->byte0 & 0x3F);
             break;
         default:
             FMC_UNREACHABLE;
@@ -166,12 +166,16 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_code
         {
             if ((*raw_utf8_encoded_char & 0x0000FF00) != 0)
             {
-                if ((*raw_utf8_encoded_char & 0x00FF0000) != 0) byte_number = 4;
-                else byte_number = 3;
+                if ((*raw_utf8_encoded_char & 0x00FF0000) != 0)
+                {
+                    if ((*raw_utf8_encoded_char & 0xFF000000) != 0) byte_number = 4;
+                    else byte_number = 3;
+                }
+                else byte_number = 2;
             }
-            else byte_number = 2;
+            else byte_number = 1;
         }
-        else byte_number = 1;
+        else return FMC_CODE_POINT_NULL;
     }
     else return FMC_CODE_POINT_NULL;
 
@@ -224,9 +228,9 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF16
         FMC_UNREACHABLE;
     }
     #pragma GCC diagnostic pop
-    if ((utf16le_char->comp.byte1 == 0 && utf16le_char->comp.byte2 == 0 && utf16le_char->comp.byte3 == 0 &&
-         utf16le_char->comp.byte4 == 0) || utf16le_char->byteNumber == 0 || utf16le_char->isNull) return FMC_CODE_POINT_NULL;
-    if (utf16le_char->byteNumber != 2 || utf16le_char->byteNumber != 4)
+    if ((utf16le_char->comp.byte0 == 0 && utf16le_char->comp.byte1 == 0 && utf16le_char->comp.byte2 == 0 &&
+         utf16le_char->comp.byte3 == 0) || utf16le_char->byteNumber == 0 || utf16le_char->isNull) return FMC_CODE_POINT_NULL;
+    if (utf16le_char->byteNumber != 2 && utf16le_char->byteNumber != 4)
     {
         if (FMC_getDebugState())
         {
@@ -237,12 +241,19 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF16
         return FMC_CODE_POINT_NULL;
         FMC_UNREACHABLE;
     }
+
+#if defined(UNIT_1) || defined(UNIT_2)
+    #undef UNIT_1
+    #undef UNIT_2
+#endif
+#define UNIT_1 (utf16le_char->comp.byte1 | (utf16le_char->comp.byte0 << 8))
+#define UNIT_2 (utf16le_char->comp.byte3 | (utf16le_char->comp.byte2 << 8))
     
     FMC_CodePoint code_point = FMC_CODE_POINT_NULL;
     switch(utf16le_char->byteNumber)
     {
         case 2:
-            code_point = utf16le_char->comp.byte2 | (utf16le_char->comp.byte1 << 8);
+            code_point = utf16le_char->comp.byte1 | (utf16le_char->comp.byte0 << 8);
             if (code_point >= 0xD800 && code_point <= 0xDFFF)
             {
                 if (FMC_getDebugState())
@@ -257,8 +268,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF16
             break;
         case 4:
             code_point = 0x10000;
-            if ((utf16le_char->comp.byte1 | (utf16le_char->comp.byte2 << 8)) < 0xD800 || 
-                (utf16le_char->comp.byte1 | (utf16le_char->comp.byte2 << 8)) > 0xDBFF)
+            if (UNIT_2 < 0xD800 || UNIT_2 > 0xDBFF)
             {
                 if (FMC_getDebugState())
                 {
@@ -269,8 +279,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF16
                 return FMC_CODE_POINT_NULL;
                 FMC_UNREACHABLE;
             }
-            if ((utf16le_char->comp.byte3 | (utf16le_char->comp.byte4 << 8)) < 0xDC00 || 
-                (utf16le_char->comp.byte3 | (utf16le_char->comp.byte4 << 8)) > 0xDFFF)
+            if (UNIT_1 < 0xDC00 || UNIT_1 > 0xDFFF)
             {
                 if (FMC_getDebugState())
                 {
@@ -281,13 +290,15 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF16
                 return FMC_CODE_POINT_NULL;
                 FMC_UNREACHABLE;
             }
-            code_point += ((utf16le_char->comp.byte1 | (utf16le_char->comp.byte2 << 8)) & 0x03FF) << 10;
-            code_point += (utf16le_char->comp.byte3 | (utf16le_char->comp.byte4 << 8)) & 0x03FF;
+            code_point += (UNIT_2 & 0x03FF) << 10;
+            code_point += UNIT_1 & 0x03FF;
             break;
         default:
             return FMC_CODE_POINT_NULL; // Wrong byte number
             FMC_UNREACHABLE;
     }
+#undef UNIT_1
+#undef UNIT_2
     return code_point;
     FMC_UNREACHABLE;
 }
@@ -312,19 +323,25 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_code
         FMC_UNREACHABLE;
     }
     #pragma GCC diagnostic pop
-    if ((utf16le_char_comp->byte1 == 0 && utf16le_char_comp->byte2 == 0 && utf16le_char_comp->byte3 == 0 &&
-         utf16le_char_comp->byte4 == 0)) return FMC_CODE_POINT_NULL;
-    
+    if ((utf16le_char_comp->byte0 == 0 && utf16le_char_comp->byte1 == 0 && utf16le_char_comp->byte2 == 0 &&
+         utf16le_char_comp->byte3 == 0)) return FMC_CODE_POINT_NULL;
+
+#if defined(UNIT_1) || defined(UNIT_2)
+    #undef UNIT_1
+    #undef UNIT_2
+#endif
+#define UNIT_1 (utf16le_char_comp->byte1 | (utf16le_char_comp->byte0 << 8))
+#define UNIT_2 (utf16le_char_comp->byte3 | (utf16le_char_comp->byte2 << 8))
+
     FMC_CodePoint code_point = FMC_CODE_POINT_NULL;
-    if (utf16le_char_comp->byte3 == 0 && utf16le_char_comp->byte4 == 0)
+    if (utf16le_char_comp->byte2 == 0 && utf16le_char_comp->byte3 == 0)
     {
-        code_point = utf16le_char_comp->byte2 | (utf16le_char_comp->byte1 << 8);
+        code_point = utf16le_char_comp->byte1 | (utf16le_char_comp->byte0 << 8);
     }
     else
     {
         code_point = 0x10000;
-        if ((utf16le_char_comp->byte1 | (utf16le_char_comp->byte2 << 8)) < 0xD800 || 
-            (utf16le_char_comp->byte1 | (utf16le_char_comp->byte2 << 8)) > 0xDBFF)
+        if (UNIT_2 < 0xD800 || UNIT_2 > 0xDBFF)
         {
             if (FMC_getDebugState())
             {
@@ -335,8 +352,7 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_code
             return FMC_CODE_POINT_NULL;
             FMC_UNREACHABLE;
         }
-        if ((utf16le_char_comp->byte3 | (utf16le_char_comp->byte4 << 8)) < 0xDC00 || 
-            (utf16le_char_comp->byte3 | (utf16le_char_comp->byte4 << 8)) > 0xDFFF)
+        if (UNIT_1 < 0xDC00 || UNIT_1 > 0xDFFF)
         {
             if (FMC_getDebugState())
             {
@@ -347,9 +363,11 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_code
             return FMC_CODE_POINT_NULL;
             FMC_UNREACHABLE;
         }
-        code_point += ((utf16le_char_comp->byte1 | (utf16le_char_comp->byte2 << 8)) & 0x03FF) << 10;
-        code_point += (utf16le_char_comp->byte3 | (utf16le_char_comp->byte4 << 8)) & 0x03FF;
+        code_point += (UNIT_2 & 0x03FF) << 10;
+        code_point += UNIT_1 & 0x03FF;
     }
+#undef UNIT_1
+#undef UNIT_2
     return code_point;
     FMC_UNREACHABLE;
 }
@@ -375,6 +393,13 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_code
     }
     #pragma GCC diagnostic pop
     if (*raw_utf16le_char == 0) return FMC_CODE_POINT_NULL;
+
+#if defined(UNIT_1) || defined(UNIT_2)
+    #undef UNIT_1
+    #undef UNIT_2
+#endif
+#define UNIT_1 (((*raw_utf16le_char & 0xFF) << 8) | ((*raw_utf16le_char & 0xFF00) >> 8))
+#define UNIT_2 ((((*raw_utf16le_char & 0xFF0000) << 8) | ((*raw_utf16le_char & 0xFF000000) >> 8)) >> 16)
     
     FMC_CodePoint code_point = FMC_CODE_POINT_NULL;
     if ((*raw_utf16le_char & 0xFFFF0000) == 0)
@@ -384,8 +409,7 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_code
     else
     {
         code_point = 0x10000;
-        if ((*raw_utf16le_char & 0xFFFF) < 0xD800 || 
-            (*raw_utf16le_char & 0xFFFF) > 0xDBFF)
+        if (UNIT_2 < 0xD800 || UNIT_2 > 0xDBFF)
         {
             if (FMC_getDebugState())
             {
@@ -396,8 +420,7 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_code
             return FMC_CODE_POINT_NULL;
             FMC_UNREACHABLE;
         }
-        if ((*raw_utf16le_char & 0xFFFF0000) < 0xDC000000 || 
-            (*raw_utf16le_char & 0xFFFF0000) > 0xDFFF0000)
+        if (UNIT_1 < 0xDC00 || UNIT_1 > 0xDFFF)
         {
             if (FMC_getDebugState())
             {
@@ -408,9 +431,11 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_code
             return FMC_CODE_POINT_NULL;
             FMC_UNREACHABLE;
         }
-        code_point += ((*raw_utf16le_char & 0xFFFF) & 0x03FF) << 10;
-        code_point += ((*raw_utf16le_char & 0xFFFF0000) & 0x03FF0000) >> 16;
+        code_point += (UNIT_2 & 0x03FF) << 10;
+        code_point += UNIT_1 & 0x03FF;
     }
+#undef UNIT_1
+#undef UNIT_2
     return code_point;
     FMC_UNREACHABLE;
 }
@@ -439,9 +464,9 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF16
         FMC_UNREACHABLE;
     }
     #pragma GCC diagnostic pop
-    if (utf16be_char->byteNumber == 0 || utf16be_char->isNull || (utf16be_char->comp.byte1 == 0 && utf16be_char->comp.byte2 == 0 &&
-        utf16be_char->comp.byte3 == 0 && utf16be_char->comp.byte4 == 0)) return FMC_CODE_POINT_NULL;
-    if (utf16be_char->byteNumber != 2 || utf16be_char->byteNumber != 4)
+    if (utf16be_char->byteNumber == 0 || utf16be_char->isNull || (utf16be_char->comp.byte0 == 0 && utf16be_char->comp.byte1 == 0 &&
+        utf16be_char->comp.byte2 == 0 && utf16be_char->comp.byte3 == 0)) return FMC_CODE_POINT_NULL;
+    if (utf16be_char->byteNumber != 2 && utf16be_char->byteNumber != 4)
     {
         if (FMC_getDebugState())
         {
@@ -451,24 +476,23 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF16
         FMC_setError(FMC_ERR_ENC, "FMC_codePointFromUTF16LE: Invalid UTF-16LE character");
         return FMC_CODE_POINT_NULL;
         FMC_UNREACHABLE;
-    }    
+    }
+#if defined(UNIT_1) || defined(UNIT_2)
+    #undef UNIT_1
+    #undef UNIT_2
+#endif
+#define UNIT_1 (utf16be_char->comp.byte0 | (utf16be_char->comp.byte1 << 8))
+#define UNIT_2 (utf16be_char->comp.byte2 | (utf16be_char->comp.byte3 << 8))
 
     FMC_CodePoint code_point = FMC_CODE_POINT_NULL;
     switch(utf16be_char->byteNumber)
     {
         case 2:
-            code_point = utf16be_char->comp.byte2 << 8 | utf16be_char->comp.byte1;
+            code_point = utf16be_char->comp.byte1 << 8 | utf16be_char->comp.byte0;
             break;
         case 4:
             code_point = 0x10000;
-            FMC_CharComp temp = {0};
-            temp.byte1 = utf16be_char->comp.byte2;
-            temp.byte2 = utf16be_char->comp.byte1;
-            temp.byte3 = utf16be_char->comp.byte4;
-            temp.byte4 = utf16be_char->comp.byte3;
-            // Do the same tests as in FMC_codePointFromUTF16LE_FMC_Char_ptr
-            if ((temp.byte1 | (temp.byte2 << 8)) < 0xD800 || 
-                (temp.byte1 | (temp.byte2 << 8)) > 0xDBFF)
+            if (UNIT_2 < 0xD800 || UNIT_2 > 0xDBFF)
             {
                 if (FMC_getDebugState())
                 {
@@ -479,8 +503,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF16
                 return FMC_CODE_POINT_NULL;
                 FMC_UNREACHABLE;
             }
-            if ((temp.byte3 | (temp.byte4 << 8)) < 0xDC00 || 
-                (temp.byte3 | (temp.byte4 << 8)) > 0xDFFF)
+            if (UNIT_1 < 0xDC00 || UNIT_1 > 0xDFFF)
             {
                 if (FMC_getDebugState())
                 {
@@ -491,11 +514,12 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF16
                 return FMC_CODE_POINT_NULL;
                 FMC_UNREACHABLE;
             }
-            // Do the same calculations as in FMC_codePointFromUTF16LE_FMC_Char_ptr
-            code_point += (temp.byte3 | (temp.byte4 << 8)) & 0x03FF;
-            code_point += ((temp.byte1 | (temp.byte2 << 8)) & 0x03FF) << 10;
+            code_point += UNIT_1 & 0x03FF;
+            code_point += (UNIT_2 & 0x03FF) << 10;
             break;
     }
+#undef UNIT_1
+#undef UNIT_2
     return code_point;
     FMC_UNREACHABLE;
 }
@@ -520,26 +544,26 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_code
         FMC_UNREACHABLE;
     }
     #pragma GCC diagnostic pop
-    if (utf16be_char->byte1 == 0 && utf16be_char->byte2 == 0 && utf16be_char->byte3 == 0 && utf16be_char->byte4 == 0)
+    if (utf16be_char->byte0 == 0 && utf16be_char->byte1 == 0 && utf16be_char->byte2 == 0 && utf16be_char->byte3 == 0)
         return FMC_CODE_POINT_NULL;
+
+#if defined(UNIT_1) || defined(UNIT_2)
+    #undef UNIT_1
+    #undef UNIT_2
+#endif
+#define UNIT_1 (utf16be_char->byte0 | (utf16be_char->byte1 << 8))
+#define UNIT_2 (utf16be_char->byte2 | (utf16be_char->byte3 << 8))
     
     FMC_CodePoint code_point = FMC_CODE_POINT_NULL;
-    FMC_CharComp temp = {0};
-    if (utf16be_char->byte3 == 0 && utf16be_char->byte4 == 0)
+    if (utf16be_char->byte2 == 0 && utf16be_char->byte3 == 0)
     {
-        code_point = utf16be_char->byte2 << 8 | utf16be_char->byte1;
+        code_point = utf16be_char->byte1 << 8 | utf16be_char->byte0;
         return code_point;
     }
     else
     {
-        temp.byte1 = utf16be_char->byte2;
-        temp.byte2 = utf16be_char->byte1;
-        temp.byte3 = utf16be_char->byte4;
-        temp.byte4 = utf16be_char->byte3;
         code_point = 0x10000;
-        // Do the same tests as in FMC_codePointFromUTF16LE_FMC_CharComp_ptr
-        if ((temp.byte1 | (temp.byte2 << 8)) < 0xD800 || 
-            (temp.byte1 | (temp.byte2 << 8)) > 0xDBFF)
+        if (UNIT_2 < 0xD800 || UNIT_2 > 0xDBFF)
         {
             if (FMC_getDebugState())
             {
@@ -550,8 +574,7 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_code
             return FMC_CODE_POINT_NULL;
             FMC_UNREACHABLE;
         }
-        if ((temp.byte3 | (temp.byte4 << 8)) < 0xDC00 || 
-            (temp.byte3 | (temp.byte4 << 8)) > 0xDFFF)
+        if (UNIT_1 < 0xDC00 || UNIT_1 > 0xDFFF)
         {
             if (FMC_getDebugState())
             {
@@ -562,10 +585,11 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_code
             return FMC_CODE_POINT_NULL;
             FMC_UNREACHABLE;
         }
-        // Do the same calculations as in FMC_codePointFromUTF16LE_FMC_CharComp_ptr
-        code_point += (temp.byte3 | (temp.byte4 << 8)) & 0x03FF;
-        code_point += ((temp.byte1 | (temp.byte2 << 8)) & 0x03FF) << 10;
+        code_point += UNIT_1 & 0x03FF;
+        code_point += (UNIT_2 & 0x03FF) << 10;
     }
+#undef UNIT_1
+#undef UNIT_2
     return code_point;
     FMC_UNREACHABLE;
 }
@@ -593,8 +617,13 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_code
     if (*raw_utf16be_char == 0)
         return FMC_CODE_POINT_NULL;
     
+#if defined(UNIT_1) || defined(UNIT_2)
+    #undef UNIT_1
+    #undef UNIT_2
+#endif
+#define UNIT_1 (*raw_utf16be_char & 0xFFFF)
+#define UNIT_2 ((*raw_utf16be_char >> 16) & 0xFFFF)
     FMC_CodePoint code_point = FMC_CODE_POINT_NULL;
-    FMC_CharComp temp = {0};
     if ((*raw_utf16be_char & 0xFFFF0000) == 0)
     {
         code_point = *raw_utf16be_char & 0xFFFF;
@@ -602,16 +631,8 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_code
     }
     else
     {
-        #pragma GCC diagnostic ignored "-Wconversion"
-        temp.byte1 = *raw_utf16be_char & 0xFF;
-        temp.byte2 = (*raw_utf16be_char >> 8) & 0xFF;
-        temp.byte3 = (*raw_utf16be_char >> 16) & 0xFF;
-        temp.byte4 = (*raw_utf16be_char >> 24) & 0xFF;
-        #pragma GCC diagnostic pop
         code_point = 0x10000;
-        // Do the same tests as in FMC_codePointFromUTF16LE_uint32_t_ptr
-        if ((temp.byte1 | (temp.byte2 << 8)) < 0xD800 || 
-            (temp.byte1 | (temp.byte2 << 8)) > 0xDBFF)
+        if (UNIT_2 < 0xD800 || UNIT_2 > 0xDBFF)
         {
             if (FMC_getDebugState())
             {
@@ -622,8 +643,7 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_code
             return FMC_CODE_POINT_NULL;
             FMC_UNREACHABLE;
         }
-        if ((temp.byte3 | (temp.byte4 << 8)) < 0xDC00 || 
-            (temp.byte3 | (temp.byte4 << 8)) > 0xDFFF)
+        if (UNIT_1 < 0xDC00 || UNIT_1 > 0xDFFF)
         {
             if (FMC_getDebugState())
             {
@@ -634,10 +654,11 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_code
             return FMC_CODE_POINT_NULL;
             FMC_UNREACHABLE;
         }
-        // Do the same calculations as in FMC_codePointFromUTF16LE_uint32_t_ptr
-        code_point += (temp.byte3 | (temp.byte4 << 8)) & 0x03FF;
-        code_point += ((temp.byte1 | (temp.byte2 << 8)) & 0x03FF) << 10;
+        code_point += UNIT_1 & 0x03FF;
+        code_point += (UNIT_2 & 0x03FF) << 10;
     }
+#undef UNIT_1
+#undef UNIT_2
     return code_point;
     FMC_UNREACHABLE;
 }
@@ -679,8 +700,8 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF32
         FMC_UNREACHABLE;
     }
 
-    return (FMC_CodePoint)((utf32le_char->comp.byte1 << 24) | (utf32le_char->comp.byte2 << 16) | 
-                           (utf32le_char->comp.byte3 << 8)  |  utf32le_char->comp.byte4);
+    return (FMC_CodePoint)((utf32le_char->comp.byte0 << 24) | (utf32le_char->comp.byte1 << 16) | 
+                           (utf32le_char->comp.byte2 << 8)  |  utf32le_char->comp.byte3);
     FMC_UNREACHABLE;
 }
 
@@ -698,8 +719,8 @@ FMC_SHARED FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF32LE_FMC_Char(const FM
         FMC_UNREACHABLE;
     }
 
-    return (FMC_CodePoint)((utf32le_char.comp.byte1 << 24) | (utf32le_char.comp.byte2 << 16) | 
-                           (utf32le_char.comp.byte3 << 8)  |  utf32le_char.comp.byte4);
+    return (FMC_CodePoint)((utf32le_char.comp.byte0 << 24) | (utf32le_char.comp.byte1 << 16) | 
+                           (utf32le_char.comp.byte2 << 8)  |  utf32le_char.comp.byte3);
     FMC_UNREACHABLE;
 }
 
@@ -719,15 +740,15 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_code
     }
     #pragma GCC diagnostic pop
 
-    return (FMC_CodePoint)((utf32le_char->byte1 << 24) | (utf32le_char->byte2 << 16) | 
-                           (utf32le_char->byte3 << 8)  |  utf32le_char->byte4);
+    return (FMC_CodePoint)((utf32le_char->byte0 << 24) | (utf32le_char->byte1 << 16) | 
+                           (utf32le_char->byte2 << 8)  |  utf32le_char->byte3);
     FMC_UNREACHABLE;
 }
 
 FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF32LE_FMC_CharComp(const FMC_CharComp utf32le_char)
 {
-    return (FMC_CodePoint)((utf32le_char.byte1 << 24) | (utf32le_char.byte2 << 16) | 
-                           (utf32le_char.byte3 << 8)  |  utf32le_char.byte4);
+    return (FMC_CodePoint)((utf32le_char.byte0 << 24) | (utf32le_char.byte1 << 16) | 
+                           (utf32le_char.byte2 << 8)  |  utf32le_char.byte3);
     FMC_UNREACHABLE;
 }
 
@@ -789,7 +810,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF32
         FMC_UNREACHABLE;
     }
 
-    return (FMC_CodePoint)((utf32be_char->comp.byte1 << 24) | (utf32be_char->comp.byte2 << 16) | (utf32be_char->comp.byte3 << 8) | utf32be_char->comp.byte4);
+    return (FMC_CodePoint)((utf32be_char->comp.byte3 << 24) | (utf32be_char->comp.byte2 << 16) | (utf32be_char->comp.byte1 << 8) | utf32be_char->comp.byte0);
     FMC_UNREACHABLE;
 }
 
@@ -807,7 +828,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF32BE_FMC_Char(const FM
         FMC_UNREACHABLE;
     }
 
-    return (FMC_CodePoint)((utf32be_char.comp.byte1 << 24) | (utf32be_char.comp.byte2 << 16) | (utf32be_char.comp.byte3 << 8) | utf32be_char.comp.byte4);
+    return (FMC_CodePoint)((utf32be_char.comp.byte3 << 24) | (utf32be_char.comp.byte2 << 16) | (utf32be_char.comp.byte1 << 8) | utf32be_char.comp.byte0);
     FMC_UNREACHABLE;
 }
 
@@ -827,13 +848,13 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_code
     }
     #pragma GCC diagnostic pop
 
-    return (FMC_CodePoint)((utf32be_char->byte1 << 24) | (utf32be_char->byte2 << 16) | (utf32be_char->byte3 << 8) | utf32be_char->byte4);
+    return (FMC_CodePoint)((utf32be_char->byte3 << 24) | (utf32be_char->byte2 << 16) | (utf32be_char->byte1 << 8) | utf32be_char->byte0);
     FMC_UNREACHABLE;
 }
 
 FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF32BE_FMC_CharComp(const FMC_CharComp utf32be_char)
 {
-    return (FMC_CodePoint)((utf32be_char.byte1 << 24) | (utf32be_char.byte2 << 16) | (utf32be_char.byte3 << 8) | utf32be_char.byte4);
+    return (FMC_CodePoint)((utf32be_char.byte3 << 24) | (utf32be_char.byte2 << 16) | (utf32be_char.byte1 << 8) | utf32be_char.byte0);
     FMC_UNREACHABLE;
 }
 

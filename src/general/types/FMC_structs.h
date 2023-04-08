@@ -107,14 +107,14 @@ FMC_SHARED struct FManC_StrOcc
 };
 typedef struct FManC_StrOcc FMC_StrOcc;
 
-// the least significant byte is byte1. For instance, in 257, byte1 = 0000 0001, byte2 = 0000 0001, 
-//                                                            byte3 = 0000 0000, byte4 = 0000 0000.
+// the least significant byte is byte0. For instance, in 257, byte0 = 0000 0001, byte1 = 0000 0001, 
+//                                                            byte2 = 0000 0000, byte3 = 0000 0000.
 FMC_SHARED struct FManC_CharComp
 {
+    FMC_Byte byte0 : 8;
     FMC_Byte byte1 : 8;
     FMC_Byte byte2 : 8;
     FMC_Byte byte3 : 8;
-    FMC_Byte byte4 : 8;
 };
 typedef struct FManC_CharComp FMC_CharComp;
 

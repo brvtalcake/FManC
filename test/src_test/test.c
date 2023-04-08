@@ -71,5 +71,8 @@ int main()
     test_FMC_FileAPI();
     fprintf(stderr, "\x1b[32m%s\n\x1b[0m", "test_FMC_FileAPI() passed");
 
+    test_FMC_CodePoint();
+    fprintf(stderr, "\x1b[32m%s\n\x1b[0m", "test_FMC_CodePoint() passed");
+
     return 0;
 }

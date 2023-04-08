@@ -103,7 +103,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_JUST_MALLOC FMC_FUNC_WARN_UNUSED_RESULT 
     switch (byte_number)
     {
         case 1:
-            if (char_encoding != ascii || char_encoding != utf8_bom || char_encoding != utf8)
+            if (char_encoding != ascii && char_encoding != utf8_bom && char_encoding != utf8)
             {
                 if (FMC_getDebugState())
                 {
@@ -118,7 +118,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_JUST_MALLOC FMC_FUNC_WARN_UNUSED_RESULT 
             else c->byteNumber = 1;
             break;
         case 2:
-            if (char_encoding != utf16_be || char_encoding != utf16_le || char_encoding != utf8_bom || char_encoding != utf8)
+            if (char_encoding != utf16_be && char_encoding != utf16_le && char_encoding != utf8_bom && char_encoding != utf8)
             {
                 if (FMC_getDebugState())
                 {
@@ -133,7 +133,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_JUST_MALLOC FMC_FUNC_WARN_UNUSED_RESULT 
             else c->byteNumber = 2;
             break;
         case 3:
-            if (char_encoding != utf8_bom || char_encoding != utf8)
+            if (char_encoding != utf8_bom && char_encoding != utf8)
             {
                 if (FMC_getDebugState())
                 {
@@ -148,8 +148,8 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_JUST_MALLOC FMC_FUNC_WARN_UNUSED_RESULT 
             else c->byteNumber = 3;
             break;
         case 4:
-            if (char_encoding != utf32_be || char_encoding != utf32_le || char_encoding != utf8_bom || char_encoding != utf8 ||
-                char_encoding != utf16_be || char_encoding != utf16_le)
+            if (char_encoding != utf32_be && char_encoding != utf32_le && char_encoding != utf8_bom && char_encoding != utf8 &&
+                char_encoding != utf16_be && char_encoding != utf16_le)
             {
                 if (FMC_getDebugState())
                 {
@@ -176,17 +176,17 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_JUST_MALLOC FMC_FUNC_WARN_UNUSED_RESULT 
     }
     c->isNull = char_is_null;
     // Assert that everything is already zeroed-out by calloc
+    FMC_UNREACHABLE_ASSERT(c->comp.byte0 == 0);
     FMC_UNREACHABLE_ASSERT(c->comp.byte1 == 0);
     FMC_UNREACHABLE_ASSERT(c->comp.byte2 == 0);
     FMC_UNREACHABLE_ASSERT(c->comp.byte3 == 0);
-    FMC_UNREACHABLE_ASSERT(c->comp.byte4 == 0);
     
     if (!char_is_null) 
     {
-        c->comp.byte1 = bytes[0];
-        if (c->byteNumber > 1) c->comp.byte2 = bytes[1];
-        if (c->byteNumber > 2) c->comp.byte3 = bytes[2];
-        if (c->byteNumber > 3) c->comp.byte4 = bytes[3];
+        c->comp.byte0 = bytes[0];
+        if (c->byteNumber > 1) c->comp.byte1 = bytes[1];
+        if (c->byteNumber > 2) c->comp.byte2 = bytes[2];
+        if (c->byteNumber > 3) c->comp.byte3 = bytes[3];
     }
 
     return c;

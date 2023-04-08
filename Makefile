@@ -83,8 +83,8 @@ endif
 
 
 
-C_DEBUG_FLAGS=-D _DEFAULT_SOURCE -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=64 -g3 -O0 -std=gnu17 -ftrack-macro-expansion=1 -fprofile-arcs -ftest-coverage --coverage
-CXX_DEBUG_FLAGS=-D _DEFAULT_SOURCE -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=64 -g3 -O0 -std=gnu++17 -ftrack-macro-expansion=1 -fprofile-arcs -ftest-coverage --coverage
+C_DEBUG_FLAGS=-D _DEFAULT_SOURCE -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=64 -g3 -O0 -std=gnu17 -ftrack-macro-expansion=1 -fprofile-arcs -ftest-coverage --coverage -fno-inline
+CXX_DEBUG_FLAGS=-D _DEFAULT_SOURCE -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=64 -g3 -O0 -std=gnu++17 -ftrack-macro-expansion=1 -fprofile-arcs -ftest-coverage --coverage -fno-inline
 
 LD_FLAGS_DLL=-lstdc++ "-Wl,--out-implib=libFManC.dll.a,--export-all-symbols,--enable-auto-import"
 LD_FLAGS_SO=-lstdc++ -Wl,-soname,

@@ -43,4 +43,5 @@ void test_FMC_extractFilename();
 void test_FMC_getExtension();
 void test_FMC_cutFilename();
 void test_FMC_FileAPI();
+void test_FMC_CodePoint();
 #endif // TEST_SUITE_H

@@ -40,20 +40,20 @@ FMC_BEGIN_DECLS
 #define FMC_MAKE_CHPTR_NULL(_ch_ptr) \
     do                               \
     {                                \
+        _ch_ptr->comp.byte0 = 0;     \
         _ch_ptr->comp.byte1 = 0;     \
         _ch_ptr->comp.byte2 = 0;     \
         _ch_ptr->comp.byte3 = 0;     \
-        _ch_ptr->comp.byte4 = 0;     \
         _ch_ptr->isNull = FMC_TRUE;  \
     } while (0)
 
 #define FMC_MAKE_CH_NULL(_ch)        \
     do                               \
     {                                \
+        _ch.comp.byte0 = 0;          \
         _ch.comp.byte1 = 0;          \
         _ch.comp.byte2 = 0;          \
         _ch.comp.byte3 = 0;          \
-        _ch.comp.byte4 = 0;          \
         _ch.isNull = FMC_TRUE;       \
     } while (0)
 

@@ -209,10 +209,10 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                                                            1); */
                         memset(new_char, 0, sizeof(FMC_Char));
                         new_char->encoding = utf8;
-                        new_char->comp.byte1 = bytes[0];
+                        new_char->comp.byte0 = bytes[0];
+                        new_char->comp.byte1 = 0x00;
                         new_char->comp.byte2 = 0x00;
                         new_char->comp.byte3 = 0x00;
-                        new_char->comp.byte4 = 0x00;
                         new_char->isNull = (ch == 0 ? FMC_TRUE : FMC_FALSE);
                         new_char->byteNumber = 1;
                         if (!FMC_append(str, new_char))
@@ -267,10 +267,10 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                         /* FMC_Char* new_char = FMC_allocChar(bytes, utf8, FMC_FALSE, 2); */
                         memset(new_char, 0, sizeof(FMC_Char));
                         new_char->encoding = utf8;
-                        new_char->comp.byte1 = bytes[0];
-                        new_char->comp.byte2 = bytes[1];
+                        new_char->comp.byte0 = bytes[0];
+                        new_char->comp.byte1 = bytes[1];
+                        new_char->comp.byte2 = 0x00;
                         new_char->comp.byte3 = 0x00;
-                        new_char->comp.byte4 = 0x00;
                         new_char->isNull = FMC_FALSE;
                         new_char->byteNumber = 2;
                         if (!FMC_append(str, new_char))
@@ -325,10 +325,10 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                         /* FMC_Char* new_char = FMC_allocChar(bytes, utf8, FMC_FALSE, 3); */
                         memset(new_char, 0, sizeof(FMC_Char));
                         new_char->encoding = utf8;
-                        new_char->comp.byte1 = bytes[0];
-                        new_char->comp.byte2 = bytes[1];
-                        new_char->comp.byte3 = bytes[2];
-                        new_char->comp.byte4 = 0x00;
+                        new_char->comp.byte0 = bytes[0];
+                        new_char->comp.byte1 = bytes[1];
+                        new_char->comp.byte2 = bytes[2];
+                        new_char->comp.byte3 = 0x00;
                         new_char->isNull = FMC_FALSE;
                         new_char->byteNumber = 3;
                         if (!FMC_append(str, new_char))
@@ -383,10 +383,10 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                         /* FMC_Char* new_char = FMC_allocChar(bytes, utf8, FMC_FALSE, 4); */
                         memset(new_char, 0, sizeof(FMC_Char));
                         new_char->encoding = utf8;
-                        new_char->comp.byte1 = bytes[0];
-                        new_char->comp.byte2 = bytes[1];
-                        new_char->comp.byte3 = bytes[2];
-                        new_char->comp.byte4 = bytes[3];
+                        new_char->comp.byte0 = bytes[0];
+                        new_char->comp.byte1 = bytes[1];
+                        new_char->comp.byte2 = bytes[2];
+                        new_char->comp.byte3 = bytes[3];
                         new_char->isNull = FMC_FALSE;
                         new_char->byteNumber = 4;
                         if (!FMC_append(str, new_char))
@@ -493,10 +493,10 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                                                        first_two_read_bytes == 0 ? FMC_TRUE : FMC_FALSE,
                                                        2); */
                     memset(new_char, 0, sizeof(FMC_Char));
-                    new_char->comp.byte1 = bytes[0];
-                    new_char->comp.byte2 = bytes[1];
+                    new_char->comp.byte0 = bytes[0];
+                    new_char->comp.byte1 = bytes[1];
+                    new_char->comp.byte2 = 0x00;
                     new_char->comp.byte3 = 0x00;
-                    new_char->comp.byte4 = 0x00;
                     new_char->encoding = utf16_le;
                     new_char->isNull = first_two_read_bytes == 0 ? FMC_TRUE : FMC_FALSE;
                     new_char->byteNumber = 2;
@@ -594,10 +594,10 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                     bytes[0] = (FMC_Byte)ch4;
                     /* FMC_Char* new_char = FMC_allocChar(bytes, utf16_le, FMC_FALSE, 4); */
                     memset(new_char, 0, sizeof(FMC_Char));
-                    new_char->comp.byte1 = bytes[0];
-                    new_char->comp.byte2 = bytes[1];
-                    new_char->comp.byte3 = bytes[2];
-                    new_char->comp.byte4 = bytes[3];
+                    new_char->comp.byte0 = bytes[0];
+                    new_char->comp.byte1 = bytes[1];
+                    new_char->comp.byte2 = bytes[2];
+                    new_char->comp.byte3 = bytes[3];
                     new_char->encoding = utf16_le;
                     new_char->isNull = FMC_FALSE;
                     new_char->byteNumber = 4;
@@ -675,10 +675,10 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                                                        first_two_read_bytes == 0 ? FMC_TRUE : FMC_FALSE,
                                                        2); */
                     memset(new_char, 0, sizeof(FMC_Char));
-                    new_char->comp.byte1 = bytes[0];
-                    new_char->comp.byte2 = bytes[1];
+                    new_char->comp.byte0 = bytes[0];
+                    new_char->comp.byte1 = bytes[1];
+                    new_char->comp.byte2 = 0x00;
                     new_char->comp.byte3 = 0x00;
-                    new_char->comp.byte4 = 0x00;
                     new_char->encoding = utf16_be;
                     new_char->isNull = first_two_read_bytes == 0 ? FMC_TRUE : FMC_FALSE;
                     new_char->byteNumber = 2;
@@ -787,10 +787,10 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                     new_char->byteNumber = 4;
                     new_char->isNull = FMC_FALSE;
                     new_char->encoding = utf16_be;
-                    new_char->comp.byte1 = bytes[0];
-                    new_char->comp.byte2 = bytes[1];
-                    new_char->comp.byte3 = bytes[2];
-                    new_char->comp.byte4 = bytes[3];
+                    new_char->comp.byte0 = bytes[0];
+                    new_char->comp.byte1 = bytes[1];
+                    new_char->comp.byte2 = bytes[2];
+                    new_char->comp.byte3 = bytes[3];
                     if (!FMC_append(str, new_char))
                     {
                         if (FMC_getDebugState())
@@ -880,10 +880,10 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                 new_char->byteNumber = 4;
                 new_char->isNull = !complete_char ? FMC_TRUE : FMC_FALSE;
                 new_char->encoding = utf32_le;
-                new_char->comp.byte1 = bytes[0];
-                new_char->comp.byte2 = bytes[1];
-                new_char->comp.byte3 = bytes[2];
-                new_char->comp.byte4 = bytes[3];
+                new_char->comp.byte0 = bytes[0];
+                new_char->comp.byte1 = bytes[1];
+                new_char->comp.byte2 = bytes[2];
+                new_char->comp.byte3 = bytes[3];
                 if (!FMC_append(str, new_char))
                 {
                     if (FMC_getDebugState())
@@ -972,10 +972,10 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                 new_char->byteNumber = 4;
                 new_char->isNull = !complete_char ? FMC_TRUE : FMC_FALSE;
                 new_char->encoding = utf32_be;
-                new_char->comp.byte1 = bytes[0];
-                new_char->comp.byte2 = bytes[1];
-                new_char->comp.byte3 = bytes[2];
-                new_char->comp.byte4 = bytes[3];
+                new_char->comp.byte0 = bytes[0];
+                new_char->comp.byte1 = bytes[1];
+                new_char->comp.byte2 = bytes[2];
+                new_char->comp.byte3 = bytes[3];
                 if (!FMC_append(str, new_char))
                 {
                     if (FMC_getDebugState())
@@ -1020,10 +1020,10 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                 new_char->byteNumber = 1;
                 new_char->isNull = !complete_char ? FMC_TRUE : FMC_FALSE;
                 new_char->encoding = ascii;
-                new_char->comp.byte1 = bytes[0];
+                new_char->comp.byte0 = bytes[0];
+                new_char->comp.byte1 = 0x00;
                 new_char->comp.byte2 = 0x00;
                 new_char->comp.byte3 = 0x00;
-                new_char->comp.byte4 = 0x00;
                 if (!FMC_append(str, new_char))
                 {
                     if (FMC_getDebugState())

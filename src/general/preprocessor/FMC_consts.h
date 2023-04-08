@@ -67,9 +67,9 @@ SOFTWARE.
     #undef FMC_CHARCOMP_NULL
     #undef FMC_NULL_BYTES
 #endif
-// #define FMC_CODE_POINT_NULL (FMC_CodePoint){.byte1 = 0, .byte2 = 0, .byte3 = 0, .byte4 = 0}
+// #define FMC_CODE_POINT_NULL (FMC_CodePoint){.byte0 = 0, .byte1 = 0, .byte2 = 0, .byte3 = 0}
 #define FMC_CODE_POINT_NULL (FMC_MAKE_UI32(0))
-#define FMC_CHARCOMP_NULL ((FMC_CharComp){.byte1 = 0, .byte2 = 0, .byte3 = 0, .byte4 = 0})
+#define FMC_CHARCOMP_NULL ((FMC_CharComp){.byte0 = 0, .byte1 = 0, .byte2 = 0, .byte3 = 0})
 #define FMC_NULL_BYTES ((FMC_Byte[4]){0x00, 0x00, 0x00, 0x00})
 
 #ifndef FMC_STYLES

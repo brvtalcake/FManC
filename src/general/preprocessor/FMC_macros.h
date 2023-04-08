@@ -363,6 +363,49 @@ __VA_ARGS__))))
 #define FMC_MAKE_I32(x) INT32_C(x)
 #define FMC_MAKE_I64(x) INT64_C(x)
 
+#if defined(FMC_CAST_TO_UI8) || defined(FMC_CAST_TO_UI16) || defined(FMC_CAST_TO_UI32) || defined(FMC_CAST_TO_UI64) || defined(FMC_CAST_TO_I8) || defined(FMC_CAST_TO_I16) || defined(FMC_CAST_TO_I32) || defined(FMC_CAST_TO_I64) 
+    #undef FMC_CAST_TO_UI8
+    #undef FMC_CAST_TO_UI16
+    #undef FMC_CAST_TO_UI32
+    #undef FMC_CAST_TO_UI64
+    #undef FMC_CAST_TO_I8
+    #undef FMC_CAST_TO_I16
+    #undef FMC_CAST_TO_I32
+    #undef FMC_CAST_TO_I64
+#endif
+#define FMC_CAST_TO_UI8(x) ({ \
+    uint8_t __x = (x); \
+    __x; \
+})
+#define FMC_CAST_TO_UI16(x) ({ \
+    uint16_t __x = (x); \
+    __x; \
+})
+#define FMC_CAST_TO_UI32(x) ({ \
+    uint32_t __x = (x); \
+    __x; \
+})
+#define FMC_CAST_TO_UI64(x) ({ \
+    uint64_t __x = (x); \
+    __x; \
+})
+#define FMC_CAST_TO_I8(x) ({ \
+    int8_t __x = (x); \
+    __x; \
+})
+#define FMC_CAST_TO_I16(x) ({ \
+    int16_t __x = (x); \
+    __x; \
+})
+#define FMC_CAST_TO_I32(x) ({ \
+    int32_t __x = (x); \
+    __x; \
+})
+#define FMC_CAST_TO_I64(x) ({ \
+    int64_t __x = (x); \
+    __x; \
+})
+
 #if defined(FMC_UINT_ARR) || defined(FMC_INT_ARR)
     #undef FMC_UINT_ARR
     #undef FMC_INT_ARR
