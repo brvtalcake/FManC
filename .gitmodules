@@ -3,6 +3,3 @@
 	path = third_party_libs/metalang99
 	url = https://github.com/brvtalcake/metalang99.git
 
-[submodule "third_party_libs/mimalloc"]
-	path = third_party_libs/mimalloc
-	url = https://github.com/microsoft/mimalloc.git
