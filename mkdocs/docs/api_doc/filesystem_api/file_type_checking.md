@@ -1,21 +1,8 @@
-# **Filesystem API reference**
+## Functions
+---
+<!-- ### File type checking -->
 
-## **Summary**
-- [**Filesystem API reference**](#filesystem-api-reference)
-	- [**Summary**](#summary)
-	- [**Functions**](#functions)
-		- [File type checking](#file-type-checking)
-			- [_FMC\_dirExists_](#fmc_direxists)
-			- [_FMC\_isDir_](#fmc_isdir)
-			- [_FMC\_isRegFile_](#fmc_isregfile)
-			- [_FMC\_isCharDevice_](#fmc_ischardevice)
-			- [_FMC\_isSocket_](#fmc_issocket)
-		- [Directory management](#directory-management)
-## **Functions**
----
-### File type checking
----
-#### _FMC_dirExists_
+### _FMC\_dirExists_
 
 === "Function signature"
 
@@ -57,11 +44,11 @@ The function returns non-zero value if the path effectively exists, 0 otherwise.
 
 **Description**
 
-You can use this function on any Unix system or Windows. The Windows version uses the Win32 filesystem API and thus does not require any particular compiler. The Unix version uses the usual stat function.
+You can use this function on any POSIX-compliant system or Windows. The Windows version uses the Win32 filesystem API and thus does not require any particular compiler. The Unix version uses the usual stat function.
 
 ---
 
-#### _FMC_isDir_
+### _FMC\_isDir_
 
 === "Function signature"
 
@@ -93,13 +80,13 @@ You can use this function on any Unix system or Windows. The Windows version use
 
 **Return value**
 
-The function returns non-zero value if the path effectively exists, 0 if not.
+The function returns non-zero value if the path is a directory, 0 otherwise.
 
 **Description**
 
-You can use this function on any Unix system or Windows. The Windows version uses the Win32 filesystem API and thus does not require any particular compiler. The Unix version uses the usual stat function.
+You can use this function on any POSIX-compliant system or Windows. The Windows version uses the Win32 filesystem API and thus does not require any particular compiler. The Unix version uses the usual stat function.
 
-#### _FMC_isRegFile_
+### _FMC\_isRegFile_
 
 === "Function signature"
 
@@ -112,11 +99,46 @@ You can use this function on any Unix system or Windows. The Windows version use
 	// To be done
 	```
 
-#### _FMC_isCharDevice_
+**Parameters**
+
+**_`#!C path`_** : the path whose you want to check if it's a regular file. Multi-byte characters are not supported.
+
+**Return value**
+
+The function returns non-zero value if the path is a regular file, 0 otherwise.
+
+**Description**
+
+You can use this function on any POSIX-compliant system or Windows. The Windows version uses the Win32 filesystem API and thus does not require any particular compiler. The Unix version uses the usual stat function.
+
+### _FMC\_isCharDevice_
 
 To be done
 
-#### _FMC_isSocket_
+### _FMC\_isSocket_
 
+### _FMC\_isSymLink_
 
-### Directory management
+=== "Function signature"
+
+    ```c
+    int FMC_isSymLink(const char *path);
+    ```
+=== "Example of use"
+
+    ```c
+    // To be done
+    ```
+
+### _FMC\_isBlock_
+
+=== "Function signature"
+
+    ```c
+    int FMC_isBlock(const char* path);
+    ```
+=== "Example of use"
+
+    ```c
+    // To be done
+    ```

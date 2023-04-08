@@ -32,6 +32,8 @@ SOFTWARE.
 #include "FMC_io.h"
 #include "../../cpp/FMC_wrapper.h"
 
+// TODO: Replace FMC_allocChar with FMC_alloca and manually initialize the char
+
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_String* FMC_readFile(FMC_File* const file)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare"

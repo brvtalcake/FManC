@@ -10,6 +10,11 @@ copyright: Copyright &copy; 2022 - 2023 Axel PASCON
 #  - stylesheets/syntax.css
 #  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/base16/eighties.min.css
 markdown_extensions:
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
   - toc:
       permalink: True
       toc_depth: 0
@@ -25,18 +30,21 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
 nav:
-  - Getting started: 'index.md'
+  - Getting started: index.md
   - API Reference:
-    - Filesystem API: 'api_doc/filesystem_api.md'
-    - Encoding facilities : 'api_doc/encoding_facilities.md'
-  - Function index: 'function_index/index.md'
-  - Data structure index: 'data_structure_index/index.md'
+    - Filesystem API: 
+      - api_doc/filesystem_api/index.md
+      - File type checking: api_doc/filesystem_api/file_type_checking.md
+      - Directory management: api_doc/filesystem_api/directory_management.md
+    - Encoding facilities : api_doc/encoding_facilities.md
+  - Function index: function_index/index.md
+  - Data structure index: data_structure_index/index.md
 plugins:
   - search:
       separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
       lang: 
         - en
-  - pdf-export
+  #- pdf-export
 extra:
   consent:
     title: Cookie consent
@@ -65,6 +73,7 @@ theme:
     - content.code.copy
     - navigation.tabs
     - navigation.tabs.sticky
+    - navigation.indexes
   name: material
   locale: en
   logo: ./_images_/FManC.png
