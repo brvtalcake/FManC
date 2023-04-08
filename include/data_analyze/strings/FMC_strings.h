@@ -27,7 +27,7 @@ SOFTWARE.
 #ifndef FMC_STRINGS_H
 #define FMC_STRINGS_H
 
-#include <mimalloc.h>
+#include <stdlib.h>
 
 #include "../../general/FMC_general.h"
 
@@ -126,7 +126,7 @@ FMC_FUNC_INLINE FMC_FUNC_NONNULL(1) void FMC_removeTrailNullChars(FMC_String* co
     {
         if (ch == str->firstChar) break;
         ch = ch->prev;
-        mi_free(ch->next);
+        free(ch->next);
         ch->next = NULL;
         str->lastChar = ch;
         str->size--;

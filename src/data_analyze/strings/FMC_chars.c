@@ -31,7 +31,7 @@ SOFTWARE.
 
 FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_JUST_MALLOC FMC_FUNC_WARN_UNUSED_RESULT FMC_Char* FMC_allocChar(const FMC_Byte* restrict const bytes, FMC_Encodings char_encoding, FMC_CharControl char_is_null, uint8_t byte_number)
 {
-    FMC_Char* c = mi_zalloc_small(sizeof(FMC_Char));
+    FMC_Char* c = calloc(1, sizeof(FMC_Char));
     #pragma GCC diagnostic ignored "-Wunsuffixed-float-constants"
     if (FMC_PROB((c == NULL), 0.001))
     {
@@ -96,7 +96,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_JUST_MALLOC FMC_FUNC_WARN_UNUSED_RESULT 
                 FMC_printRedError(stderr, err_invalidarg);
             }
             FMC_setError(FMC_ERR_INVALID_ARGUMENT, "The provided encoding is invalid");
-            mi_free(c);
+            free(c);
             return NULL;
             FMC_UNREACHABLE;
     }
@@ -111,7 +111,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_JUST_MALLOC FMC_FUNC_WARN_UNUSED_RESULT 
                     FMC_printRedError(stderr, err_invalidarg);
                 }
                 FMC_setError(FMC_ERR_INVALID_ARGUMENT, "The provided byte_number is invalid");
-                mi_free(c);
+                free(c);
                 return NULL;
                 FMC_UNREACHABLE;
             }
@@ -126,7 +126,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_JUST_MALLOC FMC_FUNC_WARN_UNUSED_RESULT 
                     FMC_printRedError(stderr, err_invalidarg);
                 }
                 FMC_setError(FMC_ERR_INVALID_ARGUMENT, "The provided byte_number is invalid");
-                mi_free(c);
+                free(c);
                 return NULL;
                 FMC_UNREACHABLE;
             }
@@ -141,7 +141,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_JUST_MALLOC FMC_FUNC_WARN_UNUSED_RESULT 
                     FMC_printRedError(stderr, err_invalidarg);
                 }
                 FMC_setError(FMC_ERR_INVALID_ARGUMENT, "The provided byte_number is invalid");
-                mi_free(c);
+                free(c);
                 return NULL;
                 FMC_UNREACHABLE;
             }
@@ -157,7 +157,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_JUST_MALLOC FMC_FUNC_WARN_UNUSED_RESULT 
                     FMC_printRedError(stderr, err_invalidarg);
                 }
                 FMC_setError(FMC_ERR_INVALID_ARGUMENT, "The provided byte_number is invalid");
-                mi_free(c);
+                free(c);
                 return NULL;
                 FMC_UNREACHABLE;
             }
@@ -170,12 +170,12 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_JUST_MALLOC FMC_FUNC_WARN_UNUSED_RESULT 
                 FMC_printRedError(stderr, err_invalidarg);
             }
             FMC_setError(FMC_ERR_INVALID_ARGUMENT, "The provided byte_number is invalid");
-            mi_free(c);
+            free(c);
             return NULL;
             FMC_UNREACHABLE;
     }
     c->isNull = char_is_null;
-    // Assert that everything is already zeroed-out by mi_zalloc_small
+    // Assert that everything is already zeroed-out by calloc
     FMC_UNREACHABLE_ASSERT(c->comp.byte1 == 0);
     FMC_UNREACHABLE_ASSERT(c->comp.byte2 == 0);
     FMC_UNREACHABLE_ASSERT(c->comp.byte3 == 0);
@@ -207,7 +207,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) void FMC_freeChar(FMC_Char* const c)
         FMC_UNREACHABLE;
     }
     #pragma GCC diagnostic pop
-    mi_free(c);
+    free(c);
     return;
     FMC_UNREACHABLE;
 }

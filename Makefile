@@ -102,7 +102,7 @@ else ifeq (,$(findstring windows,$(OS)))
 endif
 
 INC_FLAGS=-I./third_party_libs/metalang99/include/ -I./third_party_libs/mimalloc/include/
-LIB_FLAGS=-L./third_party_libs/built_libs/static -lmimalloc-secure
+LIB_FLAGS=-L./third_party_libs/built_libs/static
 # All target
 ALL_TARGET=$(addsuffix _$(DETECTED_OS), all)
 .PHONY : all
@@ -167,38 +167,38 @@ all_win : copy_src_structure third_party static shared copy_headers test
 third_party : $(THIRD_PARTY_LIBS_TARGET)
 
 third_party_lin :
-	cd ./third_party_libs/metalang99 && git checkout master
-	cd ./third_party_libs/mimalloc && git checkout master
-	git submodule update --init --recursive
-	rm -rf ./third_party_libs/built_libs/mimalloc/*
-	rm -f ./third_party_libs/built_libs/static/libmimalloc-secure.a
-	rm -f ./third_party_libs/built_libs/shared/libmimalloc-secure.so
-	rm -f ./third_party_libs/built_libs/shared/libmimalloc-secure.so.2
-	rm -f ./third_party_libs/built_libs/shared/libmimalloc-secure.so.2.1
-	cd ./third_party_libs/mimalloc && cmake -DMI_SECURE=ON -S . -B ../built_libs/mimalloc -G "Unix Makefiles"
-	cd ./third_party_libs/built_libs/mimalloc && $(MAKE) all
-	cp ./third_party_libs/built_libs/mimalloc/libmimalloc-secure.a ./third_party_libs/built_libs/static
-	cp ./third_party_libs/built_libs/mimalloc/libmimalloc-secure.so.2.1 ./third_party_libs/built_libs/shared
-	cd ./third_party_libs/built_libs/shared && ln -s libmimalloc-secure.so.2.1 libmimalloc-secure.so.2
-	cd ./third_party_libs/built_libs/shared && ln -s libmimalloc-secure.so.2 libmimalloc-secure.so
-	cd ./third_party_libs/built_libs/mimalloc/ && $(MAKE) clean && rm -rf ./CMakeFiles
+#	cd ./third_party_libs/metalang99 && git checkout master
+#	cd ./third_party_libs/mimalloc && git checkout master
+#	git submodule update --init --recursive
+#	rm -rf ./third_party_libs/built_libs/mimalloc/*
+#	rm -f ./third_party_libs/built_libs/static/libmimalloc-secure.a
+#	rm -f ./third_party_libs/built_libs/shared/libmimalloc-secure.so
+#	rm -f ./third_party_libs/built_libs/shared/libmimalloc-secure.so.2
+#	rm -f ./third_party_libs/built_libs/shared/libmimalloc-secure.so.2.1
+#	cd ./third_party_libs/mimalloc && cmake -DMI_SECURE=ON -S . -B ../built_libs/mimalloc -G "Unix Makefiles"
+#	cd ./third_party_libs/built_libs/mimalloc && $(MAKE) all
+#	cp ./third_party_libs/built_libs/mimalloc/libmimalloc-secure.a ./third_party_libs/built_libs/static
+#	cp ./third_party_libs/built_libs/mimalloc/libmimalloc-secure.so.2.1 ./third_party_libs/built_libs/shared
+#	cd ./third_party_libs/built_libs/shared && ln -s libmimalloc-secure.so.2.1 libmimalloc-secure.so.2
+#	cd ./third_party_libs/built_libs/shared && ln -s libmimalloc-secure.so.2 libmimalloc-secure.so
+#	cd ./third_party_libs/built_libs/mimalloc/ && $(MAKE) clean && rm -rf ./CMakeFiles
 
 third_party_win :
-	cd ./third_party_libs/metalang99 && git checkout master
-	cd ./third_party_libs/mimalloc && git checkout master
-	git submodule update --init --recursive
-	rm -rf ./third_party_libs/built_libs/mimalloc/*
-	rm -f ./third_party_libs/built_libs/static/libmimalloc-secure.a
-	rm -f ./third_party_libs/built_libs/shared/libmimalloc-secure.so
-	rm -f ./third_party_libs/built_libs/shared/libmimalloc-secure.so.2
-	rm -f ./third_party_libs/built_libs/shared/libmimalloc-secure.so.2.1
-	cd ./third_party_libs/mimalloc && cmake -DMI_SECURE=ON -S . -B ../built_libs/mimalloc -G "Unix Makefiles"
-	cd ./third_party_libs/built_libs/mimalloc && $(MAKE) all
-	cp ./third_party_libs/built_libs/mimalloc/libmimalloc-secure.a ./third_party_libs/built_libs/static
-	cp ./third_party_libs/built_libs/mimalloc/libmimalloc-secure.so.2.1 ./third_party_libs/built_libs/shared
-	cd ./third_party_libs/built_libs/shared && ln -s libmimalloc-secure.so.2.1 libmimalloc-secure.so.2
-	cd ./third_party_libs/built_libs/shared && ln -s libmimalloc-secure.so.2 libmimalloc-secure.so
-	cd ./third_party_libs/built_libs/mimalloc/ && $(MAKE) clean && rm -rf ./CMakeFiles
+#	cd ./third_party_libs/metalang99 && git checkout master
+#	cd ./third_party_libs/mimalloc && git checkout master
+#	git submodule update --init --recursive
+#	rm -rf ./third_party_libs/built_libs/mimalloc/*
+#	rm -f ./third_party_libs/built_libs/static/libmimalloc-secure.a
+#	rm -f ./third_party_libs/built_libs/shared/libmimalloc-secure.so
+#	rm -f ./third_party_libs/built_libs/shared/libmimalloc-secure.so.2
+#	rm -f ./third_party_libs/built_libs/shared/libmimalloc-secure.so.2.1
+#	cd ./third_party_libs/mimalloc && cmake -DMI_SECURE=ON -S . -B ../built_libs/mimalloc -G "Unix Makefiles"
+#	cd ./third_party_libs/built_libs/mimalloc && $(MAKE) all
+#	cp ./third_party_libs/built_libs/mimalloc/libmimalloc-secure.a ./third_party_libs/built_libs/static
+#	cp ./third_party_libs/built_libs/mimalloc/libmimalloc-secure.so.2.1 ./third_party_libs/built_libs/shared
+#	cd ./third_party_libs/built_libs/shared && ln -s libmimalloc-secure.so.2.1 libmimalloc-secure.so.2
+#	cd ./third_party_libs/built_libs/shared && ln -s libmimalloc-secure.so.2 libmimalloc-secure.so
+#	cd ./third_party_libs/built_libs/mimalloc/ && $(MAKE) clean && rm -rf ./CMakeFiles
 
 static : $(STAT_TARGET)
 
