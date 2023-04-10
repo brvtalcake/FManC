@@ -59,6 +59,87 @@ FMC_BEGIN_DECLS
         _ch.isNull = FMC_TRUE;       \
     } while (0)
 
+#if defined(FMC_charCompare) || defined(FMC_charPtrCompare) || defined(FMC_charCompare_2) || defined(FMC_charCompare_3) || defined(FMC_charCompare_4)
+    #undef FMC_charCompare
+    #undef FMC_charPtrCompare
+    #undef FMC_charCompare_2
+    #undef FMC_charCompare_3
+    #undef FMC_charCompare_4
+#endif
+#if defined(FMC_charPtrCompare_helper1) || defined(FMC_charPtrCompare_helper2) || defined(FMC_charPtrCompare_helper2_IMPL) || defined(FMC_charPtrCompare_helper1_IMPL) || defined(FMC_charPtrCompare_helper1_ARITY) || defined(FMC_charPtrCompare_helper2_ARITY)
+    #undef FMC_charPtrCompare_helper1
+    #undef FMC_charPtrCompare_helper2
+    #undef FMC_charPtrCompare_helper2_IMPL
+    #undef FMC_charPtrCompare_helper1_IMPL
+    #undef FMC_charPtrCompare_helper1_ARITY
+    #undef FMC_charPtrCompare_helper2_ARITY
+#endif
+#define FMC_charCompare_2(_ch1, _ch2) ({                        \
+    FMC_Bool res = FMC_FALSE;                                   \
+    if (_ch1.encoding == _ch2.encoding)                         \
+    {                                                           \
+        if (_ch1.byteNumber == _ch2.byteNumber)                 \
+        {                                                       \
+            switch (_ch1.byteNumber)                            \
+            {                                                   \
+                case 1:                                         \
+                    res = _ch1.comp.byte0 == _ch2.comp.byte0;   \
+                    break;                                      \
+                case 2:                                         \
+                    res = _ch1.comp.byte0 == _ch2.comp.byte0 && \
+                          _ch1.comp.byte1 == _ch2.comp.byte1;   \
+                    break;                                      \
+                case 3:                                         \
+                    res = _ch1.comp.byte0 == _ch2.comp.byte0 && \
+                          _ch1.comp.byte1 == _ch2.comp.byte1 && \
+                          _ch1.comp.byte2 == _ch2.comp.byte2;   \
+                    break;                                      \
+                case 4:                                         \
+                    res = _ch1.comp.byte0 == _ch2.comp.byte0 && \
+                          _ch1.comp.byte1 == _ch2.comp.byte1 && \
+                          _ch1.comp.byte2 == _ch2.comp.byte2 && \
+                          _ch1.comp.byte3 == _ch2.comp.byte3;   \
+                    break;                                      \
+                default:                                        \
+                    res = FMC_FALSE;                            \
+                    break;                                      \
+            }                                                   \
+        }                                                       \
+    }                                                           \
+    res;                                                        \
+})
+
+#define FMC_charCompare_3(_ch1, _ch2, _ch3) ({                  \
+    FMC_Bool res = FMC_FALSE;                                   \
+    if (FMC_charCompare_2(_ch1, _ch2))                          \
+    {                                                           \
+        res = FMC_charCompare_2(_ch1, _ch3);                    \
+    }                                                           \
+    res;                                                        \
+})
+
+#define FMC_charCompare_4(_ch1, _ch2, _ch3, _ch4) ({            \
+    FMC_Bool res = FMC_FALSE;                                   \
+    if (FMC_charCompare_2(_ch1, _ch2))                          \
+    {                                                           \
+        res = FMC_charCompare_3(_ch1, _ch3, _ch4);              \
+    }                                                           \
+    res;                                                        \
+})
+
+#define FMC_charCompare(...) FMC_CONCAT_2(FMC_charCompare_, FMC_ID(FMC_GET_ARGC(__VA_ARGS__)))(__VA_ARGS__)
+
+#define FMC_charPtrCompare_helper1_IMPL(_val, _nb) v(FMC_Char _##_nb = *_val;)
+#define FMC_charPtrCompare_helper1_ARITY 2
+#define FMC_charPtrCompare_helper2_IMPL(_val, _nb) v(_##_nb,)
+#define FMC_charPtrCompare_helper2_ARITY 2
+#define FMC_charPtrCompare(...) ({                                                                                         \
+    FMC_Bool res = FMC_FALSE;                                                                                              \
+    ML99_EVAL(ML99_call(ML99_variadicsForEachI, v(FMC_charPtrCompare_helper1), v(__VA_ARGS__)));                           \
+    res = FMC_charCompare(ML99_EVAL(ML99_call(ML99_variadicsForEachI, v(FMC_charPtrCompare_helper2), v(__VA_ARGS__))) _0); \
+    res;                                                                                                                   \
+})
+
 FMC_SHARED FMC_FUNC_NONNULL(1) void FMC_freeStr(FMC_String* str);
 
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_JUST_MALLOC FMC_String* FMC_allocStr(FMC_Char* const* const chars, uint64_t size);
@@ -140,6 +221,15 @@ FMC_FUNC_INLINE FMC_FUNC_NONNULL(1) void FMC_removeTrailNullChars(FMC_String* co
 FMC_SHARED FMC_FUNC_NONNULL(1) void FMC_freeChar(FMC_Char* const c);
 
 FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_JUST_MALLOC FMC_FUNC_WARN_UNUSED_RESULT FMC_Char* FMC_allocChar(const FMC_Byte* restrict const bytes, FMC_Encodings char_encoding, FMC_CharControl char_is_null, uint8_t byte_number);
+
+FMC_SHARED FMC_FUNC_COLD int64_t FMC_getLevenshtein_no_coeffs(FMC_String* str1, FMC_String* str2);
+FMC_SHARED FMC_FUNC_COLD int64_t FMC_getLevenshtein_coeffs(FMC_String* str1, FMC_String* str2, int64_t* coeffs);
+
+#if defined(FMC_getLevenshtein)
+    #undef FMC_getLevenshtein
+#endif
+#define FMC_getLevenshtein(_str1, _str2, ...) FMC_CHOOSE_FUNC(2)(FMC_getLevenshtein_no_coeffs, FMC_getLevenshtein_coeffs, _str1, _str2, __VA_ARGS__)
+
 
 FMC_END_DECLS
 

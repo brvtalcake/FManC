@@ -375,37 +375,37 @@ __VA_ARGS__))))
     #undef FMC_CAST_TO_I32
     #undef FMC_CAST_TO_I64
 #endif
-#define FMC_CAST_TO_UI8(x) ({ \
-    uint8_t __x = (x); \
-    __x; \
+#define FMC_CAST_TO_UI8(x) ({   \
+    uint8_t __x = (x);          \
+    __x;                        \
 })
-#define FMC_CAST_TO_UI16(x) ({ \
-    uint16_t __x = (x); \
-    __x; \
+#define FMC_CAST_TO_UI16(x) ({  \
+    uint16_t __x = (x);         \
+    __x;                        \
 })
-#define FMC_CAST_TO_UI32(x) ({ \
-    uint32_t __x = (x); \
-    __x; \
+#define FMC_CAST_TO_UI32(x) ({  \
+    uint32_t __x = (x);         \
+    __x;                        \
 })
-#define FMC_CAST_TO_UI64(x) ({ \
-    uint64_t __x = (x); \
-    __x; \
+#define FMC_CAST_TO_UI64(x) ({  \
+    uint64_t __x = (x);         \
+    __x;                        \
 })
-#define FMC_CAST_TO_I8(x) ({ \
-    int8_t __x = (x); \
-    __x; \
+#define FMC_CAST_TO_I8(x) ({    \
+    int8_t __x = (x);           \
+    __x;                        \
 })
-#define FMC_CAST_TO_I16(x) ({ \
-    int16_t __x = (x); \
-    __x; \
+#define FMC_CAST_TO_I16(x) ({   \
+    int16_t __x = (x);          \
+    __x;                        \
 })
-#define FMC_CAST_TO_I32(x) ({ \
-    int32_t __x = (x); \
-    __x; \
+#define FMC_CAST_TO_I32(x) ({   \
+    int32_t __x = (x);          \
+    __x;                        \
 })
-#define FMC_CAST_TO_I64(x) ({ \
-    int64_t __x = (x); \
-    __x; \
+#define FMC_CAST_TO_I64(x) ({   \
+    int64_t __x = (x);          \
+    __x;                        \
 })
 
 #if defined(FMC_UINT_ARR) || defined(FMC_INT_ARR)
@@ -414,6 +414,198 @@ __VA_ARGS__))))
 #endif
 #define FMC_UINT_ARR(...) (unsigned int[]){__VA_ARGS__}
 #define FMC_INT_ARR(...) (int[]){__VA_ARGS__}
+
+#if defined(FMC_min_2) || defined(FMC_max_2) || defined(FMC_min_3) || defined(FMC_max_3) || defined(FMC_min_4) || defined(FMC_max_4) || \
+    defined(FMC_min_5) || defined(FMC_max_5) || defined(FMC_min_6) || defined(FMC_max_6) || defined(FMC_min_7) || defined(FMC_max_7) || \
+    defined(FMC_min_8) || defined(FMC_max_8) || defined(FMC_min_9) || defined(FMC_max_9) || defined(FMC_min_10) || defined(FMC_max_10)
+    #undef FMC_min_2
+    #undef FMC_max_2
+    #undef FMC_min_3
+    #undef FMC_max_3
+    #undef FMC_min_4
+    #undef FMC_max_4
+    #undef FMC_min_5
+    #undef FMC_max_5
+    #undef FMC_min_6
+    #undef FMC_max_6
+    #undef FMC_min_7
+    #undef FMC_max_7
+    #undef FMC_min_8
+    #undef FMC_max_8
+    #undef FMC_min_9
+    #undef FMC_max_9
+    #undef FMC_min_10
+    #undef FMC_max_10
+#endif
+#define FMC_min_2(x, y) ({ \
+    typeof(x) __x = (x);   \
+    typeof(y) __y = (y);   \
+    __x < __y ? __x : __y; \
+})
+#define FMC_max_2(x, y) ({ \
+    typeof(x) __x = (x);   \
+    typeof(y) __y = (y);   \
+    __x > __y ? __x : __y; \
+})
+#define FMC_min_3(x, y, z) ({                              \
+    typeof(x) __x = (x);                                   \
+    typeof(y) __y = (y);                                   \
+    typeof(z) __z = (z);                                   \
+    __x < __y ? FMC_min_2(__x, __z) : FMC_min_2(__y, __z); \
+})
+#define FMC_max_3(x, y, z) ({                              \
+    typeof(x) __x = (x);                                   \
+    typeof(y) __y = (y);                                   \
+    typeof(z) __z = (z);                                   \
+    __x > __y ? FMC_max_2(__x, __z) : FMC_max_2(__y, __z); \
+})
+#define FMC_min_4(x, y, z, w) ({                         \
+    typeof(x) __x = (x);                                 \
+    typeof(y) __y = (y);                                 \
+    typeof(z) __z = (z);                                 \
+    typeof(w) __w = (w);                                 \
+    FMC_min_2(FMC_min_2(__x, __y), FMC_min_2(__z, __w)); \
+})
+#define FMC_max_4(x, y, z, w) ({                         \
+    typeof(x) __x = (x);                                 \
+    typeof(y) __y = (y);                                 \
+    typeof(z) __z = (z);                                 \
+    typeof(w) __w = (w);                                 \
+    FMC_max_2(FMC_max_2(__x, __y), FMC_max_2(__z, __w)); \
+})
+#define FMC_min_5(x, y, z, w, v) ({                           \
+    typeof(x) __x = (x);                                      \
+    typeof(y) __y = (y);                                      \
+    typeof(z) __z = (z);                                      \
+    typeof(w) __w = (w);                                      \
+    typeof(v) __v = (v);                                      \
+    FMC_min_2(FMC_min_2(__x, __y), FMC_min_3(__z, __w, __v)); \
+})
+#define FMC_max_5(x, y, z, w, v) ({                           \
+    typeof(x) __x = (x);                                      \
+    typeof(y) __y = (y);                                      \
+    typeof(z) __z = (z);                                      \
+    typeof(w) __w = (w);                                      \
+    typeof(v) __v = (v);                                      \
+    FMC_max_2(FMC_max_2(__x, __y), FMC_max_3(__z, __w, __v)); \
+})
+#define FMC_min_6(x, y, z, w, v, u) ({                             \
+    typeof(x) __x = (x);                                           \
+    typeof(y) __y = (y);                                           \
+    typeof(z) __z = (z);                                           \
+    typeof(w) __w = (w);                                           \
+    typeof(v) __v = (v);                                           \
+    typeof(u) __u = (u);                                           \
+    FMC_min_2(FMC_min_3(__x, __y, __z), FMC_min_3(__w, __v, __u)); \
+})
+#define FMC_max_6(x, y, z, w, v, u) ({                             \
+    typeof(x) __x = (x);                                           \
+    typeof(y) __y = (y);                                           \
+    typeof(z) __z = (z);                                           \
+    typeof(w) __w = (w);                                           \
+    typeof(v) __v = (v);                                           \
+    typeof(u) __u = (u);                                           \
+    FMC_max_2(FMC_max_3(__x, __y, __z), FMC_max_3(__w, __v, __u)); \
+})
+#define FMC_min_7(x, y, z, w, v, u, t) ({                               \
+    typeof(x) __x = (x);                                                \
+    typeof(y) __y = (y);                                                \
+    typeof(z) __z = (z);                                                \
+    typeof(w) __w = (w);                                                \
+    typeof(v) __v = (v);                                                \
+    typeof(u) __u = (u);                                                \
+    typeof(t) __t = (t);                                                \
+    FMC_min_2(FMC_min_3(__x, __y, __z), FMC_min_4(__w, __v, __u, __t)); \
+})
+#define FMC_max_7(x, y, z, w, v, u, t) ({                               \
+    typeof(x) __x = (x);                                                \
+    typeof(y) __y = (y);                                                \
+    typeof(z) __z = (z);                                                \
+    typeof(w) __w = (w);                                                \
+    typeof(v) __v = (v);                                                \
+    typeof(u) __u = (u);                                                \
+    typeof(t) __t = (t);                                                \
+    FMC_max_2(FMC_max_3(__x, __y, __z), FMC_max_4(__w, __v, __u, __t)); \
+})
+#define FMC_min_8(x, y, z, w, v, u, t, s) ({                                 \
+    typeof(x) __x = (x);                                                     \
+    typeof(y) __y = (y);                                                     \
+    typeof(z) __z = (z);                                                     \
+    typeof(w) __w = (w);                                                     \
+    typeof(v) __v = (v);                                                     \
+    typeof(u) __u = (u);                                                     \
+    typeof(t) __t = (t);                                                     \
+    typeof(s) __s = (s);                                                     \
+    FMC_min_2(FMC_min_4(__x, __y, __z, __w), FMC_min_4(__v, __u, __t, __s)); \
+})
+#define FMC_max_8(x, y, z, w, v, u, t, s) ({                                 \
+    typeof(x) __x = (x);                                                     \
+    typeof(y) __y = (y);                                                     \
+    typeof(z) __z = (z);                                                     \
+    typeof(w) __w = (w);                                                     \
+    typeof(v) __v = (v);                                                     \
+    typeof(u) __u = (u);                                                     \
+    typeof(t) __t = (t);                                                     \
+    typeof(s) __s = (s);                                                     \
+    FMC_max_2(FMC_max_4(__x, __y, __z, __w), FMC_max_4(__v, __u, __t, __s)); \
+})
+#define FMC_min_9(x, y, z, w, v, u, t, s, r) ({                                     \
+    typeof(x) __x = (x);                                                            \
+    typeof(y) __y = (y);                                                            \
+    typeof(z) __z = (z);                                                            \
+    typeof(w) __w = (w);                                                            \
+    typeof(v) __v = (v);                                                            \
+    typeof(u) __u = (u);                                                            \
+    typeof(t) __t = (t);                                                            \
+    typeof(s) __s = (s);                                                            \
+    typeof(r) __r = (r);                                                            \
+    FMC_min_2(FMC_min_4(__x, __y, __z, __w), FMC_min_5(__v, __u, __t, __s, __r));   \
+})
+#define FMC_max_9(x, y, z, w, v, u, t, s, r) ({                                     \
+    typeof(x) __x = (x);                                                            \
+    typeof(y) __y = (y);                                                            \
+    typeof(z) __z = (z);                                                            \
+    typeof(w) __w = (w);                                                            \
+    typeof(v) __v = (v);                                                            \
+    typeof(u) __u = (u);                                                            \
+    typeof(t) __t = (t);                                                            \
+    typeof(s) __s = (s);                                                            \
+    typeof(r) __r = (r);                                                            \
+    FMC_max_2(FMC_max_4(__x, __y, __z, __w), FMC_max_5(__v, __u, __t, __s, __r));   \
+})
+#define FMC_min_10(x, y, z, w, v, u, t, s, r, q) ({                                     \
+    typeof(x) __x = (x);                                                                \
+    typeof(y) __y = (y);                                                                \
+    typeof(z) __z = (z);                                                                \
+    typeof(w) __w = (w);                                                                \
+    typeof(v) __v = (v);                                                                \
+    typeof(u) __u = (u);                                                                \
+    typeof(t) __t = (t);                                                                \
+    typeof(s) __s = (s);                                                                \
+    typeof(r) __r = (r);                                                                \
+    typeof(q) __q = (q);                                                                \
+    FMC_min_2(FMC_min_5(__x, __y, __z, __w, __v), FMC_min_5(__u, __t, __s, __r, __q));  \
+})
+#define FMC_max_10(x, y, z, w, v, u, t, s, r, q) ({                                     \
+    typeof(x) __x = (x);                                                                \
+    typeof(y) __y = (y);                                                                \
+    typeof(z) __z = (z);                                                                \
+    typeof(w) __w = (w);                                                                \
+    typeof(v) __v = (v);                                                                \
+    typeof(u) __u = (u);                                                                \
+    typeof(t) __t = (t);                                                                \
+    typeof(s) __s = (s);                                                                \
+    typeof(r) __r = (r);                                                                \
+    typeof(q) __q = (q);                                                                \
+    FMC_max_2(FMC_max_5(__x, __y, __z, __w, __v), FMC_max_5(__u, __t, __s, __r, __q));  \
+})
+
+#if defined(FMC_min) || defined(FMC_max)
+    #undef FMC_min
+    #undef FMC_max
+#endif
+#define FMC_min(...) FMC_CONCAT_2(FMC_min_, FMC_ID(FMC_GET_ARGC(__VA_ARGS__)))(__VA_ARGS__)
+#define FMC_max(...) FMC_CONCAT_2(FMC_max_, FMC_ID(FMC_GET_ARGC(__VA_ARGS__)))(__VA_ARGS__)
 
 #if defined(FMC_LOCAL_LABEL)
     #undef FMC_LOCAL_LABEL
