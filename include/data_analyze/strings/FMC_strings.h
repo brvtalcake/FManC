@@ -33,6 +33,8 @@ SOFTWARE.
 
 FMC_BEGIN_DECLS
 
+// TODO: FMC_isStrConsistent
+
 #if defined(FMC_MAKE_CHPTR_NULL) || defined(FMC_MAKE_CH_NULL)
     #undef FMC_MAKE_CHPTR_NULL
     #undef FMC_MAKE_CH_NULL

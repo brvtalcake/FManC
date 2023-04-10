@@ -326,23 +326,25 @@ __VA_ARGS__))))
 #endif
 #define FMC_DECR_BY(x, y) ML99_EVAL(ML99_call(ML99_sub, v(x), v(y)))
 
-#ifdef defer
-    #undef defer
-#endif
-#define defer(stmt, body) do body while (0); stmt
+#if defined(BUILDING_FMANC) || defined(EXTRA_STMTS_NEEDED)
+    #ifdef defer
+        #undef defer
+    #endif
+    #define defer(stmt, body) do body while (0); stmt
 
-#if defined(foreach) || defined(foreach_counter) || defined(foreach_stop_cond) || defined(LOOP_TO_THE_END) || defined(LOOP_WHILE)
-    #undef foreach
-    #undef foreach_counter
-    #undef foreach_stop_cond
-    #undef LOOP_TO_THE_END
-    #undef LOOP_WHILE
-#endif
-#define LOOP_TO_THE_END ML99_nothing()
-#define LOOP_WHILE(x) ML99_just(v(x))
-#define foreach_counter(lines_after_foreach) FMC_CONCAT_2(base_index, FMC_DECR_BY(__LINE__, lines_after_foreach))
-#define foreach_stop_cond(x, array) ML99_EVAL(ML99_EVAL(ML99_call(ML99_if, ML99_isNothing(x), v(ML99_id(ML99_id(v(foreach_counter(0) < sizeof(array)/sizeof(array[0]))))), v(ML99_maybeUnwrap(x)))))
-#define foreach(elem, array, start, stop_index_cond) size_t foreach_counter(0) = start; for(typeof(array[foreach_counter(0)]) elem = array[foreach_counter(0)]; foreach_stop_cond(stop_index_cond, array) ; foreach_counter(0)++, elem = array[foreach_counter(0)])
+    #if defined(foreach) || defined(foreach_counter) || defined(foreach_stop_cond) || defined(LOOP_TO_THE_END) || defined(LOOP_WHILE)
+        #undef foreach
+        #undef foreach_counter
+        #undef foreach_stop_cond
+        #undef LOOP_TO_THE_END
+        #undef LOOP_WHILE
+    #endif
+    #define LOOP_TO_THE_END ML99_nothing()
+    #define LOOP_WHILE(x) ML99_just(v(x))
+    #define foreach_counter(lines_after_foreach) FMC_CONCAT_2(base_index, FMC_DECR_BY(__LINE__, lines_after_foreach))
+    #define foreach_stop_cond(x, array) ML99_EVAL(ML99_EVAL(ML99_call(ML99_if, ML99_isNothing(x), v(ML99_id(ML99_id(v(foreach_counter(0) < sizeof(array)/sizeof(array[0]))))), v(ML99_maybeUnwrap(x)))))
+    #define foreach(elem, array, start, stop_index_cond) size_t foreach_counter(0) = start; for(typeof(array[foreach_counter(0)]) elem = array[foreach_counter(0)]; foreach_stop_cond(stop_index_cond, array) ; foreach_counter(0)++, elem = array[foreach_counter(0)])
+#endif // BUILDING_FMANC || EXTRA_STMTS_NEEDED
 
 #if defined(FMC_MAKE_UI8) || defined(FMC_MAKE_UI16) || defined(FMC_MAKE_UI32) || defined(FMC_MAKE_UI64) || defined(FMC_MAKE_I8) || defined(FMC_MAKE_I16) || defined(FMC_MAKE_I32) || defined(FMC_MAKE_I64) 
     #undef FMC_MAKE_UI8
@@ -560,119 +562,121 @@ __VA_ARGS__))))
         todo_stmt;                                                  \
     }
 
-#if defined(lock_err_mtx) || defined(unlock_err_mtx) || defined(create_err_mtx) || defined(destroy_err_mtx)
-    #undef lock_err_mtx
-    #undef unlock_err_mtx
-    #undef create_err_mtx
-    #undef destroy_err_mtx
-#endif
-#if defined(FMC_COMPILING_ON_WINDOWS)
-    #if defined(ERR_MTX_SEC_ATTR_STRUCT)
-        #undef ERR_MTX_SEC_ATTR_STRUCT
+#if defined(BUILDING_FMANC)
+    #if defined(lock_err_mtx) || defined(unlock_err_mtx) || defined(create_err_mtx) || defined(destroy_err_mtx)
+        #undef lock_err_mtx
+        #undef unlock_err_mtx
+        #undef create_err_mtx
+        #undef destroy_err_mtx
     #endif
-    #define ERR_MTX_SEC_ATTR_STRUCT \
-       (&(SECURITY_ATTRIBUTES){.nLength = sizeof(SECURITY_ATTRIBUTES), .lpSecurityDescriptor = NULL, .bInheritHandle = FMC_TRUE})
+    #if defined(FMC_COMPILING_ON_WINDOWS)
+        #if defined(ERR_MTX_SEC_ATTR_STRUCT)
+            #undef ERR_MTX_SEC_ATTR_STRUCT
+        #endif
+        #define ERR_MTX_SEC_ATTR_STRUCT \
+           (&(SECURITY_ATTRIBUTES){.nLength = sizeof(SECURITY_ATTRIBUTES), .lpSecurityDescriptor = NULL, .bInheritHandle = FMC_TRUE})
 
-    #define lock_err_mtx()                                                                      \
-        if (WaitForSingleObject(FMC_ERR_STACK_MUTEX, 20000) != WAIT_OBJECT_0)                   \
-        {                                                                                       \
-            FMC_printBrightRedError(stderr,                                                     \
-                "FATAL ERROR : could not update error stack due to blocking mutex.");           \
-            exit(EXIT_FAILURE);                                                                 \
-        }
-    
-    #define unlock_err_mtx()                                                                    \
-        if (!ReleaseMutex(FMC_ERR_STACK_MUTEX))                                                 \
-        {                                                                                       \
-            FMC_printBrightRedError(stderr,                                                     \
-                "FATAL ERROR : could not update error stack due to mutex release failure.");    \
-            exit(EXIT_FAILURE);                                                                 \
-        }
+        #define lock_err_mtx()                                                                      \
+            if (WaitForSingleObject(FMC_ERR_STACK_MUTEX, 20000) != WAIT_OBJECT_0)                   \
+            {                                                                                       \
+                FMC_printBrightRedError(stderr,                                                     \
+                    "FATAL ERROR : could not update error stack due to blocking mutex.");           \
+                exit(EXIT_FAILURE);                                                                 \
+            }
 
-    #define create_err_mtx()                                                                    \
-        FMC_ERR_STACK_MUTEX = CreateMutexA(ERR_MTX_SEC_ATTR_STRUCT, FMC_FALSE, NULL);               \
-        if (FMC_ERR_STACK_MUTEX == INVALID_HANDLE_VALUE)                                        \
-        {                                                                                       \
-            FMC_printBrightRedError(stderr,                                                     \
-                "FATAL ERROR : could not create mutex for error stack.");                       \
-            exit(EXIT_FAILURE);                                                                 \
-        }
-    
-    #define destroy_err_mtx()                                                                   \
-        if (!CloseHandle(FMC_ERR_STACK_MUTEX))                                                  \
-        {                                                                                       \
-            FMC_printBrightRedError(stderr,                                                     \
-                "FATAL ERROR : could not close mutex for error stack.");                        \
-            exit(EXIT_FAILURE);                                                                 \
-        }
-#else
-    #define lock_err_mtx()                                                                      \
-        struct timespec ts;                                                                     \
-        clock_gettime(CLOCK_REALTIME, &ts);                                                     \
-        ts.tv_sec += 20;                                                                        \
-        if (pthread_mutex_timedlock(&FMC_ERR_STACK_MUTEX, &ts) != 0)                            \
-        {                                                                                       \
-            FMC_printBrightRedError(stderr,                                                     \
-                "FATAL ERROR : could not update error stack due to blocking mutex.");           \
-            exit(EXIT_FAILURE);                                                                 \
-        }
-        
-    #define unlock_err_mtx()                                                                    \
-        if (pthread_mutex_unlock(&FMC_ERR_STACK_MUTEX) != 0)                                    \
-        {                                                                                       \
-            FMC_printBrightRedError(stderr,                                                     \
-                "FATAL ERROR : could not update error stack due to mutex release failure.");    \
-            exit(EXIT_FAILURE);                                                                 \
-        }
-    // mutex must be recursive, must be sharaable between threads and processes and we must set his robustness to PTHREAD_MUTEX_ROBUST_NP
-    #define create_err_mtx()                                                                    \
-        if (pthread_mutexattr_init(&FMC_ERR_STACK_MUTEX_ATTR) != 0)                             \
-        {                                                                                       \
-            FMC_printBrightRedError(stderr,                                                     \
-                "FATAL ERROR : could not initialize mutex attribute for error stack.");         \
-            exit(EXIT_FAILURE);                                                                 \
-        }                                                                                       \
-        if (pthread_mutexattr_settype(&FMC_ERR_STACK_MUTEX_ATTR,                                \
-            PTHREAD_MUTEX_RECURSIVE) != 0)                                                      \
-        {                                                                                       \
-            FMC_printBrightRedError(stderr,                                                     \
-                "FATAL ERROR : could not set mutex attribute type for error stack.");           \
-            exit(EXIT_FAILURE);                                                                 \
-        }                                                                                       \
-        if (pthread_mutexattr_setpshared(&FMC_ERR_STACK_MUTEX_ATTR,                             \
-            PTHREAD_PROCESS_SHARED) != 0)                                                       \
-        {                                                                                       \
-            FMC_printBrightRedError(stderr,                                                     \
-                "FATAL ERROR : could not set mutex attribute process sharing for error stack.");\
-            exit(EXIT_FAILURE);                                                                 \
-        }                                                                                       \
-        if (pthread_mutexattr_setrobust(&FMC_ERR_STACK_MUTEX_ATTR,                              \
-            PTHREAD_MUTEX_ROBUST) != 0)                                                         \
-        {                                                                                       \
-            FMC_printBrightRedError(stderr,                                                     \
-                "FATAL ERROR : could not set mutex attribute robustness for error stack.");     \
-            exit(EXIT_FAILURE);                                                                 \
-        }                                                                                       \
-        if (pthread_mutex_init(&FMC_ERR_STACK_MUTEX, &FMC_ERR_STACK_MUTEX_ATTR) != 0)           \
-        {                                                                                       \
-            FMC_printBrightRedError(stderr,                                                     \
-                "FATAL ERROR : could not create mutex for error stack.");                       \
-            exit(EXIT_FAILURE);                                                                 \
-        }
+        #define unlock_err_mtx()                                                                    \
+            if (!ReleaseMutex(FMC_ERR_STACK_MUTEX))                                                 \
+            {                                                                                       \
+                FMC_printBrightRedError(stderr,                                                     \
+                    "FATAL ERROR : could not update error stack due to mutex release failure.");    \
+                exit(EXIT_FAILURE);                                                                 \
+            }
 
-    #define destroy_err_mtx()                                                                   \
-        if (pthread_mutex_destroy(&FMC_ERR_STACK_MUTEX) != 0)                                   \
-        {                                                                                       \
-            FMC_printBrightRedError(stderr,                                                     \
-                "FATAL ERROR : could not destroy mutex for error stack.");                      \
-            exit(EXIT_FAILURE);                                                                 \
-        }                                                                                       \
-        if (pthread_mutexattr_destroy(&FMC_ERR_STACK_MUTEX_ATTR) != 0)                          \
-        {                                                                                       \
-            FMC_printBrightRedError(stderr,                                                     \
-                "FATAL ERROR : could not destroy mutex attribute for error stack.");            \
-            exit(EXIT_FAILURE);                                                                 \
-        }
+        #define create_err_mtx()                                                                    \
+            FMC_ERR_STACK_MUTEX = CreateMutexA(ERR_MTX_SEC_ATTR_STRUCT, FMC_FALSE, NULL);               \
+            if (FMC_ERR_STACK_MUTEX == INVALID_HANDLE_VALUE)                                        \
+            {                                                                                       \
+                FMC_printBrightRedError(stderr,                                                     \
+                    "FATAL ERROR : could not create mutex for error stack.");                       \
+                exit(EXIT_FAILURE);                                                                 \
+            }
+
+        #define destroy_err_mtx()                                                                   \
+            if (!CloseHandle(FMC_ERR_STACK_MUTEX))                                                  \
+            {                                                                                       \
+                FMC_printBrightRedError(stderr,                                                     \
+                    "FATAL ERROR : could not close mutex for error stack.");                        \
+                exit(EXIT_FAILURE);                                                                 \
+            }
+    #else
+        #define lock_err_mtx()                                                                      \
+            struct timespec ts;                                                                     \
+            clock_gettime(CLOCK_REALTIME, &ts);                                                     \
+            ts.tv_sec += 20;                                                                        \
+            if (pthread_mutex_timedlock(&FMC_ERR_STACK_MUTEX, &ts) != 0)                            \
+            {                                                                                       \
+                FMC_printBrightRedError(stderr,                                                     \
+                    "FATAL ERROR : could not update error stack due to blocking mutex.");           \
+                exit(EXIT_FAILURE);                                                                 \
+            }
+
+        #define unlock_err_mtx()                                                                    \
+            if (pthread_mutex_unlock(&FMC_ERR_STACK_MUTEX) != 0)                                    \
+            {                                                                                       \
+                FMC_printBrightRedError(stderr,                                                     \
+                    "FATAL ERROR : could not update error stack due to mutex release failure.");    \
+                exit(EXIT_FAILURE);                                                                 \
+            }
+        // mutex must be recursive, must be sharaable between threads and processes and we must set his robustness to PTHREAD_MUTEX_ROBUST_NP
+        #define create_err_mtx()                                                                    \
+            if (pthread_mutexattr_init(&FMC_ERR_STACK_MUTEX_ATTR) != 0)                             \
+            {                                                                                       \
+                FMC_printBrightRedError(stderr,                                                     \
+                    "FATAL ERROR : could not initialize mutex attribute for error stack.");         \
+                exit(EXIT_FAILURE);                                                                 \
+            }                                                                                       \
+            if (pthread_mutexattr_settype(&FMC_ERR_STACK_MUTEX_ATTR,                                \
+                PTHREAD_MUTEX_RECURSIVE) != 0)                                                      \
+            {                                                                                       \
+                FMC_printBrightRedError(stderr,                                                     \
+                    "FATAL ERROR : could not set mutex attribute type for error stack.");           \
+                exit(EXIT_FAILURE);                                                                 \
+            }                                                                                       \
+            if (pthread_mutexattr_setpshared(&FMC_ERR_STACK_MUTEX_ATTR,                             \
+                PTHREAD_PROCESS_SHARED) != 0)                                                       \
+            {                                                                                       \
+                FMC_printBrightRedError(stderr,                                                     \
+                    "FATAL ERROR : could not set mutex attribute process sharing for error stack.");\
+                exit(EXIT_FAILURE);                                                                 \
+            }                                                                                       \
+            if (pthread_mutexattr_setrobust(&FMC_ERR_STACK_MUTEX_ATTR,                              \
+                PTHREAD_MUTEX_ROBUST) != 0)                                                         \
+            {                                                                                       \
+                FMC_printBrightRedError(stderr,                                                     \
+                    "FATAL ERROR : could not set mutex attribute robustness for error stack.");     \
+                exit(EXIT_FAILURE);                                                                 \
+            }                                                                                       \
+            if (pthread_mutex_init(&FMC_ERR_STACK_MUTEX, &FMC_ERR_STACK_MUTEX_ATTR) != 0)           \
+            {                                                                                       \
+                FMC_printBrightRedError(stderr,                                                     \
+                    "FATAL ERROR : could not create mutex for error stack.");                       \
+                exit(EXIT_FAILURE);                                                                 \
+            }
+
+        #define destroy_err_mtx()                                                                   \
+            if (pthread_mutex_destroy(&FMC_ERR_STACK_MUTEX) != 0)                                   \
+            {                                                                                       \
+                FMC_printBrightRedError(stderr,                                                     \
+                    "FATAL ERROR : could not destroy mutex for error stack.");                      \
+                exit(EXIT_FAILURE);                                                                 \
+            }                                                                                       \
+            if (pthread_mutexattr_destroy(&FMC_ERR_STACK_MUTEX_ATTR) != 0)                          \
+            {                                                                                       \
+                FMC_printBrightRedError(stderr,                                                     \
+                    "FATAL ERROR : could not destroy mutex attribute for error stack.");            \
+                exit(EXIT_FAILURE);                                                                 \
+            }
+#endif // BUILDING_FMANC 
 
 #if defined(FMC_ADD_OVERFLOW) || defined(FMC_SUB_OVERFLOW) || defined(FMC_MUL_OVERFLOW)
     #undef FMC_ADD_OVERFLOW

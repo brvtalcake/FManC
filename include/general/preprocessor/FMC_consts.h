@@ -44,23 +44,28 @@ SOFTWARE.
 #endif
 #define MAX_MODE_SIZE 16
 
-#if defined(FMC_MAX_ERR_STCK_SIZE) || defined(FMC_ERR_STR_LEN) || defined(FMC_ERR_STR_COUNT)
-    #undef FMC_MAX_ERR_STCK_SIZE
-    #undef FMC_ERR_STR_LEN
-    #undef FMC_ERR_STR_COUNT
-#endif
-#define FMC_MAX_ERR_STCK_SIZE 10
-#define FMC_ERR_STR_LEN 256
-#define FMC_ERR_STR_COUNT 9
+#if defined(BUILDING_FMANC)
+    #if defined(FMC_MAX_ERR_STCK_SIZE) || defined(FMC_ERR_STR_COUNT)
+        #undef FMC_MAX_ERR_STCK_SIZE
+        #undef FMC_ERR_STR_COUNT
+    #endif
+    #define FMC_MAX_ERR_STCK_SIZE 10
+    #define FMC_ERR_STR_COUNT 9
 
-#if defined(FMC_ERR_MTX_INITIALIZER)
-    #undef FMC_ERR_MTX_INITIALIZER
+    #if defined(FMC_ERR_MTX_INITIALIZER)
+        #undef FMC_ERR_MTX_INITIALIZER
+    #endif
+    #if defined(FMC_COMPILING_ON_WINDOWS)
+        #define FMC_ERR_MTX_INITIALIZER INVALID_HANDLE_VALUE
+    #else
+        #define FMC_ERR_MTX_INITIALIZER PTHREAD_MUTEX_INITIALIZER
+    #endif
 #endif
-#if defined(FMC_COMPILING_ON_WINDOWS)
-    #define FMC_ERR_MTX_INITIALIZER INVALID_HANDLE_VALUE
-#else
-    #define FMC_ERR_MTX_INITIALIZER PTHREAD_MUTEX_INITIALIZER
+
+#if defined(FMC_ERR_STR_LEN)
+    #undef FMC_ERR_STR_LEN
 #endif
+#define FMC_ERR_STR_LEN 256
 
 #if defined(FMC_CODE_POINT_NULL) || defined(FMC_CHARCOMP_NULL) || defined(FMC_NULL_BYTES)
     #undef FMC_CODE_POINT_NULL

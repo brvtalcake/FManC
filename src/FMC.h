@@ -27,7 +27,18 @@ SOFTWARE.
 #ifndef FMC_H
 #define FMC_H
 
-// includes
+#if !defined(_DEFAULT_SOURCE) 
+    #define _DEFAULT_SOURCE 1
+#endif
+
+#if !defined(_LARGEFILE64_SOURCE)
+    #define _LARGEFILE64_SOURCE 1
+#endif
+
+#if !defined(_FILE_OFFSET_BITS) || !(_FILE_OFFSET_BITS == 64)
+    #define _FILE_OFFSET_BITS 64
+#endif
+
 #include "general/FMC_general.h"
 #include "code_utils/FMC_code_utils.h"
 #include "file_management/FMC_file_management.h"

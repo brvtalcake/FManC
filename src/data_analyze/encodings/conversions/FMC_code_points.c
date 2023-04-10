@@ -187,18 +187,18 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_code
             break;
         case 2:
             code_point = ((*raw_utf8_encoded_char & (FMC_MAKE_UI32(0b11111) << 8)) >> 2) 
-                       | (*raw_utf8_encoded_char & (FMC_MAKE_UI32(0b111111)));
+                       |  (*raw_utf8_encoded_char & (FMC_MAKE_UI32(0b111111)));
             break;
         case 3:
             code_point = ((*raw_utf8_encoded_char & (FMC_MAKE_UI32(0b1111) << 16)) >> 4) 
                        | ((*raw_utf8_encoded_char & (FMC_MAKE_UI32(0b111111) << 8)) >> 2)
-                       | (*raw_utf8_encoded_char & (FMC_MAKE_UI32(0b111111)));
+                       |  (*raw_utf8_encoded_char & (FMC_MAKE_UI32(0b111111)));
             break;
         case 4:
             code_point = ((*raw_utf8_encoded_char & (FMC_MAKE_UI32(0b111) << 24)) >> 6)
                        | ((*raw_utf8_encoded_char & (FMC_MAKE_UI32(0b111111) << 16)) >> 4)
                        | ((*raw_utf8_encoded_char & (FMC_MAKE_UI32(0b111111) << 8)) >> 2)
-                       | (*raw_utf8_encoded_char & (FMC_MAKE_UI32(0b111111)));
+                       |  (*raw_utf8_encoded_char & (FMC_MAKE_UI32(0b111111)));
             break;
         default:
             FMC_UNREACHABLE;

@@ -131,6 +131,8 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_code
     uint32_t      : FMC_codePointFromUTF32BE_uint32_t)(_char)
 
 
+// TODO: FMC_SHARED FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromASCII_ ...
+
 FMC_END_DECLS
 
 #endif // FMC_CONVERSIONS_H

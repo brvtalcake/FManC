@@ -45,3 +45,5 @@ mi_malloc_test.c
 mi_test
 test_uni
 test_uni.c 
+lev
+levenshtein.c
