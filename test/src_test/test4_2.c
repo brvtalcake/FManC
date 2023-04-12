@@ -66,7 +66,6 @@ void test_FMC_readFile()
     assert(FMC_isRegFile("./read_file.txt"));
     FMC_File* file = FMC_allocFile("./read_file.txt", "rb", FMC_mergeFlags(TO_OPEN, GET_ENCODING, GET_SIZE, BYTE_ORIENTED));
     FMC_String* content = FMC_readFile(file);
-    fprintf(stderr, "we arrived here\n");
     assert(content != NULL);
     assert(content->size == 13); // "hello world!"
     char expected_content[] = "hello world!";

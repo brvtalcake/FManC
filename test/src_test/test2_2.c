@@ -247,6 +247,7 @@ void test_FMC_Strings()
     res = FMC_append(str, str2);
     assert(res == str);
     
+    FMC_freeChar(to_append[0]);
     
     assert(str->size == 12 + 1); // +1 for the null terminator
     assert(str->firstChar->comp.byte0 == 'h');

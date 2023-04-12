@@ -221,7 +221,7 @@ test : copy_headers $(TEST_TARGET) exp_cov
 test_lin : $(LIB_LIN_TEST)
 	$(CC) $(TEST_SUITE_FILES) $(C_DEBUG_FLAGS) -o test/test_builds/$(TEST_RES_FOLD)/$@.out $(INC_FLAGS) $(LIB_FLAGS) -Ltest/lib/ -lFManC_linux_x86_64 -lstdc++
 	@printf "\e[92mRunning tests for $(PRINTED_OS)\n\e[0m"
-	@cd ./test/test_builds/$(TEST_RES_FOLD) && ./$@.out
+	@cd ./test/test_builds/$(TEST_RES_FOLD) && valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./$@.out
 	gcov -b $(GCNO_LIN_FILES)
 
 test_win : $(LIB_WIN_TEST)
