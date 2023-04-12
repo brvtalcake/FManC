@@ -47,3 +47,6 @@ test_uni
 test_uni.c 
 lev
 levenshtein.c
+for_each_test_.c 
+foreach 
+foreach.preprocessed

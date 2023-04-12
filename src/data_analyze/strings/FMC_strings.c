@@ -47,6 +47,8 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_JUST_MALLOC FMC_String* FMC_allo
         case 1:
             str->firstChar = *chars;
             str->lastChar = *chars;
+            str->lastChar->prev = *chars;
+            str->firstChar->next = *chars;
             str->size = 1;
             goto end;
             FMC_UNREACHABLE;
@@ -158,7 +160,6 @@ end:
     FMC_UNREACHABLE;
 }
 
-// TODO: Make it generic and make it accept a FMC_Char* as a parameter too
 FMC_SHARED FMC_FUNC_NONNULL(1, 2) FMC_String* FMC_append_str(FMC_String* str1, FMC_String* str2) 
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
@@ -255,7 +256,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) FMC_String* FMC_append_str(FMC_String* str1, F
     FMC_UNREACHABLE;
 }
 
-FMC_SHARED FMC_FUNC_NONNULL(1, 2) FMC_String* FMC_append_ch(FMC_String* str, FMC_Char* ch) // TODO: Need to be tested
+FMC_SHARED FMC_FUNC_NONNULL(1, 2) FMC_String* FMC_append_ch(FMC_String* str, FMC_Char* ch)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
     if (!str || !ch) 
@@ -270,10 +271,12 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) FMC_String* FMC_append_ch(FMC_String* str, FMC
         FMC_UNREACHABLE;
     }
     #pragma GCC diagnostic pop
-    if (!str->firstChar || !str->lastChar) 
+    if (!str->firstChar || !str->lastChar)
     {
         str->firstChar = ch;
         str->lastChar = ch;
+        str->firstChar->next = ch;
+        str->lastChar->prev = ch;
         str->size = 1;
         return str;
         FMC_UNREACHABLE;
@@ -303,6 +306,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) FMC_String* FMC_append_ch(FMC_String* str, FMC
     FMC_removeTrailNullChars(str);
     FMC_Char* last_ch = NULL;
     FMC_UNREACHABLE_ASSERT(str->lastChar != NULL);
+    if (str->size == 1) goto one_ch_str;
     if (str->lastChar->isNull) 
     {
         last_ch = str->lastChar->prev;
@@ -335,6 +339,68 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2) FMC_String* FMC_append_ch(FMC_String* str, FMC
         str->size++;
         str->lastChar = str->lastChar->next;
     }
+    goto end;
+
+one_ch_str:
+    if (str->firstChar->isNull)
+    {
+        FMC_Char* new_ch = calloc(1, sizeof(FMC_Char));
+        FMC_UNREACHABLE_ASSERT(new_ch != NULL);
+        new_ch->prev = NULL;
+        new_ch->next = str->firstChar;
+        new_ch->encoding = ch->encoding;
+        new_ch->comp = ch->comp;
+        new_ch->isNull = ch->isNull;
+        new_ch->byteNumber = ch->byteNumber;
+        str->firstChar = new_ch;
+        str->lastChar = new_ch->next;
+        str->lastChar->prev = new_ch;
+        str->lastChar->next = NULL;
+        str->size++;
+        if (!str->lastChar->isNull)
+        {
+            str->lastChar->next = calloc(1, sizeof(FMC_Char));
+            FMC_UNREACHABLE_ASSERT(str->lastChar->next != NULL);
+            str->lastChar->next->prev = str->lastChar;
+            str->lastChar->next->next = NULL;
+            str->lastChar->next->encoding = str->lastChar->encoding;
+            str->lastChar->next->comp = FMC_CHARCOMP_NULL;
+            str->lastChar->next->isNull = FMC_TRUE;
+            str->lastChar->next->byteNumber = 0;
+            str->size++;
+            str->lastChar = str->lastChar->next;
+        }
+    }
+    else
+    {
+        str->firstChar->next = calloc(1, sizeof(FMC_Char));
+        FMC_UNREACHABLE_ASSERT(str->firstChar->next != NULL);
+        str->firstChar->next->prev = str->firstChar;
+        str->firstChar->next->next = NULL;
+        str->firstChar->next->encoding = ch->encoding;
+        str->firstChar->next->comp = ch->comp;
+        str->firstChar->next->isNull = ch->isNull;
+        str->firstChar->next->byteNumber = ch->byteNumber;
+        str->lastChar = str->firstChar->next;
+        str->size++;
+        if (!str->lastChar->isNull)
+        {
+            str->lastChar->next = calloc(1, sizeof(FMC_Char));
+            FMC_UNREACHABLE_ASSERT(str->lastChar->next != NULL);
+            str->lastChar->next->prev = str->lastChar;
+            str->lastChar->next->next = NULL;
+            str->lastChar->next->encoding = str->lastChar->encoding;
+            str->lastChar->next->comp = FMC_CHARCOMP_NULL;
+            str->lastChar->next->isNull = FMC_TRUE;
+            str->lastChar->next->byteNumber = 0;
+            str->size++;
+            str->lastChar = str->lastChar->next;
+        }
+    }
+    goto end;
+
+
+end:
     return str;
     FMC_UNREACHABLE;
 }

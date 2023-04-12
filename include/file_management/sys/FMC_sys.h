@@ -43,6 +43,8 @@ SOFTWARE.
 
 FMC_BEGIN_DECLS
 
+// TODO: FMC_getProgLocation
+
 FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_COLD char* FMC_getCurrentUserName(char* const user_name, const size_t len);
 
 #if !defined(FMC_COMPILING_ON_WINDOWS)

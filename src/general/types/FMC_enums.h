@@ -39,7 +39,7 @@ FMC_SHARED enum FManC_Encodings
 	utf32_be = 32,
 	ascii    = 64,
 	unknown  = 128,
-	error    = 256
+	error    = 256,
 };
 typedef enum FManC_Encodings FMC_Encodings;
 

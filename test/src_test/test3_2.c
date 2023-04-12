@@ -52,7 +52,6 @@ void test_Error_System()
     FMC_setError(FMC_ERR_PUSH, "test12");
     FMC_setError(FMC_ERR_PUSH, "test13");
     FMC_setError(FMC_ERR_PUSH, "test14");
-    fprintf(stderr, "We arrived here\n");
     assert(FMC_searchError(FMC_ERR_INVALID_ARGUMENT) == FMC_FALSE); // it has been cleared because of too many errors
     assert(FMC_searchError(FMC_ERR_PUSH) == FMC_TRUE);
     assert(FMC_searchErrorMsg("test10") == FMC_TRUE);

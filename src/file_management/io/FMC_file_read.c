@@ -69,8 +69,8 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
         return NULL;
         FMC_UNREACHABLE;
     }
-    char full_path[MAX_FEXT_SIZE + MAX_FNAME_SIZE + MAX_FPATH_SIZE];
-    memset(full_path, 0, MAX_FEXT_SIZE + MAX_FNAME_SIZE + MAX_FPATH_SIZE);
+    char full_path[MAX_FNAME_SIZE + MAX_FPATH_SIZE];
+    memset(full_path, 0, MAX_FNAME_SIZE + MAX_FPATH_SIZE);
     if (strcpy(full_path, file->path) != full_path)
     {
         if (FMC_getDebugState())
@@ -93,18 +93,7 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
         return NULL;
         FMC_UNREACHABLE;
     }
-    if (strcat(full_path, file->extension) != full_path)
-    {
-        if (FMC_getDebugState())
-        {
-            FMC_makeMsg(err_int, 3, "INTERNAL ERROR: In function: ", __func__, ": strcat failed");
-            FMC_printRedError(stderr, err_int);
-        }
-        FMC_setError(FMC_ERR_INTERNAL, "strcat failed");
-        return NULL;
-        FMC_UNREACHABLE;
-    }
-    if (!FMC_isRegFile(full_path) || !FMC_isSymLink(full_path))
+    if (!FMC_isRegFile(full_path) && !FMC_isSymLink(full_path))
     {
         if (FMC_getDebugState())
         {
@@ -208,7 +197,7 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                                                            ch == 0 ? FMC_TRUE : FMC_FALSE,
                                                            1); */
                         memset(new_char, 0, sizeof(FMC_Char));
-                        new_char->encoding = utf8;
+                        new_char->encoding = file->encoding;
                         new_char->comp.byte0 = bytes[0];
                         new_char->comp.byte1 = 0x00;
                         new_char->comp.byte2 = 0x00;
@@ -266,7 +255,7 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                         bytes[0] = (FMC_Byte)ch & 0xFF;
                         /* FMC_Char* new_char = FMC_allocChar(bytes, utf8, FMC_FALSE, 2); */
                         memset(new_char, 0, sizeof(FMC_Char));
-                        new_char->encoding = utf8;
+                        new_char->encoding = file->encoding;
                         new_char->comp.byte0 = bytes[0];
                         new_char->comp.byte1 = bytes[1];
                         new_char->comp.byte2 = 0x00;
@@ -324,7 +313,7 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                         }
                         /* FMC_Char* new_char = FMC_allocChar(bytes, utf8, FMC_FALSE, 3); */
                         memset(new_char, 0, sizeof(FMC_Char));
-                        new_char->encoding = utf8;
+                        new_char->encoding = file->encoding;
                         new_char->comp.byte0 = bytes[0];
                         new_char->comp.byte1 = bytes[1];
                         new_char->comp.byte2 = bytes[2];
@@ -382,7 +371,7 @@ FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_NONNULL(1) FMC_FUNC_WARN_UNUSED_RESULT FMC_
                         }
                         /* FMC_Char* new_char = FMC_allocChar(bytes, utf8, FMC_FALSE, 4); */
                         memset(new_char, 0, sizeof(FMC_Char));
-                        new_char->encoding = utf8;
+                        new_char->encoding = file->encoding;
                         new_char->comp.byte0 = bytes[0];
                         new_char->comp.byte1 = bytes[1];
                         new_char->comp.byte2 = bytes[2];

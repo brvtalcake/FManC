@@ -222,8 +222,8 @@ FMC_SHARED FMC_FUNC_NONNULL(1) void FMC_freeChar(FMC_Char* const c);
 
 FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_JUST_MALLOC FMC_FUNC_WARN_UNUSED_RESULT FMC_Char* FMC_allocChar(const FMC_Byte* restrict const bytes, FMC_Encodings char_encoding, FMC_CharControl char_is_null, uint8_t byte_number);
 
-FMC_SHARED FMC_FUNC_COLD int64_t FMC_getLevenshtein_no_coeffs(FMC_String* str1, FMC_String* str2);
-FMC_SHARED FMC_FUNC_COLD int64_t FMC_getLevenshtein_coeffs(FMC_String* str1, FMC_String* str2, int64_t* coeffs);
+FMC_SHARED FMC_FUNC_NONNULL(1, 2) FMC_FUNC_COLD int64_t FMC_getLevenshtein_no_coeffs(FMC_String* str1, FMC_String* str2);
+FMC_SHARED FMC_FUNC_NONNULL(1, 2, 3) FMC_FUNC_COLD int64_t FMC_getLevenshtein_coeffs(FMC_String* str1, FMC_String* str2, int64_t* coeffs);
 
 #if defined(FMC_getLevenshtein)
     #undef FMC_getLevenshtein

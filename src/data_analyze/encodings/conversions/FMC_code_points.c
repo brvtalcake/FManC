@@ -29,6 +29,13 @@ SOFTWARE.
 // TODO: Add more verifications against invalid arguments or invalid UTF-X encoded characters
 
 /*
+ * General functions
+*/
+
+FMC_FUNC_INLINE extern FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromAny(const void* const any_char, const FMC_Encodings encoding, const unsigned int arg_type_flag);
+
+
+/*
  * Code points from UTF-8 encoded characters
 */
 

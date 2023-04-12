@@ -44,4 +44,7 @@ void test_FMC_getExtension();
 void test_FMC_cutFilename();
 void test_FMC_FileAPI();
 void test_FMC_CodePoint();
+void test_FMC_checkEncodingFlag2();
+void test_FMC_Strings();
+void test_FMC_readFile();
 #endif // TEST_SUITE_H

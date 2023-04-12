@@ -129,7 +129,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_JUST_MALLOC FMC_File *FMC_allocF
         FMC_UNREACHABLE;
     }
 
-    if (!FMC_extractFilename(path, tmp_path, MAX_FNAME_SIZE))
+    if (!FMC_extractFilename(path, tmp_name, MAX_FNAME_SIZE))
     {
         if (FMC_getDebugState())
         {

@@ -108,7 +108,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
 
 FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char *FMC_cutFilename(const char * restrict const path, char * restrict dir, const size_t dir_size)
 {
-    #pragma GCC diagnostic ignored "-Wnonnull-compare" // get an error at compile time without this (because of attribute nonnull defined on linux)
+    #pragma GCC diagnostic ignored "-Wnonnull-compare" // get an error at compile time without this (because of attribute nonnull)
     if (!path || !dir)
     {
         if (FMC_getDebugState())
@@ -148,6 +148,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
 
     else if ((last_sep = strrchr(path_cpy, (int)'/')))
     {
+        memset(dir, 0, dir_size);
         strncpy(dir, path_cpy, strnlen(path_cpy, path_len) - strnlen(last_sep, path_len) + 1);
         dir[strnlen(path_cpy, path_len) - strnlen(last_sep, path_len) + 1] = '\0';
         return dir;
@@ -155,6 +156,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
 
     else if ((last_sep = strrchr(path_cpy, (int)'\\')))
     {
+        memset(dir, 0, dir_size);
         strncpy(dir, path_cpy, strnlen(path_cpy, path_len) - strnlen(last_sep, path_len) + 1);
         dir[strnlen(path_cpy, path_len) - strnlen(last_sep, path_len) + 1] = '\0';
         return dir;
@@ -172,6 +174,7 @@ FMC_SHARED FMC_FUNC_HOT FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1, 2) char 
     }
     else
     {
+        memset(dir, 0, dir_size);
         dir = strncpy(dir, "./", 4);
         if (strcmp(dir, "./") != 0)
         {

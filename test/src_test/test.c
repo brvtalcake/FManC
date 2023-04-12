@@ -74,5 +74,14 @@ int main()
     test_FMC_CodePoint();
     fprintf(stderr, "\x1b[32m%s\n\x1b[0m", "test_FMC_CodePoint() passed");
 
+    test_FMC_checkEncodingFlag2();
+    fprintf(stderr, "\x1b[32m%s\n\x1b[0m", "test_FMC_checkEncodingFlag2() passed");
+
+    test_FMC_Strings();
+    fprintf(stderr, "\x1b[32m%s\n\x1b[0m", "test_FMC_Strings() passed");
+
+    test_FMC_readFile();
+    fprintf(stderr, "\x1b[32m%s\n\x1b[0m", "test_FMC_readFile() passed");
+
     return 0;
 }

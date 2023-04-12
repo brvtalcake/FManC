@@ -60,3 +60,20 @@ void test_FMC_FileAPI()
     file = FMC_allocFile("./test.txt", "rb", 0U);
     assert(file == NULL);
 }
+
+void test_FMC_readFile()
+{
+    assert(FMC_isRegFile("./read_file.txt"));
+    FMC_File* file = FMC_allocFile("./read_file.txt", "rb", FMC_mergeFlags(TO_OPEN, GET_ENCODING, GET_SIZE, BYTE_ORIENTED));
+    FMC_String* content = FMC_readFile(file);
+    fprintf(stderr, "we arrived here\n");
+    assert(content != NULL);
+    assert(content->size == 13); // "hello world!"
+    char expected_content[] = "hello world!";
+    for (uint64_t i = 0; i < content->size; i++)
+    {
+        assert(FMC_getCharAt(content, i)->comp.byte0 /* because it's utf-8 with only assci characters */ == expected_content[i]);
+    }
+    FMC_freeStr(content);
+    FMC_freeFile(file);
+}

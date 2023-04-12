@@ -115,4 +115,21 @@ SOFTWARE.
 #define CONFIRMATION (16U)
 #define NO_CONFIRMATION (32U)
 
+
+#if defined(FMC_CHAR_ARG)   || defined(FMC_CHAR_PTR_ARG) || defined(FMC_CHAR_COMP_ARG) || defined(FMC_CHAR_COMP_PTR_ARG) || \
+    defined(FMC_UINT32_ARG) || defined(FMC_UI32_PTR_ARG)
+    #undef FMC_CHAR_ARG
+    #undef FMC_CHAR_PTR_ARG
+    #undef FMC_CHAR_COMP_ARG
+    #undef FMC_CHAR_COMP_PTR_ARG
+    #undef FMC_UINT32_ARG
+    #undef FMC_UI32_PTR_ARG
+#endif
+#define FMC_CHAR_ARG (1U)
+#define FMC_CHAR_PTR_ARG (2U)
+#define FMC_CHAR_COMP_ARG (4U)
+#define FMC_CHAR_COMP_PTR_ARG (8U)
+#define FMC_UINT32_ARG (16U)
+#define FMC_UI32_PTR_ARG (32U)
+
 #endif // FMC_FLAGS_H

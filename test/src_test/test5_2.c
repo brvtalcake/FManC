@@ -19,7 +19,7 @@ void test_FMC_getAllUIDs()
     unsigned int* uids = NULL;
     unsigned int range[2] = {1000, 1100};
     uids = FMC_getAllUIDs(1, (unsigned int [2]){(unsigned int)1000U, (unsigned int)1100U});
-    printf("%u uids :\n", uids[0]);
+    fprintf(stderr, "%u uids :\n", uids[0]);
     for (unsigned int i = 1; i <= uids[0]; i++)
     {
         printf("%u\n", uids[i]);

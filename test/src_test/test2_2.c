@@ -146,7 +146,6 @@ void test_FMC_CodePoint()
 
     uint32_t utf8_raw_ch = 0xE4B8AD;
     cp = FMC_codePointFromUTF8(utf8_raw_ch);
-    fprintf(stderr, "cp = %#x\n", cp);
     assert(cp == 0x4E2D);
 
     uint32_t utf16le_raw_ch = 0x2D4E;
@@ -169,4 +168,103 @@ void test_FMC_CodePoint()
     cp = FMC_codePointFromUTF32BE(utf32be_raw_ch);
     assert(cp == 0x1F4A9);
 
+}
+
+void test_FMC_checkEncodingFlag2()
+{
+    FMC_Encodings enc = FMC_checkEncodingFlag(UTF8);
+    assert(enc == utf8 && enc == 1U);
+    enc = FMC_checkEncodingFlag(UTF8_BOM);
+    assert(enc == utf8_bom && enc == 2U);
+    enc = FMC_checkEncodingFlag(UTF16_LE);
+    assert(enc == utf16_le && enc == 4U);
+    enc = FMC_checkEncodingFlag(UTF16_BE);
+    assert(enc == utf16_be && enc == 8U);
+    enc = FMC_checkEncodingFlag(UTF32_LE);
+    assert(enc == utf32_le && enc == 16U);
+    enc = FMC_checkEncodingFlag(UTF32_BE);
+    assert(enc == utf32_be && enc == 32U);
+    enc = FMC_checkEncodingFlag(ASCII);
+    assert(enc == ascii && enc == 64U);
+    enc = FMC_checkEncodingFlag(UNKNOWN);
+    assert(enc == unknown && enc == 128U);
+    enc = FMC_checkEncodingFlag(error);
+    assert(enc == unknown && enc == 128U);
+}
+
+void test_FMC_Strings()
+{
+    FMC_Char* chars[5];
+    // put "hello" in chars
+    FMC_Byte bytes_in_chars[5][4] = {
+        {[0] = 'h'},
+        {[0] = 'e'},
+        {[0] = 'l'},
+        {[0] = 'l'},
+        {[0] = 'o'}
+    };
+    memset(chars, 0, sizeof(FMC_Char*) * 5);
+    for (size_t i = 0; i < 5; i++) 
+    {
+        chars[i] = FMC_allocChar(bytes_in_chars[i], ascii, FMC_FALSE, 1);
+    }
+    FMC_String* str = FMC_allocStr(chars, 5); 
+    assert(str->size == 5);
+    assert(str->firstChar->comp.byte0 == 'h');
+    assert(str->firstChar->comp.byte1 == 0);
+    assert(str->firstChar->comp.byte2 == 0);
+    assert(str->firstChar->comp.byte3 == 0);
+    assert(str->lastChar->comp.byte0 == 'o');
+    assert(str->lastChar->comp.byte1 == 0);
+    assert(str->lastChar->comp.byte2 == 0);
+    assert(str->lastChar->comp.byte3 == 0);
+    assert(FMC_getCharAt(str, 0)->comp.byte0 == 'h');
+    assert(FMC_getCharAt(str, 1)->comp.byte0 == 'e');
+    assert(FMC_getCharAt(str, 2)->comp.byte0 == 'l');
+    assert(FMC_getCharAt(str, 3)->comp.byte0 == 'l');
+    assert(FMC_getCharAt(str, 4)->comp.byte0 == 'o');
+    FMC_removeTrailNullChars(str);
+    FMC_Bool is_well_encoded = FMC_checkEncoding(str);
+    assert(is_well_encoded == FMC_TRUE);
+    FMC_Char* to_append[7];
+    FMC_Byte bytes_in_to_append[7][4] = {
+        {[0] = ' '},
+        {[0] = 'w'},
+        {[0] = 'o'},
+        {[0] = 'r'},
+        {[0] = 'l'},
+        {[0] = 'd'},
+        {[0] = '!'}
+    };
+    memset(to_append, 0, sizeof(FMC_Char*) * 7);
+    for (size_t i = 0; i < 7; i++) 
+    {
+        to_append[i] = FMC_allocChar(bytes_in_to_append[i], ascii, FMC_FALSE, 1);
+    }
+    FMC_String* res = FMC_append(str, to_append[0]);
+    assert(res == str);
+    FMC_String* str2 = FMC_allocStr(to_append + 1, 6);
+    res = FMC_append(str, str2);
+    assert(res == str);
+    
+    
+    assert(str->size == 12 + 1); // +1 for the null terminator
+    assert(str->firstChar->comp.byte0 == 'h');
+    assert(str->firstChar->comp.byte1 == 0);
+    assert(str->firstChar->comp.byte2 == 0);
+    assert(str->firstChar->comp.byte3 == 0);
+    assert(str->lastChar->comp.byte0 == 0); // null terminator
+    assert(str->lastChar->isNull == FMC_TRUE);
+    assert(str->lastChar->comp.byte1 == 0);
+    assert(str->lastChar->comp.byte2 == 0);
+    assert(str->lastChar->comp.byte3 == 0);
+    char expected[13] = "hello world!";
+    for (size_t i = 0; i < 13; i++) 
+    {
+        assert(FMC_getCharAt(str, i)->comp.byte0 == expected[i]);
+    }
+    int64_t lev_distance = FMC_getLevenshtein(str, str2, (int64_t[]){1, 1, 1, 1});
+    assert(lev_distance == 6);
+    FMC_freeStr(str2);
+    FMC_freeStr(str);
 }

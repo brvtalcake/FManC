@@ -133,6 +133,105 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_code
 
 // TODO: FMC_SHARED FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromASCII_ ...
 
+FMC_FUNC_INLINE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromAny(const void* const any_char, const FMC_Encodings encoding, const unsigned int arg_type_flag)
+{
+    FMC_CodePoint code_point = 0;
+    switch (arg_type_flag)
+    {
+        case FMC_CHAR_PTR_ARG:
+        {
+            switch (encoding)
+            {
+                case utf8_bom: 
+                    FMC_STMT_FALLTHROUGH;
+                case utf8:
+                    code_point = FMC_codePointFromUTF8(*(const FMC_Char*)any_char);
+                    break;
+                case utf16_le:
+                    code_point = FMC_codePointFromUTF16LE(*(const FMC_Char*)any_char);
+                    break;
+                case utf16_be:
+                    code_point = FMC_codePointFromUTF16BE(*(const FMC_Char*)any_char);
+                    break;
+                case utf32_le:
+                    code_point = FMC_codePointFromUTF32LE(*(const FMC_Char*)any_char);
+                    break;
+                case utf32_be:
+                    code_point = FMC_codePointFromUTF32BE(*(const FMC_Char*)any_char);
+                    break;
+                case ascii:
+                    code_point = ((const FMC_Char*)any_char)->comp.byte0;
+                    break;
+                default:
+                    break;
+            }
+            break;
+        }
+        case FMC_CHAR_COMP_PTR_ARG:
+        {
+            switch (encoding)
+            {
+                case utf8_bom: 
+                    FMC_STMT_FALLTHROUGH;
+                case utf8:
+                    code_point = FMC_codePointFromUTF8(*(const FMC_CharComp*)any_char);
+                    break;
+                case utf16_le:
+                    code_point = FMC_codePointFromUTF16LE(*(const FMC_CharComp*)any_char);
+                    break;
+                case utf16_be:
+                    code_point = FMC_codePointFromUTF16BE(*(const FMC_CharComp*)any_char);
+                    break;
+                case utf32_le:
+                    code_point = FMC_codePointFromUTF32LE(*(const FMC_CharComp*)any_char);
+                    break;
+                case utf32_be:
+                    code_point = FMC_codePointFromUTF32BE(*(const FMC_CharComp*)any_char);
+                    break;
+                case ascii:
+                    code_point = ((const FMC_CharComp*)any_char)->byte0;
+                    break;
+                default:
+                    break;
+            }
+            break;
+        }
+        case FMC_UI32_PTR_ARG:
+        {
+            switch (encoding)
+            {
+                case utf8_bom: 
+                    FMC_STMT_FALLTHROUGH;
+                case utf8:
+                    code_point = FMC_codePointFromUTF8(*(const uint32_t*)any_char);
+                    break;
+                case utf16_le:
+                    code_point = FMC_codePointFromUTF16LE(*(const uint32_t*)any_char);
+                    break;
+                case utf16_be:
+                    code_point = FMC_codePointFromUTF16BE(*(const uint32_t*)any_char);
+                    break;
+                case utf32_le:
+                    code_point = FMC_codePointFromUTF32LE(*(const uint32_t*)any_char);
+                    break;
+                case utf32_be:
+                    code_point = FMC_codePointFromUTF32BE(*(const uint32_t*)any_char);
+                    break;
+                case ascii:
+                    code_point = *(const uint32_t*)any_char & 0xFF;
+                    break;
+                default:
+                    break;
+            }
+            break;
+        }
+        default:
+            break;
+    }
+    return code_point;
+    FMC_UNREACHABLE;
+}
+
 FMC_END_DECLS
 
 #endif // FMC_CONVERSIONS_H
