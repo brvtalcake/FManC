@@ -42,12 +42,14 @@ void test_FMC_cutFilename()
 
 void test_FMC_FileAPI()
 {
+    #if !defined(FMC_COMPILING_ON_WINDOWS) // TODO: see how to manage fwide on Windows, since it is not implemented
     FILE* FILE_file = fopen("./test.txt", "rb");
     assert(FILE_file != NULL);
     assert(fwide(FILE_file, 0) == 0);
     assert(FMC_changeStreamOrientation(FILE_file,"rb", BYTE_ORIENTED, "./test.txt") == BYTE_ORIENTED);
     assert(fwide(FILE_file, 0) < 0);
     fclose(FILE_file);
+    #endif
 
     FMC_File* file = FMC_allocFile("./test.txt", "rb", FMC_mergeFlags(TO_OPEN, GET_ENCODING, GET_SIZE, BYTE_ORIENTED));
     assert(file != NULL);

@@ -29,7 +29,7 @@ SOFTWARE.
 
 #include "../preprocessor/FMC_macros.h"
 
-FMC_SHARED enum FManC_Encodings
+enum FManC_Encodings
 {
 	utf8     = 1,
 	utf8_bom = 2,
@@ -43,7 +43,7 @@ FMC_SHARED enum FManC_Encodings
 };
 typedef enum FManC_Encodings FMC_Encodings;
 
-FMC_SHARED enum FManC_Error
+enum FManC_Error
 {
 	FMC_OK                      	= 0,
 	FMC_ERR_PUSH                	= 1,

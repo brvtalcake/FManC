@@ -29,6 +29,8 @@ SOFTWARE.
 #include <stdlib.h>
 #include <string.h>
 #include <wchar.h>
+#include <math.h>
+#include <tgmath.h>
 
 #include "FMC_files.h"
 #include "../FMC_filesystem.h"
@@ -36,7 +38,14 @@ SOFTWARE.
 #include "../../../cpp/FMC_wrapper.h"
 
 #if defined(FMC_COMPILING_ON_WINDOWS)
+    #if defined(_WIN32_WINNT) || defined(WINVER)
+        #undef _WIN32_WINNT
+        #undef WINVER
+    #endif
+    #define _WIN32_WINNT 0x0A00
+    #define WINVER FMC_ID(_WIN32_WINNT)
     #include <windows.h>
+    #include <winbase.h>
 #else 
     #include <unistd.h>
     #include <sys/stat.h>

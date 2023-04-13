@@ -29,8 +29,16 @@ SOFTWARE.
 
 
 
-#include "preprocessor/FMC_macros.h"
 #include "preprocessor/FMC_platform.h"
+#if defined(FMC_COMPILING_ON_WINDOWS)
+    #if defined(_WIN32_WINNT) || defined(WINVER)
+        #undef _WIN32_WINNT
+        #undef WINVER
+    #endif
+    #define _WIN32_WINNT 0x0A00
+    #define WINVER FMC_ID(_WIN32_WINNT)
+#endif
+#include "preprocessor/FMC_macros.h"
 #include "preprocessor/FMC_consts.h"
 #include "preprocessor/FMC_flags.h"
 #include "preprocessor/FMC_attributes.h"

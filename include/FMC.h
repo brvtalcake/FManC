@@ -39,6 +39,17 @@ SOFTWARE.
     #define _FILE_OFFSET_BITS 64
 #endif
 
+#include "general/preprocessor/FMC_platform.h"
+
+#if defined(FMC_COMPILING_ON_WINDOWS)
+    #if defined(_WIN32_WINNT) || defined(WINVER)
+        #undef _WIN32_WINNT
+        #undef WINVER
+    #endif
+    #define _WIN32_WINNT 0x0A00
+    #define WINVER FMC_ID(_WIN32_WINNT)
+#endif
+
 #include "general/FMC_general.h"
 #include "code_utils/FMC_code_utils.h"
 #include "file_management/FMC_file_management.h"

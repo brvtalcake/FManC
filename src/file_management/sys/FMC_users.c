@@ -32,6 +32,7 @@ SOFTWARE.
 #include <stdarg.h>
 #include <assert.h>
 #include <limits.h>
+#include <stdint.h>
 
 #include "FMC_sys.h"
 
@@ -52,12 +53,12 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_COLD char* FMC_getCurrentUserName(char* 
     #pragma GCC diagnostic pop
     memset(user_name, 0, len);
     #if defined(FMC_COMPILING_ON_WINDOWS)
-        DWORD size = len;
+        DWORD size = len >= UINT32_MAX ? (DWORD) UINT32_MAX : (DWORD) len;
         if (!GetUserNameExA(NameSamCompatible, user_name, &size))
         {
             if (FMC_getDebugState())
             {
-                FMC_makeMsg(err_get_usr_name, 1, "ERROR: FMC_getCurrentUserName: GetUserNameExA() failed.")
+                FMC_makeMsg(err_get_usr_name, 1, "ERROR: FMC_getCurrentUserName: GetUserNameExA() failed.");
                 FMC_printRedError(stderr, err_get_usr_name);
             }
             FMC_setError(FMC_ERR_INTERNAL, "FMC_getCurrentUserName: GetUserNameExA() failed.");

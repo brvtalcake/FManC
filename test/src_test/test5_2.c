@@ -10,7 +10,9 @@ void test_FMC_getCurrentUserName()
     memset(buff, 0, 100);
     assert(FMC_getCurrentUserName(buff, 100) != NULL);
     assert(strlen(buff) > 0);
+    #if !defined(FMC_COMPILING_ON_WINDOWS)
     assert(strncmp(buff, "axel", 4) == 0);
+    #endif
 }
 
 #if !defined(FMC_COMPILING_ON_WINDOWS)

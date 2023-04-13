@@ -785,7 +785,7 @@ __VA_ARGS__))))
             }
 
         #define create_err_mtx()                                                                    \
-            FMC_ERR_STACK_MUTEX = CreateMutexA(ERR_MTX_SEC_ATTR_STRUCT, FMC_FALSE, NULL);               \
+            FMC_ERR_STACK_MUTEX = CreateMutexA(ERR_MTX_SEC_ATTR_STRUCT, FMC_FALSE, NULL);           \
             if (FMC_ERR_STACK_MUTEX == INVALID_HANDLE_VALUE)                                        \
             {                                                                                       \
                 FMC_printBrightRedError(stderr,                                                     \

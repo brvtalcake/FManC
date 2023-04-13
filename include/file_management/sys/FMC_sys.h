@@ -30,7 +30,9 @@ SOFTWARE.
 #include "../../general/FMC_general.h"
 
 #if defined(FMC_COMPILING_ON_WINDOWS)
+    #define SECURITY_WIN32
     #include <windows.h>
+    #include <Security.h>
 #else
     #include <sys/stat.h>
     #include <sys/types.h>

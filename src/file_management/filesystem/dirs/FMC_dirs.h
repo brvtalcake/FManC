@@ -31,6 +31,7 @@ SOFTWARE.
 
 #if defined(FMC_COMPILING_ON_WINDOWS)
     #include <windows.h>
+    #include <direct.h>
 #else
     #include <sys/stat.h>
     #include <sys/types.h>
@@ -42,7 +43,7 @@ SOFTWARE.
 FMC_BEGIN_DECLS
 
 FMC_SHARED int_fast64_t FMC_getDirEntryCount(const char* restrict const path);
-FMC_SHARED int FMC_mkDir(const char* restrict path);
+FMC_SHARED int FMC_mkDir(const char* restrict path, unsigned int unix_perms);
 FMC_SHARED int FMC_rmDir(const char* restrict path, unsigned int user_flags);
 
 FMC_END_DECLS

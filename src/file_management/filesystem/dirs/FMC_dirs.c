@@ -25,6 +25,7 @@ SOFTWARE.
 */
 
 #include "../FMC_filesystem.h"
+#include "FMC_dirs.h"
 #include <stdlib.h>
 
 /* FMC_SHARED FMC_Directory* FMC_createDir(const char* restrict const path)
@@ -107,11 +108,20 @@ FMC_SHARED int_fast64_t FMC_getDirEntryCount(const char* restrict const path)
     FMC_UNREACHABLE;
 }
 
-FMC_SHARED int FMC_mkDir(const char* restrict path)
+// TODO: Improve this function
+FMC_SHARED int FMC_mkDir(const char* restrict path, unsigned int unix_perms)
 {
-    char cmd[256] = {0};
+    /*char cmd[256] = {0};
     snprintf(cmd, 256, "mkdir %s", path);
-    return system(cmd);
+    return system(cmd);*/
+    #if defined(FMC_COMPILING_ON_WINDOWS)
+        FMC_MAKE_VOID(unix_perms);
+        if (!FMC_dirExists(path)) return _mkdir(path);
+        else return 0;
+    #else
+        if (!FMC_dirExists(path)) return mkdir(path, unix_perms);
+        else return 0;
+    #endif
 }
 
 FMC_SHARED int FMC_rmDir(const char* restrict path, unsigned int user_flags)

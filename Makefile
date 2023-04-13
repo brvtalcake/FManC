@@ -19,10 +19,10 @@ ifneq (,$(findstring Windows,$(OS)))
 	PRINTED_OS=$(OS)
 	SHELL=cmd
 else ifneq (,$(findstring windows,$(OS)))
-	SHELL=cmd
+	TEST_RES_FOLD=win
 	DETECTED_OS=win
 	PRINTED_OS=$(OS)
-	TEST_RES_FOLD=win
+	SHELL=cmd
 endif
 
 # Project subdirectories
@@ -77,8 +77,8 @@ CFLAGS=-D _DEFAULT_SOURCE -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=64 -O3 -fs
 CXX_FLAGS=-D _DEFAULT_SOURCE -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=64 -O3 -fstack-protector -Wno-error=stack-protector -fno-delete-null-pointer-checks -frecord-gcc-switches -flto -ftracer -fvariable-expansion-in-unroller -ftree-vectorize -ftree-cselim -ftree-lrs -fsched-stalled-insns=0 -fsched-stalled-insns-dep=10 -fsched-spec-load -fschedule-insns -fschedule-insns2 -fsched-pressure -floop-nest-optimize -fmodulo-sched -fmodulo-sched-allow-regmoves -flive-range-shrinkage -fgraphite -fira-loop-pressure -fgraphite-identity -fipa-pta -fgcse-sm -fgcse-las -frename-registers -fweb -fwrapv -fwrapv-pointer -ftrack-macro-expansion=1 -Wall -Wextra -Werror -Winline -Wconversion -Wdouble-promotion -Wsuggest-attribute=cold -Wsuggest-attribute=const -Wsuggest-attribute=format -Wsuggest-attribute=malloc -Wsuggest-attribute=noreturn -Wsuggest-attribute=pure -Wstack-protector -Wredundant-decls -Wnull-dereference -Wfloat-equal -Wfloat-conversion -std=gnu++17
 
 ifneq (,$(findstring struct,$(MAKECMDGOALS)))
-	CFLAGS+=-Wpadded
-	CXX_FLAGS+=-Wpadded
+	CFLAGS+= -Wpadded
+	CXX_FLAGS+= -Wpadded
 endif
 
 
@@ -89,20 +89,20 @@ CXX_DEBUG_FLAGS=-D _DEFAULT_SOURCE -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=6
 LD_FLAGS_DLL=-lstdc++ "-Wl,--out-implib=libFManC.dll.a,--export-all-symbols,--enable-auto-import"
 LD_FLAGS_SO=-lstdc++ -Wl,-soname,
 
-ifeq (,$(findstring Windows,$(OS)))
-	CFLAGS+=-fuse-ld=gold -ftree-parallelize-loops=4
-	CXX_FLAGS+=-fuse-ld=gold -ftree-parallelize-loops=4
-	C_DEBUG_FLAGS+=-fuse-ld=gold
-	CXX_DEBUG_FLAGS+=-fuse-ld=gold
-else ifeq (,$(findstring windows,$(OS)))
-	CFLAGS+=-fuse-ld=gold -ftree-parallelize-loops=4
-	CXX_FLAGS+=-fuse-ld=gold -ftree-parallelize-loops=4
-	C_DEBUG_FLAGS+=-fuse-ld=gold
-	CXX_DEBUG_FLAGS+=-fuse-ld=gold
+ifeq (,$(findstring Windows,$(filter win% Win%,$(OS)))) # Linux
+	CFLAGS+= -fuse-ld=gold -ftree-parallelize-loops=4
+	CXX_FLAGS+= -fuse-ld=gold -ftree-parallelize-loops=4
+	C_DEBUG_FLAGS+= -fuse-ld=gold
+	CXX_DEBUG_FLAGS+= -fuse-ld=gold
 endif
 
 INC_FLAGS=-I./third_party_libs/metalang99/include/ -I./third_party_libs/mimalloc/include/
-LIB_FLAGS=-L./third_party_libs/built_libs/static
+LIB_FLAGS=
+ifneq (,$(findstring Windows,$(OS)))
+	LIB_FLAGS+= -lSecur32
+else ifneq (,$(findstring windows,$(OS)))
+	LIB_FLAGS+= -lSecur32
+endif
 # All target
 ALL_TARGET=$(addsuffix _$(DETECTED_OS), all)
 .PHONY : all
@@ -134,6 +134,10 @@ TEST_TARGET=$(addsuffix _$(DETECTED_OS), test)
 # Clean target
 CLEAN_TARGET=$(addsuffix _$(DETECTED_OS), clean)
 .PHONY : clean
+
+# Copy source structure target
+COPY_SRC_STRUCTURE_TARGET=$(addsuffix _$(DETECTED_OS), copy_src_structure)
+.PHONY : copy_src_structure
 
 # Copy headers target
 COPY_HEADERS_TARGET=$(addsuffix _$(DETECTED_OS), copy_headers)
@@ -219,16 +223,19 @@ shared_win : $(LIB_WIN_SHARED_FILES) copy_headers
 test : copy_headers $(TEST_TARGET) exp_cov
 
 test_lin : $(LIB_LIN_TEST)
-	$(CC) $(TEST_SUITE_FILES) $(C_DEBUG_FLAGS) -o test/test_builds/$(TEST_RES_FOLD)/$@.out $(INC_FLAGS) $(LIB_FLAGS) -Ltest/lib/ -lFManC_linux_x86_64 -lstdc++
+	$(CC) $(TEST_SUITE_FILES) $(C_DEBUG_FLAGS) -o test/test_builds/$(TEST_RES_FOLD)/$@.out $(INC_FLAGS) -Ltest/lib/ -lFManC_linux_x86_64 -lstdc++ $(LIB_FLAGS)
 	@printf "\e[92mRunning tests for $(PRINTED_OS)\n\e[0m"
 	@cd ./test/test_builds/$(TEST_RES_FOLD) && valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./$@.out
 	gcov -b $(GCNO_LIN_FILES)
 
 test_win : $(LIB_WIN_TEST)
-	$(CC) -D FMC_STATIC $(TEST_SUITE_FILES) $(C_DEBUG_FLAGS) -o test/test_builds/$(TEST_RES_FOLD)/$@.exe $(INC_FLAGS) $(LIB_FLAGS) -Ltest/lib -lFManC_linux_x86_64 -lstdc++
+	$(CC) -D FMC_STATIC $(TEST_SUITE_FILES) $(C_DEBUG_FLAGS) -o test/test_builds/$(TEST_RES_FOLD)/$@.exe $(INC_FLAGS) -Ltest/lib -lFManC_win_x86_64 -lstdc++ $(LIB_FLAGS)
 	@printgreen Running tests for $(PRINTED_OS)
+	rm -f .\test\test_builds\$(TEST_RES_FOLD)\$@.out
+	@cd .\test\test_builds\$(TEST_RES_FOLD) && mklink test_win.out test_win.exe
 	@cd .\test\test_builds\$(TEST_RES_FOLD) && $@.exe
 	gcov -b $(GCNO_LIN_FILES)
+	rm -f .\test\test_builds\$(TEST_RES_FOLD)\$@.out
 
 $(LIB_LIN_TEST) : $(O_LIN_TEST)
 	$(AR) $(AR_FLAGS) $@ $^
@@ -258,8 +265,13 @@ clean_win :
 	@rm -f --verbose $(subst /,\,$(O_WIN_STATIC_FILES) $(O_WIN_SHARED_FILES) $(LIB_WIN_STATIC_FILES) $(LIB_WIN_SHARED_FILES) $(O_WIN_TEST) $(LIB_WIN_TEST)) test/obj/win/*.gcda test/obj/win/*.gcno *.gcov
 	@printgreen Cleaned everything for $(PRINTED_OS)
 
-copy_src_structure :
+copy_src_structure : $(COPY_SRC_STRUCTURE_TARGET)
+
+copy_src_structure_lin :
 	./scripts/copy_src_struct.sh include
+
+copy_src_structure_win :
+	.\scripts\copy_src_struct.bat
 
 copy_headers : $(COPY_HEADERS_TARGET)
 
@@ -319,7 +331,7 @@ bin/libFManC_x86_64.dll : lib/libFManC_x86_64.dll.a
 	@printgreen Built DLL for $(PRINTED_OS)
 
 lib/libFManC_x86_64.dll.a : $(O_WIN_SHARED_FILES)
-	$(CC) -D BUILDING_FMANC $(O_WIN_SHARED_FILES) $(CFLAGS) -shared -o bin/libFManC_x86_64.dll $(INC_FLAGS) $(LIB_FLAGS) -lstdc++ $(LD_FLAGS_DLL)
+	$(CC) -D BUILDING_FMANC $(O_WIN_SHARED_FILES) $(CFLAGS) -Wno-error=analyzer-use-of-uninitialized-value -shared -o bin/libFManC_x86_64.dll $(INC_FLAGS) $(LIB_FLAGS) -lstdc++ $(LD_FLAGS_DLL)
 	@move /Y .\\libFManC.dll.a .\\lib\\
 	@printgreen Built $@ sucessfully
 

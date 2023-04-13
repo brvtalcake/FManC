@@ -10,6 +10,8 @@
 #include "../types/FMC_structs.h"
 #include "../types/FMC_typedefs.h"
 
+// TODO: let the user choose if he wants thread local error stack or not
+
 #if defined(FMC_COMPILING_ON_WINDOWS)
     #include <windows.h>
 #else 
@@ -87,6 +89,7 @@ static FMC_Error FMC_pushError(FMC_Error err, const char* const additional_messa
     {
         create_err_mtx();
         atexit(FMC_destroyErrorStack);
+        FMC_ERR_STACK_MUTEX_CREATED = FMC_TRUE;
     }
     lock_err_mtx();
     FMC_ErrStackElement *tmp;
@@ -218,6 +221,7 @@ FMC_SHARED void FMC_clearErrorStack(void)
 FMC_SHARED void FMC_destroyErrorStack(void)
 {
     FMC_clearErrorStack();
+    if (!FMC_ERR_STACK_MUTEX_CREATED) return;
     destroy_err_mtx();
     FMC_ERR_STACK_MUTEX_CREATED = FMC_FALSE;
 }
