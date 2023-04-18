@@ -7,6 +7,7 @@ PROJECT_NAME=FManC
 PROJECT_DESCRIPTION="File Management C Library"
 PROJECT_AUTHOR="Axel PASCON"
 PROJECT_AUTHOR_EMAIL="axlpascon@gmail.com"
+PROJECT_LICENSE="MIT"
 
 # OS-dependant variables
 DETECTED_OS=lin
