@@ -35,6 +35,41 @@ FMC_BEGIN_DECLS
 
 // TODO: FMC_isStrConsistent
 
+#if defined(FMC_CHAR) || defined(FMC_CHARCOMP)
+    #undef FMC_CHAR
+    #undef FMC_CHARCOMP
+#endif
+#define FMC_CHAR(_next, _prev, _enc, _comp, _isnull, _bytenumber) \
+    ((struct FManC_Char)                                          \
+    {                                                             \
+        .next = _next,                                            \
+        .prev = _prev,                                            \
+        .encoding = _enc,                                         \
+        .comp = (struct FManC_CharComp) _comp,                    \
+        .isNull = _isnull,                                        \
+        .byteNumber = _bytenumber                                 \
+    })
+
+#define FMC_CHARCOMP(_byte0, _byte1, _byte2, _byte3) \
+    ((struct FManC_CharComp)                         \
+    {                                                \
+        .byte0 = _byte0,                             \
+        .byte1 = _byte1,                             \
+        .byte2 = _byte2,                             \
+        .byte3 = _byte3                              \
+    })
+
+#if defined(FMC_CHAR_IS_NULL) || defined(FMC_CHAR_BYTENUMBER)
+    #undef FMC_CHAR_IS_NULL
+    #undef FMC_CHAR_BYTENUMBER
+#endif
+#define FMC_CHAR_IS_NULL(_b0, _b1, _b2, _b3)               \
+    ((_b0 == 0) && (_b1 == 0) && (_b2 == 0) && (_b3 == 0))
+
+#define FMC_CHAR_BYTENUMBER(_b0, _b1, _b2, _b3)            \
+    ((_b0 != 0) + (_b1 != 0) + (_b2 != 0) + (_b3 != 0))
+
+
 #if defined(FMC_MAKE_CHPTR_NULL) || defined(FMC_MAKE_CH_NULL)
     #undef FMC_MAKE_CHPTR_NULL
     #undef FMC_MAKE_CH_NULL
@@ -139,6 +174,26 @@ FMC_BEGIN_DECLS
     res = FMC_charCompare(ML99_EVAL(ML99_call(ML99_variadicsForEachI, v(FMC_charPtrCompare_helper2), v(__VA_ARGS__))) _0); \
     res;                                                                                                                   \
 })
+
+#if defined(FMC_UI32_AS_BYTES)
+    #undef FMC_UI32_AS_BYTES
+#endif
+#define FMC_UI32_AS_BYTES(_ui32) (_ui32 & 0xFF), ((_ui32 >> 8) & 0xFF), ((_ui32 >> 16) & 0xFF), ((_ui32 >> 24) & 0xFF)
+
+#if defined(FMC_wrapCharComp) || defined(FMC_wrapUint32)
+    #undef FMC_wrapCharComp
+    #undef FMC_wrapUint32
+#endif
+#define FMC_wrapCharComp(_chcomp)                                                              \
+    (FMC_CHAR(NULL,                                                                            \
+              NULL,                                                                            \
+              unknown,                                                                         \
+              _chcomp,                                                                         \
+              FMC_CHAR_IS_NULL(_chcomp.byte0, _chcomp.byte1, _chcomp.byte2, _chcomp.byte3),    \
+              FMC_CHAR_BYTENUMBER(_chcomp.byte0, _chcomp.byte1, _chcomp.byte2, _chcomp.byte3)))
+
+#define FMC_wrapUint32(_uint32) (FMC_wrapCharComp(FMC_CHARCOMP(FMC_UI32_AS_BYTES(_uint32))))
+
 
 FMC_SHARED FMC_FUNC_NONNULL(1) void FMC_freeStr(FMC_String* str);
 

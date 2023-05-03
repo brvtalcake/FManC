@@ -25,6 +25,7 @@ SOFTWARE.
 */
 
 #include "FMC_conversions.h"
+#include "../../strings/FMC_strings.h"
 
 // TODO: Add more verifications against invalid arguments or invalid UTF-X encoded characters
 
@@ -894,3 +895,36 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF32BE_uin
     return (FMC_CodePoint)(raw_utf32be_char);
     FMC_UNREACHABLE;
 }
+
+
+/*
+ * UTF-8 encoded characters from code points
+*/
+
+/* FMC_SHARED FMC_FUNC_NONNULL(1) FMC_Char* FMC_UTF8FromUTF16LE(FMC_Char* utf16_le_char)
+{
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (!utf16_le_char)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_UTF8FromUTF16LE: Provided argument is NULL");
+            FMC_printRedError(stderr, err_inv_arg);
+        }
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_UTF8FromUTF16LE: Provided argument is NULL");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    #pragma GCC diagnostic pop
+
+    FMC_Char tmp_ch = FMC_CHAR(utf16_le_char->next,
+                               utf16_le_char->prev,
+                               utf16_le_char->encoding,
+                               utf16_le_char->comp,
+                               utf16_le_char->isNull,
+                               utf16_le_char->byteNumber);
+
+    if (utf16_le_char->encoding == utf16_le)
+    
+    
+} */

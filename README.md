@@ -6,10 +6,6 @@ A portable file manager library in C
 
 ## The project
 
-### Why did I start this project ?
-
-I'm currently with no formation, since I previously decided to stop my studies in mathematics to switch to computer science. That's pretty much the whole thing that motivated me to start this little project : I have time and I want to learn more about computer science in general. Moreover, if I manage to make something great, it'll remain a great reusable ressource for future projects, even if it's just for me.
-
 ### The goals
 
 The goal of this project is to provide a portable and easy to use library to manage files and their content **in general**, and in a single library. That means that I really want to incorporate a lot of functionnalities in this lib (for more informations about some ideas I had you can take a look at [this file](https://github.com/brvtalcake/FManC/blob/main/ideas.md)).
