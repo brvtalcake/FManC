@@ -31,14 +31,13 @@ SOFTWARE.
 
 /*
  * General functions
-*/
+ */
 
 FMC_FUNC_INLINE extern FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromAny(const void* const any_char, const FMC_Encodings encoding, const unsigned int arg_type_flag);
 
-
 /*
  * Code points from UTF-8 encoded characters
-*/
+ */
 
 FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF8_FMC_Char_ptr(const FMC_Char* restrict const utf8_char)
 {
@@ -223,7 +222,7 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF8_uint32
 
 /*
  * Code points from UTF-16LE encoded characters
-*/
+ */
 
 FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF16LE_FMC_Char_ptr(const FMC_Char* restrict const utf16le_char)
 {
@@ -459,7 +458,7 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF16LE_uin
 
 /*
  * Code point from UTF-16BE encoded character
-*/
+ */
 
 FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF16BE_FMC_Char_ptr(const FMC_Char* restrict const utf16be_char)
 {
@@ -682,7 +681,7 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF16BE_uin
 
 /*
  * Code point from UTF-32LE encoded character
-*/
+ */
 
 FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF32LE_FMC_Char_ptr(const FMC_Char* restrict const utf32le_char)
 {
@@ -792,7 +791,7 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF32LE_uin
 
 /*
  * Code point from UTF-32BE encoded character
-*/
+ */
 
 FMC_SHARED FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF32BE_FMC_Char_ptr(const FMC_Char* restrict const utf32be_char)
 {
@@ -898,33 +897,167 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF32BE_uin
 
 
 /*
- * UTF-8 encoded characters from code points
-*/
+ * UTF-X encoded characters from code points
+ */
 
-/* FMC_SHARED FMC_FUNC_NONNULL(1) FMC_Char* FMC_UTF8FromUTF16LE(FMC_Char* utf16_le_char)
+FMC_SHARED FMC_FUNC_HOT FMC_Char* FMC_UTF8FromCodePoint(FMC_CodePoint cp, FMC_Bool has_bom)
 {
-    #pragma GCC diagnostic ignored "-Wnonnull-compare"
-    if (!utf16_le_char)
+    if (!FMC_isValidUnicode(cp))
     {
         if (FMC_getDebugState())
         {
-            FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_UTF8FromUTF16LE: Provided argument is NULL");
+            FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_UTF8FromCodePoint: Provided argument is not a valid Unicode code point");
             FMC_printRedError(stderr, err_inv_arg);
         }
-        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_UTF8FromUTF16LE: Provided argument is NULL");
+        FMC_setError(FMC_ERR_ENC, "FMC_UTF8FromCodePoint: Provided argument is not a valid Unicode code point");
         return NULL;
         FMC_UNREACHABLE;
     }
-    #pragma GCC diagnostic pop
 
-    FMC_Char tmp_ch = FMC_CHAR(utf16_le_char->next,
-                               utf16_le_char->prev,
-                               utf16_le_char->encoding,
-                               utf16_le_char->comp,
-                               utf16_le_char->isNull,
-                               utf16_le_char->byteNumber);
+    FMC_Byte bytes[4] = {0};
+    if (cp <= 0x7F)
+    {
+        bytes[0] = (FMC_Byte)cp;
+        return FMC_allocChar(bytes, has_bom ? utf8_bom : utf8, cp == 0, 1);
+    }
+    else if (cp <= 0x7FF)
+    {
+        bytes[1] = (FMC_Byte)((cp >> 6) | 0xC0);
+        bytes[0] = (FMC_Byte)((cp & 0x3F) | 0x80);
+        return FMC_allocChar(bytes, has_bom ? utf8_bom : utf8, FMC_FALSE, 2);
+    }
+    else if (cp <= 0xFFFF)
+    {
+        bytes[2] = (FMC_Byte)((cp >> 12) | 0xE0);
+        bytes[1] = (FMC_Byte)(((cp >> 6) & 0x3F) | 0x80);
+        bytes[0] = (FMC_Byte)((cp & 0x3F) | 0x80);
+        return FMC_allocChar(bytes, has_bom ? utf8_bom : utf8, FMC_FALSE, 3);
+    }
+    else // cp <= 0x10FFFF
+    {
+        bytes[3] = (FMC_Byte)((cp >> 18) | 0xF0);
+        bytes[2] = (FMC_Byte)(((cp >> 12) & 0x3F) | 0x80);
+        bytes[1] = (FMC_Byte)(((cp >> 6) & 0x3F) | 0x80);
+        bytes[0] = (FMC_Byte)((cp & 0x3F) | 0x80);
+        return FMC_allocChar(bytes, has_bom ? utf8_bom : utf8, FMC_FALSE, 4);
+    }
+    FMC_UNREACHABLE;
+}
 
-    if (utf16_le_char->encoding == utf16_le)
-    
-    
-} */
+FMC_SHARED FMC_FUNC_HOT FMC_Char* FMC_UTF16LEFromCodePoint(FMC_CodePoint cp)
+{
+    if (!FMC_isValidUnicode(cp))
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_UTF16LEFromCodePoint: Provided argument is not a valid Unicode code point");
+            FMC_printRedError(stderr, err_inv_arg);
+        }
+        FMC_setError(FMC_ERR_ENC, "FMC_UTF16LEFromCodePoint: Provided argument is not a valid Unicode code point");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+
+    FMC_Byte bytes[4] = {0};
+    if (cp <= 0xFFFF)
+    {
+        bytes[1] = (FMC_Byte)(cp & 0xFF);
+        bytes[0] = (FMC_Byte)((cp >> 8) & 0xFF);
+        return FMC_allocChar(bytes, utf16_le, cp == 0, 2);
+    }
+    else // cp <= 0x10FFFF
+    {
+        cp -= 0x10000;
+        uint16_t high_surr = (uint16_t)((cp >> 10) + 0xD800);
+        uint16_t low_surr = (uint16_t)((cp & 0x3FF) + 0xDC00);
+        high_surr = FMC_bitSwap(16, high_surr);
+        low_surr = FMC_bitSwap(16, low_surr);
+        bytes[0] = (FMC_Byte)(low_surr & 0xFF);
+        bytes[1] = (FMC_Byte)((low_surr >> 8) & 0xFF);
+        bytes[2] = (FMC_Byte)(high_surr & 0xFF);
+        bytes[3] = (FMC_Byte)((high_surr >> 8) & 0xFF);
+        return FMC_allocChar(bytes, utf16_le, FMC_FALSE, 4);
+    }
+    FMC_UNREACHABLE;
+}
+
+FMC_SHARED FMC_FUNC_HOT FMC_Char* FMC_UTF16BEFromCodePoint(FMC_CodePoint cp)
+{
+    if (!FMC_isValidUnicode(cp))
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_UTF16BEFromCodePoint: Provided argument is not a valid Unicode code point");
+            FMC_printRedError(stderr, err_inv_arg);
+        }
+        FMC_setError(FMC_ERR_ENC, "FMC_UTF16BEFromCodePoint: Provided argument is not a valid Unicode code point");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+
+    FMC_Byte bytes[4] = {0};
+    if (cp <= 0xFFFF)
+    {
+        bytes[0] = (FMC_Byte)(cp & 0xFF);
+        bytes[1] = (FMC_Byte)((cp >> 8) & 0xFF);
+        return FMC_allocChar(bytes, utf16_be, cp == 0, 2);
+    }
+    else // cp <= 0x10FFFF
+    {
+        cp -= 0x10000;
+        uint16_t high_surr = (uint16_t)((cp >> 10) + 0xD800);
+        uint16_t low_surr = (uint16_t)((cp & 0x3FF) + 0xDC00);
+        bytes[0] = (FMC_Byte)(high_surr & 0xFF);
+        bytes[1] = (FMC_Byte)((high_surr >> 8) & 0xFF);
+        bytes[2] = (FMC_Byte)(low_surr & 0xFF);
+        bytes[3] = (FMC_Byte)((low_surr >> 8) & 0xFF);
+        return FMC_allocChar(bytes, utf16_be, FMC_FALSE, 4);
+    }
+    FMC_UNREACHABLE;
+}
+
+FMC_SHARED FMC_FUNC_HOT FMC_Char* FMC_UTF32LEFromCodePoint(FMC_CodePoint cp)
+{
+    if (!FMC_isValidUnicode(cp))
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_UTF32LEFromCodePoint: Provided argument is not a valid Unicode code point");
+            FMC_printRedError(stderr, err_inv_arg);
+        }
+        FMC_setError(FMC_ERR_ENC, "FMC_UTF32LEFromCodePoint: Provided argument is not a valid Unicode code point");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+
+    FMC_Byte bytes[4] = {0};
+    bytes[0] = (FMC_Byte)((cp >> 24) & 0xFF);
+    bytes[1] = (FMC_Byte)((cp >> 16) & 0xFF);
+    bytes[2] = (FMC_Byte)((cp >> 8) & 0xFF);
+    bytes[3] = (FMC_Byte)(cp & 0xFF);
+    return FMC_allocChar(bytes, utf32_le, cp == 0, 4);
+    FMC_UNREACHABLE;
+}
+
+FMC_SHARED FMC_FUNC_HOT FMC_Char* FMC_UTF32BEFromCodePoint(FMC_CodePoint cp)
+{
+    if (!FMC_isValidUnicode(cp))
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_inv_arg, 1, "ERROR: FMC_UTF32BEFromCodePoint: Provided argument is not a valid Unicode code point");
+            FMC_printRedError(stderr, err_inv_arg);
+        }
+        FMC_setError(FMC_ERR_ENC, "FMC_UTF32BEFromCodePoint: Provided argument is not a valid Unicode code point");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+
+    FMC_Byte bytes[4] = {0};
+    bytes[0] = (FMC_Byte)(cp & 0xFF);
+    bytes[1] = (FMC_Byte)((cp >> 8) & 0xFF);
+    bytes[2] = (FMC_Byte)((cp >> 16) & 0xFF);
+    bytes[3] = (FMC_Byte)((cp >> 24) & 0xFF);
+    return FMC_allocChar(bytes, utf32_be, cp == 0, 4);
+    FMC_UNREACHABLE;
+}

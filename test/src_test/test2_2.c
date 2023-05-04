@@ -168,6 +168,13 @@ void test_FMC_CodePoint()
     cp = FMC_codePointFromUTF32BE(utf32be_raw_ch);
     assert(cp == 0x1F4A9);
 
+    FMC_CodePoint cp2 = 0x1F4A9;
+    FMC_Char* utf8_ch2 = FMC_UTF8FromCodePoint(cp2, FMC_FALSE);
+    assert(utf8_ch2->comp.byte0 == (0xF09F92A9 & 0xFF));
+    assert(utf8_ch2->comp.byte1 == (0xF09F92A9 >> 8 & 0xFF));
+    assert(utf8_ch2->comp.byte2 == (0xF09F92A9 >> 16 & 0xFF));
+    assert(utf8_ch2->comp.byte3 == (0xF09F92A9 >> 24 & 0xFF));
+
 }
 
 void test_FMC_checkEncodingFlag2()

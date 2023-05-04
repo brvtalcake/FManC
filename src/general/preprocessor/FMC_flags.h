@@ -37,7 +37,7 @@ SOFTWARE.
         #undef if_not_set
     #endif // check_in || for_only_flags || for_at_least_flags || if_not_set
     #define check_in if(((
-    #define for_only_flags(...) ) | (ML99_LIST_EVAL(ML99_call(ML99_listIntersperse, v(|), ML99_list(v(__VA_ARGS__)))))) == (ML99_LIST_EVAL(ML99_call(ML99_listIntersperse, v(|), ML99_list(v(__VA_ARGS__))))))
+    #define for_only_flags(...) ) ^ (ML99_LIST_EVAL(ML99_call(ML99_listIntersperse, v(|), ML99_list(v(__VA_ARGS__)))))) == (0))
     #define for_at_least_flags(...) ) & (ML99_LIST_EVAL(ML99_call(ML99_listIntersperse, v(|), ML99_list(v(__VA_ARGS__)))))) == (ML99_LIST_EVAL(ML99_call(ML99_listIntersperse, v(|), ML99_list(v(__VA_ARGS__))))))
     #define if_not_set(...) ) & (ML99_LIST_EVAL(ML99_call(ML99_listIntersperse, v(|), ML99_list(v(__VA_ARGS__)))))) == 0U)
 #endif // BUILDING_FMANC || EXTRA_STMTS_NEEDED
@@ -131,5 +131,12 @@ SOFTWARE.
 #define FMC_CHAR_COMP_PTR_ARG (8U)
 #define FMC_UINT32_ARG (16U)
 #define FMC_UI32_PTR_ARG (32U)
+
+#if defined(MODIFY) || defined(ALLOC_NEW)
+    #undef MODIFY
+    #undef ALLOC_NEW
+#endif // MODIFY || ALLOC_NEW
+#define MODIFY (1U)
+#define ALLOC_NEW (2U)
 
 #endif // FMC_FLAGS_H

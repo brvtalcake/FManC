@@ -36,6 +36,11 @@ SOFTWARE.
 
 FMC_BEGIN_DECLS
 
+#if defined(FMC_isValidUnicode)
+    #undef FMC_isValidUnicode
+#endif
+#define FMC_isValidUnicode(_cp) (_cp <= 0x10FFFF && (_cp < 0xD800 || _cp > 0xDFFF))
+
 FMC_SHARED FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF8_FMC_Char(const FMC_Char utf8_char);
 FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF8_FMC_CharComp(const FMC_CharComp utf8_char_comp);
 FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF8_uint32_t(const uint32_t raw_utf8_encoded_char);
@@ -231,6 +236,17 @@ FMC_FUNC_INLINE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromAny(const void* cons
     return code_point;
     FMC_UNREACHABLE;
 }
+
+
+FMC_SHARED FMC_FUNC_HOT FMC_Char* FMC_UTF8FromCodePoint(FMC_CodePoint cp, FMC_Bool has_bom);
+FMC_SHARED FMC_FUNC_HOT FMC_Char* FMC_UTF16LEFromCodePoint(FMC_CodePoint cp);
+FMC_SHARED FMC_FUNC_HOT FMC_Char* FMC_UTF16BEFromCodePoint(FMC_CodePoint cp);
+FMC_SHARED FMC_FUNC_HOT FMC_Char* FMC_UTF32LEFromCodePoint(FMC_CodePoint cp);
+FMC_SHARED FMC_FUNC_HOT FMC_Char* FMC_UTF32BEFromCodePoint(FMC_CodePoint cp);
+
+
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF8ToUTF16LE(FMC_Char* utf8_src_ch, FMC_Char* utf16le_dest_ch, unsigned int flags);
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF8ToUTF16BE(FMC_Char* utf8_src_ch, FMC_Char* utf16be_dest_ch, unsigned int flags);
 
 FMC_END_DECLS
 
