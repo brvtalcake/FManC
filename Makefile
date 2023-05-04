@@ -68,8 +68,8 @@ LIB_LIN_TEST=test/$(LIB_LIN_STATIC_FILES)
 LIB_WIN_TEST=test/$(LIB_WIN_STATIC_FILES)
 
 # Compiler and friends
-CC=gcc
-CCXX=g++
+CC=gcc-13
+CCXX=g++-13
 AR=ar
 
 # Compiler and archiver flags

@@ -26,7 +26,7 @@ SOFTWARE.
 
 #include "FMC_conversions.h"
 
-FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF8ToUTF16LE(FMC_Char* utf8_src_ch, FMC_Char* utf16le_dest_ch, unsigned int flags)
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF8ToUTF16LE(FMC_Char* restrict utf8_src_ch, FMC_Char* restrict utf16le_dest_ch, unsigned int flags)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
     if (!utf8_src_ch)
@@ -159,7 +159,7 @@ alloc_new: // allocate new utf16le_dest_ch
     FMC_UNREACHABLE;
 }
 
-FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF8ToUTF16BE(FMC_Char* utf8_src_ch, FMC_Char* utf16be_dest_ch, unsigned int flags)
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF8ToUTF16BE(FMC_Char* restrict utf8_src_ch, FMC_Char* restrict utf16be_dest_ch, unsigned int flags)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
     if (!utf8_src_ch)
