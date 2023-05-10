@@ -98,7 +98,7 @@ ifeq (,$(findstring Windows,$(filter win% Win%,$(OS)))) # Linux
 endif
 
 INC_FLAGS=-I./third_party_libs/metalang99/include/ -I./third_party_libs/mimalloc/include/ -I./third_party_libs/defer/ -I./third_party_libs/exCept/ 
-LIB_FLAGS=
+LIB_FLAGS=-L./third_party_libs/exCept/build/static/ -lexCept
 ifneq (,$(findstring Windows,$(OS)))
 	LIB_FLAGS+= -lSecur32
 else ifneq (,$(findstring windows,$(OS)))
@@ -172,9 +172,9 @@ all_win : copy_src_structure third_party static shared copy_headers test
 third_party : $(THIRD_PARTY_LIBS_TARGET)
 
 third_party_lin :
+	git submodule update --recursive --remote
 	cd ./third_party_libs/exCept/ && git checkout main && git pull --recurse-submodules=yes
-	cd ./third_party_libs/exCept/metalang99 && git checkout main && git pull --recurse-submodules=yes
-	cd ./third_party_libs/exCept/ && $(MAKE) clean && $(MAKE) static
+	cd ./third_party_libs/ && $(MAKE) clean && $(MAKE) static
 #	git submodule update --recursive --remote
 #	cd ./third_party_libs/exCept/ && git submodule update --recursive --remote && make static
 #	cd ./third_party_libs/metalang99 && git checkout master
@@ -194,9 +194,9 @@ third_party_lin :
 #	cd ./third_party_libs/built_libs/mimalloc/ && $(MAKE) clean && rm -rf ./CMakeFiles
 
 third_party_win :
+	git submodule update --recursive --remote
 	cd ./third_party_libs/exCept/ && git checkout main && git pull --recurse-submodules=yes
-	cd ./third_party_libs/exCept/metalang99 && git checkout main && git pull --recurse-submodules=yes
-	cd ./third_party_libs/exCept/ && $(MAKE) clean && $(MAKE) static
+	cd ./third_party_libs/ && $(MAKE) clean && $(MAKE) static
 #	git submodule update --recursive --remote
 #	cd ./third_party_libs/exCept/ && git submodule update --recursive --remote && make static
 #	cd ./third_party_libs/metalang99 && git checkout master
@@ -237,7 +237,7 @@ test_lin : $(LIB_LIN_TEST)
 	$(CC) $(TEST_SUITE_FILES) $(C_DEBUG_FLAGS) -o test/test_builds/$(TEST_RES_FOLD)/$@.out $(INC_FLAGS) -Ltest/lib/ -lFManC_linux_x86_64 -lstdc++ $(LIB_FLAGS)
 	@printf "\e[92mRunning tests for $(PRINTED_OS)\n\e[0m"
 	@cd ./test/test_builds/$(TEST_RES_FOLD) && valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./$@.out
-	gcov -b $(GCNO_LIN_FILES)
+	gcov-13 -b $(GCNO_LIN_FILES)
 
 test_win : $(LIB_WIN_TEST)
 	$(CC) -D FMC_STATIC $(TEST_SUITE_FILES) $(C_DEBUG_FLAGS) -o test/test_builds/$(TEST_RES_FOLD)/$@.exe $(INC_FLAGS) -Ltest/lib -lFManC_win_x86_64 -lstdc++ $(LIB_FLAGS)
@@ -245,7 +245,7 @@ test_win : $(LIB_WIN_TEST)
 	rm -f .\test\test_builds\$(TEST_RES_FOLD)\$@.out
 	@cd .\test\test_builds\$(TEST_RES_FOLD) && mklink test_win.out test_win.exe
 	@cd .\test\test_builds\$(TEST_RES_FOLD) && $@.exe
-	gcov -b $(GCNO_LIN_FILES)
+	gcov-13 -b $(GCNO_LIN_FILES)
 	rm -f .\test\test_builds\$(TEST_RES_FOLD)\$@.out
 
 $(LIB_LIN_TEST) : $(O_LIN_TEST)

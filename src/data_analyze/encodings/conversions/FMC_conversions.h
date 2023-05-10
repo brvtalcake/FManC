@@ -247,6 +247,8 @@ FMC_SHARED FMC_FUNC_HOT FMC_Char* FMC_UTF32BEFromCodePoint(FMC_CodePoint cp);
 
 FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF8ToUTF16LE(FMC_Char* restrict utf8_src_ch, FMC_Char* restrict utf16le_dest_ch, unsigned int flags);
 FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF8ToUTF16BE(FMC_Char* restrict utf8_src_ch, FMC_Char* restrict utf16be_dest_ch, unsigned int flags);
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF8ToUTF32LE(FMC_Char* restrict utf8_src_ch, FMC_Char* restrict utf32le_dest_ch, unsigned int flags);
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF8ToUTF32BE(FMC_Char* restrict utf8_src_ch, FMC_Char* restrict utf32be_dest_ch, unsigned int flags);
 
 FMC_END_DECLS
 
