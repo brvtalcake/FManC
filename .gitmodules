@@ -3,9 +3,3 @@
 	path = third_party_libs/metalang99
 	url = https://github.com/brvtalcake/metalang99.git
 
-[submodule "third_party_libs/exCept"]
-	path = third_party_libs/exCept
-	url = https://github.com/brvtalcake/exCept.git
-[submodule "third_party_libs/defer"]
-	path = third_party_libs/defer
-	url = https://github.com/brvtalcake/defer.git
