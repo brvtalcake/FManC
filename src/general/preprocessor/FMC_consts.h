@@ -131,7 +131,12 @@ SOFTWARE.
     #undef FMC_FALSE
 #endif // FMC_BOOLEANS
 #define FMC_BOOLEANS
-#define FMC_TRUE 1
-#define FMC_FALSE 0
+#if !defined(__cplusplus)
+    #define FMC_TRUE 1
+    #define FMC_FALSE 0
+#else
+    #define FMC_TRUE true
+    #define FMC_FALSE false
+#endif // __cplusplus
 
 #endif // FMC_CONSTS_H

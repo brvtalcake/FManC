@@ -97,7 +97,7 @@ ifeq (,$(findstring Windows,$(filter win% Win%,$(OS)))) # Linux
 	CXX_DEBUG_FLAGS+= -fuse-ld=gold
 endif
 
-INC_FLAGS=-I./third_party_libs/metalang99/include/ -I./third_party_libs/mimalloc/include/
+INC_FLAGS=-I./third_party_libs/metalang99/include/ -I./third_party_libs/mimalloc/include/ -I./third_party_libs/defer/ -I./third_party_libs/exCept/ 
 LIB_FLAGS=
 ifneq (,$(findstring Windows,$(OS)))
 	LIB_FLAGS+= -lSecur32
@@ -172,6 +172,11 @@ all_win : copy_src_structure third_party static shared copy_headers test
 third_party : $(THIRD_PARTY_LIBS_TARGET)
 
 third_party_lin :
+	cd ./third_party_libs/exCept/ && git checkout main && git pull --recurse-submodules=yes
+	cd ./third_party_libs/exCept/metalang99 && git checkout main && git pull --recurse-submodules=yes
+	cd ./third_party_libs/exCept/ && $(MAKE) clean && $(MAKE) static
+#	git submodule update --recursive --remote
+#	cd ./third_party_libs/exCept/ && git submodule update --recursive --remote && make static
 #	cd ./third_party_libs/metalang99 && git checkout master
 #	cd ./third_party_libs/mimalloc && git checkout master
 #	git submodule update --init --recursive
@@ -189,6 +194,11 @@ third_party_lin :
 #	cd ./third_party_libs/built_libs/mimalloc/ && $(MAKE) clean && rm -rf ./CMakeFiles
 
 third_party_win :
+	cd ./third_party_libs/exCept/ && git checkout main && git pull --recurse-submodules=yes
+	cd ./third_party_libs/exCept/metalang99 && git checkout main && git pull --recurse-submodules=yes
+	cd ./third_party_libs/exCept/ && $(MAKE) clean && $(MAKE) static
+#	git submodule update --recursive --remote
+#	cd ./third_party_libs/exCept/ && git submodule update --recursive --remote && make static
 #	cd ./third_party_libs/metalang99 && git checkout master
 #	cd ./third_party_libs/mimalloc && git checkout master
 #	git submodule update --init --recursive
