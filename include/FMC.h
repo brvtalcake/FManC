@@ -39,6 +39,10 @@ SOFTWARE.
     #define _FILE_OFFSET_BITS 64
 #endif
 
+#if defined(BUILDING_FMANC)
+    #define NDEBUG 1
+#endif
+
 #include "general/preprocessor/FMC_platform.h"
 
 #if defined(FMC_COMPILING_ON_WINDOWS)

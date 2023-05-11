@@ -868,18 +868,40 @@ __VA_ARGS__))))
                     "FATAL ERROR : could not destroy mutex attribute for error stack.");            \
                 exit(EXIT_FAILURE);                                                                 \
             }
-#endif // BUILDING_FMANC 
+    #endif // ERR_STACK_MUTEX_MACROS 
+
+#endif // BUILDING_FMANC
 
 #if defined(FMC_ADD_OVERFLOW) || defined(FMC_SUB_OVERFLOW) || defined(FMC_MUL_OVERFLOW)
     #undef FMC_ADD_OVERFLOW
     #undef FMC_SUB_OVERFLOW
     #undef FMC_MUL_OVERFLOW
 #endif
-#define FMC_ADD_OVERFLOW(a, b, res) __builtin_add_overflow(a, b, res)
-#define FMC_SUB_OVERFLOW(a, b, res) __builtin_sub_overflow(a, b, res)
-#define FMC_MUL_OVERFLOW(a, b, res) __builtin_mul_overflow(a, b, res)
+#define FMC_ADD_OVERFLOW(_a, _b, _res) __builtin_add_overflow(_a, _b, _res)
+#define FMC_SUB_OVERFLOW(_a, _b, _res) __builtin_sub_overflow(_a, _b, _res)
+#define FMC_MUL_OVERFLOW(_a, _b, _res) __builtin_mul_overflow(_a, _b, _res)
 
-#endif // ERR_STACK_MUTEX_MACROS
+#if defined(FMC_HANDLE_ERR) || defined(FMC_HANDLE_WARN)
+    #undef FMC_HANDLE_ERR
+    #undef FMC_HANDLE_WARN
+#endif
+#define FMC_HANDLE_ERR(_err, _msg, _msg_var, _is_int)                       \
+    FMC_makeMsg(_msg_var, 4, (_is_int ?                                     \
+                             "INTERNAL ERROR: In function: " :              \
+                             "ERROR: In function: ")                        \
+                             , __func__, ": ", _msg);                       \
+    if (FMC_getDebugState())                                                \
+        {                                                                   \
+            FMC_printRedError(stderr, _msg_var);                            \
+        }                                                                   \
+    FMC_setError(_err, _msg_var);
 
+#define FMC_HANDLE_WARN(_err, _msg, _msg_var)                               \
+    FMC_makeMsg(_msg_var, 4, "ERROR: In function: ", __func__, ": ", _msg); \
+    if (FMC_getDebugState())                                                \
+        {                                                                   \
+            FMC_printYellowError(stderr, _msg_var);                         \
+        }                                                                   \
+    FMC_setError(_err, _msg_var);
 
 #endif // FMC_MACROS_H

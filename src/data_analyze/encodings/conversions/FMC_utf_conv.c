@@ -25,6 +25,7 @@ SOFTWARE.
 */
 
 #include "FMC_conversions.h"
+#include "../../strings/FMC_strings.h"
 
 FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF8ToUTF16LE(FMC_Char* restrict utf8_src_ch, FMC_Char* restrict utf16le_dest_ch, unsigned int flags)
 {
@@ -231,10 +232,10 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF8ToUTF16BE(FMC_Char
             ch_cp -= 0x10000;
             uint16_t high_surr = (uint16_t)((ch_cp >> 10) + 0xD800);
             uint16_t low_surr = (uint16_t)((ch_cp & 0x3FF) + 0xDC00);
-            utf16be_dest_ch->comp.byte0 = (FMC_Byte)((high_surr >> 8) & 0xFF);
-            utf16be_dest_ch->comp.byte1 = (FMC_Byte)(high_surr & 0xFF);
-            utf16be_dest_ch->comp.byte2 = (FMC_Byte)((low_surr >> 8) & 0xFF);
-            utf16be_dest_ch->comp.byte3 = (FMC_Byte)(low_surr & 0xFF);
+            utf16be_dest_ch->comp.byte0 = (FMC_Byte)(low_surr & 0xFF);
+            utf16be_dest_ch->comp.byte1 = (FMC_Byte)((low_surr >> 8) & 0xFF);
+            utf16be_dest_ch->comp.byte2 = (FMC_Byte)(high_surr & 0xFF);
+            utf16be_dest_ch->comp.byte3 = (FMC_Byte)((high_surr >> 8) & 0xFF);
             utf16be_dest_ch->encoding = utf16_be;
             utf16be_dest_ch->byteNumber = 4;
             utf16be_dest_ch->isNull = FMC_FALSE;
@@ -271,10 +272,10 @@ modify: // modify utf8_src_ch to make it UTF16BE
         ch_cp1 -= 0x10000;
         uint16_t high_surr = (uint16_t)((ch_cp1 >> 10) + 0xD800);
         uint16_t low_surr = (uint16_t)((ch_cp1 & 0x3FF) + 0xDC00);
-        utf8_src_ch->comp.byte0 = (FMC_Byte)((high_surr >> 8) & 0xFF);
-        utf8_src_ch->comp.byte1 = (FMC_Byte)(high_surr & 0xFF);
-        utf8_src_ch->comp.byte2 = (FMC_Byte)((low_surr >> 8) & 0xFF);
-        utf8_src_ch->comp.byte3 = (FMC_Byte)(low_surr & 0xFF);
+        utf8_src_ch->comp.byte0 = (FMC_Byte)(low_surr & 0xFF);
+        utf8_src_ch->comp.byte1 = (FMC_Byte)((low_surr >> 8) & 0xFF);
+        utf8_src_ch->comp.byte2 = (FMC_Byte)(high_surr & 0xFF);
+        utf8_src_ch->comp.byte3 = (FMC_Byte)((high_surr >> 8) & 0xFF);
         utf8_src_ch->encoding = utf16_be;
         utf8_src_ch->byteNumber = 4;
         utf8_src_ch->isNull = FMC_FALSE;
@@ -483,4 +484,682 @@ alloc_new: // allocate new utf32be_dest_ch
     FMC_CodePoint ch_cp2 = FMC_codePointFromUTF8(utf8_src_ch);
     return FMC_UTF32BEFromCodePoint(ch_cp2);
     FMC_UNREACHABLE;
+}
+
+
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF16LEToUTF8(FMC_Char* restrict utf16le_src_ch, FMC_Char* restrict utf8_dest_ch, unsigned int flags, FMC_Bool put_bom)
+{
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (!utf16le_src_ch)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_arg, 3, "ERROR: In function: ", __func__, ": argument 1 (utf16le_src_ch) is NULL");
+            FMC_printRedError(stderr, err_arg);
+        }
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "ERROR: In function FMC_UTF16LEToUTF8: argument 1 (utf16le_src_ch) is NULL");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    #pragma GCC diagnostic pop
+
+    if (!utf8_dest_ch)
+    {
+        check_in flags if_not_set(MODIFY, ALLOC_NEW)
+        {
+            if (FMC_getDebugState())
+            {
+                FMC_makeMsg(err_arg, 3, "ERROR: In function: ", __func__, ": argument 2 (utf8_dest_ch) is NULL and MODIFY and ALLOC_NEW flags are not set");
+                FMC_printRedError(stderr, err_arg);
+            }
+            FMC_setError(FMC_ERR_INVALID_ARGUMENT, "ERROR: In function FMC_UTF16LEToUTF8: argument 2 (utf8_dest_ch) is NULL and MODIFY and ALLOC_NEW flags are not set");
+            return NULL;
+            FMC_UNREACHABLE;
+        }
+        else check_in flags for_only_flags(MODIFY) goto modify;
+        else check_in flags for_only_flags(ALLOC_NEW) goto alloc_new;
+        else // both are provided
+        {
+            if (FMC_getDebugState())
+            {
+                FMC_makeMsg(err_arg, 3, "ERROR: In function: ", __func__, ": argument 2 (utf8_dest_ch) is NULL and MODIFY and ALLOC_NEW flags are both set");
+                FMC_printRedError(stderr, err_arg);
+            }
+            FMC_setError(FMC_ERR_INVALID_ARGUMENT, "ERROR: In function FMC_UTF16LEToUTF8: argument 2 (utf8_dest_ch) is NULL and MODIFY and ALLOC_NEW flags are both set");
+            return NULL;
+            FMC_UNREACHABLE;
+        }
+    }
+    else // utf8_dest_ch non NULL
+    {
+        FMC_CodePoint ch_cp = FMC_codePointFromUTF16LE(utf16le_src_ch);
+        if (!FMC_isValidUnicode(ch_cp))
+        {
+            if (FMC_getDebugState())
+            {
+                FMC_makeMsg(err_arg, 3, "ERROR: In function: ", __func__, ": argument 1 (utf16le_src_ch) is not a valid unicode code point");
+                FMC_printRedError(stderr, err_arg);
+            }
+            FMC_setError(FMC_ERR_INVALID_ARGUMENT, "ERROR: In function FMC_UTF16LEToUTF8: argument 1 (utf16le_src_ch) is not a valid unicode code point");
+            return NULL;
+            FMC_UNREACHABLE;
+        }
+        if (ch_cp <= 0x7F)
+        {
+            utf8_dest_ch->comp.byte0 = (FMC_Byte)(ch_cp & 0xFF);
+            utf8_dest_ch->encoding = utf8;
+            utf8_dest_ch->byteNumber = 1;
+            utf8_dest_ch->isNull = ch_cp == 0;
+        }
+        else if (ch_cp <= 0x7FF)
+        {
+            utf8_dest_ch->comp.byte1 = (FMC_Byte)(0xC0 | ((ch_cp >> 6) & 0x1F));
+            utf8_dest_ch->comp.byte0 = (FMC_Byte)(0x80 | (ch_cp & 0x3F));
+            utf8_dest_ch->encoding = utf8;
+            utf8_dest_ch->byteNumber = 2;
+            utf8_dest_ch->isNull = FMC_FALSE;
+        }
+        else if (ch_cp <= 0xFFFF)
+        {
+            utf8_dest_ch->comp.byte2 = (FMC_Byte)(0xE0 | ((ch_cp >> 12) & 0x0F));
+            utf8_dest_ch->comp.byte1 = (FMC_Byte)(0x80 | ((ch_cp >> 6) & 0x3F));
+            utf8_dest_ch->comp.byte0 = (FMC_Byte)(0x80 | (ch_cp & 0x3F));
+            utf8_dest_ch->encoding = utf8;
+            utf8_dest_ch->byteNumber = 3;
+            utf8_dest_ch->isNull = FMC_FALSE;
+        }
+        else // ch_cp <= 0x10FFFF
+        {
+            utf8_dest_ch->comp.byte3 = (FMC_Byte)(0xF0 | ((ch_cp >> 18) & 0x07));
+            utf8_dest_ch->comp.byte2 = (FMC_Byte)(0x80 | ((ch_cp >> 12) & 0x3F));
+            utf8_dest_ch->comp.byte1 = (FMC_Byte)(0x80 | ((ch_cp >> 6) & 0x3F));
+            utf8_dest_ch->comp.byte0 = (FMC_Byte)(0x80 | (ch_cp & 0x3F));
+            utf8_dest_ch->encoding = utf8;
+            utf8_dest_ch->byteNumber = 4;
+            utf8_dest_ch->isNull = FMC_FALSE;
+        }
+        if (put_bom) utf8_dest_ch->encoding = utf8_bom;
+        return utf8_dest_ch;
+        FMC_UNREACHABLE;
+    }
+
+modify: // modify utf16le_src_ch to make it UTF8
+    FMC_CodePoint ch_cp1 = FMC_codePointFromUTF16LE(utf16le_src_ch);
+    if (!FMC_isValidUnicode(ch_cp1))
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_arg, 3, "ERROR: In function: ", __func__, ": argument 1 (utf16le_src_ch) is not a valid unicode code point");
+            FMC_printRedError(stderr, err_arg);
+        }
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "ERROR: In function FMC_UTF16LEToUTF8: argument 1 (utf16le_src_ch) is not a valid unicode code point");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    if (ch_cp1 <= 0x7F)
+    {
+        utf16le_src_ch->comp.byte0 = (FMC_Byte)(ch_cp1 & 0xFF);
+        utf16le_src_ch->encoding = utf8;
+        utf16le_src_ch->byteNumber = 1;
+        utf16le_src_ch->isNull = ch_cp1 == 0;
+    }
+    else if (ch_cp1 <= 0x7FF)
+    {
+        utf16le_src_ch->comp.byte1 = (FMC_Byte)(0xC0 | ((ch_cp1 >> 6) & 0x1F));
+        utf16le_src_ch->comp.byte0 = (FMC_Byte)(0x80 | (ch_cp1 & 0x3F));
+        utf16le_src_ch->encoding = utf8;
+        utf16le_src_ch->byteNumber = 2;
+        utf16le_src_ch->isNull = FMC_FALSE;
+    }
+    else if (ch_cp1 <= 0xFFFF)
+    {
+        utf16le_src_ch->comp.byte2 = (FMC_Byte)(0xE0 | ((ch_cp1 >> 12) & 0x0F));
+        utf16le_src_ch->comp.byte1 = (FMC_Byte)(0x80 | ((ch_cp1 >> 6) & 0x3F));
+        utf16le_src_ch->comp.byte0 = (FMC_Byte)(0x80 | (ch_cp1 & 0x3F));
+        utf16le_src_ch->encoding = utf8;
+        utf16le_src_ch->byteNumber = 3;
+        utf16le_src_ch->isNull = FMC_FALSE;
+    }
+    else // ch_cp <= 0x10FFFF
+    {
+        utf16le_src_ch->comp.byte3 = (FMC_Byte)(0xF0 | ((ch_cp1 >> 18) & 0x07));
+        utf16le_src_ch->comp.byte2 = (FMC_Byte)(0x80 | ((ch_cp1 >> 12) & 0x3F));
+        utf16le_src_ch->comp.byte1 = (FMC_Byte)(0x80 | ((ch_cp1 >> 6) & 0x3F));
+        utf16le_src_ch->comp.byte0 = (FMC_Byte)(0x80 | (ch_cp1 & 0x3F));
+        utf16le_src_ch->encoding = utf8;
+        utf16le_src_ch->byteNumber = 4;
+        utf16le_src_ch->isNull = FMC_FALSE;
+    }
+    if (put_bom) utf16le_src_ch->encoding = utf8_bom;
+    return utf16le_src_ch;
+    FMC_UNREACHABLE;
+
+alloc_new: // allocate new utf8_dest_ch
+    FMC_CodePoint ch_cp2 = FMC_codePointFromUTF16LE(utf16le_src_ch);
+    return FMC_UTF8FromCodePoint(ch_cp2, put_bom);
+    FMC_UNREACHABLE;
+}
+
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF16LEToUTF16BE(FMC_Char* restrict utf16le_src_ch, FMC_Char* restrict utf16be_dest_ch, unsigned int flags)
+{
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (!utf16le_src_ch)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_arg, 3, "ERROR: In function: ", __func__, ": argument 1 (utf16le_src_ch) is NULL");
+            FMC_printRedError(stderr, err_arg);
+        }
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "ERROR: In function FMC_UTF16LEToUTF16BE: argument 1 (utf16le_src_ch) is NULL");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    #pragma GCC diagnostic pop
+
+    if (!utf16be_dest_ch)
+    {
+        check_in flags if_not_set(MODIFY, ALLOC_NEW)
+        {
+            if (FMC_getDebugState())
+            {
+                FMC_makeMsg(err_arg, 3, "ERROR: In function: ", __func__, ": argument 2 (utf16be_dest_ch) is NULL and MODIFY and ALLOC_NEW flags are not set");
+                FMC_printRedError(stderr, err_arg);
+            }
+            FMC_setError(FMC_ERR_INVALID_ARGUMENT, "ERROR: In function FMC_UTF16LEToUTF16BE: argument 2 (utf16be_dest_ch) is NULL and MODIFY and ALLOC_NEW flags are not set");
+            return NULL;
+            FMC_UNREACHABLE;
+        }
+        else check_in flags for_only_flags(MODIFY) goto modify;
+        else check_in flags for_only_flags(ALLOC_NEW) goto alloc_new;
+        else // both are provided
+        {
+            if (FMC_getDebugState())
+            {
+                FMC_makeMsg(err_arg, 3, "ERROR: In function: ", __func__, ": argument 2 (utf16be_dest_ch) is NULL and MODIFY and ALLOC_NEW flags are both set");
+                FMC_printRedError(stderr, err_arg);
+            }
+            FMC_setError(FMC_ERR_INVALID_ARGUMENT, "ERROR: In function FMC_UTF16LEToUTF16BE: argument 2 (utf16be_dest_ch) is NULL and MODIFY and ALLOC_NEW flags are both set");
+            return NULL;
+            FMC_UNREACHABLE;
+        }
+    }
+    else // utf16be_dest_ch non NULL
+    {
+        utf16be_dest_ch->comp.byte0 = utf16le_src_ch->comp.byte1;
+        utf16be_dest_ch->comp.byte1 = utf16le_src_ch->comp.byte0;
+        utf16be_dest_ch->comp.byte2 = utf16le_src_ch->comp.byte3;
+        utf16be_dest_ch->comp.byte3 = utf16le_src_ch->comp.byte2;
+        utf16be_dest_ch->encoding = utf16_be;
+        utf16be_dest_ch->byteNumber = utf16le_src_ch->byteNumber;
+        utf16be_dest_ch->isNull = utf16le_src_ch->isNull;
+        return utf16be_dest_ch;
+        FMC_UNREACHABLE;
+    }
+
+modify: // modify utf16le_src_ch to make it UTF16BE
+    FMC_Char tmp = *utf16le_src_ch;
+    utf16le_src_ch->comp.byte0 = tmp.comp.byte1;
+    utf16le_src_ch->comp.byte1 = tmp.comp.byte0;
+    utf16le_src_ch->comp.byte2 = tmp.comp.byte3;
+    utf16le_src_ch->comp.byte3 = tmp.comp.byte2;
+    utf16le_src_ch->encoding = utf16_be;
+    return utf16le_src_ch;
+    FMC_UNREACHABLE;
+
+alloc_new: // allocate new utf16be_dest_ch
+    FMC_Char* ret = FMC_allocChar((FMC_Byte[4]){[0] = utf16le_src_ch->comp.byte1, [1] = utf16le_src_ch->comp.byte0, [2] = utf16le_src_ch->comp.byte3, [3] = utf16le_src_ch->comp.byte2}, utf16_be, utf16le_src_ch->isNull, utf16le_src_ch->byteNumber);
+    if (!ret)
+    {
+        if (FMC_getDebugState())
+        {
+            FMC_makeMsg(err_alloc, 3, "ERROR: In function: ", __func__, ": failed to allocate memory for new FMC_Char");
+            FMC_printRedError(stderr, err_alloc);
+        }
+        FMC_setError(FMC_ERR_ALLOC_FAILED, "ERROR: In function FMC_UTF16LEToUTF16BE: failed to allocate memory for new FMC_Char");
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    return ret;
+    FMC_UNREACHABLE;        
+}
+
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF16LEToUTF32LE(FMC_Char* restrict utf16le_src_ch, FMC_Char* restrict utf32le_dest_ch, unsigned int flags)
+{
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (!utf16le_src_ch)
+    {
+        FMC_HANDLE_ERR(FMC_ERR_INVALID_ARGUMENT, "argument 1 (utf16le_src_ch) is NULL", err_arg, FMC_FALSE);
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    #pragma GCC diagnostic pop
+    
+    if (!utf32le_dest_ch)
+    {
+        check_in flags if_not_set(MODIFY, ALLOC_NEW)
+        {
+            FMC_HANDLE_ERR(FMC_ERR_INVALID_ARGUMENT, "argument 2 (utf32le_dest_ch) is NULL and MODIFY and ALLOC_NEW flags are not set", err_arg, FMC_FALSE);
+            return NULL;
+            FMC_UNREACHABLE;
+        }
+        else check_in flags for_only_flags(MODIFY) goto modify;
+        else check_in flags for_only_flags(ALLOC_NEW) goto alloc_new;
+        else
+        {
+            FMC_HANDLE_ERR(FMC_ERR_INVALID_ARGUMENT, "argument 2 (utf32le_dest_ch) is NULL and MODIFY and ALLOC_NEW flags are both set", err_arg, FMC_FALSE);
+            return NULL;
+            FMC_UNREACHABLE;
+        }
+    }
+    else
+    {
+        FMC_CodePoint ch_cp = FMC_codePointFromUTF16LE(utf16le_src_ch);
+        if (!FMC_isValidUnicode(ch_cp))
+        {
+            FMC_HANDLE_ERR(FMC_ERR_INVALID_ARGUMENT, "argument 1 (utf16le_src_ch) is not a valid unicode code point", err_arg, FMC_FALSE);
+            return NULL;
+            FMC_UNREACHABLE;
+        }
+        ch_cp = FMC_bitSwap(32, ch_cp);
+        utf32le_dest_ch->comp.byte0 = (FMC_Byte)(ch_cp & 0xFF);
+        utf32le_dest_ch->comp.byte1 = (FMC_Byte)((ch_cp >> 8) & 0xFF);
+        utf32le_dest_ch->comp.byte2 = (FMC_Byte)((ch_cp >> 16) & 0xFF);
+        utf32le_dest_ch->comp.byte3 = (FMC_Byte)((ch_cp >> 24) & 0xFF);
+        utf32le_dest_ch->encoding = utf32_le;
+        utf32le_dest_ch->byteNumber = 4;
+        utf32le_dest_ch->isNull = ch_cp == 0;
+        return utf32le_dest_ch;
+        FMC_UNREACHABLE;
+    }
+
+modify: // modify utf16le_src_ch to make it UTF32LE
+    FMC_CodePoint ch_cp1 = FMC_codePointFromUTF16LE(utf16le_src_ch);
+    if (!FMC_isValidUnicode(ch_cp1))
+    {
+        FMC_HANDLE_ERR(FMC_ERR_INVALID_ARGUMENT, "argument 1 (utf16le_src_ch) is not a valid unicode code point", err_arg, FMC_FALSE);
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    ch_cp1 = FMC_bitSwap(32, ch_cp1);
+    utf16le_src_ch->comp.byte0 = (FMC_Byte)(ch_cp1 & 0xFF);
+    utf16le_src_ch->comp.byte1 = (FMC_Byte)((ch_cp1 >> 8) & 0xFF);
+    utf16le_src_ch->comp.byte2 = (FMC_Byte)((ch_cp1 >> 16) & 0xFF);
+    utf16le_src_ch->comp.byte3 = (FMC_Byte)((ch_cp1 >> 24) & 0xFF);
+    utf16le_src_ch->encoding = utf32_le;
+    utf16le_src_ch->byteNumber = 4;
+    utf16le_src_ch->isNull = ch_cp1 == 0;
+    return utf16le_src_ch;
+    FMC_UNREACHABLE;
+
+alloc_new: // allocate new utf32le_dest_ch
+    FMC_CodePoint ch_cp2 = FMC_codePointFromUTF16LE(utf16le_src_ch);
+    return FMC_UTF32LEFromCodePoint(ch_cp2);
+    FMC_UNREACHABLE;
+}
+
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF16LEToUTF32BE(FMC_Char* restrict utf16le_src_ch, FMC_Char* restrict utf32be_dest_ch, unsigned int flags)
+{
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (!utf16le_src_ch)
+    {
+        FMC_HANDLE_ERR(FMC_ERR_INVALID_ARGUMENT, "argument 1 (utf16le_src_ch) is NULL", err_arg, FMC_FALSE);
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    #pragma GCC diagnostic pop
+    
+    if (!utf32be_dest_ch)
+    {
+        check_in flags if_not_set(MODIFY, ALLOC_NEW)
+        {
+            FMC_HANDLE_ERR(FMC_ERR_INVALID_ARGUMENT, "argument 2 (utf32be_dest_ch) is NULL and MODIFY and ALLOC_NEW flags are not set", err_arg, FMC_FALSE);
+            return NULL;
+            FMC_UNREACHABLE;
+        }
+        else check_in flags for_only_flags(MODIFY) goto modify;
+        else check_in flags for_only_flags(ALLOC_NEW) goto alloc_new;
+        else
+        {
+            FMC_HANDLE_ERR(FMC_ERR_INVALID_ARGUMENT, "argument 2 (utf32be_dest_ch) is NULL and MODIFY and ALLOC_NEW flags are both set", err_arg, FMC_FALSE);
+            return NULL;
+            FMC_UNREACHABLE;
+        }
+    }
+    else
+    {
+        FMC_CodePoint ch_cp = FMC_codePointFromUTF16LE(utf16le_src_ch);
+        if (!FMC_isValidUnicode(ch_cp))
+        {
+            FMC_HANDLE_ERR(FMC_ERR_INVALID_ARGUMENT, "argument 1 (utf16le_src_ch) is not a valid unicode code point", err_arg, FMC_FALSE);
+            return NULL;
+            FMC_UNREACHABLE;
+        }
+        utf32be_dest_ch->comp.byte0 = (FMC_Byte)(ch_cp & 0xFF);
+        utf32be_dest_ch->comp.byte1 = (FMC_Byte)((ch_cp >> 8) & 0xFF);
+        utf32be_dest_ch->comp.byte2 = (FMC_Byte)((ch_cp >> 16) & 0xFF);
+        utf32be_dest_ch->comp.byte3 = (FMC_Byte)((ch_cp >> 24) & 0xFF);
+        utf32be_dest_ch->encoding = utf32_be;
+        utf32be_dest_ch->byteNumber = 4;
+        utf32be_dest_ch->isNull = ch_cp == 0;
+        return utf32be_dest_ch;
+        FMC_UNREACHABLE;
+    }
+
+modify: // modify utf16le_src_ch to make it UTF32BE
+    FMC_CodePoint ch_cp1 = FMC_codePointFromUTF16LE(utf16le_src_ch);
+    if (!FMC_isValidUnicode(ch_cp1))
+    {
+        FMC_HANDLE_ERR(FMC_ERR_INVALID_ARGUMENT, "argument 1 (utf16le_src_ch) is not a valid unicode code point", err_arg, FMC_FALSE);
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    utf16le_src_ch->comp.byte0 = (FMC_Byte)(ch_cp1 & 0xFF);
+    utf16le_src_ch->comp.byte1 = (FMC_Byte)((ch_cp1 >> 8) & 0xFF);
+    utf16le_src_ch->comp.byte2 = (FMC_Byte)((ch_cp1 >> 16) & 0xFF);
+    utf16le_src_ch->comp.byte3 = (FMC_Byte)((ch_cp1 >> 24) & 0xFF);
+    utf16le_src_ch->encoding = utf32_be;
+    utf16le_src_ch->byteNumber = 4;
+    utf16le_src_ch->isNull = ch_cp1 == 0;
+    return utf16le_src_ch;
+    FMC_UNREACHABLE;
+
+alloc_new: // allocate new utf32be_dest_ch
+    FMC_CodePoint ch_cp2 = FMC_codePointFromUTF16LE(utf16le_src_ch);
+    return FMC_UTF32BEFromCodePoint(ch_cp2);
+    FMC_UNREACHABLE;
+}
+
+
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF16BEToUTF8(FMC_Char* restrict utf16be_src_ch, FMC_Char* restrict utf8_dest_ch, unsigned int flags, FMC_Bool put_bom)
+{
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (!utf16be_src_ch)
+    {
+        FMC_HANDLE_ERR(FMC_ERR_INVALID_ARGUMENT, "argument 1 (utf16be_src_ch) is NULL", err_arg, FMC_FALSE);
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    #pragma GCC diagnostic pop
+
+    if (!utf8_dest_ch)
+    {
+        check_in flags if_not_set(MODIFY, ALLOC_NEW)
+        {
+            FMC_HANDLE_ERR(FMC_ERR_INVALID_ARGUMENT, "argument 2 (utf8_dest_ch) is NULL and MODIFY and ALLOC_NEW flags are not set", err_arg, FMC_FALSE);
+            return NULL;
+            FMC_UNREACHABLE;
+        }
+        else check_in flags for_only_flags(MODIFY) goto modify;
+        else check_in flags for_only_flags(ALLOC_NEW) goto alloc_new;
+        else
+        {
+            FMC_HANDLE_ERR(FMC_ERR_INVALID_ARGUMENT, "argument 2 (utf8_dest_ch) is NULL and MODIFY and ALLOC_NEW flags are both set", err_arg, FMC_FALSE);
+            return NULL;
+            FMC_UNREACHABLE;
+        }
+    }
+    else
+    {
+        FMC_CodePoint ch_cp = FMC_codePointFromUTF16BE(utf16be_src_ch);
+        if (!FMC_isValidUnicode(ch_cp))
+        {
+            FMC_HANDLE_ERR(FMC_ERR_INVALID_ARGUMENT, "argument 1 (utf16be_src_ch) is not a valid unicode code point", err_arg, FMC_FALSE);
+            return NULL;
+            FMC_UNREACHABLE;
+        }
+
+        if (ch_cp <= 0x7F)
+        {
+            utf8_dest_ch->comp.byte0 = (FMC_Byte)(ch_cp & 0xFF);
+            utf8_dest_ch->encoding = utf8;
+            utf8_dest_ch->byteNumber = 1;
+            utf8_dest_ch->isNull = ch_cp == 0;
+        }
+        else if (ch_cp <= 0x7FF)
+        {
+            utf8_dest_ch->comp.byte1 = (FMC_Byte)(0xC0 | ((ch_cp >> 6) & 0x1F));
+            utf8_dest_ch->comp.byte0 = (FMC_Byte)(0x80 | (ch_cp & 0x3F));
+            utf8_dest_ch->encoding = utf8;
+            utf8_dest_ch->byteNumber = 2;
+            utf8_dest_ch->isNull = FMC_FALSE;
+        }
+        else if (ch_cp <= 0xFFFF)
+        {
+            utf8_dest_ch->comp.byte2 = (FMC_Byte)(0xE0 | ((ch_cp >> 12) & 0x0F));
+            utf8_dest_ch->comp.byte1 = (FMC_Byte)(0x80 | ((ch_cp >> 6) & 0x3F));
+            utf8_dest_ch->comp.byte0 = (FMC_Byte)(0x80 | (ch_cp & 0x3F));
+            utf8_dest_ch->encoding = utf8;
+            utf8_dest_ch->byteNumber = 3;
+            utf8_dest_ch->isNull = FMC_FALSE;
+        }
+        else // ch_cp <= 0x10FFFF
+        {
+            utf8_dest_ch->comp.byte3 = (FMC_Byte)(0xF0 | ((ch_cp >> 18) & 0x07));
+            utf8_dest_ch->comp.byte2 = (FMC_Byte)(0x80 | ((ch_cp >> 12) & 0x3F));
+            utf8_dest_ch->comp.byte1 = (FMC_Byte)(0x80 | ((ch_cp >> 6) & 0x3F));
+            utf8_dest_ch->comp.byte0 = (FMC_Byte)(0x80 | (ch_cp & 0x3F));
+            utf8_dest_ch->encoding = utf8;
+            utf8_dest_ch->byteNumber = 4;
+            utf8_dest_ch->isNull = FMC_FALSE;
+        }
+        if (put_bom) utf8_dest_ch->encoding = utf8_bom;
+        return utf8_dest_ch;
+        FMC_UNREACHABLE;
+    }
+
+modify: // modify utf16be_src_ch to make it UTF8
+    FMC_CodePoint ch_cp1 = FMC_codePointFromUTF16BE(utf16be_src_ch);
+    if (!FMC_isValidUnicode(ch_cp1))
+    {
+        FMC_HANDLE_ERR(FMC_ERR_INVALID_ARGUMENT, "argument 1 (utf16be_src_ch) is not a valid unicode code point", err_arg, FMC_FALSE);
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+
+    if (ch_cp1 <= 0x7F)
+    {
+        utf16be_src_ch->comp.byte0 = (FMC_Byte)(ch_cp1 & 0xFF);
+        utf16be_src_ch->encoding = utf8;
+        utf16be_src_ch->byteNumber = 1;
+        utf16be_src_ch->isNull = ch_cp1 == 0;
+    }
+    else if (ch_cp1 <= 0x7FF)
+    {
+        utf16be_src_ch->comp.byte1 = (FMC_Byte)(0xC0 | ((ch_cp1 >> 6) & 0x1F));
+        utf16be_src_ch->comp.byte0 = (FMC_Byte)(0x80 | (ch_cp1 & 0x3F));
+        utf16be_src_ch->encoding = utf8;
+        utf16be_src_ch->byteNumber = 2;
+        utf16be_src_ch->isNull = FMC_FALSE;
+    }
+    else if (ch_cp1 <= 0xFFFF)
+    {
+        utf16be_src_ch->comp.byte2 = (FMC_Byte)(0xE0 | ((ch_cp1 >> 12) & 0x0F));
+        utf16be_src_ch->comp.byte1 = (FMC_Byte)(0x80 | ((ch_cp1 >> 6) & 0x3F));
+        utf16be_src_ch->comp.byte0 = (FMC_Byte)(0x80 | (ch_cp1 & 0x3F));
+        utf16be_src_ch->encoding = utf8;
+        utf16be_src_ch->byteNumber = 3;
+        utf16be_src_ch->isNull = FMC_FALSE;
+    }
+    else
+    {
+        utf16be_src_ch->comp.byte3 = (FMC_Byte)(0xF0 | ((ch_cp1 >> 18) & 0x07));
+        utf16be_src_ch->comp.byte2 = (FMC_Byte)(0x80 | ((ch_cp1 >> 12) & 0x3F));
+        utf16be_src_ch->comp.byte1 = (FMC_Byte)(0x80 | ((ch_cp1 >> 6) & 0x3F));
+        utf16be_src_ch->comp.byte0 = (FMC_Byte)(0x80 | (ch_cp1 & 0x3F));
+        utf16be_src_ch->encoding = utf8;
+        utf16be_src_ch->byteNumber = 4;
+        utf16be_src_ch->isNull = FMC_FALSE;
+    }
+    if (put_bom) utf16be_src_ch->encoding = utf8_bom;
+    return utf16be_src_ch;
+    FMC_UNREACHABLE;
+
+alloc_new: // allocate new utf8_dest_ch
+    FMC_CodePoint ch_cp2 = FMC_codePointFromUTF16BE(utf16be_src_ch);
+    return FMC_UTF8FromCodePoint(ch_cp2, put_bom);
+    FMC_UNREACHABLE;
+}
+
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF16BEToUTF16LE(FMC_Char* restrict utf16be_src_ch, FMC_Char* restrict utf16le_dest_ch, unsigned int flags)
+{
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (!utf16be_src_ch)
+    {
+        FMC_HANDLE_ERR(FMC_ERR_INVALID_ARGUMENT, "argument 1 (utf16be_src_ch) is NULL", err_arg, FMC_FALSE);
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    #pragma GCC diagnostic pop
+
+    if (!utf16le_dest_ch)
+    {
+        check_in flags if_not_set(MODIFY, ALLOC_NEW)
+        {
+            FMC_HANDLE_ERR(FMC_ERR_INVALID_ARGUMENT, "argument 2 (utf16le_dest_ch) is NULL and MODIFY and ALLOC_NEW flags are not set", err_arg, FMC_FALSE);
+            return NULL;
+            FMC_UNREACHABLE;
+        }
+        else check_in flags for_only_flags(MODIFY) goto modify;
+        else check_in flags for_only_flags(ALLOC_NEW) goto alloc_new;
+        else
+        {
+            FMC_HANDLE_ERR(FMC_ERR_INVALID_ARGUMENT, "argument 2 (utf16le_dest_ch) is NULL and MODIFY and ALLOC_NEW flags are both set", err_arg, FMC_FALSE);
+            return NULL;
+            FMC_UNREACHABLE;
+        }
+    }
+    else
+    {
+        utf16le_dest_ch->comp.byte0 = utf16be_src_ch->comp.byte1;
+        utf16le_dest_ch->comp.byte1 = utf16be_src_ch->comp.byte0;
+        utf16le_dest_ch->comp.byte2 = utf16be_src_ch->comp.byte3;
+        utf16le_dest_ch->comp.byte3 = utf16be_src_ch->comp.byte2;
+        utf16le_dest_ch->encoding = utf16_le;
+        utf16le_dest_ch->byteNumber = utf16be_src_ch->byteNumber;
+        utf16le_dest_ch->isNull = utf16be_src_ch->isNull;
+        return utf16le_dest_ch;
+        FMC_UNREACHABLE;
+    }
+
+modify: // modify utf16be_src_ch to make it UTF16LE
+    FMC_CodePoint ch_cp1 = FMC_codePointFromUTF16BE(utf16be_src_ch);
+    if (!FMC_isValidUnicode(ch_cp1))
+    {
+        FMC_HANDLE_ERR(FMC_ERR_INVALID_ARGUMENT, "argument 1 (utf16be_src_ch) is not a valid unicode code point", err_arg, FMC_FALSE);
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    FMC_Char tmp = *utf16be_src_ch;
+    utf16be_src_ch->comp.byte0 = tmp.comp.byte1;
+    utf16be_src_ch->comp.byte1 = tmp.comp.byte0;
+    utf16be_src_ch->comp.byte2 = tmp.comp.byte3;
+    utf16be_src_ch->comp.byte3 = tmp.comp.byte2;
+    utf16be_src_ch->encoding = utf16_le;
+    return utf16be_src_ch;
+    FMC_UNREACHABLE;
+
+alloc_new: // allocate new utf16le_dest_ch
+    FMC_Char* ret = FMC_allocChar((FMC_Byte[4]){[0] = utf16be_src_ch->comp.byte1, [1] = utf16be_src_ch->comp.byte0, [2] = utf16be_src_ch->comp.byte3, [3] = utf16be_src_ch->comp.byte2}, utf16_le, utf16be_src_ch->isNull, utf16be_src_ch->byteNumber);
+    if (!ret)
+    {
+        FMC_HANDLE_ERR(FMC_ERR_ALLOC_FAILED, "failed to allocate memory for new FMC_Char", err_alloc, FMC_FALSE);
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    return ret;
+    FMC_UNREACHABLE;
+}
+
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF16BEToUTF32LE(FMC_Char* restrict utf16be_src_ch, FMC_Char* restrict utf32le_dest_ch, unsigned int flags)
+{
+    FMC_MAKE_VOID(flags);
+    FMC_MAKE_VOID(utf32le_dest_ch);
+    FMC_MAKE_VOID(utf16be_src_ch);
+    assert(0 && "Not implemented yet");
+    return NULL;
+}
+
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF16BEToUTF32BE(FMC_Char* restrict utf16be_src_ch, FMC_Char* restrict utf32be_dest_ch, unsigned int flags)
+{
+    FMC_MAKE_VOID(flags);
+    FMC_MAKE_VOID(utf32be_dest_ch);
+    FMC_MAKE_VOID(utf16be_src_ch);
+    assert(0 && "Not implemented yet");
+    return NULL;
+}
+
+
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF32LEToUTF8(FMC_Char* restrict utf32le_src_ch, FMC_Char* restrict utf8_dest_ch, unsigned int flags, FMC_Bool put_bom)
+{
+    FMC_MAKE_VOID(flags);
+    FMC_MAKE_VOID(utf8_dest_ch);
+    FMC_MAKE_VOID(utf32le_src_ch);
+    FMC_MAKE_VOID(put_bom);
+    assert(0 && "Not implemented yet");
+    return NULL;
+}
+
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF32LEToUTF16LE(FMC_Char* restrict utf32le_src_ch, FMC_Char* restrict utf16le_dest_ch, unsigned int flags)
+{
+    FMC_MAKE_VOID(flags);
+    FMC_MAKE_VOID(utf16le_dest_ch);
+    FMC_MAKE_VOID(utf32le_src_ch);
+    assert(0 && "Not implemented yet");
+    return NULL;
+}
+
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF32LEToUTF16BE(FMC_Char* restrict utf32le_src_ch, FMC_Char* restrict utf16be_dest_ch, unsigned int flags)
+{
+    FMC_MAKE_VOID(flags);
+    FMC_MAKE_VOID(utf16be_dest_ch);
+    FMC_MAKE_VOID(utf32le_src_ch);
+    assert(0 && "Not implemented yet");
+    return NULL;
+}
+
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF32LEToUTF32BE(FMC_Char* restrict utf32le_src_ch, FMC_Char* restrict utf32be_dest_ch, unsigned int flags)
+{
+    FMC_MAKE_VOID(flags);
+    FMC_MAKE_VOID(utf32be_dest_ch);
+    FMC_MAKE_VOID(utf32le_src_ch);
+    assert(0 && "Not implemented yet");
+    return NULL;
+}
+
+
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF32BEToUTF8(FMC_Char* restrict utf32be_src_ch, FMC_Char* restrict utf8_dest_ch, unsigned int flags, FMC_Bool put_bom)
+{
+    FMC_MAKE_VOID(flags);
+    FMC_MAKE_VOID(utf8_dest_ch);
+    FMC_MAKE_VOID(utf32be_src_ch);
+    FMC_MAKE_VOID(put_bom);
+    assert(0 && "Not implemented yet");
+    return NULL;
+}
+
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF32BEToUTF16LE(FMC_Char* restrict utf32be_src_ch, FMC_Char* restrict utf16le_dest_ch, unsigned int flags)
+{
+    FMC_MAKE_VOID(flags);
+    FMC_MAKE_VOID(utf16le_dest_ch);
+    FMC_MAKE_VOID(utf32be_src_ch);
+    assert(0 && "Not implemented yet");
+    return NULL;
+}
+
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF32BEToUTF16BE(FMC_Char* restrict utf32be_src_ch, FMC_Char* restrict utf16be_dest_ch, unsigned int flags)
+{
+    FMC_MAKE_VOID(flags);
+    FMC_MAKE_VOID(utf16be_dest_ch);
+    FMC_MAKE_VOID(utf32be_src_ch);
+    assert(0 && "Not implemented yet");
+    return NULL;
+}
+
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF32BEToUTF32LE(FMC_Char* restrict utf32be_src_ch, FMC_Char* restrict utf32le_dest_ch, unsigned int flags)
+{
+    FMC_MAKE_VOID(flags);
+    FMC_MAKE_VOID(utf32le_dest_ch);
+    FMC_MAKE_VOID(utf32be_src_ch);
+    assert(0 && "Not implemented yet");
+    return NULL;
 }

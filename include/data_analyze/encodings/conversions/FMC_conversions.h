@@ -250,6 +250,26 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF8ToUTF16BE(FMC_Char
 FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF8ToUTF32LE(FMC_Char* restrict utf8_src_ch, FMC_Char* restrict utf32le_dest_ch, unsigned int flags);
 FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF8ToUTF32BE(FMC_Char* restrict utf8_src_ch, FMC_Char* restrict utf32be_dest_ch, unsigned int flags);
 
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF16LEToUTF8(FMC_Char* restrict utf16le_src_ch, FMC_Char* restrict utf8_dest_ch, unsigned int flags, FMC_Bool put_bom);
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF16LEToUTF16BE(FMC_Char* restrict utf16le_src_ch, FMC_Char* restrict utf16be_dest_ch, unsigned int flags);
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF16LEToUTF32LE(FMC_Char* restrict utf16le_src_ch, FMC_Char* restrict utf32le_dest_ch, unsigned int flags);
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF16LEToUTF32BE(FMC_Char* restrict utf16le_src_ch, FMC_Char* restrict utf32be_dest_ch, unsigned int flags);
+
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF16BEToUTF8(FMC_Char* restrict utf16be_src_ch, FMC_Char* restrict utf8_dest_ch, unsigned int flags, FMC_Bool put_bom);
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF16BEToUTF16LE(FMC_Char* restrict utf16be_src_ch, FMC_Char* restrict utf16le_dest_ch, unsigned int flags);
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF16BEToUTF32LE(FMC_Char* restrict utf16be_src_ch, FMC_Char* restrict utf32le_dest_ch, unsigned int flags);
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF16BEToUTF32BE(FMC_Char* restrict utf16be_src_ch, FMC_Char* restrict utf32be_dest_ch, unsigned int flags);
+
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF32LEToUTF8(FMC_Char* restrict utf32le_src_ch, FMC_Char* restrict utf8_dest_ch, unsigned int flags, FMC_Bool put_bom);
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF32LEToUTF16LE(FMC_Char* restrict utf32le_src_ch, FMC_Char* restrict utf16le_dest_ch, unsigned int flags);
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF32LEToUTF16BE(FMC_Char* restrict utf32le_src_ch, FMC_Char* restrict utf16be_dest_ch, unsigned int flags);
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF32LEToUTF32BE(FMC_Char* restrict utf32le_src_ch, FMC_Char* restrict utf32be_dest_ch, unsigned int flags);
+
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF32BEToUTF8(FMC_Char* restrict utf32be_src_ch, FMC_Char* restrict utf8_dest_ch, unsigned int flags, FMC_Bool put_bom);
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF32BEToUTF16LE(FMC_Char* restrict utf32be_src_ch, FMC_Char* restrict utf16le_dest_ch, unsigned int flags);
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF32BEToUTF16BE(FMC_Char* restrict utf32be_src_ch, FMC_Char* restrict utf16be_dest_ch, unsigned int flags);
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_HOT FMC_Char* FMC_UTF32BEToUTF32LE(FMC_Char* restrict utf32be_src_ch, FMC_Char* restrict utf32le_dest_ch, unsigned int flags);
+
 FMC_END_DECLS
 
 #endif // FMC_CONVERSIONS_H

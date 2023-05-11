@@ -50,7 +50,7 @@ SOFTWARE.
         #undef FMC_ERR_STR_COUNT
     #endif
     #define FMC_MAX_ERR_STCK_SIZE 10
-    #define FMC_ERR_STR_COUNT 9
+    #define FMC_ERR_STR_COUNT 10
 
     #if defined(FMC_ERR_MTX_INITIALIZER)
         #undef FMC_ERR_MTX_INITIALIZER

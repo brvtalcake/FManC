@@ -40,6 +40,7 @@ static const char FMC_ERROR_STR[FMC_ERR_STR_COUNT][FMC_ERR_STR_LEN / 2] =
     "The provided FMC_File pointer is inconsistent. "                       ,  // FMC_ERR_FILE
     "The encoded character or string is inconsistent. "                     ,  // FMC_ERR_ENC
     "A FILE I/O error occured. "                                            ,  // FMC_ERR_IO
+    "Failed to allocate memory. "                                           ,  // FMC_ERR_ALLOC_FAILED
 };
 
 #ifndef __STDC_NO_ATOMICS__

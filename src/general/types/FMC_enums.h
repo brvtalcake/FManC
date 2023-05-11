@@ -54,6 +54,7 @@ enum FManC_Error
 	FMC_ERR_FILE			  		= 6,
 	FMC_ERR_ENC			  			= 7,
 	FMC_ERR_IO			  			= 8,
+	FMC_ERR_ALLOC_FAILED			= 9,
 };
 typedef enum FManC_Error FMC_Error;
 
