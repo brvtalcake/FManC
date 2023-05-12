@@ -98,12 +98,190 @@ SOFTWARE.
     #define FMC_STRINGIZE_9(x, y, z, w, v, u, t, s, r) FMC_STRINGIZE(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(x, y), z), w), v), u), t), s), r))
 #endif
 
+#if defined(FMC_1) || defined(FMC_2) || defined(FMC_3) || defined(FMC_4) || defined(FMC_5) || defined(FMC_6) || defined(FMC_7) || defined(FMC_8) || defined(FMC_9) || defined(FMC_10) || defined(FMC_11) || defined(FMC_12) || defined(FMC_13) || defined(FMC_14) || defined(FMC_15) || defined(FMC_16) || defined(FMC_17) || defined(FMC_18) || defined(FMC_19) || defined(FMC_20) || defined(FMC_21) || defined(FMC_22) || defined(FMC_23) || defined(FMC_24) || defined(FMC_25) || defined(FMC_26) || defined(FMC_27) || defined(FMC_28) || defined(FMC_29) || defined(FMC_30) || defined(FMC_31) || defined(FMC_32) || defined(FMC_33) || defined(FMC_34) || defined(FMC_35) || defined(FMC_36) || defined(FMC_37) || defined(FMC_38) || defined(FMC_39) || defined(FMC_40) || defined(FMC_41) || defined(FMC_42) || defined(FMC_43) || defined(FMC_44) || defined(FMC_45) || defined(FMC_46) || defined(FMC_47) || defined(FMC_48) || defined(FMC_49) || defined(FMC_50) || defined(FMC_51) || defined(FMC_52) || defined(FMC_53) || defined(FMC_54) || defined(FMC_55) || defined(FMC_56) || defined(FMC_57) || defined(FMC_58) || defined(FMC_59) || defined(FMC_60) || defined(FMC_61) || defined(FMC_62) || defined(FMC_63) || defined(FMC_64)
+    #undef FMC_1
+    #undef FMC_2
+    #undef FMC_3
+    #undef FMC_4
+    #undef FMC_5
+    #undef FMC_6
+    #undef FMC_7
+    #undef FMC_8
+    #undef FMC_9
+    #undef FMC_10
+    #undef FMC_11
+    #undef FMC_12
+    #undef FMC_13
+    #undef FMC_14
+    #undef FMC_15
+    #undef FMC_16
+    #undef FMC_17
+    #undef FMC_18
+    #undef FMC_19
+    #undef FMC_20
+    #undef FMC_21
+    #undef FMC_22
+    #undef FMC_23
+    #undef FMC_24
+    #undef FMC_25
+    #undef FMC_26
+    #undef FMC_27
+    #undef FMC_28
+    #undef FMC_29
+    #undef FMC_30
+    #undef FMC_31
+    #undef FMC_32
+    #undef FMC_33
+    #undef FMC_34
+    #undef FMC_35
+    #undef FMC_36
+    #undef FMC_37
+    #undef FMC_38
+    #undef FMC_39
+    #undef FMC_40
+    #undef FMC_41
+    #undef FMC_42
+    #undef FMC_43
+    #undef FMC_44
+    #undef FMC_45
+    #undef FMC_46
+    #undef FMC_47
+    #undef FMC_48
+    #undef FMC_49
+    #undef FMC_50
+    #undef FMC_51
+    #undef FMC_52
+    #undef FMC_53
+    #undef FMC_54
+    #undef FMC_55
+    #undef FMC_56
+    #undef FMC_57
+    #undef FMC_58
+    #undef FMC_59
+    #undef FMC_60
+    #undef FMC_61
+    #undef FMC_62
+    #undef FMC_63
+    #undef FMC_64
+#endif
+#define FMC_1 1
+#define FMC_2 2
+#define FMC_3 3
+#define FMC_4 4
+#define FMC_5 5
+#define FMC_6 6
+#define FMC_7 7
+#define FMC_8 8
+#define FMC_9 9
+#define FMC_10 10
+#define FMC_11 11
+#define FMC_12 12
+#define FMC_13 13
+#define FMC_14 14
+#define FMC_15 15
+#define FMC_16 16
+#define FMC_17 17
+#define FMC_18 18
+#define FMC_19 19
+#define FMC_20 20
+#define FMC_21 21
+#define FMC_22 22
+#define FMC_23 23
+#define FMC_24 24
+#define FMC_25 25
+#define FMC_26 26
+#define FMC_27 27
+#define FMC_28 28
+#define FMC_29 29
+#define FMC_30 30
+#define FMC_31 31
+#define FMC_32 32
+#define FMC_33 33
+#define FMC_34 34
+#define FMC_35 35
+#define FMC_36 36
+#define FMC_37 37
+#define FMC_38 38
+#define FMC_39 39
+#define FMC_40 40
+#define FMC_41 41
+#define FMC_42 42
+#define FMC_43 43
+#define FMC_44 44
+#define FMC_45 45
+#define FMC_46 46
+#define FMC_47 47
+#define FMC_48 48
+#define FMC_49 49
+#define FMC_50 50
+#define FMC_51 51
+#define FMC_52 52
+#define FMC_53 53
+#define FMC_54 54
+#define FMC_55 55
+#define FMC_56 56
+#define FMC_57 57
+#define FMC_58 58
+#define FMC_59 59
+#define FMC_60 60
+#define FMC_61 61
+#define FMC_62 62
+#define FMC_63 63
+#define FMC_64 64
+
+/* #if defined(FMC_GEN_ARG_LIST) || defined(FMC_GEN_ARG_LIST_HELPER_IMPL) || defined(FMC_GEN_ARG_LIST_HELPER_ARITY)
+    #undef FMC_GEN_ARG_LIST
+    #undef FMC_GEN_ARG_LIST_HELPER_IMPL
+    #undef FMC_GEN_ARG_LIST_HELPER_ARITY
+#endif
+#define FMC_GEN_ARG_LIST(...) ML99_EVAL(ML99_call(ML99_variadicsForEachI, v(FMC_GEN_ARG_LIST_HELPER_IMPL), v(__VA_ARGS__)))
+#define FMC_GEN_ARG_LIST_HELPER_IMPL(_arg, _i)  */
+
+
 #if defined(FMC_GET_ARGC) || defined(FMC_GET_ARGC_INT)
     #undef FMC_GET_ARGC
     #undef FMC_GET_ARGC_INT
 #endif
 #define FMC_GET_ARGC(...) FMC_GET_ARGC_INT(0, ## __VA_ARGS__, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0)
 #define FMC_GET_ARGC_INT(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_, _10_, _11_, _12_, _13_, _14_, _15_, _16_, _17_, _18_, _19_, _20_, _21_, _22_, _23_, _24_, _25_, _26_, _27_, _28_, _29_, _30_, _31_, _32_, _33_, _34_, _35_, _36, _37, _38, _39, _40, _41, _42, _43, _44, _45, _46, _47, _48, _49, _50, _51, _52, _53, _54, _55, _56, _57, _58, _59, _60, _61, _62, _63, _64, _65, _66, _67, _68, _69, _70, count, ...) count
+
+#if defined(FMC_GET_ARGN) || defined(FMC_GET_ARGN_INT)
+    #undef FMC_GET_ARGN
+    #undef FMC_GET_ARGN_INT
+#endif
+// Get the Nth argument
+#define FMC_GET_ARGN(_n, ...) FMC_GET_ARGN_INT(_n, ## __VA_ARGS__, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+#define FMC_GET_ARGN_INT(_n, _0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_, ...) FMC_CONCAT(FMC_GET_ARGN_INT_, _n)(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_)
+#if defined(FMC_GET_ARGN_INT_0) || defined(FMC_GET_ARGN_INT_1) || defined(FMC_GET_ARGN_INT_2) || defined(FMC_GET_ARGN_INT_3) || defined(FMC_GET_ARGN_INT_4) || defined(FMC_GET_ARGN_INT_5) || defined(FMC_GET_ARGN_INT_6) || defined(FMC_GET_ARGN_INT_7) || defined(FMC_GET_ARGN_INT_8) || defined(FMC_GET_ARGN_INT_9)
+    #undef FMC_GET_ARGN_INT_0
+    #undef FMC_GET_ARGN_INT_1
+    #undef FMC_GET_ARGN_INT_2
+    #undef FMC_GET_ARGN_INT_3
+    #undef FMC_GET_ARGN_INT_4
+    #undef FMC_GET_ARGN_INT_5
+    #undef FMC_GET_ARGN_INT_6
+    #undef FMC_GET_ARGN_INT_7
+    #undef FMC_GET_ARGN_INT_8
+    #undef FMC_GET_ARGN_INT_9
+#endif
+#define FMC_GET_ARGN_INT_0(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_) _0
+#define FMC_GET_ARGN_INT_1(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_) _1_
+#define FMC_GET_ARGN_INT_2(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_) _2_
+#define FMC_GET_ARGN_INT_3(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_) _3_
+#define FMC_GET_ARGN_INT_4(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_) _4_
+#define FMC_GET_ARGN_INT_5(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_) _5_
+#define FMC_GET_ARGN_INT_6(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_) _6_
+#define FMC_GET_ARGN_INT_7(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_) _7_
+#define FMC_GET_ARGN_INT_8(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_) _8_
+#define FMC_GET_ARGN_INT_9(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_) _9_
+
+#if defined(FMC_GET_LAST_ARG) || defined(FMC_NFIRST_ARGS)
+    #undef FMC_GET_LAST_ARG
+    #undef FMC_NFIRST_ARGS
+#endif
+#define FMC_GET_LAST_ARG(...) FMC_GET_ARGN(ML99_EVAL(ML99_call(ML99_dec, v(FMC_GET_ARGC(__VA_ARGS__)))), ## __VA_ARGS__)
+#define FMC_NFIRST_ARGS(_n, ...) // TODO: finish this one
+
 
 #if defined(FMC_CHOOSE_FUNC)
     #undef FMC_CHOOSE_FUNC
@@ -623,9 +801,73 @@ __VA_ARGS__))))
 
 #endif // FMC_METHODS
 
-/*#ifndef FMC_OVERLOAD
-    #define FMC_OVERLOAD(func)
+#if defined(FMC_INVOKE)
+    #undef FMC_INVOKE
+#endif
+#define FMC_INVOKE(_func, _args) FMC_CONCAT_2(_func, _args)
+
+#if defined(FMC_ML99_INVOKE_IMPL) || defined(FMC_ML99_INVOKE_ARITY)
+    #undef FMC_ML99_INVOKE_IMPL
+    #undef FMC_ML99_INVOKE_ARITY
+#endif
+#define FMC_ML99_INVOKE_IMPL(_func, _args) v(FMC_INVOKE(_func, _args))
+#define FMC_ML99_INVOKE_ARITY 2
+
+#if defined(FMC_OVERLOAD_DISPATCH) || defined(FMC_OVERLOAD_DISPATCH_HELPER) || defined(FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_IMPL) || defined(FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_ARITY) || defined(FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_COMMA_IMPL) || defined(FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_COMMA_ARITY)
+    #undef FMC_OVERLOAD_DISPATCH
+    #undef FMC_OVERLOAD_DISPATCH_HELPER
+    #undef FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_IMPL
+    #undef FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_ARITY
+    #undef FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_COMMA_IMPL
+    #undef FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_COMMA_ARITY
+#endif
+#define FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_ARITY 2
+#define FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_IMPL(_type, _expr) \
+    v(_type : _expr)
+
+#define FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_COMMA_ARITY 2
+#define FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_COMMA_IMPL(_type, _expr) \
+    v(_type : _expr,)
+
+#define FMC_OVERLOAD_DISPATCH_HELPER(_arg_to_process, ...) \
+    ML99_EVAL(ML99_call(ML99_if, ML99_natEq(v(FMC_GET_ARGC(__VA_ARGS__)), v(0)), \
+                                 v(static_assert(0, "ERROR in FMC_OVERLOAD_DISPATCH_HELPER")), \
+                                 v(_Generic((_arg_to_process)), \
+                                 ML99_LIST_EVAL(ML99_listMap(FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE, ML99_listInit(ML99_list(v(__VA_ARGS__))))))))
+//    (_Generic((_arg_to_process), )
+
+#define FMC_OVERLOAD_DISPATCH_HELPER_TEST(_arg_to_process, ...) \
+    ML99_EVAL(v(_Generic((_arg_to_process), ML99_LIST_EVAL(ML99_listMapInitLast(ML99_appl(FMC_ML99_INVOKE, FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_COMMA), ML99_appl(FMC_ML99_INVOKE, FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE), ML99_list(v(__VA_ARGS__)))))))
+
+/* FMC_OVERLOAD_DISPATCH_HELPER_TEST(_arg, (int, f_int), (float, f_float), (double, f_double))
+
+ML99_LIST_EVAL(ML99_listMapInitLast(ML99_appl(v(FMC_ML99_INVOKE), v(FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_COMMA_IMPL)), ML99_appl(v(FMC_ML99_INVOKE), v(FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_IMPL)), ML99_list(v((1, int), (2, int)))))
+
+ML99_LIST_EVAL(ML99_call(ML99_listMapInPlace, ML99_appl(v(FMC_ML99_INVOKE), v(FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_IMPL)), ML99_list(v((1, int), (2, int))))) */
+
+/*
+    _Generic((_arg), \
+        int: (expr1), \
+        float: (expr2) \
+    )
 */
+/* #define TEST_IMPL(_x) v(ML99_list(v(ML99_untuple(v((f1, (int, int)))))))
+#define TEST_ARITY 1
+
+ML99_EVAL(ML99_call(ML99_listHead, ML99_listTail(ML99_list(ML99_untuple(v((f1, (int, int))))))))
+ */
+
+
+#if defined(FMC_OVERLOAD)
+    #undef FMC_OVERLOAD
+#endif
+/*
+ * This is a macro that allows you to overload functions on the number of arguments and their types.
+ * Example: 
+ *    #define f(...) \
+ *      FMC_OVERLOAD(f_default, (f_two_int, (int, int)), (f_one_float, (float)), (f_one_int, (int)), (f_no_args, ()))
+*/
+#define FMC_OVERLOAD(_default_func, ...) 
 
 #ifdef FMC_VERSION
     #undef FMC_VERSION

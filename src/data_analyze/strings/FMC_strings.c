@@ -116,7 +116,7 @@ free_str:
     FMC_UNREACHABLE;
 }
 
-FMC_SHARED FMC_FUNC_NONNULL(1) FMC_Char* FMC_getCharAt(FMC_String* str, uint64_t index)
+FMC_SHARED FMC_FUNC_PURE FMC_FUNC_NONNULL(1) FMC_Char* FMC_getCharAt(FMC_String* str, uint64_t index)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
     if (!str) 
