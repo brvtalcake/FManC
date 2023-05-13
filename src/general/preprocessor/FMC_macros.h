@@ -29,6 +29,7 @@ SOFTWARE.
 
 #include "FMC_platform.h"
 #include <metalang99.h>
+#include <chaos/preprocessor.h>
 #include <stdint.h>
 #include <stdalign.h>
 #include "FMC_attributes.h"
@@ -264,16 +265,16 @@ SOFTWARE.
     #undef FMC_GET_ARGN_INT_8
     #undef FMC_GET_ARGN_INT_9
 #endif
-#define FMC_GET_ARGN_INT_0(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_) _0
-#define FMC_GET_ARGN_INT_1(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_) _1_
-#define FMC_GET_ARGN_INT_2(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_) _2_
-#define FMC_GET_ARGN_INT_3(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_) _3_
-#define FMC_GET_ARGN_INT_4(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_) _4_
-#define FMC_GET_ARGN_INT_5(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_) _5_
-#define FMC_GET_ARGN_INT_6(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_) _6_
-#define FMC_GET_ARGN_INT_7(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_) _7_
-#define FMC_GET_ARGN_INT_8(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_) _8_
-#define FMC_GET_ARGN_INT_9(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_) _9_
+#define FMC_GET_ARGN_INT_0(_0, ...) _0
+#define FMC_GET_ARGN_INT_1(_0, _1_, ...) _1_
+#define FMC_GET_ARGN_INT_2(_0, _1_, _2_, ...) _2_
+#define FMC_GET_ARGN_INT_3(_0, _1_, _2_, _3_, ...) _3_
+#define FMC_GET_ARGN_INT_4(_0, _1_, _2_, _3_, _4_, ...) _4_
+#define FMC_GET_ARGN_INT_5(_0, _1_, _2_, _3_, _4_, _5_, ...) _5_
+#define FMC_GET_ARGN_INT_6(_0, _1_, _2_, _3_, _4_, _5_, _6_, ...) _6_
+#define FMC_GET_ARGN_INT_7(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, ...) _7_
+#define FMC_GET_ARGN_INT_8(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, ...) _8_
+#define FMC_GET_ARGN_INT_9(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_, ...) _9_
 
 #if defined(FMC_GET_LAST_ARG) || defined(FMC_NFIRST_ARGS)
     #undef FMC_GET_LAST_ARG
@@ -324,15 +325,15 @@ __VA_ARGS__))))
     #undef FMC_ID8
     #undef FMC_ID9
 #endif
-#define FMC_ID9(x) x
-#define FMC_ID8(x) FMC_ID9(x)
-#define FMC_ID7(x) FMC_ID8(x)
-#define FMC_ID6(x) FMC_ID7(x)
-#define FMC_ID5(x) FMC_ID6(x)
-#define FMC_ID4(x) FMC_ID5(x)
-#define FMC_ID3(x) FMC_ID4(x)
-#define FMC_ID2(x) FMC_ID3(x)
-#define FMC_ID(x) FMC_ID2(x)
+#define FMC_ID9(...) __VA_ARGS__
+#define FMC_ID8(...) FMC_ID9(__VA_ARGS__)
+#define FMC_ID7(...) FMC_ID8(__VA_ARGS__)
+#define FMC_ID6(...) FMC_ID7(__VA_ARGS__)
+#define FMC_ID5(...) FMC_ID6(__VA_ARGS__)
+#define FMC_ID4(...) FMC_ID5(__VA_ARGS__)
+#define FMC_ID3(...) FMC_ID4(__VA_ARGS__)
+#define FMC_ID2(...) FMC_ID3(__VA_ARGS__)
+#define FMC_ID(...) FMC_ID2(__VA_ARGS__)
 
 #if defined(FMC_INT_PRINT_FMT) || defined(FMC_INT_SCANF_FMT)
     #undef FMC_INT_PRINT_FMT
@@ -801,43 +802,163 @@ __VA_ARGS__))))
 
 #endif // FMC_METHODS
 
+#if defined(FMC_EXPAND_IF_NARGS)
+    #undef FMC_EXPAND_IF_NARGS
+#endif
+#define FMC_EXPAND_IF_NARGS(_n, _args) \
+    ML99_EVAL(ML99_call(ML99_if, ML99_natEq(v(_n), v(FMC_GET_ARGC _args)), v((_args)), ML99_empty()))
+
 #if defined(FMC_INVOKE)
     #undef FMC_INVOKE
 #endif
-#define FMC_INVOKE(_func, _args) FMC_CONCAT_2(_func, _args)
+#define FMC_INVOKE(_func, _args) _func _args
 
 #if defined(FMC_ML99_INVOKE_IMPL) || defined(FMC_ML99_INVOKE_ARITY)
     #undef FMC_ML99_INVOKE_IMPL
     #undef FMC_ML99_INVOKE_ARITY
 #endif
-#define FMC_ML99_INVOKE_IMPL(_func, _args) v(FMC_INVOKE(_func, _args))
+#define FMC_ML99_INVOKE_IMPL(_func, _args) ML99_call(v(FMC_INVOKE(_func, _args)))
 #define FMC_ML99_INVOKE_ARITY 2
 
-#if defined(FMC_OVERLOAD_DISPATCH) || defined(FMC_OVERLOAD_DISPATCH_HELPER) || defined(FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_IMPL) || defined(FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_ARITY) || defined(FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_COMMA_IMPL) || defined(FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_COMMA_ARITY)
+#if defined(FMC_OVERLOAD_DISPATCH_HELPER_1) || defined(FMC_OVERLOAD_DISPATCH_HELPER_2) || defined(FMC_OVERLOAD_DISPATCH_HELPER_3) || defined(FMC_OVERLOAD_DISPATCH_HELPER_4) || defined(FMC_OVERLOAD_DISPATCH_HELPER_5) || defined(FMC_OVERLOAD_DISPATCH_HELPER_6) || defined(FMC_OVERLOAD_DISPATCH_HELPER_7) || defined(FMC_OVERLOAD_DISPATCH_HELPER_8) || defined(FMC_OVERLOAD_DISPATCH_HELPER_9) || defined(FMC_OVERLOAD_DISPATCH_HELPER_10)
+    #undef FMC_OVERLOAD_DISPATCH_HELPER_1
+    #undef FMC_OVERLOAD_DISPATCH_HELPER_2
+    #undef FMC_OVERLOAD_DISPATCH_HELPER_3
+    #undef FMC_OVERLOAD_DISPATCH_HELPER_4
+    #undef FMC_OVERLOAD_DISPATCH_HELPER_5
+    #undef FMC_OVERLOAD_DISPATCH_HELPER_6
+    #undef FMC_OVERLOAD_DISPATCH_HELPER_7
+    #undef FMC_OVERLOAD_DISPATCH_HELPER_8
+    #undef FMC_OVERLOAD_DISPATCH_HELPER_9
+    #undef FMC_OVERLOAD_DISPATCH_HELPER_10
+#endif
+#define FMC_OVERLOAD_DISPATCH_HELPER_1(_arg_to_process, _default_func, _arg_1)                                     \
+    _Generic((_arg_to_process),                                                                                    \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))), \
+        default : _default_func                                                                                    \
+        )
+
+#define FMC_OVERLOAD_DISPATCH_HELPER_2(_arg_to_process, _default_func, _arg_1, _arg_2)                             \
+    _Generic((_arg_to_process),                                                                                    \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))), \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))), \
+        default : _default_func                                                                                    \
+        )
+
+#define FMC_OVERLOAD_DISPATCH_HELPER_3(_arg_to_process, _default_func, _arg_1, _arg_2, _arg_3)                     \
+    _Generic((_arg_to_process),                                                                                    \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))), \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))), \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_3))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_3))), \
+        default : _default_func                                                                                    \
+        )
+
+#define FMC_OVERLOAD_DISPATCH_HELPER_4(_arg_to_process, _default_func, _arg_1, _arg_2, _arg_3, _arg_4)             \
+    _Generic((_arg_to_process),                                                                                    \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))), \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))), \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_3))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_3))), \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_4))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_4))), \
+        default : _default_func                                                                                    \
+        )
+
+#define FMC_OVERLOAD_DISPATCH_HELPER_5(_arg_to_process, _default_func, _arg_1, _arg_2, _arg_3, _arg_4, _arg_5)     \
+    _Generic((_arg_to_process),                                                                                    \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))), \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))), \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_3))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_3))), \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_4))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_4))), \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_5))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_5))), \
+        default : _default_func                                                                                    \
+        )
+
+#define FMC_OVERLOAD_DISPATCH_HELPER_6(_arg_to_process, _default_func, _arg_1, _arg_2, _arg_3, _arg_4, _arg_5, _arg_6)     \
+    _Generic((_arg_to_process),                                                                                            \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))),         \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))),         \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_3))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_3))),         \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_4))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_4))),         \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_5))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_5))),         \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_6))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_6))),         \
+        default : _default_func                                                                                            \
+        )
+
+#define FMC_OVERLOAD_DISPATCH_HELPER_7(_arg_to_process, _default_func, _arg_1, _arg_2, _arg_3, _arg_4, _arg_5, _arg_6, _arg_7)     \
+    _Generic((_arg_to_process),                                                                                                    \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))),                 \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))),                 \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_3))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_3))),                 \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_4))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_4))),                 \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_5))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_5))),                 \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_6))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_6))),                 \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_7))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_7))),                 \
+        default : _default_func                                                                                                    \
+        )
+
+#define FMC_OVERLOAD_DISPATCH_HELPER_8(_arg_to_process, _default_func, _arg_1, _arg_2, _arg_3, _arg_4, _arg_5, _arg_6, _arg_7, _arg_8)     \
+    _Generic((_arg_to_process),                                                                                                            \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))),                         \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))),                         \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_3))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_3))),                         \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_4))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_4))),                         \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_5))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_5))),                         \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_6))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_6))),                         \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_7))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_7))),                         \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_8))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_8))),                         \
+        default : _default_func                                                                                                            \
+        )
+
+#define FMC_OVERLOAD_DISPATCH_HELPER_9(_arg_to_process, _default_func, _arg_1, _arg_2, _arg_3, _arg_4, _arg_5, _arg_6, _arg_7, _arg_8, _arg_9)     \
+    _Generic((_arg_to_process),                                                                                                                    \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))),                                 \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))),                                 \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_3))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_3))),                                 \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_4))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_4))),                                 \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_5))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_5))),                                 \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_6))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_6))),                                 \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_7))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_7))),                                 \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_8))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_8))),                                 \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_9))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_9))),                                 \
+        default : _default_func                                                                                                                    \
+        )
+
+#define FMC_OVERLOAD_DISPATCH_HELPER_10(_arg_to_process, _default_func, _arg_1, _arg_2, _arg_3, _arg_4, _arg_5, _arg_6, _arg_7, _arg_8, _arg_9, _arg_10) \
+    _Generic((_arg_to_process),                                                                                                                          \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))),                                       \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))),                                       \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_3))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_3))),                                       \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_4))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_4))),                                       \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_5))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_5))),                                       \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_6))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_6))),                                       \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_7))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_7))),                                       \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_8))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_8))),                                       \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_9))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_9))),                                       \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_10))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_10))),                                     \
+        default : _default_func                                                                                                                          \
+        )
+
+#if defined(FMC_OVERLOAD_DISPATCH) || defined(FMC_OVERLOAD_DISPATCH_HELPER) 
     #undef FMC_OVERLOAD_DISPATCH
     #undef FMC_OVERLOAD_DISPATCH_HELPER
-    #undef FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_IMPL
-    #undef FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_ARITY
-    #undef FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_COMMA_IMPL
-    #undef FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_COMMA_ARITY
 #endif
-#define FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_ARITY 2
+#define FMC_OVERLOAD_DISPATCH(...)
+/* #define FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_ARITY 2
 #define FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_IMPL(_type, _expr) \
     v(_type : _expr)
 
 #define FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_COMMA_ARITY 2
 #define FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_COMMA_IMPL(_type, _expr) \
-    v(_type : _expr,)
+    v(_type : _expr,) */
 
-#define FMC_OVERLOAD_DISPATCH_HELPER(_arg_to_process, ...) \
+/* #define FMC_OVERLOAD_DISPATCH_HELPER(_arg_to_process, ...) \
     ML99_EVAL(ML99_call(ML99_if, ML99_natEq(v(FMC_GET_ARGC(__VA_ARGS__)), v(0)), \
                                  v(static_assert(0, "ERROR in FMC_OVERLOAD_DISPATCH_HELPER")), \
                                  v(_Generic((_arg_to_process)), \
-                                 ML99_LIST_EVAL(ML99_listMap(FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE, ML99_listInit(ML99_list(v(__VA_ARGS__))))))))
+                                 ML99_LIST_EVAL(ML99_listMap(FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE, ML99_listInit *//* (ML99_list(v(__VA_ARGS__)))))))) */
 //    (_Generic((_arg_to_process), )
 
-#define FMC_OVERLOAD_DISPATCH_HELPER_TEST(_arg_to_process, ...) \
-    ML99_EVAL(v(_Generic((_arg_to_process), ML99_LIST_EVAL(ML99_listMapInitLast(ML99_appl(FMC_ML99_INVOKE, FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_COMMA), ML99_appl(FMC_ML99_INVOKE, FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE), ML99_list(v(__VA_ARGS__)))))))
+/* #define FMC_OVERLOAD_DISPATCH_HELPER_TEST(_arg_to_process, ...) \
+    ML99_EVAL(v(_Generic((_arg_to_process), ML99_LIST_EVAL(ML99_listMapInitLast(ML99_appl(FMC_ML99_INVOKE, FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_COMMA), ML99_appl(FMC_ML99_INVOKE, FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE), ML99_list(v(__VA_ARGS__))))))) */
 
 /* FMC_OVERLOAD_DISPATCH_HELPER_TEST(_arg, (int, f_int), (float, f_float), (double, f_double))
 
@@ -857,6 +978,52 @@ ML99_LIST_EVAL(ML99_call(ML99_listMapInPlace, ML99_appl(v(FMC_ML99_INVOKE), v(FM
 ML99_EVAL(ML99_call(ML99_listHead, ML99_listTail(ML99_list(ML99_untuple(v((f1, (int, int))))))))
  */
 
+/* #if defined(FMC_MAYBE)
+    #undef FMC_MAYBE
+#endif
+#define FMC_MAYBE(...) ML99_EVAL(ML99_if(ML99_natEq(v(FMC_GET_ARGC(__VA_ARGS__)), v(0)), v(), v(ML99_QUOTE(, __VA_ARGS__))))
+
+FMC_MAYBE()
+FMC_MAYBE(1)
+ */
+
+#if defined(FMC_OVERLOAD_EXPAND_IF_NARGS_IMPL) || defined(FMC_OVERLOAD_EXPAND_IF_NARGS_ARITY)
+    #undef FMC_OVERLOAD_EXPAND_IF_NARGS_IMPL
+    #undef FMC_OVERLOAD_EXPAND_IF_NARGS_ARITY
+#endif
+#define FMC_OVERLOAD_EXPAND_IF_NARGS_IMPL(_n, _args) \
+    ML99_call(ML99_if, ML99_natEq(v(_n), v(FMC_GET_ARGC _args)), v((_args)), ML99_empty())
+#define FMC_OVERLOAD_EXPAND_IF_NARGS_ARITY 2
+
+#if defined(FMC_ML99_SEQ_AS_ARGS)
+    #undef FMC_ML99_SEQ_AS_ARGS
+#endif
+#define FMC_ML99_SEQ_AS_ARGS(_seq) FMC_INVOKE(FMC_ID, CHAOS_PP_SEQ_TO_TUPLE(_seq))
+/*
+ * For instance: 
+ *   ML99_SEQ_AS_ARGS(((+, -, *, /))((123))((~))) -> (+, -, *, /), (123), (~)
+ * Note that you must extra-parenthise the sequence elements.
+*/
+
+#if defined(FMC_OVERLOAD_FILTER_ARGC)
+    #undef FMC_OVERLOAD_FILTER_ARGC
+#endif
+#define FMC_OVERLOAD_FILTER_ARGC(_n, ...) \
+    FMC_ML99_SEQ_AS_ARGS(ML99_EVAL(ML99_variadicsForEach(ML99_appl(v(FMC_OVERLOAD_EXPAND_IF_NARGS), v(_n)), v(__VA_ARGS__))))
+
+#if defined(FMC_OVERLOAD_SELECT_ARGS_COND) || defined(FMC_OVERLOAD_SELECT_ARGS_OP) || defined(FMC_OVERLOAD_SELECT_ARGS_ID)
+    #undef FMC_OVERLOAD_SELECT_ARGS_COND
+    #undef FMC_OVERLOAD_SELECT_ARGS_OP
+    #undef FMC_OVERLOAD_SELECT_ARGS_ID
+#endif
+// TODO
+/* #define FMC_OVERLOAD_SELECT_ARGS_COND(s, x) CHAOS_PP_NOT_EQUAL(x, 3)
+#define OP(s, x) CHAOS_PP_INC(x)
+#define MACRO(s, x) { x }
+
+CHAOS_PP_EXPR(CHAOS_PP_FOR(
+    PRED, OP, MACRO, 0
+)) */
 
 #if defined(FMC_OVERLOAD)
     #undef FMC_OVERLOAD
@@ -865,9 +1032,13 @@ ML99_EVAL(ML99_call(ML99_listHead, ML99_listTail(ML99_list(ML99_untuple(v((f1, (
  * This is a macro that allows you to overload functions on the number of arguments and their types.
  * Example: 
  *    #define f(...) \
- *      FMC_OVERLOAD(f_default, (f_two_int, (int, int)), (f_one_float, (float)), (f_one_int, (int)), (f_no_args, ()))
+ *      FMC_OVERLOAD(4, (f_two_int, (int, int)), (f_one_float, (float)), (f_one_int, (int)), (f_no_args, ()), FMC_GET_ARGC(__VA_ARGS__), __VA_ARGS__)
 */
-#define FMC_OVERLOAD(_default_func, ...) 
+#define FMC_OVERLOAD(_overloaded_func_count, ...) \
+    FMC_OVERLOAD_FILTER_ARGC(\
+        FMC_GET_ARGC(\
+            _overloaded_func_count), \
+            )
 
 #ifdef FMC_VERSION
     #undef FMC_VERSION

@@ -9,3 +9,6 @@
 [submodule "third_party_libs/defer"]
 	path = third_party_libs/defer
 	url = https://github.com/brvtalcake/defer.git
+[submodule "third_party_libs/chaos_pp"]
+	path = third_party_libs/chaos_pp
+	url = https://github.com/rofl0r/chaos-pp.git
