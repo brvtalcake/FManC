@@ -251,7 +251,7 @@ SOFTWARE.
     #undef FMC_GET_ARGN_INT
 #endif
 // Get the Nth argument
-#define FMC_GET_ARGN(_n, ...) FMC_GET_ARGN_INT(_n, ## __VA_ARGS__, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+#define FMC_GET_ARGN(_n, ...) CHAOS_PP_VARIADIC_ELEM(_n, __VA_ARGS__) // FMC_GET_ARGN_INT(_n, ## __VA_ARGS__, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 #define FMC_GET_ARGN_INT(_n, _0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_, ...) FMC_CONCAT(FMC_GET_ARGN_INT_, _n)(_0, _1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, _9_)
 #if defined(FMC_GET_ARGN_INT_0) || defined(FMC_GET_ARGN_INT_1) || defined(FMC_GET_ARGN_INT_2) || defined(FMC_GET_ARGN_INT_3) || defined(FMC_GET_ARGN_INT_4) || defined(FMC_GET_ARGN_INT_5) || defined(FMC_GET_ARGN_INT_6) || defined(FMC_GET_ARGN_INT_7) || defined(FMC_GET_ARGN_INT_8) || defined(FMC_GET_ARGN_INT_9)
     #undef FMC_GET_ARGN_INT_0
@@ -802,11 +802,302 @@ __VA_ARGS__))))
 
 #endif // FMC_METHODS
 
+#if defined(FMC_ARGS_X_TO_Y)
+    #undef FMC_ARGS_X_TO_Y
+#endif
+#define FMC_ARGS_X_TO_Y(x, y, ...) FMC_INVOKE(FMC_CONCAT_4(FMC_ARGS_X_TO_Y_, x, _, y), (__VA_ARGS__))
+
+#if defined(FMC_ARGS_X_TO_Y_0_0) || defined(FMC_ARGS_X_TO_Y_0_1) || defined(FMC_ARGS_X_TO_Y_0_2) || defined(FMC_ARGS_X_TO_Y_0_3) || defined(FMC_ARGS_X_TO_Y_0_4) || \
+    defined(FMC_ARGS_X_TO_Y_0_5) || defined(FMC_ARGS_X_TO_Y_0_6) || defined(FMC_ARGS_X_TO_Y_0_7) || defined(FMC_ARGS_X_TO_Y_0_8) || \
+    defined(FMC_ARGS_X_TO_Y_0_9)
+    #undef FMC_ARGS_X_TO_Y_0_0
+    #undef FMC_ARGS_X_TO_Y_0_1
+    #undef FMC_ARGS_X_TO_Y_0_2
+    #undef FMC_ARGS_X_TO_Y_0_3
+    #undef FMC_ARGS_X_TO_Y_0_4
+    #undef FMC_ARGS_X_TO_Y_0_5
+    #undef FMC_ARGS_X_TO_Y_0_6
+    #undef FMC_ARGS_X_TO_Y_0_7
+    #undef FMC_ARGS_X_TO_Y_0_8
+    #undef FMC_ARGS_X_TO_Y_0_9
+#endif
+#define FMC_ARGS_X_TO_Y_0_0(...)                                \
+    FMC_GET_ARGN(0, __VA_ARGS__)
+
+#define FMC_ARGS_X_TO_Y_0_1(...)                                \
+    FMC_GET_ARGN(0, __VA_ARGS__), FMC_GET_ARGN(1, __VA_ARGS__)
+
+#define FMC_ARGS_X_TO_Y_0_2(...)                                \
+    FMC_GET_ARGN(0, __VA_ARGS__), FMC_GET_ARGN(1, __VA_ARGS__), \
+    FMC_GET_ARGN(2, __VA_ARGS__)
+
+#define FMC_ARGS_X_TO_Y_0_3(...)                                \
+    FMC_GET_ARGN(0, __VA_ARGS__), FMC_GET_ARGN(1, __VA_ARGS__), \
+    FMC_GET_ARGN(2, __VA_ARGS__), FMC_GET_ARGN(3, __VA_ARGS__)
+
+#define FMC_ARGS_X_TO_Y_0_4(...)                                \
+    FMC_GET_ARGN(0, __VA_ARGS__), FMC_GET_ARGN(1, __VA_ARGS__), \
+    FMC_GET_ARGN(2, __VA_ARGS__), FMC_GET_ARGN(3, __VA_ARGS__), \
+    FMC_GET_ARGN(4, __VA_ARGS__)
+
+#define FMC_ARGS_X_TO_Y_0_5(...)                                \
+    FMC_GET_ARGN(0, __VA_ARGS__), FMC_GET_ARGN(1, __VA_ARGS__), \
+    FMC_GET_ARGN(2, __VA_ARGS__), FMC_GET_ARGN(3, __VA_ARGS__), \
+    FMC_GET_ARGN(4, __VA_ARGS__), FMC_GET_ARGN(5, __VA_ARGS__)
+
+#define FMC_ARGS_X_TO_Y_0_6(...)                                \
+    FMC_GET_ARGN(0, __VA_ARGS__), FMC_GET_ARGN(1, __VA_ARGS__), \
+    FMC_GET_ARGN(2, __VA_ARGS__), FMC_GET_ARGN(3, __VA_ARGS__), \
+    FMC_GET_ARGN(4, __VA_ARGS__), FMC_GET_ARGN(5, __VA_ARGS__), \
+    FMC_GET_ARGN(6, __VA_ARGS__)
+
+#define FMC_ARGS_X_TO_Y_0_7(...)                                \
+    FMC_GET_ARGN(0, __VA_ARGS__), FMC_GET_ARGN(1, __VA_ARGS__), \
+    FMC_GET_ARGN(2, __VA_ARGS__), FMC_GET_ARGN(3, __VA_ARGS__), \
+    FMC_GET_ARGN(4, __VA_ARGS__), FMC_GET_ARGN(5, __VA_ARGS__), \
+    FMC_GET_ARGN(6, __VA_ARGS__), FMC_GET_ARGN(7, __VA_ARGS__)
+
+#define FMC_ARGS_X_TO_Y_0_8(...)                                \
+    FMC_GET_ARGN(0, __VA_ARGS__), FMC_GET_ARGN(1, __VA_ARGS__), \
+    FMC_GET_ARGN(2, __VA_ARGS__), FMC_GET_ARGN(3, __VA_ARGS__), \
+    FMC_GET_ARGN(4, __VA_ARGS__), FMC_GET_ARGN(5, __VA_ARGS__), \
+    FMC_GET_ARGN(6, __VA_ARGS__), FMC_GET_ARGN(7, __VA_ARGS__), \
+    FMC_GET_ARGN(8, __VA_ARGS__)
+
+#define FMC_ARGS_X_TO_Y_0_9(...)                                \
+    FMC_GET_ARGN(0, __VA_ARGS__), FMC_GET_ARGN(1, __VA_ARGS__), \
+    FMC_GET_ARGN(2, __VA_ARGS__), FMC_GET_ARGN(3, __VA_ARGS__), \
+    FMC_GET_ARGN(4, __VA_ARGS__), FMC_GET_ARGN(5, __VA_ARGS__), \
+    FMC_GET_ARGN(6, __VA_ARGS__), FMC_GET_ARGN(7, __VA_ARGS__), \
+    FMC_GET_ARGN(8, __VA_ARGS__), FMC_GET_ARGN(9, __VA_ARGS__)
+
+#if defined(FMC_ARGS_X_TO_Y_1_1) || defined(FMC_ARGS_X_TO_Y_1_2) || defined(FMC_ARGS_X_TO_Y_1_3) || defined(FMC_ARGS_X_TO_Y_1_4) || defined(FMC_ARGS_X_TO_Y_1_5) || defined(FMC_ARGS_X_TO_Y_1_6) || defined(FMC_ARGS_X_TO_Y_1_7) || defined(FMC_ARGS_X_TO_Y_1_8) || defined(FMC_ARGS_X_TO_Y_1_9)
+    #undef FMC_ARGS_X_TO_Y_1_1
+    #undef FMC_ARGS_X_TO_Y_1_2
+    #undef FMC_ARGS_X_TO_Y_1_3
+    #undef FMC_ARGS_X_TO_Y_1_4
+    #undef FMC_ARGS_X_TO_Y_1_5
+    #undef FMC_ARGS_X_TO_Y_1_6
+    #undef FMC_ARGS_X_TO_Y_1_7
+    #undef FMC_ARGS_X_TO_Y_1_8
+    #undef FMC_ARGS_X_TO_Y_1_9
+#endif
+#define FMC_ARGS_X_TO_Y_1_1(...)                                \
+    FMC_GET_ARGN(1, __VA_ARGS__)
+
+#define FMC_ARGS_X_TO_Y_1_2(...)                                \
+    FMC_GET_ARGN(1, __VA_ARGS__), FMC_GET_ARGN(2, __VA_ARGS__)
+
+#define FMC_ARGS_X_TO_Y_1_3(...)                                \
+    FMC_GET_ARGN(1, __VA_ARGS__), FMC_GET_ARGN(2, __VA_ARGS__), \
+    FMC_GET_ARGN(3, __VA_ARGS__)
+
+#define FMC_ARGS_X_TO_Y_1_4(...)                                \
+    FMC_GET_ARGN(1, __VA_ARGS__), FMC_GET_ARGN(2, __VA_ARGS__), \
+    FMC_GET_ARGN(3, __VA_ARGS__), FMC_GET_ARGN(4, __VA_ARGS__)
+
+#define FMC_ARGS_X_TO_Y_1_5(...)                                \
+    FMC_GET_ARGN(1, __VA_ARGS__), FMC_GET_ARGN(2, __VA_ARGS__), \
+    FMC_GET_ARGN(3, __VA_ARGS__), FMC_GET_ARGN(4, __VA_ARGS__), \
+    FMC_GET_ARGN(5, __VA_ARGS__)
+
+#define FMC_ARGS_X_TO_Y_1_6(...)                                \
+    FMC_GET_ARGN(1, __VA_ARGS__), FMC_GET_ARGN(2, __VA_ARGS__), \
+    FMC_GET_ARGN(3, __VA_ARGS__), FMC_GET_ARGN(4, __VA_ARGS__), \
+    FMC_GET_ARGN(5, __VA_ARGS__), FMC_GET_ARGN(6, __VA_ARGS__)
+
+#define FMC_ARGS_X_TO_Y_1_7(...)                                \
+    FMC_GET_ARGN(1, __VA_ARGS__), FMC_GET_ARGN(2, __VA_ARGS__), \
+    FMC_GET_ARGN(3, __VA_ARGS__), FMC_GET_ARGN(4, __VA_ARGS__), \
+    FMC_GET_ARGN(5, __VA_ARGS__), FMC_GET_ARGN(6, __VA_ARGS__), \
+    FMC_GET_ARGN(7, __VA_ARGS__)
+
+#define FMC_ARGS_X_TO_Y_1_8(...)                                \
+    FMC_GET_ARGN(1, __VA_ARGS__), FMC_GET_ARGN(2, __VA_ARGS__), \
+    FMC_GET_ARGN(3, __VA_ARGS__), FMC_GET_ARGN(4, __VA_ARGS__), \
+    FMC_GET_ARGN(5, __VA_ARGS__), FMC_GET_ARGN(6, __VA_ARGS__), \
+    FMC_GET_ARGN(7, __VA_ARGS__), FMC_GET_ARGN(8, __VA_ARGS__)
+
+#define FMC_ARGS_X_TO_Y_1_9(...)                                \
+    FMC_GET_ARGN(1, __VA_ARGS__), FMC_GET_ARGN(2, __VA_ARGS__), \
+    FMC_GET_ARGN(3, __VA_ARGS__), FMC_GET_ARGN(4, __VA_ARGS__), \
+    FMC_GET_ARGN(5, __VA_ARGS__), FMC_GET_ARGN(6, __VA_ARGS__), \
+    FMC_GET_ARGN(7, __VA_ARGS__), FMC_GET_ARGN(8, __VA_ARGS__), \
+    FMC_GET_ARGN(9, __VA_ARGS__)
+
+#if defined(FMC_ARGS_X_TO_Y_2_2) || defined(FMC_ARGS_X_TO_Y_2_3) || defined(FMC_ARGS_X_TO_Y_2_4) || defined(FMC_ARGS_X_TO_Y_2_5) || defined(FMC_ARGS_X_TO_Y_2_6) || defined(FMC_ARGS_X_TO_Y_2_7) || defined(FMC_ARGS_X_TO_Y_2_8) || defined(FMC_ARGS_X_TO_Y_2_9)
+    #undef FMC_ARGS_X_TO_Y_2_2
+    #undef FMC_ARGS_X_TO_Y_2_3
+    #undef FMC_ARGS_X_TO_Y_2_4
+    #undef FMC_ARGS_X_TO_Y_2_5
+    #undef FMC_ARGS_X_TO_Y_2_6
+    #undef FMC_ARGS_X_TO_Y_2_7
+    #undef FMC_ARGS_X_TO_Y_2_8
+    #undef FMC_ARGS_X_TO_Y_2_9
+#endif
+#define FMC_ARGS_X_TO_Y_2_2(...) FMC_ARGS_X_TO_Y_1_1(FMC_ARGS_X_TO_Y_1_2(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_2_3(...) FMC_ARGS_X_TO_Y_1_2(FMC_ARGS_X_TO_Y_1_3(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_2_4(...) FMC_ARGS_X_TO_Y_1_3(FMC_ARGS_X_TO_Y_1_4(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_2_5(...) FMC_ARGS_X_TO_Y_1_4(FMC_ARGS_X_TO_Y_1_5(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_2_6(...) FMC_ARGS_X_TO_Y_1_5(FMC_ARGS_X_TO_Y_1_6(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_2_7(...) FMC_ARGS_X_TO_Y_1_6(FMC_ARGS_X_TO_Y_1_7(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_2_8(...) FMC_ARGS_X_TO_Y_1_7(FMC_ARGS_X_TO_Y_1_8(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_2_9(...) FMC_ARGS_X_TO_Y_1_8(FMC_ARGS_X_TO_Y_1_9(__VA_ARGS__))
+
+#if defined(FMC_ARGS_X_TO_Y_3_3) || defined(FMC_ARGS_X_TO_Y_3_4) || defined(FMC_ARGS_X_TO_Y_3_5) || defined(FMC_ARGS_X_TO_Y_3_6) || defined(FMC_ARGS_X_TO_Y_3_7) || defined(FMC_ARGS_X_TO_Y_3_8) || defined(FMC_ARGS_X_TO_Y_3_9)
+    #undef FMC_ARGS_X_TO_Y_3_3
+    #undef FMC_ARGS_X_TO_Y_3_4
+    #undef FMC_ARGS_X_TO_Y_3_5
+    #undef FMC_ARGS_X_TO_Y_3_6
+    #undef FMC_ARGS_X_TO_Y_3_7
+    #undef FMC_ARGS_X_TO_Y_3_8
+    #undef FMC_ARGS_X_TO_Y_3_9
+#endif
+#define FMC_ARGS_X_TO_Y_3_3(...) FMC_ARGS_X_TO_Y_2_2(FMC_ARGS_X_TO_Y_1_3(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_3_4(...) FMC_ARGS_X_TO_Y_2_3(FMC_ARGS_X_TO_Y_1_4(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_3_5(...) FMC_ARGS_X_TO_Y_2_4(FMC_ARGS_X_TO_Y_1_5(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_3_6(...) FMC_ARGS_X_TO_Y_2_5(FMC_ARGS_X_TO_Y_1_6(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_3_7(...) FMC_ARGS_X_TO_Y_2_6(FMC_ARGS_X_TO_Y_1_7(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_3_8(...) FMC_ARGS_X_TO_Y_2_7(FMC_ARGS_X_TO_Y_1_8(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_3_9(...) FMC_ARGS_X_TO_Y_2_8(FMC_ARGS_X_TO_Y_1_9(__VA_ARGS__))
+
+#if defined(FMC_ARGS_X_TO_Y_4_4) || defined(FMC_ARGS_X_TO_Y_4_5) || defined(FMC_ARGS_X_TO_Y_4_6) || defined(FMC_ARGS_X_TO_Y_4_7) || defined(FMC_ARGS_X_TO_Y_4_8) || defined(FMC_ARGS_X_TO_Y_4_9)
+    #undef FMC_ARGS_X_TO_Y_4_4
+    #undef FMC_ARGS_X_TO_Y_4_5
+    #undef FMC_ARGS_X_TO_Y_4_6
+    #undef FMC_ARGS_X_TO_Y_4_7
+    #undef FMC_ARGS_X_TO_Y_4_8
+    #undef FMC_ARGS_X_TO_Y_4_9
+#endif
+#define FMC_ARGS_X_TO_Y_4_4(...) FMC_ARGS_X_TO_Y_3_3(FMC_ARGS_X_TO_Y_1_4(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_4_5(...) FMC_ARGS_X_TO_Y_3_4(FMC_ARGS_X_TO_Y_1_5(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_4_6(...) FMC_ARGS_X_TO_Y_3_5(FMC_ARGS_X_TO_Y_1_6(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_4_7(...) FMC_ARGS_X_TO_Y_3_6(FMC_ARGS_X_TO_Y_1_7(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_4_8(...) FMC_ARGS_X_TO_Y_3_7(FMC_ARGS_X_TO_Y_1_8(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_4_9(...) FMC_ARGS_X_TO_Y_3_8(FMC_ARGS_X_TO_Y_1_9(__VA_ARGS__))
+
+#if defined(FMC_ARGS_X_TO_Y_5_5) || defined(FMC_ARGS_X_TO_Y_5_6) || defined(FMC_ARGS_X_TO_Y_5_7) || defined(FMC_ARGS_X_TO_Y_5_8) || defined(FMC_ARGS_X_TO_Y_5_9)
+    #undef FMC_ARGS_X_TO_Y_5_5
+    #undef FMC_ARGS_X_TO_Y_5_6
+    #undef FMC_ARGS_X_TO_Y_5_7
+    #undef FMC_ARGS_X_TO_Y_5_8
+    #undef FMC_ARGS_X_TO_Y_5_9
+#endif
+#define FMC_ARGS_X_TO_Y_5_5(...) FMC_ARGS_X_TO_Y_4_4(FMC_ARGS_X_TO_Y_1_5(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_5_6(...) FMC_ARGS_X_TO_Y_4_5(FMC_ARGS_X_TO_Y_1_6(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_5_7(...) FMC_ARGS_X_TO_Y_4_6(FMC_ARGS_X_TO_Y_1_7(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_5_8(...) FMC_ARGS_X_TO_Y_4_7(FMC_ARGS_X_TO_Y_1_8(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_5_9(...) FMC_ARGS_X_TO_Y_4_8(FMC_ARGS_X_TO_Y_1_9(__VA_ARGS__))
+
+#if defined(FMC_ARGS_X_TO_Y_6_6) || defined(FMC_ARGS_X_TO_Y_6_7) || defined(FMC_ARGS_X_TO_Y_6_8) || defined(FMC_ARGS_X_TO_Y_6_9)
+    #undef FMC_ARGS_X_TO_Y_6_6
+    #undef FMC_ARGS_X_TO_Y_6_7
+    #undef FMC_ARGS_X_TO_Y_6_8
+    #undef FMC_ARGS_X_TO_Y_6_9
+#endif
+#define FMC_ARGS_X_TO_Y_6_6(...) FMC_ARGS_X_TO_Y_5_5(FMC_ARGS_X_TO_Y_1_6(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_6_7(...) FMC_ARGS_X_TO_Y_5_6(FMC_ARGS_X_TO_Y_1_7(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_6_8(...) FMC_ARGS_X_TO_Y_5_7(FMC_ARGS_X_TO_Y_1_8(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_6_9(...) FMC_ARGS_X_TO_Y_5_8(FMC_ARGS_X_TO_Y_1_9(__VA_ARGS__))
+
+#if defined(FMC_ARGS_X_TO_Y_7_7) || defined(FMC_ARGS_X_TO_Y_7_8) || defined(FMC_ARGS_X_TO_Y_7_9)
+    #undef FMC_ARGS_X_TO_Y_7_7
+    #undef FMC_ARGS_X_TO_Y_7_8
+    #undef FMC_ARGS_X_TO_Y_7_9
+#endif
+#define FMC_ARGS_X_TO_Y_7_7(...) FMC_ARGS_X_TO_Y_6_6(FMC_ARGS_X_TO_Y_1_7(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_7_8(...) FMC_ARGS_X_TO_Y_6_7(FMC_ARGS_X_TO_Y_1_8(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_7_9(...) FMC_ARGS_X_TO_Y_6_8(FMC_ARGS_X_TO_Y_1_9(__VA_ARGS__))
+
+#if defined(FMC_ARGS_X_TO_Y_8_8) || defined(FMC_ARGS_X_TO_Y_8_9)
+    #undef FMC_ARGS_X_TO_Y_8_8
+    #undef FMC_ARGS_X_TO_Y_8_9
+#endif
+#define FMC_ARGS_X_TO_Y_8_8(...) FMC_ARGS_X_TO_Y_7_7(FMC_ARGS_X_TO_Y_1_8(__VA_ARGS__))
+#define FMC_ARGS_X_TO_Y_8_9(...) FMC_ARGS_X_TO_Y_7_8(FMC_ARGS_X_TO_Y_1_9(__VA_ARGS__))
+
+#if defined(FMC_ARGS_X_TO_Y_9_9)
+    #undef FMC_ARGS_X_TO_Y_9_9
+#endif
+#define FMC_ARGS_X_TO_Y_9_9(...) FMC_ARGS_X_TO_Y_8_8(FMC_ARGS_X_TO_Y_1_9(__VA_ARGS__))
+
+#if !defined(FMC_IDENT_DETECTOR)
+    #define FMC_IDENT_DETECTOR
+
+    #if defined(FMC_DETECTOR_DETECTOR) || defined(FMC_IDENT_EQ_DETECTOR)
+        #undef FMC_DETECTOR_DETECTOR
+        #undef FMC_IDENT_EQ_DETECTOR
+    #endif
+    #define PREFIX_FMC_DETECTOR__FMC_DETECTOR_ ()
+    #define PREFIX_FMC_IDENT_EQ__FMC_IDENT_EQ_ ()
+
+    #if defined(FMC_DETECTOR_char) || defined(FMC_DETECTOR_unsigned_char) || defined(FMC_DETECTOR_signed_char)
+        #undef FMC_DETECTOR_char
+        #undef FMC_DETECTOR_unsigned_char
+        #undef FMC_DETECTOR_signed_char
+    #endif
+    #if defined(FMC_IDENT_EQ_char_char) || defined(FMC_IDENT_EQ_unsigned_char_unsigned_char) || defined(FMC_IDENT_EQ_signed_char_signed_char)
+        #undef FMC_IDENT_EQ_char_char
+        #undef FMC_IDENT_EQ_unsigned_char_unsigned_char
+        #undef FMC_IDENT_EQ_signed_char_signed_char
+    #endif
+    #define FMC_IDENT_EQ_char_char ()
+    #define FMC_IDENT_EQ_unsigned_char_unsigned_char ()
+    #define FMC_IDENT_EQ_signed_char_signed_char () 
+    #define FMC_DETECTOR_char ()
+    #define FMC_DETECTOR_unsigned_char ()
+    #define FMC_DETECTOR_signed_char ()
+
+    #if defined(FMC_MAKE_DETECTABLE) || defined(FMC_MAKE_DETECTABLE_HELPER_INIT_IMPL) || defined(FMC_MAKE_DETECTABLE_HELPER_LAST_IMPL) || defined(FMC_MAKE_DETECTABLE_HELPER_INIT_ARITY) || defined(FMC_MAKE_DETECTABLE_HELPER_LAST_ARITY) 
+        #undef FMC_MAKE_DETECTABLE
+        #undef FMC_MAKE_DETECTABLE_HELPER_INIT_IMPL
+        #undef FMC_MAKE_DETECTABLE_HELPER_LAST_IMPL
+        #undef FMC_MAKE_DETECTABLE_HELPER_INIT_ARITY
+        #undef FMC_MAKE_DETECTABLE_HELPER_LAST_ARITY
+    #endif
+    #define FMC_MAKE_DETECTABLE_HELPER_INIT_IMPL(_type_part) v(FMC_CONCAT(_type_part, _))
+    #define FMC_MAKE_DETECTABLE_HELPER_LAST_IMPL(_type_part) v(_type_part)
+    #define FMC_MAKE_DETECTABLE_HELPER_INIT_ARITY 1
+    #define FMC_MAKE_DETECTABLE_HELPER_LAST_ARITY 1
+    // FMC_MAKE_DETECTABLE((unsigned, char)) -> unsigned_char
+    // FMC_MAKE_DETECTABLE((unsigned, char, *)) -> unsigned_char_ptr
+    // FMC_MAKE_DETECTABLE((unsigned, char, *, *)) -> unsigned_char_ptr_ptr
+    /* #define FMC_MAKE_DETECTABLE(_prefix, _tuple) CHAOS_PP_VARIADIC_CAT(_prefix, \
+        ML99_EVAL(ML99_if(ML99_identEq(v(PREFIX_), v(_prefix)))),\
+                v(ML99_LIST_EVAL_COMMA_SEP(ML99_listMapInitLast(v(FMC_MAKE_DETECTABLE_HELPER_INIT), v(FMC_MAKE_DETECTABLE_HELPER_LAST), ML99_list(v(FMC_ID(FMC_INVOKE(FMC_ID, _tuple))))))), \
+                v(ML99_LIST_EVAL_COMMA_SEP(ML99_listAppend(ML99_listMap(v(FMC_MAKE_DETECTABLE_HELPER_INIT), ML99_list(v(FMC_ID(FMC_INVOKE(FMC_ID, _tuple))))), ML99_listMapInitLast(v(FMC_MAKE_DETECTABLE_HELPER_INIT), v(FMC_MAKE_DETECTABLE_HELPER_LAST), ML99_list(v(FMC_ID(FMC_INVOKE(FMC_ID, _tuple))))))))) */
+    
+    #define FMC_MAKE_DETECTABLE(_prefix, _tuple) \
+        CHAOS_PP_VARIADIC_CAT(_prefix, \
+        ML99_EVAL(ML99_if(\
+            ML99_identEq(v(PREFIX_), v(_prefix), v(FMC_DETECTOR_)),\
+            \
+            v(ML99_LIST_EVAL_COMMA_SEP(ML99_listMapInitLast(v(FMC_MAKE_DETECTABLE_HELPER_INIT), v(FMC_MAKE_DETECTABLE_HELPER_LAST), ML99_list(v(FMC_ID(FMC_INVOKE(FMC_ID, _tuple))))))),\
+            \
+            v(ML99_LIST_EVAL_COMMA_SEP(ML99_listAppend(\
+                ML99_listMap(v(FMC_MAKE_DETECTABLE_HELPER_INIT), ML99_list(v(FMC_INVOKE(FMC_ID, _tuple)))), \
+                ML99_listMapInitLast(v(FMC_MAKE_DETECTABLE_HELPER_INIT), v(FMC_MAKE_DETECTABLE_HELPER_LAST), ML99_list(v(FMC_INVOKE(FMC_ID, _tuple)))))))))\
+        )
+    
+
+    
+    #if defined(FMC_DETECT_IDENT)
+        #undef FMC_DETECT_IDENT
+    #endif
+    #define FMC_DETECT_IDENT(x) 
+
+    #if defined(FMC_IDENT_EQ)
+        #undef FMC_IDENT_EQ
+    #endif
+    #define FMC_IDENT_EQ(_id1, _id2) ML99_EVAL(ML99_identEq(v(FMC_IDENT_EQ_), v(FMC_MAKE_DETECTABLE(_id1)), v(FMC_MAKE_DETECTABLE(_id2))))
+
+#endif
+
 #if defined(FMC_EXPAND_IF_NARGS)
     #undef FMC_EXPAND_IF_NARGS
 #endif
 #define FMC_EXPAND_IF_NARGS(_n, _args) \
-    ML99_EVAL(ML99_call(ML99_if, ML99_natEq(v(_n), v(FMC_GET_ARGC _args)), v((_args)), ML99_empty()))
+    ML99_EVAL(ML99_call(ML99_if, ML99_natEq(v(_n), v(FMC_INVOKE(FMC_GET_ARGC, FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _args)))))), v((_args)), ML99_empty()))
 
 #if defined(FMC_INVOKE)
     #undef FMC_INVOKE
@@ -832,58 +1123,52 @@ __VA_ARGS__))))
     #undef FMC_OVERLOAD_DISPATCH_HELPER_9
     #undef FMC_OVERLOAD_DISPATCH_HELPER_10
 #endif
-#define FMC_OVERLOAD_DISPATCH_HELPER_1(_arg_to_process, _default_func, _arg_1)                                     \
+#define FMC_OVERLOAD_DISPATCH_HELPER_1(_arg_to_process, _arg_1)                                                    \
     _Generic((_arg_to_process),                                                                                    \
-        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))), \
-        default : _default_func                                                                                    \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1)))  \
         )
 
-#define FMC_OVERLOAD_DISPATCH_HELPER_2(_arg_to_process, _default_func, _arg_1, _arg_2)                             \
+#define FMC_OVERLOAD_DISPATCH_HELPER_2(_arg_to_process, _arg_1, _arg_2)                                            \
+    _Generic((_arg_to_process),                                                                                    \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))), \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2)))  \
+        )
+
+#define FMC_OVERLOAD_DISPATCH_HELPER_3(_arg_to_process, _arg_1, _arg_2, _arg_3)                                    \
     _Generic((_arg_to_process),                                                                                    \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))), \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))), \
-        default : _default_func                                                                                    \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_3))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_3)))  \
         )
 
-#define FMC_OVERLOAD_DISPATCH_HELPER_3(_arg_to_process, _default_func, _arg_1, _arg_2, _arg_3)                     \
-    _Generic((_arg_to_process),                                                                                    \
-        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))), \
-        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))), \
-        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_3))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_3))), \
-        default : _default_func                                                                                    \
-        )
-
-#define FMC_OVERLOAD_DISPATCH_HELPER_4(_arg_to_process, _default_func, _arg_1, _arg_2, _arg_3, _arg_4)             \
+#define FMC_OVERLOAD_DISPATCH_HELPER_4(_arg_to_process, _arg_1, _arg_2, _arg_3, _arg_4)                            \
     _Generic((_arg_to_process),                                                                                    \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))), \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))), \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_3))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_3))), \
-        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_4))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_4))), \
-        default : _default_func                                                                                    \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_4))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_4)))  \
         )
 
-#define FMC_OVERLOAD_DISPATCH_HELPER_5(_arg_to_process, _default_func, _arg_1, _arg_2, _arg_3, _arg_4, _arg_5)     \
+#define FMC_OVERLOAD_DISPATCH_HELPER_5(_arg_to_process, _arg_1, _arg_2, _arg_3, _arg_4, _arg_5)                    \
     _Generic((_arg_to_process),                                                                                    \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))), \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))), \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_3))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_3))), \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_4))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_4))), \
-        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_5))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_5))), \
-        default : _default_func                                                                                    \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_5))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_5)))  \
         )
 
-#define FMC_OVERLOAD_DISPATCH_HELPER_6(_arg_to_process, _default_func, _arg_1, _arg_2, _arg_3, _arg_4, _arg_5, _arg_6)     \
+#define FMC_OVERLOAD_DISPATCH_HELPER_6(_arg_to_process, _arg_1, _arg_2, _arg_3, _arg_4, _arg_5, _arg_6)                    \
     _Generic((_arg_to_process),                                                                                            \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))),         \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))),         \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_3))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_3))),         \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_4))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_4))),         \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_5))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_5))),         \
-        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_6))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_6))),         \
-        default : _default_func                                                                                            \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_6))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_6)))          \
         )
 
-#define FMC_OVERLOAD_DISPATCH_HELPER_7(_arg_to_process, _default_func, _arg_1, _arg_2, _arg_3, _arg_4, _arg_5, _arg_6, _arg_7)     \
+#define FMC_OVERLOAD_DISPATCH_HELPER_7(_arg_to_process, _arg_1, _arg_2, _arg_3, _arg_4, _arg_5, _arg_6, _arg_7)                    \
     _Generic((_arg_to_process),                                                                                                    \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))),                 \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))),                 \
@@ -891,11 +1176,10 @@ __VA_ARGS__))))
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_4))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_4))),                 \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_5))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_5))),                 \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_6))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_6))),                 \
-        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_7))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_7))),                 \
-        default : _default_func                                                                                                    \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_7))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_7)))                  \
         )
 
-#define FMC_OVERLOAD_DISPATCH_HELPER_8(_arg_to_process, _default_func, _arg_1, _arg_2, _arg_3, _arg_4, _arg_5, _arg_6, _arg_7, _arg_8)     \
+#define FMC_OVERLOAD_DISPATCH_HELPER_8(_arg_to_process, _arg_1, _arg_2, _arg_3, _arg_4, _arg_5, _arg_6, _arg_7, _arg_8)                    \
     _Generic((_arg_to_process),                                                                                                            \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))),                         \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))),                         \
@@ -904,11 +1188,10 @@ __VA_ARGS__))))
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_5))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_5))),                         \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_6))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_6))),                         \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_7))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_7))),                         \
-        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_8))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_8))),                         \
-        default : _default_func                                                                                                            \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_8))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_8)))                          \
         )
 
-#define FMC_OVERLOAD_DISPATCH_HELPER_9(_arg_to_process, _default_func, _arg_1, _arg_2, _arg_3, _arg_4, _arg_5, _arg_6, _arg_7, _arg_8, _arg_9)     \
+#define FMC_OVERLOAD_DISPATCH_HELPER_9(_arg_to_process, _arg_1, _arg_2, _arg_3, _arg_4, _arg_5, _arg_6, _arg_7, _arg_8, _arg_9)                    \
     _Generic((_arg_to_process),                                                                                                                    \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))),                                 \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))),                                 \
@@ -918,11 +1201,10 @@ __VA_ARGS__))))
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_6))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_6))),                                 \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_7))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_7))),                                 \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_8))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_8))),                                 \
-        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_9))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_9))),                                 \
-        default : _default_func                                                                                                                    \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_9))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_9)))                                  \
         )
 
-#define FMC_OVERLOAD_DISPATCH_HELPER_10(_arg_to_process, _default_func, _arg_1, _arg_2, _arg_3, _arg_4, _arg_5, _arg_6, _arg_7, _arg_8, _arg_9, _arg_10) \
+#define FMC_OVERLOAD_DISPATCH_HELPER_10(_arg_to_process, _arg_1, _arg_2, _arg_3, _arg_4, _arg_5, _arg_6, _arg_7, _arg_8, _arg_9, _arg_10)                \
     _Generic((_arg_to_process),                                                                                                                          \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_1))),                                       \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_2))),                                       \
@@ -933,15 +1215,38 @@ __VA_ARGS__))))
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_7))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_7))),                                       \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_8))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_8))),                                       \
         FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_9))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_9))),                                       \
-        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_10))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_10))),                                     \
-        default : _default_func                                                                                                                          \
+        FMC_GET_ARGN(0, FMC_ID(FMC_INVOKE(FMC_ID, _arg_10))) : FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _arg_10)))                                      \
         )
+
+#if defined(FMC_OVERLOAD_DISPATCH_1) || defined(FMC_OVERLOAD_DISPATCH_2) || defined(FMC_OVERLOAD_DISPATCH_3) || defined(FMC_OVERLOAD_DISPATCH_4) || defined(FMC_OVERLOAD_DISPATCH_5) || defined(FMC_OVERLOAD_DISPATCH_6) || defined(FMC_OVERLOAD_DISPATCH_7) || defined(FMC_OVERLOAD_DISPATCH_8) || defined(FMC_OVERLOAD_DISPATCH_9) || defined(FMC_OVERLOAD_DISPATCH_10) || defined(FMC_OVERLOAD_DISPATCH_0)
+    #undef FMC_OVERLOAD_DISPATCH_1
+    #undef FMC_OVERLOAD_DISPATCH_2
+    #undef FMC_OVERLOAD_DISPATCH_3
+    #undef FMC_OVERLOAD_DISPATCH_4
+    #undef FMC_OVERLOAD_DISPATCH_5
+    #undef FMC_OVERLOAD_DISPATCH_6
+    #undef FMC_OVERLOAD_DISPATCH_7
+    #undef FMC_OVERLOAD_DISPATCH_8
+    #undef FMC_OVERLOAD_DISPATCH_9
+    #undef FMC_OVERLOAD_DISPATCH_10
+    #undef FMC_OVERLOAD_DISPATCH_0
+#endif
+// No args to process, there must have only one possible function
+#define FMC_OVERLOAD_DISPATCH_0(_possible_func_count, ...) FMC_GET_ARGN(0, __VA_ARGS__)
+// One arg to process
+#define FMC_OVERLOAD_DISPATCH_1(_possible_func_count, ...) FMC_OVERLOAD_DISPATCH_HELPER()
 
 #if defined(FMC_OVERLOAD_DISPATCH) || defined(FMC_OVERLOAD_DISPATCH_HELPER) 
     #undef FMC_OVERLOAD_DISPATCH
     #undef FMC_OVERLOAD_DISPATCH_HELPER
 #endif
-#define FMC_OVERLOAD_DISPATCH(...)
+#define FMC_OVERLOAD_DISPATCH_HELPER(_arg_to_process, ...) FMC_CONCAT(FMC_OVERLOAD_DISPATCH_HELPER_, FMC_GET_ARGC(__VA_ARGS__))(_arg_to_process, __VA_ARGS__)
+#define FMC_OVERLOAD_DISPATCH(_possible_func_count, ...) FMC_CONCAT(FMC_OVERLOAD_DISPATCH_, FMC_GET_ARGN(_possible_func_count, __VA_ARGS__))(_possible_func_count, __VA_ARGS__)
+
+
+// FMC_OVERLOAD(4, (f_two_int, (int, int)), (f_one_float, (float)), (f_one_int, (int)), (f_no_args, ()), FMC_GET_ARGC(a, b), a, b) 
+// 1, (f_two_int, (int, int)), 2, a, b    are passed to FMC_OVERLOAD_DISPATCH
+
 /* #define FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_ARITY 2
 #define FMC_OVERLOAD_DISPATCH_GEN_TYPE_CASE_IMPL(_type, _expr) \
     v(_type : _expr)
@@ -992,7 +1297,7 @@ FMC_MAYBE(1)
     #undef FMC_OVERLOAD_EXPAND_IF_NARGS_ARITY
 #endif
 #define FMC_OVERLOAD_EXPAND_IF_NARGS_IMPL(_n, _args) \
-    ML99_call(ML99_if, ML99_natEq(v(_n), v(FMC_GET_ARGC _args)), v((_args)), ML99_empty())
+    ML99_call(ML99_if, ML99_natEq(v(_n), v(FMC_INVOKE(FMC_GET_ARGC, FMC_GET_ARGN(1, FMC_ID(FMC_INVOKE(FMC_ID, _args)))))), v((_args)), ML99_empty())
 #define FMC_OVERLOAD_EXPAND_IF_NARGS_ARITY 2
 
 #if defined(FMC_ML99_SEQ_AS_ARGS)
@@ -1011,19 +1316,10 @@ FMC_MAYBE(1)
 #define FMC_OVERLOAD_FILTER_ARGC(_n, ...) \
     FMC_ML99_SEQ_AS_ARGS(ML99_EVAL(ML99_variadicsForEach(ML99_appl(v(FMC_OVERLOAD_EXPAND_IF_NARGS), v(_n)), v(__VA_ARGS__))))
 
-#if defined(FMC_OVERLOAD_SELECT_ARGS_COND) || defined(FMC_OVERLOAD_SELECT_ARGS_OP) || defined(FMC_OVERLOAD_SELECT_ARGS_ID)
-    #undef FMC_OVERLOAD_SELECT_ARGS_COND
-    #undef FMC_OVERLOAD_SELECT_ARGS_OP
-    #undef FMC_OVERLOAD_SELECT_ARGS_ID
+#if defined(FMC_OVERLOAD_GET_ARGC)
+    #undef FMC_OVERLOAD_GET_ARGC
 #endif
-// TODO
-/* #define FMC_OVERLOAD_SELECT_ARGS_COND(s, x) CHAOS_PP_NOT_EQUAL(x, 3)
-#define OP(s, x) CHAOS_PP_INC(x)
-#define MACRO(s, x) { x }
-
-CHAOS_PP_EXPR(CHAOS_PP_FOR(
-    PRED, OP, MACRO, 0
-)) */
+#define FMC_OVERLOAD_GET_ARGC(...) ML99_EVAL(ML99_if(ML99_natEq(v(FMC_GET_ARGC(__VA_ARGS__)), v(0)), v(0), v(CHAOS_PP_VARIADIC_SIZE(__VA_ARGS__))))
 
 #if defined(FMC_OVERLOAD)
     #undef FMC_OVERLOAD
@@ -1035,10 +1331,11 @@ CHAOS_PP_EXPR(CHAOS_PP_FOR(
  *      FMC_OVERLOAD(4, (f_two_int, (int, int)), (f_one_float, (float)), (f_one_int, (int)), (f_no_args, ()), FMC_GET_ARGC(__VA_ARGS__), __VA_ARGS__)
 */
 #define FMC_OVERLOAD(_overloaded_func_count, ...) \
-    FMC_OVERLOAD_FILTER_ARGC(\
-        FMC_GET_ARGC(\
-            _overloaded_func_count), \
-            )
+    FMC_OVERLOAD_DISPATCH(\
+        FMC_OVERLOAD_GET_ARGC(FMC_OVERLOAD_FILTER_ARGC(FMC_GET_ARGN(_overloaded_func_count, __VA_ARGS__), FMC_ARGS_X_TO_Y(0, ML99_EVAL(ML99_dec(v(_overloaded_func_count))), __VA_ARGS__))),\
+        FMC_OVERLOAD_FILTER_ARGC(FMC_GET_ARGN(_overloaded_func_count, __VA_ARGS__), FMC_ARGS_X_TO_Y(0, ML99_EVAL(ML99_dec(v(_overloaded_func_count))), __VA_ARGS__)),\
+        FMC_ARGS_X_TO_Y(_overloaded_func_count, ML99_EVAL(ML99_add(v(_overloaded_func_count), v(FMC_GET_ARGN(_overloaded_func_count, __VA_ARGS__)))), __VA_ARGS__)\
+    )
 
 #ifdef FMC_VERSION
     #undef FMC_VERSION
@@ -1318,3 +1615,5 @@ CHAOS_PP_EXPR(CHAOS_PP_FOR(
     FMC_setError(_err, _msg_var);
 
 #endif // FMC_MACROS_H
+
+FMC_MAKE_DETECTABLE(FMC_DETECTOR_, (unsigned, char)) 
