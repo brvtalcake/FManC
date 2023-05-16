@@ -124,6 +124,10 @@ SOFTWARE.
         #define FMC_FUNC_NORETURN __attribute__((noreturn))
     #endif // FMC_FUNC_NORETURN
 
+    #ifndef FMC_FUNC_NOTHROW
+        #define FMC_FUNC_NOTHROW __attribute__((nothrow))
+    #endif // FMC_FUNC_NOTHROW
+
     #ifndef FMC_FUNC_OPTIMIZE
         #define FMC_FUNC_OPTIMIZE(level) __attribute__((optimize(FMC_STRINGIZE(level))))
     #endif // FMC_FUNC_OPTIMIZE

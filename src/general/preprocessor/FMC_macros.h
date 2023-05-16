@@ -1021,8 +1021,14 @@ __VA_ARGS__))))
 #endif
 #define FMC_ARGS_X_TO_Y_9_9(...) FMC_ARGS_X_TO_Y_8_8(FMC_ARGS_X_TO_Y_1_9(__VA_ARGS__))
 
-#if !defined(FMC_IDENT_DETECTOR)
-    #define FMC_IDENT_DETECTOR
+#if defined(FMC_OVERLOAD_TYPE_PTR)
+    #undef FMC_OVERLOAD_TYPE_PTR
+#endif
+// FMC_OVERLOAD_TYPE_PTR((unsigned, char)) -> (unsigned, char, ptr)
+#define FMC_OVERLOAD_TYPE_PTR(_type_tuple) (FMC_ID(FMC_INVOKE(FMC_ID, _type_tuple)), ptr)
+
+#if !defined(FMC_IDENT_DETECTORS)
+    #define FMC_IDENT_DETECTORS
 
     #if defined(FMC_DETECTOR_DETECTOR) || defined(FMC_IDENT_EQ_DETECTOR)
         #undef FMC_DETECTOR_DETECTOR
@@ -1031,22 +1037,19 @@ __VA_ARGS__))))
     #define PREFIX_FMC_DETECTOR__FMC_DETECTOR_ ()
     #define PREFIX_FMC_IDENT_EQ__FMC_IDENT_EQ_ ()
 
-    #if defined(FMC_DETECTOR_char) || defined(FMC_DETECTOR_unsigned_char) || defined(FMC_DETECTOR_signed_char)
-        #undef FMC_DETECTOR_char
-        #undef FMC_DETECTOR_unsigned_char
-        #undef FMC_DETECTOR_signed_char
+    #include "FMC_ident_detection.h"
+
+    #if defined(FMC_LIST_WHEN_DETECTOR) /* || defined(FMC_LIST_WHEN_IDENT_EQ) */
+        #undef FMC_LIST_WHEN_DETECTOR
+        /* #undef FMC_LIST_WHEN_IDENT_EQ */
     #endif
-    #if defined(FMC_IDENT_EQ_char_char) || defined(FMC_IDENT_EQ_unsigned_char_unsigned_char) || defined(FMC_IDENT_EQ_signed_char_signed_char)
-        #undef FMC_IDENT_EQ_char_char
-        #undef FMC_IDENT_EQ_unsigned_char_unsigned_char
-        #undef FMC_IDENT_EQ_signed_char_signed_char
-    #endif
-    #define FMC_IDENT_EQ_char_char ()
-    #define FMC_IDENT_EQ_unsigned_char_unsigned_char ()
-    #define FMC_IDENT_EQ_signed_char_signed_char () 
-    #define FMC_DETECTOR_char ()
-    #define FMC_DETECTOR_unsigned_char ()
-    #define FMC_DETECTOR_signed_char ()
+    /* #define FMC_LIST_WHEN_IDENT_EQ(_tuple) \
+        ML99_LIST_EVAL_COMMA_SEP(ML99_listAppend(\
+                ML99_listMap(v(FMC_MAKE_DETECTABLE_HELPER_INIT), ML99_list(v(FMC_ID _tuple))), \
+                ML99_listMapInitLast(v(FMC_MAKE_DETECTABLE_HELPER_INIT), v(FMC_MAKE_DETECTABLE_HELPER_LAST), ML99_list(v(FMC_ID _tuple))))) */
+
+    #define FMC_LIST_WHEN_DETECTOR(_tuple) \
+        ML99_LIST_EVAL_COMMA_SEP(ML99_listMapInitLast(v(FMC_MAKE_DETECTABLE_HELPER_INIT), v(FMC_MAKE_DETECTABLE_HELPER_LAST), ML99_list(v(FMC_ID _tuple))))
 
     #if defined(FMC_MAKE_DETECTABLE) || defined(FMC_MAKE_DETECTABLE_HELPER_INIT_IMPL) || defined(FMC_MAKE_DETECTABLE_HELPER_LAST_IMPL) || defined(FMC_MAKE_DETECTABLE_HELPER_INIT_ARITY) || defined(FMC_MAKE_DETECTABLE_HELPER_LAST_ARITY) 
         #undef FMC_MAKE_DETECTABLE
@@ -1060,36 +1063,67 @@ __VA_ARGS__))))
     #define FMC_MAKE_DETECTABLE_HELPER_INIT_ARITY 1
     #define FMC_MAKE_DETECTABLE_HELPER_LAST_ARITY 1
     // FMC_MAKE_DETECTABLE((unsigned, char)) -> unsigned_char
-    // FMC_MAKE_DETECTABLE((unsigned, char, *)) -> unsigned_char_ptr
-    // FMC_MAKE_DETECTABLE((unsigned, char, *, *)) -> unsigned_char_ptr_ptr
+    // FMC_MAKE_DETECTABLE((unsigned, char, ptr)) -> unsigned_char_ptr
+    // FMC_MAKE_DETECTABLE((unsigned, char, ptr, ptr)) -> unsigned_char_ptr_ptr
     /* #define FMC_MAKE_DETECTABLE(_prefix, _tuple) CHAOS_PP_VARIADIC_CAT(_prefix, \
         ML99_EVAL(ML99_if(ML99_identEq(v(PREFIX_), v(_prefix)))),\
                 v(ML99_LIST_EVAL_COMMA_SEP(ML99_listMapInitLast(v(FMC_MAKE_DETECTABLE_HELPER_INIT), v(FMC_MAKE_DETECTABLE_HELPER_LAST), ML99_list(v(FMC_ID(FMC_INVOKE(FMC_ID, _tuple))))))), \
                 v(ML99_LIST_EVAL_COMMA_SEP(ML99_listAppend(ML99_listMap(v(FMC_MAKE_DETECTABLE_HELPER_INIT), ML99_list(v(FMC_ID(FMC_INVOKE(FMC_ID, _tuple))))), ML99_listMapInitLast(v(FMC_MAKE_DETECTABLE_HELPER_INIT), v(FMC_MAKE_DETECTABLE_HELPER_LAST), ML99_list(v(FMC_ID(FMC_INVOKE(FMC_ID, _tuple))))))))) */
-    
-    #define FMC_MAKE_DETECTABLE(_prefix, _tuple) \
-        CHAOS_PP_VARIADIC_CAT(_prefix, \
-        ML99_EVAL(ML99_if(\
-            ML99_identEq(v(PREFIX_), v(_prefix), v(FMC_DETECTOR_)),\
-            \
-            v(ML99_LIST_EVAL_COMMA_SEP(ML99_listMapInitLast(v(FMC_MAKE_DETECTABLE_HELPER_INIT), v(FMC_MAKE_DETECTABLE_HELPER_LAST), ML99_list(v(FMC_ID(FMC_INVOKE(FMC_ID, _tuple))))))),\
-            \
-            v(ML99_LIST_EVAL_COMMA_SEP(ML99_listAppend(\
-                ML99_listMap(v(FMC_MAKE_DETECTABLE_HELPER_INIT), ML99_list(v(FMC_INVOKE(FMC_ID, _tuple)))), \
-                ML99_listMapInitLast(v(FMC_MAKE_DETECTABLE_HELPER_INIT), v(FMC_MAKE_DETECTABLE_HELPER_LAST), ML99_list(v(FMC_INVOKE(FMC_ID, _tuple)))))))))\
-        )
-    
 
+    #if defined(FMC_MAKE_DETECTABLE_EXPAND) || defined(FMC_MAKE_DETECTABLE_EXPAND_0) || defined(FMC_MAKE_DETECTABLE_EXPAND_1)
+        #undef FMC_MAKE_DETECTABLE_EXPAND
+        #undef FMC_MAKE_DETECTABLE_EXPAND_0
+        #undef FMC_MAKE_DETECTABLE_EXPAND_1
+    #endif
+    #define FMC_MAKE_DETECTABLE_EXPAND_1(_tuple) FMC_LIST_WHEN_DETECTOR(_tuple)
+    #define FMC_MAKE_DETECTABLE_EXPAND_0(_tuple) FMC_LIST_WHEN_DETECTOR(_tuple) // FMC_LIST_WHEN_IDENT_EQ(_tuple)
+    #define FMC_MAKE_DETECTABLE_EXPAND(_prefix, _tuple) FMC_CONCAT(FMC_MAKE_DETECTABLE_EXPAND_, CHAOS_PP_BOOL(ML99_EVAL(ML99_identEq(v(PREFIX_), v(_prefix), v(FMC_DETECTOR_)))))(_tuple)
+
+    
+    #define FMC_MAKE_DETECTABLE(_prefix, _tuple) CHAOS_PP_VARIADIC_CAT(FMC_MAKE_DETECTABLE_EXPAND(_prefix, _tuple))
     
     #if defined(FMC_DETECT_IDENT)
         #undef FMC_DETECT_IDENT
     #endif
-    #define FMC_DETECT_IDENT(x) 
+    #define FMC_DETECT_IDENT(_to_test_tuple) \
+        ML99_EVAL(ML99_detectIdent(v(FMC_DETECTOR_), v(FMC_MAKE_DETECTABLE(FMC_DETECTOR_, _to_test_tuple))))
 
-    #if defined(FMC_IDENT_EQ)
-        #undef FMC_IDENT_EQ
+    #if defined(FMC_PRIMITIVE_IDENT_EQ) || defined(FMC_IDENT_EQ_FILTER_PTRS)
+        #undef FMC_PRIMITIVE_IDENT_EQ
+        #undef FMC_IDENT_EQ_FILTER_PTRS
     #endif
-    #define FMC_IDENT_EQ(_id1, _id2) ML99_EVAL(ML99_identEq(v(FMC_IDENT_EQ_), v(FMC_MAKE_DETECTABLE(_id1)), v(FMC_MAKE_DETECTABLE(_id2))))
+    #define FMC_IDENT_EQ_FILTER_PTRS(_tuple) \
+        ML99_LIST_EVAL_COMMA_SEP(ML99_listFilter(ML99_compose(v(ML99_not), ML99_appl(ML99_appl(v(ML99_identEq), v(FMC_IDENT_EQ_)), v(ptr))), ML99_list(v(FMC_ID(FMC_INVOKE(FMC_ID, _tuple))))))
+
+    #define FMC_PRIMITIVE_IDENT_EQ(_id1_tuple, _id2_tuple) \
+        ML99_EVAL(ML99_identEq(v(FMC_IDENT_EQ_), v(FMC_MAKE_DETECTABLE(FMC_IDENT_EQ_, (FMC_IDENT_EQ_FILTER_PTRS(_id1_tuple)))), v(FMC_MAKE_DETECTABLE(FMC_IDENT_EQ_, (FMC_IDENT_EQ_FILTER_PTRS(_id2_tuple))))))
+
+    #if defined(FMC_IDENT_EQ) || defined(FMC_IDENT_EQ_ptr_LIST_MAPPED) || defined(FMC_IDENT_EQ_ptr_LIST_MAPPED_HELPER_IMPL) || defined(FMC_IDENT_EQ_ptr_LIST_MAPPED_HELPER_ARITY) || defined(FMC_IDENT_EQ_SAME_PTR_POSITIONS)
+        #undef FMC_IDENT_EQ
+        #undef FMC_IDENT_EQ_ptr_LIST_MAPPED
+        #undef FMC_IDENT_EQ_ptr_LIST_MAPPED_HELPER_IMPL
+        #undef FMC_IDENT_EQ_ptr_LIST_MAPPED_HELPER_ARITY
+        #undef FMC_IDENT_EQ_SAME_PTR_POSITIONS
+    #endif
+    #define FMC_IDENT_EQ_ptr_LIST_MAPPED_HELPER_IMPL(_type_part) ML99_if(ML99_identEq(v(FMC_IDENT_EQ_), v(ptr), v(_type_part)), v(1), v(0))
+    #define FMC_IDENT_EQ_ptr_LIST_MAPPED_HELPER_ARITY 1
+    #define FMC_IDENT_EQ_ptr_LIST_MAPPED(_tuple) \
+        ML99_LIST_EVAL_COMMA_SEP(ML99_listMap(v(FMC_IDENT_EQ_ptr_LIST_MAPPED_HELPER), ML99_list(v(FMC_ID(FMC_INVOKE(FMC_ID, _tuple))))))
+    #define FMC_IDENT_EQ_SAME_PTR_POSITIONS(_tuple_1, _tuple_2) \
+        ML99_EVAL(ML99_listEq(v(ML99_natEq), ML99_list(v(FMC_IDENT_EQ_ptr_LIST_MAPPED(_tuple_1))), ML99_list(v(FMC_IDENT_EQ_ptr_LIST_MAPPED(_tuple_2)))))
+    #define FMC_IDENT_EQ(_id1_tuple, _id2_tuple) \
+        CHAOS_PP_VARIADIC_IF(\
+            CHAOS_PP_NOT_EQUAL(\
+                CHAOS_PP_VARIADIC_SIZE(FMC_ID(FMC_INVOKE(FMC_ID, _id1_tuple))),\
+                CHAOS_PP_VARIADIC_SIZE(FMC_ID(FMC_INVOKE(FMC_ID, _id2_tuple))))\
+        )\
+        (0)\
+        (CHAOS_PP_VARIADIC_IF(\
+            FMC_IDENT_EQ_SAME_PTR_POSITIONS(_id1_tuple, _id2_tuple)\
+        )\
+        (FMC_PRIMITIVE_IDENT_EQ(_id1_tuple, _id2_tuple))\
+        (0)\
+        )
 
 #endif
 
@@ -1423,21 +1457,29 @@ FMC_MAYBE(1)
 
 /* Maybe I'll have to modify this, even though it sounds fine to me now. */
 #ifndef FMC_SHARED
+    #if FMC_COMPILING_ON_WINDOWS && defined(FMC_BUILD_SO)
+        #warning "You must define FMC_BUILD_DLL to build the DLL or FMC_USE_DLL to use the built DLL. To use or build the static library, please define FMC_STATIC."
+        #define FMC_BUILD_DLL 1
+    #endif
     #if FMC_COMPILING_ON_WINDOWS && !defined(FMC_STATIC)
         #if defined(FMC_BUILD_DLL)
-            #define FMC_SHARED __declspec(dllexport)
-        #elif defined(USE_FMC_DLL)
-            #define FMC_SHARED __declspec(dllimport)
+            #define FMC_SHARED __attribute__ ((dllexport))
+        #elif defined(FMC_USE_DLL)
+            #define FMC_SHARED __attribute__ ((dllimport))
         #else
-            #error "You must define FMC_BUILD_DLL to build the DLL or USE_FMC_DLL to use the built DLL. To use or build the static library, please define FMC_STATIC."
+            #error "You must define FMC_BUILD_DLL to build the DLL or FMC_USE_DLL to use the built DLL. To use or build the static library, please define FMC_STATIC."
         #endif
     #elif FMC_COMPILING_ON_WINDOWS && defined(FMC_STATIC)
         #define FMC_SHARED
     #elif FMC_COMPILING_ON_LINUX || FMC_COMPILING_ON_MACOS
-        #if defined(FMC_STATIC) || defined(USE_FMC_DLL) || defined(FMC_BUILD_DLL)
-            #warning "You don't have to specify FMC_STATIC, USE_FMC_DLL or FMC_BUILD_DLL on Linux, Unix or Mac OS X. These are ignored on your system."
+        #if defined(FMC_STATIC) || defined(FMC_USE_DLL) || defined(FMC_BUILD_DLL)
+            #warning "You don't have to specify FMC_STATIC, FMC_USE_DLL or FMC_BUILD_DLL on Linux, Unix or Mac OS X. These are ignored on your system."
         #endif
-        #define FMC_SHARED
+        #if defined(FMC_BUILD_SO)
+            #define FMC_SHARED __attribute__((visibility("default")))
+        #else
+            #define FMC_SHARED
+        #endif
     #else
         #error "Unsupported OS"
     #endif // PLATFORMS
@@ -1615,5 +1657,3 @@ FMC_MAYBE(1)
     FMC_setError(_err, _msg_var);
 
 #endif // FMC_MACROS_H
-
-FMC_MAKE_DETECTABLE(FMC_DETECTOR_, (unsigned, char)) 

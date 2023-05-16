@@ -26,6 +26,8 @@ else ifneq (,$(findstring windows,$(OS)))
 	SHELL=cmd
 endif
 
+MACHINE_ARGS?=-march=alderlake -maccumulate-outgoing-args
+
 # Project subdirectories
 CPP_SRC_SUBDIRS=src/cpp/ src/cpp/FMC_dir/ src/cpp/FMC_filesystem/ src/cpp/FMC_perms/
 C_SRC_SUBDIRS=src/ src/general/ src/general/preprocessor/ src/general/types/ src/general/utils/ src/file_management/ src/data_analyze/ src/data_analyze/encodings/ src/data_analyze/strings/ src/code_utils/ src/file_management/sys/ src/file_management/filesystem/files/ src/file_management/filesystem/ src/file_management/filesystem/dirs/ src/data_analyze/encodings/conversions/ src/file_management/io/
@@ -74,15 +76,26 @@ AR=ar
 
 # Compiler and archiver flags
 AR_FLAGS=-rsc
-CFLAGS=-D _DEFAULT_SOURCE -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=64 -O3 -fstack-protector -Wno-error=stack-protector -fno-delete-null-pointer-checks -frecord-gcc-switches -flto -ftracer -fvariable-expansion-in-unroller -ftree-vectorize -ftree-cselim -ftree-lrs -fsched-stalled-insns=0 -fsched-stalled-insns-dep=10 -fsched-spec-load -fschedule-insns -fschedule-insns2 -fsched-pressure -floop-nest-optimize -fmodulo-sched -fmodulo-sched-allow-regmoves -flive-range-shrinkage -fipa-pta -fira-loop-pressure -fgcse-sm -fgcse-las -fgraphite -fgraphite-identity -fweb -frename-registers -fwrapv -fwrapv-pointer -fanalyzer -ftrack-macro-expansion=1 -Wall -Wextra -Werror -Winline -Wunsuffixed-float-constants -Wconversion -Wdouble-promotion -Wsuggest-attribute=cold -Wsuggest-attribute=const -Wsuggest-attribute=format -Wsuggest-attribute=malloc -Wsuggest-attribute=noreturn -Wsuggest-attribute=pure -Wstack-protector -Wredundant-decls -Wnull-dereference -Wfloat-equal -Wfloat-conversion -std=gnu17 -Wno-error=suggest-attribute=const -Wno-error=suggest-attribute=pure -Wno-error=suggest-attribute=cold -Wno-error=suggest-attribute=noreturn
-CXX_FLAGS=-D _DEFAULT_SOURCE -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=64 -O3 -fstack-protector -Wno-error=stack-protector -fno-delete-null-pointer-checks -frecord-gcc-switches -flto -ftracer -fvariable-expansion-in-unroller -ftree-vectorize -ftree-cselim -ftree-lrs -fsched-stalled-insns=0 -fsched-stalled-insns-dep=10 -fsched-spec-load -fschedule-insns -fschedule-insns2 -fsched-pressure -floop-nest-optimize -fmodulo-sched -fmodulo-sched-allow-regmoves -flive-range-shrinkage -fgraphite -fira-loop-pressure -fgraphite-identity -fipa-pta -fgcse-sm -fgcse-las -frename-registers -fweb -fwrapv -fwrapv-pointer -ftrack-macro-expansion=1 -Wall -Wextra -Werror -Winline -Wconversion -Wdouble-promotion -Wsuggest-attribute=cold -Wsuggest-attribute=const -Wsuggest-attribute=format -Wsuggest-attribute=malloc -Wsuggest-attribute=noreturn -Wsuggest-attribute=pure -Wstack-protector -Wredundant-decls -Wnull-dereference -Wfloat-equal -Wfloat-conversion -std=gnu++17
+CFLAGS=-D _DEFAULT_SOURCE -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=64 -O3 $(MACHINE_ARGS) -fexceptions -fstack-protector -Wno-error=stack-protector -fno-delete-null-pointer-checks -frecord-gcc-switches -flto -ftracer -fvariable-expansion-in-unroller -ftree-vectorize -ftree-cselim -ftree-lrs -fsched-stalled-insns=0 -fsched-stalled-insns-dep=10 -fsched-spec-load -fschedule-insns -fschedule-insns2 -fsched-pressure -floop-nest-optimize -fmodulo-sched -fmodulo-sched-allow-regmoves -flive-range-shrinkage -fipa-pta -fira-loop-pressure -fgcse-sm -fgcse-las -fgraphite -fgraphite-identity -fweb -frename-registers -fwrapv -fwrapv-pointer -fanalyzer -ftrack-macro-expansion=1 -Wall -Wextra -Werror -Winline -Wunsuffixed-float-constants -Wconversion -Wdouble-promotion -Wsuggest-attribute=cold -Wsuggest-attribute=const -Wsuggest-attribute=format -Wsuggest-attribute=malloc -Wsuggest-attribute=noreturn -Wsuggest-attribute=pure -Wstack-protector -Wredundant-decls -Wnull-dereference -Wfloat-equal -Wfloat-conversion -std=gnu17 -Wno-error=suggest-attribute=const -Wno-error=suggest-attribute=pure -Wno-error=suggest-attribute=cold -Wno-error=suggest-attribute=noreturn
+CXX_FLAGS=-D _DEFAULT_SOURCE -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=64 -O3 $(MACHINE_ARGS) -fexceptions -fstack-protector -Wno-error=stack-protector -fno-delete-null-pointer-checks -frecord-gcc-switches -flto -ftracer -fvariable-expansion-in-unroller -ftree-vectorize -ftree-cselim -ftree-lrs -fsched-stalled-insns=0 -fsched-stalled-insns-dep=10 -fsched-spec-load -fschedule-insns -fschedule-insns2 -fsched-pressure -floop-nest-optimize -fmodulo-sched -fmodulo-sched-allow-regmoves -flive-range-shrinkage -fgraphite -fira-loop-pressure -fgraphite-identity -fipa-pta -fgcse-sm -fgcse-las -frename-registers -fweb -fwrapv -fwrapv-pointer -ftrack-macro-expansion=1 -Wall -Wextra -Werror -Winline -Wconversion -Wdouble-promotion -Wsuggest-attribute=cold -Wsuggest-attribute=const -Wsuggest-attribute=format -Wsuggest-attribute=malloc -Wsuggest-attribute=noreturn -Wsuggest-attribute=pure -Wstack-protector -Wredundant-decls -Wnull-dereference -Wfloat-equal -Wfloat-conversion -std=gnu++17
 
 ifneq (,$(findstring struct,$(MAKECMDGOALS)))
 	CFLAGS+= -Wpadded
 	CXX_FLAGS+= -Wpadded
 endif
 
-
+ifneq (,$(findstring shared,$(MAKECMDGOALS)))
+	ifneq (,$(findstring lin,$(DETECTED_OS)))
+		CFLAGS+= -D FMC_BUILD_SO
+		CXX_FLAGS+= -D FMC_BUILD_SO
+	endif
+endif
+ifneq (,$(findstring all,$(MAKECMDGOALS)))
+	ifneq (,$(findstring lin,$(DETECTED_OS)))
+		CFLAGS+= -D FMC_BUILD_SO
+		CXX_FLAGS+= -D FMC_BUILD_SO
+	endif
+endif
 
 C_DEBUG_FLAGS=-D _DEFAULT_SOURCE -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=64 -g3 -O0 -std=gnu17 -ftrack-macro-expansion=1 -fprofile-arcs -ftest-coverage --coverage -fno-inline
 CXX_DEBUG_FLAGS=-D _DEFAULT_SOURCE -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=64 -g3 -O0 -std=gnu++17 -ftrack-macro-expansion=1 -fprofile-arcs -ftest-coverage --coverage -fno-inline
@@ -91,13 +104,13 @@ LD_FLAGS_DLL=-lstdc++ "-Wl,--out-implib=libFManC.dll.a,--export-all-symbols,--en
 LD_FLAGS_SO=-lstdc++ -Wl,-soname,
 
 ifeq (,$(findstring Windows,$(filter win% Win%,$(OS)))) # Linux
-	CFLAGS+= -fuse-ld=gold -ftree-parallelize-loops=4
-	CXX_FLAGS+= -fuse-ld=gold -ftree-parallelize-loops=4
+	CFLAGS+= -fuse-ld=gold -ftree-parallelize-loops=4 -fvisibility=hidden
+	CXX_FLAGS+= -fuse-ld=gold -ftree-parallelize-loops=4 -fvisibility=hidden
 	C_DEBUG_FLAGS+= -fuse-ld=gold
 	CXX_DEBUG_FLAGS+= -fuse-ld=gold
 endif
 
-INC_FLAGS=-I./third_party_libs/metalang99/include/ -I./third_party_libs/mimalloc/include/ -I./third_party_libs/defer/ -I./third_party_libs/exCept/ 
+INC_FLAGS=-I./third_party_libs/metalang99/include/ -I./third_party_libs/mimalloc/include/ -I./third_party_libs/defer/ -I./third_party_libs/exCept/ -I./third_party_libs/chaos_pp/ 
 LIB_FLAGS=-L./third_party_libs/exCept/build/static/ -lexCept
 ifneq (,$(findstring Windows,$(OS)))
 	LIB_FLAGS+= -lSecur32
