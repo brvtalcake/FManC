@@ -535,5 +535,234 @@ SOFTWARE.
     #endif
     #define FMC_IDENT_EQ_mbstate_t_mbstate_t ()
     #define FMC_DETECTOR_mbstate_t ()
+    
+    #if !defined(FMC_CUSTOM_DETECTORS)
+        #define FMC_CUSTOM_DETECTORS
 
+        #if defined(FMC_DETECTOR_struct_FManC_Char)
+            #undef FMC_DETECTOR_struct_FManC_Char
+        #endif
+        #if defined(FMC_IDENT_EQ_struct_FManC_Char_struct_FManC_Char)
+            #undef FMC_IDENT_EQ_struct_FManC_Char_struct_FManC_Char
+        #endif
+        #define FMC_IDENT_EQ_struct_FManC_Char_struct_FManC_Char ()
+        #define FMC_DETECTOR_struct_FManC_Char ()
+
+        #if defined(FMC_DETECTOR_FMC_Char)
+            #undef FMC_DETECTOR_FMC_Char
+        #endif
+        #if defined(FMC_IDENT_EQ_FMC_Char_FMC_Char)
+            #undef FMC_IDENT_EQ_FMC_Char_FMC_Char
+        #endif
+        #define FMC_IDENT_EQ_FMC_Char_FMC_Char ()
+        #define FMC_DETECTOR_FMC_Char ()
+
+        #if defined(FMC_DETECTOR_struct_FManC_String)
+            #undef FMC_DETECTOR_struct_FManC_String
+        #endif
+        #if defined(FMC_IDENT_EQ_struct_FManC_String_struct_FManC_String)
+            #undef FMC_IDENT_EQ_struct_FManC_String_struct_FManC_String
+        #endif
+        #define FMC_IDENT_EQ_struct_FManC_String_struct_FManC_String ()
+        #define FMC_DETECTOR_struct_FManC_String ()
+
+        #if defined(FMC_DETECTOR_FMC_String)
+            #undef FMC_DETECTOR_FMC_String
+        #endif
+        #if defined(FMC_IDENT_EQ_FMC_String_FMC_String)
+            #undef FMC_IDENT_EQ_FMC_String_FMC_String
+        #endif
+        #define FMC_IDENT_EQ_FMC_String_FMC_String ()
+        #define FMC_DETECTOR_FMC_String ()
+
+        #if defined(FMC_DETECTOR_FMC_Byte)
+            #undef FMC_DETECTOR_FMC_Byte
+        #endif
+        #if defined(FMC_IDENT_EQ_FMC_Byte_FMC_Byte)
+            #undef FMC_IDENT_EQ_FMC_Byte_FMC_Byte
+        #endif
+        #define FMC_IDENT_EQ_FMC_Byte_FMC_Byte ()
+        #define FMC_DETECTOR_FMC_Byte ()
+
+        #if defined(FMC_DETECTOR_FMC_Bool)
+            #undef FMC_DETECTOR_FMC_Bool
+        #endif
+        #if defined(FMC_IDENT_EQ_FMC_Bool_FMC_Bool)
+            #undef FMC_IDENT_EQ_FMC_Bool_FMC_Bool
+        #endif
+        #define FMC_IDENT_EQ_FMC_Bool_FMC_Bool ()
+        #define FMC_DETECTOR_FMC_Bool ()
+
+        #if defined(FMC_DETECTOR_FMC_CharControl)
+            #undef FMC_DETECTOR_FMC_CharControl
+        #endif
+        #if defined(FMC_IDENT_EQ_FMC_CharControl_FMC_CharControl)
+            #undef FMC_IDENT_EQ_FMC_CharControl_FMC_CharControl
+        #endif
+        #define FMC_IDENT_EQ_FMC_CharControl_FMC_CharControl ()
+        #define FMC_DETECTOR_FMC_CharControl ()
+
+        #if defined(FMC_DETECTOR_FMC_FileState)
+            #undef FMC_DETECTOR_FMC_FileState
+        #endif
+        #if defined(FMC_IDENT_EQ_FMC_FileState_FMC_FileState)
+            #undef FMC_IDENT_EQ_FMC_FileState_FMC_FileState
+        #endif
+        #define FMC_IDENT_EQ_FMC_FileState_FMC_FileState ()
+        #define FMC_DETECTOR_FMC_FileState ()
+
+        #if defined(FMC_DETECTOR_FMC_PermsFlags)
+            #undef FMC_DETECTOR_FMC_PermsFlags
+        #endif
+        #if defined(FMC_IDENT_EQ_FMC_PermsFlags_FMC_PermsFlags)
+            #undef FMC_IDENT_EQ_FMC_PermsFlags_FMC_PermsFlags
+        #endif
+        #define FMC_IDENT_EQ_FMC_PermsFlags_FMC_PermsFlags ()
+        #define FMC_DETECTOR_FMC_PermsFlags ()
+
+        #if defined(FMC_DETECTOR_FMC_CodePoint)
+            #undef FMC_DETECTOR_FMC_CodePoint
+        #endif
+        #if defined(FMC_IDENT_EQ_FMC_CodePoint_FMC_CodePoint)
+            #undef FMC_IDENT_EQ_FMC_CodePoint_FMC_CodePoint
+        #endif
+        #define FMC_IDENT_EQ_FMC_CodePoint_FMC_CodePoint ()
+        #define FMC_DETECTOR_FMC_CodePoint ()
+
+        #if defined(FMC_DETECTOR_FMC_Mutex)
+            #undef FMC_DETECTOR_FMC_Mutex
+        #endif
+        #if defined(FMC_IDENT_EQ_FMC_Mutex_FMC_Mutex)
+            #undef FMC_IDENT_EQ_FMC_Mutex_FMC_Mutex
+        #endif
+        #define FMC_IDENT_EQ_FMC_Mutex_FMC_Mutex ()
+        #define FMC_DETECTOR_FMC_Mutex ()
+
+        #if defined(FMC_DETECTOR_enum_FManC_Encodings)
+            #undef FMC_DETECTOR_enum_FManC_Encodings
+        #endif
+        #if defined(FMC_IDENT_EQ_enum_FManC_Encodings_enum_FManC_Encodings)
+            #undef FMC_IDENT_EQ_enum_FManC_Encodings_enum_FManC_Encodings
+        #endif
+        #define FMC_IDENT_EQ_enum_FManC_Encodings_enum_FManC_Encodings ()
+        #define FMC_DETECTOR_enum_FManC_Encodings ()
+
+        #if defined(FMC_DETECTOR_FMC_Encodings)
+            #undef FMC_DETECTOR_FMC_Encodings
+        #endif
+        #if defined(FMC_IDENT_EQ_FMC_Encodings_FMC_Encodings)
+            #undef FMC_IDENT_EQ_FMC_Encodings_FMC_Encodings
+        #endif
+        #define FMC_IDENT_EQ_FMC_Encodings_FMC_Encodings ()
+        #define FMC_DETECTOR_FMC_Encodings ()
+
+        #if defined(FMC_DETECTOR_enum_FManC_Error)
+            #undef FMC_DETECTOR_enum_FManC_Error
+        #endif
+        #if defined(FMC_IDENT_EQ_enum_FManC_Error_enum_FManC_Error)
+            #undef FMC_IDENT_EQ_enum_FManC_Error_enum_FManC_Error
+        #endif
+        #define FMC_IDENT_EQ_enum_FManC_Error_enum_FManC_Error ()
+        #define FMC_DETECTOR_enum_FManC_Error ()
+
+        #if defined(FMC_DETECTOR_FMC_Error)
+            #undef FMC_DETECTOR_FMC_Error
+        #endif
+        #if defined(FMC_IDENT_EQ_FMC_Error_FMC_Error)
+            #undef FMC_IDENT_EQ_FMC_Error_FMC_Error
+        #endif
+        #define FMC_IDENT_EQ_FMC_Error_FMC_Error ()
+        #define FMC_DETECTOR_FMC_Error ()
+
+        #if defined(FMC_DETECTOR_struct_FManC_ErrStackElement)
+            #undef FMC_DETECTOR_struct_FManC_ErrStackElement
+        #endif
+        #if defined(FMC_IDENT_EQ_struct_FManC_ErrStackElement_struct_FManC_ErrStackElement)
+            #undef FMC_IDENT_EQ_struct_FManC_ErrStackElement_struct_FManC_ErrStackElement
+        #endif
+        #define FMC_IDENT_EQ_struct_FManC_ErrStackElement_struct_FManC_ErrStackElement ()
+        #define FMC_DETECTOR_struct_FManC_ErrStackElement ()
+
+        #if defined(FMC_DETECTOR_FMC_ErrStackElement)
+            #undef FMC_DETECTOR_FMC_ErrStackElement
+        #endif
+        #if defined(FMC_IDENT_EQ_FMC_ErrStackElement_FMC_ErrStackElement)
+            #undef FMC_IDENT_EQ_FMC_ErrStackElement_FMC_ErrStackElement
+        #endif
+        #define FMC_IDENT_EQ_FMC_ErrStackElement_FMC_ErrStackElement ()
+        #define FMC_DETECTOR_FMC_ErrStackElement ()
+
+        #if defined(FMC_DETECTOR_struct_FManC_ErrStack)
+            #undef FMC_DETECTOR_struct_FManC_ErrStack
+        #endif
+        #if defined(FMC_IDENT_EQ_struct_FManC_ErrStack_struct_FManC_ErrStack)
+            #undef FMC_IDENT_EQ_struct_FManC_ErrStack_struct_FManC_ErrStack
+        #endif
+        #define FMC_IDENT_EQ_struct_FManC_ErrStack_struct_FManC_ErrStack ()
+        #define FMC_DETECTOR_struct_FManC_ErrStack ()
+
+        #if defined(FMC_DETECTOR_FMC_ErrStack)
+            #undef FMC_DETECTOR_FMC_ErrStack
+        #endif
+        #if defined(FMC_IDENT_EQ_FMC_ErrStack_FMC_ErrStack)
+            #undef FMC_IDENT_EQ_FMC_ErrStack_FMC_ErrStack
+        #endif
+        #define FMC_IDENT_EQ_FMC_ErrStack_FMC_ErrStack ()
+        #define FMC_DETECTOR_FMC_ErrStack ()
+
+        #if defined(FMC_DETECTOR_struct_FManC_File)
+            #undef FMC_DETECTOR_struct_FManC_File
+        #endif
+        #if defined(FMC_IDENT_EQ_struct_FManC_File_struct_FManC_File)
+            #undef FMC_IDENT_EQ_struct_FManC_File_struct_FManC_File
+        #endif
+        #define FMC_IDENT_EQ_struct_FManC_File_struct_FManC_File ()
+        #define FMC_DETECTOR_struct_FManC_File ()
+
+        #if defined(FMC_DETECTOR_FMC_File)
+            #undef FMC_DETECTOR_FMC_File
+        #endif
+        #if defined(FMC_IDENT_EQ_FMC_File_FMC_File)
+            #undef FMC_IDENT_EQ_FMC_File_FMC_File
+        #endif
+        #define FMC_IDENT_EQ_FMC_File_FMC_File ()
+        #define FMC_DETECTOR_FMC_File ()
+
+        #if defined(FMC_DETECTOR_enum_FMC_File_orientation)
+            #undef FMC_DETECTOR_enum_FMC_File_orientation
+        #endif
+        #if defined(FMC_IDENT_EQ_enum_FMC_File_orientation_enum_FMC_File_orientation)
+            #undef FMC_IDENT_EQ_enum_FMC_File_orientation_enum_FMC_File_orientation
+        #endif
+        #define FMC_IDENT_EQ_enum_FMC_File_orientation_enum_FMC_File_orientation ()
+        #define FMC_DETECTOR_enum_FMC_File_orientation ()
+
+        #if defined(FMC_DETECTOR_enum_FMC_File_dataMode)
+            #undef FMC_DETECTOR_enum_FMC_File_dataMode
+        #endif
+        #if defined(FMC_IDENT_EQ_enum_FMC_File_dataMode_enum_FMC_File_dataMode)
+            #undef FMC_IDENT_EQ_enum_FMC_File_dataMode_enum_FMC_File_dataMode
+        #endif
+        #define FMC_IDENT_EQ_enum_FMC_File_dataMode_enum_FMC_File_dataMode ()
+        #define FMC_DETECTOR_enum_FMC_File_dataMode ()
+
+        #if defined(FMC_DETECTOR_struct_FManC_CharComp)
+            #undef FMC_DETECTOR_struct_FManC_CharComp
+        #endif
+        #if defined(FMC_IDENT_EQ_struct_FManC_CharComp_struct_FManC_CharComp)
+            #undef FMC_IDENT_EQ_struct_FManC_CharComp_struct_FManC_CharComp
+        #endif
+        #define FMC_IDENT_EQ_struct_FManC_CharComp_struct_FManC_CharComp ()
+        #define FMC_DETECTOR_struct_FManC_CharComp ()
+
+        #if defined(FMC_DETECTOR_FMC_CharComp)
+            #undef FMC_DETECTOR_FMC_CharComp
+        #endif
+        #if defined(FMC_IDENT_EQ_FMC_CharComp_FMC_CharComp)
+            #undef FMC_IDENT_EQ_FMC_CharComp_FMC_CharComp
+        #endif
+        #define FMC_IDENT_EQ_FMC_CharComp_FMC_CharComp ()
+        #define FMC_DETECTOR_FMC_CharComp ()
+        
+    #endif // FMC_CUSTOM_DETECTORS
 #endif // FMC_IDENT_DETECTION_H
