@@ -1356,17 +1356,43 @@ __VA_ARGS__))))
 #define FMC_DEC(_x) ML99_EVAL(ML99_dec(v(_x)))
 #define FMC_SUB(_x, _y) ML99_EVAL(ML99_sub(v(_x), v(_y)))
 
+#if defined(FMC_GREATER) || defined(FMC_LESS) || defined(FMC_GREATER_EQUAL) || defined(FMC_LESS_EQUAL)
+    #undef FMC_GREATER
+    #undef FMC_LESS
+    #undef FMC_GREATER_EQUAL
+    #undef FMC_LESS_EQUAL
+#endif
+#define FMC_GREATER(_x, _y) ML99_EVAL(ML99_greater(v(_x), v(_y)))
+#define FMC_LESS(_x, _y) ML99_EVAL(ML99_lesser(v(_x), v(_y)))
+#define FMC_GREATER_EQUAL(_x, _y) ML99_EVAL(ML99_greaterEq(v(_x), v(_y)))
+#define FMC_LESS_EQUAL(_x, _y) ML99_EVAL(ML99_lesserEq(v(_x), v(_y)))
+
 #if defined(FMC_FORMAT_FOR_OVERLOAD_DISPATCH)
     #undef FMC_FORMAT_FOR_OVERLOAD_DISPATCH
 #endif
-#define FMC_FORMAT_FOR_OVERLOAD_DISPATCH(_arg_no, ...) \
+/* #define FMC_FORMAT_FOR_OVERLOAD_DISPATCH(_arg_no, ...) \
     ML99_LIST_EVAL_COMMA_SEP(\
         ML99_listZip(\
             ML99_listMap(ML99_appl(v(FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARGS_EXPANDED_META), v(_arg_no)), ML99_list(v(__VA_ARGS__))),\
             ML99_listMap(v(FMC_OVERLOAD_FUNC_SIG_EXTRACT_FUNC_META), ML99_list(v(__VA_ARGS__)))\
         )\
+    ) */
+
+#define FMC_FORMAT_FOR_OVERLOAD_DISPATCH_TO_ZIP_WITH(_arg_no, _func_count, ...) \
+    ML99_list(\
+        v(FMC_ARGS_X_TO_Y(_func_count, FMC_DEC(FMC_ADD(_func_count, _func_count)), __VA_ARGS__)) \
     )
 
+#define FMC_FORMAT_FOR_OVERLOAD_DISPATCH(_arg_no, _func_count, ...) \
+    ML99_LIST_EVAL_COMMA_SEP(\
+        ML99_listZip(\
+            ML99_listMap(ML99_appl(v(FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARGS_EXPANDED_META), v(_arg_no)), ML99_list(v(FMC_ARGS_X_TO_Y(0, FMC_DEC(_func_count), __VA_ARGS__)))),\
+            FMC_FORMAT_FOR_OVERLOAD_DISPATCH_TO_ZIP_WITH(_arg_no, _func_count, __VA_ARGS__)\
+        )\
+    )
+/* 
+FMC_FORMAT_FOR_OVERLOAD_DISPATCH(0, 2, (f1, ((unsigned, int, ptr), (int))), (f2, ((unsigned, int, ptr), (int))), _Generic(0, int : 0, char : 1, default : 2), f1) // (unsigned int *, _Generic(0, int : 0, char : 1, default : 2)) , (unsigned int *, f1)
+ */
 #if defined(FMC_OVERLOAD_NESTED_GENERICS)
     #undef FMC_OVERLOAD_NESTED_GENERICS
 #endif
@@ -1378,6 +1404,15 @@ __VA_ARGS__))))
         )\
     )
 
+#if defined(FMC_ARGS_TO_SEQ) || defined(FMC_ARGS_TO_SEQ_HELPER_IMPL) || defined(FMC_ARGS_TO_SEQ_HELPER_ARITY)
+    #undef FMC_ARGS_TO_SEQ
+    #undef FMC_ARGS_TO_SEQ_HELPER_IMPL
+    #undef FMC_ARGS_TO_SEQ_HELPER_ARITY
+#endif
+#define FMC_ARGS_TO_SEQ_HELPER_IMPL(_arg) v((_arg))
+#define FMC_ARGS_TO_SEQ_HELPER_ARITY 1
+#define FMC_ARGS_TO_SEQ(...) ML99_EVAL(ML99_variadicsForEach(v(FMC_ARGS_TO_SEQ_HELPER), v(__VA_ARGS__)))
+
 #if defined(FMC_IDENT_EQ_META_IMPL) || defined(FMC_IDENT_EQ_META_ARITY)
     #undef FMC_IDENT_EQ_META_IMPL
     #undef FMC_IDENT_EQ_META_ARITY
@@ -1385,29 +1420,53 @@ __VA_ARGS__))))
 #define FMC_IDENT_EQ_META_IMPL(_x, _y) v(FMC_IDENT_EQ(_x, _y))
 #define FMC_IDENT_EQ_META_ARITY 2
 
-#if defined(FMC_OVERLOAD_COMPARE_TUPLED_TYPES_IMPL) || defined(FMC_OVERLOAD_COMPARE_TUPLED_TYPES_ARITY)
-    #undef FMC_OVERLOAD_COMPARE_TUPLED_TYPES_IMPL
-    #undef FMC_OVERLOAD_COMPARE_TUPLED_TYPES_ARITY
+#if defined(FMC_OVERLOAD_COMPARE_TUPLED_TYPES)
+    #undef FMC_OVERLOAD_COMPARE_TUPLED_TYPES
 #endif
-#define FMC_OVERLOAD_COMPARE_TUPLED_TYPES_IMPL(_t, _arg_pos, _func) \
-    v(FMC_IDENT_EQ_META(_t, FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARGS_META(_arg_pos, _func)))
-
-
-#define FMC_OVERLOAD_COMPARE_TUPLED_TYPES_ARITY 3
-    
-// ML99_EVAL(ML99_appl(ML99_appl(ML99_appl(v(FMC_OVERLOAD_COMPARE_TUPLED_TYPES), v((unsigned, int, ptr))), v(0)), v((f1, ((unsigned, int, ptr), (int))))))
+#define FMC_OVERLOAD_COMPARE_TUPLED_TYPES(_s, _func, ...) \
+    CHAOS_PP_BOOL(FMC_IDENT_EQ(FMC_ID(FMC_GET_ARGN(0, __VA_ARGS__)), FMC_ID(FMC_GET_ARGN(FMC_ID(FMC_GET_ARGN(1, __VA_ARGS__)), FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARGS(FMC_ID(FMC_INVOKE(FMC_ID, _func)))))))
 
 #if defined(FMC_OVERLOAD_FILTER_POTENTIAL_FUNC)
     #undef FMC_OVERLOAD_FILTER_POTENTIAL_FUNC
 #endif
-// ML99_listMap(ML99_appl(ML99_appl(v(FMC_OVERLOAD_COMPARE_TUPLED_TYPES), v(_tupled_type_to_compare_to)), v(_arg_no))
 // Filter out the potential functions that will figure in the next nested generic
 #define FMC_OVERLOAD_FILTER_POTENTIAL_FUNC(_arg_no, _tupled_type_to_compare_to, ...) \
-    ML99_LIST_EVAL_COMMA_SEP(ML99_listFilter(ML99_appl(ML99_appl(v(FMC_OVERLOAD_COMPARE_TUPLED_TYPES), v(_tupled_type_to_compare_to)), v(_arg_no)), ML99_list(v(__VA_ARGS__))))
+    FMC_ML99_SEQ_AS_ARGS(\
+        CHAOS_PP_EXPR(\
+            CHAOS_PP_VARIADIC_SEQ_FILTER(\
+                FMC_OVERLOAD_COMPARE_TUPLED_TYPES, FMC_ARGS_TO_SEQ(__VA_ARGS__), _tupled_type_to_compare_to, _arg_no \
+            )\
+        )\
+    )
 
-// FMC_OVERLOAD_FILTER_POTENTIAL_FUNC(0, (FMC_Char, ptr), (f1, ((int), (int))), (f2, ((FMC_Char, ptr), (int))), (f3, ((FMC_Char, ptr), (int))))
+#if defined(FMC_OVERLOAD_GEN_SUBCASES) || defined(FMC_OVERLOAD_GEN_SUBCASES_2) || defined(FMC_OVERLOAD_GEN_SUBCASES_3) || defined(FMC_OVERLOAD_GEN_SUBCASES_4) \
+    || defined(FMC_OVERLOAD_GEN_SUBCASES_5) || defined(FMC_OVERLOAD_GEN_SUBCASES_6) || defined(FMC_OVERLOAD_GEN_SUBCASES_7)\
+    || defined(FMC_OVERLOAD_GEN_SUBCASES_9) || defined(FMC_OVERLOAD_GEN_SUBCASES_10)
+    #undef FMC_OVERLOAD_GEN_SUBCASES
+    #undef FMC_OVERLOAD_GEN_SUBCASES_2
+    #undef FMC_OVERLOAD_GEN_SUBCASES_3
+    #undef FMC_OVERLOAD_GEN_SUBCASES_4
+    #undef FMC_OVERLOAD_GEN_SUBCASES_5
+    #undef FMC_OVERLOAD_GEN_SUBCASES_6
+    #undef FMC_OVERLOAD_GEN_SUBCASES_7
+    #undef FMC_OVERLOAD_GEN_SUBCASES_9
+    #undef FMC_OVERLOAD_GEN_SUBCASES_10
+#endif
+#define FMC_OVERLOAD_GEN_SUBCASES_2(_possible_func_count, ...) \
+    (\
+        FMC_ID(FMC_GET_ARGN(0, FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARGS_EXPANDED(FMC_GET_ARGN(0, __VA_ARGS__)))), \
+        CHAOS_PP_VARIADIC_IF(/* If there are strictly more than 1 `potential func`, then nested generic, else this must be the first func */)(/* nested generic */)(/* the func */) \
+    ),\
+    (\
+        FMC_ID(FMC_GET_ARGN(0, FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARGS_EXPANDED(FMC_GET_ARGN(1, __VA_ARGS__)))), \
+        CHAOS_PP_VARIADIC_IF(/* If there are strictly more than 1 `potential func`, then nested generic, else this must be the first func */)(/* nested generic */)(/* the func */) \
+    )
+    /* ... repeat until the end of all functions, and recursively in all nested generics */
 
-   // v(FMC_ID((FMC_GET_ARGN(_arg_no, FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARGS_EXPANDED(_tuple)), FMC_OVERLOAD_FUNC_SIG_EXTRACT_FUNC(_tuple))))
+#define FMC_OVERLOAD_GEN_SUBCASES(_arg_count, _possible_func_count, ...) \
+    FMC_ID(FMC_INVOKE(FMC_ID(FMC_CONCAT(FMC_OVERLOAD_GEN_SUBCASES_, _arg_count)), (_possible_func_count, __VA_ARGS__)))
+    
+
 // No args to process, there must have only one possible function
 #define FMC_OVERLOAD_DISPATCH_0(_possible_func_count, ...) FMC_OVERLOAD_FUNC_SIG_EXTRACT_FUNC(FMC_GET_ARGN(0, __VA_ARGS__))
     
@@ -1430,16 +1489,8 @@ __VA_ARGS__))))
     )
 // Two args to process
 #define FMC_OVERLOAD_DISPATCH_2(_possible_func_count, ...)                                                                      \
-    /* FMC_OVERLOAD_DISPATCH_HELPER(                                                                                               \
-        FMC_GET_ARGN(ML99_EVAL(ML99_inc(v(_possible_func_count))), __VA_ARGS__),                                                \
-        FMC_OVERLOAD_NESTED_GENERICS(0,                                                                                         \
-        (FMC_OVERLOAD_DISPATCH_HELPER(                                                                                          \
-            FMC_GET_ARGN(ML99_EVAL(ML99_inc(ML99_inc(v(_possible_func_count)))), __VA_ARGS__),                                  \
-            FMC_FORMAT_FOR_OVERLOAD_DISPATCH(1, FMC_ARGS_X_TO_Y(0, ML99_EVAL(ML99_dec(v(_possible_func_count))), __VA_ARGS__))  \
-        )),                                                                                                                     \
-        FMC_ARGS_X_TO_Y(0, ML99_EVAL(ML99_dec(v(_possible_func_count))), __VA_ARGS__)                                           \
-        )                                                                                                                       \
-    ) */
+    FMC_OVERLOAD_DISPATCH_HELPER(                                                                                               \
+        )
 // Three args to process
 #define FMC_OVERLOAD_DISPATCH_3(_possible_func_count, ...)                                                                                      \
     /* FMC_OVERLOAD_DISPATCH_HELPER(                                                                                                               \

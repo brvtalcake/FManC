@@ -83,5 +83,16 @@ int main()
     test_FMC_readFile();
     fprintf(stderr, "\x1b[32m%s\n\x1b[0m", "test_FMC_readFile() passed");
 
+    // The following is working, but will remain a static func now
+    /* unsigned int** uids_and_gids = FMC_parseEtcLoginDefs(NULL);
+    assert(uids_and_gids != NULL);
+    assert(uids_and_gids[0] != NULL);
+    assert(uids_and_gids[1] != NULL);
+    assert(uids_and_gids[0][0] == 1000);
+    assert(uids_and_gids[1][0] == 1000);
+    free(uids_and_gids[0]);
+    free(uids_and_gids[1]);
+    free(uids_and_gids); */
+
     return 0;
 }

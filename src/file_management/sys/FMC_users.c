@@ -27,14 +27,197 @@ SOFTWARE.
 /* This file contains unfinished work */
 
 #include <string.h>
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
 #include <assert.h>
 #include <limits.h>
 #include <stdint.h>
+#include <errno.h>
 
 #include "FMC_sys.h"
+#include "../filesystem/FMC_filesystem.h"
+
+#if !defined(FMC_COMPILING_ON_WINDOWS)
+FMC_FUNC_COLD static unsigned int** FMC_parseEtcLoginDefs(unsigned int** uids_and_gids)
+{
+    FMC_Bool uids_and_gids_was_allocated = FMC_FALSE;
+    if (!uids_and_gids)
+    {
+        uids_and_gids = malloc(sizeof(unsigned int*) * 2);
+        if (!uids_and_gids) return NULL;
+        memset(uids_and_gids, 0, sizeof(unsigned int*) * 2);
+        uids_and_gids[0] = malloc(sizeof(unsigned int) * 2);
+        if (!uids_and_gids[0])
+        {
+            free(uids_and_gids);
+            return NULL;
+        }
+        memset(uids_and_gids[0], 0, sizeof(unsigned int) * 2);
+        uids_and_gids[1] = malloc(sizeof(unsigned int) * 2);
+        if (!uids_and_gids[1])
+        {
+            free(uids_and_gids[0]);
+            free(uids_and_gids);
+            return NULL;
+        }
+        memset(uids_and_gids[1], 0, sizeof(unsigned int) * 2);
+        uids_and_gids_was_allocated = FMC_TRUE;
+    }
+    else
+    {
+        memset(uids_and_gids[0], 0, sizeof(unsigned int) * 2);
+        memset(uids_and_gids[1], 0, sizeof(unsigned int) * 2);
+    }
+    off64_t f_len = FMC_getFileSize("/etc/login.defs");
+    if (f_len <= 0) 
+    {
+        if (uids_and_gids_was_allocated)
+        {
+            free(uids_and_gids[0]);
+            free(uids_and_gids[1]);
+            free(uids_and_gids);
+        }
+        return NULL;
+    }
+    FILE* f = fopen("/etc/login.defs", "r");
+    if (!f) 
+    {
+        if (uids_and_gids_was_allocated)
+        {
+            free(uids_and_gids[0]);
+            free(uids_and_gids[1]);
+            free(uids_and_gids);
+        }
+        return NULL;
+    }
+    if (f_len + 1 <= (off64_t) PTRDIFF_MAX)
+    {
+        char* buff = calloc((size_t) f_len + 1, sizeof(char));
+        size_t ret = fread(buff, sizeof(char), (size_t) f_len, f);
+        if (ret != (size_t) f_len)
+        {
+            fclose(f);
+            if (uids_and_gids_was_allocated)
+            {
+                free(uids_and_gids[0]);
+                free(uids_and_gids[1]);
+                free(uids_and_gids);
+                free(buff);
+            }
+            return NULL;
+        }
+        fclose(f);
+
+        char* pos = strstr(buff, "UID_MIN");
+        if (!pos) 
+        {
+            if (uids_and_gids_was_allocated)
+            {
+                free(uids_and_gids[0]);
+                free(uids_and_gids[1]);
+                free(uids_and_gids);
+                free(buff);
+            }
+            return NULL;
+        }
+        pos += strlen("UID_MIN");
+        while (!isdigit(*pos)) pos++;
+        char* start = pos;
+        while (isdigit(*pos)) pos++;
+        char* end = pos;
+        char tmp[end - start + 1];
+        memset(tmp, 0, (size_t) (end - start) + 1);
+        strncpy(tmp, start, (size_t) (end - start));
+        unsigned int uid_min = (unsigned int) atoi(tmp);
+
+        pos = strstr(buff, "UID_MAX");
+        if (!pos) 
+        {
+            if (uids_and_gids_was_allocated)
+            {
+                free(uids_and_gids[0]);
+                free(uids_and_gids[1]);
+                free(uids_and_gids);
+                free(buff);
+            }
+            return NULL;
+        }
+        pos += strlen("UID_MAX");
+        while (!isdigit(*pos)) pos++;
+        start = pos;
+        while (isdigit(*pos)) pos++;
+        end = pos;
+        memset(tmp, 0, (size_t) (end - start) + 1);
+        strncpy(tmp, start, (size_t) (end - start));
+        unsigned int uid_max = (unsigned int) atoi(tmp);
+
+        uids_and_gids[0][0] = uid_min;
+        uids_and_gids[0][1] = uid_max;
+
+        pos = strstr(buff, "GID_MIN");
+        if (!pos) 
+        {
+            if (uids_and_gids_was_allocated)
+            {
+                free(uids_and_gids[0]);
+                free(uids_and_gids[1]);
+                free(uids_and_gids);
+                free(buff);
+            }
+            return NULL;
+        }
+        pos += strlen("GID_MIN");
+        while (!isdigit(*pos)) pos++;
+        start = pos;
+        while (isdigit(*pos)) pos++;
+        end = pos;
+        memset(tmp, 0, (size_t) (end - start) + 1);
+        strncpy(tmp, start, (size_t) (end - start));
+        unsigned int gid_min = (unsigned int) atoi(tmp);
+
+        pos = strstr(buff, "GID_MAX");
+        if (!pos) 
+        {
+            if (uids_and_gids_was_allocated)
+            {
+                free(uids_and_gids[0]);
+                free(uids_and_gids[1]);
+                free(uids_and_gids);
+                free(buff);
+            }
+            return NULL;
+        }
+        pos += strlen("GID_MAX");
+        while (!isdigit(*pos)) pos++;
+        start = pos;
+        while (isdigit(*pos)) pos++;
+        end = pos;
+        memset(tmp, 0, (size_t) (end - start) + 1);
+        strncpy(tmp, start, (size_t) (end - start));
+        unsigned int gid_max = (unsigned int) atoi(tmp);
+
+        uids_and_gids[1][0] = gid_min;
+        uids_and_gids[1][1] = gid_max;
+
+        free(buff);
+        return uids_and_gids;
+        FMC_UNREACHABLE;
+    }
+    else
+    {
+        fclose(f);
+        if (uids_and_gids_was_allocated)
+        {
+            free(uids_and_gids[0]);
+            free(uids_and_gids[1]);
+            free(uids_and_gids);
+        }
+        return NULL;
+    }
+}
+#endif
 
 FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_COLD char* FMC_getCurrentUserName(char* const user_name, const size_t len)
 {
