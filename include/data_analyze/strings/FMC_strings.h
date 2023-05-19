@@ -28,6 +28,8 @@ SOFTWARE.
 #define FMC_STRINGS_H
 
 #include <stdlib.h>
+#include <stdint.h>
+#include <uchar.h>
 
 #include "../../general/FMC_general.h"
 
@@ -175,10 +177,18 @@ FMC_BEGIN_DECLS
     res;                                                                                                                   \
 })
 
-#if defined(FMC_UI32_AS_BYTES)
+#if defined(FMC_UI32_AS_BYTES) || defined(FMC_UI32_AS_FMC_BYTES)
     #undef FMC_UI32_AS_BYTES
+    #undef FMC_UI32_AS_FMC_BYTES
 #endif
 #define FMC_UI32_AS_BYTES(_ui32) (_ui32 & 0xFF), ((_ui32 >> 8) & 0xFF), ((_ui32 >> 16) & 0xFF), ((_ui32 >> 24) & 0xFF)
+#define FMC_UI32_AS_FMC_BYTES(_ui32)        \
+    ((FMC_Byte[4]) {                        \
+        [0] = (_ui32 & 0xFF),               \
+        [1] = ((_ui32 >> 8) & 0xFF),        \
+        [2] = ((_ui32 >> 16) & 0xFF),       \
+        [3] = ((_ui32 >> 24) & 0xFF)        \
+    })
 
 #if defined(FMC_wrapCharComp) || defined(FMC_wrapUint32)
     #undef FMC_wrapCharComp
@@ -284,6 +294,8 @@ FMC_SHARED FMC_FUNC_NONNULL(1, 2, 3) FMC_FUNC_COLD int64_t FMC_getLevenshtein_co
     #undef FMC_getLevenshtein
 #endif
 #define FMC_getLevenshtein(_str1, _str2, ...) FMC_CHOOSE_FUNC(2)(FMC_getLevenshtein_no_coeffs, FMC_getLevenshtein_coeffs, _str1, _str2, __VA_ARGS__)
+
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_String* FMC_stringFromU8Str(unsigned char* utf8_c_str, FMC_Encodings enc);
 
 
 FMC_END_DECLS

@@ -1908,4 +1908,11 @@ FMC_MAYBE(1)
         }                                                                   \
     FMC_setError(_err, _msg_var);
 
+
+#if defined(for_all_char_in)
+    #undef for_all_char_in
+#endif
+#define for_all_char_in(_str, _char_var) \
+    uint64_t FMC_CONCAT(counter, __LINE__) = 0; for (FMC_Char* _char_var = (_str)->firstChar; _char_var != (_str)->lastChar && FMC_CONCAT(counter, __LINE__) != (_str)->size; _char_var = _char_var->next)
+
 #endif // FMC_MACROS_H

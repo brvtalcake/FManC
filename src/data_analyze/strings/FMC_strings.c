@@ -399,8 +399,87 @@ one_ch_str:
     }
     goto end;
 
-
 end:
+    return str;
+    FMC_UNREACHABLE;
+}
+
+
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_String* FMC_stringFromU8Str(unsigned char* utf8_c_str, FMC_Encodings enc)
+{
+    #pragma GCC diagnostic ignored "-Wnonnull-compare"
+    if (!utf8_c_str)
+    {
+        FMC_HANDLE_ERR(FMC_ERR_INVALID_ARGUMENT, "the provided pointer is NULL", err_arg, FMC_FALSE);
+        return NULL;
+        FMC_UNREACHABLE;
+    }
+    #pragma GCC diagnostic pop
+    FMC_Char* null_ch = FMC_allocChar((FMC_Byte[4]){[0 ... 3] = 0x00}, utf8, FMC_TRUE, 1);
+    if (!null_ch) return NULL;
+    FMC_String* str = FMC_allocStr(&null_ch, 1);
+    if (!str) 
+    {
+        FMC_freeChar(null_ch);
+        return NULL;
+    }
+    FMC_Char ch = (FMC_Char){.byteNumber = 0, .encoding = utf8, .comp = FMC_CHARCOMP_NULL, .isNull = FMC_TRUE, .next = NULL, .prev = NULL};
+    uint64_t i = 0;
+    while (utf8_c_str[i])
+    {
+        ch = (FMC_Char){.byteNumber = 0, .encoding = utf8, .comp = FMC_CHARCOMP_NULL, .isNull = FMC_TRUE, .next = NULL, .prev = NULL};
+        switch (utf8_c_str[i])
+        {
+            case 0 ... 0x7F:
+                ch.byteNumber = 1;
+                ch.encoding = utf8;
+                ch.comp.byte0 = utf8_c_str[i];
+                ch.isNull = (utf8_c_str[i] == 0x00) ? FMC_TRUE : FMC_FALSE;
+                str = FMC_append_ch(str, &ch);
+                break;
+            case 0b11000000 ... 0b11011111:
+                ch.byteNumber = 2;
+                ch.encoding = utf8;
+                ch.comp.byte0 = utf8_c_str[i];
+                ch.comp.byte1 = utf8_c_str[i + 1];
+                ch.isNull = (utf8_c_str[i] == 0x00 && utf8_c_str[i + 1] == 0x00) ? FMC_TRUE : FMC_FALSE;
+                str = FMC_append_ch(str, &ch);
+                i++;
+                break;
+            case 0b11100000 ... 0b11101111:
+                ch.byteNumber = 3;
+                ch.encoding = utf8;
+                ch.comp.byte0 = utf8_c_str[i];
+                ch.comp.byte1 = utf8_c_str[i + 1];
+                ch.comp.byte2 = utf8_c_str[i + 2];
+                ch.isNull = (utf8_c_str[i] == 0x00 && utf8_c_str[i + 1] == 0x00 && utf8_c_str[i + 2] == 0x00) ? FMC_TRUE : FMC_FALSE;
+                str = FMC_append_ch(str, &ch);
+                i += 2;
+                break;
+            case 0b11110000 ... 0b11110111:
+                ch.byteNumber = 4;
+                ch.encoding = utf8;
+                ch.comp.byte0 = utf8_c_str[i];
+                ch.comp.byte1 = utf8_c_str[i + 1];
+                ch.comp.byte2 = utf8_c_str[i + 2];
+                ch.comp.byte3 = utf8_c_str[i + 3];
+                ch.isNull = (utf8_c_str[i] == 0x00 && utf8_c_str[i + 1] == 0x00 && utf8_c_str[i + 2] == 0x00 && utf8_c_str[i + 3] == 0x00) ? FMC_TRUE : FMC_FALSE;
+                str = FMC_append_ch(str, &ch);
+                i += 3;
+                break;
+            default:
+                FMC_freeStr(str);
+                FMC_freeChar(null_ch);
+                FMC_HANDLE_ERR(FMC_ERR_INVALID_ARGUMENT, "the provided string is not a valid UTF-8 string", err_arg, FMC_FALSE);
+                return NULL;
+                FMC_UNREACHABLE;
+        }
+        i++;
+    }
+
+    // TODO: finish FMC_convertStr implementation and then uncomment the following line
+    // FMC_convertStr(str, enc);
+    (void) enc;
     return str;
     FMC_UNREACHABLE;
 }
