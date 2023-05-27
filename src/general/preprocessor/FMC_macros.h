@@ -1420,11 +1420,14 @@ FMC_FORMAT_FOR_OVERLOAD_DISPATCH(0, 2, (f1, ((unsigned, int, ptr), (int))), (f2,
 #define FMC_IDENT_EQ_META_IMPL(_x, _y) v(FMC_IDENT_EQ(_x, _y))
 #define FMC_IDENT_EQ_META_ARITY 2
 
-#if defined(FMC_OVERLOAD_COMPARE_TUPLED_TYPES)
+#if defined(FMC_OVERLOAD_COMPARE_TUPLED_TYPES) || defined(FMC_OVERLOAD_COMPARE_TUPLED_TYPES_COMPL)
     #undef FMC_OVERLOAD_COMPARE_TUPLED_TYPES
+    #undef FMC_OVERLOAD_COMPARE_TUPLED_TYPES_COMPL
 #endif
 #define FMC_OVERLOAD_COMPARE_TUPLED_TYPES(_s, _func, ...) \
     CHAOS_PP_BOOL(FMC_IDENT_EQ(FMC_ID(FMC_GET_ARGN(0, __VA_ARGS__)), FMC_ID(FMC_GET_ARGN(FMC_ID(FMC_GET_ARGN(1, __VA_ARGS__)), FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARGS(FMC_ID(FMC_INVOKE(FMC_ID, _func)))))))
+
+#define FMC_OVERLOAD_COMPARE_TUPLED_TYPES_COMPL(_s, _func, ...) CHAOS_PP_COMPL(FMC_OVERLOAD_COMPARE_TUPLED_TYPES(_s, _func, __VA_ARGS__))
 
 #if defined(FMC_OVERLOAD_FILTER_POTENTIAL_FUNC)
     #undef FMC_OVERLOAD_FILTER_POTENTIAL_FUNC
@@ -1435,6 +1438,18 @@ FMC_FORMAT_FOR_OVERLOAD_DISPATCH(0, 2, (f1, ((unsigned, int, ptr), (int))), (f2,
         CHAOS_PP_EXPR(\
             CHAOS_PP_VARIADIC_SEQ_FILTER(\
                 FMC_OVERLOAD_COMPARE_TUPLED_TYPES, FMC_ARGS_TO_SEQ(__VA_ARGS__), _tupled_type_to_compare_to, _arg_no \
+            )\
+        )\
+    )
+
+#if defined(FMC_OVERLOAD_FILTER_REMAINING_FUNCS)
+    #undef FMC_OVERLOAD_FILTER_REMAINING_FUNCS
+#endif
+#define FMC_OVERLOAD_FILTER_REMAINING_FUNCS(_arg_no, _tupled_type_to_compare_to, ...) \
+    FMC_ML99_SEQ_AS_ARGS(\
+        CHAOS_PP_EXPR(\
+            CHAOS_PP_VARIADIC_SEQ_FILTER(\
+                FMC_OVERLOAD_COMPARE_TUPLED_TYPES_COMPL, FMC_ARGS_TO_SEQ(__VA_ARGS__), _tupled_type_to_compare_to, _arg_no \
             )\
         )\
     )
@@ -1452,16 +1467,67 @@ FMC_FORMAT_FOR_OVERLOAD_DISPATCH(0, 2, (f1, ((unsigned, int, ptr), (int))), (f2,
     #undef FMC_OVERLOAD_GEN_SUBCASES_9
     #undef FMC_OVERLOAD_GEN_SUBCASES_10
 #endif
-#define FMC_OVERLOAD_GEN_SUBCASES_2(_possible_func_count, ...) \
-    (\
-        FMC_ID(FMC_GET_ARGN(0, FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARGS_EXPANDED(FMC_GET_ARGN(0, __VA_ARGS__)))), \
-        CHAOS_PP_VARIADIC_IF(/* If there are strictly more than 1 `potential func`, then nested generic, else this must be the first func */)(/* nested generic */)(/* the func */) \
-    ),\
-    (\
-        FMC_ID(FMC_GET_ARGN(0, FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARGS_EXPANDED(FMC_GET_ARGN(1, __VA_ARGS__)))), \
-        CHAOS_PP_VARIADIC_IF(/* If there are strictly more than 1 `potential func`, then nested generic, else this must be the first func */)(/* nested generic */)(/* the func */) \
+
+#if defined(FMC_OVERLOAD_GEN_SUBCASES_FUNC_LIST)
+    #undef FMC_OVERLOAD_GEN_SUBCASES_FUNC_LIST
+#endif
+#define FMC_OVERLOAD_GEN_SUBCASES_FUNC_LIST(_possible_func_count, ...)        \
+    ML99_LIST_EVAL_COMMA_SEP(                                                 \
+        ML99_list(                                                            \
+            v(FMC_ARGS_X_TO_Y(0, FMC_DEC(_possible_func_count), __VA_ARGS__)) \
+        )                                                                     \
     )
-    /* ... repeat until the end of all functions, and recursively in all nested generics */
+
+#if defined(FMC_OVERLOAD_GEN_SUBCASES_ARG_LIST)
+    #undef FMC_OVERLOAD_GEN_SUBCASES_ARG_LIST
+#endif
+#define FMC_OVERLOAD_GEN_SUBCASES_ARG_LIST(_possible_func_count, ...) \
+    ML99_LIST_EVAL_COMMA_SEP(                                          \
+        ML99_list(                                                     \
+            v(FMC_ARGS_X_TO_Y(                                          \
+                FMC_INC(_possible_func_count),\
+                FMC_ADD(FMC_GET_ARGN(_possible_func_count, __VA_ARGS__), _possible_func_count), __VA_ARGS__)) \
+        )                                                                     \
+    )
+/* 
+#define PRED2(s, ...) CHAOS_PP_NOT_EQUAL(FMC_GET_ARGN(0, __VA_ARGS__), 0)
+#define OP2(s, ...) CHAOS_PP_DEC(FMC_GET_ARGN(0, __VA_ARGS__)), FMC_GET_ARGN(1, __VA_ARGS__)
+#define MACRO2(s, ...) FMC_GET_ARGN(0, __VA_ARGS__), FMC_GET_ARGN(1, __VA_ARGS__)
+
+#define PRED(s, ...) CHAOS_PP_NOT_EQUAL(FMC_GET_ARGN(0, __VA_ARGS__), 0)
+#define OP(s, ...) CHAOS_PP_DEC(FMC_GET_ARGN(0, __VA_ARGS__)), FMC_GET_ARGN(1, __VA_ARGS__)
+#define MACRO(s, ...) { CHAOS_PP_EXPR(CHAOS_PP_FOR(PRED2, OP2, MACRO2, __VA_ARGS__)) }
+
+CHAOS_PP_EXPR(CHAOS_PP_FOR(
+    PRED, OP, MACRO, 3, 100
+)) */
+// { 3, 100 2, 100 1, 100 } { 2, 100 1, 100 } { 1, 100 }
+
+#if defined(FMC_OVERLOAD_GEN_SUBCASES_2_PRED1) || defined(FMC_OVERLOAD_GEN_SUBCASES_2_OP1) || defined(FMC_OVERLOAD_GEN_SUBCASES_2_MACRO1)
+    #undef FMC_OVERLOAD_GEN_SUBCASES_2_PRED1
+    #undef FMC_OVERLOAD_GEN_SUBCASES_2_OP1
+    #undef FMC_OVERLOAD_GEN_SUBCASES_2_MACRO1
+#endif
+#define FMC_OVERLOAD_GEN_SUBCASES_2_PRED1(s, ...) CHAOS_PP_BOOL(FMC_GET_LAST_ARG(__VA_ARGS__))
+#define FMC_OVERLOAD_GEN_SUBCASES_2_OP1(s, ...) FMC_ARGS_X_TO_Y(0, FMC_DEC(FMC_GET_ARGC(__VA_ARGS__)), __VA_ARGS__), CHAOS_PP_DEC(FMC_GET_LAST_ARG(__VA_ARGS__))
+#define FMC_OVERLOAD_GEN_SUBCASES_2_MACRO1(s, ...)                                                                              \
+    CHAOS_PP_EXPR(                                                                                                              \
+        CHAOS_PP_FOR(                                                                                                           \
+            FMC_OVERLOAD_GEN_SUBCASES_2_PRED2, FMC_OVERLOAD_GEN_SUBCASES_2_OP2, FMC_OVERLOAD_GEN_SUBCASES_2_MACRO2, __VA_ARGS__ \
+        )                                                                                                                       \
+    )
+#define FMC_OVERLOAD_GEN_SUBCASES_2(_possible_func_count, ...) \
+
+
+//    (\
+//        FMC_ID(FMC_GET_ARGN(0, FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARGS_EXPANDED(FMC_GET_ARGN(0, __VA_ARGS__)))), \
+//        CHAOS_PP_VARIADIC_IF(/* If there are strictly more than 1 `potential func`, then nested generic, else this must be the first func */)(/* nested generic */)(/* the func */) \
+//    ),\
+//    (\
+//        FMC_ID(FMC_GET_ARGN(0, FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARGS_EXPANDED(FMC_GET_ARGN(1, __VA_ARGS__)))), \
+//        CHAOS_PP_VARIADIC_IF(/* If there are strictly more than 1 `potential func`, then nested generic, else this must be the second func */)(/* nested generic */)(/* the func */) \
+//    )
+    /* ... repeat until the end of all "stage-1 cases", and recursively in all nested generics */
 
 #define FMC_OVERLOAD_GEN_SUBCASES(_arg_count, _possible_func_count, ...) \
     FMC_ID(FMC_INVOKE(FMC_ID(FMC_CONCAT(FMC_OVERLOAD_GEN_SUBCASES_, _arg_count)), (_possible_func_count, __VA_ARGS__)))

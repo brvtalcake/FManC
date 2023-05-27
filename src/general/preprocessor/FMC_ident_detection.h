@@ -24,6 +24,9 @@ SOFTWARE.
 
 */
 
+// TODO: Make short int and signed short int equal (for example)
+// (works the same for all signed-by-default types like int, long, long long, etc.)
+
 #ifndef FMC_IDENT_DETECTION_H
 #define FMC_IDENT_DETECTION_H
 
