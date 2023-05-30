@@ -32,6 +32,7 @@ SOFTWARE.
 #include <chaos/preprocessor.h>
 #include <stdint.h>
 #include <stdalign.h>
+#include "assert.h"
 #include "FMC_attributes.h"
 
 #if defined(_FORTIFY_SOURCE) && _FORTIFY_SOURCE < 1
@@ -286,6 +287,17 @@ SOFTWARE.
 #define FMC_GET_LAST_ARG(...) FMC_GET_ARGN(ML99_EVAL(ML99_call(ML99_dec, v(FMC_GET_ARGC(__VA_ARGS__)))), ## __VA_ARGS__)
 #define FMC_NFIRST_ARGS(_n, ...) // TODO: finish this one
 
+#if defined(FMC_GET_ARGN_FROM_LAST)
+    #undef FMC_GET_ARGN_FROM_LAST
+#endif
+#define FMC_GET_ARGN_FROM_LAST(_n, ...) \
+    CHAOS_PP_EXPR(\
+        CHAOS_PP_VARIADIC_IF(CHAOS_PP_OR\
+            (CHAOS_PP_COMPL(CHAOS_PP_BOOL(FMC_GET_ARGC(__VA_ARGS__))))\
+            (FMC_GREATER(_n, FMC_DEC(FMC_GET_ARGC(__VA_ARGS__)))))\
+        (static_assert(0, "FMC_GET_ARGN_FROM_LAST: Invalid index"))\
+        (ML99_EVAL(ML99_listGet(v(_n), ML99_listReverse(ML99_list(v(__VA_ARGS__))))))\
+    )
 
 #if defined(FMC_CHOOSE_FUNC)
     #undef FMC_CHOOSE_FUNC
@@ -1473,18 +1485,8 @@ FMC_FORMAT_FOR_OVERLOAD_DISPATCH(0, 2, (f1, ((unsigned, int, ptr), (int))), (f2,
         )\
     )
 
-#if defined(FMC_OVERLOAD_GEN_SUBCASES) || defined(FMC_OVERLOAD_GEN_SUBCASES_2) || defined(FMC_OVERLOAD_GEN_SUBCASES_3) || defined(FMC_OVERLOAD_GEN_SUBCASES_4) \
-    || defined(FMC_OVERLOAD_GEN_SUBCASES_5) || defined(FMC_OVERLOAD_GEN_SUBCASES_6) || defined(FMC_OVERLOAD_GEN_SUBCASES_7)\
-    || defined(FMC_OVERLOAD_GEN_SUBCASES_9) || defined(FMC_OVERLOAD_GEN_SUBCASES_10)
+#if defined(FMC_OVERLOAD_GEN_SUBCASES)
     #undef FMC_OVERLOAD_GEN_SUBCASES
-    #undef FMC_OVERLOAD_GEN_SUBCASES_2
-    #undef FMC_OVERLOAD_GEN_SUBCASES_3
-    #undef FMC_OVERLOAD_GEN_SUBCASES_4
-    #undef FMC_OVERLOAD_GEN_SUBCASES_5
-    #undef FMC_OVERLOAD_GEN_SUBCASES_6
-    #undef FMC_OVERLOAD_GEN_SUBCASES_7
-    #undef FMC_OVERLOAD_GEN_SUBCASES_9
-    #undef FMC_OVERLOAD_GEN_SUBCASES_10
 #endif
 
 #if defined(FMC_OVERLOAD_GEN_SUBCASES_FUNC_LIST)
@@ -1529,72 +1531,155 @@ CHAOS_PP_EXPR(CHAOS_PP_FOR(
 )) */
 // { 3, 100 2, 100 1, 100 } { 2, 100 1, 100 } { 1, 100 }
 
-#if defined(FMC_OVERLOAD_GEN_SUBCASES_2_PRED1) || defined(FMC_OVERLOAD_GEN_SUBCASES_2_OP1) || defined(FMC_OVERLOAD_GEN_SUBCASES_2_MACRO1)
-    #undef FMC_OVERLOAD_GEN_SUBCASES_2_PRED1
-    #undef FMC_OVERLOAD_GEN_SUBCASES_2_OP1
-    #undef FMC_OVERLOAD_GEN_SUBCASES_2_MACRO1
+#if defined(FMC_OVERLOAD_GEN_SUBCASES_PRED1) || defined(FMC_OVERLOAD_GEN_SUBCASES_OP1) || defined(FMC_OVERLOAD_GEN_SUBCASES_MACRO1)
+    #undef FMC_OVERLOAD_GEN_SUBCASES_PRED1
+    #undef FMC_OVERLOAD_GEN_SUBCASES_OP1
+    #undef FMC_OVERLOAD_GEN_SUBCASES_MACRO1
 #endif
 // last arg (appended to the variables to dispatch in _Generics) : current_type
-// before last arg : the positionnal index to the variable being dispatched (for FMC_OVERLOAD_GEN_SUBCASES_2_[PRED|OP|MACRO]2 macros)
-#define FMC_OVERLOAD_GEN_SUBCASES_2_PRED1(s, ...) \
-    CHAOS_PP_BOOL(\
-        CHAOS_PP_EXPR(\
-            CHAOS_PP_VARIADIC_IF(CHAOS_PP_BOOL(FMC_GREATER(FMC_GET_ARGN(0, __VA_ARGS__))))\
-                (0)\
-                (FMC_ARGS_X_TO_Y(1, FMC_GET_ARGN(0, __VA_ARGS__), __VA_ARGS__))\
-        )\
-    )
+// before last arg : the positionnal index to the variable being dispatched (for FMC_OVERLOAD_GEN_SUBCASES_[PRED|OP|MACRO]2 macros)
+#define FMC_OVERLOAD_GEN_SUBCASES_PRED1(s, ...) FMC_GREATER(FMC_GET_ARGN(0, __VA_ARGS__), 0)
 
-#define FMC_OVERLOAD_GEN_SUBCASES_2_OP1(s, ...) \
-    FMC_GET_ARGC(FMC_OVERLOAD_FILTER_REMAINING_FUNCS(0, FMC_GET_LAST_ARG(__VA_ARGS__), FMC_ARGS_X_TO_Y(1, FMC_GET_ARGN(0, __VA_ARGS__), __VA_ARGS__))),\
-    FMC_OVERLOAD_FILTER_REMAINING_FUNCS(0, FMC_GET_LAST_ARG(__VA_ARGS__), FMC_ARGS_X_TO_Y(1, FMC_GET_ARGN(0, __VA_ARGS__), __VA_ARGS__)), \
+#define FMC_OVERLOAD_GEN_SUBCASES_OP1(s, ...) \
+    FMC_GET_ARGC(FMC_OVERLOAD_FILTER_REMAINING_FUNCS(0, FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARG_N(0, FMC_GET_ARGN(1, __VA_ARGS__)), FMC_ARGS_X_TO_Y(1, FMC_GET_ARGN(0, __VA_ARGS__), __VA_ARGS__))),\
+    FMC_OVERLOAD_FILTER_REMAINING_FUNCS(0, FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARG_N(0, FMC_GET_ARGN(1, __VA_ARGS__)), FMC_ARGS_X_TO_Y(1, FMC_GET_ARGN(0, __VA_ARGS__), __VA_ARGS__)), \
     FMC_ARGS_X_TO_Y(\
         FMC_INC(FMC_GET_ARGN(0, __VA_ARGS__)), FMC_ADD(FMC_GET_ARGN(FMC_INC(FMC_GET_ARGN(0, __VA_ARGS__)), __VA_ARGS__),\
         FMC_INC(FMC_GET_ARGN(0, __VA_ARGS__))),\
         __VA_ARGS__\
     ),\
+    FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARG_N(0, FMC_GET_ARGN(1, __VA_ARGS__))
+
+#define FMC_OVERLOAD_GEN_SUBCASES_MACRO1(s, ...)                                                                              \
+    ((\
+    CHAOS_PP_VARIADIC_IF(CHAOS_PP_EQUAL(\
+        1,\
+        FMC_GET_ARGC(FMC_OVERLOAD_FILTER_POTENTIAL_FUNC(\
+                     0,\
+                     FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARG_N(0, FMC_GET_ARGN(1, __VA_ARGS__)),\
+                     FMC_ARGS_X_TO_Y(1, FMC_GET_ARGN(0, __VA_ARGS__), __VA_ARGS__)\
+        ))\
+    )) \
+    /* When there is only one possible function */ \
+    (\
+        FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARG_N_EXPANDED(0, FMC_GET_ARGN(1, __VA_ARGS__)),\
+        FMC_OVERLOAD_FUNC_SIG_EXTRACT_FUNC(\
+            FMC_OVERLOAD_FILTER_POTENTIAL_FUNC(\
+                0,\
+                FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARG_N(0, FMC_GET_ARGN(1, __VA_ARGS__)),\
+                FMC_ARGS_X_TO_Y(1, FMC_GET_ARGN(0, __VA_ARGS__), __VA_ARGS__)\
+            )\
+        )\
+    )\
+    /* When there are multiple possible functions */ \
+    (\
+        FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARG_N_EXPANDED(0, FMC_GET_ARGN(1, __VA_ARGS__)),\
+        (FMC_OVERLOAD_DISPATCH_HELPER(\
+            FMC_GET_ARGN(1, FMC_OVERLOAD_GEN_SUBCASES_ARG_LIST(FMC_GET_ARGN(0, __VA_ARGS__), FMC_ARGS_X_TO_Y(1, FMC_DEC(FMC_GET_ARGC(__VA_ARGS__)), __VA_ARGS__))),\
+            FMC_ML99_SEQ_AS_ARGS(\
+                CHAOS_PP_EXPR(                                                                                                              \
+                    CHAOS_PP_FOR(                                                                                                           \
+                    FMC_OVERLOAD_GEN_SUBCASES_PRED2, FMC_OVERLOAD_GEN_SUBCASES_OP2, FMC_OVERLOAD_GEN_SUBCASES_MACRO2,\
+                    FMC_GET_ARGC(FMC_OVERLOAD_FILTER_POTENTIAL_FUNC(0, FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARG_N(0, FMC_GET_ARGN(1, __VA_ARGS__)), FMC_ARGS_X_TO_Y(1, FMC_GET_ARGN(0, __VA_ARGS__), __VA_ARGS__))),\
+                    FMC_OVERLOAD_FILTER_POTENTIAL_FUNC(0, FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARG_N(0, FMC_GET_ARGN(1, __VA_ARGS__)), FMC_ARGS_X_TO_Y(1, FMC_GET_ARGN(0, __VA_ARGS__), __VA_ARGS__)), \
+                    FMC_ARGS_X_TO_Y(\
+                        FMC_INC(FMC_GET_ARGN(0, __VA_ARGS__)), FMC_ADD(FMC_GET_ARGN(FMC_INC(FMC_GET_ARGN(0, __VA_ARGS__)), __VA_ARGS__),\
+                        FMC_INC(FMC_GET_ARGN(0, __VA_ARGS__))),\
+                        __VA_ARGS__\
+                    ),\
+                    FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARG_N(0, FMC_GET_ARGN(1, __VA_ARGS__)), \
+                    1\
+                    )\
+                )                                                                                                                       \
+            )\
+        ))\
+    )\
+    ))
+
+
+#if defined(FMC_OVERLOAD_GEN_SUBCASES_PRED2) || defined(FMC_OVERLOAD_GEN_SUBCASES_OP2) || defined(FMC_OVERLOAD_GEN_SUBCASES_MACRO2)
+    #undef FMC_OVERLOAD_GEN_SUBCASES_PRED2
+    #undef FMC_OVERLOAD_GEN_SUBCASES_OP2
+    #undef FMC_OVERLOAD_GEN_SUBCASES_MACRO2
+#endif
+#define FMC_OVERLOAD_GEN_SUBCASES_PRED2(s, ...) FMC_GREATER(FMC_GET_ARGN(0, __VA_ARGS__), 0)
+
+#define FMC_OVERLOAD_GEN_SUBCASES_OP2(s, ...) \
+    FMC_GET_ARGC(FMC_OVERLOAD_FILTER_REMAINING_FUNCS(FMC_GET_LAST_ARG(__VA_ARGS__), FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARG_N(FMC_GET_LAST_ARG(__VA_ARGS__), FMC_GET_ARGN(1, __VA_ARGS__)), FMC_ARGS_X_TO_Y(1, FMC_GET_ARGN(0, __VA_ARGS__), __VA_ARGS__))), \
+    FMC_OVERLOAD_FILTER_REMAINING_FUNCS(FMC_GET_LAST_ARG(__VA_ARGS__), FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARG_N(FMC_GET_LAST_ARG(__VA_ARGS__), FMC_GET_ARGN(1, __VA_ARGS__)), FMC_ARGS_X_TO_Y(1, FMC_GET_ARGN(0, __VA_ARGS__), __VA_ARGS__)), \
+    FMC_ARGS_X_TO_Y(\
+        FMC_INC(FMC_GET_ARGN(0, __VA_ARGS__)), FMC_ADD(FMC_GET_ARGN(FMC_INC(FMC_GET_ARGN(0, __VA_ARGS__)), __VA_ARGS__),\
+        FMC_INC(FMC_GET_ARGN(0, __VA_ARGS__))),\
+        __VA_ARGS__\
+    ),\
+    FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARG_N(FMC_GET_LAST_ARG(__VA_ARGS__), FMC_GET_ARGN(1, __VA_ARGS__)), \
     FMC_GET_LAST_ARG(__VA_ARGS__)
 
-#define FMC_OVERLOAD_GEN_SUBCASES_2_MACRO1(s, ...)                                                                              \
-    CHAOS_PP_EXPR(                                                                                                              \
-        CHAOS_PP_FOR(                                                                                                           \
-            FMC_OVERLOAD_GEN_SUBCASES_2_PRED2, FMC_OVERLOAD_GEN_SUBCASES_2_OP2, FMC_OVERLOAD_GEN_SUBCASES_2_MACRO2,\
-            FMC_GET_ARGC(FMC_OVERLOAD_FILTER_POTENTIAL_FUNC(0, FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARG_N(0, FMC_GET_ARGN(1, __VA_ARGS__)), FMC_ARGS_X_TO_Y(1, FMC_GET_ARGN(0, __VA_ARGS__), __VA_ARGS__))),\
-            FMC_OVERLOAD_FILTER_POTENTIAL_FUNC(0, FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARG_N(0, FMC_GET_ARGN(1, __VA_ARGS__)), FMC_ARGS_X_TO_Y(1, FMC_GET_ARGN(0, __VA_ARGS__), __VA_ARGS__)), \
-            FMC_ARGS_X_TO_Y(\
-                FMC_INC(FMC_GET_ARGN(0, __VA_ARGS__)), FMC_ADD(FMC_GET_ARGN(FMC_INC(FMC_GET_ARGN(0, __VA_ARGS__)), __VA_ARGS__),\
-                FMC_INC(FMC_GET_ARGN(0, __VA_ARGS__))),\
-                __VA_ARGS__\
-            ),\
-            FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARG_N(0, FMC_GET_ARGN(1, __VA_ARGS__)), \
-            1\
-        )                                                                                                                       \
-    )
+#define FMC_OVERLOAD_GEN_SUBCASES_MACRO2(s, ...) \
+    ((\
+    CHAOS_PP_VARIADIC_IF(CHAOS_PP_EQUAL(\
+        1,\
+        FMC_GET_ARGC(FMC_OVERLOAD_FILTER_POTENTIAL_FUNC(\
+                     FMC_GET_LAST_ARG(__VA_ARGS__),\
+                     FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARG_N(FMC_GET_LAST_ARG(__VA_ARGS__), FMC_GET_ARGN(1, __VA_ARGS__)),\
+                     FMC_ARGS_X_TO_Y(1, FMC_GET_ARGN(0, __VA_ARGS__), __VA_ARGS__)\
+        ))\
+    )) \
+    /* When there is only one possible function */ \
+    (\
+        FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARG_N_EXPANDED(FMC_GET_LAST_ARG(__VA_ARGS__), FMC_GET_ARGN(1, __VA_ARGS__)),\
+        FMC_OVERLOAD_FUNC_SIG_EXTRACT_FUNC(\
+            FMC_OVERLOAD_FILTER_POTENTIAL_FUNC(\
+                FMC_GET_LAST_ARG(__VA_ARGS__),\
+                FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARG_N(FMC_GET_LAST_ARG(__VA_ARGS__), FMC_GET_ARGN(1, __VA_ARGS__)),\
+                FMC_ARGS_X_TO_Y(1, FMC_GET_ARGN(0, __VA_ARGS__), __VA_ARGS__)\
+            )\
+        )\
+    )\
+    /* When there are multiple possible functions */ \
+    (\
+        FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARG_N_EXPANDED(FMC_GET_LAST_ARG(__VA_ARGS__), FMC_GET_ARGN(1, __VA_ARGS__)),\
+        (FMC_OVERLOAD_DISPATCH_HELPER(\
+            FMC_GET_ARGN(FMC_INC(FMC_GET_LAST_ARG(__VA_ARGS__)), FMC_OVERLOAD_GEN_SUBCASES_ARG_LIST(FMC_GET_ARGN(0, __VA_ARGS__), FMC_ARGS_X_TO_Y(1, FMC_DEC(FMC_GET_ARGC(__VA_ARGS__)), __VA_ARGS__))),\
+            FMC_ML99_SEQ_AS_ARGS(\
+                CHAOS_PP_EXPR(                                                                                                              \
+                    CHAOS_PP_FOR(                                                                                                           \
+                    FMC_OVERLOAD_GEN_SUBCASES_PRED3, FMC_OVERLOAD_GEN_SUBCASES_OP3, FMC_OVERLOAD_GEN_SUBCASES_MACRO3,\
+                    FMC_GET_ARGC(FMC_OVERLOAD_FILTER_POTENTIAL_FUNC(FMC_GET_LAST_ARG(__VA_ARGS__), FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARG_N(FMC_GET_LAST_ARG(__VA_ARGS__), FMC_GET_ARGN(1, __VA_ARGS__)), FMC_ARGS_X_TO_Y(1, FMC_GET_ARGN(0, __VA_ARGS__), __VA_ARGS__))),\
+                    FMC_OVERLOAD_FILTER_POTENTIAL_FUNC(FMC_GET_LAST_ARG(__VA_ARGS__), FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARG_N(FMC_GET_LAST_ARG(__VA_ARGS__), FMC_GET_ARGN(1, __VA_ARGS__)), FMC_ARGS_X_TO_Y(1, FMC_GET_ARGN(0, __VA_ARGS__), __VA_ARGS__)), \
+                    FMC_ARGS_X_TO_Y(\
+                        FMC_INC(FMC_GET_ARGN(0, __VA_ARGS__)), FMC_ADD(FMC_GET_ARGN(FMC_INC(FMC_GET_ARGN(0, __VA_ARGS__)), __VA_ARGS__),\
+                        FMC_INC(FMC_GET_ARGN(0, __VA_ARGS__))),\
+                        __VA_ARGS__\
+                    ),\
+                    FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARG_N(FMC_GET_LAST_ARG(__VA_ARGS__), FMC_GET_ARGN(1, __VA_ARGS__)), \
+                    FMC_INC(FMC_GET_LAST_ARG(__VA_ARGS__))\
+                    )\
+                )                                                                                                                       \
+            )\
+        ))\
+    )\
+    ))
 
-#if defined(FMC_OVERLOAD_GEN_SUBCASES_2_PRED2) || defined(FMC_OVERLOAD_GEN_SUBCASES_2_OP2) || defined(FMC_OVERLOAD_GEN_SUBCASES_2_MACRO2)
-    #undef FMC_OVERLOAD_GEN_SUBCASES_2_PRED2
-    #undef FMC_OVERLOAD_GEN_SUBCASES_2_OP2
-    #undef FMC_OVERLOAD_GEN_SUBCASES_2_MACRO2
+#if defined(FMC_OVERLOAD_GEN_SUBCASES_PRED3) || defined(FMC_OVERLOAD_GEN_SUBCASES_OP3) || defined(FMC_OVERLOAD_GEN_SUBCASES_MACRO3)
+    #undef FMC_OVERLOAD_GEN_SUBCASES_PRED3
+    #undef FMC_OVERLOAD_GEN_SUBCASES_OP3
+    #undef FMC_OVERLOAD_GEN_SUBCASES_MACRO3
 #endif
-#define FMC_OVERLOAD_GEN_SUBCASES_2_PRED2(s, ...) \
 
 
-#define FMC_OVERLOAD_GEN_SUBCASES_2(_possible_func_count, ...) \
+#define FMC_OVERLOAD_GEN_SUBCASES(_possible_func_count, ...) \
+    CHAOS_PP_EXPR(CHAOS_PP_FOR(\
+        FMC_OVERLOAD_GEN_SUBCASES_PRED1, FMC_OVERLOAD_GEN_SUBCASES_OP1, FMC_OVERLOAD_GEN_SUBCASES_MACRO1, _possible_func_count, __VA_ARGS__, ()\
+    ))
 
-
-//    (\
-//        FMC_ID(FMC_GET_ARGN(0, FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARGS_EXPANDED(FMC_GET_ARGN(0, __VA_ARGS__)))), \
-//        CHAOS_PP_VARIADIC_IF(/* If there are strictly more than 1 `potential func`, then nested generic, else this must be the first func */)(/* nested generic */)(/* the func */) \
-//    ),\
-//    (\
-//        FMC_ID(FMC_GET_ARGN(0, FMC_OVERLOAD_FUNC_SIG_EXTRACT_ARGS_EXPANDED(FMC_GET_ARGN(1, __VA_ARGS__)))), \
-//        CHAOS_PP_VARIADIC_IF(/* If there are strictly more than 1 `potential func`, then nested generic, else this must be the second func */)(/* nested generic */)(/* the func */) \
-//    )
-    /* ... repeat until the end of all "stage-1 cases", and recursively in all nested generics */
-
-#define FMC_OVERLOAD_GEN_SUBCASES(_arg_count, _possible_func_count, ...) \
-    FMC_ID(FMC_INVOKE(FMC_ID(FMC_CONCAT(FMC_OVERLOAD_GEN_SUBCASES_, _arg_count)), (_possible_func_count, __VA_ARGS__)))
-    
+#if defined(FMC_OVERLOAD_SUBCASES)
+    #undef FMC_OVERLOAD_SUBCASES
+#endif
+#define FMC_OVERLOAD_SUBCASES(_possible_func_count, ...) \
+    FMC_ML99_SEQ_AS_ARGS(\
+        FMC_OVERLOAD_GEN_SUBCASES(_possible_func_count, __VA_ARGS__) \
+    )
 
 // No args to process, there must have only one possible function
 #define FMC_OVERLOAD_DISPATCH_0(_possible_func_count, ...) FMC_OVERLOAD_FUNC_SIG_EXTRACT_FUNC(FMC_GET_ARGN(0, __VA_ARGS__))
@@ -1618,8 +1703,10 @@ CHAOS_PP_EXPR(CHAOS_PP_FOR(
     )
 // Two args to process
 #define FMC_OVERLOAD_DISPATCH_2(_possible_func_count, ...)                                                                      \
-    FMC_OVERLOAD_DISPATCH_HELPER(                                                                                               \
-        )
+    FMC_OVERLOAD_DISPATCH_HELPER(\
+        FMC_GET_ARGN(0, FMC_OVERLOAD_GEN_SUBCASES_ARG_LIST(_possible_func_count, __VA_ARGS__)),\
+        FMC_OVERLOAD_SUBCASES(_possible_func_count, __VA_ARGS__)\
+    )
 // Three args to process
 #define FMC_OVERLOAD_DISPATCH_3(_possible_func_count, ...)                                                                                      \
     /* FMC_OVERLOAD_DISPATCH_HELPER(                                                                                                               \
@@ -2048,6 +2135,12 @@ FMC_MAYBE(1)
 
 #if 0
 
+FMC_OVERLOAD_GEN_SUBCASES_MACRO1(s, 3, (f1, ((unsigned, int), (FMC_Char))), (f2, ((unsigned, int), (int))), (f3, ((size_t, ptr), (signed, char))), 2, x, y, (signed, int))
+
+FMC_OVERLOAD_GEN_SUBCASES(3, (f1, ((unsigned, int), (FMC_Char))), (f2, ((char), (int))), (f3, ((size_t, ptr), (signed, char))), 2, x, y)
+
+FMC_OVERLOAD_DISPATCH_2(3, (f1, ((unsigned, int), (FMC_Char))), (f2, ((unsigned, int), (int))), (f3, ((size_t, ptr), (signed, char))), 2, x, y)
+
 #define TEST_FUNC1 (f1, ((unsigned, int), (size_t, ptr)))
 #define TEST_FUNC2 (f2, ((unsigned, int), (size_t)))
 #define TEST_FUNC3 (f3, ((char), (size_t, ptr)))
@@ -2071,7 +2164,7 @@ FMC_MAYBE(1)
 #define OP2(s, ...) CHAOS_PP_DEC(FMC_GET_ARGN(0, __VA_ARGS__)), FMC_GET_ARGN(1, __VA_ARGS__)
 #define MACRO2(s, ...) FMC_GET_ARGN(0, __VA_ARGS__), FMC_GET_ARGN(1, __VA_ARGS__)
 
-#define PRED(s, ...) CHAOS_PP_NOT_EQUAL(FMC_GET_ARGN(0, __VA_ARGS__), 0)
+#define PRED(s, ...) PRED2(s, __VA_ARGS__)// CHAOS_PP_NOT_EQUAL(FMC_GET_ARGN(0, __VA_ARGS__), 0)
 #define OP(s, ...) CHAOS_PP_DEC(FMC_GET_ARGN(0, __VA_ARGS__)), FMC_GET_ARGN(1, __VA_ARGS__)
 #define MACRO(s, ...) { CHAOS_PP_EXPR(CHAOS_PP_FOR(PRED2, OP2, MACRO2, __VA_ARGS__)) }
 
@@ -2080,19 +2173,22 @@ CHAOS_PP_EXPR(CHAOS_PP_FOR(
 )) 
 // { 3, 100 2, 100 1, 100 } { 2, 100 1, 100 } { 1, 100 }
 
+#if 0
 
-#define REC_PRED(s, ...) FMC_GREATER(FMC_GET_ARGC(__VA_ARGS__), 0)
-#define REC_OP(s, ...) FMC_ARGS_X_TO_Y(0, FMC_DEC(FMC_DEC(FMC_GET_ARGC(__VA_ARGS__))), __VA_ARGS__)
+#define REC_PRED(s, ...) FMC_GREATER(FMC_GET_LAST_ARG(__VA_ARGS__), 0)
+#define REC_OP(s, ...) FMC_ARGS_X_TO_Y(1, FMC_DEC(FMC_DEC(FMC_GET_ARGC(__VA_ARGS__))), __VA_ARGS__), FMC_DEC(FMC_GET_LAST_ARG(__VA_ARGS__))
 #define REC_MAC(s, ...) { CHAOS_PP_EXPR(CHAOS_PP_FOR( \
-    REC_PRED, REC_OP, REC_MAC2, 3, 2, 1 \
+    REC_PRED, REC_OP, REC_MAC2, 3, 2, 1, 0, 4 \
 ))  }
 
-#define REC_MAC2(s, ...) { __VA_ARGS__ }
+#define REC_MAC2(s, ...) { FMC_ARGS_X_TO_Y(0, FMC_DEC(FMC_DEC(FMC_GET_ARGC(__VA_ARGS__))), __VA_ARGS__) }
 
 CHAOS_PP_EXPR(CHAOS_PP_FOR(
-    REC_PRED, REC_OP, REC_MAC, 3, 2, 1, 0
+    REC_PRED, REC_OP, REC_MAC, 3, 2, 1, 0, 4
 )) 
 
 #endif
 
-#endif 
+#endif
+
+#endif
