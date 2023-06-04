@@ -11,23 +11,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Install sudo package
-      run: apt update && apt install sudo
+#    - name: Install sudo package
+#      run: apt update && apt install sudo
     - name: make static lib for linux
-      run: sudo apt update && \
-           sudo apt-get install -y make git && \
-           make static
+      run: make static
   
   linux-shared-lib-build:
    runs-on: ubuntu-latest
    steps:
    - uses: actions/checkout@v3
-   - name: Install sudo package
-     run: apt update && apt install sudo
+#   - name: Install sudo package
+#     run: apt update && apt install sudo
    - name: make shared lib for linux
-     run: sudo apt update && \
-          sudo apt-get install -y make git && \
-          make shared
+     run: make shared
       
 #  build-stat-win:
 #    runs-on: windows-latest
