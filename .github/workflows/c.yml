@@ -15,8 +15,6 @@ jobs:
         submodules: 'recursive'
 #    - name: Install sudo package
 #      run: apt update && apt install sudo
-    - name: Pull submodules
-      run: git pull --recurse-submodules
     - name: make static lib for linux
       run: make static CC=gcc CCXX=g++
   
@@ -28,8 +26,6 @@ jobs:
         submodules: 'recursive'
 #    - name: Install sudo package
 #      run: apt update && apt install sudo
-    - name: Pull submodules
-      run: git pull --recurse-submodules
     - name: make shared lib for linux
       run: make shared CC=gcc CCXX=g++
       
