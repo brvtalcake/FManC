@@ -26,7 +26,7 @@ else ifneq (,$(findstring windows,$(OS)))
 	SHELL=cmd
 endif
 
-MACHINE_ARGS?=-march=alderlake -maccumulate-outgoing-args
+MACHINE_ARGS?=-march=alderlake -mtune=alderlake -maccumulate-outgoing-args
 
 # Project subdirectories
 CPP_SRC_SUBDIRS=src/cpp/ src/cpp/FMC_dir/ src/cpp/FMC_filesystem/ src/cpp/FMC_perms/
@@ -117,6 +117,8 @@ ifneq (,$(findstring Windows,$(OS)))
 else ifneq (,$(findstring windows,$(OS)))
 	LIB_FLAGS+= -lSecur32
 endif
+
+export USER_CFLAGS=$(CFLAGS)
 # All target
 ALL_TARGET=$(addsuffix _$(DETECTED_OS), all)
 .PHONY : all
