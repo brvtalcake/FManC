@@ -232,18 +232,18 @@ third_party_win :
 
 static : $(STAT_TARGET)
 
-static_lin : $(LIB_LIN_STATIC_FILES) copy_headers 
+static_lin : third_party $(LIB_LIN_STATIC_FILES) copy_headers 
 	@printf "\e[92mBuilt static library for $(PRINTED_OS)\n\e[0m"
 
-static_win : $(LIB_WIN_STATIC_FILES) copy_headers 
+static_win : third_party $(LIB_WIN_STATIC_FILES) copy_headers 
 	@printgreen Built static library for $(PRINTED_OS)
 
 shared : $(SHARED_TARGET)
 
-shared_lin : $(LIB_LIN_SHARED_FILES) copy_headers
+shared_lin : third_party $(LIB_LIN_SHARED_FILES) copy_headers
 	@printf "\e[92mBuilt shared library for $(PRINTED_OS)\n\e[0m"
 
-shared_win : $(LIB_WIN_SHARED_FILES) copy_headers
+shared_win : third_party $(LIB_WIN_SHARED_FILES) copy_headers
 	@printgreen Built shared library for $(PRINTED_OS)
 
 test : copy_headers $(TEST_TARGET) exp_cov
