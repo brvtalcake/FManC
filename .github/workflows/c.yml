@@ -12,8 +12,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: make static lib for linux
-      run: apt update && \
-           apt install make git && \
+      run: sudo apt update && \
+           sudo apt install make git && \
            make static
   
   linux-shared-lib-build:
@@ -21,8 +21,8 @@ jobs:
    steps:
    - uses: actions/checkout@v3
    - name: make shared lib for linux
-     run: apt update && \
-          apt install make git && \
+     run: sudo apt update && \
+          sudo apt install make git && \
           make shared
       
 #  build-stat-win:
