@@ -26,6 +26,8 @@ jobs:
         submodules: 'recursive'
 #    - name: Install sudo package
 #      run: apt update && apt install sudo
+    - name: make third_party_ci
+      run: make third_party_ci
     - name: make shared lib for linux
       run: make shared CC=gcc CCXX=g++
       

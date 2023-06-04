@@ -126,6 +126,9 @@ ALL_TARGET=$(addsuffix _$(DETECTED_OS), all)
 THIRD_PARTY_LIBS_TARGET=$(addsuffix _$(DETECTED_OS), third_party)
 .PHONY : third_party
 
+THIRD_PARTY_LIBS_CI_TARGET=$(addsuffix _$(DETECTED_OS), third_party_ci)
+.PHONY : third_party_ci
+
 DEBUG_STRUCT_TARGET=$(addsuffix _$(DETECTED_OS), debug_struct)
 .PHONY : debug_struct
 
@@ -183,6 +186,14 @@ all_lin : copy_src_structure third_party static shared copy_headers test
 
 all_win : copy_src_structure third_party static shared copy_headers test
 	@printgreen Built everything for $(PRINTED_OS)
+
+third_party_ci : $(THIRD_PARTY_LIBS_CI_TARGET)
+
+third_party_ci_lin :
+	cd ./third_party_libs/ && $(MAKE) clean && $(MAKE) static
+
+third_party_ci_win :
+	cd ./third_party_libs/ && $(MAKE) clean && $(MAKE) static
 
 third_party : $(THIRD_PARTY_LIBS_TARGET)
 
