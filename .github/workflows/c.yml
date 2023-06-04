@@ -15,8 +15,6 @@ jobs:
         submodules: 'recursive'
 #    - name: Install sudo package
 #      run: apt update && apt install sudo
-    - name: Checkout submodules
-      uses: textbook/git-checkout-submodule-action@2.1.1
     - name: Pull submodules
       run: git pull --recurse-submodules
     - name: make static lib for linux
@@ -30,9 +28,6 @@ jobs:
         submodules: 'recursive'
 #    - name: Install sudo package
 #      run: apt update && apt install sudo
-    - name: Checkout submodules
-      uses: textbook/git-checkout-submodule-action@2.1.1
-
     - name: Pull submodules
       run: git pull --recurse-submodules
     - name: make shared lib for linux
