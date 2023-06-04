@@ -14,7 +14,7 @@ jobs:
 #    - name: Install sudo package
 #      run: apt update && apt install sudo
     - name: make static lib for linux
-      run: make static
+      run: make static CC=gcc CCXX=g++
   
   linux-shared-lib-build:
    runs-on: ubuntu-latest
@@ -23,7 +23,7 @@ jobs:
 #   - name: Install sudo package
 #     run: apt update && apt install sudo
    - name: make shared lib for linux
-     run: make shared
+     run: make shared CC=gcc CCXX=g++
       
 #  build-stat-win:
 #    runs-on: windows-latest
