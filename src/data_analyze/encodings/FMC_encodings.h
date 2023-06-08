@@ -32,7 +32,7 @@ SOFTWARE.
 
 FMC_BEGIN_DECLS
 
-FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_getEncoding(FILE *file);
+FMC_SHARED FMC_DEF_SYM(FMC_getEncoding, 1.0.0) FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_getEncoding(FILE *file);
 
 // TODO: add more functions to get encoding from a file path or a FMC_String, for example
 
@@ -49,7 +49,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_get
 )(x) */
 
 
-FMC_FUNC_CONST FMC_FUNC_ALWAYS_INLINE inline FMC_Encodings FMC_checkEncodingFlag(unsigned int encoding)
+FMC_DEF_SYM(FMC_checkEncodingFlag, 1.0.0) FMC_FUNC_CONST FMC_FUNC_ALWAYS_INLINE inline FMC_Encodings FMC_checkEncodingFlag(unsigned int encoding)
 {
     switch (encoding)
     {

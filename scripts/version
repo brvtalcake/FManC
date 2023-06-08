@@ -1,0 +1,15 @@
+#!/usr/bin/perl -w
+
+use strict;
+use warnings;
+
+my $to_open = $ARGV[0];
+
+open my $fh, '<', $to_open or die "Cannot open file: $!\n";
+
+while(<$fh>) {
+    my $line = $_ if /\bFMC_SHARED\b/;
+    if ($line) {
+        print $line;
+    }
+}

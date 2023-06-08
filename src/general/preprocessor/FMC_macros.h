@@ -1686,35 +1686,51 @@ FMC_MAYBE(1)
     #define FMC_END_DECLS
 #endif
 
+#if defined(__INTELLISENSE__) && !defined(FMC_COMPILING_ON_WINDOWS)
+    #define FMC_BUILD_SO
+#endif
 /* Maybe I'll have to modify this, even though it sounds fine to me now. */
-#ifndef FMC_SHARED
-    #if FMC_COMPILING_ON_WINDOWS && defined(FMC_BUILD_SO)
-        #warning "You must define FMC_BUILD_DLL to build the DLL or FMC_USE_DLL to use the built DLL. To use or build the static library, please define FMC_STATIC."
-        #define FMC_BUILD_DLL 1
-    #endif
-    #if FMC_COMPILING_ON_WINDOWS && !defined(FMC_STATIC)
-        #if defined(FMC_BUILD_DLL)
-            #define FMC_SHARED __attribute__ ((dllexport))
-        #elif defined(FMC_USE_DLL)
-            #define FMC_SHARED __attribute__ ((dllimport))
-        #else
-            #error "You must define FMC_BUILD_DLL to build the DLL or FMC_USE_DLL to use the built DLL. To use or build the static library, please define FMC_STATIC."
-        #endif
-    #elif FMC_COMPILING_ON_WINDOWS && defined(FMC_STATIC)
-        #define FMC_SHARED
-    #elif FMC_COMPILING_ON_LINUX || FMC_COMPILING_ON_MACOS
-        #if defined(FMC_STATIC) || defined(FMC_USE_DLL) || defined(FMC_BUILD_DLL)
-            #warning "You don't have to specify FMC_STATIC, FMC_USE_DLL or FMC_BUILD_DLL on Linux, Unix or Mac OS X. These are ignored on your system."
-        #endif
-        #if defined(FMC_BUILD_SO)
-            #define FMC_SHARED __attribute__((visibility("default")))
-        #else
-            #define FMC_SHARED
-        #endif
+#if defined(FMC_SHARED) || defined(FMC_SYM) || defined(FMC_DEF_SYM)
+    #undef FMC_SHARED
+    #undef FMC_SYM
+    #undef FMC_DEF_SYM
+#endif
+#if FMC_COMPILING_ON_WINDOWS && defined(FMC_BUILD_SO)
+    #warning "You must define FMC_BUILD_DLL to build the DLL or FMC_USE_DLL to use the built DLL. To use or build the static library, please define FMC_STATIC."
+    #define FMC_BUILD_DLL 1
+#endif
+#if FMC_COMPILING_ON_WINDOWS && !defined(FMC_STATIC)
+    #if defined(FMC_BUILD_DLL)
+        #define FMC_SHARED __attribute__ ((dllexport))
+        #define FMC_SYM(_name, _ver)
+        #define FMC_DEF_SYM(_name, _ver)
+    #elif defined(FMC_USE_DLL)
+        #define FMC_SHARED __attribute__ ((dllimport))
+        #define FMC_SYM(_name, _ver)
+        #define FMC_DEF_SYM(_name, _ver)
     #else
-        #error "Unsupported OS"
-    #endif // PLATFORMS
-#endif // FMC_SHARED
+        #error "You must define FMC_BUILD_DLL to build the DLL or FMC_USE_DLL to use the built DLL. To use or build the static library, please define FMC_STATIC."
+    #endif
+#elif FMC_COMPILING_ON_WINDOWS && defined(FMC_STATIC)
+    #define FMC_SHARED
+    #define FMC_SYM(_name, _ver)
+    #define FMC_DEF_SYM(_name, _ver)
+#elif FMC_COMPILING_ON_LINUX || FMC_COMPILING_ON_MACOS
+    #if defined(FMC_STATIC) || defined(FMC_USE_DLL) || defined(FMC_BUILD_DLL)
+        #warning "You don't have to specify FMC_STATIC, FMC_USE_DLL or FMC_BUILD_DLL on Linux, Unix or Mac OS X. These are ignored on your system."
+    #endif
+    #if defined(FMC_BUILD_SO)
+        #define FMC_SHARED __attribute__((visibility("default")))
+        #define FMC_SYM(_name, _ver) __attribute__((symver(FMC_STRINGIZE(FMC_CONCAT_4(_name, @, FMC_VER_, _ver)))))
+        #define FMC_DEF_SYM(_name, _ver) __attribute__((symver(FMC_STRINGIZE(FMC_CONCAT_4(_name, @@, FMC_VER_, _ver)))))
+    #else
+        #define FMC_SHARED
+        #define FMC_SYM(_name, _ver)
+        #define FMC_DEF_SYM(_name, _ver)
+    #endif
+#else
+    #error "Unsupported OS"
+#endif // PLATFORMS
 
 #ifdef FMC_COMPILE_TIME_ERROR
     #undef FMC_COMPILE_TIME_ERROR

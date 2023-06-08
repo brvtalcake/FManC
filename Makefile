@@ -360,7 +360,7 @@ obj/win/static/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
 
 bin/libFManC_x86_64.so : $(O_LIN_SHARED_FILES)
 	rm -f $@ && rm -f $@.$(MAJOR_VERSION) && rm -f $@.$(VERSION)
-	$(CC) -D BUILDING_FMANC $(O_LIN_SHARED_FILES) $(CFLAGS) -shared -fPIC -o $@.$(VERSION) $(INC_FLAGS) $(LIB_FLAGS) -lstdc++ $(LD_FLAGS_SO)libFManC_x86_64.so.$(MAJOR_VERSION)
+	$(CC) -D BUILDING_FMANC $(O_LIN_SHARED_FILES) $(CFLAGS) -shared -fPIC -o $@.$(VERSION) $(INC_FLAGS) -Wl,--version-script=scripts/linker.ver $(LIB_FLAGS) -lstdc++ $(LD_FLAGS_SO)libFManC_x86_64.so.$(MAJOR_VERSION)
 	cd ./bin/ && ln -s $(notdir $@).$(VERSION) $(notdir $@).$(MAJOR_VERSION) && ln -s $(notdir $@).$(MAJOR_VERSION) $(notdir $@)
 	@printf "\e[92mBuilt $@ sucessfully\n\n\e[0m"
 
@@ -373,11 +373,11 @@ lib/libFManC_x86_64.dll.a : $(O_WIN_SHARED_FILES)
 	@printgreen Built $@ sucessfully
 
 obj/lin/shared/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
-	$(CC) -D BUILDING_FMANC $< $(CFLAGS) -c -fPIC -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
+	$(CC) -D BUILDING_FMANC $< $(CFLAGS) -c -fPIC -o $@ $(INC_FLAGS) $(LIB_FLAGS) -Wl,--version-script=scripts/linker.ver -lstdc++
 	@printf "\e[92mBuilt $@ sucessfully\n\n\e[0m"
 
 obj/lin/shared/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
-	$(CCXX) -D BUILDING_FMANC $< $(CXX_FLAGS) -c -fPIC -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
+	$(CCXX) -D BUILDING_FMANC $< $(CXX_FLAGS) -c -fPIC -o $@ $(INC_FLAGS) $(LIB_FLAGS) -Wl,--version-script=scripts/linker.ver -lstdc++
 	@printf "\e[92mBuilt $@ sucessfully\n\n\e[0m"
 
 obj/win/shared/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
