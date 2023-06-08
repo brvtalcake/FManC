@@ -33,10 +33,10 @@ SOFTWARE.
     #define FMC_makeStrView(_str, _len) ((FMC_CStrView){ .str = _str, .size = (size_t)_len })
 #endif
 
-FMC_BEGIN_DECLS 
+FMC_BEGIN_DECLS
 
-FMC_SHARED void FMC_freeStrView(FMC_CStrView* view);
-FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_JUST_MALLOC FMC_CStrView* FMC_allocStrView(const char* const str, size_t len);
+FMC_SHARED FMC_DEF_SYM(FMC_freeStrView, 1_0_0) void FMC_freeStrView(FMC_CStrView* view);
+FMC_SHARED FMC_DEF_SYM(FMC_allocStrView, 1_0_0) FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_JUST_MALLOC FMC_CStrView* FMC_allocStrView(const char* const str, size_t len);
 
 FMC_END_DECLS
 

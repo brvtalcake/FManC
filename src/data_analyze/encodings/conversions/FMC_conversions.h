@@ -138,7 +138,7 @@ FMC_SHARED FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_code
 
 // TODO: FMC_SHARED FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromASCII_ ...
 
-FMC_FUNC_INLINE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromAny(const void* const any_char, const FMC_Encodings encoding, const unsigned int arg_type_flag)
+FMC_SHARED FMC_FUNC_INLINE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromAny(const void* const any_char, const FMC_Encodings encoding, const unsigned int arg_type_flag)
 {
     FMC_CodePoint code_point = 0;
     switch (arg_type_flag)

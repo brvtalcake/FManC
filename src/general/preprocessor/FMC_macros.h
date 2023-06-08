@@ -1686,6 +1686,12 @@ FMC_MAYBE(1)
     #define FMC_END_DECLS
 #endif
 
+// @ macro to cat a token with '@'
+#if defined(FMC_PP_AT)
+    #undef FMC_PP_AT
+#endif
+#define FMC_PP_AT(...) __VA_ARGS__@
+
 #if defined(__INTELLISENSE__) && !defined(FMC_COMPILING_ON_WINDOWS)
     #define FMC_BUILD_SO
 #endif
@@ -1721,8 +1727,8 @@ FMC_MAYBE(1)
     #endif
     #if defined(FMC_BUILD_SO)
         #define FMC_SHARED __attribute__((visibility("default")))
-        #define FMC_SYM(_name, _ver) __attribute__((symver(FMC_STRINGIZE(FMC_CONCAT_4(_name, @, FMC_VER_, _ver)))))
-        #define FMC_DEF_SYM(_name, _ver) __attribute__((symver(FMC_STRINGIZE(FMC_CONCAT_4(_name, @@, FMC_VER_, _ver)))))
+        #define FMC_SYM(_name, _ver) __attribute__((symver(FMC_STRINGIZE(FMC_CONCAT(_name@FMC_VER_, _ver)))))
+        #define FMC_DEF_SYM(_name, _ver) __attribute__((symver(FMC_STRINGIZE(FMC_CONCAT(_name@@FMC_VER_, _ver)))))
     #else
         #define FMC_SHARED
         #define FMC_SYM(_name, _ver)

@@ -153,7 +153,7 @@ SOFTWARE.
     #endif // FMC_FUNC_STACK_PROTECT
 
     #ifndef FMC_FUNC_SYMVER
-        #define FMC_FUNC_SYMVER(name, major, minor, patch) __attribute__((symver(FMC_STRINGIZE(name@FMC_CONCAT_4(v,major,minor,patch)))))
+        #define FMC_FUNC_SYMVER(name, ver) __attribute__((symver(FMC_STRINGIZE(name@ver))))
     #endif // FMC_FUNC_SYMVER
 
     #ifndef FMC_FUNC_UNUSED

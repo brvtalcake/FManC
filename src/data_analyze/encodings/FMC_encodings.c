@@ -35,7 +35,7 @@ SOFTWARE.
 
 // TODO: make it reopen the file properly if it's not opened with the right orientation or the right mode
 // TODO: check if a lot of zeroed bytes are present between non-zeroed bytes, if so, it's probably UTF-16 or UTF-32
-FMC_SHARED FMC_DEF_SYM(FMC_getEncoding, 1.0.0) FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_getEncoding(FILE *file)
+FMC_SHARED FMC_DEF_SYM(FMC_getEncoding, 1_0_0) FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_NONNULL(1) FMC_Encodings FMC_getEncoding(FILE *file)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare" // get an error at compile time without this (because of attribute nonnull)
     if (file == NULL)
@@ -203,7 +203,7 @@ FMC_SHARED FMC_DEF_SYM(FMC_getEncoding, 1.0.0) FMC_FUNC_WARN_UNUSED_RESULT FMC_F
     }
 }
 
-FMC_SHARED FMC_DEF_SYM(FMC_checkEncodingFlag, 1.0.0) FMC_FUNC_CONST FMC_FUNC_ALWAYS_INLINE extern inline FMC_Encodings FMC_checkEncodingFlag(unsigned int encoding);
+FMC_SHARED FMC_DEF_SYM(FMC_checkEncodingFlag, 1_0_0) FMC_FUNC_CONST FMC_FUNC_ALWAYS_INLINE extern inline FMC_Encodings FMC_checkEncodingFlag(unsigned int encoding);
 
 /*FMC_SHARED FMC_Char FMC_getc(FMC_File file)
 {

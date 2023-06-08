@@ -33,13 +33,13 @@ SOFTWARE.
  * General functions
  */
 
-FMC_DEF_SYM(FMC_codePointFromAny, 1.0.0) FMC_FUNC_INLINE extern FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromAny(const void* const any_char, const FMC_Encodings encoding, const unsigned int arg_type_flag);
+FMC_DEF_SYM(FMC_codePointFromAny, 1_0_0) FMC_FUNC_INLINE extern FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromAny(const void* const any_char, const FMC_Encodings encoding, const unsigned int arg_type_flag);
 
 /*
  * Code points from UTF-8 encoded characters
  */
 
-FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF8_FMC_Char_ptr, 1.0.0) FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF8_FMC_Char_ptr(const FMC_Char* restrict const utf8_char)
+FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF8_FMC_Char_ptr, 1_0_0) FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF8_FMC_Char_ptr(const FMC_Char* restrict const utf8_char)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
     if (!utf8_char || utf8_char->byteNumber > 4 || utf8_char->encoding != utf8)
@@ -81,12 +81,12 @@ FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF8_FMC_Char_ptr, 1.0.0) FMC_FUNC_HOT F
     FMC_UNREACHABLE;
 }
 
-FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF8_FMC_Char, 1.0.0) FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF8_FMC_Char(const FMC_Char utf8_char)
+FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF8_FMC_Char, 1_0_0) FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF8_FMC_Char(const FMC_Char utf8_char)
 {
     return FMC_codePointFromUTF8_FMC_Char_ptr(&utf8_char);
 }
 
-FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF8_FMC_CharComp_ptr, 1.0.0) FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF8_FMC_CharComp_ptr(const FMC_CharComp* restrict const utf8_char_comp)
+FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF8_FMC_CharComp_ptr, 1_0_0) FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF8_FMC_CharComp_ptr(const FMC_CharComp* restrict const utf8_char_comp)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
     if (!utf8_char_comp)
@@ -144,12 +144,12 @@ FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF8_FMC_CharComp_ptr, 1.0.0) FMC_FUNC_P
     FMC_UNREACHABLE;
 }
 
-FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF8_FMC_CharComp, 1.0.0) FMC_FUNC_PURE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF8_FMC_CharComp(const FMC_CharComp utf8_char_comp)
+FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF8_FMC_CharComp, 1_0_0) FMC_FUNC_PURE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF8_FMC_CharComp(const FMC_CharComp utf8_char_comp)
 {
     return FMC_codePointFromUTF8_FMC_CharComp_ptr(&utf8_char_comp);
 }
 
-FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF8_uint32_t_ptr, 1.0.0) FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF8_uint32_t_ptr(const uint32_t* restrict const raw_utf8_encoded_char)
+FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF8_uint32_t_ptr, 1_0_0) FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF8_uint32_t_ptr(const uint32_t* restrict const raw_utf8_encoded_char)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
     if (!raw_utf8_encoded_char)
@@ -215,7 +215,7 @@ FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF8_uint32_t_ptr, 1.0.0) FMC_FUNC_PURE 
     FMC_UNREACHABLE;
 }
 
-FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF8_uint32_t, 1.0.0) FMC_FUNC_PURE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF8_uint32_t(const uint32_t raw_utf8_encoded_char)
+FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF8_uint32_t, 1_0_0) FMC_FUNC_PURE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF8_uint32_t(const uint32_t raw_utf8_encoded_char)
 {
     return FMC_codePointFromUTF8_uint32_t_ptr(&raw_utf8_encoded_char);
 }
@@ -224,7 +224,7 @@ FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF8_uint32_t, 1.0.0) FMC_FUNC_PURE FMC_
  * Code points from UTF-16LE encoded characters
  */
 
-FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF16LE_FMC_Char_ptr, 1.0.0) FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF16LE_FMC_Char_ptr(const FMC_Char* restrict const utf16le_char)
+FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF16LE_FMC_Char_ptr, 1_0_0) FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF16LE_FMC_Char_ptr(const FMC_Char* restrict const utf16le_char)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
     if (!utf16le_char || utf16le_char->byteNumber > 4 || utf16le_char->encoding != utf16_le)
@@ -314,13 +314,13 @@ FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF16LE_FMC_Char_ptr, 1.0.0) FMC_FUNC_HO
     FMC_UNREACHABLE;
 }
 
-FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF16LE_FMC_Char, 1.0.0) FMC_FUNC_HOT
+FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF16LE_FMC_Char, 1_0_0) FMC_FUNC_HOT
 FMC_CodePoint FMC_codePointFromUTF16LE_FMC_Char(const FMC_Char utf16le_char)
 {
     return FMC_codePointFromUTF16LE_FMC_Char_ptr(&utf16le_char);
 }
 
-FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF16LE_FMC_CharComp_ptr, 1.0.0) FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1)
+FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF16LE_FMC_CharComp_ptr, 1_0_0) FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1)
 FMC_CodePoint FMC_codePointFromUTF16LE_FMC_CharComp_ptr(const FMC_CharComp* restrict const utf16le_char_comp)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
@@ -385,12 +385,12 @@ FMC_CodePoint FMC_codePointFromUTF16LE_FMC_CharComp_ptr(const FMC_CharComp* rest
     FMC_UNREACHABLE;
 }
 
-FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF16LE_FMC_CharComp, 1.0.0) FMC_FUNC_PURE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF16LE_FMC_CharComp(const FMC_CharComp utf16le_char_comp)
+FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF16LE_FMC_CharComp, 1_0_0) FMC_FUNC_PURE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF16LE_FMC_CharComp(const FMC_CharComp utf16le_char_comp)
 {
     return FMC_codePointFromUTF16LE_FMC_CharComp_ptr(&utf16le_char_comp);
 }
 
-FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF16LE_uint32_t_ptr, 1.0.0) FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF16LE_uint32_t_ptr(const uint32_t* restrict const raw_utf16le_char)
+FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF16LE_uint32_t_ptr, 1_0_0) FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF16LE_uint32_t_ptr(const uint32_t* restrict const raw_utf16le_char)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
     if (!raw_utf16le_char)
@@ -453,7 +453,7 @@ FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF16LE_uint32_t_ptr, 1.0.0) FMC_FUNC_PU
     FMC_UNREACHABLE;
 }
 
-FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF16LE_uint32_t, 1.0.0) FMC_FUNC_PURE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF16LE_uint32_t(const uint32_t raw_utf16le_char)
+FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF16LE_uint32_t, 1_0_0) FMC_FUNC_PURE FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF16LE_uint32_t(const uint32_t raw_utf16le_char)
 {
     return FMC_codePointFromUTF16LE_uint32_t_ptr(&raw_utf16le_char);
 }
@@ -462,7 +462,7 @@ FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF16LE_uint32_t, 1.0.0) FMC_FUNC_PURE F
  * Code point from UTF-16BE encoded character
  */
 
-FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF16BE_FMC_Char_ptr, 1.0.0) FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF16BE_FMC_Char_ptr(const FMC_Char* restrict const utf16be_char)
+FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF16BE_FMC_Char_ptr, 1_0_0) FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF16BE_FMC_Char_ptr(const FMC_Char* restrict const utf16be_char)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
     if (!utf16be_char || utf16be_char->byteNumber > 4 || utf16be_char->encoding != utf16_be)
@@ -537,12 +537,12 @@ FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF16BE_FMC_Char_ptr, 1.0.0) FMC_FUNC_HO
     FMC_UNREACHABLE;
 }
 
-FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF16BE_FMC_Char, 1.0.0) FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF16BE_FMC_Char(const FMC_Char utf16be_char)
+FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF16BE_FMC_Char, 1_0_0) FMC_FUNC_HOT FMC_CodePoint FMC_codePointFromUTF16BE_FMC_Char(const FMC_Char utf16be_char)
 {
     return FMC_codePointFromUTF16BE_FMC_Char_ptr(&utf16be_char);
 }
 
-FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF16BE_FMC_CharComp_ptr, 1.0.0) FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF16BE_FMC_CharComp_ptr(const FMC_CharComp* restrict const utf16be_char)
+FMC_SHARED FMC_DEF_SYM(FMC_codePointFromUTF16BE_FMC_CharComp_ptr, 1_0_0) FMC_FUNC_PURE FMC_FUNC_HOT FMC_FUNC_NONNULL(1) FMC_CodePoint FMC_codePointFromUTF16BE_FMC_CharComp_ptr(const FMC_CharComp* restrict const utf16be_char)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
     if (!utf16be_char)

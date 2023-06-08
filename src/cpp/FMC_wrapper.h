@@ -37,19 +37,19 @@ FMC_BEGIN_DECLS
 // FMC_SHARED int FMC_dirExists(const char *path);
 // FMC_SHARED int FMC_isDir(const char *path);
 // FMC_SHARED int FMC_isRegFile(const char *path);
-FMC_SHARED FMC_DEF_SYM(FMC_isSymLink, 1.0.0) int FMC_isSymLink(const char *path);
-FMC_SHARED FMC_DEF_SYM(FMC_isBlock, 1.0.0) int FMC_isBlock(const char* path);
+FMC_SHARED int FMC_isSymLink(const char *path);
+FMC_SHARED int FMC_isBlock(const char* path);
 // FMC_SHARED int FMC_isCharFile(const char* path);
 // FMC_SHARED int FMC_isSocket(const char* path);
-FMC_SHARED FMC_DEF_SYM(FMC_isFIFO, 1.0.0) int FMC_isFIFO(const char* path);
-FMC_SHARED FMC_DEF_SYM(FMC_isOther, 1.0.0) int FMC_isOther(const char* path);
-FMC_SHARED FMC_DEF_SYM(FMC_isEmpty, 1.0.0) int FMC_isEmpty(const char *path);
-FMC_SHARED FMC_DEF_SYM(FMC_getCurrentPath, 1.0.0) char *FMC_getCurrentPath(char *path, const size_t size);
-FMC_SHARED FMC_DEF_SYM(FMC_getAbsolutePath, 1.0.0) char *FMC_getAbsolutePath(char *path, char *buffer, const size_t size);
+FMC_SHARED int FMC_isFIFO(const char* path);
+FMC_SHARED int FMC_isOther(const char* path);
+FMC_SHARED int FMC_isEmpty(const char *path);
+FMC_SHARED char *FMC_getCurrentPath(char *path, const size_t size);
+FMC_SHARED char *FMC_getAbsolutePath(char *path, char *buffer, const size_t size);
 /* !FMC_Filesystem */
 
 /* FMC_perms (C++ part) */
-FMC_SHARED FMC_DEF_SYM(FMC_getPerms, 1.0.0) FMC_PermsFlags FMC_getPerms(const char *path);
+FMC_SHARED FMC_DEF_SYM(FMC_getPerms, 1_0_0) FMC_PermsFlags FMC_getPerms(const char *path);
 /* !FMC_perms */
 
 FMC_END_DECLS
