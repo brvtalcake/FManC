@@ -32,7 +32,7 @@ SOFTWARE.
 #include <chaos/preprocessor.h>
 #include <stdint.h>
 #include <stdalign.h>
-#include "assert.h"
+#include <assert.h>
 #include "FMC_attributes.h"
 
 #if defined(_FORTIFY_SOURCE) && _FORTIFY_SOURCE < 1
@@ -100,136 +100,6 @@ SOFTWARE.
     #define FMC_STRINGIZE_9(x, y, z, w, v, u, t, s, r) FMC_STRINGIZE(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(FMC_CONCAT(x, y), z), w), v), u), t), s), r))
 #endif
 
-#if defined(FMC_1) || defined(FMC_2) || defined(FMC_3) || defined(FMC_4) || defined(FMC_5) || defined(FMC_6) || defined(FMC_7) || defined(FMC_8) || defined(FMC_9) || defined(FMC_10) || defined(FMC_11) || defined(FMC_12) || defined(FMC_13) || defined(FMC_14) || defined(FMC_15) || defined(FMC_16) || defined(FMC_17) || defined(FMC_18) || defined(FMC_19) || defined(FMC_20) || defined(FMC_21) || defined(FMC_22) || defined(FMC_23) || defined(FMC_24) || defined(FMC_25) || defined(FMC_26) || defined(FMC_27) || defined(FMC_28) || defined(FMC_29) || defined(FMC_30) || defined(FMC_31) || defined(FMC_32) || defined(FMC_33) || defined(FMC_34) || defined(FMC_35) || defined(FMC_36) || defined(FMC_37) || defined(FMC_38) || defined(FMC_39) || defined(FMC_40) || defined(FMC_41) || defined(FMC_42) || defined(FMC_43) || defined(FMC_44) || defined(FMC_45) || defined(FMC_46) || defined(FMC_47) || defined(FMC_48) || defined(FMC_49) || defined(FMC_50) || defined(FMC_51) || defined(FMC_52) || defined(FMC_53) || defined(FMC_54) || defined(FMC_55) || defined(FMC_56) || defined(FMC_57) || defined(FMC_58) || defined(FMC_59) || defined(FMC_60) || defined(FMC_61) || defined(FMC_62) || defined(FMC_63) || defined(FMC_64)
-    #undef FMC_1
-    #undef FMC_2
-    #undef FMC_3
-    #undef FMC_4
-    #undef FMC_5
-    #undef FMC_6
-    #undef FMC_7
-    #undef FMC_8
-    #undef FMC_9
-    #undef FMC_10
-    #undef FMC_11
-    #undef FMC_12
-    #undef FMC_13
-    #undef FMC_14
-    #undef FMC_15
-    #undef FMC_16
-    #undef FMC_17
-    #undef FMC_18
-    #undef FMC_19
-    #undef FMC_20
-    #undef FMC_21
-    #undef FMC_22
-    #undef FMC_23
-    #undef FMC_24
-    #undef FMC_25
-    #undef FMC_26
-    #undef FMC_27
-    #undef FMC_28
-    #undef FMC_29
-    #undef FMC_30
-    #undef FMC_31
-    #undef FMC_32
-    #undef FMC_33
-    #undef FMC_34
-    #undef FMC_35
-    #undef FMC_36
-    #undef FMC_37
-    #undef FMC_38
-    #undef FMC_39
-    #undef FMC_40
-    #undef FMC_41
-    #undef FMC_42
-    #undef FMC_43
-    #undef FMC_44
-    #undef FMC_45
-    #undef FMC_46
-    #undef FMC_47
-    #undef FMC_48
-    #undef FMC_49
-    #undef FMC_50
-    #undef FMC_51
-    #undef FMC_52
-    #undef FMC_53
-    #undef FMC_54
-    #undef FMC_55
-    #undef FMC_56
-    #undef FMC_57
-    #undef FMC_58
-    #undef FMC_59
-    #undef FMC_60
-    #undef FMC_61
-    #undef FMC_62
-    #undef FMC_63
-    #undef FMC_64
-#endif
-#define FMC_1 1
-#define FMC_2 2
-#define FMC_3 3
-#define FMC_4 4
-#define FMC_5 5
-#define FMC_6 6
-#define FMC_7 7
-#define FMC_8 8
-#define FMC_9 9
-#define FMC_10 10
-#define FMC_11 11
-#define FMC_12 12
-#define FMC_13 13
-#define FMC_14 14
-#define FMC_15 15
-#define FMC_16 16
-#define FMC_17 17
-#define FMC_18 18
-#define FMC_19 19
-#define FMC_20 20
-#define FMC_21 21
-#define FMC_22 22
-#define FMC_23 23
-#define FMC_24 24
-#define FMC_25 25
-#define FMC_26 26
-#define FMC_27 27
-#define FMC_28 28
-#define FMC_29 29
-#define FMC_30 30
-#define FMC_31 31
-#define FMC_32 32
-#define FMC_33 33
-#define FMC_34 34
-#define FMC_35 35
-#define FMC_36 36
-#define FMC_37 37
-#define FMC_38 38
-#define FMC_39 39
-#define FMC_40 40
-#define FMC_41 41
-#define FMC_42 42
-#define FMC_43 43
-#define FMC_44 44
-#define FMC_45 45
-#define FMC_46 46
-#define FMC_47 47
-#define FMC_48 48
-#define FMC_49 49
-#define FMC_50 50
-#define FMC_51 51
-#define FMC_52 52
-#define FMC_53 53
-#define FMC_54 54
-#define FMC_55 55
-#define FMC_56 56
-#define FMC_57 57
-#define FMC_58 58
-#define FMC_59 59
-#define FMC_60 60
-#define FMC_61 61
-#define FMC_62 62
-#define FMC_63 63
-#define FMC_64 64
 
 /* #if defined(FMC_GEN_ARG_LIST) || defined(FMC_GEN_ARG_LIST_HELPER_IMPL) || defined(FMC_GEN_ARG_LIST_HELPER_ARITY)
     #undef FMC_GEN_ARG_LIST
@@ -393,13 +263,18 @@ __VA_ARGS__))))
 #define FMC_X_EXP_Y_MACRO(s, ...) CHAOS_PP_VARIADIC_IF(CHAOS_PP_EQUAL(CHAOS_PP_VARIADIC_ELEM(2, __VA_ARGS__), 1))(__VA_ARGS__)()
 // TODO: Consider the case where exp = 0
 // res (arbitrary), base (arbitrary), exp (regular unsigned integer)
-#define FMC_X_EXP_Y(x, y) \
-    CHAOS_PP_ARBITRARY_DEMOTE(FMC_GET_ARGN( \
-        0, \
-        CHAOS_PP_EXPR(CHAOS_PP_FOR( \
-            FMC_X_EXP_Y_PRED, FMC_X_EXP_Y_OP, FMC_X_EXP_Y_MACRO, CHAOS_PP_ARBITRARY_PROMOTE(1), CHAOS_PP_ARBITRARY_PROMOTE(x), CHAOS_PP_INC(y) \
-        )) \
-    ))
+#if !defined(__INTELLISENSE__)
+    #define FMC_X_EXP_Y(x, y) \
+        CHAOS_PP_ARBITRARY_DEMOTE(FMC_GET_ARGN( \
+            0, \
+            CHAOS_PP_EXPR(CHAOS_PP_FOR( \
+                FMC_X_EXP_Y_PRED, FMC_X_EXP_Y_OP, FMC_X_EXP_Y_MACRO, CHAOS_PP_ARBITRARY_PROMOTE(1), CHAOS_PP_ARBITRARY_PROMOTE(x), CHAOS_PP_INC(y) \
+            )) \
+        ))
+#else
+    #define FMC_X_EXP_Y(x, y) x*y /* Random thing or my computer may just crash trying to process the real macro */
+#endif
+
 
 #if defined(FMC_CHAOS_NEGATIVE)
     #undef FMC_CHAOS_NEGATIVE
@@ -1616,7 +1491,12 @@ FMC_MAYBE(1)
 #define FMC_PATCH_VERSION 0
 #define FMC_VERSION FMC_CONCAT_5(FMC_MAJOR_VERSION, FMC_PP_POINT(), FMC_MINOR_VERSION, FMC_PP_POINT(), FMC_PATCH_VERSION)
 #define FMC_VERSION_STRING FMC_STRINGIZE_5(FMC_MAJOR_VERSION, FMC_PP_POINT(), FMC_MINOR_VERSION, FMC_PP_POINT(), FMC_PATCH_VERSION)
-#define FMC_VERSION_NUMBER FMC_CONCAT_2(FMC_MAJOR_VERSION*10000 + FMC_MINOR_VERSION*100 + FMC_PATCH_VERSION, L)
+#define FMC_VERSION_NUMBER (FMC_MAJOR_VERSION*10000 + FMC_MINOR_VERSION*100 + FMC_PATCH_VERSION)
+
+#if defined(FMC_MK_VER_NUM)
+    #undef FMC_MK_VER_NUM
+#endif
+#define FMC_MK_VER_NUM(_major, _minor, _patch) (_major*10000 + _minor*100 + _patch)
 
 #if defined(FMC_OPT)
     #undef FMC_OPT
@@ -1698,8 +1578,11 @@ FMC_MAYBE(1)
 /* Maybe I'll have to modify this, even though it sounds fine to me now. */
 #if defined(FMC_SHARED) || defined(FMC_SYM) || defined(FMC_DEF_SYM)
     #undef FMC_SHARED
-    #undef FMC_SYM
-    #undef FMC_DEF_SYM
+    #undef FMC_SYM /* Stands for FManC symbol */
+    #undef FMC_DEF_SYM /* Stands for FManC default symbol */
+#endif
+#if defined(FMC_USE_SYMVER)
+    #undef FMC_USE_SYMVER
 #endif
 #if FMC_COMPILING_ON_WINDOWS && defined(FMC_BUILD_SO)
     #warning "You must define FMC_BUILD_DLL to build the DLL or FMC_USE_DLL to use the built DLL. To use or build the static library, please define FMC_STATIC."
@@ -1708,31 +1591,53 @@ FMC_MAYBE(1)
 #if FMC_COMPILING_ON_WINDOWS && !defined(FMC_STATIC)
     #if defined(FMC_BUILD_DLL)
         #define FMC_SHARED __attribute__ ((dllexport))
-        #define FMC_SYM(_name, _ver)
-        #define FMC_DEF_SYM(_name, _ver)
+        #define FMC_SYM(_ret_type, _name, _ver) _ret_type _name
+        #define FMC_DEF_SYM(_ret_type, _name, _ver) _ret_type _name
+        #if !defined(BUILDING_FMANC)
+            #define FMC_USE_SYMVER(sym, ma, mi, p) _Pragma("GCC warning \"FMC_USE_SYMVER does nothing here\"")
+        #else
+            #define FMC_USE_SYMVER(sym, ma, mi, p) /* Nothing */
+        #endif
     #elif defined(FMC_USE_DLL)
         #define FMC_SHARED __attribute__ ((dllimport))
-        #define FMC_SYM(_name, _ver)
-        #define FMC_DEF_SYM(_name, _ver)
+        #define FMC_SYM(_ret_type, _name, _ver) _ret_type _name
+        #define FMC_DEF_SYM(_ret_type, _name, _ver) _ret_type _name
+        #define FMC_USE_SYMVER(sym, ma, mi, p) _Pragma("GCC warning \"FMC_USE_SYMVER does nothing here\"")
     #else
         #error "You must define FMC_BUILD_DLL to build the DLL or FMC_USE_DLL to use the built DLL. To use or build the static library, please define FMC_STATIC."
     #endif
 #elif FMC_COMPILING_ON_WINDOWS && defined(FMC_STATIC)
     #define FMC_SHARED
-    #define FMC_SYM(_name, _ver)
-    #define FMC_DEF_SYM(_name, _ver)
+    #define FMC_SYM(_ret_type, _name, _ver) _ret_type _name
+    #define FMC_DEF_SYM(_ret_type, _name, _ver) _ret_type _name
+    #if !defined(BUILDING_FMANC)
+        #define FMC_USE_SYMVER(sym, ma, mi, p) _Pragma("GCC warning \"FMC_USE_SYMVER does nothing here\"")
+    #else
+        #define FMC_USE_SYMVER(sym, ma, mi, p) /* Nothing */
+    #endif
 #elif FMC_COMPILING_ON_LINUX || FMC_COMPILING_ON_MACOS
     #if defined(FMC_STATIC) || defined(FMC_USE_DLL) || defined(FMC_BUILD_DLL)
         #warning "You don't have to specify FMC_STATIC, FMC_USE_DLL or FMC_BUILD_DLL on Linux, Unix or Mac OS X. These are ignored on your system."
     #endif
     #if defined(FMC_BUILD_SO)
         #define FMC_SHARED __attribute__((visibility("default")))
-        #define FMC_SYM(_name, _ver) __attribute__((symver(FMC_STRINGIZE(FMC_CONCAT(_name@FMC_VER_, _ver)))))
-        #define FMC_DEF_SYM(_name, _ver) __attribute__((symver(FMC_STRINGIZE(FMC_CONCAT(_name@@FMC_VER_, _ver)))))
+        #define FMC_SYM(_ret_type, _name, _ver) \
+            __attribute__((symver(FMC_STRINGIZE(FMC_CONCAT(_name@FMC_VER_, _ver))))) \
+            _ret_type FMC_CONCAT_3(_name, _, _ver)
+        #define FMC_DEF_SYM(_ret_type, _name, _ver) \
+            __attribute__((symver(FMC_STRINGIZE(FMC_CONCAT(_name@@FMC_VER_, _ver))))) \
+            _ret_type FMC_CONCAT_3(_name, _, _ver)
+        #define FMC_USE_SYMVER(sym, ma, mi, p) \
+            __asm__(".symver" "  " FMC_STRINGIZE(sym) "," FMC_STRINGIZE(sym) "@" FMC_STRINGIZE(FMC_CONCAT_6(FMC_VER_, ma, _, mi, _, p)))
     #else
         #define FMC_SHARED
-        #define FMC_SYM(_name, _ver)
-        #define FMC_DEF_SYM(_name, _ver)
+        #define FMC_SYM(_ret_type, _name, _ver) _ret_type _name
+        #define FMC_DEF_SYM(_ret_type, _name, _ver) _ret_type _name
+        #if !defined(BUILDING_FMANC)
+            #define FMC_USE_SYMVER(sym, ma, mi, p) _Pragma("GCC warning \"FMC_USE_SYMVER does nothing here\"")
+        #else
+            #define FMC_USE_SYMVER(sym, ma, mi, p) /* Nothing */
+        #endif
     #endif
 #else
     #error "Unsupported OS"

@@ -41,7 +41,7 @@ FMC_BEGIN_DECLS
 
 #if defined(FMC_COMPILING_ON_LINUX)
 
-inline ssize_t FMC_fastWrite(int fd, const void *buf, size_t size) 
+FMC_SHARED inline ssize_t FMC_fastWrite(int fd, const void *buf, size_t size) 
 {
     register int64_t rax __asm__ ("rax") = 1;
     register int rdi __asm__ ("rdi") = fd;
@@ -58,6 +58,9 @@ inline ssize_t FMC_fastWrite(int fd, const void *buf, size_t size)
 }
 
 #else // !defined(FMC_COMPILING_ON_LINUX)
+    #if defined(FMC_fastWrite)
+        #undef FMC_fastWrite
+    #endif
     #define FMC_fastWrite(fd, buf, size)     \
         if (size > 0)                        \
         {                                    \
@@ -70,6 +73,7 @@ inline ssize_t FMC_fastWrite(int fd, const void *buf, size_t size)
                     fputs(buf, stderr);      \
                     break;                   \
                 default:                     \
+                    fputs(buf, stdout);      \
                     break;                   \
             }                                \
         }
