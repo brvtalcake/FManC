@@ -222,7 +222,7 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_String* FMC_cloneStr(FMC_String* str);
     default: FMC_append_str                        \
 )(_str1, _str2)
 
-FMC_FUNC_INLINE FMC_FUNC_NONNULL(1) FMC_Bool FMC_checkEncoding(const FMC_String* const str)
+FMC_SHARED FMC_FUNC_INLINE FMC_FUNC_NONNULL(1) FMC_Bool FMC_checkEncoding(const FMC_String* const str)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
     if (!str)
@@ -253,7 +253,7 @@ FMC_FUNC_INLINE FMC_FUNC_NONNULL(1) FMC_Bool FMC_checkEncoding(const FMC_String*
     FMC_UNREACHABLE;
 }
 
-FMC_FUNC_INLINE FMC_FUNC_NONNULL(1) void FMC_removeTrailNullChars(FMC_String* const str)
+FMC_SHARED FMC_FUNC_INLINE FMC_FUNC_NONNULL(1) void FMC_removeTrailNullChars(FMC_String* const str)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
     if (!str)

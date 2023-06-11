@@ -49,7 +49,7 @@ FMC_SHARED char *FMC_getAbsolutePath(char *path, char *buffer, const size_t size
 /* !FMC_Filesystem */
 
 /* FMC_perms (C++ part) */
-FMC_SHARED FMC_DEF_SYM(FMC_getPerms, 1_0_0) FMC_PermsFlags FMC_getPerms(const char *path);
+FMC_SHARED FMC_PermsFlags FMC_getPerms(const char *path);
 /* !FMC_perms */
 
 FMC_END_DECLS

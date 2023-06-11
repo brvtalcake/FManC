@@ -1,449 +1,449 @@
-==57089== Memcheck, a memory error detector
-==57089== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==57089== Using Valgrind-3.19.0-8d3c8034b8-20220411 and LibVEX; rerun with -h for copyright info
-==57089== Command: ./test_lin.out
-==57089== Parent PID: 57088
-==57089== 
---57089-- 
---57089-- Valgrind options:
---57089--    --leak-check=full
---57089--    --show-leak-kinds=all
---57089--    --track-origins=yes
---57089--    --verbose
---57089--    --log-file=valgrind-out.txt
---57089-- Contents of /proc/version:
---57089--   Linux version 6.2.0-20-generic (buildd@lcy02-amd64-035) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.2.0-17ubuntu1) 12.2.0, GNU ld (GNU Binutils for Ubuntu) 2.40) #20-Ubuntu SMP PREEMPT_DYNAMIC Thu Apr  6 07:48:48 UTC 2023
---57089-- 
---57089-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
---57089-- Page sizes: currently 4096, max supported 4096
---57089-- Valgrind library directory: /usr/libexec/valgrind
---57089-- Reading syms from /home/axel/Documents/programmation/c/FManC/test/test_builds/lin/test_lin.out
---57089-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
---57089--   Considering /usr/lib/debug/.build-id/5b/beb16d20aeed35a6e0ee5c9407f8d0867fc554.debug ..
---57089--   .. build-id is valid
---57089-- Reading syms from /usr/libexec/valgrind/memcheck-amd64-linux
---57089--    object doesn't have a symbol table
---57089--    object doesn't have a dynamic symbol table
---57089-- Scheduler: using generic scheduler lock implementation.
---57089-- Reading suppressions file: /usr/libexec/valgrind/default.supp
-==57089== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-57089-by-axel-on-???
-==57089== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-57089-by-axel-on-???
-==57089== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-57089-by-axel-on-???
-==57089== 
-==57089== TO CONTROL THIS PROCESS USING vgdb (which you probably
-==57089== don't want to do, unless you know exactly what you're doing,
-==57089== or are doing some strange experiment):
-==57089==   /usr/bin/vgdb --pid=57089 ...command...
-==57089== 
-==57089== TO DEBUG THIS PROCESS USING GDB: start GDB like this
-==57089==   /path/to/gdb ./test_lin.out
-==57089== and then give GDB the following command
-==57089==   target remote | /usr/bin/vgdb --pid=57089
-==57089== --pid is optional if only one valgrind process is running
-==57089== 
---57089-- REDIR: 0x40262d0 (ld-linux-x86-64.so.2:strlen) redirected to 0x580bd2f2 (???)
---57089-- REDIR: 0x4024a80 (ld-linux-x86-64.so.2:index) redirected to 0x580bd30c (???)
---57089-- Reading syms from /usr/libexec/valgrind/vgpreload_core-amd64-linux.so
---57089--    object doesn't have a symbol table
---57089-- Reading syms from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
---57089--    object doesn't have a symbol table
-==57089== WARNING: new redirection conflicts with existing -- ignoring it
---57089--     old: 0x040262d0 (strlen              ) R-> (0000.0) 0x580bd2f2 ???
---57089--     new: 0x040262d0 (strlen              ) R-> (2007.0) 0x04849dc0 strlen
---57089-- REDIR: 0x4024cb0 (ld-linux-x86-64.so.2:strcmp) redirected to 0x484ada0 (strcmp)
---57089-- REDIR: 0x4023ed0 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x484e870 (mempcpy)
---57089-- Reading syms from /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.31
---57089--    object doesn't have a symbol table
---57089-- Reading syms from /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
---57089--    object doesn't have a symbol table
---57089-- Reading syms from /usr/lib/x86_64-linux-gnu/libc.so.6
---57089--   Considering /usr/lib/debug/.build-id/bd/b8aa3b1b60f9d43e1c70ba98158e05f765efdc.debug ..
---57089--   .. build-id is valid
-==57089== WARNING: new redirection conflicts with existing -- ignoring it
---57089--     old: 0x04ba0030 (memalign            ) R-> (1011.0) 0x04849010 memalign
---57089--     new: 0x04ba0030 (memalign            ) R-> (1017.0) 0x04848fe0 aligned_alloc
-==57089== WARNING: new redirection conflicts with existing -- ignoring it
---57089--     old: 0x04ba0030 (memalign            ) R-> (1011.0) 0x04849010 memalign
---57089--     new: 0x04ba0030 (memalign            ) R-> (1017.0) 0x04848fb0 aligned_alloc
-==57089== WARNING: new redirection conflicts with existing -- ignoring it
---57089--     old: 0x04ba0030 (memalign            ) R-> (1011.0) 0x04849010 memalign
---57089--     new: 0x04ba0030 (memalign            ) R-> (1017.0) 0x04848fe0 aligned_alloc
-==57089== WARNING: new redirection conflicts with existing -- ignoring it
---57089--     old: 0x04ba0030 (memalign            ) R-> (1011.0) 0x04849010 memalign
---57089--     new: 0x04ba0030 (memalign            ) R-> (1017.0) 0x04848fb0 aligned_alloc
---57089-- Reading syms from /usr/lib/x86_64-linux-gnu/libm.so.6
---57089--   Considering /usr/lib/debug/.build-id/ee/0a53f1c11e9b31b23373bcc3290b905836c287.debug ..
---57089--   .. build-id is valid
---57089-- REDIR: 0x4026470 (ld-linux-x86-64.so.2:strncmp) redirected to 0x484a5d0 (strncmp)
---57089-- REDIR: 0x4ba6e60 (libc.so.6:strnlen) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba6ef0 (libc.so.6:strpbrk) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba4fc0 (libc.so.6:strcmp) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4bbc570 (libc.so.6:wcsnlen) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba40d0 (libc.so.6:memset) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4bbabe0 (libc.so.6:wcslen) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba35b0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4bba9a0 (libc.so.6:wcschr) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba4eb0 (libc.so.6:index) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba6f20 (libc.so.6:rindex) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4bbaa30 (libc.so.6:wcscmp) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba4320 (libc.so.6:stpncpy) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4bbb060 (libc.so.6:wmemchr) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba6d00 (libc.so.6:strncmp) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba4390 (libc.so.6:strcasecmp) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba6210 (libc.so.6:strcspn) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4bbaac0 (libc.so.6:wcscpy) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba4e30 (libc.so.6:strcat) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba6bf0 (libc.so.6:strncasecmp_l) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba34b0 (libc.so.6:bcmp) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba4040 (libc.so.6:memrchr) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba4f30 (libc.so.6:strchrnul) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba6190 (libc.so.6:strcpy) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba4430 (libc.so.6:strcasecmp_l) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba6ac0 (libc.so.6:strlen) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba6da0 (libc.so.6:strncpy) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba42a0 (libc.so.6:stpcpy) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba3e00 (libc.so.6:memmove) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
-==57089== Preferring higher priority redirection:
---57089--     old: 0x04c70dc0 (__memcpy_avx_unalign) R-> (2018.0) 0x0484c0a0 __memcpy_avx_unaligned_erms
---57089--     new: 0x04c70dc0 (__memcpy_avx_unalign) R-> (2018.1) 0x0484d970 memmove
---57089-- REDIR: 0x4ba3420 (libc.so.6:memchr) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba70e0 (libc.so.6:strspn) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba3f20 (libc.so.6:mempcpy) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba6b50 (libc.so.6:strncasecmp) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba41d0 (libc.so.6:rawmemchr) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba6c90 (libc.so.6:strncat) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4ba7910 (libc.so.6:strstr) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4c759b0 (libc.so.6:__strrchr_avx2) redirected to 0x48497a0 (rindex)
---57089-- REDIR: 0x4c73b00 (libc.so.6:__strlen_avx2) redirected to 0x4849ca0 (strlen)
---57089-- REDIR: 0x4c70660 (libc.so.6:__memcmp_avx2_movbe) redirected to 0x484d120 (bcmp)
---57089-- REDIR: 0x4c74be0 (libc.so.6:__strncmp_avx2) redirected to 0x484a3f0 (strncmp)
---57089-- REDIR: 0x4b9f3f0 (libc.so.6:malloc) redirected to 0x48437b0 (malloc)
---57089-- REDIR: 0x4c73160 (libc.so.6:__strchrnul_avx2) redirected to 0x484e360 (strchrnul)
---57089-- REDIR: 0x4c70dc0 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x484d970 (memmove)
---57089-- REDIR: 0x4c703c0 (libc.so.6:__memchr_avx2) redirected to 0x484ae20 (memchr)
---57089-- REDIR: 0x4929690 (libstdc++.so.6:operator new(unsigned long)) redirected to 0x4843f30 (operator new(unsigned long))
---57089-- REDIR: 0x4927900 (libstdc++.so.6:operator delete(void*, unsigned long)) redirected to 0x4846a90 (operator delete(void*, unsigned long))
---57089-- REDIR: 0x49278f0 (libstdc++.so.6:operator delete(void*)) redirected to 0x48467d0 (operator delete(void*))
---57089-- REDIR: 0x4b9fa60 (libc.so.6:realloc) redirected to 0x4848be0 (realloc)
---57089-- REDIR: 0x4b9f700 (libc.so.6:free) redirected to 0x48461a0 (free)
---57089-- REDIR: 0x4c717c0 (libc.so.6:__memset_avx2_unaligned_erms) redirected to 0x484d870 (memset)
---57089-- REDIR: 0x4c75240 (libc.so.6:__strncpy_avx2) redirected to 0x4849f70 (strncpy)
---57089-- REDIR: 0x4c73350 (libc.so.6:__strcmp_avx2) redirected to 0x484aca0 (strcmp)
-==57089== Conditional jump or move depends on uninitialised value(s)
-==57089==    at 0x484ACAC: strcmp (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==57089==    by 0x11053C: test_FMC_getAbsolutePath (test1_2.c:60)
-==57089==    by 0x10F727: main (test.c:33)
-==57089==  Uninitialised value was created by a stack allocation
-==57089==    at 0x1104CC: test_FMC_getAbsolutePath (test1_2.c:56)
-==57089== 
-==57089== Conditional jump or move depends on uninitialised value(s)
-==57089==    at 0x484ACCB: strcmp (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==57089==    by 0x11053C: test_FMC_getAbsolutePath (test1_2.c:60)
-==57089==    by 0x10F727: main (test.c:33)
-==57089==  Uninitialised value was created by a stack allocation
-==57089==    at 0x1104CC: test_FMC_getAbsolutePath (test1_2.c:56)
-==57089== 
-==57089== Conditional jump or move depends on uninitialised value(s)
-==57089==    at 0x484ACD4: strcmp (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==57089==    by 0x11053C: test_FMC_getAbsolutePath (test1_2.c:60)
-==57089==    by 0x10F727: main (test.c:33)
-==57089==  Uninitialised value was created by a stack allocation
-==57089==    at 0x1104CC: test_FMC_getAbsolutePath (test1_2.c:56)
-==57089== 
-==57089== Conditional jump or move depends on uninitialised value(s)
-==57089==    at 0x11053F: test_FMC_getAbsolutePath (test1_2.c:60)
-==57089==    by 0x10F727: main (test.c:33)
-==57089==  Uninitialised value was created by a stack allocation
-==57089==    at 0x1104CC: test_FMC_getAbsolutePath (test1_2.c:56)
-==57089== 
-==57089== Syscall param fstatat(file_name) points to uninitialised byte(s)
-==57089==    at 0x4C0AEDE: fstatat (fstatat64.c:169)
-==57089==    by 0x14705A: FMC_dirExists (FMC_filesystem.c:41)
-==57089==    by 0x1471E8: FMC_isDir (FMC_filesystem.c:59)
-==57089==    by 0x110589: test_FMC_getAbsolutePath (test1_2.c:64)
-==57089==    by 0x10F727: main (test.c:33)
-==57089==  Address 0x1ffeffe760 is on thread 1's stack
-==57089==  in frame #3, created by test_FMC_getAbsolutePath (test1_2.c:56)
-==57089==  Uninitialised value was created by a stack allocation
-==57089==    at 0x1104CC: test_FMC_getAbsolutePath (test1_2.c:56)
-==57089== 
-==57089== Syscall param fstatat(file_name) points to uninitialised byte(s)
-==57089==    at 0x4C0AEDE: fstatat (fstatat64.c:169)
-==57089==    by 0x14724A: FMC_isDir (FMC_filesystem.c:65)
-==57089==    by 0x110589: test_FMC_getAbsolutePath (test1_2.c:64)
-==57089==    by 0x10F727: main (test.c:33)
-==57089==  Address 0x1ffeffe760 is on thread 1's stack
-==57089==  in frame #2, created by test_FMC_getAbsolutePath (test1_2.c:56)
-==57089==  Uninitialised value was created by a stack allocation
-==57089==    at 0x1104CC: test_FMC_getAbsolutePath (test1_2.c:56)
-==57089== 
---57089-- REDIR: 0x4c72f20 (libc.so.6:__strchr_avx2) redirected to 0x4849980 (index)
---57089-- REDIR: 0x4c72c10 (libc.so.6:__strcat_avx2) redirected to 0x48499b0 (strcat)
---57089-- REDIR: 0x4c756e0 (libc.so.6:__strnlen_avx2) redirected to 0x4849c40 (strnlen)
---57089-- REDIR: 0x4c738b0 (libc.so.6:__strcpy_avx2) redirected to 0x4849df0 (strcpy)
---57089-- REDIR: 0x4c747c0 (libc.so.6:__strncat_avx2) redirected to 0x4849b50 (strncat)
---57089-- REDIR: 0x4bb9ed0 (libc.so.6:__strstr_sse2_unaligned) redirected to 0x484ea80 (strstr)
---57089-- REDIR: 0x4c73c80 (libc.so.6:__strncasecmp_avx2) redirected to 0x484a710 (strncasecmp)
---57089-- REDIR: 0x4ba08a0 (libc.so.6:calloc) redirected to 0x4848960 (calloc)
---57089-- Reading syms from /usr/lib/x86_64-linux-gnu/libnss_systemd.so.2
---57089--    object doesn't have a symbol table
---57089-- Reading syms from /usr/lib/x86_64-linux-gnu/libcap.so.2.66
---57089--    object doesn't have a symbol table
---57089-- REDIR: 0x4c2c710 (libc.so.6:__memcpy_chk) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---57089-- REDIR: 0x4c71a70 (libc.so.6:__stpcpy_avx2) redirected to 0x484d200 (stpcpy)
---57089-- REDIR: 0x4ba0f70 (libc.so.6:malloc_usable_size) redirected to 0x4849140 (malloc_usable_size)
---57089-- REDIR: 0x4c92c90 (libc.so.6:__strspn_sse42) redirected to 0x484ed50 (strspn)
-==57089== Conditional jump or move depends on uninitialised value(s)
-==57089==    at 0x12CE66: FMC_getLevenshtein_coeffs (FMC_metrics.c:662)
-==57089==    by 0x114736: test_FMC_Strings (test2_2.c:274)
-==57089==    by 0x10FC04: main (test.c:80)
-==57089==  Uninitialised value was created by a stack allocation
-==57089==    at 0x12299A: FMC_getLevenshtein_coeffs (FMC_metrics.c:41)
-==57089== 
-==57089== Conditional jump or move depends on uninitialised value(s)
-==57089==    at 0x114758: test_FMC_Strings (test2_2.c:275)
-==57089==    by 0x10FC04: main (test.c:80)
-==57089==  Uninitialised value was created by a stack allocation
-==57089==    at 0x12299A: FMC_getLevenshtein_coeffs (FMC_metrics.c:41)
-==57089== 
---57089-- REDIR: 0x4c70d80 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x484e470 (mempcpy)
-==57089== 
-==57089== HEAP SUMMARY:
-==57089==     in use at exit: 3,708 bytes in 11 blocks
-==57089==   total heap usage: 522 allocs, 511 frees, 482,711 bytes allocated
-==57089== 
-==57089== Searching for pointers to 11 not-freed blocks
-==57089== Checked 225,744 bytes
-==57089== 
-==57089== 32 bytes in 1 blocks are definitely lost in loss record 1 of 10
-==57089==    at 0x4848A13: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==57089==    by 0x120698: FMC_allocChar (FMC_chars.c:34)
-==57089==    by 0x1513A8: FMC_UTF8FromCodePoint (FMC_code_points.c:944)
-==57089==    by 0x11245D: test_FMC_CodePoint (test2_2.c:172)
-==57089==    by 0x10FB5E: main (test.c:74)
-==57089== 
-==57089== 34 bytes in 1 blocks are still reachable in loss record 2 of 10
-==57089==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==57089==    by 0x402628E: malloc (rtld-malloc.h:56)
-==57089==    by 0x402628E: strdup (strdup.c:42)
-==57089==    by 0x40148AF: _dl_load_cache_lookup (dl-cache.c:525)
-==57089==    by 0x4009319: _dl_map_object (dl-load.c:2142)
-==57089==    by 0x4002934: openaux (dl-deps.c:64)
-==57089==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
-==57089==    by 0x4002D6E: _dl_map_object_deps (dl-deps.c:232)
-==57089==    by 0x400CE5E: dl_open_worker_begin (dl-open.c:592)
-==57089==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
-==57089==    by 0x400C2E9: dl_open_worker (dl-open.c:782)
-==57089==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
-==57089==    by 0x400C6BB: _dl_open (dl-open.c:884)
-==57089== 
-==57089== 34 bytes in 1 blocks are still reachable in loss record 3 of 10
-==57089==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==57089==    by 0x400C048: malloc (rtld-malloc.h:56)
-==57089==    by 0x400C048: _dl_new_object (dl-object.c:199)
-==57089==    by 0x400731E: _dl_map_object_from_fd (dl-load.c:1063)
-==57089==    by 0x4008DBF: _dl_map_object (dl-load.c:2275)
-==57089==    by 0x4002934: openaux (dl-deps.c:64)
-==57089==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
-==57089==    by 0x4002D6E: _dl_map_object_deps (dl-deps.c:232)
-==57089==    by 0x400CE5E: dl_open_worker_begin (dl-open.c:592)
-==57089==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
-==57089==    by 0x400C2E9: dl_open_worker (dl-open.c:782)
-==57089==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
-==57089==    by 0x400C6BB: _dl_open (dl-open.c:884)
-==57089== 
-==57089== 42 bytes in 1 blocks are still reachable in loss record 4 of 10
-==57089==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==57089==    by 0x402628E: malloc (rtld-malloc.h:56)
-==57089==    by 0x402628E: strdup (strdup.c:42)
-==57089==    by 0x40148AF: _dl_load_cache_lookup (dl-cache.c:525)
-==57089==    by 0x4009319: _dl_map_object (dl-load.c:2142)
-==57089==    by 0x400CDF8: dl_open_worker_begin (dl-open.c:534)
-==57089==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
-==57089==    by 0x400C2E9: dl_open_worker (dl-open.c:782)
-==57089==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
-==57089==    by 0x400C6BB: _dl_open (dl-open.c:884)
-==57089==    by 0x4C6CC30: do_dlopen (dl-libc.c:95)
-==57089==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
-==57089==    by 0x4001602: _dl_catch_error (dl-catch.c:256)
-==57089== 
-==57089== 42 bytes in 1 blocks are still reachable in loss record 5 of 10
-==57089==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==57089==    by 0x400C048: malloc (rtld-malloc.h:56)
-==57089==    by 0x400C048: _dl_new_object (dl-object.c:199)
-==57089==    by 0x400731E: _dl_map_object_from_fd (dl-load.c:1063)
-==57089==    by 0x4008DBF: _dl_map_object (dl-load.c:2275)
-==57089==    by 0x400CDF8: dl_open_worker_begin (dl-open.c:534)
-==57089==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
-==57089==    by 0x400C2E9: dl_open_worker (dl-open.c:782)
-==57089==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
-==57089==    by 0x400C6BB: _dl_open (dl-open.c:884)
-==57089==    by 0x4C6CC30: do_dlopen (dl-libc.c:95)
-==57089==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
-==57089==    by 0x4001602: _dl_catch_error (dl-catch.c:256)
-==57089== 
-==57089== 92 bytes in 1 blocks are still reachable in loss record 6 of 10
-==57089==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==57089==    by 0x401242D: malloc (rtld-malloc.h:56)
-==57089==    by 0x401242D: allocate_dtv_entry (dl-tls.c:684)
-==57089==    by 0x401242D: allocate_and_init (dl-tls.c:709)
-==57089==    by 0x401242D: tls_get_addr_tail (dl-tls.c:907)
-==57089==    by 0x401612B: __tls_get_addr (tls_get_addr.S:55)
-==57089==    by 0x51FB9C3: _nss_systemd_is_blocked (in /usr/lib/x86_64-linux-gnu/libnss_systemd.so.2)
-==57089==    by 0x51FDFB3: _nss_systemd_setpwent (in /usr/lib/x86_64-linux-gnu/libnss_systemd.so.2)
-==57089==    by 0x4C4C52A: __nss_getent_r (getnssent_r.c:241)
-==57089==    by 0x4BE0BB0: getpwent_r@@GLIBC_2.2.5 (getXXent_r.c:159)
-==57089==    by 0x4C4BECB: __nss_getent (getnssent.c:36)
-==57089==    by 0x4BE06B3: getpwent (getXXent.c:84)
-==57089==    by 0x135E02: FMC_getAllUIDs (FMC_users.c:347)
-==57089==    by 0x117F4B: test_FMC_getAllUIDs (test5_2.c:23)
-==57089==    by 0x10F9BF: main (test.c:58)
-==57089== 
-==57089== 176 bytes in 1 blocks are still reachable in loss record 7 of 10
-==57089==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==57089==    by 0x4C4F531: nss_files_global_allocate (nss_files_data.c:38)
-==57089==    by 0x4C1D5CB: __libc_allocate_once_slow (allocate_once.c:28)
-==57089==    by 0x4C4F684: allocate_once (allocate_once.h:90)
-==57089==    by 0x4C4F684: __nss_files_data_get (nss_files_data.c:54)
-==57089==    by 0x4C4F684: __nss_files_data_open (nss_files_data.c:98)
-==57089==    by 0x4C52C46: _nss_files_getpwent_r (files-XXX.c:171)
-==57089==    by 0x4C4C3AD: __nss_getent_r (getnssent_r.c:194)
-==57089==    by 0x4BE0BB0: getpwent_r@@GLIBC_2.2.5 (getXXent_r.c:159)
-==57089==    by 0x4C4BECB: __nss_getent (getnssent.c:36)
-==57089==    by 0x4BE06B3: getpwent (getXXent.c:84)
-==57089==    by 0x135E02: FMC_getAllUIDs (FMC_users.c:347)
-==57089==    by 0x117F4B: test_FMC_getAllUIDs (test5_2.c:23)
-==57089==    by 0x10F9BF: main (test.c:58)
-==57089== 
-==57089== 792 bytes in 2 blocks are still reachable in loss record 8 of 10
-==57089==    at 0x4848A13: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==57089==    by 0x4014053: calloc (rtld-malloc.h:44)
-==57089==    by 0x4014053: _dl_check_map_versions (dl-version.c:280)
-==57089==    by 0x400D063: dl_open_worker_begin (dl-open.c:600)
-==57089==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
-==57089==    by 0x400C2E9: dl_open_worker (dl-open.c:782)
-==57089==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
-==57089==    by 0x400C6BB: _dl_open (dl-open.c:884)
-==57089==    by 0x4C6CC30: do_dlopen (dl-libc.c:95)
-==57089==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
-==57089==    by 0x4001602: _dl_catch_error (dl-catch.c:256)
-==57089==    by 0x4C6CD89: dlerror_run (dl-libc.c:45)
-==57089==    by 0x4C6CD89: __libc_dlopen_mode (dl-libc.c:162)
-==57089==    by 0x4C4D85D: module_load (nss_module.c:187)
-==57089== 
-==57089== 1,228 bytes in 1 blocks are still reachable in loss record 9 of 10
-==57089==    at 0x4848A13: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==57089==    by 0x400BD4C: calloc (rtld-malloc.h:44)
-==57089==    by 0x400BD4C: _dl_new_object (dl-object.c:92)
-==57089==    by 0x400731E: _dl_map_object_from_fd (dl-load.c:1063)
-==57089==    by 0x4008DBF: _dl_map_object (dl-load.c:2275)
-==57089==    by 0x4002934: openaux (dl-deps.c:64)
-==57089==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
-==57089==    by 0x4002D6E: _dl_map_object_deps (dl-deps.c:232)
-==57089==    by 0x400CE5E: dl_open_worker_begin (dl-open.c:592)
-==57089==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
-==57089==    by 0x400C2E9: dl_open_worker (dl-open.c:782)
-==57089==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
-==57089==    by 0x400C6BB: _dl_open (dl-open.c:884)
-==57089== 
-==57089== 1,236 bytes in 1 blocks are still reachable in loss record 10 of 10
-==57089==    at 0x4848A13: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==57089==    by 0x400BD4C: calloc (rtld-malloc.h:44)
-==57089==    by 0x400BD4C: _dl_new_object (dl-object.c:92)
-==57089==    by 0x400731E: _dl_map_object_from_fd (dl-load.c:1063)
-==57089==    by 0x4008DBF: _dl_map_object (dl-load.c:2275)
-==57089==    by 0x400CDF8: dl_open_worker_begin (dl-open.c:534)
-==57089==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
-==57089==    by 0x400C2E9: dl_open_worker (dl-open.c:782)
-==57089==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
-==57089==    by 0x400C6BB: _dl_open (dl-open.c:884)
-==57089==    by 0x4C6CC30: do_dlopen (dl-libc.c:95)
-==57089==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
-==57089==    by 0x4001602: _dl_catch_error (dl-catch.c:256)
-==57089== 
-==57089== LEAK SUMMARY:
-==57089==    definitely lost: 32 bytes in 1 blocks
-==57089==    indirectly lost: 0 bytes in 0 blocks
-==57089==      possibly lost: 0 bytes in 0 blocks
-==57089==    still reachable: 3,676 bytes in 10 blocks
-==57089==         suppressed: 0 bytes in 0 blocks
-==57089== 
-==57089== ERROR SUMMARY: 137 errors from 9 contexts (suppressed: 0 from 0)
-==57089== 
-==57089== 1 errors in context 1 of 9:
-==57089== Conditional jump or move depends on uninitialised value(s)
-==57089==    at 0x114758: test_FMC_Strings (test2_2.c:275)
-==57089==    by 0x10FC04: main (test.c:80)
-==57089==  Uninitialised value was created by a stack allocation
-==57089==    at 0x12299A: FMC_getLevenshtein_coeffs (FMC_metrics.c:41)
-==57089== 
-==57089== 
-==57089== 1 errors in context 2 of 9:
-==57089== Syscall param fstatat(file_name) points to uninitialised byte(s)
-==57089==    at 0x4C0AEDE: fstatat (fstatat64.c:169)
-==57089==    by 0x14724A: FMC_isDir (FMC_filesystem.c:65)
-==57089==    by 0x110589: test_FMC_getAbsolutePath (test1_2.c:64)
-==57089==    by 0x10F727: main (test.c:33)
-==57089==  Address 0x1ffeffe760 is on thread 1's stack
-==57089==  in frame #2, created by test_FMC_getAbsolutePath (test1_2.c:56)
-==57089==  Uninitialised value was created by a stack allocation
-==57089==    at 0x1104CC: test_FMC_getAbsolutePath (test1_2.c:56)
-==57089== 
-==57089== 
-==57089== 1 errors in context 3 of 9:
-==57089== Syscall param fstatat(file_name) points to uninitialised byte(s)
-==57089==    at 0x4C0AEDE: fstatat (fstatat64.c:169)
-==57089==    by 0x14705A: FMC_dirExists (FMC_filesystem.c:41)
-==57089==    by 0x1471E8: FMC_isDir (FMC_filesystem.c:59)
-==57089==    by 0x110589: test_FMC_getAbsolutePath (test1_2.c:64)
-==57089==    by 0x10F727: main (test.c:33)
-==57089==  Address 0x1ffeffe760 is on thread 1's stack
-==57089==  in frame #3, created by test_FMC_getAbsolutePath (test1_2.c:56)
-==57089==  Uninitialised value was created by a stack allocation
-==57089==    at 0x1104CC: test_FMC_getAbsolutePath (test1_2.c:56)
-==57089== 
-==57089== 
-==57089== 1 errors in context 4 of 9:
-==57089== Conditional jump or move depends on uninitialised value(s)
-==57089==    at 0x11053F: test_FMC_getAbsolutePath (test1_2.c:60)
-==57089==    by 0x10F727: main (test.c:33)
-==57089==  Uninitialised value was created by a stack allocation
-==57089==    at 0x1104CC: test_FMC_getAbsolutePath (test1_2.c:56)
-==57089== 
-==57089== 
-==57089== 1 errors in context 5 of 9:
-==57089== Conditional jump or move depends on uninitialised value(s)
-==57089==    at 0x484ACD4: strcmp (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==57089==    by 0x11053C: test_FMC_getAbsolutePath (test1_2.c:60)
-==57089==    by 0x10F727: main (test.c:33)
-==57089==  Uninitialised value was created by a stack allocation
-==57089==    at 0x1104CC: test_FMC_getAbsolutePath (test1_2.c:56)
-==57089== 
-==57089== 
-==57089== 1 errors in context 6 of 9:
-==57089== Conditional jump or move depends on uninitialised value(s)
-==57089==    at 0x484ACAC: strcmp (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==57089==    by 0x11053C: test_FMC_getAbsolutePath (test1_2.c:60)
-==57089==    by 0x10F727: main (test.c:33)
-==57089==  Uninitialised value was created by a stack allocation
-==57089==    at 0x1104CC: test_FMC_getAbsolutePath (test1_2.c:56)
-==57089== 
-==57089== 
-==57089== 65 errors in context 7 of 9:
-==57089== Conditional jump or move depends on uninitialised value(s)
-==57089==    at 0x12CE66: FMC_getLevenshtein_coeffs (FMC_metrics.c:662)
-==57089==    by 0x114736: test_FMC_Strings (test2_2.c:274)
-==57089==    by 0x10FC04: main (test.c:80)
-==57089==  Uninitialised value was created by a stack allocation
-==57089==    at 0x12299A: FMC_getLevenshtein_coeffs (FMC_metrics.c:41)
-==57089== 
-==57089== 
-==57089== 65 errors in context 8 of 9:
-==57089== Conditional jump or move depends on uninitialised value(s)
-==57089==    at 0x484ACCB: strcmp (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==57089==    by 0x11053C: test_FMC_getAbsolutePath (test1_2.c:60)
-==57089==    by 0x10F727: main (test.c:33)
-==57089==  Uninitialised value was created by a stack allocation
-==57089==    at 0x1104CC: test_FMC_getAbsolutePath (test1_2.c:56)
-==57089== 
-==57089== ERROR SUMMARY: 137 errors from 9 contexts (suppressed: 0 from 0)
+==61463== Memcheck, a memory error detector
+==61463== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==61463== Using Valgrind-3.19.0-8d3c8034b8-20220411 and LibVEX; rerun with -h for copyright info
+==61463== Command: ./test_lin.out
+==61463== Parent PID: 61462
+==61463== 
+--61463-- 
+--61463-- Valgrind options:
+--61463--    --leak-check=full
+--61463--    --show-leak-kinds=all
+--61463--    --track-origins=yes
+--61463--    --verbose
+--61463--    --log-file=valgrind-out.txt
+--61463-- Contents of /proc/version:
+--61463--   Linux version 6.2.0-20-generic (buildd@lcy02-amd64-035) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.2.0-17ubuntu1) 12.2.0, GNU ld (GNU Binutils for Ubuntu) 2.40) #20-Ubuntu SMP PREEMPT_DYNAMIC Thu Apr  6 07:48:48 UTC 2023
+--61463-- 
+--61463-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
+--61463-- Page sizes: currently 4096, max supported 4096
+--61463-- Valgrind library directory: /usr/libexec/valgrind
+--61463-- Reading syms from /home/axel/Documents/programmation/c/FManC/test/test_builds/lin/test_lin.out
+--61463-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+--61463--   Considering /usr/lib/debug/.build-id/5b/beb16d20aeed35a6e0ee5c9407f8d0867fc554.debug ..
+--61463--   .. build-id is valid
+--61463-- Reading syms from /usr/libexec/valgrind/memcheck-amd64-linux
+--61463--    object doesn't have a symbol table
+--61463--    object doesn't have a dynamic symbol table
+--61463-- Scheduler: using generic scheduler lock implementation.
+--61463-- Reading suppressions file: /usr/libexec/valgrind/default.supp
+==61463== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-61463-by-axel-on-???
+==61463== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-61463-by-axel-on-???
+==61463== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-61463-by-axel-on-???
+==61463== 
+==61463== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==61463== don't want to do, unless you know exactly what you're doing,
+==61463== or are doing some strange experiment):
+==61463==   /usr/bin/vgdb --pid=61463 ...command...
+==61463== 
+==61463== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==61463==   /path/to/gdb ./test_lin.out
+==61463== and then give GDB the following command
+==61463==   target remote | /usr/bin/vgdb --pid=61463
+==61463== --pid is optional if only one valgrind process is running
+==61463== 
+--61463-- REDIR: 0x40262d0 (ld-linux-x86-64.so.2:strlen) redirected to 0x580bd2f2 (???)
+--61463-- REDIR: 0x4024a80 (ld-linux-x86-64.so.2:index) redirected to 0x580bd30c (???)
+--61463-- Reading syms from /usr/libexec/valgrind/vgpreload_core-amd64-linux.so
+--61463--    object doesn't have a symbol table
+--61463-- Reading syms from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
+--61463--    object doesn't have a symbol table
+==61463== WARNING: new redirection conflicts with existing -- ignoring it
+--61463--     old: 0x040262d0 (strlen              ) R-> (0000.0) 0x580bd2f2 ???
+--61463--     new: 0x040262d0 (strlen              ) R-> (2007.0) 0x04849dc0 strlen
+--61463-- REDIR: 0x4024cb0 (ld-linux-x86-64.so.2:strcmp) redirected to 0x484ada0 (strcmp)
+--61463-- REDIR: 0x4023ed0 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x484e870 (mempcpy)
+--61463-- Reading syms from /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.31
+--61463--    object doesn't have a symbol table
+--61463-- Reading syms from /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+--61463--    object doesn't have a symbol table
+--61463-- Reading syms from /usr/lib/x86_64-linux-gnu/libc.so.6
+--61463--   Considering /usr/lib/debug/.build-id/bd/b8aa3b1b60f9d43e1c70ba98158e05f765efdc.debug ..
+--61463--   .. build-id is valid
+==61463== WARNING: new redirection conflicts with existing -- ignoring it
+--61463--     old: 0x04ba0030 (memalign            ) R-> (1011.0) 0x04849010 memalign
+--61463--     new: 0x04ba0030 (memalign            ) R-> (1017.0) 0x04848fe0 aligned_alloc
+==61463== WARNING: new redirection conflicts with existing -- ignoring it
+--61463--     old: 0x04ba0030 (memalign            ) R-> (1011.0) 0x04849010 memalign
+--61463--     new: 0x04ba0030 (memalign            ) R-> (1017.0) 0x04848fb0 aligned_alloc
+==61463== WARNING: new redirection conflicts with existing -- ignoring it
+--61463--     old: 0x04ba0030 (memalign            ) R-> (1011.0) 0x04849010 memalign
+--61463--     new: 0x04ba0030 (memalign            ) R-> (1017.0) 0x04848fe0 aligned_alloc
+==61463== WARNING: new redirection conflicts with existing -- ignoring it
+--61463--     old: 0x04ba0030 (memalign            ) R-> (1011.0) 0x04849010 memalign
+--61463--     new: 0x04ba0030 (memalign            ) R-> (1017.0) 0x04848fb0 aligned_alloc
+--61463-- Reading syms from /usr/lib/x86_64-linux-gnu/libm.so.6
+--61463--   Considering /usr/lib/debug/.build-id/ee/0a53f1c11e9b31b23373bcc3290b905836c287.debug ..
+--61463--   .. build-id is valid
+--61463-- REDIR: 0x4026470 (ld-linux-x86-64.so.2:strncmp) redirected to 0x484a5d0 (strncmp)
+--61463-- REDIR: 0x4ba6e60 (libc.so.6:strnlen) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba6ef0 (libc.so.6:strpbrk) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba4fc0 (libc.so.6:strcmp) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4bbc570 (libc.so.6:wcsnlen) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba40d0 (libc.so.6:memset) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4bbabe0 (libc.so.6:wcslen) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba35b0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4bba9a0 (libc.so.6:wcschr) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba4eb0 (libc.so.6:index) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba6f20 (libc.so.6:rindex) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4bbaa30 (libc.so.6:wcscmp) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba4320 (libc.so.6:stpncpy) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4bbb060 (libc.so.6:wmemchr) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba6d00 (libc.so.6:strncmp) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba4390 (libc.so.6:strcasecmp) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba6210 (libc.so.6:strcspn) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4bbaac0 (libc.so.6:wcscpy) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba4e30 (libc.so.6:strcat) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba6bf0 (libc.so.6:strncasecmp_l) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba34b0 (libc.so.6:bcmp) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba4040 (libc.so.6:memrchr) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba4f30 (libc.so.6:strchrnul) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba6190 (libc.so.6:strcpy) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba4430 (libc.so.6:strcasecmp_l) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba6ac0 (libc.so.6:strlen) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba6da0 (libc.so.6:strncpy) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba42a0 (libc.so.6:stpcpy) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba3e00 (libc.so.6:memmove) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+==61463== Preferring higher priority redirection:
+--61463--     old: 0x04c70dc0 (__memcpy_avx_unalign) R-> (2018.0) 0x0484c0a0 __memcpy_avx_unaligned_erms
+--61463--     new: 0x04c70dc0 (__memcpy_avx_unalign) R-> (2018.1) 0x0484d970 memmove
+--61463-- REDIR: 0x4ba3420 (libc.so.6:memchr) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba70e0 (libc.so.6:strspn) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba3f20 (libc.so.6:mempcpy) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba6b50 (libc.so.6:strncasecmp) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba41d0 (libc.so.6:rawmemchr) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba6c90 (libc.so.6:strncat) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4ba7910 (libc.so.6:strstr) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4c759b0 (libc.so.6:__strrchr_avx2) redirected to 0x48497a0 (rindex)
+--61463-- REDIR: 0x4c73b00 (libc.so.6:__strlen_avx2) redirected to 0x4849ca0 (strlen)
+--61463-- REDIR: 0x4c70660 (libc.so.6:__memcmp_avx2_movbe) redirected to 0x484d120 (bcmp)
+--61463-- REDIR: 0x4c74be0 (libc.so.6:__strncmp_avx2) redirected to 0x484a3f0 (strncmp)
+--61463-- REDIR: 0x4b9f3f0 (libc.so.6:malloc) redirected to 0x48437b0 (malloc)
+--61463-- REDIR: 0x4c73160 (libc.so.6:__strchrnul_avx2) redirected to 0x484e360 (strchrnul)
+--61463-- REDIR: 0x4c70dc0 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x484d970 (memmove)
+--61463-- REDIR: 0x4c703c0 (libc.so.6:__memchr_avx2) redirected to 0x484ae20 (memchr)
+--61463-- REDIR: 0x4929690 (libstdc++.so.6:operator new(unsigned long)) redirected to 0x4843f30 (operator new(unsigned long))
+--61463-- REDIR: 0x4927900 (libstdc++.so.6:operator delete(void*, unsigned long)) redirected to 0x4846a90 (operator delete(void*, unsigned long))
+--61463-- REDIR: 0x49278f0 (libstdc++.so.6:operator delete(void*)) redirected to 0x48467d0 (operator delete(void*))
+--61463-- REDIR: 0x4b9fa60 (libc.so.6:realloc) redirected to 0x4848be0 (realloc)
+--61463-- REDIR: 0x4b9f700 (libc.so.6:free) redirected to 0x48461a0 (free)
+--61463-- REDIR: 0x4c717c0 (libc.so.6:__memset_avx2_unaligned_erms) redirected to 0x484d870 (memset)
+--61463-- REDIR: 0x4c75240 (libc.so.6:__strncpy_avx2) redirected to 0x4849f70 (strncpy)
+--61463-- REDIR: 0x4c73350 (libc.so.6:__strcmp_avx2) redirected to 0x484aca0 (strcmp)
+==61463== Conditional jump or move depends on uninitialised value(s)
+==61463==    at 0x484ACAC: strcmp (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==61463==    by 0x11053C: test_FMC_getAbsolutePath (test1_2.c:60)
+==61463==    by 0x10F727: main (test.c:33)
+==61463==  Uninitialised value was created by a stack allocation
+==61463==    at 0x1104CC: test_FMC_getAbsolutePath (test1_2.c:56)
+==61463== 
+==61463== Conditional jump or move depends on uninitialised value(s)
+==61463==    at 0x484ACCB: strcmp (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==61463==    by 0x11053C: test_FMC_getAbsolutePath (test1_2.c:60)
+==61463==    by 0x10F727: main (test.c:33)
+==61463==  Uninitialised value was created by a stack allocation
+==61463==    at 0x1104CC: test_FMC_getAbsolutePath (test1_2.c:56)
+==61463== 
+==61463== Conditional jump or move depends on uninitialised value(s)
+==61463==    at 0x484ACD4: strcmp (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==61463==    by 0x11053C: test_FMC_getAbsolutePath (test1_2.c:60)
+==61463==    by 0x10F727: main (test.c:33)
+==61463==  Uninitialised value was created by a stack allocation
+==61463==    at 0x1104CC: test_FMC_getAbsolutePath (test1_2.c:56)
+==61463== 
+==61463== Conditional jump or move depends on uninitialised value(s)
+==61463==    at 0x11053F: test_FMC_getAbsolutePath (test1_2.c:60)
+==61463==    by 0x10F727: main (test.c:33)
+==61463==  Uninitialised value was created by a stack allocation
+==61463==    at 0x1104CC: test_FMC_getAbsolutePath (test1_2.c:56)
+==61463== 
+==61463== Syscall param fstatat(file_name) points to uninitialised byte(s)
+==61463==    at 0x4C0AEDE: fstatat (fstatat64.c:169)
+==61463==    by 0x14705A: FMC_dirExists (FMC_filesystem.c:41)
+==61463==    by 0x1471E8: FMC_isDir (FMC_filesystem.c:59)
+==61463==    by 0x110589: test_FMC_getAbsolutePath (test1_2.c:64)
+==61463==    by 0x10F727: main (test.c:33)
+==61463==  Address 0x1ffeffe730 is on thread 1's stack
+==61463==  in frame #3, created by test_FMC_getAbsolutePath (test1_2.c:56)
+==61463==  Uninitialised value was created by a stack allocation
+==61463==    at 0x1104CC: test_FMC_getAbsolutePath (test1_2.c:56)
+==61463== 
+==61463== Syscall param fstatat(file_name) points to uninitialised byte(s)
+==61463==    at 0x4C0AEDE: fstatat (fstatat64.c:169)
+==61463==    by 0x14724A: FMC_isDir (FMC_filesystem.c:65)
+==61463==    by 0x110589: test_FMC_getAbsolutePath (test1_2.c:64)
+==61463==    by 0x10F727: main (test.c:33)
+==61463==  Address 0x1ffeffe730 is on thread 1's stack
+==61463==  in frame #2, created by test_FMC_getAbsolutePath (test1_2.c:56)
+==61463==  Uninitialised value was created by a stack allocation
+==61463==    at 0x1104CC: test_FMC_getAbsolutePath (test1_2.c:56)
+==61463== 
+--61463-- REDIR: 0x4c72f20 (libc.so.6:__strchr_avx2) redirected to 0x4849980 (index)
+--61463-- REDIR: 0x4c72c10 (libc.so.6:__strcat_avx2) redirected to 0x48499b0 (strcat)
+--61463-- REDIR: 0x4c756e0 (libc.so.6:__strnlen_avx2) redirected to 0x4849c40 (strnlen)
+--61463-- REDIR: 0x4c738b0 (libc.so.6:__strcpy_avx2) redirected to 0x4849df0 (strcpy)
+--61463-- REDIR: 0x4c747c0 (libc.so.6:__strncat_avx2) redirected to 0x4849b50 (strncat)
+--61463-- REDIR: 0x4bb9ed0 (libc.so.6:__strstr_sse2_unaligned) redirected to 0x484ea80 (strstr)
+--61463-- REDIR: 0x4c73c80 (libc.so.6:__strncasecmp_avx2) redirected to 0x484a710 (strncasecmp)
+--61463-- REDIR: 0x4ba08a0 (libc.so.6:calloc) redirected to 0x4848960 (calloc)
+--61463-- Reading syms from /usr/lib/x86_64-linux-gnu/libnss_systemd.so.2
+--61463--    object doesn't have a symbol table
+--61463-- Reading syms from /usr/lib/x86_64-linux-gnu/libcap.so.2.66
+--61463--    object doesn't have a symbol table
+--61463-- REDIR: 0x4c2c710 (libc.so.6:__memcpy_chk) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--61463-- REDIR: 0x4c71a70 (libc.so.6:__stpcpy_avx2) redirected to 0x484d200 (stpcpy)
+--61463-- REDIR: 0x4ba0f70 (libc.so.6:malloc_usable_size) redirected to 0x4849140 (malloc_usable_size)
+--61463-- REDIR: 0x4c92c90 (libc.so.6:__strspn_sse42) redirected to 0x484ed50 (strspn)
+==61463== Conditional jump or move depends on uninitialised value(s)
+==61463==    at 0x12CE66: FMC_getLevenshtein_coeffs (FMC_metrics.c:662)
+==61463==    by 0x114736: test_FMC_Strings (test2_2.c:274)
+==61463==    by 0x10FC04: main (test.c:80)
+==61463==  Uninitialised value was created by a stack allocation
+==61463==    at 0x12299A: FMC_getLevenshtein_coeffs (FMC_metrics.c:41)
+==61463== 
+==61463== Conditional jump or move depends on uninitialised value(s)
+==61463==    at 0x114758: test_FMC_Strings (test2_2.c:275)
+==61463==    by 0x10FC04: main (test.c:80)
+==61463==  Uninitialised value was created by a stack allocation
+==61463==    at 0x12299A: FMC_getLevenshtein_coeffs (FMC_metrics.c:41)
+==61463== 
+--61463-- REDIR: 0x4c70d80 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x484e470 (mempcpy)
+==61463== 
+==61463== HEAP SUMMARY:
+==61463==     in use at exit: 3,708 bytes in 11 blocks
+==61463==   total heap usage: 522 allocs, 511 frees, 482,711 bytes allocated
+==61463== 
+==61463== Searching for pointers to 11 not-freed blocks
+==61463== Checked 225,792 bytes
+==61463== 
+==61463== 32 bytes in 1 blocks are definitely lost in loss record 1 of 10
+==61463==    at 0x4848A13: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==61463==    by 0x120698: FMC_allocChar (FMC_chars.c:34)
+==61463==    by 0x1513AC: FMC_UTF8FromCodePoint (FMC_code_points.c:944)
+==61463==    by 0x11245D: test_FMC_CodePoint (test2_2.c:172)
+==61463==    by 0x10FB5E: main (test.c:74)
+==61463== 
+==61463== 34 bytes in 1 blocks are still reachable in loss record 2 of 10
+==61463==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==61463==    by 0x402628E: malloc (rtld-malloc.h:56)
+==61463==    by 0x402628E: strdup (strdup.c:42)
+==61463==    by 0x40148AF: _dl_load_cache_lookup (dl-cache.c:525)
+==61463==    by 0x4009319: _dl_map_object (dl-load.c:2142)
+==61463==    by 0x4002934: openaux (dl-deps.c:64)
+==61463==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
+==61463==    by 0x4002D6E: _dl_map_object_deps (dl-deps.c:232)
+==61463==    by 0x400CE5E: dl_open_worker_begin (dl-open.c:592)
+==61463==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
+==61463==    by 0x400C2E9: dl_open_worker (dl-open.c:782)
+==61463==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
+==61463==    by 0x400C6BB: _dl_open (dl-open.c:884)
+==61463== 
+==61463== 34 bytes in 1 blocks are still reachable in loss record 3 of 10
+==61463==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==61463==    by 0x400C048: malloc (rtld-malloc.h:56)
+==61463==    by 0x400C048: _dl_new_object (dl-object.c:199)
+==61463==    by 0x400731E: _dl_map_object_from_fd (dl-load.c:1063)
+==61463==    by 0x4008DBF: _dl_map_object (dl-load.c:2275)
+==61463==    by 0x4002934: openaux (dl-deps.c:64)
+==61463==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
+==61463==    by 0x4002D6E: _dl_map_object_deps (dl-deps.c:232)
+==61463==    by 0x400CE5E: dl_open_worker_begin (dl-open.c:592)
+==61463==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
+==61463==    by 0x400C2E9: dl_open_worker (dl-open.c:782)
+==61463==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
+==61463==    by 0x400C6BB: _dl_open (dl-open.c:884)
+==61463== 
+==61463== 42 bytes in 1 blocks are still reachable in loss record 4 of 10
+==61463==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==61463==    by 0x402628E: malloc (rtld-malloc.h:56)
+==61463==    by 0x402628E: strdup (strdup.c:42)
+==61463==    by 0x40148AF: _dl_load_cache_lookup (dl-cache.c:525)
+==61463==    by 0x4009319: _dl_map_object (dl-load.c:2142)
+==61463==    by 0x400CDF8: dl_open_worker_begin (dl-open.c:534)
+==61463==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
+==61463==    by 0x400C2E9: dl_open_worker (dl-open.c:782)
+==61463==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
+==61463==    by 0x400C6BB: _dl_open (dl-open.c:884)
+==61463==    by 0x4C6CC30: do_dlopen (dl-libc.c:95)
+==61463==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
+==61463==    by 0x4001602: _dl_catch_error (dl-catch.c:256)
+==61463== 
+==61463== 42 bytes in 1 blocks are still reachable in loss record 5 of 10
+==61463==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==61463==    by 0x400C048: malloc (rtld-malloc.h:56)
+==61463==    by 0x400C048: _dl_new_object (dl-object.c:199)
+==61463==    by 0x400731E: _dl_map_object_from_fd (dl-load.c:1063)
+==61463==    by 0x4008DBF: _dl_map_object (dl-load.c:2275)
+==61463==    by 0x400CDF8: dl_open_worker_begin (dl-open.c:534)
+==61463==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
+==61463==    by 0x400C2E9: dl_open_worker (dl-open.c:782)
+==61463==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
+==61463==    by 0x400C6BB: _dl_open (dl-open.c:884)
+==61463==    by 0x4C6CC30: do_dlopen (dl-libc.c:95)
+==61463==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
+==61463==    by 0x4001602: _dl_catch_error (dl-catch.c:256)
+==61463== 
+==61463== 92 bytes in 1 blocks are still reachable in loss record 6 of 10
+==61463==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==61463==    by 0x401242D: malloc (rtld-malloc.h:56)
+==61463==    by 0x401242D: allocate_dtv_entry (dl-tls.c:684)
+==61463==    by 0x401242D: allocate_and_init (dl-tls.c:709)
+==61463==    by 0x401242D: tls_get_addr_tail (dl-tls.c:907)
+==61463==    by 0x401612B: __tls_get_addr (tls_get_addr.S:55)
+==61463==    by 0x51FB9C3: _nss_systemd_is_blocked (in /usr/lib/x86_64-linux-gnu/libnss_systemd.so.2)
+==61463==    by 0x51FDFB3: _nss_systemd_setpwent (in /usr/lib/x86_64-linux-gnu/libnss_systemd.so.2)
+==61463==    by 0x4C4C52A: __nss_getent_r (getnssent_r.c:241)
+==61463==    by 0x4BE0BB0: getpwent_r@@GLIBC_2.2.5 (getXXent_r.c:159)
+==61463==    by 0x4C4BECB: __nss_getent (getnssent.c:36)
+==61463==    by 0x4BE06B3: getpwent (getXXent.c:84)
+==61463==    by 0x135E02: FMC_getAllUIDs (FMC_users.c:347)
+==61463==    by 0x117F4B: test_FMC_getAllUIDs (test5_2.c:23)
+==61463==    by 0x10F9BF: main (test.c:58)
+==61463== 
+==61463== 176 bytes in 1 blocks are still reachable in loss record 7 of 10
+==61463==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==61463==    by 0x4C4F531: nss_files_global_allocate (nss_files_data.c:38)
+==61463==    by 0x4C1D5CB: __libc_allocate_once_slow (allocate_once.c:28)
+==61463==    by 0x4C4F684: allocate_once (allocate_once.h:90)
+==61463==    by 0x4C4F684: __nss_files_data_get (nss_files_data.c:54)
+==61463==    by 0x4C4F684: __nss_files_data_open (nss_files_data.c:98)
+==61463==    by 0x4C52C46: _nss_files_getpwent_r (files-XXX.c:171)
+==61463==    by 0x4C4C3AD: __nss_getent_r (getnssent_r.c:194)
+==61463==    by 0x4BE0BB0: getpwent_r@@GLIBC_2.2.5 (getXXent_r.c:159)
+==61463==    by 0x4C4BECB: __nss_getent (getnssent.c:36)
+==61463==    by 0x4BE06B3: getpwent (getXXent.c:84)
+==61463==    by 0x135E02: FMC_getAllUIDs (FMC_users.c:347)
+==61463==    by 0x117F4B: test_FMC_getAllUIDs (test5_2.c:23)
+==61463==    by 0x10F9BF: main (test.c:58)
+==61463== 
+==61463== 792 bytes in 2 blocks are still reachable in loss record 8 of 10
+==61463==    at 0x4848A13: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==61463==    by 0x4014053: calloc (rtld-malloc.h:44)
+==61463==    by 0x4014053: _dl_check_map_versions (dl-version.c:280)
+==61463==    by 0x400D063: dl_open_worker_begin (dl-open.c:600)
+==61463==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
+==61463==    by 0x400C2E9: dl_open_worker (dl-open.c:782)
+==61463==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
+==61463==    by 0x400C6BB: _dl_open (dl-open.c:884)
+==61463==    by 0x4C6CC30: do_dlopen (dl-libc.c:95)
+==61463==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
+==61463==    by 0x4001602: _dl_catch_error (dl-catch.c:256)
+==61463==    by 0x4C6CD89: dlerror_run (dl-libc.c:45)
+==61463==    by 0x4C6CD89: __libc_dlopen_mode (dl-libc.c:162)
+==61463==    by 0x4C4D85D: module_load (nss_module.c:187)
+==61463== 
+==61463== 1,228 bytes in 1 blocks are still reachable in loss record 9 of 10
+==61463==    at 0x4848A13: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==61463==    by 0x400BD4C: calloc (rtld-malloc.h:44)
+==61463==    by 0x400BD4C: _dl_new_object (dl-object.c:92)
+==61463==    by 0x400731E: _dl_map_object_from_fd (dl-load.c:1063)
+==61463==    by 0x4008DBF: _dl_map_object (dl-load.c:2275)
+==61463==    by 0x4002934: openaux (dl-deps.c:64)
+==61463==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
+==61463==    by 0x4002D6E: _dl_map_object_deps (dl-deps.c:232)
+==61463==    by 0x400CE5E: dl_open_worker_begin (dl-open.c:592)
+==61463==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
+==61463==    by 0x400C2E9: dl_open_worker (dl-open.c:782)
+==61463==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
+==61463==    by 0x400C6BB: _dl_open (dl-open.c:884)
+==61463== 
+==61463== 1,236 bytes in 1 blocks are still reachable in loss record 10 of 10
+==61463==    at 0x4848A13: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==61463==    by 0x400BD4C: calloc (rtld-malloc.h:44)
+==61463==    by 0x400BD4C: _dl_new_object (dl-object.c:92)
+==61463==    by 0x400731E: _dl_map_object_from_fd (dl-load.c:1063)
+==61463==    by 0x4008DBF: _dl_map_object (dl-load.c:2275)
+==61463==    by 0x400CDF8: dl_open_worker_begin (dl-open.c:534)
+==61463==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
+==61463==    by 0x400C2E9: dl_open_worker (dl-open.c:782)
+==61463==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
+==61463==    by 0x400C6BB: _dl_open (dl-open.c:884)
+==61463==    by 0x4C6CC30: do_dlopen (dl-libc.c:95)
+==61463==    by 0x40014DC: _dl_catch_exception (dl-catch.c:237)
+==61463==    by 0x4001602: _dl_catch_error (dl-catch.c:256)
+==61463== 
+==61463== LEAK SUMMARY:
+==61463==    definitely lost: 32 bytes in 1 blocks
+==61463==    indirectly lost: 0 bytes in 0 blocks
+==61463==      possibly lost: 0 bytes in 0 blocks
+==61463==    still reachable: 3,676 bytes in 10 blocks
+==61463==         suppressed: 0 bytes in 0 blocks
+==61463== 
+==61463== ERROR SUMMARY: 137 errors from 9 contexts (suppressed: 0 from 0)
+==61463== 
+==61463== 1 errors in context 1 of 9:
+==61463== Conditional jump or move depends on uninitialised value(s)
+==61463==    at 0x114758: test_FMC_Strings (test2_2.c:275)
+==61463==    by 0x10FC04: main (test.c:80)
+==61463==  Uninitialised value was created by a stack allocation
+==61463==    at 0x12299A: FMC_getLevenshtein_coeffs (FMC_metrics.c:41)
+==61463== 
+==61463== 
+==61463== 1 errors in context 2 of 9:
+==61463== Syscall param fstatat(file_name) points to uninitialised byte(s)
+==61463==    at 0x4C0AEDE: fstatat (fstatat64.c:169)
+==61463==    by 0x14724A: FMC_isDir (FMC_filesystem.c:65)
+==61463==    by 0x110589: test_FMC_getAbsolutePath (test1_2.c:64)
+==61463==    by 0x10F727: main (test.c:33)
+==61463==  Address 0x1ffeffe730 is on thread 1's stack
+==61463==  in frame #2, created by test_FMC_getAbsolutePath (test1_2.c:56)
+==61463==  Uninitialised value was created by a stack allocation
+==61463==    at 0x1104CC: test_FMC_getAbsolutePath (test1_2.c:56)
+==61463== 
+==61463== 
+==61463== 1 errors in context 3 of 9:
+==61463== Syscall param fstatat(file_name) points to uninitialised byte(s)
+==61463==    at 0x4C0AEDE: fstatat (fstatat64.c:169)
+==61463==    by 0x14705A: FMC_dirExists (FMC_filesystem.c:41)
+==61463==    by 0x1471E8: FMC_isDir (FMC_filesystem.c:59)
+==61463==    by 0x110589: test_FMC_getAbsolutePath (test1_2.c:64)
+==61463==    by 0x10F727: main (test.c:33)
+==61463==  Address 0x1ffeffe730 is on thread 1's stack
+==61463==  in frame #3, created by test_FMC_getAbsolutePath (test1_2.c:56)
+==61463==  Uninitialised value was created by a stack allocation
+==61463==    at 0x1104CC: test_FMC_getAbsolutePath (test1_2.c:56)
+==61463== 
+==61463== 
+==61463== 1 errors in context 4 of 9:
+==61463== Conditional jump or move depends on uninitialised value(s)
+==61463==    at 0x11053F: test_FMC_getAbsolutePath (test1_2.c:60)
+==61463==    by 0x10F727: main (test.c:33)
+==61463==  Uninitialised value was created by a stack allocation
+==61463==    at 0x1104CC: test_FMC_getAbsolutePath (test1_2.c:56)
+==61463== 
+==61463== 
+==61463== 1 errors in context 5 of 9:
+==61463== Conditional jump or move depends on uninitialised value(s)
+==61463==    at 0x484ACD4: strcmp (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==61463==    by 0x11053C: test_FMC_getAbsolutePath (test1_2.c:60)
+==61463==    by 0x10F727: main (test.c:33)
+==61463==  Uninitialised value was created by a stack allocation
+==61463==    at 0x1104CC: test_FMC_getAbsolutePath (test1_2.c:56)
+==61463== 
+==61463== 
+==61463== 1 errors in context 6 of 9:
+==61463== Conditional jump or move depends on uninitialised value(s)
+==61463==    at 0x484ACAC: strcmp (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==61463==    by 0x11053C: test_FMC_getAbsolutePath (test1_2.c:60)
+==61463==    by 0x10F727: main (test.c:33)
+==61463==  Uninitialised value was created by a stack allocation
+==61463==    at 0x1104CC: test_FMC_getAbsolutePath (test1_2.c:56)
+==61463== 
+==61463== 
+==61463== 65 errors in context 7 of 9:
+==61463== Conditional jump or move depends on uninitialised value(s)
+==61463==    at 0x12CE66: FMC_getLevenshtein_coeffs (FMC_metrics.c:662)
+==61463==    by 0x114736: test_FMC_Strings (test2_2.c:274)
+==61463==    by 0x10FC04: main (test.c:80)
+==61463==  Uninitialised value was created by a stack allocation
+==61463==    at 0x12299A: FMC_getLevenshtein_coeffs (FMC_metrics.c:41)
+==61463== 
+==61463== 
+==61463== 65 errors in context 8 of 9:
+==61463== Conditional jump or move depends on uninitialised value(s)
+==61463==    at 0x484ACCB: strcmp (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==61463==    by 0x11053C: test_FMC_getAbsolutePath (test1_2.c:60)
+==61463==    by 0x10F727: main (test.c:33)
+==61463==  Uninitialised value was created by a stack allocation
+==61463==    at 0x1104CC: test_FMC_getAbsolutePath (test1_2.c:56)
+==61463== 
+==61463== ERROR SUMMARY: 137 errors from 9 contexts (suppressed: 0 from 0)

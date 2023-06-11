@@ -28,8 +28,8 @@ SOFTWARE.
 
 #include "FMC_strings.h"
 
-extern FMC_FUNC_INLINE FMC_Bool FMC_checkEncoding(const FMC_String* const str);
-extern FMC_FUNC_INLINE FMC_FUNC_NONNULL(1) void FMC_removeTrailNullChars(FMC_String* const str);
+FMC_SHARED extern FMC_FUNC_INLINE FMC_Bool FMC_checkEncoding(const FMC_String* const str);
+FMC_SHARED extern FMC_FUNC_INLINE FMC_FUNC_NONNULL(1) void FMC_removeTrailNullChars(FMC_String* const str);
 
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_JUST_MALLOC FMC_String* FMC_allocStr(FMC_Char* const* const chars, uint64_t size)
 {

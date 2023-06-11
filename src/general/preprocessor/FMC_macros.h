@@ -1748,6 +1748,10 @@ FMC_MAYBE(1)
 #endif
 #define FMC_UNIMPLEMENTED(msg) FMC_COMPILE_TIME_ERROR(msg)
 
+#if defined(auto_t)
+    #undef auto_t
+#endif
+#define auto_t __auto_type
 
 #ifdef FMC_ERROR_CHECK
     #undef FMC_ERROR_CHECK

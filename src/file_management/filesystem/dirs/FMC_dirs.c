@@ -85,7 +85,7 @@ FMC_SHARED int_fast64_t FMC_getDirEntryCount(const char* restrict const path)
         }
         while (FindNextFileA(hFind, &ffd) != 0 && GetLastError() != ERROR_NO_MORE_FILES) ++count;
         FindClose(hFind);
-        return count;
+        return count; // - 2 because of "." and ".." entries ?
     #else
         struct dirent* entry = NULL;
         DIR *dir = opendir(path);
@@ -102,7 +102,7 @@ FMC_SHARED int_fast64_t FMC_getDirEntryCount(const char* restrict const path)
         }
         while ((entry = readdir(dir)) != NULL) ++count;
         closedir(dir);
-        return count;
+        return count - 2; // -2 because of "." and ".." entries
         FMC_UNREACHABLE;
     #endif
     FMC_UNREACHABLE;

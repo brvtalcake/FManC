@@ -27,5 +27,5 @@ SOFTWARE.
 #include "FMC_std_io.h"
 
 #if defined(FMC_COMPILING_ON_LINUX)
-    extern inline ssize_t FMC_fastWrite(int fd, const void *buf, size_t size);
+    FMC_SHARED extern inline ssize_t FMC_fastWrite(int fd, const void *buf, size_t size);
 #endif
