@@ -33,7 +33,7 @@ void test_FMC_isSymLink()
     assert(FMC_isSymLink("../../src_test/test.c") == 0);
     assert(FMC_isSymLink(" ") == 0);
     #if !defined(FMC_COMPILING_ON_WINDOWS)
-        assert(FMC_isSymLink("../../../bin/libFManC_x86_64.so") == 1);
+        assert(FMC_isSymLink("../../../bin/libFManC.so") == 1);
     #endif
 }
 
