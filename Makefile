@@ -238,12 +238,14 @@ DOC_TARGET:=$(addsuffix _$(DETECTED_OS), doc)
 COV_TARGET:=$(addsuffix _$(DETECTED_OS), exp_cov)
 .PHONY : exp_cov
 
+DEPS_TARGET:=$(addsuffix _$(DETECTED_OS), deps)
 .PHONY : deps
 
-deps : $(SRC_FILES)
-	
-#	@mkdep -f deps.mk $(CFLAGS) $(INC_FLAGS) $(LIB_FLAGS) $(C_SRC_FILES) -c
-	gcc-13 -MM $(CFLAGS) $(INC_FLAGS) $(LIB_FLAGS) $(C_SRC_FILES) -c > deps.mk
+deps : $(DEPS_TARGET)
+
+deps_lin : $(DEPS_LIN_STATIC_FILES) $(DEPS_LIN_SHARED_FILES)
+
+deps_win : $(DEPS_WIN_STATIC_FILES) $(DEPS_WIN_SHARED_FILES)
 
 exp_cov : $(COV_TARGET)
 

@@ -43,6 +43,8 @@ SOFTWARE.
     #define NDEBUG 1
 #endif
 
+#include "FMC_ver.h"
+
 #include "general/preprocessor/FMC_platform.h"
 
 #if defined(FMC_COMPILING_ON_WINDOWS)

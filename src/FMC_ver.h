@@ -28,7 +28,7 @@ SOFTWARE.
 #define FMC_VER_H
 
 /* 
- * This header is meant to be user by users of the library before compiling it.
+ * This header is meant to be used by users of the library before compiling it.
  * It lets the user define some macros to define wich version of some functions should be compiled.
  * By default, latest version of functions are compiled, except in ELF shared library, where older symbols are kept.
  * When using ELF shared library, you can decide to use a different version of a function via the macro :
