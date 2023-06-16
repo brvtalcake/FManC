@@ -1,3 +1,5 @@
+# TODO: Generate dependencies automatically
+
 # Project informations
 VERSION:=1.0.0
 MAJOR_VERSION:=1
@@ -110,6 +112,12 @@ O_LIN_SHARED_FILES:=$(addprefix obj/lin/shared/,$(notdir $(C_SRC_FILES:.c=.o))) 
 O_WIN_STATIC_FILES:=$(addprefix obj/win/static/,$(notdir $(C_SRC_FILES:.c=.o))) $(addprefix obj/win/static/,$(notdir $(CPP_SRC_FILES:.cpp=.o)))
 O_WIN_SHARED_FILES:=$(addprefix obj/win/shared/,$(notdir $(C_SRC_FILES:.c=.o))) $(addprefix obj/win/shared/,$(notdir $(CPP_SRC_FILES:.cpp=.o)))
 
+# Dependencies files
+DEPS_LIN_STATIC_FILES:=$(addprefix deps/lin/static/,$(notdir $(C_SRC_FILES:.c=.mk))) $(addprefix deps/lin/static/,$(notdir $(CPP_SRC_FILES:.cpp=.mk)))
+DEPS_LIN_SHARED_FILES:=$(addprefix deps/lin/shared/,$(notdir $(C_SRC_FILES:.c=.mk))) $(addprefix deps/lin/shared/,$(notdir $(CPP_SRC_FILES:.cpp=.mk)))
+DEPS_WIN_STATIC_FILES:=$(addprefix deps/win/static/,$(notdir $(C_SRC_FILES:.c=.mk))) $(addprefix deps/win/static/,$(notdir $(CPP_SRC_FILES:.cpp=.mk)))
+DEPS_WIN_SHARED_FILES:=$(addprefix deps/win/shared/,$(notdir $(C_SRC_FILES:.c=.mk))) $(addprefix deps/win/shared/,$(notdir $(CPP_SRC_FILES:.cpp=.mk)))
+
 O_LIN_TEST:=$(addprefix test/obj/lin/,$(notdir $(C_SRC_FILES:.c=.o))) $(addprefix test/obj/lin/,$(notdir $(CPP_SRC_FILES:.cpp=.o)))
 O_WIN_TEST:=$(addprefix test/obj/win/,$(notdir $(C_SRC_FILES:.c=.o))) $(addprefix test/obj/win/,$(notdir $(CPP_SRC_FILES:.cpp=.o)))
 GCNO_LIN_FILES:=$(O_LIN_TEST:.o=.gcno)
@@ -129,9 +137,9 @@ LIB_LIN_TEST:=test/lib/libFManC_linux.a
 LIB_WIN_TEST:=test/lib/libFManC_win.a
 
 # Compiler and friends
-CC:=gcc-13
-CCXX:=g++-13
-AR:=ar
+CC=gcc-13
+CCXX=g++-13
+AR=ar
 
 # Compiler and archiver flags
 AR_FLAGS:=-rsc
@@ -149,12 +157,6 @@ ifneq (,$(findstring shared,$(MAKECMDGOALS)))
 		CXX_FLAGS+= -D FMC_BUILD_SO
 	endif
 endif
-ifneq (,$(findstring all,$(MAKECMDGOALS)))
-	ifneq (,$(findstring lin,$(DETECTED_OS)))
-		CFLAGS+= -D FMC_BUILD_SO
-		CXX_FLAGS+= -D FMC_BUILD_SO
-	endif
-endif
 
 C_DEBUG_FLAGS:=-D _DEFAULT_SOURCE -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=64 -g3 -O0 -std=gnu17 -ftrack-macro-expansion=1 -fprofile-arcs -ftest-coverage --coverage -fno-inline
 CXX_DEBUG_FLAGS:=-D _DEFAULT_SOURCE -D _LARGEFILE64_SOURCE -D _FILE_OFFSET_BITS=64 -g3 -O0 -std=gnu++17 -ftrack-macro-expansion=1 -fprofile-arcs -ftest-coverage --coverage -fno-inline
@@ -164,10 +166,8 @@ LD_FLAGS_DLL:=-lstdc++ "-Wl,--out-implib=libFManC.dll.a,--exclude-all-symbols"
 LD_FLAGS_SO:=-lstdc++ -Wl,-soname,
 
 ifeq (,$(findstring Windows,$(filter win% Win%,$(OS)))) # Linux
-	CFLAGS+= -fuse-ld=gold -ftree-parallelize-loops=4 -fvisibility=hidden
-	CXX_FLAGS+= -fuse-ld=gold -ftree-parallelize-loops=4 -fvisibility=hidden
-	C_DEBUG_FLAGS+= -fuse-ld=gold
-	CXX_DEBUG_FLAGS+= -fuse-ld=gold
+	CFLAGS+= -ftree-parallelize-loops=4 -fvisibility=hidden
+	CXX_FLAGS+= -ftree-parallelize-loops=4 -fvisibility=hidden
 endif
 
 INC_FLAGS:=-I./third_party_libs/metalang99/include/ -I./third_party_libs/mimalloc/include/ -I./third_party_libs/defer/ -I./third_party_libs/exCept/ -I./third_party_libs/chaos_pp/ 
@@ -444,25 +444,25 @@ lib/win/libFManC.a : $(O_WIN_STATIC_FILES)
 	$(AR) $(AR_FLAGS) $@ $^
 	@printgreen Built $@ sucessfully
 
-obj/lin/static/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
+obj/lin/static/%.o : %.c # $(H_SRC_FILES) $(HPP_SRC_FILES)
 	$(CC) -D BUILDING_FMANC $< $(CFLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 	@printf "\e[92mBuilt $@ sucessfully\n\n\e[0m"
 
-obj/lin/static/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
+obj/lin/static/%.o : %.cpp # $(H_SRC_FILES) $(HPP_SRC_FILES)
 	$(CCXX) -D BUILDING_FMANC $< $(CXX_FLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 	@printf "\e[92mBuilt $@ sucessfully\n\n\e[0m"
 
-obj/win/static/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
+obj/win/static/%.o : %.c # $(H_SRC_FILES) $(HPP_SRC_FILES)
 	$(CC) -D BUILDING_FMANC -D FMC_STATIC $< $(CFLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 	@printgreen Built $@ sucessfully
 
-obj/win/static/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
+obj/win/static/%.o : %.cpp # $(H_SRC_FILES) $(HPP_SRC_FILES)
 	$(CCXX) -D BUILDING_FMANC -D FMC_STATIC $< $(CXX_FLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 	@printgreen Built $@ sucessfully
 
 bin/libFManC.so : $(O_LIN_SHARED_FILES)
 	rm -f $@ && rm -f $@.$(MAJOR_VERSION) && rm -f $@.$(VERSION)
-	$(CC) -D BUILDING_FMANC $(O_LIN_SHARED_FILES) $(CFLAGS) -shared -fPIC -o $@.$(VERSION) $(INC_FLAGS) -Wl,--version-script=scripts/linker.ver $(LIB_FLAGS) -lstdc++ $(LD_FLAGS_SO)libFManC.so.$(MAJOR_VERSION)
+	$(CC) -D FMC_BUILD_SO -D BUILDING_FMANC $(O_LIN_SHARED_FILES) $(CFLAGS) -shared -fPIC -o $@.$(VERSION) $(INC_FLAGS) -Wl,--version-script=scripts/linker.ver $(LIB_FLAGS) -lstdc++ $(LD_FLAGS_SO)libFManC.so.$(MAJOR_VERSION)
 	cd ./bin/ && ln -s $(notdir $@).$(VERSION) $(notdir $@).$(MAJOR_VERSION) && ln -s $(notdir $@).$(MAJOR_VERSION) $(notdir $@)
 	@printf "\e[92mBuilt $@ sucessfully\n\n\e[0m"
 
@@ -475,18 +475,56 @@ lib/win/implib/libFManC.dll.a : $(O_WIN_SHARED_FILES)
 	@move /Y .\\libFManC.dll.a .\\lib\\win\\implib\\libFManC.dll.a
 	@printgreen Built $@ sucessfully
 
-obj/lin/shared/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
-	$(CC) -D BUILDING_FMANC $< $(CFLAGS) -c -fPIC -o $@ $(INC_FLAGS) $(LIB_FLAGS) -Wl,--version-script=scripts/linker.ver -lstdc++
+obj/lin/shared/%.o : %.c # $(H_SRC_FILES) $(HPP_SRC_FILES)
+	$(CC) -D FMC_BUILD_SO -D BUILDING_FMANC $< $(CFLAGS) -c -fPIC -o $@ $(INC_FLAGS) $(LIB_FLAGS) -Wl,--version-script=scripts/linker.ver -lstdc++
 	@printf "\e[92mBuilt $@ sucessfully\n\n\e[0m"
 
-obj/lin/shared/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
-	$(CCXX) -D BUILDING_FMANC $< $(CXX_FLAGS) -c -fPIC -o $@ $(INC_FLAGS) $(LIB_FLAGS) -Wl,--version-script=scripts/linker.ver -lstdc++
+obj/lin/shared/%.o : %.cpp # $(H_SRC_FILES) $(HPP_SRC_FILES)
+	$(CCXX) -D FMC_BUILD_SO -D BUILDING_FMANC $< $(CXX_FLAGS) -c -fPIC -o $@ $(INC_FLAGS) $(LIB_FLAGS) -Wl,--version-script=scripts/linker.ver -lstdc++
 	@printf "\e[92mBuilt $@ sucessfully\n\n\e[0m"
 
-obj/win/shared/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
+obj/win/shared/%.o : %.c # $(H_SRC_FILES) $(HPP_SRC_FILES)
 	$(CC) -D BUILDING_FMANC -D FMC_BUILD_DLL $< $(CFLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 	@printgreen Built $@ sucessfully
 
-obj/win/shared/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
+obj/win/shared/%.o : %.cpp # $(H_SRC_FILES) $(HPP_SRC_FILES)
 	$(CCXX) -D BUILDING_FMANC -D FMC_BUILD_DLL $< $(CXX_FLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 	@printgreen Built $@ sucessfully
+
+deps/lin/static/%.mk : %.c
+	@rm -f $@
+	$(CC) -D BUILDING_FMANC $< $(CFLAGS) -MM -MF $@ -MT '$(subst deps/lin/static/,obj/lin/static/,$(subst .mk,.o,$@)) $@' $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
+
+deps/lin/static/%.mk : %.cpp
+	@rm -f $@
+	$(CCXX) -D BUILDING_FMANC $< $(CXX_FLAGS) -MM -MF $@ -MT '$(subst deps/lin/static/,obj/lin/static/,$(subst .mk,.o,$@)) $@' $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
+
+deps/win/static/%.mk : %.c
+	@rm -f $@
+	$(CC) -D BUILDING_FMANC -D FMC_STATIC $< $(CFLAGS) -MM -MF $@ -MT '$(subst deps/win/static/,obj/win/static/,$(subst .mk,.o,$@)) $@' $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
+
+deps/win/static/%.mk : %.cpp
+	@rm -f $@
+	$(CCXX) -D BUILDING_FMANC -D FMC_STATIC $< $(CXX_FLAGS) -MM -MF $@ -MT '$(subst deps/win/static/,obj/win/static/,$(subst .mk,.o,$@)) $@' $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
+
+deps/lin/shared/%.mk : %.c
+	@rm -f $@
+	$(CC) -D FMC_BUILD_SO -D BUILDING_FMANC $< $(CFLAGS) -MM -MF $@ -MT '$(subst deps/lin/shared/,obj/lin/shared/,$(subst .mk,.o,$@)) $@' -fPIC $(INC_FLAGS) $(LIB_FLAGS) -lstdc++ -Wl,--version-script=scripts/linker.ver
+
+deps/lin/shared/%.mk : %.cpp
+	@rm -f $@
+	$(CCXX) -D FMC_BUILD_SO -D BUILDING_FMANC $< $(CXX_FLAGS) -MM -MF $@ -MT '$(subst deps/lin/shared/,obj/lin/shared/,$(subst .mk,.o,$@)) $@' -fPIC $(INC_FLAGS) $(LIB_FLAGS) -lstdc++ -Wl,--version-script=scripts/linker.ver
+
+deps/win/shared/%.mk : %.c
+	@rm -f $@
+	$(CC) -D BUILDING_FMANC -D FMC_BUILD_DLL $< $(CFLAGS) -MM -MF $@ -MT '$(subst deps/win/shared/,obj/win/shared/,$(subst .mk,.o,$@)) $@' $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
+
+deps/win/shared/%.mk : %.cpp
+	@rm -f $@
+	$(CCXX) -D BUILDING_FMANC -D FMC_BUILD_DLL $< $(CXX_FLAGS) -MM -MF $@ -MT '$(subst deps/win/shared/,obj/win/shared/,$(subst .mk,.o,$@)) $@' $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
+
+ifneq (,$(findstring Windows,$(filter win% Win%,$(OS))))
+-include $(DEPS_WIN_SHARED_FILES) $(DEPS_WIN_STATIC_FILES)
+else
+-include $(DEPS_LIN_SHARED_FILES) $(DEPS_LIN_STATIC_FILES)
+endif

@@ -30,7 +30,7 @@ SOFTWARE.
 #include "../../general/FMC_general.h"
 #include "files/FMC_files.h"
 #include "dirs/FMC_dirs.h"
-
+ 
 FMC_BEGIN_DECLS
 
 FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT int FMC_dirExists(const char* restrict path);
