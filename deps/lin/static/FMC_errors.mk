@@ -471,4 +471,6 @@ obj/lin/static/FMC_errors.o deps/lin/static/FMC_errors.mk: \
  src/general/utils/../preprocessor/FMC_attributes.h \
  src/general/utils/../preprocessor/FMC_macros.h \
  src/general/utils/../preprocessor/FMC_ident_detection.h \
- src/general/utils/../preprocessor/FMC_overload_subcase_gen.h
+ src/general/utils/../preprocessor/FMC_overload_subcase_gen.h \
+ src/general/utils/FMC_std_io.h src/general/utils/../types/FMC_enums.h \
+ src/general/utils/../types/../preprocessor/FMC_macros.h

@@ -2,7 +2,9 @@ obj/lin/shared/FMC_dirs.o deps/lin/shared/FMC_dirs.mk: \
  src/file_management/filesystem/dirs/FMC_dirs.c \
  src/file_management/filesystem/dirs/../FMC_filesystem.h \
  src/file_management/filesystem/dirs/../../../general/FMC_general.h \
- third_party_libs/defer/defer.h \
+ src/file_management/filesystem/dirs/../../../general/preprocessor/FMC_platform.h \
+ src/file_management/filesystem/dirs/../../../general/preprocessor/FMC_macros.h \
+ src/file_management/filesystem/dirs/../../../general/preprocessor/FMC_platform.h \
  third_party_libs/metalang99/include/metalang99.h \
  third_party_libs/metalang99/include/metalang99/assert.h \
  third_party_libs/metalang99/include/metalang99/priv/compiler_specific.h \
@@ -32,7 +34,6 @@ obj/lin/shared/FMC_dirs.o deps/lin/shared/FMC_dirs.mk: \
  third_party_libs/metalang99/include/metalang99/seq.h \
  third_party_libs/metalang99/include/metalang99/util.h \
  third_party_libs/metalang99/include/metalang99/stmt.h \
- third_party_libs/exCept/exCept.h \
  third_party_libs/chaos_pp/chaos/preprocessor.h \
  third_party_libs/chaos_pp/chaos/preprocessor/algorithm.h \
  third_party_libs/chaos_pp/chaos/preprocessor/algorithm/append.h \
@@ -469,9 +470,6 @@ obj/lin/shared/FMC_dirs.o deps/lin/shared/FMC_dirs.mk: \
  third_party_libs/chaos_pp/chaos/preprocessor/tuple/take.h \
  third_party_libs/chaos_pp/chaos/preprocessor/ustringize.h \
  third_party_libs/chaos_pp/chaos/preprocessor/wstringize.h \
- src/file_management/filesystem/dirs/../../../general/preprocessor/FMC_platform.h \
- src/file_management/filesystem/dirs/../../../general/preprocessor/FMC_macros.h \
- src/file_management/filesystem/dirs/../../../general/preprocessor/FMC_platform.h \
  src/file_management/filesystem/dirs/../../../general/preprocessor/FMC_attributes.h \
  src/file_management/filesystem/dirs/../../../general/preprocessor/FMC_macros.h \
  src/file_management/filesystem/dirs/../../../general/preprocessor/FMC_ident_detection.h \
@@ -489,8 +487,9 @@ obj/lin/shared/FMC_dirs.o deps/lin/shared/FMC_dirs.mk: \
  src/file_management/filesystem/dirs/../../../general/utils/FMC_errors.h \
  src/file_management/filesystem/dirs/../../../general/utils/../preprocessor/FMC_consts.h \
  src/file_management/filesystem/dirs/../../../general/utils/../preprocessor/FMC_macros.h \
- src/file_management/filesystem/dirs/../../../general/utils/FMC_globals.h \
+ src/file_management/filesystem/dirs/../../../general/utils/FMC_std_io.h \
  src/file_management/filesystem/dirs/../../../general/utils/../types/FMC_enums.h \
+ src/file_management/filesystem/dirs/../../../general/utils/FMC_globals.h \
  src/file_management/filesystem/dirs/../../../general/utils/../types/FMC_typedefs.h \
  src/file_management/filesystem/dirs/../../../general/utils/FMC_deprecated.h \
  src/file_management/filesystem/dirs/../../../general/utils/../preprocessor/FMC_attributes.h \

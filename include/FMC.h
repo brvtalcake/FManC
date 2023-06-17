@@ -27,8 +27,8 @@ SOFTWARE.
 #ifndef FMC_H
 #define FMC_H
 
-#if !defined(_DEFAULT_SOURCE) 
-    #define _DEFAULT_SOURCE 1
+#if !defined(_GNU_SOURCE) 
+    #define _GNU_SOURCE 1
 #endif
 
 #if !defined(_LARGEFILE64_SOURCE)
@@ -42,6 +42,8 @@ SOFTWARE.
 #if defined(BUILDING_FMANC)
     #define NDEBUG 1
 #endif
+
+#include "FMC_ver.h"
 
 #include "general/preprocessor/FMC_platform.h"
 

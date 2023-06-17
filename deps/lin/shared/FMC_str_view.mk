@@ -1,6 +1,9 @@
 obj/lin/shared/FMC_str_view.o deps/lin/shared/FMC_str_view.mk: \
  src/general/utils/FMC_str_view.c src/general/utils/FMC_str_view.h \
- src/general/utils/../FMC_general.h third_party_libs/defer/defer.h \
+ src/general/utils/../FMC_general.h \
+ src/general/utils/../preprocessor/FMC_platform.h \
+ src/general/utils/../preprocessor/FMC_macros.h \
+ src/general/utils/../preprocessor/FMC_platform.h \
  third_party_libs/metalang99/include/metalang99.h \
  third_party_libs/metalang99/include/metalang99/assert.h \
  third_party_libs/metalang99/include/metalang99/priv/compiler_specific.h \
@@ -30,7 +33,6 @@ obj/lin/shared/FMC_str_view.o deps/lin/shared/FMC_str_view.mk: \
  third_party_libs/metalang99/include/metalang99/seq.h \
  third_party_libs/metalang99/include/metalang99/util.h \
  third_party_libs/metalang99/include/metalang99/stmt.h \
- third_party_libs/exCept/exCept.h \
  third_party_libs/chaos_pp/chaos/preprocessor.h \
  third_party_libs/chaos_pp/chaos/preprocessor/algorithm.h \
  third_party_libs/chaos_pp/chaos/preprocessor/algorithm/append.h \
@@ -467,9 +469,6 @@ obj/lin/shared/FMC_str_view.o deps/lin/shared/FMC_str_view.mk: \
  third_party_libs/chaos_pp/chaos/preprocessor/tuple/take.h \
  third_party_libs/chaos_pp/chaos/preprocessor/ustringize.h \
  third_party_libs/chaos_pp/chaos/preprocessor/wstringize.h \
- src/general/utils/../preprocessor/FMC_platform.h \
- src/general/utils/../preprocessor/FMC_macros.h \
- src/general/utils/../preprocessor/FMC_platform.h \
  src/general/utils/../preprocessor/FMC_attributes.h \
  src/general/utils/../preprocessor/FMC_macros.h \
  src/general/utils/../preprocessor/FMC_ident_detection.h \
@@ -487,8 +486,9 @@ obj/lin/shared/FMC_str_view.o deps/lin/shared/FMC_str_view.mk: \
  src/general/utils/../utils/FMC_errors.h \
  src/general/utils/../utils/../preprocessor/FMC_consts.h \
  src/general/utils/../utils/../preprocessor/FMC_macros.h \
- src/general/utils/../utils/FMC_globals.h \
+ src/general/utils/../utils/FMC_std_io.h \
  src/general/utils/../utils/../types/FMC_enums.h \
+ src/general/utils/../utils/FMC_globals.h \
  src/general/utils/../utils/../types/FMC_typedefs.h \
  src/general/utils/../utils/FMC_deprecated.h \
  src/general/utils/../utils/../preprocessor/FMC_attributes.h \

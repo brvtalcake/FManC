@@ -10,6 +10,13 @@
 #include "../types/FMC_structs.h"
 #include "../types/FMC_typedefs.h"
 
+
+static const char const fmc_version_string[] = "FMC v1.0.0";
+
+FMC_SHARED const char* const FMC_version(void)
+{
+    return fmc_version_string;
+}
 // TODO: let the user choose if he wants thread local error stack or not
 
 #if defined(FMC_COMPILING_ON_WINDOWS)

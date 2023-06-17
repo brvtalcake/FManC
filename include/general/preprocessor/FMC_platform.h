@@ -27,6 +27,19 @@ SOFTWARE.
 #ifndef FMC_PLATFORM_H
 #define FMC_PLATFORM_H
 
+#if defined(FMC_ARCH_X86_64)
+    #undef FMC_ARCH_X86_64
+#elif defined(FMC_ARCH_X86)
+    #undef FMC_ARCH_X86
+#endif
+
+#if defined(__x86_64__) || defined(__x86_64) || defined(__amd64__) || defined(__amd64) || defined(_M_X64) || defined(_M_AMD64)
+    #define FMC_ARCH_X86_64 1
+#elif defined(__i386__) || defined(__i386) || defined(i386) || defined(_M_IX86)
+    #define FMC_ARCH_X86 1
+#else
+    #warning "This library hasn't been tested on this architecture."
+#endif // Architecture detection
 
 #if defined(FMC_COMPILING_ON_WINDOWS)
     #undef FMC_COMPILING_ON_WINDOWS

@@ -2,7 +2,9 @@ obj/lin/static/FMC_chars.o deps/lin/static/FMC_chars.mk: \
  src/data_analyze/strings/FMC_chars.c \
  src/data_analyze/strings/FMC_strings.h \
  src/data_analyze/strings/../../general/FMC_general.h \
- third_party_libs/defer/defer.h \
+ src/data_analyze/strings/../../general/preprocessor/FMC_platform.h \
+ src/data_analyze/strings/../../general/preprocessor/FMC_macros.h \
+ src/data_analyze/strings/../../general/preprocessor/FMC_platform.h \
  third_party_libs/metalang99/include/metalang99.h \
  third_party_libs/metalang99/include/metalang99/assert.h \
  third_party_libs/metalang99/include/metalang99/priv/compiler_specific.h \
@@ -32,7 +34,6 @@ obj/lin/static/FMC_chars.o deps/lin/static/FMC_chars.mk: \
  third_party_libs/metalang99/include/metalang99/seq.h \
  third_party_libs/metalang99/include/metalang99/util.h \
  third_party_libs/metalang99/include/metalang99/stmt.h \
- third_party_libs/exCept/exCept.h \
  third_party_libs/chaos_pp/chaos/preprocessor.h \
  third_party_libs/chaos_pp/chaos/preprocessor/algorithm.h \
  third_party_libs/chaos_pp/chaos/preprocessor/algorithm/append.h \
@@ -469,9 +470,6 @@ obj/lin/static/FMC_chars.o deps/lin/static/FMC_chars.mk: \
  third_party_libs/chaos_pp/chaos/preprocessor/tuple/take.h \
  third_party_libs/chaos_pp/chaos/preprocessor/ustringize.h \
  third_party_libs/chaos_pp/chaos/preprocessor/wstringize.h \
- src/data_analyze/strings/../../general/preprocessor/FMC_platform.h \
- src/data_analyze/strings/../../general/preprocessor/FMC_macros.h \
- src/data_analyze/strings/../../general/preprocessor/FMC_platform.h \
  src/data_analyze/strings/../../general/preprocessor/FMC_attributes.h \
  src/data_analyze/strings/../../general/preprocessor/FMC_macros.h \
  src/data_analyze/strings/../../general/preprocessor/FMC_ident_detection.h \
@@ -489,8 +487,9 @@ obj/lin/static/FMC_chars.o deps/lin/static/FMC_chars.mk: \
  src/data_analyze/strings/../../general/utils/FMC_errors.h \
  src/data_analyze/strings/../../general/utils/../preprocessor/FMC_consts.h \
  src/data_analyze/strings/../../general/utils/../preprocessor/FMC_macros.h \
- src/data_analyze/strings/../../general/utils/FMC_globals.h \
+ src/data_analyze/strings/../../general/utils/FMC_std_io.h \
  src/data_analyze/strings/../../general/utils/../types/FMC_enums.h \
+ src/data_analyze/strings/../../general/utils/FMC_globals.h \
  src/data_analyze/strings/../../general/utils/../types/FMC_typedefs.h \
  src/data_analyze/strings/../../general/utils/FMC_deprecated.h \
  src/data_analyze/strings/../../general/utils/../preprocessor/FMC_attributes.h \

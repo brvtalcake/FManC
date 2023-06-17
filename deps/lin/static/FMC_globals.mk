@@ -475,6 +475,7 @@ obj/lin/static/FMC_globals.o deps/lin/static/FMC_globals.mk: \
  src/general/utils/../types/../preprocessor/FMC_macros.h \
  src/general/utils/../types/FMC_typedefs.h src/general/utils/FMC_errors.h \
  src/general/utils/../preprocessor/FMC_consts.h \
+ src/general/utils/FMC_std_io.h \
  src/general/utils/../preprocessor/FMC_platform.h \
  src/general/utils/../types/FMC_structs.h \
  src/general/utils/../types/../preprocessor/FMC_consts.h \

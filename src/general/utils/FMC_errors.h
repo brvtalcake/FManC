@@ -28,8 +28,23 @@ SOFTWARE.
 #define FMC_ERRORS_H
 
 #include <stdio.h>
+#include <stdarg.h>
+#include <string.h>
+
 #include "../preprocessor/FMC_consts.h"
 #include "../preprocessor/FMC_macros.h"
+#include "FMC_std_io.h"
+
+#if defined(FMC_COMPILING_ON_LINUX)
+    #define fileno(...) fileno(__VA_ARGS__)
+#elif defined(FMC_COMPILING_ON_WINDOWS)
+    #include <io.h>
+    #if !defined(fileno)
+        #define fileno(...) _fileno(__VA_ARGS__)
+    #endif
+#else
+    #define fileno(...) fileno(__VA_ARGS__)
+#endif
 
 FMC_BEGIN_DECLS
 
@@ -41,388 +56,443 @@ FMC_SHARED FMC_FUNC_NONNULL(1) void FMC_makeMsg_f(char *buff, unsigned int argc,
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_resetStreamOutputStyle(FILE *stream)
 {
-    fprintf(stream, RESET);
+    FMC_fastWrite(fileno(stream), RESET, FMC_arrSize(RESET));
 }
-
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_changeStreamTextColorToRed(FILE *stream)
 {
-    fprintf(stream, FG_RED);
+    FMC_fastWrite(fileno(stream), FG_RED, FMC_arrSize(FG_RED));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_changeStreamTextColorToGreen(FILE *stream)
 {
-    fprintf(stream, FG_GREEN);
+    FMC_fastWrite(fileno(stream), FG_GREEN, FMC_arrSize(FG_GREEN));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_changeStreamTextColorToYellow(FILE *stream)
 {
-    fprintf(stream, FG_YELLOW);
+    FMC_fastWrite(fileno(stream), FG_YELLOW, FMC_arrSize(FG_YELLOW));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_changeStreamTextColorToBlue(FILE *stream)
 {
-    fprintf(stream, FG_BLUE);
+    FMC_fastWrite(fileno(stream), FG_BLUE, FMC_arrSize(FG_BLUE));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_changeStreamTextColorToMagenta(FILE *stream)
 {
-    fprintf(stream, FG_MAGENTA);
+    FMC_fastWrite(fileno(stream), FG_MAGENTA, FMC_arrSize(FG_MAGENTA));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_changeStreamTextColorToCyan(FILE *stream)
 {
-    fprintf(stream, FG_CYAN);
+    FMC_fastWrite(fileno(stream), FG_CYAN, FMC_arrSize(FG_CYAN));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_changeStreamTextColorToWhite(FILE *stream)
 {
-    fprintf(stream, FG_WHITE);
+    FMC_fastWrite(fileno(stream), FG_WHITE, FMC_arrSize(FG_WHITE));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_changeStreamTextColorToBrightRed(FILE *stream)
 {
-    fprintf(stream, FG_BRIGHT_RED);
+    FMC_fastWrite(fileno(stream), FG_BRIGHT_RED, FMC_arrSize(FG_BRIGHT_RED));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_changeStreamTextColorToBrightGreen(FILE *stream)
 {
-    fprintf(stream, FG_BRIGHT_GREEN);
+    FMC_fastWrite(fileno(stream), FG_BRIGHT_GREEN, FMC_arrSize(FG_BRIGHT_GREEN));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_changeStreamTextColorToBrightYellow(FILE *stream)
 {
-    fprintf(stream, FG_BRIGHT_YELLOW);
+    FMC_fastWrite(fileno(stream), FG_BRIGHT_YELLOW, FMC_arrSize(FG_BRIGHT_YELLOW));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_changeStreamTextColorToBrightBlue(FILE *stream)
 {
-    fprintf(stream, FG_BRIGHT_BLUE);
+    FMC_fastWrite(fileno(stream), FG_BRIGHT_BLUE, FMC_arrSize(FG_BRIGHT_BLUE));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_changeStreamTextColorToBrightMagenta(FILE *stream)
 {
-    fprintf(stream, FG_BRIGHT_MAGENTA);
+    FMC_fastWrite(fileno(stream), FG_BRIGHT_MAGENTA, FMC_arrSize(FG_BRIGHT_MAGENTA));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_changeStreamTextColorToBrightCyan(FILE *stream)
 {
-    fprintf(stream, FG_BRIGHT_CYAN);
+    FMC_fastWrite(fileno(stream), FG_BRIGHT_CYAN, FMC_arrSize(FG_BRIGHT_CYAN));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_changeStreamTextColorToBrightWhite(FILE *stream)
 {
-    fprintf(stream, FG_BRIGHT_WHITE);
+    FMC_fastWrite(fileno(stream), FG_BRIGHT_WHITE, FMC_arrSize(FG_BRIGHT_WHITE));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_setBGStreamColorToRed(FILE *stream)
 {
-    fprintf(stream, BG_RED);
+    FMC_fastWrite(fileno(stream), BG_RED, FMC_arrSize(BG_RED));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_setBGStreamColorToGreen(FILE *stream)
 {
-    fprintf(stream, BG_GREEN);
+    FMC_fastWrite(fileno(stream), BG_GREEN, FMC_arrSize(BG_GREEN));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_setBGStreamColorToYellow(FILE *stream)
 {
-    fprintf(stream, BG_YELLOW);
+    FMC_fastWrite(fileno(stream), BG_YELLOW, FMC_arrSize(BG_YELLOW));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_setBGStreamColorToBlue(FILE *stream)
 {
-    fprintf(stream, BG_BLUE);
+    FMC_fastWrite(fileno(stream), BG_BLUE, FMC_arrSize(BG_BLUE));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_setBGStreamColorToMagenta(FILE *stream)
 {
-    fprintf(stream, BG_MAGENTA);
+    FMC_fastWrite(fileno(stream), BG_MAGENTA, FMC_arrSize(BG_MAGENTA));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_setBGStreamColorToCyan(FILE *stream)
 {
-    fprintf(stream, BG_CYAN);
+    FMC_fastWrite(fileno(stream), BG_CYAN, FMC_arrSize(BG_CYAN));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_setBGStreamColorToWhite(FILE *stream)
 {
-    fprintf(stream, BG_WHITE);
+    FMC_fastWrite(fileno(stream), BG_WHITE, FMC_arrSize(BG_WHITE));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_setBGStreamColorToBrightRed(FILE *stream)
 {
-    fprintf(stream, BG_BRIGHT_RED);
+    FMC_fastWrite(fileno(stream), BG_BRIGHT_RED, FMC_arrSize(BG_BRIGHT_RED));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_setBGStreamColorToBrightGreen(FILE *stream)
 {
-    fprintf(stream, BG_BRIGHT_GREEN);
+    FMC_fastWrite(fileno(stream), BG_BRIGHT_GREEN, FMC_arrSize(BG_BRIGHT_GREEN));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_setBGStreamColorToBrightYellow(FILE *stream)
 {
-    fprintf(stream, BG_BRIGHT_YELLOW);
+    FMC_fastWrite(fileno(stream), BG_BRIGHT_YELLOW, FMC_arrSize(BG_BRIGHT_YELLOW));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_setBGStreamColorToBrightBlue(FILE *stream)
 {
-    fprintf(stream, BG_BRIGHT_BLUE);
+    FMC_fastWrite(fileno(stream), BG_BRIGHT_BLUE, FMC_arrSize(BG_BRIGHT_BLUE));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_setBGStreamColorToBrightMagenta(FILE *stream)
 {
-    fprintf(stream, BG_BRIGHT_MAGENTA);
+    FMC_fastWrite(fileno(stream), BG_BRIGHT_MAGENTA, FMC_arrSize(BG_BRIGHT_MAGENTA));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_setBGStreamColorToBrightCyan(FILE *stream)
 {
-    fprintf(stream, BG_BRIGHT_CYAN);
+    FMC_fastWrite(fileno(stream), BG_BRIGHT_CYAN, FMC_arrSize(BG_BRIGHT_CYAN));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_setBGStreamColorToBrightWhite(FILE *stream)
 {
-    fprintf(stream, BG_BRIGHT_WHITE);
+    FMC_fastWrite(fileno(stream), BG_BRIGHT_WHITE, FMC_arrSize(BG_BRIGHT_WHITE));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_setTextStyleToBold(FILE *stream)
 {
-    fprintf(stream, TXT_BOLD);
+    FMC_fastWrite(fileno(stream), TXT_BOLD, FMC_arrSize(TXT_BOLD));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_setTextStyleToDim(FILE *stream)
 {
-    fprintf(stream, TXT_DIM);
+    FMC_fastWrite(fileno(stream), TXT_DIM, FMC_arrSize(TXT_DIM));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_setTextStyleToUnderlined(FILE *stream)
 {
-    fprintf(stream, TXT_UNDERLINED);
+    FMC_fastWrite(fileno(stream), TXT_UNDERLINED, FMC_arrSize(TXT_UNDERLINED));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_setTextStyleToBlink(FILE *stream)
 {
-    fprintf(stream, TXT_BLINK);
+    FMC_fastWrite(fileno(stream), TXT_BLINK, FMC_arrSize(TXT_BLINK));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_setTextStyleToReverse(FILE *stream)
 {
-    fprintf(stream, TXT_REVERSE);
+    FMC_fastWrite(fileno(stream), TXT_REVERSE, FMC_arrSize(TXT_REVERSE));
 }
 
 FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_setTextStyleToHidden(FILE *stream)
 {
-    fprintf(stream, TXT_HIDDEN);
+    FMC_fastWrite(fileno(stream), TXT_HIDDEN, FMC_arrSize(TXT_HIDDEN));
 }
 
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printRedText(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printRedText(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToRed(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printGreenText(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printGreenText(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToGreen(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printYellowText(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printYellowText(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToYellow(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBlueText(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBlueText(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToBlue(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printMagentaText(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printMagentaText(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToMagenta(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printCyanText(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printCyanText(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToCyan(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printWhiteText(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printWhiteText(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToWhite(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightRedText(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightRedText(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToBrightRed(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightGreenText(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightGreenText(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToBrightGreen(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightYellowText(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightYellowText(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToBrightYellow(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightBlueText(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightBlueText(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToBrightBlue(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightMagentaText(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightMagentaText(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToBrightMagenta(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightCyanText(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightCyanText(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToBrightCyan(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightWhiteText(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightWhiteText(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToBrightWhite(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printRedError(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printRedError(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToRed(stream);
     FMC_setTextStyleToBold(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printGreenError(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printGreenError(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToGreen(stream);
     FMC_setTextStyleToBold(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printYellowError(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printYellowError(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToYellow(stream);
     FMC_setTextStyleToBold(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBlueError(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBlueError(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToBlue(stream);
     FMC_setTextStyleToBold(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printMagentaError(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printMagentaError(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToMagenta(stream);
     FMC_setTextStyleToBold(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printCyanError(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printCyanError(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToCyan(stream);
     FMC_setTextStyleToBold(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printWhiteError(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printWhiteError(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToWhite(stream);
     FMC_setTextStyleToBold(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightRedError(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightRedError(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToBrightRed(stream);
     FMC_setTextStyleToBold(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightGreenError(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightGreenError(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToBrightGreen(stream);
     FMC_setTextStyleToBold(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightYellowError(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightYellowError(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToBrightYellow(stream);
     FMC_setTextStyleToBold(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightBlueError(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightBlueError(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToBrightBlue(stream);
     FMC_setTextStyleToBold(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightMagentaError(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightMagentaError(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToBrightMagenta(stream);
     FMC_setTextStyleToBold(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightCyanError(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightCyanError(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToBrightCyan(stream);
     FMC_setTextStyleToBold(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 
-FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightWhiteError(FILE *stream, const char *text)
+FMC_SHARED FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_printBrightWhiteError(FILE *stream, char *text)
 {
     FMC_changeStreamTextColorToBrightWhite(stream);
     FMC_setTextStyleToBold(stream);
-    fprintf(stream, "%s\n", text);
+    char to_print[FMC_ERR_STR_LEN] = {'\0'};
+    sprintf(to_print, "%s\n", text);
+    FMC_fastWrite(fileno(stream), to_print, strlen(to_print));
     FMC_resetStreamOutputStyle(stream);
 }
 

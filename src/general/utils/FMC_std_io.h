@@ -35,13 +35,22 @@ SOFTWARE.
 
 #if defined(FMC_COMPILING_ON_LINUX)
     #include <unistd.h>
+    #define fileno(...) fileno(__VA_ARGS__)
+#elif defined(FMC_COMPILING_ON_WINDOWS)
+    #include <io.h>
+    #if !defined(fileno)
+        #define fileno(...) _fileno(__VA_ARGS__)
+    #endif
+#else
+    #include <unistd.h>
+    #define fileno(...) fileno(__VA_ARGS__)
 #endif
 
 FMC_BEGIN_DECLS
 
-#if defined(FMC_COMPILING_ON_LINUX)
+#if defined(FMC_COMPILING_ON_LINUX) && defined(FMC_ARCH_X86_64)
 
-FMC_SHARED inline ssize_t FMC_fastWrite(int fd, const void *buf, size_t size) 
+FMC_SHARED FMC_FUNC_INLINE ssize_t FMC_fastWrite(int fd, const void *buf, size_t size) 
 {
     register int64_t rax __asm__ ("rax") = 1;
     register int rdi __asm__ ("rdi") = fd;
@@ -57,7 +66,10 @@ FMC_SHARED inline ssize_t FMC_fastWrite(int fd, const void *buf, size_t size)
     FMC_UNREACHABLE;
 }
 
-#else // !defined(FMC_COMPILING_ON_LINUX)
+//#elif defined(FMC_COMPILING_ON_LINUX) && defined(FMC_ARCH_X86)
+// TODO: Implement x86 fastWrite
+
+#else
     #if defined(FMC_fastWrite)
         #undef FMC_fastWrite
     #endif
@@ -66,10 +78,10 @@ FMC_SHARED inline ssize_t FMC_fastWrite(int fd, const void *buf, size_t size)
         {                                    \
             switch(fd)                       \
             {                                \
-                case 1:                      \
+                case fileno(stdout):         \
                     fputs(buf, stdout);      \
                     break;                   \
-                case 2:                      \
+                case fileno(stderr):         \
                     fputs(buf, stderr);      \
                     break;                   \
                 default:                     \

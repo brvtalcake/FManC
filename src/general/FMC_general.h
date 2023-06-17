@@ -28,8 +28,8 @@ SOFTWARE.
 #define FMC_GENERAL_H
 
 
-#include <defer.h>
-#include <exCept.h>
+// #include <defer.h>
+// #include <exCept.h>
 #include "preprocessor/FMC_platform.h"
 #if defined(FMC_COMPILING_ON_WINDOWS)
     #if defined(_WIN32_WINNT) || defined(WINVER)

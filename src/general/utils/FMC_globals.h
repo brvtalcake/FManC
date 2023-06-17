@@ -48,6 +48,8 @@ FMC_SHARED FMC_FUNC_NONNULL(1) char* FMC_getLastErrorStr_noDepop(char* to_fill, 
 FMC_SHARED void FMC_clearErrorStack(void);
 FMC_SHARED void FMC_destroyErrorStack(void);
 
+FMC_SHARED const char* const FMC_version(void);
+
 FMC_END_DECLS
 
 #endif  // FMC_GLOBALS_H

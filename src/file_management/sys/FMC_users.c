@@ -287,40 +287,40 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_COLD char* FMC_getCurrentUserName(char* 
 
 #if !defined(FMC_COMPILING_ON_WINDOWS)
 #pragma GCC diagnostic ignored "-Wstack-protector" 
-FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_JUST_MALLOC unsigned int* FMC_getAllUIDs(unsigned int range_number, ...)
+FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_JUST_MALLOC unsigned int* FMC_getAllUIDs(unsigned int range_count, ...)
 {
     #pragma GCC diagnostic pop
     // this function gets all the UIDs in the system between the specified ranges (wich are variable)
-    if (range_number == 0)
+    if (range_count == 0)
     {
         if (FMC_getDebugState())
         {
-            FMC_makeMsg(err_get_all_uids, 1, "ERROR: FMC_getAllUIDs: range_number is 0.");
+            FMC_makeMsg(err_get_all_uids, 1, "ERROR: FMC_getAllUIDs: range_count is 0.");
             FMC_printRedError(stderr, err_get_all_uids);
         }
-        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_getAllUIDs: range_number is 0.");
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_getAllUIDs: range_count is 0.");
         return NULL;
         FMC_UNREACHABLE;
     }
-    if (range_number >= 10)
+    if (range_count >= 10)
     {
         if (FMC_getDebugState())
         {
-            FMC_makeMsg(err_get_all_uids, 1, "ERROR: FMC_getAllUIDs: range_number is too big.");
+            FMC_makeMsg(err_get_all_uids, 1, "ERROR: FMC_getAllUIDs: range_count is too big.");
             FMC_printRedError(stderr, err_get_all_uids);
         }
-        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_getAllUIDs: range_number is too big.");
+        FMC_setError(FMC_ERR_INVALID_ARGUMENT, "FMC_getAllUIDs: range_count is too big.");
         return NULL;
         FMC_UNREACHABLE;
     }
-    FMC_UNREACHABLE_ASSERT(range_number < 10);
+    FMC_UNREACHABLE_ASSERT(range_count < 10);
     va_list args;
-    va_start(args, range_number);
-    unsigned int ranges[range_number][2];
-    memset(ranges, 0, sizeof(unsigned int) * 2 * range_number);
+    va_start(args, range_count);
+    unsigned int ranges[range_count][2];
+    memset(ranges, 0, sizeof(unsigned int) * 2 * range_count);
     unsigned int *tmp = NULL;
 
-    for (size_t i = 0; i < range_number; i++)
+    for (size_t i = 0; i < range_count; i++)
     {
         tmp = (unsigned int*) va_arg(args, void*);
         // copy the first elem of tmp range to the ranges array, then the second, in two different instructions
@@ -359,7 +359,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_JUST_MALLOC unsigned int* FMC_ge
             FMC_UNREACHABLE;
         }
         unsigned int* old_uids = NULL;
-        for (size_t j = 0; j < range_number; j++)
+        for (size_t j = 0; j < range_count; j++)
         {
             if (pw->pw_uid >= ranges[j][0] && pw->pw_uid <= ranges[j][1])
             {
