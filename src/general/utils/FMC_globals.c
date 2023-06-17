@@ -11,9 +11,9 @@
 #include "../types/FMC_typedefs.h"
 
 
-static const char const fmc_version_string[] = "FMC v1.0.0";
+static const char fmc_version_string[] = "FMC v1.0.0";
 
-FMC_SHARED const char* const FMC_version(void)
+FMC_SHARED const char* FMC_version(void)
 {
     return fmc_version_string;
 }
