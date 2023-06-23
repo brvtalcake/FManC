@@ -2,6 +2,7 @@ obj/lin/shared/FMC_code_points.o deps/lin/shared/FMC_code_points.mk: \
  src/data_analyze/encodings/conversions/FMC_code_points.c \
  src/data_analyze/encodings/conversions/FMC_conversions.h \
  src/data_analyze/encodings/conversions/../../../general/FMC_general.h \
+ src/data_analyze/encodings/conversions/../../../general/../FMC_ver.h \
  src/data_analyze/encodings/conversions/../../../general/preprocessor/FMC_platform.h \
  src/data_analyze/encodings/conversions/../../../general/preprocessor/FMC_macros.h \
  src/data_analyze/encodings/conversions/../../../general/preprocessor/FMC_platform.h \

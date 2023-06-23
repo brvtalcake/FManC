@@ -1,6 +1,7 @@
 obj/lin/shared/FMC_users.o deps/lin/shared/FMC_users.mk: \
  src/file_management/sys/FMC_users.c src/file_management/sys/FMC_sys.h \
  src/file_management/sys/../../general/FMC_general.h \
+ src/file_management/sys/../../general/../FMC_ver.h \
  src/file_management/sys/../../general/preprocessor/FMC_platform.h \
  src/file_management/sys/../../general/preprocessor/FMC_macros.h \
  src/file_management/sys/../../general/preprocessor/FMC_platform.h \

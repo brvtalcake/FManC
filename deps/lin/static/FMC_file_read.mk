@@ -1,6 +1,7 @@
 obj/lin/static/FMC_file_read.o deps/lin/static/FMC_file_read.mk: \
  src/file_management/io/FMC_file_read.c src/file_management/io/FMC_io.h \
  src/file_management/io/../../general/FMC_general.h \
+ src/file_management/io/../../general/../FMC_ver.h \
  src/file_management/io/../../general/preprocessor/FMC_platform.h \
  src/file_management/io/../../general/preprocessor/FMC_macros.h \
  src/file_management/io/../../general/preprocessor/FMC_platform.h \

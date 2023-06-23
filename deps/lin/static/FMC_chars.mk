@@ -2,6 +2,7 @@ obj/lin/static/FMC_chars.o deps/lin/static/FMC_chars.mk: \
  src/data_analyze/strings/FMC_chars.c \
  src/data_analyze/strings/FMC_strings.h \
  src/data_analyze/strings/../../general/FMC_general.h \
+ src/data_analyze/strings/../../general/../FMC_ver.h \
  src/data_analyze/strings/../../general/preprocessor/FMC_platform.h \
  src/data_analyze/strings/../../general/preprocessor/FMC_macros.h \
  src/data_analyze/strings/../../general/preprocessor/FMC_platform.h \

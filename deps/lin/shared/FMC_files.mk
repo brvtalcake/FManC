@@ -2,6 +2,7 @@ obj/lin/shared/FMC_files.o deps/lin/shared/FMC_files.mk: \
  src/file_management/filesystem/files/FMC_files.c \
  src/file_management/filesystem/files/FMC_files.h \
  src/file_management/filesystem/files/../../../general/FMC_general.h \
+ src/file_management/filesystem/files/../../../general/../FMC_ver.h \
  src/file_management/filesystem/files/../../../general/preprocessor/FMC_platform.h \
  src/file_management/filesystem/files/../../../general/preprocessor/FMC_macros.h \
  src/file_management/filesystem/files/../../../general/preprocessor/FMC_platform.h \

@@ -27,9 +27,29 @@ SOFTWARE.
 #ifndef FMC_GENERAL_H
 #define FMC_GENERAL_H
 
+#if !defined(_GNU_SOURCE) 
+    #define _GNU_SOURCE 1
+#endif
+
+#if !defined(_LARGEFILE64_SOURCE)
+    #define _LARGEFILE64_SOURCE 1
+#endif
+
+#if !defined(_LARGEFILE_SOURCE)
+    #define _LARGEFILE_SOURCE 1
+#endif
+
+#if !defined(_FILE_OFFSET_BITS) || !(_FILE_OFFSET_BITS == 64)
+    #define _FILE_OFFSET_BITS 64
+#endif
+
+#if defined(BUILDING_FMANC)
+    #define NDEBUG 1
+#endif
 
 // #include <defer.h>
 // #include <exCept.h>
+#include "../FMC_ver.h"
 #include "preprocessor/FMC_platform.h"
 #if defined(FMC_COMPILING_ON_WINDOWS)
     #if defined(_WIN32_WINNT) || defined(WINVER)

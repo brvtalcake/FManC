@@ -1,6 +1,6 @@
 obj/lin/shared/FMC_str_view.o deps/lin/shared/FMC_str_view.mk: \
  src/general/utils/FMC_str_view.c src/general/utils/FMC_str_view.h \
- src/general/utils/../FMC_general.h \
+ src/general/utils/../FMC_general.h src/general/utils/../../FMC_ver.h \
  src/general/utils/../preprocessor/FMC_platform.h \
  src/general/utils/../preprocessor/FMC_macros.h \
  src/general/utils/../preprocessor/FMC_platform.h \

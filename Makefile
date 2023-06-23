@@ -129,7 +129,7 @@ COV_FILES:=$(addsuffix .gcov,$(notdir $(SRC_FILES)))
 
 # Library files
 LIB_LIN_STATIC_FILES:=lib/lin/libFManC.a
-LIB_LIN_SHARED_FILES:=bin/libFManC.so
+LIB_LIN_SHARED_FILES:=bin/libFManC.so.$(MAJOR_VERSION)
 LIB_WIN_STATIC_FILES:=lib/win/libFManC.a
 LIB_WIN_SHARED_FILES:=bin/libFManC.dll lib/win/implib/libFManC.dll.a
 
@@ -137,9 +137,21 @@ LIB_LIN_TEST:=test/lib/libFManC_linux.a
 LIB_WIN_TEST:=test/lib/libFManC_win.a
 
 # Compiler and friends
-CC=gcc-13
-CCXX=g++-13
-AR=ar
+CC=gcc_latest
+CCXX=g++_latest
+GCOV=gcov_latest
+AR=gcc-ar_latest
+ifneq (,$(findstring Windows,$(OS)))
+	CC=gcc
+	CCXX=g++
+	GCOV=gcov
+	AR=gcc-ar
+else ifneq (,$(findstring windows,$(OS)))
+	CC=gcc
+	CCXX=g++
+	GCOV=gcov
+	AR=gcc-ar
+endif
 
 # Compiler and archiver flags
 AR_FLAGS:=-rsc
@@ -241,6 +253,12 @@ COV_TARGET:=$(addsuffix _$(DETECTED_OS), exp_cov)
 DEPS_TARGET:=$(addsuffix _$(DETECTED_OS), deps)
 .PHONY : deps
 
+INSTALL_TARGET:=$(addsuffix _$(DETECTED_OS), install)
+.PHONY : install
+
+DIST_CLEAN_TARGET:=$(addsuffix _$(DETECTED_OS), dist_clean)
+.PHONY : dist_clean
+
 deps : $(DEPS_TARGET)
 
 deps_lin : $(DEPS_LIN_STATIC_FILES) $(DEPS_LIN_SHARED_FILES)
@@ -259,18 +277,18 @@ exp_cov_win :
 
 all : $(ALL_TARGET)
 
-all_lin : third_party $(WAIT) copy_src_structure static_no_copy shared_no_copy $(WAIT) copy_headers $(WAIT) test 
+all_lin : third_party $(WAIT) copy_src_structure static_no_copy shared_no_copy $(WAIT) copy_headers $(WAIT) test $(WAIT) install
 	@printf "\e[92mBuilt everything for $(PRINTED_OS)\n\e[0m"
 
-all_win : third_party $(WAIT) copy_src_structure static_no_copy shared_no_copy $(WAIT) copy_headers $(WAIT) test
+all_win : third_party $(WAIT) copy_src_structure static_no_copy shared_no_copy $(WAIT) copy_headers $(WAIT) test $(WAIT) install
 	@printgreen Built everything for $(PRINTED_OS)
 
 all_no_test : $(ALL_NO_TEST_TARGET)
 
-all_no_test_lin : third_party $(WAIT) copy_src_structure static_no_copy shared_no_copy $(WAIT) copy_headers
+all_no_test_lin : third_party $(WAIT) copy_src_structure static_no_copy shared_no_copy $(WAIT) copy_headers $(WAIT) install
 	@printf "\e[92mBuilt everything for $(PRINTED_OS)\n\e[0m"
 
-all_no_test_win : third_party $(WAIT) copy_src_structure static_no_copy shared_no_copy $(WAIT) copy_headers
+all_no_test_win : third_party $(WAIT) copy_src_structure static_no_copy shared_no_copy $(WAIT) copy_headers $(WAIT) install
 	@printgreen Built everything for $(PRINTED_OS)
 
 third_party_ci : $(THIRD_PARTY_LIBS_CI_TARGET)
@@ -280,6 +298,27 @@ third_party_ci_lin :
 
 third_party_ci_win :
 	cd ./third_party_libs/ && $(MAKE) clean && $(MAKE) static
+
+install : $(INSTALL_TARGET)
+
+install_lin : prepare_install_lin $(WAIT) $(LIB_LIN_STATIC_FILES) $(LIB_LIN_SHARED_FILES) $(subst src/,/usr/local/include/${PROJECT_NAME}/,$(H_SRC_FILES) $(HPP_SRC_FILES))
+	@printf "\e[92mInstalling for $(PRINTED_OS)\n\e[0m"
+	@sudo cp -f -t /usr/local/lib/ $(LIB_LIN_SHARED_FILES)
+	@sudo cp -f -t /usr/local/lib/${PROJECT_NAME}/ $(LIB_LIN_STATIC_FILES)
+
+install_win : $(LIB_WIN_STATIC_FILES) $(LIB_WIN_SHARED_FILES) $(subst src/,include/,$(H_SRC_FILES) $(HPP_SRC_FILES))
+	@printgreen To fully install the library, you need to copy libFManC.dll in directory accessible by your PATH environment variable and libFManC.dll.a (the import library) in whatever directory you want (as long as you correctly link your program with it)
+
+dist_clean : $(DIST_CLEAN_TARGET)
+
+dist_clean_lin : clean_lin
+	@sudo rm -rf --verbose /usr/local/include/${PROJECT_NAME}/*
+	@sudo rm -f --verbose /usr/local/lib/${PROJECT_NAME}/*
+	@sudo rm -f --verbose /usr/local/lib/libFManC.so.*
+	@printf "\e[92mCleaned installed files for $(PRINTED_OS)\n\e[0m"
+
+dist_clean_win : clean_win
+	@printgreen Cleaned installed files for $(PRINTED_OS)
 
 third_party : $(THIRD_PARTY_LIBS_TARGET)
 
@@ -365,7 +404,7 @@ test_lin : $(LIB_LIN_TEST)
 	$(CC) $(TEST_SUITE_FILES) $(C_DEBUG_FLAGS) -o test/test_builds/$(TEST_RES_FOLD)/$@.out $(INC_FLAGS) -Ltest/lib/ -lFManC_linux -lstdc++ $(LIB_FLAGS)
 	@printf "\e[92mRunning tests for $(PRINTED_OS)\n\e[0m"
 	@cd ./test/test_builds/$(TEST_RES_FOLD) && valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./$@.out
-	gcov-13 -b $(GCNO_LIN_FILES)
+	$(GCOV) -b $(GCNO_LIN_FILES)
 
 test_win : $(LIB_WIN_TEST)
 	$(CC) -D FMC_STATIC $(TEST_SUITE_FILES) $(C_DEBUG_FLAGS) -o test/test_builds/$(TEST_RES_FOLD)/$@.exe $(INC_FLAGS) -Ltest/lib -lFManC_win -lstdc++ $(LIB_FLAGS)
@@ -373,7 +412,7 @@ test_win : $(LIB_WIN_TEST)
 	rm -f .\test\test_builds\$(TEST_RES_FOLD)\$@.out
 	@cd .\test\test_builds\$(TEST_RES_FOLD) && mklink test_win.out test_win.exe
 	@cd .\test\test_builds\$(TEST_RES_FOLD) && $@.exe
-	gcov-13 -b $(GCNO_LIN_FILES)
+	$(GCOV) -b $(GCNO_LIN_FILES)
 	rm -f .\test\test_builds\$(TEST_RES_FOLD)\$@.out
 
 $(LIB_LIN_TEST) : $(O_LIN_TEST)
@@ -398,13 +437,26 @@ clean : $(CLEAN_TARGET)
 
 clean_lin : 
 	@cd third_party_libs/ && $(MAKE) clean
-	@rm -f --verbose $(O_LIN_STATIC_FILES) $(O_LIN_SHARED_FILES) $(LIB_LIN_STATIC_FILES) $(LIB_LIN_SHARED_FILES) $(O_LIN_TEST) $(LIB_LIN_TEST) test/obj/lin/*.gcda test/obj/lin/*.gcno *.gcov
+	@rm -f --verbose $(O_LIN_STATIC_FILES) $(O_LIN_SHARED_FILES) $(LIB_LIN_STATIC_FILES) $(LIB_LIN_SHARED_FILES) bin/libFManC.so.$(VERSION) $(O_LIN_TEST) $(LIB_LIN_TEST) test/obj/lin/*.gcda test/obj/lin/*.gcno *.gcov
+	@rm -rf include/*
 	@printf "\e[92mCleaned everything for $(PRINTED_OS)\n\e[0m"
 
 clean_win : 
 	@cd third_party_libs/ && $(MAKE) clean
 	@rm -f --verbose $(subst /,\,$(O_WIN_STATIC_FILES) $(O_WIN_SHARED_FILES) $(LIB_WIN_STATIC_FILES) $(LIB_WIN_SHARED_FILES) $(O_WIN_TEST) $(LIB_WIN_TEST)) test/obj/win/*.gcda test/obj/win/*.gcno *.gcov
+	@rm -rf include/*
 	@printgreen Cleaned everything for $(PRINTED_OS)
+
+.PHONY : prepare_install_lin
+
+prepare_install_lin :
+	@sudo rm -rf --verbose /usr/local/include/${PROJECT_NAME}/*
+	@sudo rm -f --verbose /usr/local/lib/${PROJECT_NAME}/*
+	@sudo rm -f --verbose /usr/local/lib/libFManC.so.*
+	@sudo mkdir -p /usr/local/include/${PROJECT_NAME}/
+	@sudo mkdir -p /usr/local/lib/
+	@sudo mkdir -p /usr/local/lib/${PROJECT_NAME}/
+	@sudo ./scripts/copy_src_struct.sh /usr/local/include/${PROJECT_NAME}/
 
 copy_src_structure : $(COPY_SRC_STRUCTURE_TARGET)
 
@@ -416,10 +468,10 @@ copy_src_structure_win :
 
 copy_headers : $(COPY_HEADERS_TARGET)
 
-copy_headers_lin : $(copy_src_structure) $(subst src/,include/,$(H_SRC_FILES) $(HPP_SRC_FILES))
+copy_headers_lin : copy_src_structure $(WAIT) $(subst src/,include/,$(H_SRC_FILES) $(HPP_SRC_FILES))
 	@printf "\e[92mCopied headers for $(PRINTED_OS)\n\e[0m"
 
-copy_headers_win : $(copy_src_structure) $(subst src/,include/,$(H_SRC_FILES) $(HPP_SRC_FILES))
+copy_headers_win : copy_src_structure $(WAIT) $(subst src/,include/,$(H_SRC_FILES) $(HPP_SRC_FILES))
 	@printgreen Copied headers for $(PRINTED_OS)
 
 doc : $(DOC_TARGET)
@@ -437,6 +489,12 @@ include/%.h : src/%.h
 
 include/%.hpp : src/%.hpp
 	@cp -f -T $^ $@ 
+
+/usr/local/include/${PROJECT_NAME}/%.h : src/%.h
+	@cp -f -T $^ $@
+
+/usr/local/include/${PROJECT_NAME}/%.hpp : src/%.hpp
+	@cp -f -T $^ $@
 
 lib/lin/libFManC.a : $(O_LIN_STATIC_FILES)
 	$(AR) $(AR_FLAGS) $@ $^
@@ -462,10 +520,10 @@ obj/win/static/%.o : %.cpp # $(H_SRC_FILES) $(HPP_SRC_FILES)
 	$(CCXX) -D BUILDING_FMANC -D FMC_STATIC $< $(CXX_FLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 	@printgreen Built $@ sucessfully
 
-bin/libFManC.so : $(O_LIN_SHARED_FILES)
+bin/libFManC.so.$(MAJOR_VERSION) : $(O_LIN_SHARED_FILES)
 	rm -f $@ && rm -f $@.$(MAJOR_VERSION) && rm -f $@.$(VERSION)
-	$(CC) -D FMC_BUILD_SO -D BUILDING_FMANC $(O_LIN_SHARED_FILES) $(CFLAGS) -shared -fPIC -o $@.$(VERSION) $(INC_FLAGS) -Wl,--version-script=scripts/linker.ver $(LIB_FLAGS) -lstdc++ $(LD_FLAGS_SO)libFManC.so.$(MAJOR_VERSION)
-	cd ./bin/ && ln -s $(notdir $@).$(VERSION) $(notdir $@).$(MAJOR_VERSION) && ln -s $(notdir $@).$(MAJOR_VERSION) $(notdir $@)
+	$(CC) -D FMC_BUILD_SO -D BUILDING_FMANC $(O_LIN_SHARED_FILES) $(CFLAGS) -shared -fPIC -o $@.$(MINOR_VERSION).$(PATCH_VERSION) $(INC_FLAGS) -Wl,--version-script=scripts/linker.ver $(LIB_FLAGS) -lstdc++ $(LD_FLAGS_SO)$@
+	cd ./bin/ && ln -s $(notdir $@).$(MINOR_VERSION).$(PATCH_VERSION) $(notdir $@)
 	@printf "\e[92mBuilt $@ sucessfully\n\n\e[0m"
 
 bin/libFManC.dll : lib/win/implib/libFManC.dll.a

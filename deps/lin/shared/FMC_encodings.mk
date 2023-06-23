@@ -2,6 +2,7 @@ obj/lin/shared/FMC_encodings.o deps/lin/shared/FMC_encodings.mk: \
  src/data_analyze/encodings/FMC_encodings.c \
  src/data_analyze/encodings/FMC_encodings.h \
  src/data_analyze/encodings/../../general/FMC_general.h \
+ src/data_analyze/encodings/../../general/../FMC_ver.h \
  src/data_analyze/encodings/../../general/preprocessor/FMC_platform.h \
  src/data_analyze/encodings/../../general/preprocessor/FMC_macros.h \
  src/data_analyze/encodings/../../general/preprocessor/FMC_platform.h \

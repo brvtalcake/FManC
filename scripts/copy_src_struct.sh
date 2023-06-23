@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm -rf ./include/*
+rm -rf $1/*
 
 if [ -z "$1" ]; then
     echo "Destination directory is not specified"

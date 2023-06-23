@@ -2,6 +2,7 @@ obj/lin/static/FMC_filesystem.o deps/lin/static/FMC_filesystem.mk: \
  src/file_management/filesystem/FMC_filesystem.c \
  src/file_management/filesystem/FMC_filesystem.h \
  src/file_management/filesystem/../../general/FMC_general.h \
+ src/file_management/filesystem/../../general/../FMC_ver.h \
  src/file_management/filesystem/../../general/preprocessor/FMC_platform.h \
  src/file_management/filesystem/../../general/preprocessor/FMC_macros.h \
  src/file_management/filesystem/../../general/preprocessor/FMC_platform.h \
