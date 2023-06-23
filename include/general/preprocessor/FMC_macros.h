@@ -1619,7 +1619,7 @@ FMC_MAYBE(1)
     #if defined(FMC_STATIC) || defined(FMC_USE_DLL) || defined(FMC_BUILD_DLL)
         #warning "You don't have to specify FMC_STATIC, FMC_USE_DLL or FMC_BUILD_DLL on Linux, Unix or Mac OS X. These are ignored on your system."
     #endif
-    #if defined(FMC_BUILD_SO)
+    #if defined(FMC_BUILD_SO) || defined(FMC_USE_SO)
         #define FMC_SHARED __attribute__((visibility("default")))
         #define FMC_SYM(_ret_type, _name, _ver) \
             __attribute__((symver(FMC_STRINGIZE(FMC_CONCAT(_name@FMC_VER_, _ver))))) \

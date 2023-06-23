@@ -219,7 +219,9 @@ FMC_FUNC_COLD static unsigned int** FMC_parseEtcLoginDefs(unsigned int** uids_an
 }
 #endif
 
-FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_COLD char* FMC_getCurrentUserName(char* const user_name, const size_t len)
+#if !defined(USE_FMC_getCurrentUserName_VER) || USE_FMC_getCurrentUserName_VER == FMC_MK_VER_NUM(1, 0, 0) || defined(FMC_BUILD_SO)
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_COLD 
+FMC_DEF_SYM(char*, FMC_getCurrentUserName, 1_0_0)(char* const user_name, const size_t len)
 {
     #pragma GCC diagnostic ignored "-Wnonnull-compare"
     if (!user_name)
@@ -284,10 +286,14 @@ FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_COLD char* FMC_getCurrentUserName(char* 
     #endif
     FMC_UNREACHABLE;
 }
+#endif
 
 #if !defined(FMC_COMPILING_ON_WINDOWS)
-#pragma GCC diagnostic ignored "-Wstack-protector" 
-FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_JUST_MALLOC unsigned int* FMC_getAllUIDs(unsigned int range_count, ...)
+#if !defined(USE_FMC_getAllUIDs_VER) || USE_FMC_getAllUIDs_ver == FMC_MK_VER_NUM(1, 0, 0) || defined(FMC_BUILD_SO)
+#pragma GCC diagnostic ignored "-Wstack-protector"
+
+FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_JUST_MALLOC
+FMC_DEF_SYM(unsigned int*, FMC_getAllUIDs, 1_0_0)(unsigned int range_count, ...)
 {
     #pragma GCC diagnostic pop
     // this function gets all the UIDs in the system between the specified ranges (wich are variable)
@@ -389,6 +395,7 @@ FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_JUST_MALLOC unsigned int* FMC_ge
     return uids;
     FMC_UNREACHABLE;
 }
+#endif
 #endif
 
 /* FMC_SHARED FMC_FUNC_NONNULL(2) FMC_FUNC_COLD char* FMC_getUserNameByUID(uid_t uid, char* user_name, size_t len)

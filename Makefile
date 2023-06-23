@@ -96,12 +96,19 @@ SRC_SUBDIRS:=$(C_SRC_SUBDIRS) $(CPP_SRC_SUBDIRS)
 
 VPATH=$(subst / ,/:,$(SRC_SUBDIRS))
 
+.PHONY : test_vpath
+
+test_vpath :
+	@printf "\e[92m$(VPATH)\n\e[0m"
+	@printf "\e[92m$(COG_PROCESSED_FILES)\n\e[0m"
 # Project files
-CPP_SRC_FILES:=$(foreach dir,$(SRC_SUBDIRS),$(wildcard $(dir)/*.cpp))
-HPP_SRC_FILES:=$(foreach dir,$(SRC_SUBDIRS),$(wildcard $(dir)/*.hpp))
-C_SRC_FILES:=$(foreach dir,$(SRC_SUBDIRS),$(wildcard $(dir)/*.c))
-H_SRC_FILES:=$(foreach dir,$(SRC_SUBDIRS),$(wildcard $(dir)/*.h))
+CPP_SRC_FILES:=$(foreach dir,$(SRC_SUBDIRS),$(wildcard $(dir)*.cpp))
+HPP_SRC_FILES:=$(foreach dir,$(SRC_SUBDIRS),$(wildcard $(dir)*.hpp))
+C_SRC_FILES:=$(foreach dir,$(SRC_SUBDIRS),$(wildcard $(dir)*.c))
+H_SRC_FILES:=$(foreach dir,$(SRC_SUBDIRS),$(wildcard $(dir)*.h))
 SRC_FILES:=$(CPP_SRC_FILES) $(C_SRC_FILES) $(HPP_SRC_FILES) $(H_SRC_FILES)
+
+COG_PROCESSED_FILES:=$(subst src/,obj/cog_processed/,$(SRC_FILES))
 
 TEST_SUITE_FILES:=$(addprefix test/src_test/,test.c test1_2.c test2_2.c test3_2.c test4_2.c test5_2.c)
 
@@ -129,7 +136,7 @@ COV_FILES:=$(addsuffix .gcov,$(notdir $(SRC_FILES)))
 
 # Library files
 LIB_LIN_STATIC_FILES:=lib/lin/libFManC.a
-LIB_LIN_SHARED_FILES:=bin/libFManC.so.$(MAJOR_VERSION)
+LIB_LIN_SHARED_FILES:=bin/libFManC.so
 LIB_WIN_STATIC_FILES:=lib/win/libFManC.a
 LIB_WIN_SHARED_FILES:=bin/libFManC.dll lib/win/implib/libFManC.dll.a
 
@@ -259,6 +266,26 @@ INSTALL_TARGET:=$(addsuffix _$(DETECTED_OS), install)
 DIST_CLEAN_TARGET:=$(addsuffix _$(DETECTED_OS), dist_clean)
 .PHONY : dist_clean
 
+#PROCESS_COG_TARGET:=$(addsuffix _$(DETECTED_OS), process_cog)
+#.PHONY : process_cog
+
+#PREPARE_COG_TARGET:=$(addsuffix _$(DETECTED_OS), prepare_cog)
+#.PHONY : prepare_cog
+
+#process_cog : prepare_cog $(WAIT) #$(COG_PROCESSED_FILES)
+
+#prepare_cog : $(PREPARE_COG_TARGET)
+
+#prepare_cog_lin :
+#	@mkdir -p obj/cog_processed/
+#	@rm -rf --verbose obj/cog_processed/*
+#	@./scripts/copy_src_struct.sh obj/cog_processed/
+
+#prepare_cog_win :
+#	@mkdir -p obj/cog_processed/
+#	@rm -rf --verbose obj/cog_processed/*
+#	@.\scripts\copy_src_struct.bat obj\cog_processed\
+	
 deps : $(DEPS_TARGET)
 
 deps_lin : $(DEPS_LIN_STATIC_FILES) $(DEPS_LIN_SHARED_FILES)
@@ -277,17 +304,21 @@ exp_cov_win :
 
 all : $(ALL_TARGET)
 
+#process_cog 
 all_lin : third_party $(WAIT) copy_src_structure static_no_copy shared_no_copy $(WAIT) copy_headers $(WAIT) test $(WAIT) install
 	@printf "\e[92mBuilt everything for $(PRINTED_OS)\n\e[0m"
 
+#process_cog 
 all_win : third_party $(WAIT) copy_src_structure static_no_copy shared_no_copy $(WAIT) copy_headers $(WAIT) test $(WAIT) install
 	@printgreen Built everything for $(PRINTED_OS)
 
 all_no_test : $(ALL_NO_TEST_TARGET)
 
+#process_cog
 all_no_test_lin : third_party $(WAIT) copy_src_structure static_no_copy shared_no_copy $(WAIT) copy_headers $(WAIT) install
 	@printf "\e[92mBuilt everything for $(PRINTED_OS)\n\e[0m"
 
+#process_cog
 all_no_test_win : third_party $(WAIT) copy_src_structure static_no_copy shared_no_copy $(WAIT) copy_headers $(WAIT) install
 	@printgreen Built everything for $(PRINTED_OS)
 
@@ -301,10 +332,8 @@ third_party_ci_win :
 
 install : $(INSTALL_TARGET)
 
-install_lin : prepare_install_lin $(WAIT) $(LIB_LIN_STATIC_FILES) $(LIB_LIN_SHARED_FILES) $(subst src/,/usr/local/include/${PROJECT_NAME}/,$(H_SRC_FILES) $(HPP_SRC_FILES))
-	@printf "\e[92mInstalling for $(PRINTED_OS)\n\e[0m"
-	@sudo cp -f -t /usr/local/lib/ $(LIB_LIN_SHARED_FILES)
-	@sudo cp -f -t /usr/local/lib/${PROJECT_NAME}/ $(LIB_LIN_STATIC_FILES)
+install_lin : prepare_install_lin $(WAIT) $(subst src/,/usr/local/include/${PROJECT_NAME}/,$(H_SRC_FILES) $(HPP_SRC_FILES)) /usr/local/lib/libFManC.a /usr/local/lib/libFManC.so.$(VERSION) /usr/local/lib/libFManC.so /usr/local/lib/libFManC.so.$(MAJOR_VERSION)
+	@printf "\e[92mInstalled for $(PRINTED_OS)\n\e[0m"
 
 install_win : $(LIB_WIN_STATIC_FILES) $(LIB_WIN_SHARED_FILES) $(subst src/,include/,$(H_SRC_FILES) $(HPP_SRC_FILES))
 	@printgreen To fully install the library, you need to copy libFManC.dll in directory accessible by your PATH environment variable and libFManC.dll.a (the import library) in whatever directory you want (as long as you correctly link your program with it)
@@ -313,7 +342,7 @@ dist_clean : $(DIST_CLEAN_TARGET)
 
 dist_clean_lin : clean_lin
 	@sudo rm -rf --verbose /usr/local/include/${PROJECT_NAME}/*
-	@sudo rm -f --verbose /usr/local/lib/${PROJECT_NAME}/*
+	@sudo rm -f --verbose /usr/local/lib/libFManC.a
 	@sudo rm -f --verbose /usr/local/lib/libFManC.so.*
 	@printf "\e[92mCleaned installed files for $(PRINTED_OS)\n\e[0m"
 
@@ -366,7 +395,8 @@ third_party_win :
 #	cd ./third_party_libs/built_libs/shared && ln -s libmimalloc-secure.so.2 libmimalloc-secure.so
 #	cd ./third_party_libs/built_libs/mimalloc/ && $(MAKE) clean && rm -rf ./CMakeFiles
 
-static : $(STAT_TARGET)
+#process_cog
+static : third_party $(WAIT) $(STAT_TARGET)
 
 static_lin : $(LIB_LIN_STATIC_FILES) $(WAIT) copy_headers 
 	@printf "\e[92mBuilt static library for $(PRINTED_OS)\n\e[0m"
@@ -382,7 +412,8 @@ static_no_copy_lin : $(LIB_LIN_STATIC_FILES)
 static_no_copy_win : $(LIB_WIN_STATIC_FILES)
 	@printgreen Built static library for $(PRINTED_OS)
 
-shared : $(SHARED_TARGET)
+#process_cog
+shared : third_party $(WAIT) $(SHARED_TARGET)
 
 shared_lin : $(LIB_LIN_SHARED_FILES) $(WAIT) copy_headers
 	@printf "\e[92mBuilt shared library for $(PRINTED_OS)\n\e[0m"
@@ -433,6 +464,7 @@ test/obj/win/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
 test/obj/win/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
 	$(CCXX) -D FMC_STATIC -D BUILDING_FMANC $< $(CXX_DEBUG_FLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 
+#prepare_cog
 clean : $(CLEAN_TARGET)
 
 clean_lin : 
@@ -451,11 +483,9 @@ clean_win :
 
 prepare_install_lin :
 	@sudo rm -rf --verbose /usr/local/include/${PROJECT_NAME}/*
-	@sudo rm -f --verbose /usr/local/lib/${PROJECT_NAME}/*
+	@sudo rm -f --verbose /usr/local/lib/libFManC.a
 	@sudo rm -f --verbose /usr/local/lib/libFManC.so.*
-	@sudo mkdir -p /usr/local/include/${PROJECT_NAME}/
 	@sudo mkdir -p /usr/local/lib/
-	@sudo mkdir -p /usr/local/lib/${PROJECT_NAME}/
 	@sudo ./scripts/copy_src_struct.sh /usr/local/include/${PROJECT_NAME}/
 
 copy_src_structure : $(COPY_SRC_STRUCTURE_TARGET)
@@ -491,10 +521,22 @@ include/%.hpp : src/%.hpp
 	@cp -f -T $^ $@ 
 
 /usr/local/include/${PROJECT_NAME}/%.h : src/%.h
-	@cp -f -T $^ $@
+	@sudo cp -f -T $^ $@
 
 /usr/local/include/${PROJECT_NAME}/%.hpp : src/%.hpp
-	@cp -f -T $^ $@
+	@sudo cp -f -T $^ $@
+
+/usr/local/lib/%.a : lib/lin/%.a
+	@sudo cp -f -T $^ $@
+
+/usr/local/lib/%.so.$(VERSION) : bin/%.so.$(VERSION)
+	@sudo cp -f -T $^ $@
+
+/usr/local/lib/%.so.$(MAJOR_VERSION) : bin/%.so.$(MAJOR_VERSION)
+	@sudo cp -f -T $^ $@
+
+/usr/local/lib/%.so : bin/%.so
+	@sudo cp -f -T $^ $@
 
 lib/lin/libFManC.a : $(O_LIN_STATIC_FILES)
 	$(AR) $(AR_FLAGS) $@ $^
@@ -520,10 +562,10 @@ obj/win/static/%.o : %.cpp # $(H_SRC_FILES) $(HPP_SRC_FILES)
 	$(CCXX) -D BUILDING_FMANC -D FMC_STATIC $< $(CXX_FLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 	@printgreen Built $@ sucessfully
 
-bin/libFManC.so.$(MAJOR_VERSION) : $(O_LIN_SHARED_FILES)
+bin/libFManC.so : $(O_LIN_SHARED_FILES)
 	rm -f $@ && rm -f $@.$(MAJOR_VERSION) && rm -f $@.$(VERSION)
-	$(CC) -D FMC_BUILD_SO -D BUILDING_FMANC $(O_LIN_SHARED_FILES) $(CFLAGS) -shared -fPIC -o $@.$(MINOR_VERSION).$(PATCH_VERSION) $(INC_FLAGS) -Wl,--version-script=scripts/linker.ver $(LIB_FLAGS) -lstdc++ $(LD_FLAGS_SO)$@
-	cd ./bin/ && ln -s $(notdir $@).$(MINOR_VERSION).$(PATCH_VERSION) $(notdir $@)
+	$(CC) -D FMC_BUILD_SO -D BUILDING_FMANC $(O_LIN_SHARED_FILES) $(CFLAGS) -shared -fPIC -o $@.$(VERSION) $(INC_FLAGS) -Wl,--version-script=scripts/linker.ver $(LIB_FLAGS) -lstdc++ $(LD_FLAGS_SO)$(notdir $@).$(MAJOR_VERSION)
+	cd ./bin/ && ln -s $(notdir $@).$(VERSION) $(notdir $@).$(MAJOR_VERSION) && ln -s $(notdir $@).$(MAJOR_VERSION) $(notdir $@)
 	@printf "\e[92mBuilt $@ sucessfully\n\n\e[0m"
 
 bin/libFManC.dll : lib/win/implib/libFManC.dll.a
@@ -582,6 +624,18 @@ deps/win/shared/%.mk : %.c
 deps/win/shared/%.mk : %.cpp
 	@rm -f $@
 	$(CCXX) -D BUILDING_FMANC -D FMC_BUILD_DLL $< $(CXX_FLAGS) -MM -MF $@ -MT '$(subst deps/win/shared/,obj/win/shared/,$(subst .mk,.o,$@)) $@' $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
+
+#obj/cog_processed/%.c : %.c
+#	@cog -o $@ $<
+#
+#obj/cog_processed/%.cpp : %.cpp
+#	@cog -o $@ $<
+#
+#obj/cog_processed/%.h : src/%.h
+#	@cog -o $@ $<
+#
+#obj/cog_processed/%.hpp : src/%.hpp
+#	@cog -o $@ $<
 
 ifneq (,$(findstring Windows,$(filter win% Win%,$(OS))))
 -include $(DEPS_WIN_SHARED_FILES) $(DEPS_WIN_STATIC_FILES)

@@ -47,10 +47,16 @@ FMC_BEGIN_DECLS
 
 // TODO: FMC_getProgLocation
 
-FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_COLD char* FMC_getCurrentUserName(char* const user_name, const size_t len);
+#if !defined(USE_FMC_getCurrentUserName_VER) || USE_FMC_getCurrentUserName_VER == FMC_MK_VER_NUM(1, 0, 0) || defined(FMC_BUILD_SO)
+FMC_SHARED FMC_FUNC_NONNULL(1) FMC_FUNC_COLD 
+FMC_DEF_SYM(char*, FMC_getCurrentUserName, 1_0_0)(char* const user_name, const size_t len);
+#endif
 
+#if !defined(USE_FMC_getAllUIDs_VER) || USE_FMC_getAllUIDs_VER == FMC_MK_VER_NUM(1, 0, 0) || defined(FMC_BUILD_SO)
 #if !defined(FMC_COMPILING_ON_WINDOWS)
-FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_JUST_MALLOC unsigned int* FMC_getAllUIDs(unsigned int range_count, ...);
+FMC_SHARED FMC_FUNC_WARN_UNUSED_RESULT FMC_FUNC_JUST_MALLOC
+FMC_DEF_SYM(unsigned int*, FMC_getAllUIDs, 1_0_0)(unsigned int range_count, ...);
+#endif
 #endif
 
 FMC_END_DECLS
