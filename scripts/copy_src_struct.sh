@@ -12,4 +12,4 @@ if [ ! -d "$1" ]; then
     exit 1
 fi
 
-rsync -av -f"+ */" -f"- *" "src/" "$1"
+rsync --quiet -av -f"+ */" -f"- *" "src/" "$1"

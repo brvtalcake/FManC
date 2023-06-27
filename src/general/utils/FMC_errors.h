@@ -31,8 +31,8 @@ SOFTWARE.
 #include <stdarg.h>
 #include <string.h>
 
-#include "../preprocessor/FMC_consts.h"
-#include "../preprocessor/FMC_macros.h"
+
+#include "../FMC_general.h"
 #include "FMC_std_io.h"
 
 #if defined(FMC_COMPILING_ON_LINUX)
@@ -48,7 +48,30 @@ SOFTWARE.
 
 FMC_BEGIN_DECLS
 
-FMC_SHARED FMC_FUNC_NONNULL(1) void FMC_makeMsg_f(char *buff, unsigned int argc, ...);
+/*[[[cog
+
+import cog
+from importlib.machinery import SourceFileLoader
+import os
+import sys
+path = os.getcwd()
+utils = SourceFileLoader("cog_symbol_util", path + "/scripts/cog_symbol_util.py").load_module()
+cog.out(utils.header_dump_default("FMC_makeMsg_f", 1, 0, 0, "void", ("char *", "unsigned int", "...")))
+]]]*/
+//[[[end]]]
+FMC_SHARED FMC_FUNC_NONNULL(1)
+FMC_DEF_SYM(void, FMC_makeMsg_f, 1_0_0)(char *buff, unsigned int argc, ...);
+/*[[[cog
+
+import cog
+from importlib.machinery import SourceFileLoader
+import os
+import sys
+path = os.getcwd()
+utils = SourceFileLoader("cog_symbol_util", path + "/scripts/cog_symbol_util.py").load_module()
+cog.out("#endif")
+]]]*/
+//[[[end]]]
 
 #define FMC_makeMsg(err_var_name, argc, ...)         \
     char err_var_name[256] = {"\0"};                 \

@@ -25,13 +25,23 @@ SOFTWARE.
 */
 
 #include "FMC_errors.h"
-#include "../preprocessor/FMC_macros.h"
 #include <stdio.h>
 #include <stdarg.h>
 #include <string.h>
 
+/*[[[cog
 
-FMC_SHARED FMC_FUNC_NONNULL(1) void FMC_makeMsg_f(char *buff, unsigned int argc, ...)
+import cog
+from importlib.machinery import SourceFileLoader
+import os
+import sys
+path = os.getcwd()
+utils = SourceFileLoader("cog_symbol_util", path + "/scripts/cog_symbol_util.py").load_module()
+cog.out(utils.dump_default("FMC_makeMsg_f", 1, 0, 0, "void", ("char *", "unsigned int", "...")))
+]]]*/
+//[[[end]]]
+FMC_SHARED FMC_FUNC_NONNULL(1)
+FMC_DEF_SYM(void, FMC_makeMsg_f, 1_0_0)(char *buff, unsigned int argc, ...)
 {
     va_list args;
     va_start(args, argc);
@@ -42,6 +52,18 @@ FMC_SHARED FMC_FUNC_NONNULL(1) void FMC_makeMsg_f(char *buff, unsigned int argc,
     }
     va_end(args);
 }
+
+/*[[[cog
+
+import cog
+from importlib.machinery import SourceFileLoader
+import os
+import sys
+path = os.getcwd()
+utils = SourceFileLoader("cog_symbol_util", path + "/scripts/cog_symbol_util.py").load_module()
+cog.out("#endif")
+]]]*/
+//[[[end]]]
 
 FMC_SHARED extern FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_resetStreamOutputStyle(FILE *stream);
 FMC_SHARED extern FMC_FUNC_FLATTEN FMC_FUNC_INLINE void FMC_changeStreamTextColorToRed(FILE *stream);

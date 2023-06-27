@@ -474,10 +474,32 @@ obj/lin/shared/FMC_globals.o deps/lin/shared/FMC_globals.mk: \
  src/general/utils/../types/FMC_enums.h \
  src/general/utils/../types/../preprocessor/FMC_macros.h \
  src/general/utils/../types/FMC_typedefs.h src/general/utils/FMC_errors.h \
- src/general/utils/../preprocessor/FMC_consts.h \
- src/general/utils/FMC_std_io.h \
+ src/general/utils/../FMC_general.h src/general/utils/../../FMC_ver.h \
  src/general/utils/../preprocessor/FMC_platform.h \
+ src/general/utils/../preprocessor/FMC_macros.h \
+ src/general/utils/../preprocessor/FMC_consts.h \
+ src/general/utils/../preprocessor/FMC_flags.h \
+ src/general/utils/../preprocessor/FMC_attributes.h \
  src/general/utils/../types/FMC_structs.h \
  src/general/utils/../types/../preprocessor/FMC_consts.h \
  src/general/utils/../types/FMC_enums.h \
- src/general/utils/../types/FMC_typedefs.h
+ src/general/utils/../types/FMC_typedefs.h \
+ src/general/utils/../types/FMC_typedefs.h \
+ src/general/utils/../types/FMC_enums.h \
+ src/general/utils/../utils/FMC_errors.h \
+ src/general/utils/../utils/FMC_globals.h \
+ src/general/utils/../utils/FMC_deprecated.h \
+ src/general/utils/../utils/../preprocessor/FMC_attributes.h \
+ src/general/utils/../utils/FMC_str_view.h \
+ src/general/utils/../utils/../FMC_general.h \
+ src/general/utils/../utils/FMC_std_io.h \
+ src/general/utils/../utils/../preprocessor/FMC_macros.h \
+ src/general/utils/../utils/../preprocessor/FMC_consts.h \
+ src/general/utils/../utils/../types/FMC_enums.h \
+ src/general/utils/../types/FMC_int128.h \
+ src/general/utils/../types/FMC_structs.h \
+ src/general/utils/../types/../preprocessor/FMC_attributes.h \
+ src/general/utils/FMC_std_io.h \
+ src/general/utils/../preprocessor/FMC_consts.h \
+ src/general/utils/../preprocessor/FMC_platform.h \
+ src/general/utils/../types/FMC_structs.h
