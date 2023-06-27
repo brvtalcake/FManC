@@ -3,7 +3,7 @@ function notdir() {
     echo $(basename $1)
 }
 
-command="make -j$1 $2 CC=gcc CXX=g++"
+command="make -j$1 $2 CC=gcc CXX=g++ AR=ar"
 
 if [ -z "$1" ]; then
     echo "Usage: $0 <job_count> <target>"
@@ -17,7 +17,7 @@ if ! [[ $1 =~ ^[0-9]+$ ]] ; then
 fi
 
 if [ -z "$2" ]; then
-    command="make -j$1 CC=gcc CXX=g++"
+    command="make -j$1 CC=gcc CXX=g++ AR=ar"
 fi
 
 # run cog only if 'clean' is not in $2
