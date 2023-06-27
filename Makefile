@@ -140,17 +140,17 @@ LIB_WIN_TEST:=test/lib/libFManC_win.a
 
 # Compiler and friends
 CC=gcc_latest
-CCXX=g++_latest
+CXX=g++_latest
 GCOV=gcov_latest
 AR=gcc-ar_latest
 ifneq (,$(findstring Windows,$(OS)))
 	CC=gcc
-	CCXX=g++
+	CXX=g++
 	GCOV=gcov
 	AR=gcc-ar
 else ifneq (,$(findstring windows,$(OS)))
 	CC=gcc
-	CCXX=g++
+	CXX=g++
 	GCOV=gcov
 	AR=gcc-ar
 endif
@@ -454,7 +454,7 @@ test/obj/lin/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
 
 test/obj/lin/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
 	@echo "    CXX $<"
-	@$(CCXX) -D BUILDING_FMANC $(call map_to_cog_f, $<) $(CXX_DEBUG_FLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
+	@$(CXX) -D BUILDING_FMANC $(call map_to_cog_f, $<) $(CXX_DEBUG_FLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 
 $(LIB_WIN_TEST) : $(O_WIN_TEST)
 	@$(AR) $(AR_FLAGS) $@ $^
@@ -465,7 +465,7 @@ test/obj/win/%.o : %.c $(H_SRC_FILES) $(HPP_SRC_FILES)
 
 test/obj/win/%.o : %.cpp $(H_SRC_FILES) $(HPP_SRC_FILES)
 	@echo "    CXX $<"
-	@$(CCXX) -D FMC_STATIC -D BUILDING_FMANC $(call map_to_cog_f, $<) $(CXX_DEBUG_FLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
+	@$(CXX) -D FMC_STATIC -D BUILDING_FMANC $(call map_to_cog_f, $<) $(CXX_DEBUG_FLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 
 #prepare_cog
 clean : $(CLEAN_TARGET)
@@ -553,7 +553,7 @@ obj/lin/static/%.o : %.c # $(H_SRC_FILES) $(HPP_SRC_FILES)
 
 obj/lin/static/%.o : %.cpp # $(H_SRC_FILES) $(HPP_SRC_FILES)
 	@echo "    CXX $<"
-	@$(CCXX) -D BUILDING_FMANC $(call map_to_cog_f, $<) $(CXX_FLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
+	@$(CXX) -D BUILDING_FMANC $(call map_to_cog_f, $<) $(CXX_FLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 
 obj/win/static/%.o : %.c # $(H_SRC_FILES) $(HPP_SRC_FILES)
 	@echo "    CC $<"
@@ -561,7 +561,7 @@ obj/win/static/%.o : %.c # $(H_SRC_FILES) $(HPP_SRC_FILES)
 
 obj/win/static/%.o : %.cpp # $(H_SRC_FILES) $(HPP_SRC_FILES)
 	@echo "    CXX $<"
-	@$(CCXX) -D BUILDING_FMANC -D FMC_STATIC $(call map_to_cog_f, $<) $(CXX_FLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
+	@$(CXX) -D BUILDING_FMANC -D FMC_STATIC $(call map_to_cog_f, $<) $(CXX_FLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 
 bin/libFManC.so : $(O_LIN_SHARED_FILES)
 	@rm -f $@ && rm -f $@.$(MAJOR_VERSION) && rm -f $@.$(VERSION)
@@ -584,7 +584,7 @@ obj/lin/shared/%.o : %.c # $(H_SRC_FILES) $(HPP_SRC_FILES)
 
 obj/lin/shared/%.o : %.cpp # $(H_SRC_FILES) $(HPP_SRC_FILES)
 	@echo "    CXX $<"
-	@$(CCXX) -D FMC_BUILD_SO -D BUILDING_FMANC $(call map_to_cog_f, $<) $(CXX_FLAGS) -c -fPIC -o $@ $(INC_FLAGS) $(LIB_FLAGS) -Wl,--version-script=scripts/linker.ver -lstdc++
+	@$(CXX) -D FMC_BUILD_SO -D BUILDING_FMANC $(call map_to_cog_f, $<) $(CXX_FLAGS) -c -fPIC -o $@ $(INC_FLAGS) $(LIB_FLAGS) -Wl,--version-script=scripts/linker.ver -lstdc++
 
 obj/win/shared/%.o : %.c # $(H_SRC_FILES) $(HPP_SRC_FILES)
 	@echo "    CC $<"
@@ -592,7 +592,7 @@ obj/win/shared/%.o : %.c # $(H_SRC_FILES) $(HPP_SRC_FILES)
 
 obj/win/shared/%.o : %.cpp # $(H_SRC_FILES) $(HPP_SRC_FILES)
 	@echo "    CXX $<"
-	@$(CCXX) -D BUILDING_FMANC -D FMC_BUILD_DLL $(call map_to_cog_f, $<) $(CXX_FLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
+	@$(CXX) -D BUILDING_FMANC -D FMC_BUILD_DLL $(call map_to_cog_f, $<) $(CXX_FLAGS) -c -o $@ $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 
 deps/lin/static/%.mk : %.c
 	@rm -f $@
@@ -600,7 +600,7 @@ deps/lin/static/%.mk : %.c
 
 deps/lin/static/%.mk : %.cpp
 	@rm -f $@
-	@$(CCXX) -D BUILDING_FMANC $< $(CXX_FLAGS) -MM -MF $@ -MT '$(subst deps/lin/static/,obj/lin/static/,$(subst .mk,.o,$@)) $@' $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
+	@$(CXX) -D BUILDING_FMANC $< $(CXX_FLAGS) -MM -MF $@ -MT '$(subst deps/lin/static/,obj/lin/static/,$(subst .mk,.o,$@)) $@' $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 
 deps/win/static/%.mk : %.c
 	@rm -f $@
@@ -608,7 +608,7 @@ deps/win/static/%.mk : %.c
 
 deps/win/static/%.mk : %.cpp
 	@rm -f $@
-	@$(CCXX) -D BUILDING_FMANC -D FMC_STATIC $< $(CXX_FLAGS) -MM -MF $@ -MT '$(subst deps/win/static/,obj/win/static/,$(subst .mk,.o,$@)) $@' $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
+	@$(CXX) -D BUILDING_FMANC -D FMC_STATIC $< $(CXX_FLAGS) -MM -MF $@ -MT '$(subst deps/win/static/,obj/win/static/,$(subst .mk,.o,$@)) $@' $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 
 deps/lin/shared/%.mk : %.c
 	@rm -f $@
@@ -616,7 +616,7 @@ deps/lin/shared/%.mk : %.c
 
 deps/lin/shared/%.mk : %.cpp
 	@rm -f $@
-	@$(CCXX) -D FMC_BUILD_SO -D BUILDING_FMANC $< $(CXX_FLAGS) -MM -MF $@ -MT '$(subst deps/lin/shared/,obj/lin/shared/,$(subst .mk,.o,$@)) $@' -fPIC $(INC_FLAGS) $(LIB_FLAGS) -lstdc++ -Wl,--version-script=scripts/linker.ver
+	@$(CXX) -D FMC_BUILD_SO -D BUILDING_FMANC $< $(CXX_FLAGS) -MM -MF $@ -MT '$(subst deps/lin/shared/,obj/lin/shared/,$(subst .mk,.o,$@)) $@' -fPIC $(INC_FLAGS) $(LIB_FLAGS) -lstdc++ -Wl,--version-script=scripts/linker.ver
 
 deps/win/shared/%.mk : %.c
 	@rm -f $@
@@ -624,7 +624,7 @@ deps/win/shared/%.mk : %.c
 
 deps/win/shared/%.mk : %.cpp
 	@rm -f $@
-	@$(CCXX) -D BUILDING_FMANC -D FMC_BUILD_DLL $< $(CXX_FLAGS) -MM -MF $@ -MT '$(subst deps/win/shared/,obj/win/shared/,$(subst .mk,.o,$@)) $@' $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
+	@$(CXX) -D BUILDING_FMANC -D FMC_BUILD_DLL $< $(CXX_FLAGS) -MM -MF $@ -MT '$(subst deps/win/shared/,obj/win/shared/,$(subst .mk,.o,$@)) $@' $(INC_FLAGS) $(LIB_FLAGS) -lstdc++
 
 #obj/cog_processed/%.c : %.c
 #	@cog -o $@ $<
