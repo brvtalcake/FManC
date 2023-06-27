@@ -164,11 +164,11 @@ class cog_processor:
             if os.path.exists(self.files[src_f]):
                 os.remove(self.files[src_f])
             if os.path.exists(src_f):
-                sys.stderr.write(f'cog -d -o {self.files[src_f]} {src_f}')
+                sys.stderr.write(f'cog -d -o {self.files[src_f]} {src_f}\n')
                 #os.system(f'cog -d -o {self.files[src_f]} {src_f}')
                 subprocess.run(['cog', '-d', '-o', self.files[src_f], src_f])
             else:
-                sys.stderr.write(f'{src_f} does not exist')
+                sys.stderr.write(f'{src_f} does not exist\n')
             return self
         
         class processing_thread(threading.Thread):
@@ -197,13 +197,26 @@ class cog_processor:
     def __repr__(self):
         return self.__str__()
 
-def main():
-    processor = cog_processor()
-    processor.get_src_dir_files()
-    print(processor)
-    processor.process()
+def main_win():
+    if 'clean' in sys.argv[1:]:
+        processor = cog_processor()
+        processor.get_src_dir_files()
+        print(processor)
+        processor.process()
     print(f'make -j{sys.argv[1]} {sys.argv[2]}')
     os.system(f'make -j{sys.argv[1]} {sys.argv[2]}')
 #    subprocess.run(['make', '-j', sys.argv[1], sys.argv[2]])
 
-main()
+def main_lin():
+    processor = cog_processor()
+    processor.get_src_dir_files()
+    print(processor)
+    processor.process()
+
+if os.name == 'nt':
+    main_win()
+elif os.name == 'posix':
+    main_lin()
+else:
+    sys.stderr.write(f'Unsupported OS: {os.name}\n')
+    sys.exit(1)

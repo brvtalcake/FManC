@@ -13,23 +13,33 @@ jobs:
     - uses: actions/checkout@v3
       with: 
         submodules: 'recursive'
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.11' 
 #    - name: Install sudo package
 #      run: apt update && apt install sudo
+    - name: Install cogapp via pip
+      run: pip install --break-system-packages cogapp
     - name: make static lib for linux
-      run: make static CC=gcc CCXX=g++
+      run: chmod u+x ./scripts/build-ci.sh && ./scripts/build-ci.sh 10 static
   
   linux-shared-lib-build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-      with:
+      with: 
         submodules: 'recursive'
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.11' 
 #    - name: Install sudo package
 #      run: apt update && apt install sudo
+    - name: Install cogapp via pip
+      run: pip install --break-system-packages cogapp
     - name: make third_party_ci
       run: make third_party_ci
     - name: make shared lib for linux
-      run: make shared CC=gcc CCXX=g++
+      run: chmod u+x ./scripts/build-ci.sh && ./scripts/build-ci.sh 10 shared
       
 #  build-stat-win:
 #    runs-on: windows-latest
