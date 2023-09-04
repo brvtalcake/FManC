@@ -10,7 +10,7 @@ jobs:
   linux-static-lib-build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with: 
         submodules: 'recursive'
     - uses: actions/setup-python@v4
@@ -26,7 +26,7 @@ jobs:
   linux-shared-lib-build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with: 
         submodules: 'recursive'
     - uses: actions/setup-python@v4
@@ -44,7 +44,7 @@ jobs:
 #  build-stat-win:
 #    runs-on: windows-latest
 #    steps:
-#    - uses: actions/checkout@v3
+#    - uses: actions/checkout@v4
 #
 #    - name: Set up MinGW
 #      uses: egor-tensin/setup-mingw@v2
@@ -59,7 +59,7 @@ jobs:
 #  build-dyn-win:
 #    runs-on: windows-latest
 #    steps:
-#    - uses: actions/checkout@v3
+#    - uses: actions/checkout@v4
 #
 #    - name: Set up MinGW
 #      uses: egor-tensin/setup-mingw@v2
